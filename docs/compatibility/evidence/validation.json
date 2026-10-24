@@ -47,5 +47,18 @@
       "pageErrors": [],
       "transport": "Controlled HTTP; no real-model acceptance"
     }
+  },
+  "remoteInitial": "CI345: new M19 passed; M17 Save All fixture race and aggregate failed. See remote-initial.json. Corrected fixture requires new exact-head CI.",
+  "browserM17SaveSync": {
+    "passed": true,
+    "errors": [],
+    "persistedScriptsVerified": 2
+  },
+  "zipRelocation": {
+    "passed": true,
+    "pathContainsSpaces": true,
+    "dependencyCheckOnly": true,
+    "realM19Browser": true,
+    "cleanMachine": false
   }
 }

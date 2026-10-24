@@ -50,3 +50,11 @@ The strict verified full native-source and behavior-signature baseline is0%. Exi
 [Relative signature weights](../compatibility/SCOPE_WEIGHTS.md) now quantify scope per implementation milestone. Counts are not effort hours; cross-cutting GPU/shader/export work has additional gates. Whole-project effort percentage remains unknown rather than mixing incompatible units. Local M19 audit acceptance is100%; API/GPU implementation receives no new credit.
 
 Next: M20 object/component/hierarchy compatibility, starting with the two observed identity/lifetime discrepancies, then coherent20–40-signature batches. Attach exact target IDs/overloads, engine/C# bridge behavior, positive/negative/lifecycle tests, editable demo and documentation before certifying a batch. Keep shared account authority, reviewed AI Apply, native formats, user files and recovery refs intact.
+
+## Exact-head remote regression follow-up
+
+Initial CI345 on4620e233d1cca865a74de2f4cd6c350e8aad2418 passed the new M19 browser profile, Windows/Linux bootstrap and C# development/AOT profiles, but failed M17 and the aggregate. [Recorded result](../compatibility/evidence/remote-initial.json). M17 inspected the dirty-tab count immediately after Save All while its asynchronous flush/persist was still running. Workspace busy=false is not an IDE-save completion contract.
+
+The M17 fixture now observes the actual scene-save responses, waits for the expected dirty-buffer state, and verifies both edited script texts in the persisted project JSON. It retains the same UI interactions and assertions, adds persistence checks, and changes no timeout or production behavior. The corrected complete M17 browser flow passes locally without page errors. Its exact-head CI remains mandatory; the initial failing run is not relabeled as successful.
+
+The prepared ZIP was also extracted into a different path containing spaces: dependency CheckOnly passed, and the real editable M19 browser/corpus passed from that extracted copy. This is relocation evidence, not a clean-machine installation claim.

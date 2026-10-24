@@ -1,0 +1,11 @@
+{
+  "head": "4620e233d1cca865a74de2f4cd6c350e8aad2418",
+  "run": 40100728975,
+  "checks": 47,
+  "passed": 45,
+  "failed": [
+    "All required checks",
+    "browser-milestones (m17)"
+  ],
+  "url": "https://github.com/Krozzeo/AxiomGameEngine/actions/runs/40100728975"
+}
