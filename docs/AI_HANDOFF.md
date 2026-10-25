@@ -1,3 +1,13 @@
+# Current handoff — M20 in progress / Engine0.0.59 / SDK10
+
+M19 is stable v0.0.57. M20.1 public experimental0.0.58 at9236610ff42a561125033a8e59987149035bf9ea passed CI350/48 checks and actual public Platform download, side-by-side installation, explicit activation, hosted packaged17-check C#/Wasm demo and save/close. [Public evidence](compatibility/evidence/m20-public-0.0.58.json).
+
+Current0.0.59/SDK10 review batch adds Type/interface/list component queries, active/inactive searches, stable component attachment order and indices, and graph cloning with remapped object/component/array references while preserving literal strings. Awake sees final parenting and completed references; unsupported managed fields/navigation clone profiles reject explicitly before creation. Native87 checks and real editable development-Wasm32 checks pass locally. M20 remains open, with0/3 full closure criteria and0 certified full Unity signatures. Next: canonical UnityEngine/numeric/transform migration and all assigned async/obsolete/dependency gates. [Report](reports/M20_REPORT.md).
+
+Native formats1, shared Platform account authority, user projects and recovery refs remain intact. Exact-head remote CI/publication is independent; no auto-merge. Older sections below are history.
+
+---
+
 # Current handoff — M20 in progress / Engine0.0.58 / SDK9
 
 M19 #60 was owner-approved and merged at46e2bbc86f7eec5891c0e92074b2ae870c9253db. Main CI40135221130 attempt2 passed after an intermittent M9 menu-close timeout; unchanged local/remote retries passed. Stable v0.0.57 is published and verified via actual Platform download, install and project create/save/reopen. [M20 report](reports/M20_REPORT.md).

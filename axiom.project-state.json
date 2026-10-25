@@ -1,15 +1,15 @@
 {
   "$schema": "./protocol/schema/project-state.schema.json",
   "stateVersion": 1,
-  "updatedAt": "2026-10-24",
-  "engineVersion": "0.0.58",
+  "updatedAt": "2026-10-25",
+  "engineVersion": "0.0.59",
   "activeMilestone": 20,
   "milestoneStatus": "in_progress",
   "completion": {
     "activeMilestonePercent": 0,
     "wholeProjectPercent": null,
     "method": "docs/architecture/MILESTONE_REPORTING.md",
-    "scopeNote": "M19 is stable in main. M20 first alias identity/lifetime behavior batch passes locally; 0 of 3 whole-milestone closure criteria accepted and 0 certified Unity signatures. Do not treat batch test counts as milestone completion.",
+    "scopeNote": "M19 stable in main; M20 alias identity/lifetime and query/order/graph batches pass locally. Whole-milestone closure remains0/3 and full certified Unity signatures0. Native87 and development-Wasm32 are behavior checks, not API percentages.",
     "historicalMvpPercent": 94,
     "historicalMvpCompletedWeight": 122,
     "historicalMvpTotalWeight": 130
@@ -1522,9 +1522,9 @@
       "scope": "Real product processes; controlled GitHub/AI/picker and Null; manual/real hardware gates remain separate"
     },
     "m20": {
-      "nativeBehaviorChecks": 29,
-      "developmentWasmChecks": 17,
-      "engineRegressionTests": 456,
+      "nativeBehaviorChecks": 87,
+      "developmentWasmChecks": 32,
+      "engineRegressionTests": 457,
       "fullUnitySignatureCertification": 0,
       "wholeMilestoneClosed": false
     }
@@ -1744,8 +1744,8 @@
     "docs/compatibility/m20-batches.json",
     "demos/M20_GUIDE.md"
   ],
-  "nextTask": "Continue M20.2 queries/order/graph clones and M20.3 canonical UnityEngine namespace/numeric/transform corpus. Keep M20 open; publish only exact accepted experimental commits for owner testing. Do not auto-merge.",
-  "activeRevision": "M20.1 identity/lifetime behavior review batch",
+  "nextTask": "Continue M20.3 canonical UnityEngine source/numeric/transform migration and assigned async/obsolete/dependency gates. Retain explicit serialization/navigation clone limitations. M20 is not closed; no automatic merge.",
+  "activeRevision": "M20.2 queries/order/graph behavior review batch",
   "roadmap": {
     "version": 2,
     "manifest": "docs/architecture/roadmap-v2.json",

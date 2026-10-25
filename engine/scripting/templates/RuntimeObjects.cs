@@ -24,18 +24,20 @@ internal static partial class Context {
  internal static void LocalTransform(Entity entity,Vector3? position=null,Quaternion? rotation=null,Vector3? scale=null){var local=Local(entity);var p=position??local.Position;var r=rotation??local.Rotation;var s=scale??local.Scale;var parent=Parents.GetValueOrDefault(entity.Id);if(parent!=null){var t=Read(new(parent,Generation));p=t.Position+t.Rotation*new Vector3(p.X*t.Scale.X,p.Y*t.Scale.Y,p.Z*t.Scale.Z);r=t.Rotation*r;s=new(s.X*t.Scale.X,s.Y*t.Scale.Y,s.Z*t.Scale.Z);}Move(entity,p);Rotate(entity,r);Scaling(entity,s);}
  internal static void Parent(Entity entity,Transform? parent,bool worldPositionStays){_=Read(entity);if(parent!=null)_=Read(parent.Entity);var id=parent?.Entity.Id;for(var current=id;current!=null;current=Parents.GetValueOrDefault(current))if(current==entity.Id)throw new ArgumentException("Hierarchy cycle");var local=Local(entity);Parents[entity.Id]=id;Add(new("parent",entity.Id,null,default,null,Name:id));if(!worldPositionStays)LocalTransform(entity,local.Position,local.Rotation,local.Scale);}
  internal static string? ComponentKey(Type type)=>type==typeof(Transform)?"transform":typeof(Collider).IsAssignableFrom(type)?"collider":type==typeof(Rigidbody)||type==typeof(Rigidbody2D)?"rigidBody":type==typeof(Camera)?"camera":type==typeof(AudioSource)?"audioSource":type==typeof(AudioListener)?"audioListener":type==typeof(Animator)?"animator":type==typeof(Light)?"light":typeof(Renderer).IsAssignableFrom(type)?"renderable":null;
- internal static T AddComponent<T>(Entity entity) where T:Component {
-  _=Read(entity);var type=typeof(T);if(type==typeof(AI.NavMeshAgent)){if(AI.NavMeshAgent.Agents.ContainsKey(entity.Id))throw new InvalidOperationException("Agent already attached");var agent=new AI.NavMeshAgent(entity);AI.NavMeshAgent.Agents[entity.Id]=agent;return (T)(Component)agent;}if(typeof(Script).IsAssignableFrom(type)){if(AddCompiledScript==null)throw new InvalidOperationException("Runtime script factory unavailable");return (T)(Component)AddCompiledScript(type,entity);}
+ internal static T AddComponent<T>(Entity entity) where T:Component=>(T)AddComponent(entity,typeof(T));
+ internal static Component AddComponent(Entity entity,Type type) {
+  ArgumentNullException.ThrowIfNull(type);if(!typeof(Component).IsAssignableFrom(type))throw new ArgumentException("A component class is required",nameof(type));
+  _=Read(entity);if(type==typeof(AI.NavMeshAgent)){if(AI.NavMeshAgent.Agents.ContainsKey(entity.Id))throw new InvalidOperationException("Agent already attached");var agent=new AI.NavMeshAgent(entity);AI.NavMeshAgent.Agents[entity.Id]=agent;return agent;}if(typeof(Script).IsAssignableFrom(type)){if(AddCompiledScript==null)throw new InvalidOperationException("Runtime script factory unavailable");return AddCompiledScript(type,entity);}
   var key=ComponentKey(type)??throw new NotSupportedException("Component is not implemented: "+type.Name);if(EntityData[entity.Id].TryGetProperty(key,out _))throw new InvalidOperationException("Only one "+key+" is supported per entity");
-  if(key=="rigidBody"){Property(entity,"runtimeBodyEpoch",JsonValue.Create(EntityData[entity.Id].TryGetProperty("runtimeBodyEpoch",out var epoch)?epoch.GetInt32()+1:1));Property(entity,"runtimeKinematic",JsonValue.Create(false));var dimension=type==typeof(Rigidbody2D)?2:3;if(EntityData[entity.Id].TryGetProperty("collider",out var existing)&&existing.GetProperty("dimension").GetInt32()!=dimension)throw new ArgumentException("2D and 3D physics components cannot be mixed");Property(entity,"runtimePhysicsDimension",JsonValue.Create(dimension));}
-  string data;if(key=="collider"){Property(entity,"runtimeColliderEnabled",JsonValue.Create(true));var dimension=typeof(Collider2D).IsAssignableFrom(type)?2:3;if(Bodies.ContainsKey(entity.Id)&&EntityData[entity.Id].TryGetProperty("runtimePhysicsDimension",out var bodyDimension)&&bodyDimension.GetInt32()!=dimension)throw new ArgumentException("2D and 3D physics components cannot be mixed");var shape=type==typeof(SphereCollider)||type==typeof(CircleCollider2D)?"sphere":"box";var collisionLayer=EntityData[entity.Id].TryGetProperty("runtimeLayer",out var layer)?1u<<layer.GetInt32():1u;data="{\"dimension\":"+dimension+",\"shape\":\""+shape+"\",\"halfExtents\":[0.5,0.5,0.5],\"trigger\":false,\"layer\":"+collisionLayer+",\"mask\":4294967295}";}
+  if(key=="rigidBody"){var dimension=type==typeof(Rigidbody2D)?2:3;if(EntityData[entity.Id].TryGetProperty("collider",out var existing)&&existing.GetProperty("dimension").GetInt32()!=dimension)throw new ArgumentException("2D and 3D physics components cannot be mixed");Property(entity,"runtimeBodyEpoch",JsonValue.Create(EntityData[entity.Id].TryGetProperty("runtimeBodyEpoch",out var epoch)?epoch.GetInt32()+1:1));Property(entity,"runtimeKinematic",JsonValue.Create(false));Property(entity,"runtimePhysicsDimension",JsonValue.Create(dimension));}
+  string data;if(key=="collider"){var dimension=typeof(Collider2D).IsAssignableFrom(type)?2:3;if(Bodies.ContainsKey(entity.Id)&&EntityData[entity.Id].TryGetProperty("runtimePhysicsDimension",out var bodyDimension)&&bodyDimension.GetInt32()!=dimension)throw new ArgumentException("2D and 3D physics components cannot be mixed");Property(entity,"runtimeColliderEnabled",JsonValue.Create(true));var shape=type==typeof(SphereCollider)||type==typeof(CircleCollider2D)?"sphere":"box";var collisionLayer=EntityData[entity.Id].TryGetProperty("runtimeLayer",out var layer)?1u<<layer.GetInt32():1u;data="{\"dimension\":"+dimension+",\"shape\":\""+shape+"\",\"halfExtents\":[0.5,0.5,0.5],\"trigger\":false,\"layer\":"+collisionLayer+",\"mask\":4294967295}";}
   else data=key switch {"rigidBody"=>"{\"mass\":1,\"velocity\":[0,0,0],\"restitution\":0,\"friction\":0.5,\"gravityScale\":1}","camera"=>"{\"active\":false,\"projection\":\"perspective\",\"fov\":60,\"orthoHeight\":6}","audioListener"=>"{\"enabled\":true}",_=>throw new NotSupportedException("Adding "+key+" requires an authored asset/configuration; clone an authored object instead")};
-  Property(entity,key,JsonNode.Parse(data));return new GameObject(entity).GetComponent<T>()!;
+  Property(entity,key,JsonNode.Parse(data));return new GameObject(entity).GetComponent(type)!;
  }
  internal static void Remove(Component component){if(!component)return;_=Read(component.Entity);if(component is AI.NavMeshAgent){AI.NavMeshAgent.Agents.Remove(component.Entity.Id);InvalidateIdentity(component.Entity,component.GetType().FullName!);return;}if(component is Transform)throw new InvalidOperationException("Transform cannot be removed");if(component is Script script){var path=RuntimeLifecycle.PathOf(script);RuntimeLifecycle.Remove(script);LiveScripts.Remove(script);ScriptPaths.Remove(script);ForgetIdentity(component.Entity,"script:"+script.ManagedIdentity);if(!EntityData.ContainsKey(component.Entity.Id))return;var components=JsonNode.Parse(EntityData[component.Entity.Id].GetRawText())!["scriptComponents"]!.AsArray();for(var i=components.Count-1;i>=0;i--)if(components[i]!["path"]!.GetValue<string>()==path)components.RemoveAt(i);Property(component.Entity,"scriptComponents",components.DeepClone());return;}var key=ComponentKey(component.GetType())??throw new NotSupportedException("Unknown component");InvalidateIdentity(component.Entity,key);Property(component.Entity,key,null);}
- internal static Entity CloneHierarchy(Entity original,Vector3 position,Quaternion rotation){_=Read(original);var root=Read(original);var ids=new List<string>{original.Id};for(var i=0;i<ids.Count;i++)ids.AddRange(Parents.Where(p=>p.Value==ids[i]).Select(p=>p.Key).ToArray());if(ids.Count+Entities.Count>Limits.Entities)throw new InvalidOperationException("Clone hierarchy exceeds runtime limits");var map=new Dictionary<string,Entity>();var delta=rotation*Quaternion.Inverse(root.Rotation);
+ internal static Entity CloneHierarchy(Entity original,Vector3 position,Quaternion rotation,bool initialize=true){_=Read(original);var root=Read(original);var ids=new List<string>{original.Id};for(var i=0;i<ids.Count;i++)ids.AddRange(Parents.Where(p=>p.Value==ids[i]).Select(p=>p.Key).ToArray());if(ids.Count+Entities.Count>Limits.Entities)throw new InvalidOperationException("Clone hierarchy exceeds runtime limits");var sources=LiveScripts.Where(s=>ids.Contains(s.Entity.Id)).ToArray();if(sources.Length+LiveScripts.Count>Limits.Attachments)throw new InvalidOperationException("Clone script attachment limit exceeded");foreach(var s in sources)ScriptValues.ValidateClone(s.GetType(),s);if(ids.Any(AI.NavMeshAgent.Agents.ContainsKey))throw new NotSupportedException("Cloning navigation agents requires the navigation milestone");var map=new Dictionary<string,Entity>();var delta=rotation*Quaternion.Inverse(root.Rotation);
   foreach(var id in ids){var old=new Entity(id,Generation);var t=Read(old);var next=Spawn(old,position+delta*(t.Position-root.Position));map[id]=next;var originalName=Metadata(old,"name",id);Property(next,"name",JsonValue.Create(id==original.Id?originalName[..Math.Min(originalName.Length,120)]+" (clone)":originalName));Rotate(next,delta*t.Rotation);if(id!=original.Id)Parent(next,new Transform(map[Parents[id]!]),true);}
-  foreach(var id in ids)foreach(var script in LiveScripts.Where(s=>s.Entity.Id==id).ToArray())RuntimeLifecycle.Clone(script,map[id]);foreach(var script in LiveScripts.Where(s=>map.Values.Any(e=>e.Id==s.Entity.Id)).ToArray()){var f=RuntimeLifecycle.Factories[script.GetType()];using var stream=new MemoryStream();using(var writer=new System.Text.Json.Utf8JsonWriter(stream))f.Write(script,writer);var values=RemapResource(JsonNode.Parse(stream.ToArray()),map.ToDictionary(p=>p.Key,p=>p.Value.Id))!;f.Apply(script,ParseData(values.ToJsonString()));RuntimeLifecycle.PublishComponents(script.Entity);}RuntimeLifecycle.Initialize();return map[original.Id];
+  foreach(var id in ids)foreach(var script in LiveScripts.Where(s=>s.Entity.Id==id).ToArray())RuntimeLifecycle.Clone(script,map[id]);foreach(var old in ids){var sourceComponents=new GameObject(new Entity(old,Generation)).AllComponents();var cloneComponents=new GameObject(map[old]).AllComponents();ComponentOrders[map[old]]=sourceComponents.Select(c=>cloneComponents.First(n=>n.GetType()==c.GetType()).GetInstanceID()).ToList();}foreach(var script in LiveScripts.Where(s=>map.Values.Any(e=>e.Id==s.Entity.Id)).ToArray()){ScriptValues.RemapClone(script.GetType(),script,map);RuntimeLifecycle.PublishComponents(script.Entity);}if(initialize)RuntimeLifecycle.Initialize();return map[original.Id];
  }
 }
 public partial class Object {
@@ -45,18 +47,18 @@ public partial class Object {
  public static void DestroyImmediate(Object? target,bool allowDestroyingAssets)=>RuntimeLifecycle.DestroyNow(target);
  public static void Destroy(GameObject target,double delay)=>RuntimeLifecycle.DestroyAfter(target,delay);
  public static void Destroy(Component target,double delay)=>RuntimeLifecycle.DestroyAfter(target,delay);
- public static GameObject Instantiate(GameObject original,Transform? parent)=>Instantiate(original,parent,true);
- public static GameObject Instantiate(GameObject original,Transform? parent,bool worldPositionStays){var clone=Instantiate(original);var local=Context.Local(original.Entity);clone.transform.SetParent(parent,true);if(!worldPositionStays)Context.LocalTransform(clone.Entity,local.Position,local.Rotation,local.Scale);return clone;}
- public static T[] FindObjectsByType<T>() where T:Component=>Context.Entities.Keys.Where(Context.IsActive).SelectMany(id=>new GameObject(new Entity(id,Context.Generation)).GetComponents<T>()).ToArray();
- public static T? FindFirstObjectByType<T>() where T:Component=>FindObjectsByType<T>().FirstOrDefault();
+ public static GameObject Instantiate(GameObject original,Transform? parent)=>Instantiate(original,parent,false);
+ public static GameObject Instantiate(GameObject original,Transform? parent,bool worldPositionStays)=>(GameObject)Instantiate((Object)original,parent,worldPositionStays);
+ public static T[] FindObjectsByType<T>() where T:Object=>FindObjectsByType<T>(FindObjectsSortMode.InstanceID);
+ public static T? FindFirstObjectByType<T>() where T:Object=>FindObjectsByType<T>().FirstOrDefault();
 }
 public partial class Component {
  public string name {get=>gameObject.name;set=>gameObject.name=value;}
  public string tag {get=>gameObject.tag;set=>gameObject.tag=value;}
  public bool CompareTag(string value)=>gameObject.CompareTag(value);
- public T[] GetComponents<T>() where T:Component=>gameObject.GetComponents<T>();
- public T[] GetComponentsInChildren<T>(bool includeInactive=false) where T:Component=>gameObject.GetComponentsInChildren<T>(includeInactive);
- public T[] GetComponentsInParent<T>(bool includeInactive=false) where T:Component=>gameObject.GetComponentsInParent<T>(includeInactive);
+ public T[] GetComponents<T>()=>gameObject.GetComponents<T>();
+ public T[] GetComponentsInChildren<T>(bool includeInactive)=>gameObject.GetComponentsInChildren<T>(includeInactive);
+ public T[] GetComponentsInParent<T>(bool includeInactive)=>gameObject.GetComponentsInParent<T>(includeInactive);
 }
 public sealed partial class GameObject {
  public SceneManagement.Scene scene=>SceneManagement.SceneManager.GetSceneByName(SceneManagement.SceneManager.Owners.GetValueOrDefault(Entity.Id,SceneManagement.SceneManager.GetActiveScene().name));
@@ -67,21 +69,22 @@ public sealed partial class GameObject {
  public static GameObject[] FindGameObjectsWithTag(string tag)=>Context.Entities.Keys.Where(Context.IsActive).Select(id=>new GameObject(new Entity(id,Context.Generation))).Where(e=>e.tag==tag).ToArray();
  public static GameObject? FindWithTag(string tag)=>FindGameObjectsWithTag(tag).FirstOrDefault();
  public T AddComponent<T>() where T:Component=>Context.AddComponent<T>(Entity);
- public bool TryGetComponent<T>(out T? component) where T:Component {component=GetComponent<T>();return component!=null;}
- public T[] GetComponents<T>() where T:Component {
+ public bool TryGetComponent<T>(out T? component) {component=GetComponent<T>();return component!=null;}
+ internal Component[] AllComponents() {
   _=Context.Read(Entity);var result=new List<Component>{transform};var data=Context.EntityData[Entity.Id];
   var hasCollider=data.TryGetProperty("collider",out var c);var twoD=hasCollider?c.GetProperty("dimension").GetInt32()==2:data.TryGetProperty("runtimePhysicsDimension",out var dim)&&dim.GetInt32()==2;
   if(c.ValueKind==JsonValueKind.Object){var sphere=c.GetProperty("shape").GetString()=="sphere";result.Add(twoD?(sphere?new CircleCollider2D(Entity):new BoxCollider2D(Entity)):(sphere?new SphereCollider(Entity):new BoxCollider(Entity)));}
   if(Context.Bodies.ContainsKey(Entity.Id))result.Add(twoD?new Rigidbody2D(Entity):new Rigidbody(Entity));
   if(Context.Cameras.Contains(Entity.Id))result.Add(new Camera(Entity));if(Context.AudioSources.Contains(Entity.Id))result.Add(new AudioSource(Entity));if(Context.Animators.ContainsKey(Entity.Id))result.Add(new Animator(Entity));if(data.TryGetProperty("audioListener",out _))result.Add(new AudioListener(Entity));
   if(data.TryGetProperty("renderable",out var renderable))result.Add(data.TryGetProperty("sprite2D",out _)?new SpriteRenderer(Entity):new MeshRenderer(Entity));if(data.TryGetProperty("light",out _))result.Add(new Light(Entity));if(AI.NavMeshAgent.Agents.TryGetValue(Entity.Id,out var agent))result.Add(agent);
-  result.AddRange(Context.LiveScripts.Where(s=>s.Entity.Id==Entity.Id));return result.OfType<T>().ToArray();
+  result.AddRange(Context.LiveScripts.Where(s=>s.Entity.Id==Entity.Id));var order=Context.ComponentOrders[Entity];return result.OrderBy(c=>order.IndexOf(c.GetInstanceID())).ToArray();
  }
 
- public T? GetComponentInChildren<T>(bool includeInactive=false) where T:Component=>GetComponentsInChildren<T>(includeInactive).FirstOrDefault();
- public T? GetComponentInParent<T>(bool includeInactive=false) where T:Component=>GetComponentsInParent<T>(includeInactive).FirstOrDefault();
- public T[] GetComponentsInChildren<T>(bool includeInactive=false) where T:Component {var found=new List<T>();void Visit(Transform node){if(includeInactive||node.gameObject.activeInHierarchy)found.AddRange(node.GetComponents<T>());for(var i=0;i<node.childCount;i++)Visit(node.GetChild(i));}Visit(transform);return found.ToArray();}
- public T[] GetComponentsInParent<T>(bool includeInactive=false) where T:Component {var found=new List<T>();for(Transform? node=transform;node!=null;node=node.parent)if(includeInactive||node.gameObject.activeInHierarchy)found.AddRange(node.GetComponents<T>());return found.ToArray();}
+ public T[] GetComponents<T>()=>GetComponents(typeof(T)).Cast<T>().ToArray();
+ public T? GetComponentInChildren<T>(bool includeInactive)=>GetComponentsInChildren<T>(includeInactive).FirstOrDefault();
+ public T? GetComponentInParent<T>(bool includeInactive)=>GetComponentsInParent<T>(includeInactive).FirstOrDefault();
+ public T[] GetComponentsInChildren<T>(bool includeInactive)=>GetComponentsInChildren(typeof(T),includeInactive).Cast<T>().ToArray();
+ public T[] GetComponentsInParent<T>(bool includeInactive)=>GetComponentsInParent(typeof(T),includeInactive).Cast<T>().ToArray();
 }
 public sealed partial class Transform {
  public Transform root {get{var current=this;while(current.parent!=null)current=current.parent;return current;}}
@@ -107,7 +110,7 @@ public partial class Object {
  private int nativeIdentity,identityEpoch;
  private Entity? identityEntity;
  private string? identitySlot;
- internal void BindIdentity(Entity entity,string slot){identityEntity=entity;identitySlot=slot;identityEpoch=Context.ObjectEpochs.GetValueOrDefault((entity,slot));var key=(entity,slot,identityEpoch);if(!Context.ObjectIdentities.TryGetValue(key,out nativeIdentity))Context.ObjectIdentities[key]=nativeIdentity=AllocateIdentity();}
+ internal void BindIdentity(Entity entity,string slot){identityEntity=entity;identitySlot=slot;identityEpoch=Context.ObjectEpochs.GetValueOrDefault((entity,slot));var key=(entity,slot,identityEpoch);if(!Context.ObjectIdentities.TryGetValue(key,out nativeIdentity))Context.ObjectIdentities[key]=nativeIdentity=AllocateIdentity();if(this is Component){if(!Context.ComponentOrders.TryGetValue(entity,out var order))Context.ComponentOrders[entity]=order=new();if(!order.Contains(nativeIdentity))order.Add(nativeIdentity);}}
  public int GetInstanceID()=>nativeIdentity==0?ManagedIdentity:nativeIdentity;
  public override int GetHashCode()=>GetInstanceID();
  public override bool Equals(object? other)=>other is Object obj?this==obj:ReferenceEquals(other,null)&&!Exists(this);
@@ -117,11 +120,12 @@ public partial class Object {
  public static implicit operator bool(Object? value)=>Exists(value);
 }
 internal static partial class Context {
+ internal static readonly Dictionary<Entity,List<int>> ComponentOrders=new();
  internal static readonly Dictionary<(Entity Entity,string Slot,int Epoch),int> ObjectIdentities=new();
  internal static readonly Dictionary<(Entity Entity,string Slot),int> ObjectEpochs=new();
- internal static void InvalidateIdentity(Entity entity,string slot){var epoch=ObjectEpochs.GetValueOrDefault((entity,slot));ObjectIdentities.Remove((entity,slot,epoch));ObjectEpochs[(entity,slot)]=epoch+1;}
- internal static void ForgetIdentity(Entity entity,string slot){ObjectIdentities.Remove((entity,slot,ObjectEpochs.GetValueOrDefault((entity,slot))));ObjectEpochs.Remove((entity,slot));}
- internal static void RetireIdentities(string id){foreach(var key in ObjectIdentities.Keys.Where(k=>k.Entity.Id==id).ToArray())ObjectIdentities.Remove(key);foreach(var key in ObjectEpochs.Keys.Where(k=>k.Entity.Id==id).ToArray())ObjectEpochs.Remove(key);}
+ internal static void InvalidateIdentity(Entity entity,string slot){var epoch=ObjectEpochs.GetValueOrDefault((entity,slot));if(ObjectIdentities.Remove((entity,slot,epoch),out var id)&&ComponentOrders.TryGetValue(entity,out var order))order.Remove(id);ObjectEpochs[(entity,slot)]=epoch+1;}
+ internal static void ForgetIdentity(Entity entity,string slot){if(ObjectIdentities.Remove((entity,slot,ObjectEpochs.GetValueOrDefault((entity,slot))),out var id)&&ComponentOrders.TryGetValue(entity,out var order))order.Remove(id);ObjectEpochs.Remove((entity,slot));}
+ internal static void RetireIdentities(string id){ComponentOrders.Remove(new Entity(id,Generation));foreach(var key in ObjectIdentities.Keys.Where(k=>k.Entity.Id==id).ToArray())ObjectIdentities.Remove(key);foreach(var key in ObjectEpochs.Keys.Where(k=>k.Entity.Id==id).ToArray())ObjectEpochs.Remove(key);}
 }
 public sealed partial class Transform {
  public int GetSiblingIndex(){var siblings=Context.Parents.Where(p=>p.Value==Context.Parents.GetValueOrDefault(Entity.Id)).Select(p=>p.Key).ToList();return siblings.IndexOf(Entity.Id);}

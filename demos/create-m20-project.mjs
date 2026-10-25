@@ -14,6 +14,7 @@ export async function createM20Project(root,{folders=false}={}){
  if(!w.project.scene.projectFiles.some(f=>f.path==='Scripts'))await run('project.files.edit',{action:'create',kind:'folder',path:'Scripts'});
  const path='Scripts/ObjectLifecycleLab.cs';await run('project.files.edit',{action:'create',kind:'script',path});
  await run('project.files.edit',{action:'write',path,text:await readFile(new URL('./scripts/ObjectLifecycleLab.cs',import.meta.url),'utf8')});
+ const helper='Scripts/ObjectGraphProbe.cs';await run('project.files.edit',{action:'create',kind:'script',path:helper});await run('project.files.edit',{action:'write',path:helper,text:await readFile(new URL('./scripts/ObjectGraphProbe.cs',import.meta.url),'utf8')});
  await run('scene.script.edit',{entityId:controller.id,path,action:'attach'});
  await run('scene.script.edit',{entityId:controller.id,path,action:'values',values:{Template:{entityId:cube.id}}});
  await run('scene.save');return {id:w.project.id,probeId:controller.id,path,name:w.project.name};

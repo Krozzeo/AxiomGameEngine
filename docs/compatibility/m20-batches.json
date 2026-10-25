@@ -4,15 +4,15 @@
   "targetRecords": 311,
   "status": "in_progress",
   "certifiedUnitySignatures": 0,
-  "batch": "20.1 alias identity/lifetime behavior",
+  "batch": "20.1 identity/lifetime plus 20.2 queries/order/graph alias behavior",
   "evidence": {
-    "native": "evidence/m20-native-windows.json",
-    "developmentWasm": "evidence/m20-development-wasm.json"
+    "native": "evidence/m20-queries-native-windows.json",
+    "developmentWasm": "evidence/m20-queries-development-wasm.json"
   },
   "requiredRemaining": [
-    "M20.2 component queries/order/graph cloning",
     "M20.3 UnityEngine namespace/numeric/transform migration corpus",
-    "Complete assigned overload, obsolete and async dependency acceptance"
+    "Complete assigned overload, obsolete and async dependency acceptance",
+    "Unsupported managed serialization and navigation-agent cloning remain explicit dependencies"
   ],
   "records": [
     {
@@ -20,27 +20,36 @@
       "owner": "UnityEngine.Component",
       "declaration": "public UnityEngine.Component GetComponent(System.Type type);",
       "member": "GetComponent",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:0233bbfe0438eaacac181ed3",
       "owner": "UnityEngine.Component",
       "declaration": "public bool TryGetComponent<T>(out T component);",
       "member": "TryGetComponent",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:0303cc374882a50e63a55eb8",
       "owner": "UnityEngine.GameObject",
       "declaration": "public UnityEngine.Component[] GetComponentsInChildren(System.Type type);",
       "member": "GetComponentsInChildren",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:060ec14cc6fcf1d8df32ce69",
@@ -65,18 +74,24 @@
       "owner": "UnityEngine.Component",
       "declaration": "public T[] GetComponentsInChildren<T>(bool includeInactive);",
       "member": "GetComponentsInChildren",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:084eb12136e109b72bc50436",
       "owner": "UnityEngine.GameObject",
       "declaration": "public UnityEngine.Component GetComponentInParent(System.Type type, bool includeInactive);",
       "member": "GetComponentInParent",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:0a2136a4f3ecec49639a423c",
@@ -119,9 +134,12 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static T Instantiate<T>(T original, UnityEngine.Transform parent);",
       "member": "Instantiate",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:0f3971a8815de837171afcc9",
@@ -164,9 +182,12 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public UnityEngine.Component[] GetComponents(System.Type type);",
       "member": "GetComponents",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:126db462beeaf3181ed7e976",
@@ -209,9 +230,12 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.Object FindFirstObjectByType(System.Type type);",
       "member": "FindFirstObjectByType",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:16ac17fd62c4405163438c3d",
@@ -227,9 +251,12 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.Object[] FindObjectsByType(System.Type type, UnityEngine.FindObjectsInactive findObjectsInactive, UnityEngine.FindObjectsSortMode sortMode);",
       "member": "FindObjectsByType",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:173cd253421f3e902db5dbab",
@@ -245,18 +272,24 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static T FindAnyObjectByType<T>();",
       "member": "FindAnyObjectByType",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:189d3c38f1fd90b59f489273",
       "owner": "UnityEngine.Object",
       "declaration": "public static T[] FindObjectsOfType<T>();",
       "member": "FindObjectsOfType",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:1902e37dc5b7132a2fe40d47",
@@ -272,9 +305,12 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public UnityEngine.Component[] GetComponentsInChildren(System.Type type, bool includeInactive);",
       "member": "GetComponentsInChildren",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:19c05cd366ae9d8a325b94b9",
@@ -290,9 +326,12 @@
       "owner": "UnityEngine.Component",
       "declaration": "public UnityEngine.Component[] GetComponents(System.Type type);",
       "member": "GetComponents",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:1b4d61fea085bda7483aa85c",
@@ -371,9 +410,12 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public void GetComponentsInChildren<T>(bool includeInactive, System.Collections.Generic.List`1<T> results);",
       "member": "GetComponentsInChildren",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:246e13baccf2c5a70652121e",
@@ -398,9 +440,12 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public T[] GetComponentsInParent<T>(bool includeInactive);",
       "member": "GetComponentsInParent",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:29a87473fcdf88d32dd42541",
@@ -416,18 +461,24 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.Object FindFirstObjectByType(System.Type type, UnityEngine.FindObjectsInactive findObjectsInactive);",
       "member": "FindFirstObjectByType",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:2aae189876d9abe173f01dc2",
       "owner": "UnityEngine.Component",
       "declaration": "public UnityEngine.Component GetComponentInParent(System.Type t, bool includeInactive);",
       "member": "GetComponentInParent",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:2c1804183f00b086ddf640ad",
@@ -596,18 +647,24 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public bool TryGetComponent(System.Type type, out UnityEngine.Component component);",
       "member": "TryGetComponent",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:36597ab98d07f9dd0b924bec",
       "owner": "UnityEngine.GameObject",
       "declaration": "public UnityEngine.Component GetComponentAtIndex(int index);",
       "member": "GetComponentAtIndex",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:36936fbbd392f27b2cb97c94",
@@ -650,9 +707,12 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public bool TryGetComponent<T>(out T component);",
       "member": "TryGetComponent",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:3a08a22358af337f95d4b981",
@@ -698,18 +758,24 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public T[] GetComponentsInChildren<T>(bool includeInactive);",
       "member": "GetComponentsInChildren",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:3ba01560e7ed33106e2b6681",
       "owner": "UnityEngine.Component",
       "declaration": "public void GetComponentsInChildren<T>(System.Collections.Generic.List`1<T> results);",
       "member": "GetComponentsInChildren",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:3c125f660b15000ef34385ed",
@@ -764,18 +830,24 @@
       "owner": "UnityEngine.Component",
       "declaration": "public UnityEngine.Component[] GetComponentsInParent(System.Type t);",
       "member": "GetComponentsInParent",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:3f2b2d8e507fbf3e0f1c5665",
       "owner": "UnityEngine.Object",
       "declaration": "public static T[] FindObjectsByType<T>(UnityEngine.FindObjectsSortMode sortMode);",
       "member": "FindObjectsByType",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:403604d50c40104df83a4395",
@@ -809,9 +881,12 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public T GetComponentInParent<T>(bool includeInactive);",
       "member": "GetComponentInParent",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:45f6af1c7a47375015619bb6",
@@ -881,18 +956,24 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public T GetComponentInChildren<T>(bool includeInactive);",
       "member": "GetComponentInChildren",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:4e35669518407556c955c1a4",
       "owner": "UnityEngine.Component",
       "declaration": "public void GetComponents(System.Type type, System.Collections.Generic.List`1<UnityEngine.Component> results);",
       "member": "GetComponents",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:4f14b55c8f4e49c834ef927c",
@@ -908,9 +989,12 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static T[] FindObjectsByType<T>(UnityEngine.FindObjectsInactive findObjectsInactive, UnityEngine.FindObjectsSortMode sortMode);",
       "member": "FindObjectsByType",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:5174ba12e927c74a92090d3f",
@@ -926,9 +1010,12 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.Object[] FindObjectsOfType(System.Type type, bool includeInactive);",
       "member": "FindObjectsOfType",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:53cc48cba9ae65dbd9084dae",
@@ -953,9 +1040,12 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public T GetComponent<T>();",
       "member": "GetComponent",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:578592e399e1c7035d132c78",
@@ -971,18 +1061,24 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public void GetComponents<T>(System.Collections.Generic.List`1<T> results);",
       "member": "GetComponents",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:58c30bbde35fe71525636c36",
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.Object[] FindObjectsOfType(System.Type type);",
       "member": "FindObjectsOfType",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:592a0134c188696e35bf4e66",
@@ -1016,27 +1112,36 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static T Instantiate<T>(T original, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation, UnityEngine.Transform parent);",
       "member": "Instantiate",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:59fd43ecb8aa882b11f8b8b7",
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.Object Instantiate(UnityEngine.Object original, UnityEngine.Transform parent, bool instantiateInWorldSpace);",
       "member": "Instantiate",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:5a0701d8dca3a5c3b8d80cdf",
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.Object Instantiate(UnityEngine.Object original, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation, UnityEngine.Transform parent);",
       "member": "Instantiate",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:5b3e66afe646d9587c9e2c84",
@@ -1061,9 +1166,12 @@
       "owner": "UnityEngine.Component",
       "declaration": "public UnityEngine.Component GetComponentInParent(System.Type t);",
       "member": "GetComponentInParent",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:5f860ad2405ef6c5d2fae812",
@@ -1079,9 +1187,12 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public T GetComponentInChildren<T>();",
       "member": "GetComponentInChildren",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:60868f28bb4e4725dfe012a8",
@@ -1109,18 +1220,24 @@
       "owner": "UnityEngine.Component",
       "declaration": "public UnityEngine.Component[] GetComponentsInChildren(System.Type t, bool includeInactive);",
       "member": "GetComponentsInChildren",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:6367fd0a14f9c2396b56d8c7",
       "owner": "UnityEngine.GameObject",
       "declaration": "public T[] GetComponentsInChildren<T>();",
       "member": "GetComponentsInChildren",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:642a0a14bfc7f04d673e3852",
@@ -1136,9 +1253,12 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static T Instantiate<T>(T original, UnityEngine.Transform parent, bool worldPositionStays);",
       "member": "Instantiate",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:64d280c6f61646257e6b0d38",
@@ -1154,9 +1274,12 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public T[] GetComponents<T>();",
       "member": "GetComponents",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:68c24741754619f10c737595",
@@ -1190,9 +1313,12 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.Object Instantiate(UnityEngine.Object original, UnityEngine.Transform parent);",
       "member": "Instantiate",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:6cb646dccf3f12dd88297b8b",
@@ -1226,18 +1352,24 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public T GetComponentAtIndex<T>(int index);",
       "member": "GetComponentAtIndex",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:6f958d527ab10c61ad594e81",
       "owner": "UnityEngine.Component",
       "declaration": "public T GetComponentInParent<T>();",
       "member": "GetComponentInParent",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:6fad33095e647f41ab5337c2",
@@ -1280,9 +1412,12 @@
       "owner": "UnityEngine.Component",
       "declaration": "public T[] GetComponentsInParent<T>();",
       "member": "GetComponentsInParent",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:72e65ef5fbeed2cd1bdf0b61",
@@ -1316,18 +1451,24 @@
       "owner": "UnityEngine.Component",
       "declaration": "public UnityEngine.Component GetComponentInChildren(System.Type t, bool includeInactive);",
       "member": "GetComponentInChildren",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:75a6abbefa5e71a7f3c54be2",
       "owner": "UnityEngine.Object",
       "declaration": "public static T FindObjectOfType<T>(bool includeInactive);",
       "member": "FindObjectOfType",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:76bd09062bda2642e25d87cd",
@@ -1352,9 +1493,12 @@
       "owner": "UnityEngine.Component",
       "declaration": "public void GetComponents<T>(System.Collections.Generic.List`1<T> results);",
       "member": "GetComponents",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:7865adff3e8f63be840e62e2",
@@ -1370,9 +1514,12 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public T GetComponentInParent<T>();",
       "member": "GetComponentInParent",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:79ca13005c3b5fb5e68321ff",
@@ -1505,9 +1652,12 @@
       "owner": "UnityEngine.Component",
       "declaration": "public T[] GetComponents<T>();",
       "member": "GetComponents",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:884fe43513d07b82a0c12582",
@@ -1523,9 +1673,12 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.Object FindAnyObjectByType(System.Type type);",
       "member": "FindAnyObjectByType",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:8945472dca6ba4b9882aa73b",
@@ -1616,27 +1769,36 @@
       "owner": "UnityEngine.Component",
       "declaration": "public UnityEngine.Component GetComponentInChildren(System.Type t);",
       "member": "GetComponentInChildren",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:8de4b4f27c491f1a92ba8df2",
       "owner": "UnityEngine.Component",
       "declaration": "public void GetComponentsInParent<T>(bool includeInactive, System.Collections.Generic.List`1<T> results);",
       "member": "GetComponentsInParent",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:8e08d28359a39dc8ed318dbc",
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.Object Instantiate(UnityEngine.Object original, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation);",
       "member": "Instantiate",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:90bce06bd71a64240787fe13",
@@ -1652,9 +1814,12 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public void GetComponentsInParent<T>(bool includeInactive, System.Collections.Generic.List`1<T> results);",
       "member": "GetComponentsInParent",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:92aa2c2b24b61cadbcd3c5b5",
@@ -1745,36 +1910,48 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public UnityEngine.Component[] GetComponentsInParent(System.Type type);",
       "member": "GetComponentsInParent",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:994f2cce1d0c27fb0f08f8cd",
       "owner": "UnityEngine.GameObject",
       "declaration": "public T[] GetComponentsInParent<T>();",
       "member": "GetComponentsInParent",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:995b3fe760f82b9845b42ae1",
       "owner": "UnityEngine.GameObject",
       "declaration": "public UnityEngine.Component GetComponentInChildren(System.Type type);",
       "member": "GetComponentInChildren",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:9a43de8de1a81d7d87957996",
       "owner": "UnityEngine.Component",
       "declaration": "public T[] GetComponentsInParent<T>(bool includeInactive);",
       "member": "GetComponentsInParent",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:9ae9d25537a1afeabfd10efb",
@@ -1808,9 +1985,12 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public void GetComponents(System.Type type, System.Collections.Generic.List`1<UnityEngine.Component> results);",
       "member": "GetComponents",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:9d0c72e08e543bc39f2cc609",
@@ -1853,9 +2033,12 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public UnityEngine.Component GetComponent(System.Type type);",
       "member": "GetComponent",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:a36ea56f7dba884c6e80ed63",
@@ -1871,45 +2054,60 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public UnityEngine.Component AddComponent(System.Type componentType);",
       "member": "AddComponent",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:a387d38067026497c40415ec",
       "owner": "UnityEngine.Component",
       "declaration": "public T GetComponentInChildren<T>(bool includeInactive);",
       "member": "GetComponentInChildren",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:a401395e1dfb3956a385610f",
       "owner": "UnityEngine.GameObject",
       "declaration": "public int GetComponentIndex(UnityEngine.Component component);",
       "member": "GetComponentIndex",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:a42a510744f016574cb81cd1",
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.Object FindAnyObjectByType(System.Type type, UnityEngine.FindObjectsInactive findObjectsInactive);",
       "member": "FindAnyObjectByType",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:a42ee4400bcdff5e55de6b78",
       "owner": "UnityEngine.Component",
       "declaration": "public bool TryGetComponent(System.Type type, out UnityEngine.Component component);",
       "member": "TryGetComponent",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:a4edd9a83887c123596ea70f",
@@ -1934,9 +2132,12 @@
       "owner": "UnityEngine.Component",
       "declaration": "public T GetComponentInParent<T>(bool includeInactive);",
       "member": "GetComponentInParent",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:aa8906e2024d0e436c57daa0",
@@ -1970,9 +2171,12 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public void GetComponentsInChildren<T>(System.Collections.Generic.List`1<T> results);",
       "member": "GetComponentsInChildren",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:af32009274032124b3ca0f29",
@@ -2060,9 +2264,12 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public UnityEngine.Component[] GetComponentsInParent(System.Type type, bool includeInactive);",
       "member": "GetComponentsInParent",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:b52e8b0c43310fe2b2a19329",
@@ -2078,9 +2285,12 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.Object FindObjectOfType(System.Type type, bool includeInactive);",
       "member": "FindObjectOfType",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:b68ff3ebd42f2c959413e318",
@@ -2123,9 +2333,12 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.Object[] FindObjectsByType(System.Type type, UnityEngine.FindObjectsSortMode sortMode);",
       "member": "FindObjectsByType",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:baeec2f3e0eefc50a5cb555f",
@@ -2144,9 +2357,12 @@
       "owner": "UnityEngine.Component",
       "declaration": "public UnityEngine.Component[] GetComponentsInParent(System.Type t, bool includeInactive);",
       "member": "GetComponentsInParent",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:bc601dfd1d44ce38364de381",
@@ -2216,9 +2432,12 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.Object Instantiate(UnityEngine.Object original);",
       "member": "Instantiate",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:c536bf082dd9410ae4b8dcaa",
@@ -2270,9 +2489,12 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public UnityEngine.Component GetComponentInChildren(System.Type type, bool includeInactive);",
       "member": "GetComponentInChildren",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:c82c63c082d38eaac21a707c",
@@ -2315,18 +2537,24 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static T Instantiate<T>(T original);",
       "member": "Instantiate",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:cc7849175ffc885ad0000051",
       "owner": "UnityEngine.GameObject",
       "declaration": "public int GetComponentCount();",
       "member": "GetComponentCount",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:ce2ea94c6adb9c579969d237",
@@ -2390,27 +2618,36 @@
       "owner": "UnityEngine.Component",
       "declaration": "public T[] GetComponentsInChildren<T>();",
       "member": "GetComponentsInChildren",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:d457c2b98c141d06c44f969b",
       "owner": "UnityEngine.Component",
       "declaration": "public T GetComponent<T>();",
       "member": "GetComponent",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:d651c9fb2cc20b7df5cec460",
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.Object FindObjectOfType(System.Type type);",
       "member": "FindObjectOfType",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:d9bb1556c2620581230f065f",
@@ -2435,9 +2672,12 @@
       "owner": "UnityEngine.Component",
       "declaration": "public int GetComponentIndex();",
       "member": "GetComponentIndex",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:dbca1c0f0957a26d50f31a68",
@@ -2483,9 +2723,12 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public UnityEngine.Component GetComponentInParent(System.Type type);",
       "member": "GetComponentInParent",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:e023bf7f03785c7c93222b06",
@@ -2537,9 +2780,12 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static T FindObjectOfType<T>();",
       "member": "FindObjectOfType",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:e4bd6f1793f06d64995aafac",
@@ -2555,9 +2801,12 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static T[] FindObjectsOfType<T>(bool includeInactive);",
       "member": "FindObjectsOfType",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:e5ed694d2602ffc440b29e4c",
@@ -2582,9 +2831,12 @@
       "owner": "UnityEngine.Component",
       "declaration": "public T GetComponentInChildren<T>();",
       "member": "GetComponentInChildren",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:e91477eb9c6c3e07c3a1a97f",
@@ -2600,9 +2852,12 @@
       "owner": "UnityEngine.Component",
       "declaration": "public void GetComponentsInChildren<T>(bool includeInactive, System.Collections.Generic.List`1<T> result);",
       "member": "GetComponentsInChildren",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:e9499c22dd413115284d016c",
@@ -2627,18 +2882,24 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static T Instantiate<T>(T original, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation);",
       "member": "Instantiate",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:ebdc532e50dffcdc0603b809",
       "owner": "UnityEngine.Object",
       "declaration": "public static T FindFirstObjectByType<T>();",
       "member": "FindFirstObjectByType",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:ed4c0ad7470c77869673b78b",
@@ -2693,18 +2954,24 @@
       "owner": "UnityEngine.Component",
       "declaration": "public UnityEngine.Component[] GetComponentsInChildren(System.Type t);",
       "member": "GetComponentsInChildren",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:f17e70d746283b09fb94e595",
       "owner": "UnityEngine.Object",
       "declaration": "public static T FindFirstObjectByType<T>(UnityEngine.FindObjectsInactive findObjectsInactive);",
       "member": "FindFirstObjectByType",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:f1f578e5780346fc420371bd",
@@ -2759,9 +3026,12 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static T FindAnyObjectByType<T>(UnityEngine.FindObjectsInactive findObjectsInactive);",
       "member": "FindAnyObjectByType",
-      "status": "pending",
+      "status": "alias-behavior-tested",
       "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false
+      "unityBehaviorSignatureCertified": false,
+      "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
+      "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
+      "remaining": "Canonical UnityEngine namespace/exact signatures and full per-overload/reference-profile attribution remain open; this is a tested alias family, not a certified Unity overload"
     },
     {
       "id": "unity63abi:f816d4b6301c3fc813107ffc",
@@ -2843,6 +3113,25 @@
       "status": "pending",
       "unitySourceCertified": false,
       "unityBehaviorSignatureCertified": false
+    }
+  ],
+  "batches": [
+    {
+      "id": "20.1",
+      "version": "0.0.58",
+      "sdkVersion": 9,
+      "commit": "9236610ff42a561125033a8e59987149035bf9ea",
+      "nativeChecks": 29,
+      "developmentWasmChecks": 17,
+      "status": "alias behavior accepted; no full Unity signature certification"
+    },
+    {
+      "id": "20.2",
+      "version": "0.0.59",
+      "sdkVersion": 10,
+      "nativeChecks": 87,
+      "developmentWasmChecks": 32,
+      "status": "query/order/graph review batch; exact-head CI/publication separate"
     }
   ]
 }

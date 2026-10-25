@@ -19,8 +19,8 @@ test('M20 batch ledger preserves every assigned target and never certifies alias
  assert.equal(ledger.certifiedUnitySignatures,0);assert.equal(ledger.status,'in_progress');
  assert.ok(ledger.records.every(r=>r.unitySourceCertified===false&&r.unityBehaviorSignatureCertified===false));
  const native=await json(ledger.evidence.native),wasm=await json(ledger.evidence.developmentWasm);
- assert.equal(native.passed,true);assert.equal(native.checks.length,29);
- assert.equal(wasm.passed,true);assert.equal(wasm.passedChecks,17);assert.equal(wasm.failedChecks,0);
+ assert.equal(native.passed,true);assert.equal(native.checks.length,87);
+ assert.equal(wasm.passed,true);assert.equal(wasm.passedChecks,32);assert.equal(wasm.failedChecks,0);
  assert.ok(ledger.records.some(r=>r.status==='pending'));
 });
 test('M19 frozen documentation and mapping keep every identity, provenance and assignment',async()=>{

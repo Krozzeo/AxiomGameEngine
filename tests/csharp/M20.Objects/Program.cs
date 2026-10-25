@@ -18,7 +18,7 @@ var first=root.transform;var second=root.transform;
 Check("wrapper equality",first==second&&first.Equals(second)&&first.GetHashCode()==second.GetHashCode());
 Check("parent equality",child.transform.parent==root.transform);
 Check("entity/component identity separation",(Object)root!=first&&root.GetInstanceID()!=first.GetInstanceID());
-Check("dictionary lookup by native identity",new Dictionary<Object,string>{{first,"root"}}[second]=="root");
+var identities=new Dictionary<Object,string>{{first,"root"}};Check("dictionary lookup by native identity",identities[second]=="root");
 var rootId=root.GetInstanceID();var transformId=first.GetInstanceID();
 var callback=root.AddComponent<DestructionProbe>();
 Object.Destroy(root);Object.Destroy(root);Object.Destroy((Object?)null);
@@ -28,6 +28,7 @@ Check("pending destroy retains all update phases",root&&child);
 RuntimeLifecycle.End();
 Check("destroyed hierarchy compares null",root==null&&child==null&&first==null&&callback==null);
 Check("destroyed object bool is false",!root&&!first&&!child);
+Check("dictionary lookup survives destruction",identities.TryGetValue(second,out var label)&&label=="root");
 Check("destroyed references retain identity",root!.GetInstanceID()==rootId&&first!.GetHashCode()==transformId);
 Check("destroyed references are distinct",(Object)root!=(Object)child!);
 Check("destroyed managed reference is retained",!ReferenceEquals(root,null));
@@ -53,13 +54,16 @@ Check("reentrant destruction callbacks once",DestructionProbe.Events.SequenceEqu
 DestructionProbe.Events.Clear();var callbackOwner=new GameObject("Callback owner");var callbackComponent=callbackOwner.AddComponent<DestructionProbe>();
 DestructionProbe.Reentrant=true;Object.DestroyImmediate(callbackComponent);DestructionProbe.Reentrant=false;
 Check("component callback may destroy its owner",!callbackOwner&&!callbackComponent&&DestructionProbe.Events.SequenceEqual(new[]{"disable","stop","destroy"}));
-var identityCount=Context.ObjectIdentities.Count;var epochCount=Context.ObjectEpochs.Count;
+var identityCount=Context.ObjectIdentities.Count;var epochCount=Context.ObjectEpochs.Count;var orderCount=Context.ComponentOrders.Sum(p=>p.Value.Count);
 for(var i=0;i<1000;i++){var temporary=new GameObject("Transient");_=temporary.transform;Object.DestroyImmediate(temporary);Context.Operations.Clear();}
-Check("identity registries release destroyed objects",Context.ObjectIdentities.Count==identityCount&&Context.ObjectEpochs.Count==epochCount);
-var holder=new GameObject("Repeated script owner");identityCount=Context.ObjectIdentities.Count;epochCount=Context.ObjectEpochs.Count;
+Check("identity registries release destroyed objects",Context.ObjectIdentities.Count==identityCount&&Context.ObjectEpochs.Count==epochCount&&Context.ComponentOrders.Sum(p=>p.Value.Count)==orderCount);
+var holder=new GameObject("Repeated script owner");identityCount=Context.ObjectIdentities.Count;epochCount=Context.ObjectEpochs.Count;orderCount=Context.ComponentOrders.Sum(p=>p.Value.Count);
 for(var i=0;i<1000;i++){Object.DestroyImmediate(holder.AddComponent<DestructionProbe>());Context.Operations.Clear();DestructionProbe.Events.Clear();}
-Check("script identities retire on repeated reattachment",Context.ObjectIdentities.Count==identityCount&&Context.ObjectEpochs.Count==epochCount&&Context.LiveScripts.Count==0);
+Check("script identities retire on repeated reattachment",Context.ObjectIdentities.Count==identityCount&&Context.ObjectEpochs.Count==epochCount&&Context.LiveScripts.Count==0&&Context.ComponentOrders.Sum(p=>p.Value.Count)==orderCount);
 try{_=collider!.gameObject;Check("stale component access rejected",false);}catch(InvalidOperationException){Check("stale component access rejected",true);}
+QueryCases.Run(Check,Reset);
+CloneCases.Run(Check,Reset);
+OrderCases.Run(Check,Reset);
 Console.WriteLine(System.Text.Json.JsonSerializer.Serialize(new {passed=true,profile="native .NET / Axiom alias behavior, not Unity signature certification",checks}));
 
 public sealed class DestructionProbe : MonoBehaviour {

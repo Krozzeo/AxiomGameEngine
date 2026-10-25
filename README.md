@@ -2,7 +2,7 @@
 
 A local browser game editor with Rust/WebAssembly kernel, WebGPU renderer and C# gameplay. Includes2D/3D scenes, resources, CPU/Wasm physics, editing tools and isolated AI proposals with human review.
 
-**Stable: [0.0.57 / M19](https://github.com/Krozzeo/AxiomGameEngine/releases/tag/v0.0.57). Current review batch:0.0.58 / scripting SDK9 / M20.1 identity and lifetime.** M20 remains in progress; the first batch fixes the two M19 alias discrepancies and adds an editable lifecycle lab. [M20 report](docs/reports/M20_REPORT.md), [demo](demos/M20_GUIDE.md), [exact target ledger](docs/compatibility/m20-batches.json).
+**Stable: [0.0.57 / M19](https://github.com/Krozzeo/AxiomGameEngine/releases/tag/v0.0.57). Current review batch:0.0.59 / scripting SDK10 / M20 queries, component order and graph cloning.** M20 remains in progress; the identity/lifetime and query/graph batches include an editable32-check lifecycle lab. [M20 report](docs/reports/M20_REPORT.md), [demo](demos/M20_GUIDE.md), [exact target ledger](docs/compatibility/m20-batches.json).
 
 ## Axiom family
 

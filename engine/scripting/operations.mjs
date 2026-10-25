@@ -42,7 +42,7 @@ export function applyScriptOperations(scene,packet,generation,spawned=0) {
   if(op.kind==='spawn') {
    const template=entities.get(op.template);
    if(!template||!entityId.test(op.id)||entities.has(op.id)||entities.size>=LIMIT.entities)fail('invalid spawn');
-   const entity={...structuredClone(template),id:op.id,name:template.name.slice(0,120)+' (clone)',runtimeParentId:null};delete entity.parentId;
+   const entity={...structuredClone(template),id:op.id,name:template.name.slice(0,120)+' (clone)',runtimeParentId:null};delete entity.parentId;delete entity.prefab;
    entity.transform.position=[...op.position];candidate.entities.push(entity);entities.set(op.id,entity);spawned++;changedTopology=true;
   }else if(op.kind==='angularVelocity'){const entity=entities.get(op.id);if(!entity?.rigidBody||op.position.some(v=>Math.abs(v)>10000))fail('invalid angular velocity');entity.rigidBody.angularVelocity=[...op.position];angularVelocities.set(op.id,[...op.position]);
   }else if(op.kind==='velocity') {

@@ -2,8 +2,9 @@ using Axiom.Gameplay;
 using Object = Axiom.Gameplay.Object;
 namespace Game;
 
-// M20.1 behavior lab. UnityEngine namespace migration belongs to batch 20.3.
-public sealed class ObjectLifecycleLab : MonoBehaviour {
+// M20 identity/query/graph behavior lab. UnityEngine namespace migration is batch 20.3.
+public interface IObjectLabMarker {}
+public sealed class ObjectLifecycleLab : MonoBehaviour,IObjectLabMarker {
  public GameObject? Template;
  [ReadOnly] public int Frames;
  [ReadOnly] public int Passed;
@@ -28,6 +29,24 @@ public sealed class ObjectLifecycleLab : MonoBehaviour {
   Check("clone.identity",live!=Template&&live.transform!=Template!.transform);
   Check("clone.component",live.GetComponent<BoxCollider>()!=null);
   removed=live.GetComponent<BoxCollider>();
+  Check("query.interface",ReferenceEquals(gameObject.GetComponent<IObjectLabMarker>(),this));
+  Check("query.type",gameObject.GetComponent(typeof(ObjectLifecycleLab))==this);
+  Check("query.try",gameObject.TryGetComponent<IObjectLabMarker>(out var marker)&&ReferenceEquals(marker,this)&&!gameObject.TryGetComponent(typeof(Camera),out _));
+  var results=new System.Collections.Generic.List<IObjectLabMarker>{this,this};gameObject.GetComponents(results);Check("query.list",results.Count==1);
+  descendant.SetActive(false);Check("query.children-active",doomed.GetComponentsInChildren<Transform>().Length==1);
+  Check("query.children-all",doomed.GetComponentsInChildren(typeof(Transform),true).Length==2);
+  doomed.SetActive(false);Check("query.inactive-self",doomed.GetComponentsInChildren<Transform>().Length==1);doomed.SetActive(true);descendant.SetActive(true);
+  Check("query.parent",descendant.GetComponentsInParent<Transform>().Length==2);
+  Check("query.find",System.Array.Exists(Object.FindObjectsByType<GameObject>(FindObjectsInactive.Include,FindObjectsSortMode.InstanceID),go=>go==doomed));
+  try{gameObject.GetComponent<int>();Check("query.invalid",false);}catch(System.ArgumentException){Check("query.invalid",true);}
+  var graph=new GameObject("Graph source");graph.transform.SetParent(transform,false);var node=new GameObject("Graph child");node.transform.SetParent(graph.transform,false);
+  var graphProbe=graph.AddComponent<ObjectGraphProbe>();var nodeProbe=node.AddComponent<ObjectGraphProbe>();graphProbe.Peer=node;nodeProbe.Peer=graph;graphProbe.Literal=graph.transform.Entity.Id;
+  var graphClone=Object.Instantiate(graph,transform);var clonedProbe=graphClone.GetComponent<ObjectGraphProbe>()!;
+  Check("graph.parent-at-awake",clonedProbe.ParentAtAwake==transform.GetInstanceID());
+  Check("graph.references-at-awake",clonedProbe.GraphReady);
+  Check("graph.cycle",clonedProbe.Peer!.GetComponent<ObjectGraphProbe>()!.Peer==graphClone);
+  Check("graph.literal",clonedProbe.Literal==graphProbe.Literal);
+  Object.DestroyImmediate(graph);Check("graph.independent",graphClone&&clonedProbe.Peer);Object.DestroyImmediate(graphClone);
  }
  public override void Update(){
   Frames++;

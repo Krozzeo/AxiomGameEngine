@@ -1,8 +1,8 @@
 namespace Axiom.Gameplay;
 // Live component facades coexist with the original immutable snapshot API.
 public partial class Object {
- public static GameObject Instantiate(GameObject original)=>Instantiate(original,original.transform.position,original.transform.rotation);
- public static GameObject Instantiate(GameObject original,Vector3 position,Quaternion rotation){var entity=Context.CloneHierarchy(original.Entity,position,rotation);entity.SetRotation(rotation);return new GameObject(entity);}
+ public static GameObject Instantiate(GameObject original)=>(GameObject)Instantiate((Object)original);
+ public static GameObject Instantiate(GameObject original,Vector3 position,Quaternion rotation)=>(GameObject)Instantiate((Object)original,position,rotation);
  public static void Destroy(GameObject? target)=>RuntimeLifecycle.DestroyAfter(target,0);
  public static void Destroy(Component? target)=>RuntimeLifecycle.DestroyAfter(target,0);
 }
@@ -11,10 +11,10 @@ public partial class Component : Object {
  public Entity Entity {get=>entity;internal set{entity=value;BindIdentity(value,Context.ComponentKey(GetType())??(this is Script?"script:"+ManagedIdentity:GetType().FullName!));}}
  public GameObject gameObject {get{if(!this)throw new InvalidOperationException("Component reference has been destroyed or is not attached");return new(Entity);}}
  public Transform transform=>gameObject.transform;
- public T? GetComponent<T>() where T:Component=>gameObject.GetComponent<T>();
- public T? GetComponentInChildren<T>() where T:Component {var own=GetComponent<T>();if(own!=null)return own;for(var i=0;i<transform.childCount;i++){var found=transform.GetChild(i).GetComponentInChildren<T>();if(found!=null)return found;}return null;}
- public T? GetComponentInParent<T>() where T:Component {Transform? current=transform;while(current!=null){var component=current.GetComponent<T>();if(component!=null)return component;current=current.parent;}return null;}
- public bool TryGetComponent<T>(out T? component) where T:Component {component=GetComponent<T>();return component!=null;}
+ public T? GetComponent<T>()=>gameObject.GetComponent<T>();
+ public T? GetComponentInChildren<T>()=>gameObject.GetComponentInChildren<T>();
+ public T? GetComponentInParent<T>()=>gameObject.GetComponentInParent<T>();
+ public bool TryGetComponent<T>(out T? component) {component=GetComponent<T>();return component!=null;}
 }
 public sealed partial class GameObject : Object {
  internal Entity Entity {get;}
@@ -23,7 +23,7 @@ public sealed partial class GameObject : Object {
  public Transform transform=>new(Entity);
  public bool activeSelf=>Context.ActiveStates.GetValueOrDefault(Entity.Id,true);public bool activeInHierarchy=>Context.IsActive(Entity.Id);public void SetActive(bool active)=>Context.Activate(Entity,active);
  public static GameObject? Find(string name){foreach(var (id,data) in Context.EntityData)if(Context.IsActive(id)&&data.TryGetProperty("name",out var value)&&value.GetString()==name)return new(new Entity(id,Context.Generation));return null;}
- public T? GetComponent<T>() where T:Component=>GetComponents<T>().FirstOrDefault();
+ public T? GetComponent<T>()=>GetComponents<T>().FirstOrDefault();
 
 }
 public sealed partial class Transform {

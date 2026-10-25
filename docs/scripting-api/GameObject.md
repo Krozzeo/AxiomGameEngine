@@ -30,7 +30,7 @@ public sealed partial class GameObject : Object {
  public Transform transform=>new(Entity);
  public bool activeSelf=>Context.ActiveStates.GetValueOrDefault(Entity.Id,true);public bool activeInHierarchy=>Context.IsActive(Entity.Id);public void SetActive(bool active)=>Context.Activate(Entity,active);
  public static GameObject? Find(string name){foreach(var (id,data) in Context.EntityData)if(Context.IsActive(id)&&data.TryGetProperty("name",out var value)&&value.GetString()==name)return new(new Entity(id,Context.Generation));return null;}
- public T? GetComponent<T>() where T:Component=>GetComponents<T>().FirstOrDefault();
+ public T? GetComponent<T>()=>GetComponents<T>().FirstOrDefault();
 
 }
 
@@ -43,20 +43,58 @@ public sealed partial class GameObject {
  public static GameObject[] FindGameObjectsWithTag(string tag)=>Context.Entities.Keys.Where(Context.IsActive).Select(id=>new GameObject(new Entity(id,Context.Generation))).Where(e=>e.tag==tag).ToArray();
  public static GameObject? FindWithTag(string tag)=>FindGameObjectsWithTag(tag).FirstOrDefault();
  public T AddComponent<T>() where T:Component=>Context.AddComponent<T>(Entity);
- public bool TryGetComponent<T>(out T? component) where T:Component {component=GetComponent<T>();return component!=null;}
- public T[] GetComponents<T>() where T:Component {
+ public bool TryGetComponent<T>(out T? component) {component=GetComponent<T>();return component!=null;}
+ internal Component[] AllComponents() {
   _=Context.Read(Entity);var result=new List<Component>{transform};var data=Context.EntityData[Entity.Id];
   var hasCollider=data.TryGetProperty("collider",out var c);var twoD=hasCollider?c.GetProperty("dimension").GetInt32()==2:data.TryGetProperty("runtimePhysicsDimension",out var dim)&&dim.GetInt32()==2;
   if(c.ValueKind==JsonValueKind.Object){var sphere=c.GetProperty("shape").GetString()=="sphere";result.Add(twoD?(sphere?new CircleCollider2D(Entity):new BoxCollider2D(Entity)):(sphere?new SphereCollider(Entity):new BoxCollider(Entity)));}
   if(Context.Bodies.ContainsKey(Entity.Id))result.Add(twoD?new Rigidbody2D(Entity):new Rigidbody(Entity));
   if(Context.Cameras.Contains(Entity.Id))result.Add(new Camera(Entity));if(Context.AudioSources.Contains(Entity.Id))result.Add(new AudioSource(Entity));if(Context.Animators.ContainsKey(Entity.Id))result.Add(new Animator(Entity));if(data.TryGetProperty("audioListener",out _))result.Add(new AudioListener(Entity));
   if(data.TryGetProperty("renderable",out var renderable))result.Add(data.TryGetProperty("sprite2D",out _)?new SpriteRenderer(Entity):new MeshRenderer(Entity));if(data.TryGetProperty("light",out _))result.Add(new Light(Entity));if(AI.NavMeshAgent.Agents.TryGetValue(Entity.Id,out var agent))result.Add(agent);
-  result.AddRange(Context.LiveScripts.Where(s=>s.Entity.Id==Entity.Id));return result.OfType<T>().ToArray();
+  result.AddRange(Context.LiveScripts.Where(s=>s.Entity.Id==Entity.Id));var order=Context.ComponentOrders[Entity];return result.OrderBy(c=>order.IndexOf(c.GetInstanceID())).ToArray();
  }
 
- public T? GetComponentInChildren<T>(bool includeInactive=false) where T:Component=>GetComponentsInChildren<T>(includeInactive).FirstOrDefault();
- public T? GetComponentInParent<T>(bool includeInactive=false) where T:Component=>GetComponentsInParent<T>(includeInactive).FirstOrDefault();
- public T[] GetComponentsInChildren<T>(bool includeInactive=false) where T:Component {var found=new List<T>();void Visit(Transform node){if(includeInactive||node.gameObject.activeInHierarchy)found.AddRange(node.GetComponents<T>());for(var i=0;i<node.childCount;i++)Visit(node.GetChild(i));}Visit(transform);return found.ToArray();}
- public T[] GetComponentsInParent<T>(bool includeInactive=false) where T:Component {var found=new List<T>();for(Transform? node=transform;node!=null;node=node.parent)if(includeInactive||node.gameObject.activeInHierarchy)found.AddRange(node.GetComponents<T>());return found.ToArray();}
+ public T[] GetComponents<T>()=>GetComponents(typeof(T)).Cast<T>().ToArray();
+ public T? GetComponentInChildren<T>(bool includeInactive)=>GetComponentsInChildren<T>(includeInactive).FirstOrDefault();
+ public T? GetComponentInParent<T>(bool includeInactive)=>GetComponentsInParent<T>(includeInactive).FirstOrDefault();
+ public T[] GetComponentsInChildren<T>(bool includeInactive)=>GetComponentsInChildren(typeof(T),includeInactive).Cast<T>().ToArray();
+ public T[] GetComponentsInParent<T>(bool includeInactive)=>GetComponentsInParent(typeof(T),includeInactive).Cast<T>().ToArray();
+}
+
+public sealed partial class GameObject {
+ public GameObject gameObject=>this;
+ public Component? GetComponent(Type type)=>GetComponents(type).FirstOrDefault();
+ public Component[] GetComponents(Type type){ObjectQueries.ComponentType(type);return AllComponents().Where(type.IsInstanceOfType).ToArray();}
+ public bool TryGetComponent(Type type,out Component? component){component=GetComponent(type);return component!=null;}
+ public void GetComponents(Type type,List<Component> results)=>ObjectQueries.Fill(results,GetComponents(type));
+ public void GetComponents<T>(List<T> results)=>ObjectQueries.Fill(results,GetComponents<T>());
+ public Component? GetComponentInChildren(Type type)=>GetComponentInChildren(type,false);
+ public Component? GetComponentInChildren(Type type,bool includeInactive)=>GetComponentsInChildren(type,includeInactive).FirstOrDefault();
+ public Component[] GetComponentsInChildren(Type type)=>GetComponentsInChildren(type,false);
+ public Component[] GetComponentsInChildren(Type type,bool includeInactive){
+  ObjectQueries.ComponentType(type);var result=new List<Component>();
+  void Visit(Transform node,bool self){if(!self&&!includeInactive&&!node.gameObject.activeInHierarchy)return;result.AddRange(node.gameObject.GetComponents(type));for(var i=0;i<node.childCount;i++)Visit(node.GetChild(i),false);}
+  Visit(transform,true);return result.ToArray();
+ }
+ public Component? GetComponentInParent(Type type)=>GetComponentInParent(type,false);
+ public Component? GetComponentInParent(Type type,bool includeInactive)=>GetComponentsInParent(type,includeInactive).FirstOrDefault();
+ public Component[] GetComponentsInParent(Type type)=>GetComponentsInParent(type,false);
+ public Component[] GetComponentsInParent(Type type,bool includeInactive){
+  ObjectQueries.ComponentType(type);var result=new List<Component>();var self=true;
+  for(Transform? current=transform;current!=null;current=current.parent){if(self||includeInactive||current.gameObject.activeInHierarchy)result.AddRange(current.gameObject.GetComponents(type));self=false;}
+  return result.ToArray();
+ }
+ public T? GetComponentInChildren<T>()=>GetComponentInChildren<T>(false);
+ public T? GetComponentInParent<T>()=>GetComponentInParent<T>(false);
+ public T[] GetComponentsInChildren<T>()=>GetComponentsInChildren<T>(false);
+ public T[] GetComponentsInParent<T>()=>GetComponentsInParent<T>(false);
+ public void GetComponentsInChildren<T>(List<T> results)=>GetComponentsInChildren(false,results);
+ public void GetComponentsInChildren<T>(bool includeInactive,List<T> results)=>ObjectQueries.Fill(results,GetComponentsInChildren<T>(includeInactive));
+ public void GetComponentsInParent<T>(bool includeInactive,List<T> results)=>ObjectQueries.Fill(results,GetComponentsInParent<T>(includeInactive));
+ public Component AddComponent(Type type)=>Context.AddComponent(Entity,type);
+ public int GetComponentCount()=>AllComponents().Length;
+ public Component GetComponentAtIndex(int index){var values=AllComponents();if(index<0||index>=values.Length)throw new ArgumentOutOfRangeException(nameof(index));return values[index];}
+ public T GetComponentAtIndex<T>(int index)=>(T)(object)GetComponentAtIndex(index);
+ public int GetComponentIndex(Component? component)=>component==null?-1:Array.FindIndex(AllComponents(),value=>value==component);
 }
 ```

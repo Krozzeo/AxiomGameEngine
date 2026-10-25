@@ -1,6 +1,16 @@
 # M20 — Objects, components and hierarchies (in progress)
 
-First review batch: Engine 0.0.58 / scripting SDK 9 / native formats 1. This report does **not** close M20. The frozen denominator remains 311 assigned signatures; alias behavior tests do not become certified Unity signatures.
+Current review batch: Engine0.0.59 / scripting SDK10 / native formats1. Earlier public batch:0.0.58 / SDK9. This report does **not** close M20. The frozen denominator remains311 assigned signatures; alias behavior tests do not become certified Unity signatures.
+
+## Query/order/graph expansion
+
+Adds generic/Type/interface/list component queries, explicit active/inactive object searches, stable attachment order and index APIs, and generic/component/parent/pose cloning. Typed object/component/array references remap after the full graph exists; literal strings remain unchanged. Parenting finishes before Awake/OnEnable. Clone metadata uses new identities and runtime clones detach prefab authoring connections. Unsupported managed serialization/navigation profiles reject before creating objects; incompatible physics component profiles reject without metadata/operation changes.
+
+Current local evidence:87 native SDK checks;32 editable development-Wasm lab checks, no page errors and complete Stop restoration; C# runtime API and53-check runtime batches pass. Expanded full Engine regression457/457 and M19 browser27/27 pass. Exact-head remote CI/publication are separate gates. [Native expansion](../compatibility/evidence/m20-queries-native-windows.json), [Wasm expansion](../compatibility/evidence/m20-queries-development-wasm.json).
+
+Contracts consulted: [hierarchy queries always search self](https://docs.unity3d.com/6000.3/Documentation/ScriptReference/GameObject.GetComponentsInChildren.html), [parent queries](https://docs.unity3d.com/6000.3/Documentation/ScriptReference/GameObject.GetComponentsInParent.html), [list/index stability](https://docs.unity3d.com/6000.3/Documentation/ScriptReference/GameObject.GetComponentAtIndex.html), [clone parent/active/lifecycle rules](https://docs.unity3d.com/6000.3/Documentation/ScriptReference/Object.Instantiate.html). Reference interface/contract facts inform Axiom's own implementation; no vendor method body is shipped.
+
+Public0.0.58 at9236610ff42a561125033a8e59987149035bf9ea passed CI350/48 checks. Its actual public ZIP passed Platform SHA256/extraction/handshake, installed alongside stable0.0.57, activated explicitly, ran the packaged17-check C#/Wasm demo through the hosted product shell, and saved/closed the project without page errors. [Public acceptance](../compatibility/evidence/m20-public-0.0.58.json). A first network download timed out and succeeded on retry; external verifier path/stale-input mistakes were corrected, not reported as product successes. The32-check expansion belongs to0.0.59, not the immutable0.0.58 package.
 
 ## Base
 
@@ -26,6 +36,6 @@ Initial exact-head CI40145053827 detected a genuine old-demo assumption: Runtime
 
 ## Remaining required work
 
-M20.2: exact component query overloads, ordering, interface/type searches, graph clone/reference/lifecycle behavior. M20.3: canonical UnityEngine source migration with preserved Axiom.Gameplay, transform/numeric/space contracts and the unadapted migration corpus. Async/new/obsolete target members require explicit dependency handling and tests. All three milestone closure criteria remain open. Do not label the complete milestone accepted merely because this first behavior batch passes.
+M20.3: canonical UnityEngine source migration with preserved Axiom.Gameplay, transform/numeric/space contracts and the unadapted migration corpus. Complete exact overload/negative/reference-profile attribution, async/new/obsolete target members and managed serialization/navigation dependencies remain required. All three milestone closure criteria remain open. Do not label the complete milestone accepted merely because the alias behavior batches pass.
 
 [Plan](../architecture/M20_PLAN.md) · [Editable demo guide](../../demos/M20_GUIDE.md) · [Exact member ledger](../compatibility/m20-batches.json).
