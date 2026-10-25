@@ -1,3 +1,5 @@
+Current integration review: **0.0.60 / SDK10**, adopting the public Platform0.1.9 SDK for provider-independent model IDs and credential-safe product environments. M20 behavior acceptance remains the separate0.0.59 batch below; M20 is still open.
+
 # Axiom Game Engine
 
 A local browser game editor with Rust/WebAssembly kernel, WebGPU renderer and C# gameplay. Includes2D/3D scenes, resources, CPU/Wasm physics, editing tools and isolated AI proposals with human review.

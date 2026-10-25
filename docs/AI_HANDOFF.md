@@ -1,3 +1,7 @@
+# Integration handoff — Engine0.0.60 / Platform0.1.9 SDK
+
+Public provider pin d9561e94d7285d30d8e056f7e58b21f1ec163180 supports slash-containing model IDs and strips all configured provider credentials from child environments. Host provider adapters keep the existing stateless tool/result/usage contract. Account connection remains exclusively in Platform; project model/reasoning overrides remain independent. M20.2 behavior is the preceding0.0.59 batch, SDK10/native formats1 are unchanged, and M20.3/assigned closure gates remain pending. No automatic merge; preserve stable0.0.57 and experimental0.0.59 recovery/publication.
+
 # Current handoff — M20 in progress / Engine0.0.59 / SDK10
 
 M19 is stable v0.0.57. M20.1 public experimental0.0.58 at9236610ff42a561125033a8e59987149035bf9ea passed CI350/48 checks and actual public Platform download, side-by-side installation, explicit activation, hosted packaged17-check C#/Wasm demo and save/close. [Public evidence](compatibility/evidence/m20-public-0.0.58.json).

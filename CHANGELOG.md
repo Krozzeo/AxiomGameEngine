@@ -1,3 +1,7 @@
+# 0.0.60 — shared provider compatibility
+
+Pin public Platform0.1.9 source/integrity so inherited local/provider model IDs may include slashes. Retain the host-owned account connection and semantic tool/review boundary. Native formats1, scripting SDK10 and M20.2 behavior are unchanged; this integration does not close M20.
+
 # Changelog
 
 ## 0.0.59 — M20 query/order/graph batch (review)

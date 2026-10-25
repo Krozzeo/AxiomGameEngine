@@ -2,7 +2,7 @@
   "$schema": "./protocol/schema/project-state.schema.json",
   "stateVersion": 1,
   "updatedAt": "2026-10-25",
-  "engineVersion": "0.0.59",
+  "engineVersion": "0.0.60",
   "activeMilestone": 20,
   "milestoneStatus": "in_progress",
   "completion": {
@@ -1745,7 +1745,7 @@
     "demos/M20_GUIDE.md"
   ],
   "nextTask": "Continue M20.3 canonical UnityEngine source/numeric/transform migration and assigned async/obsolete/dependency gates. Retain explicit serialization/navigation clone limitations. M20 is not closed; no automatic merge.",
-  "activeRevision": "M20.2 queries/order/graph behavior review batch",
+  "activeRevision": "Platform 0.1.9 shared-provider compatibility; M20.2 unchanged",
   "roadmap": {
     "version": 2,
     "manifest": "docs/architecture/roadmap-v2.json",
