@@ -1,3 +1,7 @@
+# Version-owned demo integration — Engine0.0.60 new experimental build
+
+Optional IPC1 capability `project.demos` plus a manifest demo catalog enable Platform0.1.11 Load Demos. This build declares only M20 Object Lifecycle Lab; generation requires a fresh authorized destination and explicit declared IDs, returns native project paths and replays operation receipts. The original public0.0.60 artifact is immutable. Math Lab demos are deferred. SDK10, native formats1 and M20.2 behavior remain unchanged; this does not close M20 or add Unity signatures. [Guide](../demos/M20_GUIDE.md).
+
 # Integration handoff — Engine0.0.60 / Platform0.1.9 SDK
 
 Public provider pin d9561e94d7285d30d8e056f7e58b21f1ec163180 supports slash-containing model IDs and strips all configured provider credentials from child environments. Host provider adapters keep the existing stateless tool/result/usage contract. Account connection remains exclusively in Platform; project model/reasoning overrides remain independent. M20.2 behavior is the preceding0.0.59 batch, SDK10/native formats1 are unchanged, and M20.3/assigned closure gates remain pending. No automatic merge; preserve stable0.0.57 and experimental0.0.59 recovery/publication.

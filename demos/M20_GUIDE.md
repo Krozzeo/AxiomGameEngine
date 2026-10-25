@@ -1,5 +1,11 @@
 # Object Lifecycle Lab — identity, queries and graph cloning
 
+## Load through Axiom Platform
+
+With Platform0.1.11+, install the new experimental0.0.60 build that declares the M20 demo catalog. In Installations, click **Load Demos** on that exact build. The Hub creates/registers only M20 Object Lifecycle Lab in configured Project Storage, shows completion notification and pins the project to the source installation. Repeating the action preserves edits and avoids duplicates. Older immutable0.0.60 packages lack this optional capability; the commit/PR label distinguishes builds. Math Lab demo generation is deferred.
+
+## Manual fallback and behavior acceptance
+
 This is the M20 identity/query/graph review batch, not closure of the complete milestone. The editable physical scripts use the existing `Axiom.Gameplay` surface. Canonical `UnityEngine` namespace/signature migration remains required in M20.3; these behavior results do not certify the 311 assigned target signatures. Public experimental0.0.58/SDK9 contains the earlier17-check lifecycle lab; this0.0.59/SDK10 source contains the expanded32-check lab.
 
 1. Install and explicitly activate experimental Engine0.0.59 after publication, or use this source checkout. Stable M19 is0.0.57.

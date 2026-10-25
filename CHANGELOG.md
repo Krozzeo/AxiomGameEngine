@@ -1,4 +1,6 @@
-# 0.0.60 — shared provider compatibility
+# 0.0.60 — shared providers and version-owned demos
+
+New experimental build: declare `project.demos` and the version-owned M20 Object Lifecycle Lab catalog. Platform0.1.11 can generate it into configured storage without CLI steps, using a fresh authorized destination, explicit demo IDs and operation receipts. Older published0.0.60 builds remain immutable. SDK10/native formats1/M20.2 behavior remain unchanged; Math demos and M20.3 are not included.
 
 Pin public Platform0.1.9 source/integrity so inherited local/provider model IDs may include slashes. Retain the host-owned account connection and semantic tool/review boundary. Native formats1, scripting SDK10 and M20.2 behavior are unchanged; this integration does not close M20.
 

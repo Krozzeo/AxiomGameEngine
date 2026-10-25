@@ -22,10 +22,17 @@
     "project.close",
     "project.import",
     "project.github.list",
-    "project.rename"
+    "project.rename",
+    "project.demos"
   ],
   "launch": {
     "adapter": "official-local",
     "entry": "adapter.mjs"
-  }
+  },
+  "demos": [
+    {
+      "id": "m20-object-lifecycle",
+      "name": "M20 Object Lifecycle Lab"
+    }
+  ]
 }

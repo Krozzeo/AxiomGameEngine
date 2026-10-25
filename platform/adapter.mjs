@@ -1,3 +1,4 @@
+import {createM20Project} from '../demos/create-m20-project.mjs';
 import {SharedAiProvider} from 'axiom-platform/ai-peer';
 import {readFile,lstat,realpath,readdir} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
@@ -50,6 +51,13 @@ export class GameEngineAdapter {
     if(!this.root)fail('invalidRequest','Initialize this session first.');
     if(!manifest.capabilities.includes(method))fail('unsupportedCapability','Unsupported product capability.');
     if(method==='project.detect')return this.detect(params.path);
+    if(method==='project.demos'){
+      const destination=await this.path(params.destination,true);if((await readdir(destination)).length)fail('projectBusy','Demos require a new empty directory.');
+      if(!Array.isArray(params.demoIds)||params.demoIds.length!==1||params.demoIds[0]!=='m20-object-lifecycle')fail('invalidRequest','Choose a demo supplied by this installed version.');
+      const demo=await createM20Project(destination,{folders:true}),store=new ProjectStore(destination,{folders:true});await store.directory();const project=await this.detect(join(destination,store.filename(demo.id)));
+      return {productVersion:manifest.productVersion,projects:[{demoId:'m20-object-lifecycle',...project}]};
+    }
+
     if(method==='project.github.list'){
       if(!this.sharedGitHub)fail('unsupportedCapability','This operation requires shared Platform GitHub.');
       const listing=await githubProjects(this.sharedGitHub,params);return {repository:listing.repository,branch:listing.branch,items:listing.items};
@@ -102,7 +110,7 @@ export class GameEngineAdapter {
     if(message.projectId&&this.projectId!==message.projectId)fail('permissionDenied','Foreign project identity.');
     if(this.sessionId&&this.sessionId!==message.sessionId)fail('permissionDenied','Foreign product session.');
     this.sessionId=message.sessionId;
-    const mutates=['project.create','project.open','project.save','project.close','project.import','project.rename'].includes(message.method);
+    const mutates=['project.create','project.open','project.save','project.close','project.import','project.rename','project.demos'].includes(message.method);
     const id=message.params?.operationId,key=JSON.stringify([message.method,message.params]);
     if(mutates){
       if(typeof id!=='string'||!/^[a-zA-Z0-9_-]{8,100}$/.test(id))fail('invalidRequest','A unique operationId is required.');
