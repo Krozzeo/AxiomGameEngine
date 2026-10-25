@@ -3,13 +3,14 @@ namespace Axiom.Gameplay;
 public partial class Object {
  public static GameObject Instantiate(GameObject original)=>Instantiate(original,original.transform.position,original.transform.rotation);
  public static GameObject Instantiate(GameObject original,Vector3 position,Quaternion rotation){var entity=Context.CloneHierarchy(original.Entity,position,rotation);entity.SetRotation(rotation);return new GameObject(entity);}
- public static void Destroy(GameObject target)=>Context.Destroy(target.Entity);
- public static void Destroy(Component target)=>Context.Remove(target);
+ public static void Destroy(GameObject? target)=>RuntimeLifecycle.DestroyAfter(target,0);
+ public static void Destroy(Component? target)=>RuntimeLifecycle.DestroyAfter(target,0);
 }
 public partial class Component : Object {
- public Entity Entity {get;internal set;}
- public GameObject gameObject=>new(Entity);
- public Transform transform=>new(Entity);
+ private Entity entity;
+ public Entity Entity {get=>entity;internal set{entity=value;BindIdentity(value,Context.ComponentKey(GetType())??(this is Script?"script:"+ManagedIdentity:GetType().FullName!));}}
+ public GameObject gameObject {get{if(!this)throw new InvalidOperationException("Component reference has been destroyed or is not attached");return new(Entity);}}
+ public Transform transform=>gameObject.transform;
  public T? GetComponent<T>() where T:Component=>gameObject.GetComponent<T>();
  public T? GetComponentInChildren<T>() where T:Component {var own=GetComponent<T>();if(own!=null)return own;for(var i=0;i<transform.childCount;i++){var found=transform.GetChild(i).GetComponentInChildren<T>();if(found!=null)return found;}return null;}
  public T? GetComponentInParent<T>() where T:Component {Transform? current=transform;while(current!=null){var component=current.GetComponent<T>();if(component!=null)return component;current=current.parent;}return null;}
@@ -17,7 +18,7 @@ public partial class Component : Object {
 }
 public sealed partial class GameObject : Object {
  internal Entity Entity {get;}
- internal GameObject(Entity entity){Entity=entity;}
+ internal GameObject(Entity entity){Entity=entity;BindIdentity(entity,"gameObject");}
  public string name {get=>Context.Metadata(Entity,"name",Entity.Id);set=>Context.Property(Entity,"name",System.Text.Json.Nodes.JsonValue.Create(value));}
  public Transform transform=>new(Entity);
  public bool activeSelf=>Context.ActiveStates.GetValueOrDefault(Entity.Id,true);public bool activeInHierarchy=>Context.IsActive(Entity.Id);public void SetActive(bool active)=>Context.Activate(Entity,active);

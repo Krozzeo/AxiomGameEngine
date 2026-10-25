@@ -1,3 +1,15 @@
+# Current handoff — M20 in progress / Engine0.0.58 / SDK9
+
+M19 #60 was owner-approved and merged at46e2bbc86f7eec5891c0e92074b2ae870c9253db. Main CI40135221130 attempt2 passed after an intermittent M9 menu-close timeout; unchanged local/remote retries passed. Stable v0.0.57 is published and verified via actual Platform download, install and project create/save/reopen. [M20 report](reports/M20_REPORT.md).
+
+The first M20.1 behavior batch fixes wrapper equality/null/identity and deferred destruction, includes component epochs, stable hashes, bounded scheduling, recursive teardown and identity retirement. Native29 checks, development-Wasm17 lab checks and full456 regression checks pass locally. M19 now expects27/27 observations; retain its historical25/2 snapshot. Complete M20 acceptance remains0/3, with311 assigned signatures and zero certified full Unity namespace/behavior signatures. Next: M20.2 queries/order/graph clones, then M20.3 namespace/numeric/transform migration corpus. No auto-merge.
+
+SDK9 invalidates old script builds; native formats1 and the public Platform pin stay unchanged. Account credentials remain in Platform. User projects and recovery refs are preserved. [Demo](../demos/M20_GUIDE.md), [ledger](compatibility/m20-batches.json), [plan](architecture/M20_PLAN.md). Exact-head CI/publication must be recorded independently; this first batch is not whole-milestone closure.
+
+Earlier sections below are retained history.
+
+---
+
 # Current handoff — M19 / Engine0.0.57
 
 Base consolidation is complete: Engine#59 → main791c54a509f759777ecf2266c86fce80d2275920; Platform#9 → main7c03b7fc6f25fdceeda645bd1bf33534751e68e9; Math Lab#2 → main4171441658640a6d8da29dcdcee5b27888a3aa75. Their CI passed before owner-authorized merges. Engine#54/#56/#57/#58 were closed only after verifying their heads were ancestors of main. Recovery refs remain untouched.

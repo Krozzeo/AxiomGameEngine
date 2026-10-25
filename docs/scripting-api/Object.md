@@ -8,11 +8,15 @@ Runtime creation/cloning/destruction and component queries. Instantiate recursiv
 public partial class Object {
  public static GameObject Instantiate(GameObject original)=>Instantiate(original,original.transform.position,original.transform.rotation);
  public static GameObject Instantiate(GameObject original,Vector3 position,Quaternion rotation){var entity=Context.CloneHierarchy(original.Entity,position,rotation);entity.SetRotation(rotation);return new GameObject(entity);}
- public static void Destroy(GameObject target)=>Context.Destroy(target.Entity);
- public static void Destroy(Component target)=>Context.Remove(target);
+ public static void Destroy(GameObject? target)=>RuntimeLifecycle.DestroyAfter(target,0);
+ public static void Destroy(Component? target)=>RuntimeLifecycle.DestroyAfter(target,0);
 }
 
 public partial class Object {
+ public static void Destroy(Object? target)=>RuntimeLifecycle.DestroyAfter(target,0);
+ public static void Destroy(Object? target,double delay)=>RuntimeLifecycle.DestroyAfter(target,delay);
+ public static void DestroyImmediate(Object? target)=>RuntimeLifecycle.DestroyNow(target);
+ public static void DestroyImmediate(Object? target,bool allowDestroyingAssets)=>RuntimeLifecycle.DestroyNow(target);
  public static void Destroy(GameObject target,double delay)=>RuntimeLifecycle.DestroyAfter(target,delay);
  public static void Destroy(Component target,double delay)=>RuntimeLifecycle.DestroyAfter(target,delay);
  public static GameObject Instantiate(GameObject original,Transform? parent)=>Instantiate(original,parent,true);
@@ -22,9 +26,20 @@ public partial class Object {
 }
 
 public partial class Object {
- private Entity? Handle=>this is GameObject go?go.Entity:this is Component c?c.Entity:null;
- public int GetInstanceID()=>Handle is Entity e?HashCode.Combine(e.Id,e.Generation,this is Component c?c.GetType():typeof(GameObject)):System.Runtime.CompilerServices.RuntimeHelpers.GetHashCode(this);
- private static bool Exists(Object? value){if(value==null)return false;if(value.Handle is not Entity e)return true;if(e.Generation!=Context.Generation||!Context.Entities.ContainsKey(e.Id))return false;if(value is Script script)return Context.LiveScripts.Contains(script);if(value is Component c&&Context.ComponentKey(c.GetType()) is string key)return Context.EntityData[e.Id].TryGetProperty(key,out _);return true;}
+ private static long nextIdentity;
+ internal static int AllocateIdentity()=>checked((int)System.Threading.Interlocked.Increment(ref nextIdentity));
+ private int managedIdentity;
+ internal int ManagedIdentity=>managedIdentity==0?managedIdentity=AllocateIdentity():managedIdentity;
+ private int nativeIdentity,identityEpoch;
+ private Entity? identityEntity;
+ private string? identitySlot;
+ internal void BindIdentity(Entity entity,string slot){identityEntity=entity;identitySlot=slot;identityEpoch=Context.ObjectEpochs.GetValueOrDefault((entity,slot));var key=(entity,slot,identityEpoch);if(!Context.ObjectIdentities.TryGetValue(key,out nativeIdentity))Context.ObjectIdentities[key]=nativeIdentity=AllocateIdentity();}
+ public int GetInstanceID()=>nativeIdentity==0?ManagedIdentity:nativeIdentity;
+ public override int GetHashCode()=>GetInstanceID();
+ public override bool Equals(object? other)=>other is Object obj?this==obj:ReferenceEquals(other,null)&&!Exists(this);
+ public static bool operator ==(Object? left,Object? right){if(ReferenceEquals(left,right))return true;if(ReferenceEquals(left,null))return !Exists(right);if(ReferenceEquals(right,null))return !Exists(left);return left.GetInstanceID()==right.GetInstanceID();}
+ public static bool operator !=(Object? left,Object? right)=>!(left==right);
+ private static bool Exists(Object? value){if(ReferenceEquals(value,null))return false;if(value.identityEntity is not Entity e)return value is not Component;if(e.Generation!=Context.Generation||!Context.Entities.ContainsKey(e.Id)||Context.ObjectEpochs.GetValueOrDefault((e,value.identitySlot!))!=value.identityEpoch)return false;if(value is Script script)return Context.LiveScripts.Any(s=>ReferenceEquals(s,script));if(value is AI.NavMeshAgent agent)return AI.NavMeshAgent.Agents.TryGetValue(e.Id,out var live)&&ReferenceEquals(agent,live);if(value is Component c&&Context.ComponentKey(c.GetType()) is string key)return Context.EntityData[e.Id].TryGetProperty(key,out _);return true;}
  public static implicit operator bool(Object? value)=>Exists(value);
 }
 

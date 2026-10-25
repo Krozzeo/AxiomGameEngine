@@ -1,6 +1,6 @@
 # M20 — Compatible objects, components and hierarchies
 
-Approved plan since 2026-10-19. **Not started; 0% new acceptance.** Existing SDK 8 coverage remains partial; this plan adds no functional credit.
+Approved plan since 2026-10-19. **In progress: first M20.1 behavior batch, Engine 0.0.58 / SDK9.** Whole-milestone acceptance remains open. [Report](../reports/M20_REPORT.md), [exact member ledger](../compatibility/m20-batches.json), [editable demo](../../demos/M20_GUIDE.md). Existing aliases and new behavior checks are not certified Unity source signatures.
 
 Minimum dependencies: M19.
 

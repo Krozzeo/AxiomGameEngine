@@ -11,6 +11,18 @@ import {compatibilityInventory,queryCompatibility} from '../engine/scripting/com
 const dir=new URL('../docs/compatibility/',import.meta.url);
 const json=async name=>JSON.parse(await readFile(new URL(name,dir),'utf8'));
 const lines=async name=>{const raw=gunzipSync(await readFile(new URL(name,dir)));return {raw,rows:raw.toString().trim().split('\n').map(JSON.parse)};};
+test('M20 batch ledger preserves every assigned target and never certifies alias observations',async()=>{
+ const ledger=await json('m20-batches.json'),{rows}=await lines('native-api.jsonl.gz');
+ const target=rows.filter(r=>r.milestone==='M20');
+ assert.equal(target.length,311);assert.equal(ledger.targetRecords,311);
+ assert.deepEqual(ledger.records.map(r=>r.id).sort(),target.map(r=>r.id).sort());
+ assert.equal(ledger.certifiedUnitySignatures,0);assert.equal(ledger.status,'in_progress');
+ assert.ok(ledger.records.every(r=>r.unitySourceCertified===false&&r.unityBehaviorSignatureCertified===false));
+ const native=await json(ledger.evidence.native),wasm=await json(ledger.evidence.developmentWasm);
+ assert.equal(native.passed,true);assert.equal(native.checks.length,29);
+ assert.equal(wasm.passed,true);assert.equal(wasm.passedChecks,17);assert.equal(wasm.failedChecks,0);
+ assert.ok(ledger.records.some(r=>r.status==='pending'));
+});
 test('M19 frozen documentation and mapping keep every identity, provenance and assignment',async()=>{
  const {source,records,coverage}=await compatibilityInventory();
  assert.equal(records.length,source.records);assert.equal(new Set(records.map(r=>r.id)).size,records.length);

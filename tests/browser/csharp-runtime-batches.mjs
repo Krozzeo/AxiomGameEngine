@@ -43,7 +43,7 @@ try {
    // Apply the actual SDK operations between phases, just as the editor host does.
    const {applyScriptOperations,runtimeScriptEntities}=await import('/operations.mjs');let scene={entities,projectFiles:SOURCE_FILES},spawned=0;
    const phase=async(action,delta)=>{const result=await dispatch(action,delta),next=applyScriptOperations(scene,result,1,spawned);scene=next.scene;spawned=next.spawned;entities=runtimeScriptEntities(scene.entities,[]);return result;};
-   await phase('start');frame=1;await phase('frame',.02);await phase('update');frame=2;await phase('frame',.02);await phase('update');
+   await phase('start');frame=1;await phase('frame',.02);await phase('update');await phase('late');await phase('end');frame=2;await phase('frame',.02);await phase('update');await phase('late');await phase('end');
    const state=packets.at(-1).scriptValues.find(s=>s.path==='Scripts/RuntimeBatchProbe.cs').values;
    const preferences=packets.flatMap(p=>p.operations).filter(o=>o.kind==='preferences').at(-1).data;
    await phase('stop');return {state,preferences};

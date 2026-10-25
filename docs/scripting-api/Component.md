@@ -30,9 +30,10 @@ Transforms use world position/rotation. localScale writes the runtime scale. Leg
 
 ```csharp
 public partial class Component : Object {
- public Entity Entity {get;internal set;}
- public GameObject gameObject=>new(Entity);
- public Transform transform=>new(Entity);
+ private Entity entity;
+ public Entity Entity {get=>entity;internal set{entity=value;BindIdentity(value,Context.ComponentKey(GetType())??(this is Script?"script:"+ManagedIdentity:GetType().FullName!));}}
+ public GameObject gameObject {get{if(!this)throw new InvalidOperationException("Component reference has been destroyed or is not attached");return new(Entity);}}
+ public Transform transform=>gameObject.transform;
  public T? GetComponent<T>() where T:Component=>gameObject.GetComponent<T>();
  public T? GetComponentInChildren<T>() where T:Component {var own=GetComponent<T>();if(own!=null)return own;for(var i=0;i<transform.childCount;i++){var found=transform.GetChild(i).GetComponentInChildren<T>();if(found!=null)return found;}return null;}
  public T? GetComponentInParent<T>() where T:Component {Transform? current=transform;while(current!=null){var component=current.GetComponent<T>();if(component!=null)return component;current=current.parent;}return null;}

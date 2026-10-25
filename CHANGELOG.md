@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.0.58 — M20.1 identity/lifetime (review batch)
+
+- M19 #60 is merged and stable0.0.57 is publicly published and verified through Platform. Main CI passed after an unchanged retry of the intermittent M9 menu-close wait.
+- Stable object/component wrapper identities, null-like destroyed references, deferred Destroy, scaled deadlines, explicit DestroyImmediate and idempotent recursive teardown. Retire destroyed identity records and reject stale component access.
+- SDK9 requires recompilation; native formats1 and shared-account authority remain unchanged. Object Lifecycle Lab:17 behavior checks and full Stop restoration; native29 checks include1,000 destruction cycles. M20 remains open; canonical UnityEngine/full signature certification is not claimed.
+
+
 ## 0.0.57 — M19 compatibility audit
 
 - Consolidated Engine#59, Platform#9 and Math Lab#2 after passing CI and owner approval. Closed superseded Engine#54/#56/#57/#58 after ancestry verification; recovery refs preserved.

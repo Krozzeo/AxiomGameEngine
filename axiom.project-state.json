@@ -2,14 +2,14 @@
   "$schema": "./protocol/schema/project-state.schema.json",
   "stateVersion": 1,
   "updatedAt": "2026-10-24",
-  "engineVersion": "0.0.57",
-  "activeMilestone": 19,
-  "milestoneStatus": "complete",
+  "engineVersion": "0.0.58",
+  "activeMilestone": 20,
+  "milestoneStatus": "in_progress",
   "completion": {
-    "activeMilestonePercent": 100,
+    "activeMilestonePercent": 0,
     "wholeProjectPercent": null,
     "method": "docs/architecture/MILESTONE_REPORTING.md",
-    "scopeNote": "M19 audit criteria4/4 passed locally; API implementation credit0. M20\u2013M40 pending. CI/main integration is distinct.",
+    "scopeNote": "M19 is stable in main. M20 first alias identity/lifetime behavior batch passes locally; 0 of 3 whole-milestone closure criteria accepted and 0 certified Unity signatures. Do not treat batch test counts as milestone completion.",
     "historicalMvpPercent": 94,
     "historicalMvpCompletedWeight": 122,
     "historicalMvpTotalWeight": 130
@@ -98,10 +98,8 @@
       "plan": "docs/architecture/M19_PLAN.md"
     },
     "20": {
-      "status": "not_started",
-      "percent": 0,
-      "title": "Compatible objects, components and hierarchies",
-      "plan": "docs/architecture/M20_PLAN.md"
+      "status": "in_progress",
+      "percent": 0
     },
     "21": {
       "status": "not_started",
@@ -1522,6 +1520,13 @@
       ],
       "pageErrors": [],
       "scope": "Real product processes; controlled GitHub/AI/picker and Null; manual/real hardware gates remain separate"
+    },
+    "m20": {
+      "nativeBehaviorChecks": 29,
+      "developmentWasmChecks": 17,
+      "engineRegressionTests": 456,
+      "fullUnitySignatureCertification": 0,
+      "wholeMilestoneClosed": false
     }
   },
   "blockedChecks": [
@@ -1734,10 +1739,13 @@
     "docs/compatibility/CONTRACT.md",
     "docs/compatibility/PROFILES_AND_GPU.md",
     "docs/reports/M19_REPORT.md",
-    "demos/M19_GUIDE.md"
+    "demos/M19_GUIDE.md",
+    "docs/reports/M20_REPORT.md",
+    "docs/compatibility/m20-batches.json",
+    "demos/M20_GUIDE.md"
   ],
-  "nextTask": "Review and integrate M19 after exact-head CI, then M20: object equality/identity, deferred Destroy, component/hierarchy overload batches. Preserve Platform authority, user projects and recovery refs; do not auto-merge.",
-  "activeRevision": "M19 compatibility audit review candidate",
+  "nextTask": "Continue M20.2 queries/order/graph clones and M20.3 canonical UnityEngine namespace/numeric/transform corpus. Keep M20 open; publish only exact accepted experimental commits for owner testing. Do not auto-merge.",
+  "activeRevision": "M20.1 identity/lifetime behavior review batch",
   "roadmap": {
     "version": 2,
     "manifest": "docs/architecture/roadmap-v2.json",
@@ -1749,7 +1757,7 @@
     "totalMainMilestones": 45,
     "decisionDate": "2026-10-19",
     "formerM19MovedTo": "M40",
-    "status": "m19_audit_accepted_locally",
+    "status": "m20_in_progress",
     "trackingIssue": "https://github.com/Krozzeo/AxiomGameEngine/issues/40",
     "scopeRevision": "2026-10-19-gpu-physics",
     "gpuPhysicsPlan": "docs/architecture/GPU_PHYSICS_AND_SHADERS_PLAN.md",

@@ -32,13 +32,17 @@ internal static partial class Context {
   else data=key switch {"rigidBody"=>"{\"mass\":1,\"velocity\":[0,0,0],\"restitution\":0,\"friction\":0.5,\"gravityScale\":1}","camera"=>"{\"active\":false,\"projection\":\"perspective\",\"fov\":60,\"orthoHeight\":6}","audioListener"=>"{\"enabled\":true}",_=>throw new NotSupportedException("Adding "+key+" requires an authored asset/configuration; clone an authored object instead")};
   Property(entity,key,JsonNode.Parse(data));return new GameObject(entity).GetComponent<T>()!;
  }
- internal static void Remove(Component component){_=Read(component.Entity);if(component is AI.NavMeshAgent){AI.NavMeshAgent.Agents.Remove(component.Entity.Id);return;}if(component is Transform)throw new InvalidOperationException("Transform cannot be removed");if(component is Script script){var path=RuntimeLifecycle.PathOf(script);RuntimeLifecycle.Remove(script);LiveScripts.Remove(script);ScriptPaths.Remove(script);var components=JsonNode.Parse(EntityData[component.Entity.Id].GetRawText())!["scriptComponents"]!.AsArray();for(var i=components.Count-1;i>=0;i--)if(components[i]!["path"]!.GetValue<string>()==path)components.RemoveAt(i);Property(component.Entity,"scriptComponents",components.DeepClone());return;}var key=ComponentKey(component.GetType())??throw new NotSupportedException("Unknown component");Property(component.Entity,key,null);}
+ internal static void Remove(Component component){if(!component)return;_=Read(component.Entity);if(component is AI.NavMeshAgent){AI.NavMeshAgent.Agents.Remove(component.Entity.Id);InvalidateIdentity(component.Entity,component.GetType().FullName!);return;}if(component is Transform)throw new InvalidOperationException("Transform cannot be removed");if(component is Script script){var path=RuntimeLifecycle.PathOf(script);RuntimeLifecycle.Remove(script);LiveScripts.Remove(script);ScriptPaths.Remove(script);ForgetIdentity(component.Entity,"script:"+script.ManagedIdentity);if(!EntityData.ContainsKey(component.Entity.Id))return;var components=JsonNode.Parse(EntityData[component.Entity.Id].GetRawText())!["scriptComponents"]!.AsArray();for(var i=components.Count-1;i>=0;i--)if(components[i]!["path"]!.GetValue<string>()==path)components.RemoveAt(i);Property(component.Entity,"scriptComponents",components.DeepClone());return;}var key=ComponentKey(component.GetType())??throw new NotSupportedException("Unknown component");InvalidateIdentity(component.Entity,key);Property(component.Entity,key,null);}
  internal static Entity CloneHierarchy(Entity original,Vector3 position,Quaternion rotation){_=Read(original);var root=Read(original);var ids=new List<string>{original.Id};for(var i=0;i<ids.Count;i++)ids.AddRange(Parents.Where(p=>p.Value==ids[i]).Select(p=>p.Key).ToArray());if(ids.Count+Entities.Count>Limits.Entities)throw new InvalidOperationException("Clone hierarchy exceeds runtime limits");var map=new Dictionary<string,Entity>();var delta=rotation*Quaternion.Inverse(root.Rotation);
   foreach(var id in ids){var old=new Entity(id,Generation);var t=Read(old);var next=Spawn(old,position+delta*(t.Position-root.Position));map[id]=next;var originalName=Metadata(old,"name",id);Property(next,"name",JsonValue.Create(id==original.Id?originalName[..Math.Min(originalName.Length,120)]+" (clone)":originalName));Rotate(next,delta*t.Rotation);if(id!=original.Id)Parent(next,new Transform(map[Parents[id]!]),true);}
   foreach(var id in ids)foreach(var script in LiveScripts.Where(s=>s.Entity.Id==id).ToArray())RuntimeLifecycle.Clone(script,map[id]);foreach(var script in LiveScripts.Where(s=>map.Values.Any(e=>e.Id==s.Entity.Id)).ToArray()){var f=RuntimeLifecycle.Factories[script.GetType()];using var stream=new MemoryStream();using(var writer=new System.Text.Json.Utf8JsonWriter(stream))f.Write(script,writer);var values=RemapResource(JsonNode.Parse(stream.ToArray()),map.ToDictionary(p=>p.Key,p=>p.Value.Id))!;f.Apply(script,ParseData(values.ToJsonString()));RuntimeLifecycle.PublishComponents(script.Entity);}RuntimeLifecycle.Initialize();return map[original.Id];
  }
 }
 public partial class Object {
+ public static void Destroy(Object? target)=>RuntimeLifecycle.DestroyAfter(target,0);
+ public static void Destroy(Object? target,double delay)=>RuntimeLifecycle.DestroyAfter(target,delay);
+ public static void DestroyImmediate(Object? target)=>RuntimeLifecycle.DestroyNow(target);
+ public static void DestroyImmediate(Object? target,bool allowDestroyingAssets)=>RuntimeLifecycle.DestroyNow(target);
  public static void Destroy(GameObject target,double delay)=>RuntimeLifecycle.DestroyAfter(target,delay);
  public static void Destroy(Component target,double delay)=>RuntimeLifecycle.DestroyAfter(target,delay);
  public static GameObject Instantiate(GameObject original,Transform? parent)=>Instantiate(original,parent,true);
@@ -56,7 +60,7 @@ public partial class Component {
 }
 public sealed partial class GameObject {
  public SceneManagement.Scene scene=>SceneManagement.SceneManager.GetSceneByName(SceneManagement.SceneManager.Owners.GetValueOrDefault(Entity.Id,SceneManagement.SceneManager.GetActiveScene().name));
- public GameObject(string name="New GameObject"){if(string.IsNullOrWhiteSpace(name)||name.Length>128)throw new ArgumentException("Invalid object name");Entity=Context.CreateObject(name);}
+ public GameObject(string name="New GameObject"){if(string.IsNullOrWhiteSpace(name)||name.Length>128)throw new ArgumentException("Invalid object name");Entity=Context.CreateObject(name);BindIdentity(Entity,"gameObject");}
  public string tag {get=>Context.Metadata(Entity,"runtimeTag","Untagged");set{if(string.IsNullOrWhiteSpace(value)||value.Length>128)throw new ArgumentException("Invalid tag");Context.Property(Entity,"runtimeTag",JsonValue.Create(value));}}
  public int layer {get{var data=Context.EntityData[Entity.Id];if(data.TryGetProperty("runtimeLayer",out var layer))return layer.GetInt32();if(data.TryGetProperty("collider",out var collider)){var mask=collider.GetProperty("layer").GetUInt32();for(var i=0;i<32;i++)if((mask&(1u<<i))!=0)return i;}return 0;}set{if(value<0||value>31)throw new ArgumentOutOfRangeException(nameof(value));Context.Property(Entity,"runtimeLayer",JsonValue.Create(value));if(Context.EntityData[Entity.Id].TryGetProperty("collider",out var c)){var node=JsonNode.Parse(c.GetRawText())!;node["layer"]=1u<<value;Context.Property(Entity,"collider",node);}}}
  public bool CompareTag(string value)=>tag==value;
@@ -96,10 +100,28 @@ internal static partial class Context {
  internal static void FollowChildren(Entity parent,Transform old){var now=Read(parent);foreach(var id in Parents.Where(p=>p.Value==parent.Id).Select(p=>p.Key).ToArray()){if(!Entities.TryGetValue(id,out var child))continue;var local=Quaternion.Inverse(old.Rotation)*(child.Position-old.Position);if(Math.Abs(old.Scale.X*old.Scale.Y*old.Scale.Z)<1e-20)throw new InvalidOperationException("Cannot transform a child through zero scale");local=new(local.X/old.Scale.X,local.Y/old.Scale.Y,local.Z/old.Scale.Z);var position=now.Position+now.Rotation*new Vector3(local.X*now.Scale.X,local.Y*now.Scale.Y,local.Z*now.Scale.Z);var rotation=now.Rotation*Quaternion.Inverse(old.Rotation)*child.Rotation;var scale=new Vector3(child.Scale.X/old.Scale.X*now.Scale.X,child.Scale.Y/old.Scale.Y*now.Scale.Y,child.Scale.Z/old.Scale.Z*now.Scale.Z);var entity=new Entity(id,Generation);Entities[id]=new Transform(position,rotation,scale){Entity=entity};FollowChildren(entity,child);}}
 }
 public partial class Object {
- private Entity? Handle=>this is GameObject go?go.Entity:this is Component c?c.Entity:null;
- public int GetInstanceID()=>Handle is Entity e?HashCode.Combine(e.Id,e.Generation,this is Component c?c.GetType():typeof(GameObject)):System.Runtime.CompilerServices.RuntimeHelpers.GetHashCode(this);
- private static bool Exists(Object? value){if(value==null)return false;if(value.Handle is not Entity e)return true;if(e.Generation!=Context.Generation||!Context.Entities.ContainsKey(e.Id))return false;if(value is Script script)return Context.LiveScripts.Contains(script);if(value is Component c&&Context.ComponentKey(c.GetType()) is string key)return Context.EntityData[e.Id].TryGetProperty(key,out _);return true;}
+ private static long nextIdentity;
+ internal static int AllocateIdentity()=>checked((int)System.Threading.Interlocked.Increment(ref nextIdentity));
+ private int managedIdentity;
+ internal int ManagedIdentity=>managedIdentity==0?managedIdentity=AllocateIdentity():managedIdentity;
+ private int nativeIdentity,identityEpoch;
+ private Entity? identityEntity;
+ private string? identitySlot;
+ internal void BindIdentity(Entity entity,string slot){identityEntity=entity;identitySlot=slot;identityEpoch=Context.ObjectEpochs.GetValueOrDefault((entity,slot));var key=(entity,slot,identityEpoch);if(!Context.ObjectIdentities.TryGetValue(key,out nativeIdentity))Context.ObjectIdentities[key]=nativeIdentity=AllocateIdentity();}
+ public int GetInstanceID()=>nativeIdentity==0?ManagedIdentity:nativeIdentity;
+ public override int GetHashCode()=>GetInstanceID();
+ public override bool Equals(object? other)=>other is Object obj?this==obj:ReferenceEquals(other,null)&&!Exists(this);
+ public static bool operator ==(Object? left,Object? right){if(ReferenceEquals(left,right))return true;if(ReferenceEquals(left,null))return !Exists(right);if(ReferenceEquals(right,null))return !Exists(left);return left.GetInstanceID()==right.GetInstanceID();}
+ public static bool operator !=(Object? left,Object? right)=>!(left==right);
+ private static bool Exists(Object? value){if(ReferenceEquals(value,null))return false;if(value.identityEntity is not Entity e)return value is not Component;if(e.Generation!=Context.Generation||!Context.Entities.ContainsKey(e.Id)||Context.ObjectEpochs.GetValueOrDefault((e,value.identitySlot!))!=value.identityEpoch)return false;if(value is Script script)return Context.LiveScripts.Any(s=>ReferenceEquals(s,script));if(value is AI.NavMeshAgent agent)return AI.NavMeshAgent.Agents.TryGetValue(e.Id,out var live)&&ReferenceEquals(agent,live);if(value is Component c&&Context.ComponentKey(c.GetType()) is string key)return Context.EntityData[e.Id].TryGetProperty(key,out _);return true;}
  public static implicit operator bool(Object? value)=>Exists(value);
+}
+internal static partial class Context {
+ internal static readonly Dictionary<(Entity Entity,string Slot,int Epoch),int> ObjectIdentities=new();
+ internal static readonly Dictionary<(Entity Entity,string Slot),int> ObjectEpochs=new();
+ internal static void InvalidateIdentity(Entity entity,string slot){var epoch=ObjectEpochs.GetValueOrDefault((entity,slot));ObjectIdentities.Remove((entity,slot,epoch));ObjectEpochs[(entity,slot)]=epoch+1;}
+ internal static void ForgetIdentity(Entity entity,string slot){ObjectIdentities.Remove((entity,slot,ObjectEpochs.GetValueOrDefault((entity,slot))));ObjectEpochs.Remove((entity,slot));}
+ internal static void RetireIdentities(string id){foreach(var key in ObjectIdentities.Keys.Where(k=>k.Entity.Id==id).ToArray())ObjectIdentities.Remove(key);foreach(var key in ObjectEpochs.Keys.Where(k=>k.Entity.Id==id).ToArray())ObjectEpochs.Remove(key);}
 }
 public sealed partial class Transform {
  public int GetSiblingIndex(){var siblings=Context.Parents.Where(p=>p.Value==Context.Parents.GetValueOrDefault(Entity.Id)).Select(p=>p.Key).ToList();return siblings.IndexOf(Entity.Id);}

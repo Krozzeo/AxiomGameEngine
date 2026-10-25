@@ -1,8 +1,8 @@
 {
   "roadmapVersion": 2,
   "decisionDate": "2026-10-19",
-  "status": "m19_audit_accepted_locally",
-  "engineBaseline": "0.0.57 / SDK8",
+  "status": "m20_in_progress",
+  "engineBaseline": "0.0.58 / SDK9 (review batch); stable main0.0.57",
   "unityBaseline": "6000.3 LTS",
   "unityLatestDelta": "6000.6 observed 2026-10-18; separate from the frozen target",
   "completedMainMilestones": 24,
@@ -10,8 +10,8 @@
   "pendingMilestones": 21,
   "finalMilestone": "M40",
   "renumbering": {
-    "old": "M19 \u2014 MVP Hardening",
-    "new": "M40 \u2014 Final stabilization",
+    "old": "M19 — MVP Hardening",
+    "new": "M40 — Final stabilization",
     "reusedM19": "Complete audit and compatibility contract"
   },
   "historicalMvp": {
@@ -69,13 +69,13 @@
       "demo": "Compatibility Observatory: inventory browser and executable object/time/physics/resource corpus; harness is not implementation of pending APIs.",
       "plan": "docs/architecture/M19_PLAN.md",
       "report": "docs/reports/M19_REPORT.md",
-      "integration": "Review candidate; local acceptance is distinct from remote CI/main"
+      "integration": "Merged main46e2bbc; CI40135221130 attempt2 passed; stable v0.0.57 published and downloaded through Platform"
     },
     {
       "id": "M20",
       "number": 20,
       "title": "Compatible objects, components and hierarchies",
-      "status": "not_started",
+      "status": "in_progress",
       "acceptancePercent": 0,
       "dependsOn": [
         "M19"
@@ -96,7 +96,8 @@
         "Stop, Undo and existing projects retain contracts; assigned members have tests or explicit closure-blocking dependencies."
       ],
       "demo": "Object Lifecycle Lab: hierarchies, destroyed references, clones and activation changes.",
-      "plan": "docs/architecture/M20_PLAN.md"
+      "plan": "docs/architecture/M20_PLAN.md",
+      "report": "docs/reports/M20_REPORT.md"
     },
     {
       "id": "M21",
@@ -734,12 +735,12 @@
         "40.3 End-to-end sample/AI/docs/release."
       ],
       "acceptance": [
-        "M18.4 and M19\u2013M39 accepted with evidence; pending exclusions cannot masquerade as passed tests.",
+        "M18.4 and M19–M39 accepted with evidence; pending exclusions cannot masquerade as passed tests.",
         "Full sample runs in declared tiers with reproducible builds/stability/representative measures.",
         "Agent inspects/edits/compiles/runs/verifies/repairs/measures and presents reviewable proposal; required account/hardware acceptance uses real evidence.",
         "GPU physics/shaders/CPU fallback have real per-tier evidence; software WebGPU/Null cannot replace hardware or close a hardware blocker."
       ],
-      "demo": "Original Axiom End-to-End Sample from master-spec sections138\u2013139, expanded with SDK conformance.",
+      "demo": "Original Axiom End-to-End Sample from master-spec sections138–139, expanded with SDK conformance.",
       "plan": "docs/architecture/M40_PLAN.md"
     }
   ],

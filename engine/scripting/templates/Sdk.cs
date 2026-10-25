@@ -183,6 +183,7 @@ public readonly record struct Entity(string Id, int Generation) {
  public Entity Spawn(Vec3 position) => Context.Spawn(this,position);
 }
 public abstract class Script : Behaviour {
+ internal bool RuntimeRemoved;
  public virtual void OnStart() {}
  public virtual void OnUpdate(double deltaSeconds) {}
  public virtual void OnStop() {}
@@ -289,7 +290,7 @@ internal static partial class Context {
  }
  internal static bool IsActive(string id){for(var depth=0;id!=null&&depth<64;depth++){if(!ActiveStates.GetValueOrDefault(id,true))return false;id=Parents.GetValueOrDefault(id)!;}return true;}
  internal static void Activate(Entity entity,bool active){_=Read(entity);ActiveStates[entity.Id]=active;Add(new("active",entity.Id,null,default,null,active?"true":"false"));RuntimeLifecycle.Activation();}
- internal static void Destroy(Entity entity){_=Read(entity);var ids=new HashSet<string>{entity.Id};bool changed=true;while(changed){changed=false;foreach(var pair in Parents)if(pair.Value!=null&&ids.Contains(pair.Value)&&ids.Add(pair.Key))changed=true;}Add(new("destroy",entity.Id,null,default,null));foreach(var script in LiveScripts.Where(script=>ids.Contains(script.Entity.Id)).ToArray()){RuntimeLifecycle.Remove(script);LiveScripts.Remove(script);ScriptPaths.Remove(script);}foreach(var id in ids){Entities.Remove(id);EntityData.Remove(id);Parents.Remove(id);ActiveStates.Remove(id);Bodies.Remove(id);Cameras.Remove(id);AudioSources.Remove(id);Animators.Remove(id);AnimationStates.Remove(id);Grounded.Remove(id);SceneManagement.SceneManager.Owners.Remove(id);SceneManagement.SceneManager.MetadataDirty=true;SceneManagement.SceneManager.Persistent.Remove(id);AI.NavMeshAgent.Agents.Remove(id);}}
+ internal static void Destroy(Entity entity){_=Read(entity);var ids=new HashSet<string>{entity.Id};bool changed=true;while(changed){changed=false;foreach(var pair in Parents)if(pair.Value!=null&&ids.Contains(pair.Value)&&ids.Add(pair.Key))changed=true;}Add(new("destroy",entity.Id,null,default,null));foreach(var script in LiveScripts.Where(script=>ids.Contains(script.Entity.Id)).ToArray()){RuntimeLifecycle.Remove(script);LiveScripts.Remove(script);ScriptPaths.Remove(script);}foreach(var id in ids){RetireIdentities(id);Entities.Remove(id);EntityData.Remove(id);Parents.Remove(id);ActiveStates.Remove(id);Bodies.Remove(id);Cameras.Remove(id);AudioSources.Remove(id);Animators.Remove(id);AnimationStates.Remove(id);Grounded.Remove(id);SceneManagement.SceneManager.Owners.Remove(id);SceneManagement.SceneManager.MetadataDirty=true;SceneManagement.SceneManager.Persistent.Remove(id);AI.NavMeshAgent.Agents.Remove(id);}}
  internal static void Log(string message) {
   if(message.Length>2048||Logs>=Limits.Logs)throw new InvalidOperationException("AX_SCRIPT_0003: log limit exceeded");
   Add(new("log","",null,default,message));Logs++;
