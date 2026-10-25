@@ -25,7 +25,7 @@ try {
    child=new GameObject("Runtime Child");child.transform.SetParent(transform,false);child.transform.localPosition=new Vector3(1,2,0);
    Check(Vector3.Distance(child.transform.position,new Vector3(11,2,0))<.00001,"local/world transform");
    child.tag="Player";child.layer=4;Check(GameObject.FindWithTag("Player")!.name==child.name,"tag query");
-   var collider=child.AddComponent<BoxCollider>();var body=child.AddComponent<Rigidbody>();Object.Destroy(body);Check(child.GetComponent<Rigidbody>()==null&&child.GetComponent<BoxCollider>()!=null,"remove component destroyed object");
+   var collider=child.AddComponent<BoxCollider>();var body=child.AddComponent<Rigidbody>();Object.DestroyImmediate(body);Check(child.GetComponent<Rigidbody>()==null&&child.GetComponent<BoxCollider>()!=null,"remove component destroyed object");
    var bodyOnly=new GameObject("2D body");Check(bodyOnly.AddComponent<Rigidbody2D>()!=null,"body-only 2D facade");Check(bodyOnly.AddComponent<BoxCollider2D>()!=null,"2D collider attachment");Object.Destroy(bodyOnly);
    var extra=child.AddComponent<Extra>();extra.Value=7;
    var grandchild=new GameObject("Nested");grandchild.transform.SetParent(child.transform,false);grandchild.transform.localPosition=new Vector3(0,1,0);
@@ -39,7 +39,7 @@ try {
   private IEnumerator RealtimeRoutine(){yield return new WaitForSecondsRealtime(.04);Unscaled++;yield return new WaitUntil(()=>Updates>=1);yield return null;Debug.Log("coroutine-finished");}
   private void Ping(){Invoked++;}private void Repeat(){throw new System.Exception("cancelled invocation executed");}
   public override void FixedUpdate(){Check(Time.inFixedTimeStep&&Time.deltaTime==Time.fixedDeltaTime,"fixed time mismatch");Fixed++;}
-  public override void Update(){Updates++;ObserverUpdated=false;if(Updates==1){Check(cloned!.transform.Find("Nested")!=null,"clone child name changed across host phases");Object.Destroy(cloned);Check(!cloned,"destroyed handle truthiness");}if(Updates==7){StartCoroutine(ScaledRoutine());StartCoroutine(RealtimeRoutine());Invoke(nameof(Ping),.04);}Time.timeScale=Paused?0:1;}
+  public override void Update(){Updates++;ObserverUpdated=false;if(Updates==1){Check(cloned!.transform.Find("Nested")!=null,"clone child name changed across host phases");Object.Destroy(cloned);Check(cloned,"destroy retains handle during Update");}if(Updates==2){Check(!cloned,"destroyed handle after frame completion");}if(Updates==7){StartCoroutine(ScaledRoutine());StartCoroutine(RealtimeRoutine());Invoke(nameof(Ping),.04);}Time.timeScale=Paused?0:1;}
   public override void LateUpdate(){Check(ObserverUpdated,"LateUpdate ran before all Updates");}
  }
 `,

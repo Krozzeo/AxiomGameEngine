@@ -1,4 +1,24 @@
+# 0.0.60 — shared providers and version-owned demos
+
+New experimental build: declare `project.demos` and the version-owned M20 Object Lifecycle Lab catalog. Platform0.1.11 can generate it into configured storage without CLI steps, using a fresh authorized destination, explicit demo IDs and operation receipts. Older published0.0.60 builds remain immutable. SDK10/native formats1/M20.2 behavior remain unchanged; Math demos and M20.3 are not included.
+
+Pin public Platform0.1.9 source/integrity so inherited local/provider model IDs may include slashes. Retain the host-owned account connection and semantic tool/review boundary. Native formats1, scripting SDK10 and M20.2 behavior are unchanged; this integration does not close M20.
+
 # Changelog
+
+## 0.0.59 — M20 query/order/graph batch (review)
+
+- Functional Type/interface/list component queries and active/inactive object searches; self is always included in hierarchy searches. Component order follows attachment, supports index access and survives cloning.
+- Typed graph/reference/array remapping preserves literal strings; parenting and hydration finish before Awake. Clone metadata uses fresh IDs and runtime clones detach prefab authoring links. Unsupported managed serialization/navigation clone profiles reject explicitly before creating objects. Invalid mixed-dimension component additions reject without partial changes.
+- SDK10 forces recompilation; native formats1 and shared-account authority remain unchanged. Native87 and editable C#/Wasm32 behavior checks. M20 is still open; UnityEngine namespace and full assigned-signature acceptance remain pending.
+
+
+## 0.0.58 — M20.1 identity/lifetime (review batch)
+
+- M19 #60 is merged and stable0.0.57 is publicly published and verified through Platform. Main CI passed after an unchanged retry of the intermittent M9 menu-close wait.
+- Stable object/component wrapper identities, null-like destroyed references, deferred Destroy, scaled deadlines, explicit DestroyImmediate and idempotent recursive teardown. Retire destroyed identity records and reject stale component access.
+- SDK9 requires recompilation; native formats1 and shared-account authority remain unchanged. Object Lifecycle Lab:17 behavior checks and full Stop restoration; native29 checks include1,000 destruction cycles. M20 remains open; canonical UnityEngine/full signature certification is not claimed.
+
 
 ## 0.0.57 — M19 compatibility audit
 

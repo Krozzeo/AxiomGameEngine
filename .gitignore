@@ -12,3 +12,5 @@ scripts/compatibility/Surface/obj/
 scripts/compatibility/__pycache__/
 scripts/compatibility/Metadata/bin/
 scripts/compatibility/Metadata/obj/
+tests/csharp/**/bin/
+tests/csharp/**/obj/

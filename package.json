@@ -1,6 +1,6 @@
 {
   "name": "axiom-engine",
-  "version": "0.0.57",
+  "version": "0.0.60",
   "private": true,
   "type": "module",
   "packageManager": "npm@11.9.0",
@@ -82,10 +82,13 @@
     "version": "node scripts/sync-product-version.mjs",
     "test:browser:reference-refresh": "node tests/browser/reference-drag-refresh.mjs",
     "demo:m19": "node demos/create-m19-project.mjs",
-    "test:browser:m19": "node tests/browser/m19.mjs"
+    "test:browser:m19": "node tests/browser/m19.mjs",
+    "demo:m20": "node demos/create-m20-project.mjs",
+    "test:browser:m20": "node tests/browser/m20.mjs",
+    "test:native:m20": "dotnet run --project tests/csharp/M20.Objects/M20.Objects.csproj"
   },
   "dependencies": {
-    "axiom-platform": "https://codeload.github.com/Krozzeo/AxiomPlatform/tar.gz/6e8e05d3934e649df1fb89228b3bac2965d37018",
+    "axiom-platform": "https://codeload.github.com/Krozzeo/AxiomPlatform/tar.gz/d9561e94d7285d30d8e056f7e58b21f1ec163180",
     "fflate": "0.8.3",
     "occt-import-js": "0.0.23",
     "pdfjs-dist": "5.4.296",

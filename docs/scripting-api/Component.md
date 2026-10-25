@@ -30,21 +30,46 @@ Transforms use world position/rotation. localScale writes the runtime scale. Leg
 
 ```csharp
 public partial class Component : Object {
- public Entity Entity {get;internal set;}
- public GameObject gameObject=>new(Entity);
- public Transform transform=>new(Entity);
- public T? GetComponent<T>() where T:Component=>gameObject.GetComponent<T>();
- public T? GetComponentInChildren<T>() where T:Component {var own=GetComponent<T>();if(own!=null)return own;for(var i=0;i<transform.childCount;i++){var found=transform.GetChild(i).GetComponentInChildren<T>();if(found!=null)return found;}return null;}
- public T? GetComponentInParent<T>() where T:Component {Transform? current=transform;while(current!=null){var component=current.GetComponent<T>();if(component!=null)return component;current=current.parent;}return null;}
- public bool TryGetComponent<T>(out T? component) where T:Component {component=GetComponent<T>();return component!=null;}
+ private Entity entity;
+ public Entity Entity {get=>entity;internal set{entity=value;BindIdentity(value,Context.ComponentKey(GetType())??(this is Script?"script:"+ManagedIdentity:GetType().FullName!));}}
+ public GameObject gameObject {get{if(!this)throw new InvalidOperationException("Component reference has been destroyed or is not attached");return new(Entity);}}
+ public Transform transform=>gameObject.transform;
+ public T? GetComponent<T>()=>gameObject.GetComponent<T>();
+ public T? GetComponentInChildren<T>()=>gameObject.GetComponentInChildren<T>();
+ public T? GetComponentInParent<T>()=>gameObject.GetComponentInParent<T>();
+ public bool TryGetComponent<T>(out T? component) {component=GetComponent<T>();return component!=null;}
 }
 
 public partial class Component {
  public string name {get=>gameObject.name;set=>gameObject.name=value;}
  public string tag {get=>gameObject.tag;set=>gameObject.tag=value;}
  public bool CompareTag(string value)=>gameObject.CompareTag(value);
- public T[] GetComponents<T>() where T:Component=>gameObject.GetComponents<T>();
- public T[] GetComponentsInChildren<T>(bool includeInactive=false) where T:Component=>gameObject.GetComponentsInChildren<T>(includeInactive);
- public T[] GetComponentsInParent<T>(bool includeInactive=false) where T:Component=>gameObject.GetComponentsInParent<T>(includeInactive);
+ public T[] GetComponents<T>()=>gameObject.GetComponents<T>();
+ public T[] GetComponentsInChildren<T>(bool includeInactive)=>gameObject.GetComponentsInChildren<T>(includeInactive);
+ public T[] GetComponentsInParent<T>(bool includeInactive)=>gameObject.GetComponentsInParent<T>(includeInactive);
+}
+
+public partial class Component {
+ public int GetComponentIndex()=>gameObject.GetComponentIndex(this);
+ public Component? GetComponent(Type type)=>gameObject.GetComponent(type);
+ public Component[] GetComponents(Type type)=>gameObject.GetComponents(type);
+ public bool TryGetComponent(Type type,out Component? component)=>gameObject.TryGetComponent(type,out component);
+ public void GetComponents(Type type,List<Component> results)=>gameObject.GetComponents(type,results);
+ public void GetComponents<T>(List<T> results)=>gameObject.GetComponents(results);
+ public Component? GetComponentInChildren(Type type)=>gameObject.GetComponentInChildren(type);
+ public Component? GetComponentInChildren(Type type,bool includeInactive)=>gameObject.GetComponentInChildren(type,includeInactive);
+ public Component[] GetComponentsInChildren(Type type)=>gameObject.GetComponentsInChildren(type);
+ public Component[] GetComponentsInChildren(Type type,bool includeInactive)=>gameObject.GetComponentsInChildren(type,includeInactive);
+ public Component? GetComponentInParent(Type type)=>gameObject.GetComponentInParent(type);
+ public Component? GetComponentInParent(Type type,bool includeInactive)=>gameObject.GetComponentInParent(type,includeInactive);
+ public Component[] GetComponentsInParent(Type type)=>gameObject.GetComponentsInParent(type);
+ public Component[] GetComponentsInParent(Type type,bool includeInactive)=>gameObject.GetComponentsInParent(type,includeInactive);
+ public T? GetComponentInChildren<T>(bool includeInactive)=>gameObject.GetComponentInChildren<T>(includeInactive);
+ public T? GetComponentInParent<T>(bool includeInactive)=>gameObject.GetComponentInParent<T>(includeInactive);
+ public T[] GetComponentsInChildren<T>()=>gameObject.GetComponentsInChildren<T>();
+ public T[] GetComponentsInParent<T>()=>gameObject.GetComponentsInParent<T>();
+ public void GetComponentsInChildren<T>(List<T> results)=>gameObject.GetComponentsInChildren(results);
+ public void GetComponentsInChildren<T>(bool includeInactive,List<T> results)=>gameObject.GetComponentsInChildren(includeInactive,results);
+ public void GetComponentsInParent<T>(bool includeInactive,List<T> results)=>gameObject.GetComponentsInParent(includeInactive,results);
 }
 ```

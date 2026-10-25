@@ -1,6 +1,6 @@
 # M19 — Complete audit and compatibility contract
 
-Engine0.0.57 / SDK8 / native formats1. [Review PR#60](https://github.com/Krozzeo/AxiomGameEngine/pull/60). Local audit acceptance: **4/4 (100%)**. This is a review candidate; exact-head remote CI, main integration and release publication are separate. M20–M40 implementation remains pending.
+Engine0.0.57 / SDK8 / native formats1. [PR#60](https://github.com/Krozzeo/AxiomGameEngine/pull/60) was explicitly approved and merged into main46e2bbc86f7eec5891c0e92074b2ae870c9253db. Audit acceptance: **4/4 (100%)**. Main CI40135221130 attempt2 passed; stable [v0.0.57](https://github.com/Krozzeo/AxiomGameEngine/releases/tag/v0.0.57) is publicly published and verified through actual Platform download/install and project create/save/reopen. The first main attempt had a retained M9 intermittent menu-close wait failure; unchanged local and remote retries passed. Historical evidence below remains attributed to its original run. [M20 is now in progress](M20_REPORT.md); this audit adds no Unity implementation credit.
 
 ## Outcome
 

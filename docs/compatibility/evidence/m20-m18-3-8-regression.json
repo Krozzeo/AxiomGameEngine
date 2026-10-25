@@ -1,0 +1,61 @@
+{
+  "criteria": [
+    "Runtime clone appears under its parent with exact (clone) name, selects from Hierarchy and Scene, and highlights both views.",
+    "Runtime API Lab compiles and executes hierarchy cloning, component removal, coroutines, Invoke and real fixed phases without a script fault; Stop preserves authoring.",
+    "Repeated Play/Stop during asynchronous worker frames resumes stopped rendering instead of freezing the last Play diagnostic.",
+    "Named Scene, Game and Hierarchy captures return real bounded PNGs without switching active view or Play.",
+    "The Responses adapter receives actual input_image content; More Info keeps bounded metadata without image bytes.",
+    "Apply is immediately durable: close/open preserves the accepted change without an explicit Save.",
+    "Physics 2D API Lab compiles the physical script, falls on its floor, jumps with Space through the native solver and restores authored state on Stop.",
+    "Physics 3D API Lab compiles the physical script, falls on its floor, jumps with Space through the native solver and restores authored state on Stop."
+  ],
+  "errors": [],
+  "provider": "Controlled Responses adapter. Real engine screenshots and .NET/Wasm runtime; no paid requests.",
+  "currentMotion": {
+    "dimension": 3,
+    "restingHeight": -0.3508085887901282
+  },
+  "motion": [
+    {
+      "dimension": 2,
+      "restingHeight": -0.3507720671825549,
+      "samples": [
+        {
+          "y": -0.19307129441980841,
+          "vy": 4.641461253452664,
+          "spin": 6.000005973536022,
+          "frame": 1782,
+          "fault": null
+        },
+        {
+          "y": 0.5456028381716785,
+          "vy": 2.3682264269343625,
+          "spin": 6.000005973536022,
+          "frame": 1795,
+          "fault": null
+        }
+      ]
+    },
+    {
+      "dimension": 3,
+      "restingHeight": -0.3508085887901282,
+      "samples": [
+        {
+          "y": -0.35077503581225683,
+          "vy": 5.000000058716765,
+          "spin": 11.999999771270964,
+          "frame": 2115,
+          "fault": null
+        },
+        {
+          "y": 0.5899855251742407,
+          "vy": 2.1974009565050676,
+          "spin": 11.999999771270964,
+          "frame": 2117,
+          "fault": null
+        }
+      ]
+    }
+  ],
+  "passed": true
+}

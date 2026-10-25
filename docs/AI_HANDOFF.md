@@ -1,3 +1,33 @@
+# Version-owned demo integration — Engine0.0.60 new experimental build
+
+Optional IPC1 capability `project.demos` plus a manifest demo catalog enable Platform0.1.11 Load Demos. This build declares only M20 Object Lifecycle Lab; generation requires a fresh authorized destination and explicit declared IDs, returns native project paths and replays operation receipts. The original public0.0.60 artifact is immutable. Math Lab demos are deferred. SDK10, native formats1 and M20.2 behavior remain unchanged; this does not close M20 or add Unity signatures. [Guide](../demos/M20_GUIDE.md).
+
+# Integration handoff — Engine0.0.60 / Platform0.1.9 SDK
+
+Public provider pin d9561e94d7285d30d8e056f7e58b21f1ec163180 supports slash-containing model IDs and strips all configured provider credentials from child environments. Host provider adapters keep the existing stateless tool/result/usage contract. Account connection remains exclusively in Platform; project model/reasoning overrides remain independent. M20.2 behavior is the preceding0.0.59 batch, SDK10/native formats1 are unchanged, and M20.3/assigned closure gates remain pending. No automatic merge; preserve stable0.0.57 and experimental0.0.59 recovery/publication.
+
+# Current handoff — M20 in progress / Engine0.0.59 / SDK10
+
+M19 is stable v0.0.57. M20.1 public experimental0.0.58 at9236610ff42a561125033a8e59987149035bf9ea passed CI350/48 checks and actual public Platform download, side-by-side installation, explicit activation, hosted packaged17-check C#/Wasm demo and save/close. [Public evidence](compatibility/evidence/m20-public-0.0.58.json).
+
+Current0.0.59/SDK10 review batch adds Type/interface/list component queries, active/inactive searches, stable component attachment order and indices, and graph cloning with remapped object/component/array references while preserving literal strings. Awake sees final parenting and completed references; unsupported managed fields/navigation clone profiles reject explicitly before creation. Native87 checks and real editable development-Wasm32 checks pass locally. M20 remains open, with0/3 full closure criteria and0 certified full Unity signatures. Next: canonical UnityEngine/numeric/transform migration and all assigned async/obsolete/dependency gates. [Report](reports/M20_REPORT.md).
+
+Native formats1, shared Platform account authority, user projects and recovery refs remain intact. Exact-head remote CI/publication is independent; no auto-merge. Older sections below are history.
+
+---
+
+# Current handoff — M20 in progress / Engine0.0.58 / SDK9
+
+M19 #60 was owner-approved and merged at46e2bbc86f7eec5891c0e92074b2ae870c9253db. Main CI40135221130 attempt2 passed after an intermittent M9 menu-close timeout; unchanged local/remote retries passed. Stable v0.0.57 is published and verified via actual Platform download, install and project create/save/reopen. [M20 report](reports/M20_REPORT.md).
+
+The first M20.1 behavior batch fixes wrapper equality/null/identity and deferred destruction, includes component epochs, stable hashes, bounded scheduling, recursive teardown and identity retirement. Native29 checks, development-Wasm17 lab checks and full456 regression checks pass locally. M19 now expects27/27 observations; retain its historical25/2 snapshot. Complete M20 acceptance remains0/3, with311 assigned signatures and zero certified full Unity namespace/behavior signatures. Next: M20.2 queries/order/graph clones, then M20.3 namespace/numeric/transform migration corpus. No auto-merge.
+
+SDK9 invalidates old script builds; native formats1 and the public Platform pin stay unchanged. Account credentials remain in Platform. User projects and recovery refs are preserved. [Demo](../demos/M20_GUIDE.md), [ledger](compatibility/m20-batches.json), [plan](architecture/M20_PLAN.md). Exact-head CI/publication must be recorded independently; this first batch is not whole-milestone closure.
+
+Earlier sections below are retained history.
+
+---
+
 # Current handoff — M19 / Engine0.0.57
 
 Base consolidation is complete: Engine#59 → main791c54a509f759777ecf2266c86fce80d2275920; Platform#9 → main7c03b7fc6f25fdceeda645bd1bf33534751e68e9; Math Lab#2 → main4171441658640a6d8da29dcdcee5b27888a3aa75. Their CI passed before owner-authorized merges. Engine#54/#56/#57/#58 were closed only after verifying their heads were ancestors of main. Recovery refs remain untouched.

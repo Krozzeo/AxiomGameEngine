@@ -1,0 +1,22 @@
+{
+  "commit": "9236610ff42a561125033a8e59987149035bf9ea",
+  "criteria": [
+    "Actual public0.0.58 ZIP passes SHA256, extraction and handshake, installs alongside stable0.0.57 and activates explicitly",
+    "Downloaded packaged demo opens through the Hub product shell, compiles real SDK9 C#/Wasm, passes17 lifecycle checks and stops normally",
+    "Hosted downloaded product saves and closes its real project"
+  ],
+  "pageErrors": [],
+  "source": "Actual public prepared download; independent of the newer local development tree",
+  "passed": true,
+  "release": {
+    "url": "https://github.com/Krozzeo/AxiomGameEngine/releases/tag/experimental-pr-61-9236610ff42a561125033a8e59987149035bf9ea",
+    "artifact": {
+      "platform": "win32",
+      "arch": "x64",
+      "name": "AxiomGameEngine-0.0.58-experimental-9236610ff42a-win32-x64.zip",
+      "bytes": 57181628,
+      "sha256": "f146af576e95b91214ae82d92f5c687c21ef249d80baf78c664d29deb929c0fe",
+      "url": "https://github.com/Krozzeo/AxiomGameEngine/releases/download/experimental-pr-61-9236610ff42a561125033a8e59987149035bf9ea/AxiomGameEngine-0.0.58-experimental-9236610ff42a-win32-x64.zip"
+    }
+  }
+}
