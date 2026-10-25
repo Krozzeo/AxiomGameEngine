@@ -264,13 +264,9 @@ internal static partial class Context {
  internal static Entity FindCamera(Entity entity) {
   _=Read(entity);foreach(var id in Cameras){var parent=Parents.GetValueOrDefault(id);for(var depth=0;parent!=null&&depth<32;depth++){if(parent==entity.Id)return new Entity(id,Generation);parent=Parents.GetValueOrDefault(parent);}}throw new InvalidOperationException("AX_SCENE_0001: Player needs a child Camera");
  }
- internal static void Rotate(Entity entity,Quaternion rotation) {
-  var value=Read(entity);var length=Math.Sqrt(rotation.X*rotation.X+rotation.Y*rotation.Y+rotation.Z*rotation.Z+rotation.W*rotation.W);if(!double.IsFinite(length)||length<1e-9)throw new ArgumentException("AX_SCRIPT_0003: invalid rotation");var normalized=new Quaternion(rotation.X/length,rotation.Y/length,rotation.Z/length,rotation.W/length);Add(new("rotation",entity.Id,null,default,null,Rotation:normalized));Entities[entity.Id]=new Transform(value.Position,normalized,value.Scale){Entity=entity};FollowChildren(entity,value);
- }
- internal static void Scaling(Entity entity,Vector3 scale){var v=Read(entity);Position(scale);Add(new("scale",entity.Id,null,scale,null));Entities[entity.Id]=new Transform(v.Position,v.Rotation,scale){Entity=entity};FollowChildren(entity,v);}
- internal static void Move(Entity entity,Vec3 position) {
-  var value=Read(entity);Position(position);Add(new("move",entity.Id,null,position,null));Entities[entity.Id]=new Transform(position,value.Rotation,value.Scale){Entity=entity};FollowChildren(entity,value);
- }
+ internal static void Rotate(Entity entity,Quaternion rotation)=>ChangeTransform(entity,rotation:rotation);
+ internal static void Scaling(Entity entity,Vector3 scale)=>ChangeTransform(entity,scale:scale);
+ internal static void Move(Entity entity,Vec3 position)=>ChangeTransform(entity,position:position);
  internal static Entity Spawn(Entity template,Vec3 position) {
   var value=Read(template);Position(position);
   if(Entities.Count>=Limits.Entities)throw new InvalidOperationException("AX_SCRIPT_0003: spawn limit exceeded");

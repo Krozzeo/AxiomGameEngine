@@ -1,6 +1,6 @@
 {
   "name": "axiom-engine",
-  "version": "0.0.60",
+  "version": "0.0.61",
   "private": true,
   "type": "module",
   "packageManager": "npm@11.9.0",
@@ -85,7 +85,9 @@
     "test:browser:m19": "node tests/browser/m19.mjs",
     "demo:m20": "node demos/create-m20-project.mjs",
     "test:browser:m20": "node tests/browser/m20.mjs",
-    "test:native:m20": "dotnet run --project tests/csharp/M20.Objects/M20.Objects.csproj"
+    "test:native:m20": "dotnet run --project tests/csharp/M20.Objects/M20.Objects.csproj",
+    "audit:m20": "node scripts/compatibility/m20-closure.mjs",
+    "check:m20-closure": "node scripts/compatibility/m20-closure.mjs --require-closed"
   },
   "dependencies": {
     "axiom-platform": "https://codeload.github.com/Krozzeo/AxiomPlatform/tar.gz/d9561e94d7285d30d8e056f7e58b21f1ec163180",

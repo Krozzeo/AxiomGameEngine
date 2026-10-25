@@ -4,15 +4,17 @@
   "targetRecords": 311,
   "status": "in_progress",
   "certifiedUnitySignatures": 0,
-  "batch": "20.1 identity/lifetime plus 20.2 queries/order/graph alias behavior",
+  "batch": "20.1/20.2 behavior plus partial 20.3 transform contracts; milestone closure blocked",
   "evidence": {
     "native": "evidence/m20-queries-native-windows.json",
     "developmentWasm": "evidence/m20-queries-development-wasm.json"
   },
   "requiredRemaining": [
-    "M20.3 UnityEngine namespace/numeric/transform migration corpus",
-    "Complete assigned overload, obsolete and async dependency acceptance",
-    "Unsupported managed serialization and navigation-agent cloning remain explicit dependencies"
+    "Canonical UnityEngine object/component/Transform namespace and float types with preserved Axiom.Gameplay interoperation; unadapted migration corpus currently fails CS0246",
+    "Full Transform matrix/shear/zero-scale local representation and remaining properties/overloads",
+    "Assigned Object async instantiation/cancellation/activation and package NativeArray/EntityId/TransformHandle profiles",
+    "Assigned message/tag/obsolete APIs and exact positive/negative overload attribution",
+    "Managed serialization and navigation-agent graph cloning dependencies; complete native/Wasm/AOT and project regression acceptance"
   ],
   "records": [
     {
@@ -3132,6 +3134,35 @@
       "nativeChecks": 87,
       "developmentWasmChecks": 32,
       "status": "query/order/graph review batch; exact-head CI/publication separate"
+    },
+    {
+      "id": "20.3a",
+      "version": "0.0.61",
+      "sdkVersion": 11,
+      "nativeChecks": 138,
+      "newNativeChecks": 51,
+      "developmentWasmChecks": 51,
+      "newDevelopmentWasmChecks": 19,
+      "status": "Partial legacy transform behavior; canonical migration fails and M20 remains open"
     }
-  ]
+  ],
+  "transformEvidence": {
+    "native": "evidence/m20-transforms-native-windows.json",
+    "developmentWasm": "evidence/m20-transforms-development-wasm.json",
+    "unadaptedMigration": "evidence/m20-unadapted-migration.json"
+  },
+  "closureCriteria": {
+    "unadaptedUnityCorpus": {
+      "status": "blocked",
+      "reason": "Own SDK does not define canonical UnityEngine namespace/types; unadapted corpus fails CS0246"
+    },
+    "hierarchyReferenceLifecycle": {
+      "status": "partial",
+      "reason": "138 native and 51 Wasm behavior observations pass; exact signatures, shear/zero-scale matrices, assigned async and dependency profiles remain open"
+    },
+    "regressionAndDependencies": {
+      "status": "partial",
+      "reason": "Current local regression evidence is recorded separately; all assigned overload/obsolete/package/serialization/navigation acceptance is still required"
+    }
+  }
 }

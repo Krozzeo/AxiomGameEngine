@@ -17,6 +17,8 @@ export async function createM20Project(root,{folders=false}={}){
  const helper='Scripts/ObjectGraphProbe.cs';await run('project.files.edit',{action:'create',kind:'script',path:helper});await run('project.files.edit',{action:'write',path:helper,text:await readFile(new URL('./scripts/ObjectGraphProbe.cs',import.meta.url),'utf8')});
  await run('scene.script.edit',{entityId:controller.id,path,action:'attach'});
  await run('scene.script.edit',{entityId:controller.id,path,action:'values',values:{Template:{entityId:cube.id}}});
- await run('scene.save');return {id:w.project.id,probeId:controller.id,path,name:w.project.name};
+ const transformPath='Scripts/TransformContractsLab.cs';await run('project.files.edit',{action:'create',kind:'script',path:transformPath});await run('project.files.edit',{action:'write',path:transformPath,text:await readFile(new URL('./scripts/TransformContractsLab.cs',import.meta.url),'utf8')});
+ await run('scene.entity.create',{name:'Transform Contracts Controller'});const transformController=w.project.scene.entities.find(e=>e.name==='Transform Contracts Controller');await run('scene.script.edit',{entityId:transformController.id,path:transformPath,action:'attach'});
+ await run('scene.save');return {id:w.project.id,probeId:controller.id,transformProbeId:transformController.id,path,name:w.project.name};
 }
 if(process.argv[1]===fileURLToPath(import.meta.url))console.log(JSON.stringify(await createM20Project((await new HubSettings().load()).projectRoot,{folders:true})));

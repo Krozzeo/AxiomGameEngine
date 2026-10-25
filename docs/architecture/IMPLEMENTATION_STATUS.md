@@ -1,3 +1,11 @@
+# M20.3a transform behavior — Engine 0.0.61 / SDK11
+
+M20 remains **in progress**. This batch fixes host publication of descendant transforms, atomic pose/reparent rejection and adds tested legacy Euler/axis/orbit/look/direction/span APIs. 138 native observations and 32 lifecycle + 19 transform development-Wasm observations pass, including next-frame consistency and exact Stop restoration. The required unadapted UnityEngine corpus fails CS0246; all 311 assigned records and 0 certified exact signatures remain visible.
+
+Full Transform matrices/shear/zero-scale local state, canonical namespace/float interoperation, async and package profiles, message/tag/obsolete overloads and managed/navigation clone dependencies remain required. See [partial report](../reports/M20_TRANSFORM_BATCH.md). Stable main remains 0.0.57. No automatic merge or milestone closure. Older sections below retain historical versions.
+
+---
+
 # Confirmed implementation status
 
 Current branch candidate: **0.0.59 / SDK10 / M20 in progress**. M19 is merged and published as stable0.0.57. Earlier experimental0.0.58/SDK9 passed48 CI checks and actual public Platform installation/hosted-demo acceptance. The current query/order/graph expansion passes457 Engine tests,87 native SDK cases,32 editable development-Wasm checks, M19's27 observations and the eight M18.3.8 browser criteria locally. Exact-head CI and publication remain independent gates. [M20 report](../reports/M20_REPORT.md), [M19 report](../reports/M19_REPORT.md), [strict coverage baseline](../compatibility/README.md). Older evidence below retains its historical scope.

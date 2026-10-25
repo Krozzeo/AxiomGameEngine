@@ -1,0 +1,10 @@
+{
+  "passed": false,
+  "status": "blocked",
+  "command": "dotnet build tests/csharp/M20.Migration/M20.Migration.csproj --nologo",
+  "exitCode": 1,
+  "diagnostic": "CS0246: UnityEngine namespace not found",
+  "profile": "Own SDK templates only; no vendor binary and no source rewriting",
+  "corpus": "tests/csharp/M20.Migration/HierarchyMigration.cs",
+  "note": "This is a failed required gate, not a successful negative API test. Legacy Axiom.Gameplay behavior does not substitute for source migration."
+}

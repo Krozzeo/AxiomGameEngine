@@ -1,3 +1,11 @@
+# M20.3a transform behavior — Engine 0.0.61 / SDK11
+
+M20 remains **in progress**. This batch fixes host publication of descendant transforms, atomic pose/reparent rejection and adds tested legacy Euler/axis/orbit/look/direction/span APIs. 138 native observations and 32 lifecycle + 19 transform development-Wasm observations pass, including next-frame consistency and exact Stop restoration. The required unadapted UnityEngine corpus fails CS0246; all 311 assigned records and 0 certified exact signatures remain visible.
+
+Full Transform matrices/shear/zero-scale local state, canonical namespace/float interoperation, async and package profiles, message/tag/obsolete overloads and managed/navigation clone dependencies remain required. See [partial report](reports/M20_TRANSFORM_BATCH.md). Stable main remains 0.0.57. No automatic merge or milestone closure. Older sections below retain historical versions.
+
+---
+
 # Version-owned demo integration — Engine0.0.60 new experimental build
 
 Optional IPC1 capability `project.demos` plus a manifest demo catalog enable Platform0.1.11 Load Demos. This build declares only M20 Object Lifecycle Lab; generation requires a fresh authorized destination and explicit declared IDs, returns native project paths and replays operation receipts. The original public0.0.60 artifact is immutable. Math Lab demos are deferred. SDK10, native formats1 and M20.2 behavior remain unchanged; this does not close M20 or add Unity signatures. [Guide](../demos/M20_GUIDE.md).

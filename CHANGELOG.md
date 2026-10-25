@@ -1,3 +1,10 @@
+# 0.0.61 — M20.3a transform behavior (partial)
+
+- Publish descendant world-space position/rotation/scale operations to the host so changes survive the next frame. Validate the whole hierarchy and operation budget before changing any poses. Reparent and combined pose failures retain previous state.
+- Add legacy Transform Euler Z-X-Y rotation, axis/space/orbit/look-at/direction setters, pose getters, scalar overloads, overlapping in-place/separate span transforms and immediate-child enumeration. Original Quaternion.Euler remains unchanged for existing projects.
+- Editable M20 lab retains its 32 lifecycle checks and adds a second controller with 19 transform/bridge checks. Native suite passes 138 cases. SDK11 recompiles old saved scripts; native formats stay1.
+- M20 stays open: unadapted UnityEngine corpus fails CS0246, strict certification remains0/311, and matrix/shear/async/package/clone dependencies remain. Closure audit rejects missing targets, changed signatures and false completion.
+
 # 0.0.60 — shared providers and version-owned demos
 
 New experimental build: declare `project.demos` and the version-owned M20 Object Lifecycle Lab catalog. Platform0.1.11 can generate it into configured storage without CLI steps, using a fresh authorized destination, explicit demo IDs and operation receipts. Older published0.0.60 builds remain immutable. SDK10/native formats1/M20.2 behavior remain unchanged; Math demos and M20.3 are not included.

@@ -1,3 +1,5 @@
+Current partial batch: **0.0.61 / SDK11 / M20.3a transform behavior**. Canonical migration corpus fails CS0246; all three full closure criteria remain open. [Batch report](../reports/M20_TRANSFORM_BATCH.md).
+
 # M20 — Compatible objects, components and hierarchies
 
 Approved plan since 2026-10-19. **In progress: M20.1 identity/lifetime and M20.2 query/order/graph behavior batches, Engine 0.0.59 / SDK10.** The preceding 0.0.58 / SDK9 experimental package is publicly verified. Whole-milestone acceptance remains open. [Report](../reports/M20_REPORT.md), [exact member ledger](../compatibility/m20-batches.json), [editable demo](../../demos/M20_GUIDE.md). Existing aliases and new behavior checks are not certified Unity source signatures.

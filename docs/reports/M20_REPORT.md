@@ -1,3 +1,5 @@
+Current batch: **0.0.61 / SDK11 / M20.3a partial transform behavior**. [Current batch and failed closure gate](M20_TRANSFORM_BATCH.md). Native138 and editable development-Wasm51 observations pass. The unadapted UnityEngine corpus fails CS0246. This milestone is **not closed**; older batch counts below remain historical.
+
 # M20 — Objects, components and hierarchies (in progress)
 
 Current review batch: Engine0.0.59 / scripting SDK10 / native formats1. Earlier public batch:0.0.58 / SDK9. This report does **not** close M20. The frozen denominator remains311 assigned signatures; alias behavior tests do not become certified Unity signatures.

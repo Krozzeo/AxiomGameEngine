@@ -1,3 +1,13 @@
+# 0.0.61 transform controller
+
+Install this experimental build through Platform0.1.11+ and click **Load Demos** on that installation. Open **Demo · M20 Object Lifecycle Lab**. A new **Transform Contracts Controller** runs the physical **Scripts/TransformContractsLab.cs**. At frame8 or later its Inspector must show **Passed19 / Failed0**. The original **Object Lifecycle Controller** still shows **Passed32 / Failed0** at frame12.
+
+The transform controller creates a three-generation hierarchy, checks parent translation/rotation/scaling after the next real frame, exercises inverse transforms, overlapping spans, invalid pose rejection, Z-X-Y rotation, look-at and detachment, then destroys its runtime objects. Stop restores the complete authored scene. Modify the normal script file in the IDE to inspect/retest the behavior. No special sample implementation is used.
+
+The lab uses Axiom.Gameplay double types. It does not certify canonical UnityEngine signatures or full matrix/shear/zero-scale behavior; M20 remains open. Loading demos preserves edited existing copies: to inspect the updated demo, use **Load Demos on the new0.0.61 installation**, rather than an old0.0.60 demo pinned to its original build.
+
+---
+
 # Object Lifecycle Lab — identity, queries and graph cloning
 
 ## Load through Axiom Platform

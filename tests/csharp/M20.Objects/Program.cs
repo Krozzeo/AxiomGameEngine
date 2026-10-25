@@ -64,6 +64,7 @@ try{_=collider!.gameObject;Check("stale component access rejected",false);}catch
 QueryCases.Run(Check,Reset);
 CloneCases.Run(Check,Reset);
 OrderCases.Run(Check,Reset);
+TransformCases.Run(Check,Reset);
 Console.WriteLine(System.Text.Json.JsonSerializer.Serialize(new {passed=true,profile="native .NET / Axiom alias behavior, not Unity signature certification",checks}));
 
 public sealed class DestructionProbe : MonoBehaviour {

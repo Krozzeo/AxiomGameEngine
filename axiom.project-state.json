@@ -2,14 +2,14 @@
   "$schema": "./protocol/schema/project-state.schema.json",
   "stateVersion": 1,
   "updatedAt": "2026-10-25",
-  "engineVersion": "0.0.60",
+  "engineVersion": "0.0.61",
   "activeMilestone": 20,
   "milestoneStatus": "in_progress",
   "completion": {
     "activeMilestonePercent": 0,
     "wholeProjectPercent": null,
     "method": "docs/architecture/MILESTONE_REPORTING.md",
-    "scopeNote": "M19 stable in main; M20 alias identity/lifetime and query/order/graph batches pass locally. Whole-milestone closure remains0/3 and full certified Unity signatures0. Native87 and development-Wasm32 are behavior checks, not API percentages.",
+    "scopeNote": "M19 stable in main. M20.3a adds tested legacy transform behavior (138 native, 51 development-Wasm observations); canonical UnityEngine migration fails CS0246. All 311 target records remain; certified full signatures 0 and whole-milestone closure 0/3. M20 is not closed.",
     "historicalMvpPercent": 94,
     "historicalMvpCompletedWeight": 122,
     "historicalMvpTotalWeight": 130
@@ -1531,7 +1531,9 @@
   },
   "blockedChecks": [
     "Live-account vision quality and actual billed token usage require a connected model; no paid requests were run.",
-    "M18.3.11 dense physics fluency remains unaccepted; this GitHub integration does not implement GPU physics."
+    "M18.3.11 dense physics fluency remains unaccepted; this GitHub integration does not implement GPU physics.",
+    "M20 source migration: unchanged UnityEngine corpus fails CS0246; whole-milestone closure remains open.",
+    "M20 Transform matrices/shear/zero-scale local state, assigned async/package/message/obsolete APIs and managed/navigation clone dependencies are incomplete."
   ],
   "protocolVersions": {
     "command": 1,
@@ -1744,8 +1746,8 @@
     "docs/compatibility/m20-batches.json",
     "demos/M20_GUIDE.md"
   ],
-  "nextTask": "Continue M20.3 canonical UnityEngine source/numeric/transform migration and assigned async/obsolete/dependency gates. Retain explicit serialization/navigation clone limitations. M20 is not closed; no automatic merge.",
-  "activeRevision": "Platform 0.1.9 shared-provider compatibility; M20.2 unchanged",
+  "nextTask": "Complete canonical UnityEngine/source/float migration, full Transform matrix/shear/local representation, assigned async/obsolete/package/message APIs and managed/navigation clone dependencies; run node scripts/compatibility/m20-closure.mjs --require-closed before any M20 closure.",
+  "activeRevision": "0.0.61 / SDK11 — partial M20.3a transform behavior; canonical migration gate fails",
   "roadmap": {
     "version": 2,
     "manifest": "docs/architecture/roadmap-v2.json",
