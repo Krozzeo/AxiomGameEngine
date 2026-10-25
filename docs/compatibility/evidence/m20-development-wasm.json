@@ -1,0 +1,33 @@
+{
+  "criteria": [
+    "Real C#/Wasm executes17 object identity, hierarchy, component replacement and destruction lifecycle checks",
+    "Stop restores the complete authored scene; runtime objects, fields and resource handles do not become authoring changes"
+  ],
+  "pageErrors": [],
+  "profile": "Axiom development C#/Wasm and Null editor; aliased observations, not native Unity conformance",
+  "cases": {
+    "identity.wrapper": "pass",
+    "identity.hash": "pass",
+    "identity.kinds": "pass",
+    "identity.parent": "pass",
+    "clone.identity": "pass",
+    "clone.component": "pass",
+    "destroy.deferred": "pass",
+    "destroy.null": "pass",
+    "destroy.managed": "pass",
+    "destroy.identity": "pass",
+    "destroy.distinct": "pass",
+    "component.owner-survives": "pass",
+    "component.new-identity": "pass",
+    "component.old-stays-dead": "pass",
+    "destroy.immediate": "pass",
+    "destroy.delay-pending": "pass",
+    "destroy.delay-complete": "pass"
+  },
+  "passedChecks": 17,
+  "failedChecks": 0,
+  "conformancePassed": false,
+  "knownDiscrepancies": [],
+  "note": "M20 fixes the two original alias discrepancies; exact Unity namespace/signature certification remains pending.",
+  "passed": true
+}

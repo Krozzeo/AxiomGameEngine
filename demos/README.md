@@ -1,3 +1,7 @@
+# M20 Object Lifecycle Lab
+
+[Editable identity/destruction/query/graph lab](M20_GUIDE.md). Generate with `npm run demo:m20`. Engine0.0.59 / SDK10 runs32 observable checks; whole milestone remains open.
+
 # M19 Compatibility Observatory
 
 [Editable demo and discrepancies](M19_GUIDE.md). Generate with `npm run demo:m19`; open Help → Compatibility Observatory for the inventory.

@@ -4,6 +4,12 @@ import {worldScene} from '../engine/scene/hierarchy.mjs';
 import {applyScriptOperations,runtimeScriptEntities} from '../engine/scripting/operations.mjs';
 const a='entity://11111111-1111-4111-8111-111111111111',b='entity://22222222-2222-4222-8222-222222222222';
 const scene=()=>({entities:[{id:a,name:'Root',transform:{position:[0,0,0],rotation:[0,0,0,1],scale:[1,1,1]}}]});
+test('runtime cloning detaches prefab authoring links and retains the untouched template',()=>{
+ const source=scene();source.entities[0].prefab={path:'Assets/Example.prefab.json',rootId:a};
+ const next=applyScriptOperations(source,{generation:1,operations:[{kind:'spawn',id:b,template:a,position:[2,0,0]}]},1);
+ assert.equal(next.scene.entities[1].id,b);assert.equal(next.scene.entities[1].prefab,undefined);
+ assert.deepEqual(source.entities[0].prefab,{path:'Assets/Example.prefab.json',rootId:a});
+});
 test('runtime creation, component structural edits, metadata and hierarchy publish atomically',()=>{
  const source=scene(),result=applyScriptOperations(source,{generation:1,operations:[{kind:'create',id:b,name:'Child'},{kind:'parent',id:b,name:a},{kind:'property',id:b,name:'runtimeTag',data:'Player'},{kind:'property',id:b,name:'collider',data:{dimension:3,shape:'box',halfExtents:[.5,.5,.5],trigger:false,layer:1,mask:4294967295}}]},1);
  assert.equal(source.entities.length,1);assert.equal(result.scene.entities[1].runtimeParentId,a);assert.equal(result.scene.entities[1].runtimeTag,'Player');assert.equal(result.changedTopology,true);assert.equal(runtimeScriptEntities(result.scene.entities,[])[1].parentId,a);
