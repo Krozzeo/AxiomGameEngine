@@ -4,11 +4,24 @@ import {applyScriptOperations,runtimeScriptEntities} from '../engine/scripting/o
 import {worldScene,reparent} from '../engine/scene/hierarchy.mjs';
 import {modelMatrix,transform} from '../engine/renderer/render-math.mjs';
 import {applyRuntimeEdit} from '../engine/scene/runtime-edit.mjs';
+import {validateProject} from '../protocol/src/project-document.mjs';
 const root='entity://11111111-1111-4111-8111-111111111111',child='entity://22222222-2222-4222-8222-222222222222';
 const q=[0,0,Math.sin(Math.PI/8),Math.cos(Math.PI/8)];
 const state=()=>({matrix:[Math.SQRT2,Math.SQRT1_2,0,0,-Math.SQRT2,Math.SQRT1_2,0,0,0,0,1,0,5,0,0,1],local:{position:[1,0,0],rotation:q,scale:[1,1,1]}});
 const scene=()=>({entities:[{id:root,name:'Parent',runtimeParentId:null,transform:{position:[3,0,0],rotation:[0,0,0,1],scale:[2,1,1]}},{id:child,name:'Child',runtimeParentId:root,transform:{position:[5,0,0],rotation:q,scale:[Math.sqrt(2.5),Math.sqrt(2.5),1]}}]});
 const packet=value=>({generation:1,operations:[{kind:'move',id:child,position:[5,0,0],data:{transformState:value}}]});
+
+test('unnamed live objects survive create, rename and clone import without relaxing authored names',()=>{
+ const next=applyScriptOperations({entities:[]},{generation:1,operations:[{kind:'create',id:root,name:''}]},1).scene;
+ assert.equal(next.entities[0].name,'');
+ const renamed=applyRuntimeEdit(next,{type:'scene.entity.update',data:{entityId:root,name:'Named'}});
+ const unnamed=applyScriptOperations(renamed,{generation:1,operations:[{kind:'property',id:root,name:'name',data:''}]},1).scene;
+ assert.equal(unnamed.entities[0].name,'');
+ const imported=applyScriptOperations({entities:[]},{generation:1,operations:[{kind:'import',data:unnamed.entities}]},1).scene;
+ assert.equal(imported.entities[0].name,'');
+ const authored={schemaVersion:1,id:'project://11111111-1111-4111-8111-111111111111',name:'Project',revision:0,scene:{schemaVersion:1,id:'scene://11111111-1111-4111-8111-111111111111',entities:[{id:root,name:'Named',transform:imported.entities[0].transform}]}};
+ assert.doesNotThrow(()=>validateProject(authored));authored.scene.entities[0].name='';assert.throws(()=>validateProject(authored),/name/);
+});
 
 test('world-preserving parent packets carry local and affine state without a redundant pose write',()=>{
  const source=scene();source.entities[1].runtimeParentId=null;

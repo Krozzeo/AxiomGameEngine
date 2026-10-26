@@ -1,4 +1,4 @@
-Current canonical review: **0.0.62 / SDK12**. All311 compiled public source contracts match; unchanged UnityEngine corpus and130 Development/effective-AOT observations pass. M20 stays open for complete per-signature behavior/dependency acceptance. [Current batch](../reports/M20_CANONICAL_BATCH.md). Older batch sections below retain their historical outcomes.
+Current canonical review: **0.0.62 / SDK12**. All311 compiled public source contracts match; unchanged UnityEngine corpus and132 Development/effective-AOT observations pass. M20 stays open for complete per-signature behavior/dependency acceptance. [Current batch](../reports/M20_CANONICAL_BATCH.md). Older batch sections below retain their historical outcomes.
 
 Historical partial batch: **0.0.61 / SDK11 / M20.3a transform behavior**. Canonical migration corpus fails CS0246; all three full closure criteria remain open. [Batch report](../reports/M20_TRANSFORM_BATCH.md).
 

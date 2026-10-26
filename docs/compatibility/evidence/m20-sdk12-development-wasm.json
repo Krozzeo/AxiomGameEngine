@@ -15,11 +15,11 @@
   "httpErrors": [],
   "consoleErrors": [],
   "executedBuild": {
-    "id": "aefcb4ed-8dab-4f66-8d1d-63836c2e20d2",
+    "id": "e9d5b28e-4a7f-48ea-97fc-95e6ee71b1b1",
     "mode": "development",
     "sdkVersion": 12,
-    "sourceHash": "31c8dbdb611316594db8a4efe08c145c9f93e8cf45a7dbd5987bd49c749bf393",
-    "bytes": 13933566
+    "sourceHash": "3842923609f57c8c653825bdb0e152b243503da9b13724539a0b95e4f62470d3",
+    "bytes": 13933821
   },
   "cases": {
     "identity.wrapper": "pass",
@@ -82,6 +82,8 @@
     "cleanup.hierarchy": "pass"
   },
   "unityCases": {
+    "constructor.default-name": "pass",
+    "constructor.active-scene": "pass",
     "source.float-field": "pass",
     "source.type-hierarchy": "pass",
     "matrix.shear": "pass",
@@ -171,5 +173,5 @@
     "async.overloads.complete": "pass"
   },
   "passed": true,
-  "totalChecks": 130
+  "totalChecks": 132
 }

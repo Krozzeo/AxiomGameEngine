@@ -8,7 +8,7 @@ Press Play and inspect these controllers after frame200:
 | --- | ---: | ---: |
 | Object Lifecycle Controller |32|0|
 | Transform Contracts Controller |19|0|
-| Unity Migration Controller |11|0|
+| Unity Migration Controller |13|0|
 | Async Instantiation Controller |17|0|
 | Primitive Contracts Controller |11|0|
 | Migration Corpus Observer |5|0|

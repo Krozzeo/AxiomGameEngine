@@ -1,6 +1,6 @@
 # Current canonical batch —0.0.62 / SDK12 / M20 in progress
 
-All311 frozen public source contracts match the owned compiled SDK;326 native and130 Development/effective-AOT observations pass. The original HierarchyMigration.cs corpus now executes byte-for-byte unchanged. Canonical float facades share the legacy runtime; affine matrices, serialized/cyclic clones, async/bulk APIs and six owned primitives are implemented/tested. The browser harness asserts effective build mode after fixing an automatic Development fallback.
+All311 frozen public source contracts match the owned compiled SDK;330 native and132 Development/effective-AOT observations pass. The original HierarchyMigration.cs corpus now executes byte-for-byte unchanged. Canonical float facades share the legacy runtime; affine matrices, serialized/cyclic clones, async/bulk APIs and six owned primitives are implemented/tested. The browser harness asserts effective build mode after fixing an automatic Development fallback.
 
 Do not close M20 from these counts: per-signature positive/negative/lifecycle/reference/dependency attribution remains incomplete, and full certified behavior signatures remain0/311. One of three full closure criteria (unchanged corpus) passes. Stable main stays0.0.57. No automatic merge. See [current batch](reports/M20_CANONICAL_BATCH.md); older sections below are historical.
 

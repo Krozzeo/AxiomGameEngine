@@ -6,7 +6,7 @@ namespace UnityEngine;
 public partial class Object {
  internal Legacy.Object? Wrapped;
  internal Legacy.Object Native=>Wrapped??throw new MissingReferenceException("Object has no native runtime handle");
- 
+
  public int GetInstanceID()=>Wrapped?.GetInstanceID()??0;
  public override int GetHashCode()=>GetInstanceID();public override bool Equals(object? other)=>other is Object value?this==value:other==null&&!this;
  public static implicit operator bool(Object? exists)=>!ReferenceEquals(exists,null)&&(!ReferenceEquals(exists.Wrapped,null)&&(bool)exists.Wrapped);
@@ -45,7 +45,7 @@ public sealed partial class GameObject : Object {
  internal Legacy.GameObject LegacyGameObject {get{if(!this)throw new MissingReferenceException("GameObject has been destroyed");return Wrapped as Legacy.GameObject??throw new MissingReferenceException("GameObject is not attached");}}
  internal GameObject(Legacy.GameObject native){Wrapped=native;CacheFacade();}
  public static implicit operator GameObject(Legacy.GameObject value)=>ReferenceEquals(value,null)?null!:(GameObject)Wrap(value);
- public GameObject():this("New GameObject"){}public GameObject(string name){Wrapped=new Legacy.GameObject(name);CacheFacade();}public GameObject(string name,params Type[] components):this(name){foreach(var type in components)AddComponent(type);}
+ public GameObject():this(""){}public GameObject(string name){ArgumentNullException.ThrowIfNull(name);if(name.Length>128)throw new ArgumentException("Object name exceeds runtime bounds",nameof(name));Wrapped=new Legacy.GameObject(Legacy.Context.CreateObject(name));CacheFacade();}public GameObject(string name,params Type[] components):this(name){foreach(var type in components)AddComponent(type);}
  public Transform transform=>LegacyGameObject.transform;public GameObject gameObject=>this;
  public bool activeSelf=>LegacyGameObject.activeSelf;public bool activeInHierarchy=>LegacyGameObject.activeInHierarchy;public void SetActive(bool value)=>LegacyGameObject.SetActive(value);
  public int layer {get=>LegacyGameObject.layer;set=>LegacyGameObject.layer=value;}public string tag {get=>LegacyGameObject.tag;set{Tags.Require(value);LegacyGameObject.tag=value;}}public bool CompareTag(string tag){Tags.Require(tag);return LegacyGameObject.CompareTag(tag);}

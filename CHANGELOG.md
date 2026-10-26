@@ -4,7 +4,7 @@
 - Retain full affine matrices/shear/zero-scale local state across host frames. Add managed/reference graph clones, deferred/cancellable async integration, all17 direct async overload cases, real bulk identities and disposable NativeArray storage.
 - Add six owned primitive meshes, typed component/mesh identities and Rust CPU/Wasm capsule/finite-surface physics. Retain the broader physics/asset/Collections areas as separate incomplete milestones.
 - Fix qualified/comma-declared Inspector fields, operation-budget mutation ordering and saved AOT build-mode restoration. The harness verifies the mode actually executed.
--326 native observations and130 editor observations in each Development/effective-AOT mode pass. M20 remains open pending complete per-signature behavior/reference/dependency attribution and exact-head publication gates; source matching is not full functional parity.
+- 330 native observations and132 editor observations in each Development/effective-AOT mode pass. M20 remains open pending complete per-signature behavior/reference/dependency attribution and exact-head publication gates; source matching is not full functional parity.
 
 # 0.0.61 — M20.3a transform behavior (partial)
 

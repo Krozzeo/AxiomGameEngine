@@ -11,7 +11,7 @@
   },
   "requiredRemaining": [
     "Complete attributed canonical positive/negative/lifecycle/reference review for every one of the311 frozen records; source matching and broad lab results are insufficient",
-    "Verify constructor defaults, persistent-scene ownership, degenerate transforms and applicable asset-backed clone requirements; implement missing required behavior rather than waiving scope. All53 obsolete consumer compiler contracts now pass; deprecated runtime behavior attribution remains open.",
+    "Finish constructor edge-case attribution, persistent-scene ownership, degenerate transforms and applicable asset-backed clone requirements; implement missing required behavior rather than waiving scope. All53 obsolete consumer compiler contracts now pass; deprecated runtime behavior attribution remains open.",
     "Finish exact-head native/Wasm/AOT, UI/project/Stop/Undo/dependency regression, CI and public artifact acceptance"
   ],
   "records": [
@@ -4298,7 +4298,7 @@
       "id": "20.3b",
       "engineVersion": "0.0.62",
       "sdkVersion": 12,
-      "status": "311 compiled source contracts matched;326 native and130 Development/effective-AOT observations; full behavior attribution and closure remain open",
+      "status": "311 compiled source contracts matched;330 native and132 Development/effective-AOT observations; full behavior attribution and closure remain open",
       "report": "docs/reports/M20_CANONICAL_BATCH.md"
     }
   ],
@@ -4315,7 +4315,7 @@
     },
     "hierarchyReferenceLifecycle": {
       "status": "partial",
-      "reason": "326 native and 130 Development/effective-AOT lab observations pass; all 311 source contracts match. Full per-signature behavior/reference attribution and remaining edge/dependency audit are open"
+      "reason": "330 native and 132 Development/effective-AOT lab observations pass; all 311 source contracts match. Full per-signature behavior/reference attribution and remaining edge/dependency audit are open"
     },
     "regressionAndDependencies": {
       "status": "partial",
