@@ -27,6 +27,7 @@ RigidBody is the legacy velocity snapshot; Rigidbody is the live wrapper. AddFor
 ## Implemented declarations
 
 ```csharp
+// Namespace: Axiom.Gameplay
 public readonly record struct RigidBody(Vector3 Velocity) {
  internal static RigidBody Read(JsonElement value) => new(Vector3.Read(value.GetProperty("velocity")));
 }

@@ -27,10 +27,12 @@ public sealed class TransformContractsLab : MonoBehaviour {
    Check("rotation.same-frame",Near(child!.transform.position,new(10,2,2))&&Near(leaf!.transform.position,new(12,2,2)));
   }
   if(Frames==5){
+   Debug.Log("M20_TRANSFORM_OBSERVATION rotation child="+child!.transform.position+" leaf="+leaf!.transform.position+" forward="+leaf.transform.forward+" local="+child.transform.localPosition+" parent="+root!.transform.rotation);
    Check("rotation.next-frame",Near(child!.transform.position,new(10,2,2))&&Near(leaf!.transform.position,new(12,2,2))&&Near(leaf.transform.forward,Vector3.right));
    root!.transform.localScale=new(2,3,4);
   }
   if(Frames==6){
+   Debug.Log("M20_TRANSFORM_OBSERVATION scale child="+child!.transform.position+" leaf="+leaf!.transform.position+" scale="+leaf.transform.lossyScale);
    Check("scale.next-frame",Near(child!.transform.position,new(10,2,1))&&Near(leaf!.transform.position,new(18,2,1))&&Near(leaf.transform.lossyScale,new(2,3,4)));
    var t=root!.transform;var v=new Vector3(1,2,3);
    Check("point.roundtrip",Near(t.InverseTransformPoint(t.TransformPoint(v)),v));

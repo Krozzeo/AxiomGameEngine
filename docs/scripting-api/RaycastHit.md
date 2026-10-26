@@ -5,7 +5,9 @@ Read-only hit collider, distance, point, normal, transform and attached rigidbod
 ## Implemented declarations
 
 ```csharp
+// Namespace: Axiom.Gameplay
 public readonly record struct RaycastHit(Collider collider,double distance,Vector3 point,Vector3 normal) {public Transform transform=>collider.transform;public Rigidbody? rigidbody=>collider.attachedRigidbody;}
 
+// Namespace: Axiom.Gameplay
 public readonly record struct Ray(Vector3 origin,Vector3 direction) {public Vector3 GetPoint(double distance)=>origin+direction.normalized*distance;}
 ```

@@ -1,3 +1,25 @@
+# 0.0.62 canonical core lab
+
+Load the demo from this exact installation through Platform **Installations → Load Demos**, or run the source checkout’s **npm run demo:m20**. Open **Demo · M20 Object Lifecycle Lab**. Existing edited demos remain pinned to their original installation; load a fresh copy from the new installation.
+
+Press Play and inspect these controllers after frame200:
+
+| Controller | Passed | Failed |
+| --- | ---: | ---: |
+| Object Lifecycle Controller |32|0|
+| Transform Contracts Controller |19|0|
+| Unity Migration Controller |11|0|
+| Async Instantiation Controller |17|0|
+| Primitive Contracts Controller |11|0|
+| Migration Corpus Observer |5|0|
+| Async Overload Controller |35|0|
+
+The async and primitive work starts in separate frame batches to respect the unchanged phase budget. All scripts are ordinary editable project files. The observer executes the original HierarchyMigration.cs without rewriting it. Primitive checks include the owned CPU/Wasm capsule resting on its finite plane. Stop restores the authored scene. Removing a runtime MeshFilter removes that mesh from rendering while retaining its collider. No runtime objects become saved authoring objects.
+
+For automated validation use **npm run test:native:m20** and **npm run test:browser:m20**. Set **AXIOM_CSHARP_MODE=aot** for the browser AOT profile; the harness precompiles and asserts the bundle mode actually executed. These are source/runtime/CPU checks with a Null renderer, not GPU pixel acceptance. Full M20 per-signature certification is still open; see [current report](../docs/reports/M20_CANONICAL_BATCH.md).
+
+---
+
 # 0.0.61 transform controller
 
 Install this experimental build through Platform0.1.11+ and click **Load Demos** on that installation. Open **Demo · M20 Object Lifecycle Lab**. A new **Transform Contracts Controller** runs the physical **Scripts/TransformContractsLab.cs**. At frame8 or later its Inspector must show **Passed19 / Failed0**. The original **Object Lifecycle Controller** still shows **Passed32 / Failed0** at frame12.

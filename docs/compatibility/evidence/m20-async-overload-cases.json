@@ -1,0 +1,108 @@
+{
+  "targetRecords": 17,
+  "certified": false,
+  "records": [
+    {
+      "id": "unity63abi:0ebd40215c5ae498e9a5b5c2",
+      "declaration": "public static UnityEngine.AsyncInstantiateOperation`1<T> InstantiateAsync<T>(T original);",
+      "label": "async.overload.01",
+      "contract": "Direct canonical call snapshots source X=3; scalar/spanned poses X=2/4; parent X=10 with explicit local parameters; actual count/identity, null rejection and cleanup. Reference defaults still require final per-signature acceptance."
+    },
+    {
+      "id": "unity63abi:15b514a3d26315c94a258845",
+      "declaration": "public static UnityEngine.AsyncInstantiateOperation`1<T> InstantiateAsync<T>(T original, int count, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation);",
+      "label": "async.overload.02",
+      "contract": "Direct canonical call snapshots source X=3; scalar/spanned poses X=2/4; parent X=10 with explicit local parameters; actual count/identity, null rejection and cleanup. Reference defaults still require final per-signature acceptance."
+    },
+    {
+      "id": "unity63abi:1902e37dc5b7132a2fe40d47",
+      "declaration": "public static UnityEngine.AsyncInstantiateOperation`1<T> InstantiateAsync<T>(T original, int count, UnityEngine.Transform parent, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation, System.Threading.CancellationToken cancellationToken);",
+      "label": "async.overload.03",
+      "contract": "Direct canonical call snapshots source X=3; scalar/spanned poses X=2/4; parent X=10 with explicit local parameters; actual count/identity, null rejection and cleanup. Reference defaults still require final per-signature acceptance."
+    },
+    {
+      "id": "unity63abi:2c1804183f00b086ddf640ad",
+      "declaration": "public static UnityEngine.AsyncInstantiateOperation`1<T> InstantiateAsync<T>(T original, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation);",
+      "label": "async.overload.04",
+      "contract": "Direct canonical call snapshots source X=3; scalar/spanned poses X=2/4; parent X=10 with explicit local parameters; actual count/identity, null rejection and cleanup. Reference defaults still require final per-signature acceptance."
+    },
+    {
+      "id": "unity63abi:2fc8fd946bb01fb7d2ab1b8d",
+      "declaration": "public static UnityEngine.AsyncInstantiateOperation`1<T> InstantiateAsync<T>(T original, UnityEngine.InstantiateParameters parameters, System.Threading.CancellationToken cancellationToken = null);",
+      "label": "async.overload.05",
+      "contract": "Direct canonical call snapshots source X=3; scalar/spanned poses X=2/4; parent X=10 with explicit local parameters; actual count/identity, null rejection and cleanup. Reference defaults still require final per-signature acceptance."
+    },
+    {
+      "id": "unity63abi:3a3d3ecd871841fb51d7bdf0",
+      "declaration": "public static UnityEngine.AsyncInstantiateOperation`1<T> InstantiateAsync<T>(T original, int count, System.ReadOnlySpan`1<UnityEngine.Vector3> positions, System.ReadOnlySpan`1<UnityEngine.Quaternion> rotations, UnityEngine.InstantiateParameters parameters, System.Threading.CancellationToken cancellationToken = null);",
+      "label": "async.overload.06",
+      "contract": "Direct canonical call snapshots source X=3; scalar/spanned poses X=2/4; parent X=10 with explicit local parameters; actual count/identity, null rejection and cleanup. Reference defaults still require final per-signature acceptance."
+    },
+    {
+      "id": "unity63abi:598f5222b6c8bbd94fe0d8ec",
+      "declaration": "public static UnityEngine.AsyncInstantiateOperation`1<T> InstantiateAsync<T>(T original, int count, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation, UnityEngine.InstantiateParameters parameters, System.Threading.CancellationToken cancellationToken = null);",
+      "label": "async.overload.07",
+      "contract": "Direct canonical call snapshots source X=3; scalar/spanned poses X=2/4; parent X=10 with explicit local parameters; actual count/identity, null rejection and cleanup. Reference defaults still require final per-signature acceptance."
+    },
+    {
+      "id": "unity63abi:7865adff3e8f63be840e62e2",
+      "declaration": "public static UnityEngine.AsyncInstantiateOperation`1<T> InstantiateAsync<T>(T original, int count, UnityEngine.Transform parent, System.ReadOnlySpan`1<UnityEngine.Vector3> positions, System.ReadOnlySpan`1<UnityEngine.Quaternion> rotations);",
+      "label": "async.overload.08",
+      "contract": "Direct canonical call snapshots source X=3; scalar/spanned poses X=2/4; parent X=10 with explicit local parameters; actual count/identity, null rejection and cleanup. Reference defaults still require final per-signature acceptance."
+    },
+    {
+      "id": "unity63abi:7c3b868fd418bd56029c5bed",
+      "declaration": "public static UnityEngine.AsyncInstantiateOperation`1<T> InstantiateAsync<T>(T original, int count, System.ReadOnlySpan`1<UnityEngine.Vector3> positions, System.ReadOnlySpan`1<UnityEngine.Quaternion> rotations);",
+      "label": "async.overload.09",
+      "contract": "Direct canonical call snapshots source X=3; scalar/spanned poses X=2/4; parent X=10 with explicit local parameters; actual count/identity, null rejection and cleanup. Reference defaults still require final per-signature acceptance."
+    },
+    {
+      "id": "unity63abi:8b7a8fc6e4cdc85bd5c67523",
+      "declaration": "public static UnityEngine.AsyncInstantiateOperation`1<T> InstantiateAsync<T>(T original, int count, UnityEngine.Transform parent, System.ReadOnlySpan`1<UnityEngine.Vector3> positions, System.ReadOnlySpan`1<UnityEngine.Quaternion> rotations, System.Threading.CancellationToken cancellationToken);",
+      "label": "async.overload.10",
+      "contract": "Direct canonical call snapshots source X=3; scalar/spanned poses X=2/4; parent X=10 with explicit local parameters; actual count/identity, null rejection and cleanup. Reference defaults still require final per-signature acceptance."
+    },
+    {
+      "id": "unity63abi:c31cbe2c98853aee9b00d561",
+      "declaration": "public static UnityEngine.AsyncInstantiateOperation`1<T> InstantiateAsync<T>(T original, int count);",
+      "label": "async.overload.11",
+      "contract": "Direct canonical call snapshots source X=3; scalar/spanned poses X=2/4; parent X=10 with explicit local parameters; actual count/identity, null rejection and cleanup. Reference defaults still require final per-signature acceptance."
+    },
+    {
+      "id": "unity63abi:c9b54a0504016b5625c8af1f",
+      "declaration": "public static UnityEngine.AsyncInstantiateOperation`1<T> InstantiateAsync<T>(T original, int count, UnityEngine.Transform parent, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation);",
+      "label": "async.overload.12",
+      "contract": "Direct canonical call snapshots source X=3; scalar/spanned poses X=2/4; parent X=10 with explicit local parameters; actual count/identity, null rejection and cleanup. Reference defaults still require final per-signature acceptance."
+    },
+    {
+      "id": "unity63abi:cc336411186ab7ce1405ca72",
+      "declaration": "public static UnityEngine.AsyncInstantiateOperation`1<T> InstantiateAsync<T>(T original, UnityEngine.Transform parent, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation);",
+      "label": "async.overload.13",
+      "contract": "Direct canonical call snapshots source X=3; scalar/spanned poses X=2/4; parent X=10 with explicit local parameters; actual count/identity, null rejection and cleanup. Reference defaults still require final per-signature acceptance."
+    },
+    {
+      "id": "unity63abi:d41bbd79d916d2a70c0efe07",
+      "declaration": "public static UnityEngine.AsyncInstantiateOperation`1<T> InstantiateAsync<T>(T original, UnityEngine.Transform parent);",
+      "label": "async.overload.14",
+      "contract": "Direct canonical call snapshots source X=3; scalar/spanned poses X=2/4; parent X=10 with explicit local parameters; actual count/identity, null rejection and cleanup. Reference defaults still require final per-signature acceptance."
+    },
+    {
+      "id": "unity63abi:e91477eb9c6c3e07c3a1a97f",
+      "declaration": "public static UnityEngine.AsyncInstantiateOperation`1<T> InstantiateAsync<T>(T original, int count, UnityEngine.Transform parent);",
+      "label": "async.overload.15",
+      "contract": "Direct canonical call snapshots source X=3; scalar/spanned poses X=2/4; parent X=10 with explicit local parameters; actual count/identity, null rejection and cleanup. Reference defaults still require final per-signature acceptance."
+    },
+    {
+      "id": "unity63abi:ee1e80b8a594c72c0b70ba67",
+      "declaration": "public static UnityEngine.AsyncInstantiateOperation`1<T> InstantiateAsync<T>(T original, int count, UnityEngine.InstantiateParameters parameters, System.Threading.CancellationToken cancellationToken = null);",
+      "label": "async.overload.16",
+      "contract": "Direct canonical call snapshots source X=3; scalar/spanned poses X=2/4; parent X=10 with explicit local parameters; actual count/identity, null rejection and cleanup. Reference defaults still require final per-signature acceptance."
+    },
+    {
+      "id": "unity63abi:f9cbb2bb3492e8525ecc58fc",
+      "declaration": "public static UnityEngine.AsyncInstantiateOperation`1<T> InstantiateAsync<T>(T original, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation, UnityEngine.InstantiateParameters parameters, System.Threading.CancellationToken cancellationToken = null);",
+      "label": "async.overload.17",
+      "contract": "Direct canonical call snapshots source X=3; scalar/spanned poses X=2/4; parent X=10 with explicit local parameters; actual count/identity, null rejection and cleanup. Reference defaults still require final per-signature acceptance."
+    }
+  ]
+}

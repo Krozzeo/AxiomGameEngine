@@ -1,15 +1,15 @@
 {
   "$schema": "./protocol/schema/project-state.schema.json",
   "stateVersion": 1,
-  "updatedAt": "2026-10-25",
-  "engineVersion": "0.0.61",
+  "updatedAt": "2026-10-26",
+  "engineVersion": "0.0.62",
   "activeMilestone": 20,
   "milestoneStatus": "in_progress",
   "completion": {
     "activeMilestonePercent": 0,
     "wholeProjectPercent": null,
     "method": "docs/architecture/MILESTONE_REPORTING.md",
-    "scopeNote": "M19 stable in main. M20.3a adds tested legacy transform behavior (138 native, 51 development-Wasm observations); canonical UnityEngine migration fails CS0246. All 311 target records remain; certified full signatures 0 and whole-milestone closure 0/3. M20 is not closed.",
+    "scopeNote": "M19 stable remains main0.0.57. M20 SDK12 matches311 compiled public source contracts and runs the original UnityEngine corpus unchanged.326 native and130 Development/effective-AOT observations pass. Complete per-signature behavior/reference/dependency attribution remains open; fully accepted signatures0/311 and unchanged-corpus criterion1/3. M20 is not closed.",
     "historicalMvpPercent": 94,
     "historicalMvpCompletedWeight": 122,
     "historicalMvpTotalWeight": 130

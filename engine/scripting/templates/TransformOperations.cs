@@ -89,38 +89,6 @@ public sealed partial class Transform : System.Collections.IEnumerable {
 }
 
 internal static partial class Context {
- // Runtime packets hold world-space poses. Publish descendants too; changing
- // only the C# lookup table previously lost child movement on the next frame.
- internal static void ChangeTransform(Entity entity,Vector3? position=null,Quaternion? rotation=null,Vector3? scale=null,int reservedOperations=0){
-  var original=Read(entity);var target=new Transform(position??original.Position,rotation is Quaternion q?TransformMath.Normalize(q):original.Rotation,scale??original.Scale){Entity=entity};
-  var pending=new List<(Entity Entity,Transform Value)>{(entity,target)};
-  for(var index=0;index<pending.Count;index++){
-   var (parent,next)=pending[index];var children=Parents.Where(pair=>pair.Value==parent.Id).Select(pair=>pair.Key).ToArray();if(children.Length==0)continue;var previous=Read(parent);var delta=next.Rotation*Quaternion.Inverse(previous.Rotation);
-   static double Ratio(double before,double after){if(before==after)return 1;if(before==0)throw new NotSupportedException("Cannot recover child local coordinates after expanding a zero-scale hierarchy");return after/before;}
-   var ratio=new Vector3(Ratio(previous.Scale.X,next.Scale.X),Ratio(previous.Scale.Y,next.Scale.Y),Ratio(previous.Scale.Z,next.Scale.Z));
-   foreach(var id in children){
-    var child=new Entity(id,Generation);var old=Read(child);var offset=Quaternion.Inverse(previous.Rotation)*(old.Position-previous.Position);
-    var point=next.Position+next.Rotation*new Vector3(offset.X*ratio.X,offset.Y*ratio.Y,offset.Z*ratio.Z);
-    pending.Add((child,new Transform(point,TransformMath.Normalize(delta*old.Rotation),new(old.Scale.X*ratio.X,old.Scale.Y*ratio.Y,old.Scale.Z*ratio.Z)){Entity=child}));
-   }
-  }
-  var operations=new List<Operation>();foreach(var (handle,next) in pending){
-   Position(next.Position);Position(next.Scale);var old=Read(handle);var first=handle==entity;
-   if(first&&position!=null||next.Position!=old.Position)operations.Add(new("move",handle.Id,null,next.Position,null));
-   if(first&&rotation!=null||next.Rotation!=old.Rotation)operations.Add(new("rotation",handle.Id,null,default,null,Rotation:next.Rotation));
-   if(first&&scale!=null||next.Scale!=old.Scale)operations.Add(new("scale",handle.Id,null,next.Scale,null));
-  }
-  if(Operations.Count+operations.Count+reservedOperations>Limits.Operations)throw new InvalidOperationException("AX_SCRIPT_0003: operation limit exceeded");
-  Operations.AddRange(operations);foreach(var (handle,next) in pending)Entities[handle.Id]=next;
- }
- internal static void Reparent(Entity entity,Transform? parent,bool worldPositionStays){
-  _=Read(entity);if(parent!=null)_=Read(parent.Entity);var id=parent?.Entity.Id;
-  for(var current=id;current!=null;current=Parents.GetValueOrDefault(current))if(current==entity.Id)throw new ArgumentException("Hierarchy cycle");
-  if(Operations.Count>=Limits.Operations)throw new InvalidOperationException("AX_SCRIPT_0003: operation limit exceeded");
-  if(!worldPositionStays){var local=Local(entity);var p=local.Position;var r=local.Rotation;var s=local.Scale;
-   if(parent!=null){var target=Read(parent.Entity);p=target.Position+target.Rotation*new Vector3(p.X*target.Scale.X,p.Y*target.Scale.Y,p.Z*target.Scale.Z);r=target.Rotation*r;s=new(s.X*target.Scale.X,s.Y*target.Scale.Y,s.Z*target.Scale.Z);}
-   ChangeTransform(entity,p,r,s,reservedOperations:1);
-  }
-  Parents[entity.Id]=id;Add(new("parent",entity.Id,null,default,null,Name:id));
- }
+ internal static void ChangeTransform(Entity entity,Vector3? position=null,Quaternion? rotation=null,Vector3? scale=null,int reservedOperations=0)=>TransformGraph.SetWorld(entity,position,rotation,scale,reservedOperations);
+ internal static void Reparent(Entity entity,Transform? parent,bool worldPositionStays)=>TransformGraph.Parent(entity,parent,worldPositionStays);
 }

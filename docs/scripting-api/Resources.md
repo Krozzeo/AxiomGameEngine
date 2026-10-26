@@ -12,6 +12,7 @@ PrefabAsset is an explicit Axiom resource type, rather than Unity's asset-backed
 ## Implemented declarations
 
 ```csharp
+// Namespace: Axiom.Gameplay
 public static class Resources {
  public static ResourceRequest LoadAsync<T>(string path) where T:Object=>new(Load<T>(path));
  internal static JsonElement Data=Context.ParseData("[]");
@@ -21,9 +22,12 @@ public static class Resources {
  public static T[] LoadAll<T>(string path="") where T:Object=>Data.EnumerateArray().Where(r=>r.GetProperty("path").GetString()!.StartsWith(path,StringComparison.Ordinal)).Select(r=>Load<T>(r.GetProperty("path").GetString()!)).OfType<T>().ToArray();
 }
 
+// Namespace: Axiom.Gameplay
 public sealed class TextAsset : Object {internal string Path;public string name {get;}public string text {get;}public byte[] bytes=>System.Text.Encoding.UTF8.GetBytes(text);internal TextAsset(string path,string value){Path=path;name=path.Split('/').Last();text=value;}}
 
+// Namespace: Axiom.Gameplay
 public sealed class PrefabAsset : Object {public string path=>Path;public string name=>Path.Split('/').Last();internal string Path;internal PrefabAsset(string path){Path=path;}}
 
+// Namespace: Axiom.Gameplay
 public sealed class SceneAsset : Object {public string path=>Path;public string name=>Path.Split('/').Last();internal string Path;internal SceneAsset(string path){Path=path;}}
 ```

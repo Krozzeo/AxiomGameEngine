@@ -5,6 +5,7 @@
 ## Implemented declarations
 
 ```csharp
+// Namespace: Axiom.Gameplay
 public sealed class Collision2D {
  public Collider2D collider {get;}public GameObject gameObject=>collider.gameObject;public Transform transform=>collider.transform;public Rigidbody2D? rigidbody=>collider.attachedRigidbody;
  public Vector2 normal {get;}public Vector2 point {get;}public Vector2 relativeVelocity {get;}

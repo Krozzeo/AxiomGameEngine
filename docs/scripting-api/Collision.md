@@ -5,6 +5,7 @@ One callback per colliding pair per phase, preserving all native manifold points
 ## Implemented declarations
 
 ```csharp
+// Namespace: Axiom.Gameplay
 public sealed class Collision {
  public Collider collider {get;}public GameObject gameObject=>collider.gameObject;public Transform transform=>collider.transform;public Rigidbody? rigidbody=>collider.attachedRigidbody;
  public Vector3 normal {get;}public Vector3 point {get;}public Vector3 relativeVelocity {get;}

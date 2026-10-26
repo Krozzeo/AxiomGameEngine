@@ -28,8 +28,10 @@ Existing PascalCase names remain supported. Lowercase vector fields and constant
 ## Implemented declarations
 
 ```csharp
+// Namespace: Axiom.Gameplay
 public static partial class Mathf {public const double PI=Math.PI;public const double Deg2Rad=Math.PI/180;public const double Rad2Deg=180/Math.PI;public static double Clamp(double value,double min,double max)=>Math.Clamp(value,min,max);public static double Lerp(double a,double b,double t)=>a+(b-a)*Math.Clamp(t,0,1);}
 
+// Namespace: Axiom.Gameplay
 public static partial class Mathf {
  public static double Abs(double v)=>Math.Abs(v);public static double Min(double a,double b)=>Math.Min(a,b);public static double Max(double a,double b)=>Math.Max(a,b);public static double Sign(double v)=>Math.Sign(v);
  public static double Sin(double v)=>Math.Sin(v);public static double Cos(double v)=>Math.Cos(v);public static double Tan(double v)=>Math.Tan(v);public static double Asin(double v)=>Math.Asin(v);public static double Acos(double v)=>Math.Acos(v);public static double Atan2(double y,double x)=>Math.Atan2(y,x);

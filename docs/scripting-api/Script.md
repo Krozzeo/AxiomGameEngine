@@ -32,6 +32,7 @@ SDK 8: `enabled` is shared by C# and the live Inspector checkbox. Disabling supp
 ## Implemented declarations
 
 ```csharp
+// Namespace: Axiom.Gameplay
 public abstract class Script : Behaviour {
  internal bool RuntimeRemoved;
  public virtual void OnStart() {}

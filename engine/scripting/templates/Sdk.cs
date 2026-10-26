@@ -2,6 +2,7 @@ using System.Text.Json;
 namespace Axiom.Gameplay;
 
 public record struct Vector2(double X, double Y) {
+ public override string ToString()=>FormattableString.Invariant($"({X:R}, {Y:R})");
  public double x {get=>X;set=>X=value;}
  public double y {get=>Y;set=>Y=value;}
  public static Vector2 zero=>Zero;public static Vector2 one=>One;public double magnitude=>Magnitude;public double sqrMagnitude=>X*X+Y*Y;
@@ -21,6 +22,7 @@ public record struct Vector2(double X, double Y) {
  internal void Write(Utf8JsonWriter w) {w.WriteStartArray();w.WriteNumberValue(X);w.WriteNumberValue(Y);w.WriteEndArray();}
 }
 public record struct Vector3(double X, double Y, double Z) {
+ public override string ToString()=>FormattableString.Invariant($"({X:R}, {Y:R}, {Z:R})");
  public double x {get=>X;set=>X=value;}
  public double y {get=>Y;set=>Y=value;}
  public double z {get=>Z;set=>Z=value;}
@@ -48,6 +50,7 @@ public record struct Vector3(double X, double Y, double Z) {
  internal void Write(Utf8JsonWriter w) {w.WriteStartArray();w.WriteNumberValue(X);w.WriteNumberValue(Y);w.WriteNumberValue(Z);w.WriteEndArray();}
 }
 public record struct Vector4(double X, double Y, double Z, double W) {
+ public override string ToString()=>FormattableString.Invariant($"({X:R}, {Y:R}, {Z:R}, {W:R})");
  public double x {get=>X;set=>X=value;}
  public double y {get=>Y;set=>Y=value;}
  public double z {get=>Z;set=>Z=value;}
@@ -141,8 +144,8 @@ public abstract partial class MonoBehaviour : Script {
  public override void OnUpdate(double deltaSeconds){Update();}
  public override void OnStop(){}
 }
-[AttributeUsage(AttributeTargets.Field)] public sealed class SerializeFieldAttribute : Attribute {}
-[AttributeUsage(AttributeTargets.Field)] public sealed class HideInInspectorAttribute : Attribute {}
+[AttributeUsage(AttributeTargets.Field)] public class SerializeFieldAttribute : Attribute {}
+[AttributeUsage(AttributeTargets.Field)] public class HideInInspectorAttribute : Attribute {}
 [AttributeUsage(AttributeTargets.Field)] public sealed class PlayerPrefAttribute(string key) : Attribute {public string Key {get;}=key;}
 [AttributeUsage(AttributeTargets.Field)] public sealed class ReadOnlyAttribute : Attribute {}
 [AttributeUsage(AttributeTargets.Field)] public sealed class TitleAttribute(string text) : Attribute {public string Text {get;}=text;}
@@ -204,7 +207,7 @@ public static class Debug {
  public static void LogError(object? value)=>Axiom.Gameplay.Log.Info("Error: "+value);
 }
 public static class Log {public static void Info(string message) => Context.Log(message);}
-internal readonly record struct Operation(string Kind,string Id,string? Template,Vec3 Position,string? Message,string? Action=null,string? Name=null,double Value=0,double Duration=0,Quaternion? Rotation=null,string? Data=null);
+internal readonly record struct Operation(string Kind,string Id,string? Template,Vec3 Position,string? Message,string? Action=null,string? Name=null,double Value=0,double Duration=0,Quaternion? Rotation=null,string? Data=null,Vector3? Scale=null);
 internal static partial class Context {
  internal static readonly List<Script> LiveScripts=new();
  internal static readonly Dictionary<string,bool> ActiveStates=new();
@@ -270,7 +273,7 @@ internal static partial class Context {
  internal static Entity Spawn(Entity template,Vec3 position) {
   var value=Read(template);Position(position);
   if(Entities.Count>=Limits.Entities)throw new InvalidOperationException("AX_SCRIPT_0003: spawn limit exceeded");
-  var id="entity://"+(DeterministicSpawn?$"{ReplaySeed:x8}-0000-4000-8000-{Spawned:x12}":Guid.NewGuid().ToString());if(Entities.ContainsKey(id))throw new InvalidOperationException("Deterministic spawn ID collision");Add(new("spawn",id,template.Id,position,null));Spawned++;SceneManagement.SceneManager.SetOwner(id,SceneManagement.SceneManager.Owners.GetValueOrDefault(template.Id,SceneManagement.SceneManager.GetActiveScene().name));if(AudioSources.Contains(template.Id))AudioSources.Add(id);Entities.Add(id,new Transform(position,value.Rotation,value.Scale){Entity=new Entity(id,Generation)});if(EntityData.TryGetValue(template.Id,out var data)){var node=System.Text.Json.Nodes.JsonNode.Parse(data.GetRawText())!.AsObject();node["id"]=id;node.Remove("parentId");node.Remove("runtimeParentId");node.Remove("prefab");EntityData[id]=ParseData(node.ToJsonString());}if(Cameras.Contains(template.Id))Cameras.Add(id);Parents[id]=null;ActiveStates[id]=ActiveStates.GetValueOrDefault(template.Id,true);if(Bodies.TryGetValue(template.Id,out var body))Bodies.Add(id,body);if(Animators.TryGetValue(template.Id,out var animator))Animators.Add(id,animator);if(AnimationStates.TryGetValue(template.Id,out var animationState))AnimationStates.Add(id,animationState);return new(id,Generation);
+  var id="entity://"+(DeterministicSpawn?$"{ReplaySeed:x8}-0000-4000-8000-{Spawned:x12}":Guid.NewGuid().ToString());if(Entities.ContainsKey(id))throw new InvalidOperationException("Deterministic spawn ID collision");Add(new("spawn",id,template.Id,position,null));Spawned++;SceneManagement.SceneManager.SetOwner(id,SceneManagement.SceneManager.Owners.GetValueOrDefault(template.Id,SceneManagement.SceneManager.GetActiveScene().name));if(AudioSources.Contains(template.Id))AudioSources.Add(id);Entities.Add(id,new Transform(position,value.Rotation,value.Scale){Entity=new Entity(id,Generation)});if(EntityData.TryGetValue(template.Id,out var data)){var node=System.Text.Json.Nodes.JsonNode.Parse(data.GetRawText())!.AsObject();node["id"]=id;node.Remove("parentId");node.Remove("runtimeParentId");node.Remove("prefab");node.Remove("runtimeMatrix");node.Remove("runtimeLocalTransform");EntityData[id]=ParseData(node.ToJsonString());}if(Cameras.Contains(template.Id))Cameras.Add(id);Parents[id]=null;ActiveStates[id]=ActiveStates.GetValueOrDefault(template.Id,true);if(Bodies.TryGetValue(template.Id,out var body))Bodies.Add(id,body);if(Animators.TryGetValue(template.Id,out var animator))Animators.Add(id,animator);if(AnimationStates.TryGetValue(template.Id,out var animationState))AnimationStates.Add(id,animationState);return new(id,Generation);
  }
  internal static void DispatchContacts(JsonElement request){
   var current=new Dictionary<string,List<JsonElement>>();
@@ -285,7 +288,7 @@ internal static partial class Context {
   foreach(var pair in current)Emit(pair.Value,PreviousContacts.ContainsKey(pair.Key)?1:0);foreach(var pair in PreviousContacts)if(!current.ContainsKey(pair.Key))Emit(pair.Value,2);PreviousContacts.Clear();foreach(var pair in current)PreviousContacts.Add(pair.Key,pair.Value);
  }
  internal static bool IsActive(string id){for(var depth=0;id!=null&&depth<64;depth++){if(!ActiveStates.GetValueOrDefault(id,true))return false;id=Parents.GetValueOrDefault(id)!;}return true;}
- internal static void Activate(Entity entity,bool active){_=Read(entity);ActiveStates[entity.Id]=active;Add(new("active",entity.Id,null,default,null,active?"true":"false"));RuntimeLifecycle.Activation();}
+ internal static void Activate(Entity entity,bool active){_=Read(entity);Add(new("active",entity.Id,null,default,null,active?"true":"false"));ActiveStates[entity.Id]=active;RuntimeLifecycle.Activation();}
  internal static void Destroy(Entity entity){_=Read(entity);var ids=new HashSet<string>{entity.Id};bool changed=true;while(changed){changed=false;foreach(var pair in Parents)if(pair.Value!=null&&ids.Contains(pair.Value)&&ids.Add(pair.Key))changed=true;}Add(new("destroy",entity.Id,null,default,null));foreach(var script in LiveScripts.Where(script=>ids.Contains(script.Entity.Id)).ToArray()){RuntimeLifecycle.Remove(script);LiveScripts.Remove(script);ScriptPaths.Remove(script);}foreach(var id in ids){RetireIdentities(id);Entities.Remove(id);EntityData.Remove(id);Parents.Remove(id);ActiveStates.Remove(id);Bodies.Remove(id);Cameras.Remove(id);AudioSources.Remove(id);Animators.Remove(id);AnimationStates.Remove(id);Grounded.Remove(id);SceneManagement.SceneManager.Owners.Remove(id);SceneManagement.SceneManager.MetadataDirty=true;SceneManagement.SceneManager.Persistent.Remove(id);AI.NavMeshAgent.Agents.Remove(id);}}
  internal static void Log(string message) {
   if(message.Length>2048||Logs>=Limits.Logs)throw new InvalidOperationException("AX_SCRIPT_0003: log limit exceeded");
@@ -310,7 +313,7 @@ internal static partial class Context {
    Entities.Add(id,Transform.Read(e.GetProperty("transform")));
   }
   }
-  if(value.TryGetProperty("mouseDelta",out var mouse)){var x=mouse[0].GetDouble();var y=mouse[1].GetDouble();if(!double.IsFinite(x)||!double.IsFinite(y)||Math.Abs(x)>10000||Math.Abs(y)>10000)throw new ArgumentException("Invalid mouse delta");MouseDelta=new(x,y);}
+  if(reuse.ValueKind!=JsonValueKind.True)TransformGraph.Load();if(value.TryGetProperty("mouseDelta",out var mouse)){var x=mouse[0].GetDouble();var y=mouse[1].GetDouble();if(!double.IsFinite(x)||!double.IsFinite(y)||Math.Abs(x)>10000||Math.Abs(y)>10000)throw new ArgumentException("Invalid mouse delta");MouseDelta=new(x,y);}
   foreach(var key in value.GetProperty("keys").EnumerateArray()) {if(Keys.Count>=64)throw new ArgumentException("Input limit exceeded");Keys.Add(key.GetString()!);}
   if(value.GetProperty("action").GetString()=="start")foreach(var id in Entities.Keys)new GameObject(new Entity(id,Generation)).AllComponents();Networking.UnityWebRequest.Load(value);
  }
@@ -328,6 +331,7 @@ internal static partial class Context {
     if(op.Kind=="animation"||op.Kind=="audio"){writer.WriteString("action",op.Action);if(op.Name!=null)writer.WriteString("name",op.Name);writer.WriteNumber("value",op.Value);writer.WriteNumber("duration",op.Duration);}
     if(op.Rotation is Quaternion rotation){writer.WritePropertyName("rotation");writer.WriteStartArray();writer.WriteNumberValue(rotation.X);writer.WriteNumberValue(rotation.Y);writer.WriteNumberValue(rotation.Z);writer.WriteNumberValue(rotation.W);writer.WriteEndArray();}
     if(op.Kind!="rotation"&&op.Kind!="log"&&op.Kind!="animation"&&op.Kind!="audio"){writer.WritePropertyName("position");op.Position.Write(writer);}
+    if(op.Scale is Vector3 scale){writer.WritePropertyName("scale");scale.Write(writer);}
     if(op.Kind=="sibling")writer.WriteNumber("index",op.Value);
     if(op.Name!=null&&op.Kind!="animation"&&op.Kind!="audio")writer.WriteString("name",op.Name);
     if(op.Data!=null){writer.WritePropertyName("data");using var data=JsonDocument.Parse(op.Data);data.RootElement.WriteTo(writer);}

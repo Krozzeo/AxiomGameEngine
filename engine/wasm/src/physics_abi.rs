@@ -1,5 +1,5 @@
 use super::REGISTRY;
-use axiom_core::physics::{Body, World};
+use axiom_core::physics::{Body, Shape, World};
 #[unsafe(no_mangle)]
 pub extern "C" fn axiom_physics_clear(id: u32) -> u32 {
     REGISTRY.with_borrow_mut(|r| {
@@ -34,6 +34,9 @@ pub extern "C" fn axiom_physics_add(
     mask: u32,
 ) -> u32 {
     REGISTRY.with_borrow_mut(|r| {
+        if shape > 4 || dimension == 2 && shape > 1 {
+            return u32::MAX;
+        }
         r.physics
             .get_mut(&id)
             .and_then(|w| {
@@ -56,7 +59,13 @@ pub extern "C" fn axiom_physics_add(
                     friction,
                     gravity_scale,
                     dimension,
-                    sphere: shape == 1,
+                    shape: match shape {
+                        1 => Shape::Sphere,
+                        2 => Shape::Capsule,
+                        3 => Shape::Plane,
+                        4 => Shape::Quad,
+                        _ => Shape::Box,
+                    },
                     trigger: trigger == 1,
                     layer,
                     mask,

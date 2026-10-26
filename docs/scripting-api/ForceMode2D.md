@@ -29,5 +29,6 @@ Force integrates over the current frame delta; Impulse changes velocity immediat
 ## Implemented declarations
 
 ```csharp
+// Namespace: Axiom.Gameplay
 public enum ForceMode2D {Force,Impulse}
 ```

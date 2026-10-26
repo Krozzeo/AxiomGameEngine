@@ -20,6 +20,7 @@ At timeScale zero Update still runs and unscaled time advances, allowing scripts
 ## Implemented declarations
 
 ```csharp
+// Namespace: Axiom.Gameplay
 public static class Time {
  private static double scale=1,delta,elapsed,unscaledElapsed,unscaledDelta;
  public static double deltaTime {get=>inFixedTimeStep?fixedDeltaTime:delta;internal set=>delta=value;}

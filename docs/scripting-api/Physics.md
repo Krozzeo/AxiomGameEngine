@@ -18,6 +18,7 @@ Still pending: capsule/edge/polygon/mesh/compound colliders, joints, terrain, ar
 ## Implemented declarations
 
 ```csharp
+// Namespace: Axiom.Gameplay
 public static partial class Physics {
  public const int AllLayers=-1;public const int IgnoreRaycastLayer=4;public const int DefaultRaycastLayers=~IgnoreRaycastLayer;
  public static bool queriesHitTriggers {get;set;}=true;
@@ -37,6 +38,7 @@ public static partial class Physics {
  public static bool CheckBox(Vector3 center,Vector3 halfExtents,Quaternion orientation=default,int layerMask=DefaultRaycastLayers,QueryTriggerInteraction queryTriggerInteraction=QueryTriggerInteraction.UseGlobal)=>OverlapBox(center,halfExtents,orientation,layerMask,queryTriggerInteraction).Length>0;
 }
 
+// Namespace: Axiom.Gameplay
 public static partial class Physics {
  public static Vector3 gravity {get=>PhysicsWorld.Gravity("gravity");set=>PhysicsWorld.Gravity("gravity",value);}
  public static void IgnoreCollision(Collider a,Collider b,bool ignore=true)=>PhysicsWorld.Ignore("ignoredPairs",PhysicsWorld.Pair(a,b),ignore);
@@ -45,6 +47,7 @@ public static partial class Physics {
  public static bool GetIgnoreLayerCollision(int a,int b)=>PhysicsWorld.Ignored("ignoredLayers3",PhysicsWorld.Layers(a,b));
 }
 
+// Namespace: Axiom.Gameplay
 public static partial class Physics {
  public static RaycastHit[] SphereCastAll(Vector3 origin,double radius,Vector3 direction,double maxDistance=double.PositiveInfinity,int layerMask=DefaultRaycastLayers,QueryTriggerInteraction queryTriggerInteraction=QueryTriggerInteraction.UseGlobal)=>ShapeCasts.Sphere(origin,radius,direction,maxDistance,layerMask,3,PhysicsQueries.Triggers(queryTriggerInteraction));
  public static bool SphereCast(Vector3 origin,double radius,Vector3 direction,out RaycastHit hit,double maxDistance=double.PositiveInfinity,int layerMask=DefaultRaycastLayers,QueryTriggerInteraction queryTriggerInteraction=QueryTriggerInteraction.UseGlobal){var hits=SphereCastAll(origin,radius,direction,maxDistance,layerMask,queryTriggerInteraction);hit=hits.FirstOrDefault();return hits.Length>0;}
@@ -54,5 +57,6 @@ public static partial class Physics {
  public static int BoxCastNonAlloc(Vector3 center,Vector3 halfExtents,Vector3 direction,RaycastHit[] results,Quaternion orientation,double maxDistance=double.PositiveInfinity,int layerMask=DefaultRaycastLayers,QueryTriggerInteraction queryTriggerInteraction=QueryTriggerInteraction.UseGlobal)=>PhysicsQueries.Fill(BoxCastAll(center,halfExtents,direction,orientation,maxDistance,layerMask,queryTriggerInteraction),results);
 }
 
+// Namespace: Axiom.Gameplay
 public enum QueryTriggerInteraction {UseGlobal,Ignore,Collide}
 ```

@@ -19,6 +19,12 @@ SDK 8: ordinary Play starts the active authored scene plus explicitly Always act
 ## Implemented declarations
 
 ```csharp
+// Namespace: UnityEngine.SceneManagement
+public static class SceneManager {
+ public static Scene GetActiveScene()=>Axiom.Gameplay.SceneManagement.SceneManager.GetActiveScene();public static Scene GetSceneByName(string name)=>Axiom.Gameplay.SceneManagement.SceneManager.GetSceneByName(name);public static Scene GetSceneByPath(string scenePath)=>Axiom.Gameplay.SceneManagement.SceneManager.GetSceneByPath(scenePath);public static Scene CreateScene(string sceneName)=>Axiom.Gameplay.SceneManagement.SceneManager.CreateScene(sceneName);public static bool SetActiveScene(Scene scene)=>Axiom.Gameplay.SceneManagement.SceneManager.SetActiveScene(scene);public static void MoveGameObjectToScene(UnityEngine.GameObject go,Scene scene)=>Axiom.Gameplay.SceneManagement.SceneManager.MoveGameObjectToScene(go.LegacyGameObject,scene);
+}
+
+// Namespace: Axiom.Gameplay.SceneManagement
 public static class SceneManager {
  public static event Action<Scene,LoadSceneMode>? sceneLoaded;public static event Action<Scene>? sceneUnloaded;public static event Action<Scene,Scene>? activeSceneChanged;
  internal static readonly List<Scene> Loaded=new();internal static readonly Dictionary<string,string> Owners=new();internal static readonly HashSet<string> Persistent=new();internal static readonly HashSet<string> AlwaysActive=new();internal static bool MetadataDirty=true;internal static void SetOwner(string id,string name){if(Owners.GetValueOrDefault(id)==name)return;Owners[id]=name;MetadataDirty=true;}private static Scene active;
@@ -44,5 +50,6 @@ public static class SceneManager {
  public static AsyncOperation UnloadSceneAsync(string name){MetadataDirty=true;var scene=GetSceneByName(name);if(!scene.IsValid()||Loaded.Count<=1||AlwaysActive.Contains(name))throw new ArgumentException("Cannot unload the last or an unknown scene");foreach(var root in scene.GetRootGameObjects())if(!Persistent.Contains(root.Entity.Id))Context.Destroy(root.Entity);Loaded.RemoveAll(s=>s.name==name);if(active.name==name){var previous=active;active=Loaded[0];activeSceneChanged?.Invoke(previous,active);}sceneUnloaded?.Invoke(scene);return new();}
 }
 
+// Namespace: Axiom.Gameplay.SceneManagement
 public enum LoadSceneMode {Single,Additive}
 ```

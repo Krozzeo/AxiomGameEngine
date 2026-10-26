@@ -6,6 +6,7 @@ Namespace Axiom.Gameplay.AI. BuildGrid(minimum, columns, rows, cellSize, blocked
 ## Implemented declarations
 
 ```csharp
+// Namespace: Axiom.Gameplay.AI
 public static class NavMesh {
  public const int AllAreas=-1;private static Vector3 origin;private static int width,height;private static double cell=1;private static HashSet<int> blocked=new();
  // Axiom-specific build entry. Explicit XZ grid, not an automatic triangle-navmesh bake.
@@ -18,9 +19,11 @@ public static class NavMesh {
  internal static void Tick(double delta){foreach(var (id,agent) in NavMeshAgent.Agents.ToArray()){if(!Context.Entities.ContainsKey(id)){NavMeshAgent.Agents.Remove(id);continue;}agent.Tick(delta);}}
 }
 
+// Namespace: Axiom.Gameplay.AI
 public sealed class NavMeshPath {public Vector3[] corners {get;internal set;}=Array.Empty<Vector3>();public NavMeshPathStatus status {get;internal set;}=NavMeshPathStatus.PathInvalid;public void ClearCorners(){corners=Array.Empty<Vector3>();status=NavMeshPathStatus.PathInvalid;}}
 
 public readonly record struct NavMeshHit(Vector3 position,double distance,int mask,bool hit);
 
+// Namespace: Axiom.Gameplay.AI
 public enum NavMeshPathStatus {PathComplete,PathPartial,PathInvalid}
 ```

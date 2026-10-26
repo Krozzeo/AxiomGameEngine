@@ -27,5 +27,6 @@ Existing PascalCase names remain supported. Lowercase vector fields and constant
 ## Implemented declarations
 
 ```csharp
+// Namespace: Axiom.Gameplay
 public readonly record struct Color(double R,double G,double B,double A=1) {public static Color White=>new(1,1,1,1);public static Color Black=>new(0,0,0,1);}
 ```

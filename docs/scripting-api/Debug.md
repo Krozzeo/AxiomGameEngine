@@ -27,6 +27,7 @@ Only supported script field types are serialized. Attributes affect field presen
 ## Implemented declarations
 
 ```csharp
+// Namespace: Axiom.Gameplay
 public static class Debug {
  public static void Log(object? value)=>Axiom.Gameplay.Log.Info(value?.ToString()??"");
  public static void LogWarning(object? value)=>Axiom.Gameplay.Log.Info("Warning: "+value);

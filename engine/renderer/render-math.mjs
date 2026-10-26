@@ -10,7 +10,7 @@ export function matrixMultiply(a,b){return Array.from({length:16},(_,i)=>{const 
 export function transform(m,p,w=1){return [0,1,2,3].map(r=>m[r]*p[0]+m[4+r]*p[1]+m[8+r]*p[2]+m[12+r]*w);}
 export function quaternionMultiply(a,b){const [x,y,z,w]=a,[X,Y,Z,W]=b;return [w*X+x*W+y*Z-z*Y,w*Y-x*Z+y*W+z*X,w*Z+x*Y-y*X+z*W,w*W-x*X-y*Y-z*Z];}
 export function axisQuaternion(axis,angle){return [...mul(unit(axis),Math.sin(angle/2)),Math.cos(angle/2)];}
-export function modelMatrix(t){const [x,y,z,w]=t.rotation??[0,0,0,1],[sx,sy,sz]=t.scale;return [(1-2*(y*y+z*z))*sx,2*(x*y+z*w)*sx,2*(x*z-y*w)*sx,0,2*(x*y-z*w)*sy,(1-2*(x*x+z*z))*sy,2*(y*z+x*w)*sy,0,2*(x*z+y*w)*sz,2*(y*z-x*w)*sz,(1-2*(x*x+y*y))*sz,0,...t.position,1];}
+export function modelMatrix(t){if(t.matrix)return [...t.matrix];const [x,y,z,w]=t.rotation??[0,0,0,1],[sx,sy,sz]=t.scale;return [(1-2*(y*y+z*z))*sx,2*(x*y+z*w)*sx,2*(x*z-y*w)*sx,0,2*(x*y-z*w)*sy,(1-2*(x*x+z*z))*sy,2*(y*z+x*w)*sy,0,2*(x*z+y*w)*sz,2*(y*z-x*w)*sz,(1-2*(x*x+y*y))*sz,0,...t.position,1];}
 export function basis(camera){const forward=unit(sub(camera.target,camera.position)),up=camera.up??[0,1,0];let right=unit(cross(forward,up));if(length(right)<.5)right=unit(cross(forward,[0,0,1]));return {forward,right,up:unit(cross(right,forward))};}
 export function cameraMatrix(c,aspect){const {forward:f,right:r,up:u}=basis(c),p=c.position;
  const view=[r[0],u[0],-f[0],0,r[1],u[1],-f[1],0,r[2],u[2],-f[2],0,-dot(r,p),-dot(u,p),dot(f,p),1];

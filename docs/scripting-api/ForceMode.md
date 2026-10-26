@@ -27,5 +27,6 @@ RigidBody is the legacy velocity snapshot; Rigidbody is the live wrapper. AddFor
 ## Implemented declarations
 
 ```csharp
+// Namespace: Axiom.Gameplay
 public enum ForceMode {Force,Acceleration,Impulse,VelocityChange}
 ```

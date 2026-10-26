@@ -1,10 +1,10 @@
-Current review: **0.0.61 / SDK11 / M20.3a transform behavior (partial)**. Canonical UnityEngine migration is still blocked; M20 remains open. [Current report](docs/reports/M20_TRANSFORM_BATCH.md).
+Current review: **0.0.62 / SDK12 / canonical M20 core and dependency profiles**. All311 compiled public source contracts match;326 native and130 Development/effective-AOT observations pass. The original UnityEngine corpus executes unchanged. Complete per-signature behavior acceptance remains open. [Current report](docs/reports/M20_CANONICAL_BATCH.md).
 
 # Axiom Game Engine
 
 A local browser game editor with Rust/WebAssembly kernel, WebGPU renderer and C# gameplay. Includes2D/3D scenes, resources, CPU/Wasm physics, editing tools and isolated AI proposals with human review.
 
-**Stable: [0.0.57 / M19](https://github.com/Krozzeo/AxiomGameEngine/releases/tag/v0.0.57). Current review batch:0.0.61 / scripting SDK11 / transform host consistency and operations.** M20 remains in progress; the identity/lifetime and query/graph batches include an editable lab with 32 lifecycle and 19 transform checks. [M20 report](docs/reports/M20_REPORT.md), [demo](demos/M20_GUIDE.md), [exact target ledger](docs/compatibility/m20-batches.json).
+**Stable: [0.0.57 / M19](https://github.com/Krozzeo/AxiomGameEngine/releases/tag/v0.0.57). Current review batch:0.0.62 / scripting SDK12 / canonical core, matrices, cloning, async/bulk APIs and primitive dependencies.** M20 remains in progress; the identity/lifetime and query/graph batches include an editable lab with 130 checks across seven controllers. [M20 report](docs/reports/M20_REPORT.md), [demo](demos/M20_GUIDE.md), [exact target ledger](docs/compatibility/m20-batches.json).
 
 ## Axiom family
 

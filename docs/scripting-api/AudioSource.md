@@ -29,12 +29,14 @@ SDK 8: `.enabled` and the Inspector component checkbox control this component in
 ## Implemented declarations
 
 ```csharp
+// Namespace: Axiom.Gameplay
 public sealed partial class AudioSource : Component {public bool enabled {get=>ComponentActivation.Read(Entity,"audioSource");set=>ComponentActivation.Write(Entity,"audioSource",value);}
  internal AudioSource(Entity entity){Entity=entity;}
  public void Play()=>Entity.PlayAudio();public void Pause()=>Entity.PauseAudio();public void UnPause()=>Entity.ResumeAudio();public void Stop()=>Entity.StopAudio();
  public double volume {get=>Context.EntityData[Entity.Id].GetProperty("audioSource").GetProperty("volume").GetDouble();set=>Entity.SetAudioVolume(value);}
 }
 
+// Namespace: Axiom.Gameplay
 public sealed partial class AudioSource {
  public bool loop {get=>PresentationData.Read(Entity,"audioSource").GetProperty("loop").GetBoolean();set=>PresentationData.Set(Entity,"audioSource","loop",JsonValue.Create(value)!);}
  public double pitch {get=>PresentationData.Read(Entity,"audioSource").GetProperty("playbackRate").GetDouble();set=>PresentationData.Set(Entity,"audioSource","playbackRate",JsonValue.Create(value)!);}

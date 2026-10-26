@@ -6,6 +6,7 @@ Namespace Axiom.Gameplay.Networking. GET/HEAD/POST/PUT/DELETE and explicit metho
 ## Implemented declarations
 
 ```csharp
+// Namespace: Axiom.Gameplay.Networking
 public sealed class UnityWebRequest : IDisposable {
  public enum Result {InProgress,Success,ConnectionError,ProtocolError,DataProcessingError}
  internal static readonly Dictionary<string,UnityWebRequest> Pending=new();private static int sequence;
@@ -26,13 +27,18 @@ public sealed class UnityWebRequest : IDisposable {
  internal static void Reset(){Pending.Clear();sequence=0;}
 }
 
+// Namespace: Axiom.Gameplay.Networking
 public sealed class UnityWebRequestAsyncOperation : AsyncOperation {public UnityWebRequest webRequest {get;}internal UnityWebRequestAsyncOperation(UnityWebRequest request){webRequest=request;}public override bool isDone=>webRequest.isDone;public override double progress=>isDone?1:0;}
 
+// Namespace: Axiom.Gameplay.Networking
 public class DownloadHandler : IDisposable {public string text {get;internal set;}="";public byte[] data=>System.Text.Encoding.UTF8.GetBytes(text);public void Dispose(){}}
 
+// Namespace: Axiom.Gameplay.Networking
 public sealed class DownloadHandlerBuffer : DownloadHandler {}
 
+// Namespace: Axiom.Gameplay.Networking
 public class UploadHandler : IDisposable {public byte[] data {get;}public string contentType {get;set;}="application/octet-stream";protected UploadHandler(byte[] value){if(value.Length>65536)throw new ArgumentException("Upload exceeds 64 KiB");data=(byte[])value.Clone();}public void Dispose(){}}
 
+// Namespace: Axiom.Gameplay.Networking
 public sealed class UploadHandlerRaw(byte[] value) : UploadHandler(value) {}
 ```

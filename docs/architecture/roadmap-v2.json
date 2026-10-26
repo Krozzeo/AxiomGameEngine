@@ -2,7 +2,7 @@
   "roadmapVersion": 2,
   "decisionDate": "2026-10-19",
   "status": "m20_in_progress",
-  "engineBaseline": "0.0.61 / SDK11 (partial M20.3a behavior); stable main0.0.57; canonical migration gate fails",
+  "engineBaseline": "0.0.62 / SDK12 canonical core and dependency profiles; stable main0.0.57; unchanged corpus passes, complete per-signature behavior acceptance remains open",
   "unityBaseline": "6000.3 LTS",
   "unityLatestDelta": "6000.6 observed 2026-10-18; separate from the frozen target",
   "completedMainMilestones": 24,

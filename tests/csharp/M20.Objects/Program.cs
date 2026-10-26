@@ -1,6 +1,7 @@
 using Axiom.Gameplay;
 using Object = Axiom.Gameplay.Object;
 
+try {
 var checks = new List<string>();
 void Check(string name, bool value) { if (!value) throw new Exception(name); checks.Add(name); }
 void Reset(int generation) {
@@ -65,7 +66,18 @@ QueryCases.Run(Check,Reset);
 CloneCases.Run(Check,Reset);
 OrderCases.Run(Check,Reset);
 TransformCases.Run(Check,Reset);
+CanonicalCases.Run(Check,Reset);
+PersistenceCases.Run(Check,Reset);
+MatrixCases.Run(Check,Reset);
+ManagedCloneCases.Run(Check,Reset);
+MessageCases.Run(Check,Reset);
+AsyncCloneCases.Run(Check,Reset);
+BulkObjectCases.Run(Check,Reset);
+PrimitiveCases.Run(Check,Reset);
+AsyncOverloadCases.Run(Check,Reset);
 Console.WriteLine(System.Text.Json.JsonSerializer.Serialize(new {passed=true,profile="native .NET / Axiom alias behavior, not Unity signature certification",checks}));
+
+} catch(Exception error){Console.Error.WriteLine(error);Environment.ExitCode=1;}
 
 public sealed class DestructionProbe : MonoBehaviour {
  public static readonly List<string> Events=new();public static bool Reentrant;

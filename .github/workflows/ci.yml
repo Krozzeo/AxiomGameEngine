@@ -116,6 +116,16 @@ jobs:
       - run: node scripts/generate-script-bindings.mjs --check
       - run: node scripts/generate-scripting-reference.mjs --check
       - run: dotnet run --project tests/csharp/M20.Objects/M20.Objects.csproj
+      - name: Audit current compiled M20 source contracts and obsolete consumer diagnostics
+        run: |
+          dotnet run --project scripts/compatibility/Metadata -- tests/csharp/M20.Objects/bin/Debug/net10.0/M20.Objects.dll .axiom/m20-current-abi.json --sdk
+          node scripts/compatibility/m20-source-audit.mjs .axiom/m20-current-abi.json .axiom/m20-current-source.json
+          node scripts/compatibility/m20-obsolete-compile.mjs tests/csharp/M20.Objects/bin/Debug/net10.0/M20.Objects.dll .axiom/m20-current-obsolete-compile.json .axiom/m20-current-abi.json
+      - run: dotnet build tests/csharp/M20.Migration --nologo -v:q
+      - run: node tests/browser/m20.mjs
+        if: matrix.mode == 'aot'
+        env:
+          AXIOM_CSHARP_MODE: ${{ matrix.mode }}
       - run: node tests/browser/csharp-spike.mjs
         env:
           AXIOM_CSHARP_MODE: ${{ matrix.mode }}

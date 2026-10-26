@@ -1,3 +1,11 @@
+# Current canonical batch —0.0.62 / SDK12 / M20 in progress
+
+All311 frozen public source contracts match the owned compiled SDK;326 native and130 Development/effective-AOT observations pass. The original HierarchyMigration.cs corpus now executes byte-for-byte unchanged. Canonical float facades share the legacy runtime; affine matrices, serialized/cyclic clones, async/bulk APIs and six owned primitives are implemented/tested. The browser harness asserts effective build mode after fixing an automatic Development fallback.
+
+Do not close M20 from these counts: per-signature positive/negative/lifecycle/reference/dependency attribution remains incomplete, and full certified behavior signatures remain0/311. One of three full closure criteria (unchanged corpus) passes. Stable main stays0.0.57. No automatic merge. See [current batch](reports/M20_CANONICAL_BATCH.md); older sections below are historical.
+
+---
+
 # M20.3a transform behavior — Engine 0.0.61 / SDK11
 
 M20 remains **in progress**. This batch fixes host publication of descendant transforms, atomic pose/reparent rejection and adds tested legacy Euler/axis/orbit/look/direction/span APIs. 138 native observations and 32 lifecycle + 19 transform development-Wasm observations pass, including next-frame consistency and exact Stop restoration. The required unadapted UnityEngine corpus fails CS0246; all 311 assigned records and 0 certified exact signatures remain visible.

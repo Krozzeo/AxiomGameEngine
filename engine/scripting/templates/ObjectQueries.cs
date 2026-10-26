@@ -4,12 +4,12 @@ public enum FindObjectsInactive { Exclude, Include }
 public enum FindObjectsSortMode { None, InstanceID }
 
 internal static class ObjectQueries {
- internal static void ComponentType(Type type){ArgumentNullException.ThrowIfNull(type);if(!type.IsInterface&&!typeof(Component).IsAssignableFrom(type))throw new ArgumentException("A component class or interface is required",nameof(type));}
+ internal static void ComponentType(Type type){ArgumentNullException.ThrowIfNull(type);if(!type.IsInterface&&!typeof(Component).IsAssignableFrom(type)&&!typeof(UnityEngine.Component).IsAssignableFrom(type))throw new ArgumentException("A component class or interface is required",nameof(type));}
  internal static void Fill<T>(List<T> results,IEnumerable<T> values){ArgumentNullException.ThrowIfNull(results);var snapshot=values.ToArray();results.Clear();results.AddRange(snapshot);}
  internal static Object[] Find(Type type,FindObjectsInactive inactive,FindObjectsSortMode sort){
-  ArgumentNullException.ThrowIfNull(type);if(!typeof(Object).IsAssignableFrom(type))throw new ArgumentException("An Object type is required",nameof(type));
+  ArgumentNullException.ThrowIfNull(type);if(!typeof(Object).IsAssignableFrom(type)&&!typeof(UnityEngine.Object).IsAssignableFrom(type))throw new ArgumentException("An Object type is required",nameof(type));
   if(!Enum.IsDefined(inactive)||!Enum.IsDefined(sort))throw new ArgumentOutOfRangeException("Invalid find mode");
-  var found=new List<Object>();foreach(var id in Context.Entities.Keys){if(inactive==FindObjectsInactive.Exclude&&!Context.IsActive(id))continue;var go=new GameObject(new Entity(id,Context.Generation));if(type.IsInstanceOfType(go))found.Add(go);found.AddRange(go.AllComponents().Where(type.IsInstanceOfType));}
+  var found=new List<Object>();foreach(var id in Context.Entities.Keys){if(inactive==FindObjectsInactive.Exclude&&!Context.IsActive(id))continue;var go=new GameObject(new Entity(id,Context.Generation));if(type.IsInstanceOfType(go)||typeof(UnityEngine.Object).IsAssignableFrom(type)&&type.IsInstanceOfType(UnityEngine.Object.Wrap(go)))found.Add(go);found.AddRange(go.AllComponents().Where(component=>ScriptBridge.Matches(type,component)));}
   return (sort==FindObjectsSortMode.InstanceID?found.OrderBy(o=>o.GetInstanceID()):found.AsEnumerable()).ToArray();
  }
 }
@@ -17,7 +17,7 @@ internal static class ObjectQueries {
 public sealed partial class GameObject {
  public GameObject gameObject=>this;
  public Component? GetComponent(Type type)=>GetComponents(type).FirstOrDefault();
- public Component[] GetComponents(Type type){ObjectQueries.ComponentType(type);return AllComponents().Where(type.IsInstanceOfType).ToArray();}
+ public Component[] GetComponents(Type type){ObjectQueries.ComponentType(type);return AllComponents().Where(component=>ScriptBridge.Matches(type,component)).ToArray();}
  public bool TryGetComponent(Type type,out Component? component){component=GetComponent(type);return component!=null;}
  public void GetComponents(Type type,List<Component> results)=>ObjectQueries.Fill(results,GetComponents(type));
  public void GetComponents<T>(List<T> results)=>ObjectQueries.Fill(results,GetComponents<T>());

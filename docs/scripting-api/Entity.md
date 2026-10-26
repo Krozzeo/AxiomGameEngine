@@ -28,6 +28,7 @@ Transforms use world position/rotation. localScale writes the runtime scale. Leg
 ## Implemented declarations
 
 ```csharp
+// Namespace: Axiom.Gameplay
 public readonly record struct Entity(string Id, int Generation) {
  public Transform Transform => Context.Read(this);
  public RigidBody RigidBody => Context.ReadBody(this);

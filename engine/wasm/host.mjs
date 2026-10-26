@@ -1,5 +1,7 @@
+import {builtinPrimitiveAsset} from '../scene/builtin-primitives.mjs';
 import {activeGameCamera} from '../scene/camera.mjs';
-import {worldScene,localTransform,applyWorldOverrides,activeEntities,reparent} from '../scene/hierarchy.mjs';
+import {worldScene,worldTransforms,localTransform,applyWorldOverrides,activeEntities,reparent} from '../scene/hierarchy.mjs';
+import {cameraMatrix,matrixMultiply} from '../renderer/render-math.mjs';
 const compiledModules=new WeakMap();
 const sharedVertices=new WeakMap();
 function verticesFor(primitive){let value=sharedVertices.get(primitive);if(!value){value=new Float32Array(primitive.vertices);sharedVertices.set(primitive,value);}return value;}
@@ -14,6 +16,7 @@ export async function loadKernel(bytes) {
   if (!id) throw new Error("AX_WASM_0002: world allocation failed");
   let disposed = false;
   let compiled = null;
+  const refreshTransforms=()=>{const transforms=worldTransforms(compiled.localScene.entities);for(const entity of compiled.scene.entities)entity.transform=transforms.get(entity.id);};
   const physics=physicsHost(api,id);
   const animation=animationHost(api,id);
   return {
@@ -72,7 +75,7 @@ export async function loadKernel(bytes) {
     setRotations(rotations){
       if(disposed||!compiled)throw new Error('AX_WASM_0003: missing compiled scene');
       for(const [entityId,rotation]of rotations){const e=compiled.scene.entities.find(e=>e.id===entityId);if(!e||!Array.isArray(rotation)||rotation.length!==4||rotation.some(v=>!Number.isFinite(v))||Math.abs(Math.hypot(...rotation)-1)>1e-5)throw new Error('AX_WASM_0007: invalid runtime rotation');}
-      for(const [entityId,rotation]of rotations){const e=compiled.scene.entities.find(e=>e.id===entityId);const world={...e.transform,rotation:[...rotation]};compiled.localScene.entities.find(e=>e.id===entityId).transform=localTransform(compiled.localScene.entities,entityId,world);e.transform.rotation=[...rotation];physics.transforms([[entityId,world]]);for(const draw of compiled.draws.filter(d=>d.entityId===entityId))api.axiom_scene_rotation(id,draw.handle,...rotation);}
+      for(const [entityId,rotation]of rotations){const e=compiled.scene.entities.find(e=>e.id===entityId);const world={...e.transform,rotation:[...rotation]};compiled.localScene.entities.find(e=>e.id===entityId).transform=localTransform(compiled.localScene.entities,entityId,world);e.transform.rotation=[...rotation];physics.transforms([[entityId,world]]);for(const draw of compiled.draws.filter(d=>d.entityId===entityId))api.axiom_scene_rotation(id,draw.handle,...rotation);}refreshTransforms();
     },
     setPositions(positions) {
       if(disposed||!compiled)throw new Error("AX_WASM_0003: missing compiled scene");
@@ -83,7 +86,7 @@ export async function loadKernel(bytes) {
       for(const [entityId,position]of positions) {
         for(const draw of compiled.draws.filter(d=>d.entityId===entityId))if(api.axiom_scene_position(id,draw.handle,...position)!==0)throw new Error("AX_WASM_0007: runtime position rejected");
         const local=compiled.localScene.entities.find(e=>e.id===entityId);local.transform=localTransform(compiled.localScene.entities,entityId,{...compiled.scene.entities.find(e=>e.id===entityId).transform,position:[...position]});compiled.scene.entities.find(e=>e.id===entityId).transform.position=[...position];
-      }
+      }refreshTransforms();
     },
     beginFixedFrame(delta,trace){if(disposed||!compiled)throw Error('AX_WASM_0003: missing compiled scene');if(api.axiom_tick(id,delta,trace)!==0)throw Error('AX_TIME_0001: invalid tick');return api.axiom_fixed_steps(id);},
     stepScene(delta, trace, aspect,options={}) {
@@ -102,7 +105,7 @@ export async function loadKernel(bytes) {
         // Child static colliders follow their parent for the next fixed step.
         physics.transforms(compiled.scene.entities.filter(e=>e.collider&&!e.rigidBody).map(e=>[e.id,e.transform]));
       }
-      const draws=options.draw===false?[]:compiled.draws.map(draw=>({handle:draw.handle,mvp:Float32Array.from({length:16},(_,i)=>api.axiom_scene_matrix(id,draw.handle,i,1)),model:Float32Array.from({length:16},(_,i)=>api.axiom_scene_matrix(id,draw.handle,i,0))}));
+      const matrices=new Map(compiled.scene.entities.map(e=>[e.id,e.transform.matrix]));const camera=activeGameCamera(compiled.scene)??{position:[0,0,6],target:[0,0,0],projection:"perspective",fov:60,orthoHeight:6};const vp=cameraMatrix(camera,aspect);const draws=options.draw===false?[]:compiled.draws.map(draw=>{const exact=matrices.get(draw.entityId);return {handle:draw.handle,mvp:exact?Float32Array.from(matrixMultiply(vp,exact)):Float32Array.from({length:16},(_,i)=>api.axiom_scene_matrix(id,draw.handle,i,1)),model:exact?Float32Array.from(exact):Float32Array.from({length:16},(_,i)=>api.axiom_scene_matrix(id,draw.handle,i,0))};});
       return {transforms:compiled.scene.entities.map(e=>({id:e.id,transform:e.transform})),physics:physical,draws,frame:Number(api.axiom_frame(id)),trace:api.axiom_trace(id).toString(),fixedSteps:api.axiom_fixed_steps(id),nullProcessedMeshes:options.draw===false?0:api.axiom_scene_null(id)};
     },
     dispose() {
@@ -118,7 +121,7 @@ export function scenePrimitives(scene, assets) {
   const draws=[];
   for(const entity of scene.entities) {
     if(!entity.renderable||entity.componentEnabled?.renderable===false) continue;
-    const asset=assets.get(entity.renderable.assetId);
+    if(entity.runtimeMeshAssetId&&entity.runtimeMeshFilter!==true)continue;const asset=assets.get(entity.renderable.assetId)??builtinPrimitiveAsset(entity.renderable.assetId);
     if(!asset || asset.kind!==entity.renderable.kind) throw new Error("AX_ASSET_0001: missing runtime asset");
     let primitives=asset.primitives;
     if(asset.kind==="sprite") {

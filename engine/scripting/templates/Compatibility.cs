@@ -1,6 +1,7 @@
 namespace Axiom.Gameplay;
 // Live component facades coexist with the original immutable snapshot API.
 public partial class Object {
+ public Object(){UnityEngine.NativeObjects.Track(this); }
  public static GameObject Instantiate(GameObject original)=>(GameObject)Instantiate((Object)original);
  public static GameObject Instantiate(GameObject original,Vector3 position,Quaternion rotation)=>(GameObject)Instantiate((Object)original,position,rotation);
  public static void Destroy(GameObject? target)=>RuntimeLifecycle.DestroyAfter(target,0);

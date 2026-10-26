@@ -28,5 +28,6 @@ Only supported script field types are serialized. Attributes affect field presen
 ## Implemented declarations
 
 ```csharp
-public sealed class HideInInspectorAttribute : Attribute {}
+// Namespace: Axiom.Gameplay
+public class HideInInspectorAttribute : Attribute {}
 ```

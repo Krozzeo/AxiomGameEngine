@@ -5,17 +5,17 @@ public static class TransformCases {
  static bool Near(Vector3 a,Vector3 b,double tolerance=1e-8)=>(a-b).magnitude<tolerance;
  static bool Pose(Transform t,Vector3 p,Vector3 forward)=>Near(t.position,p)&&Near(t.forward,forward);
  public static void Run(Action<string,bool> check,Action<int> reset){
-  reset(10);var root=new GameObject("Transform root");var child=new GameObject("Transform child");var leaf=new GameObject("Transform leaf");
+  reset(10);check("vector logging does not recurse through normalized properties",new Vector2(1,2).ToString()=="(1, 2)"&&new Vector3(1,2,3).ToString()=="(1, 2, 3)"&&new Vector4(1,2,3,4).ToString()=="(1, 2, 3, 4)");var root=new GameObject("Transform root");var child=new GameObject("Transform child");var leaf=new GameObject("Transform leaf");
   root.transform.position=new(10,0,0);child.transform.position=new(1,0,0);child.transform.SetParent(root.transform,false);leaf.transform.position=new(0,0,2);leaf.transform.SetParent(child.transform,false);
   Context.Operations.Clear();root.transform.Translate(1,2,3,Space.World);
   check("world translation propagates through two generations",Near(child.transform.position,new(12,2,3))&&Near(leaf.transform.position,new(12,2,5)));
   check("child movement is published to host",Context.Operations.Count(op=>op.Kind=="move")==3&&Context.Operations.Any(op=>op.Id==leaf.Entity.Id));
   Context.Operations.Clear();root.transform.rotation=Quaternion.AngleAxis(90,Vector3.up);
   check("parent rotation orbits child and grandchild",Pose(child.transform,new(11,2,2),Vector3.right)&&Pose(leaf.transform,new(13,2,2),Vector3.right));
-  check("child rotation is published to host",Context.Operations.Count(op=>op.Kind=="rotation")==3);
+  check("child rotation is published to host",Context.Operations.Count(op=>op.Kind is "rotation" or "pose"&&op.Rotation.HasValue)==3);
   Context.Operations.Clear();root.transform.localScale=new(2,3,4);
   check("parent scaling propagates local offsets",Near(child.transform.position,new(11,2,1))&&Near(leaf.transform.position,new(19,2,1)));
-  check("parent scaling publishes descendant scales",Context.Operations.Count(op=>op.Kind=="scale")==3);
+  check("parent scaling publishes descendant scales",Context.Operations.Count(op=>op.Kind=="scale"||op.Kind=="pose"&&op.Scale.HasValue)==3);
   check("local transforms survive parent pose changes",Near(child.transform.localPosition,Vector3.right)&&Near(leaf.transform.localPosition,new(0,0,2)));
   Context.Operations.Clear();child.transform.SetLocalPositionAndRotation(new(0,1,0),Quaternion.identity);
   child.transform.GetLocalPositionAndRotation(out var localPosition,out var localRotation);
@@ -69,9 +69,8 @@ public static class TransformCases {
   t.TransformPoints(Span<Vector3>.Empty);check("empty batch is valid",true);
   Context.Operations.Clear();var zero=new GameObject("Zero scale").transform;zero.localScale=Vector3.zero;
   try{zero.InverseTransformVector(Vector3.one);check("zero scale inverse vector rejects explicitly",false);}catch(InvalidOperationException){check("zero scale inverse vector rejects explicitly",true);}
-  var collapsedChild=new GameObject("Collapsed child").transform;collapsedChild.SetParent(zero,true);zero.position=Vector3.one;check("zero scale hierarchy can translate",Near(collapsedChild.position,Vector3.one));
-  var saved=zero.localScale;operations=Context.Operations.Count;
-  try{zero.localScale=Vector3.one;check("unsupported collapsed hierarchy expansion rejects atomically",false);}catch(NotSupportedException){check("unsupported collapsed hierarchy expansion rejects atomically",zero.localScale==saved&&Context.Operations.Count==operations);}
+  var collapsedChild=new GameObject("Collapsed child").transform;collapsedChild.SetParent(zero,false);zero.position=Vector3.one;check("zero scale hierarchy can translate",Near(collapsedChild.position,Vector3.one));
+  collapsedChild.localPosition=new(2,0,0);zero.localScale=Vector3.one;check("collapsed hierarchy retains authored local coordinates on expansion",Near(collapsedChild.position,new(3,1,1)));
   check("transform enumeration preserves immediate sibling order",root.transform.Cast<Transform>().Select(c=>c.gameObject.name).SequenceEqual(new[]{"Transform child"}));
   Object.DestroyImmediate(reference.gameObject);try{reference.TransformPoints(Span<Vector3>.Empty);check("stale batch transform rejects even empty input",false);}catch(InvalidOperationException){check("stale batch transform rejects even empty input",true);}
  }

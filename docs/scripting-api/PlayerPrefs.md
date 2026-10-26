@@ -13,6 +13,7 @@ Applications should explicitly save at checkpoints; no implicit save on applicat
 ## Implemented declarations
 
 ```csharp
+// Namespace: Axiom.Gameplay
 public static class PlayerPrefs {
  private static Dictionary<string,string> values=new(StringComparer.Ordinal);
  internal static void Load(JsonElement value){values=value.TryGetProperty("preferences",out var p)?p.EnumerateObject().ToDictionary(p=>p.Name,p=>p.Value.GetString()!):new(StringComparer.Ordinal);}
