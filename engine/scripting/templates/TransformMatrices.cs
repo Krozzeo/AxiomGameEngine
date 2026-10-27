@@ -8,6 +8,9 @@ internal sealed class Affine {
  internal Vector3 Point(Vector3 p)=>new(M[0]*p.X+M[4]*p.Y+M[8]*p.Z+M[12],M[1]*p.X+M[5]*p.Y+M[9]*p.Z+M[13],M[2]*p.X+M[6]*p.Y+M[10]*p.Z+M[14]);
  internal Vector3 Vector(Vector3 p)=>new(M[0]*p.X+M[4]*p.Y+M[8]*p.Z,M[1]*p.X+M[5]*p.Y+M[9]*p.Z,M[2]*p.X+M[6]*p.Y+M[10]*p.Z);
  internal Affine? Inverse(){var a=new double[4,8];for(var r=0;r<4;r++)for(var c=0;c<8;c++)a[r,c]=c<4?M[c*4+r]:(c-4==r?1:0);for(var i=0;i<4;i++){var pivot=i;for(var r=i+1;r<4;r++)if(Math.Abs(a[r,i])>Math.Abs(a[pivot,i]))pivot=r;if(a[pivot,i]==0)return null;for(var c=0;c<8;c++)(a[i,c],a[pivot,c])=(a[pivot,c],a[i,c]);var d=a[i,i];for(var c=0;c<8;c++)a[i,c]/=d;for(var r=0;r<4;r++)if(r!=i){var v=a[r,i];for(var c=0;c<8;c++)a[r,c]-=v*a[i,c];}}var result=new double[16];for(var c=0;c<4;c++)for(var r=0;r<4;r++)result[c*4+r]=a[r,c+4];return new(result);}
+ // Transform.lossyScale projects onto its signed world rotation; Matrix4x4 keeps basis lengths.
+ internal Vector3 ProjectedScale(Quaternion rotation){var projected=TRS(Vector3.zero,Quaternion.Inverse(rotation),Vector3.one)*this;return new(projected.M[0],projected.M[5],projected.M[10]);}
+ internal static Quaternion Mirror(Quaternion rotation,Vector3 scale){var x=scale.X<0?-1:1;var y=scale.Y<0?-1:1;var z=scale.Z<0?-1:1;return new(rotation.X*y*z,rotation.Y*x*z,rotation.Z*x*y,rotation.W);}
  internal Vector3 Scale {get{double Length(int c)=>Math.Sqrt(M[c]*M[c]+M[c+1]*M[c+1]+M[c+2]*M[c+2]);var determinant=M[0]*(M[5]*M[10]-M[9]*M[6])-M[4]*(M[1]*M[10]-M[9]*M[2])+M[8]*(M[1]*M[6]-M[5]*M[2]);return new(Length(0)*(determinant<0?-1:1),Length(4),Length(8));}}
 }
 }

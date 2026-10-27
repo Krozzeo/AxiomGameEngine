@@ -10,7 +10,13 @@ public static class MatrixCases {
   check("local-to-world matrix agrees with point transform",Near(child.transform.localToWorldMatrix.MultiplyPoint3x4(U.Vector3.right),expected));
   check("world-to-local matrix inverts sheared hierarchy",Near(child.transform.worldToLocalMatrix.MultiplyPoint3x4(p),U.Vector3.right));
   check("inverse point transform inverts sheared hierarchy",Near(child.transform.InverseTransformPoint(p),U.Vector3.right));
-  check("lossy scale reports basis lengths",Near(child.transform.lossyScale,new(MathF.Sqrt(2.5f),MathF.Sqrt(2.5f),1)));
+  check("lossy scale projects onto world rotation",Near(child.transform.lossyScale,new(1.5f,1.5f,1)));
+  parent.transform.localScale=new(-2,1,1);child.transform.rotation=U.Quaternion.identity;
+  check("native world rotation setter preserves local scale under signed parent",Near(child.transform.localScale,U.Vector3.one)&&Near(child.transform.lossyScale,new(-2,1,1)));
+  child.transform.localRotation=U.Quaternion.Euler(0,0,45);child.transform.SetPositionAndRotation(new(8,2,1),U.Quaternion.identity);
+  check("native world combined setter preserves local scale",Near(child.transform.localScale,U.Vector3.one)&&Near(child.transform.position,new(8,2,1)));
+  child.transform.localRotation=U.Quaternion.Euler(0,0,45);child.transform.position=new(6,1,0);check("world position setter preserves local rotation and scale",Near(child.transform.localScale,U.Vector3.one)&&Near(child.transform.localRotation*U.Vector3.right,new(MathF.Sqrt(.5f),MathF.Sqrt(.5f),0)));
+  parent.transform.localScale=new(2,1,1);child.transform.localPosition=U.Vector3.right;child.transform.localRotation=U.Quaternion.Euler(0,0,45);
   var standalone=U.Matrix4x4.TRS(new(1,2,3),U.Quaternion.Euler(0,90,0),new(2,3,4));
   check("float TRS uses column-major convention",Near(standalone.MultiplyPoint3x4(new(1,2,3)),new(13,8,1)));
   check("matrix product and inverse agree",Near((standalone.inverse*standalone).MultiplyPoint3x4(new(1,2,3)),new(1,2,3)));

@@ -1,10 +1,25 @@
 import test from 'node:test';import assert from 'node:assert/strict';
-import {ReplaySession,validateRecording} from '../engine/replay/session.mjs';
+import {ReplaySession,validateRecording,canonicalReplayState} from '../engine/replay/session.mjs';
 const scope={id:'project://11111111-1111-4111-8111-111111111111',sceneRevision:1};
 function rig({diverge=false}={}){let pos=0,frames=0,restored=0;const adapter={scope:()=>scope,begin:async()=>{pos=0;frames=0;},step:async({keys})=>{pos+=keys.includes('ArrowRight')?1:0;frames++;await new Promise(r=>setTimeout(r,0));},snapshot:()=>({entities:[{id:'entity://11111111-1111-4111-8111-111111111111',transform:{position:[pos+(diverge?restored:0),0,0],rotation:[0,0,0,1],scale:[1,1,1]}}],animation:[],time:frames/60}),diagnostic:()=>({observed:pos}),end:async()=>{restored++;}};return new ReplaySession(adapter);}
 async function done(r){while(r.flight)await r.flight;return r.result();}
 const suite={name:'Recorded arrows',steps:[{frames:60,keys:['ArrowRight']},{frames:60,keys:['ArrowLeft']}]};
 test('recorded inputs/checkpoints roundtrip and range diagnostics preserve original provenance',async()=>{const r=rig();r.control({action:'record',suite,seed:42});assert.equal((await done(r)).status,'completed');const recording=r.control({action:'export'}).recording;assert.equal(validateRecording(JSON.stringify(recording)).inputs.length,120);r.control({action:'clear'});r.control({action:'import',recordingJson:JSON.stringify(recording)});r.control({action:'replay',from:60,to:120});const out=await done(r);assert.equal(out.status,'completed');assert.equal(out.verifiedCheckpoints,3);assert.equal(out.checkpoint,60);assert.ok(out.diagnostics.every(d=>d.recordingId===recording.id&&d.sourceRevision===1));});
+
+test('affine checkpoint matrices roundtrip, reject malformed input and participate in replay equality',async()=>{
+ const replay=rig(),snapshot=replay.adapter.snapshot;
+ replay.adapter.snapshot=()=>{const state=snapshot();for(const entity of state.entities){const p=entity.transform.position;entity.transform.matrix=[1,0,0,0,0,1,0,0,0,0,1,0,...p,1];}return state;};
+ replay.control({action:'record',suite,seed:42});assert.equal((await done(replay)).status,'completed');
+ const recording=replay.control({action:'export'}).recording;
+ assert.deepEqual(validateRecording(JSON.stringify(recording)),recording);
+ for(const checkpoint of recording.checkpoints)assert.equal(checkpoint.state.entities[0].transform.matrix[12],checkpoint.state.entities[0].transform.position[0]);
+ replay.control({action:'clear'});replay.control({action:'import',recordingJson:JSON.stringify(recording)});replay.control({action:'replay',from:60,to:120});assert.equal((await done(replay)).status,'completed');
+ const changed=structuredClone(recording);changed.checkpoints[1].state.entities[0].transform.matrix[4]=.6;changed.checkpoints[1].state.entities[0].transform.matrix[5]=.8;
+ replay.control({action:'clear'});replay.control({action:'import',recordingJson:JSON.stringify(changed)});replay.control({action:'replay',from:60,to:120});const result=await done(replay);assert.equal(result.status,'failed');assert.match(result.error,/Checkpoint divergence/);
+ for(const mutate of [matrix=>matrix.pop(),matrix=>matrix[0]=NaN,matrix=>matrix[0]=1000001,matrix=>matrix[3]=.5,matrix=>matrix[15]=0]){
+  const state=snapshot();state.entities[0].transform.matrix=[1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1];mutate(state.entities[0].transform.matrix);assert.throws(()=>canonicalReplayState(state),/affine matrix/);
+ }
+});
 test('checkpoint divergence fails rather than claiming deterministic replay',async()=>{const r=rig({diverge:true});r.control({action:'record',suite,seed:0});await done(r);r.control({action:'replay',from:0,to:120});const out=await done(r);assert.equal(out.status,'failed');assert.match(out.error,/Checkpoint divergence/);});
 test('cancellation finishes cleanup and cannot publish a partial recording',async()=>{const r=rig();r.control({action:'record',suite,seed:1});r.control({action:'cancel'});const out=await done(r);assert.equal(out.status,'cancelled');assert.equal(out.recording,null);assert.throws(()=>r.control({action:'export'}));});
 test('record budgets, seed, range and import validation reject malformed work',async()=>{const r=rig();assert.throws(()=>r.control({action:'record',suite,seed:-1}));assert.throws(()=>r.control({action:'record',suite:{name:'Big',steps:Array.from({length:6},()=>({frames:120}))},seed:0}));assert.throws(()=>validateRecording('{}'));r.control({action:'record',suite,seed:0});await done(r);assert.throws(()=>r.control({action:'replay',from:121,to:122}));const recording=r.control({action:'export'}).recording;recording.scope.sceneRevision=99;assert.throws(()=>r.control({action:'import',recordingJson:JSON.stringify(recording)}),/revision/);});

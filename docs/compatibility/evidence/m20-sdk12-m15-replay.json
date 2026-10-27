@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "criteria": [
+    "Current AI menu exposes real assistant configuration, existing proposal review and planned future actions",
+    "Config master document upload persists through project settings and reload",
+    "Actual C# ReplayRandom seed and 240 controlled inputs produce bounded state checkpoints",
+    "C# private lifecycle state reconstructs and verifies range checkpoints; diagnostics retain source recording identity; authored scene unchanged",
+    "Export/import roundtrip reproduces a second range through public tools",
+    "Human record/range controls display actual checkpoint and diagnostic results",
+    "Cancellation releases C# runtime and input without publishing partial recording",
+    "Real Wasm collision replay re-executes causal contact diagnostics",
+    "Real animator state/time checkpoints reproduce across range replay",
+    "Starter Cube is lit by its authored directional entity; turning it off removes bright geometry",
+    "Camera has a selectable Scene marker and physical Move gizmo edits its Transform",
+    "Human 3D starter, Camera Inspector projection and Transform, stopped Game, parallel Game and missing-camera Undo",
+    "Human 2D starter contains Camera + listener, Square sprite and explicit 2D light",
+    "Null renderer repeats CPU/Wasm replay without invented pixels"
+  ],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "profile": "Headless Chromium regression using software WebGPU/Null and real C#/Wasm; physical GPU acceleration is not claimed.",
+  "note": "The unchanged M15 recording/export/import/range workflow now accepts and verifies optional full affine checkpoint matrices."
+}

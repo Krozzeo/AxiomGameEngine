@@ -36,7 +36,7 @@ public class AsyncOperation {public virtual bool isDone=>true;public virtual dou
 public partial class Object {
  public static GameObject Instantiate(PrefabAsset original)=>Context.ImportResource(original.Path,true).First();
  public static GameObject Instantiate(PrefabAsset original,Vector3 position,Quaternion rotation){var root=Instantiate(original);root.transform.position=position;root.transform.rotation=rotation;return root;}
- public static void DontDestroyOnLoad(GameObject target){_=Context.Read(target.Entity);var root=target.transform;while(root.parent!=null)root=root.parent;SceneManagement.SceneManager.Persistent.Add(root.Entity.Id);}
+ public static void DontDestroyOnLoad(GameObject target){_=Context.Read(target.Entity);var root=target.transform;while(root.parent!=null)root=root.parent;SceneManagement.SceneManager.MakePersistent(root.gameObject);}
 }
 internal static partial class Context {
  private static JsonNode? RemapResource(JsonNode? node,Dictionary<string,string> ids){if(node is JsonValue scalar&&scalar.TryGetValue<string>(out var text)&&ids.TryGetValue(text,out var mapped))return JsonValue.Create(mapped);if(node is JsonArray array){var result=new JsonArray();foreach(var item in array)result.Add(RemapResource(item,ids));return result;}if(node is JsonObject obj){var result=new JsonObject();foreach(var (key,value) in obj)result[key]=RemapResource(value,ids);return result;}return node?.DeepClone();}

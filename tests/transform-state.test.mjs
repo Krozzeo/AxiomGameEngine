@@ -8,8 +8,19 @@ import {validateProject} from '../protocol/src/project-document.mjs';
 const root='entity://11111111-1111-4111-8111-111111111111',child='entity://22222222-2222-4222-8222-222222222222';
 const q=[0,0,Math.sin(Math.PI/8),Math.cos(Math.PI/8)];
 const state=()=>({matrix:[Math.SQRT2,Math.SQRT1_2,0,0,-Math.SQRT2,Math.SQRT1_2,0,0,0,0,1,0,5,0,0,1],local:{position:[1,0,0],rotation:q,scale:[1,1,1]}});
-const scene=()=>({entities:[{id:root,name:'Parent',runtimeParentId:null,transform:{position:[3,0,0],rotation:[0,0,0,1],scale:[2,1,1]}},{id:child,name:'Child',runtimeParentId:root,transform:{position:[5,0,0],rotation:q,scale:[Math.sqrt(2.5),Math.sqrt(2.5),1]}}]});
+const scene=()=>({entities:[{id:root,name:'Parent',runtimeParentId:null,transform:{position:[3,0,0],rotation:[0,0,0,1],scale:[2,1,1]}},{id:child,name:'Child',runtimeParentId:root,transform:{position:[5,0,0],rotation:q,scale:[1.5,1.5,1]}}]});
 const packet=value=>({generation:1,operations:[{kind:'move',id:child,position:[5,0,0],data:{transformState:value}}]});
+
+test('private persistent scene has a bounded transport slot without raising normal scene capacity',()=>{
+ const persistent='axiom://runtime/DontDestroyOnLoad',normal=Array.from({length:16},(_,i)=>'Scene '+i);
+ const documents={open:[...normal,persistent],active:normal[0],alwaysActive:[],owners:{[root]:persistent}};
+ const source=scene(),before=structuredClone(source);
+ const next=applyScriptOperations(source,{generation:1,operations:[],sceneDocuments:documents},1).scene;
+ assert.deepEqual(next.sceneDocuments.owners,{[root]:persistent});assert.deepEqual(source,before);
+ for(const mutate of [value=>value.open.push('Seventeenth normal'),value=>value.open=value.open.filter(path=>path!==persistent).concat('Seventeenth normal'),value=>value.active=persistent,value=>value.alwaysActive=[persistent]]){
+  const invalid=structuredClone(documents);mutate(invalid);assert.throws(()=>applyScriptOperations(source,{generation:1,operations:[],sceneDocuments:invalid},1),/runtime scenes/);assert.deepEqual(source,before);
+ }
+});
 
 test('unnamed live objects survive create, rename and clone import without relaxing authored names',()=>{
  const next=applyScriptOperations({entities:[]},{generation:1,operations:[{kind:'create',id:root,name:''}]},1).scene;
@@ -33,7 +44,7 @@ test('world-preserving parent packets carry local and affine state without a red
 });
 
 test('combined pose packets update render and physics intents atomically',()=>{
- const value=state(),source=scene(),pose={kind:'pose',id:child,position:[5,0,0],rotation:q,scale:[Math.sqrt(2.5),Math.sqrt(2.5),1],data:{transformState:value}};
+ const value=state(),source=scene(),pose={kind:'pose',id:child,position:[5,0,0],rotation:q,scale:[1.5,1.5,1],data:{transformState:value}};
  const next=applyScriptOperations(source,{generation:1,operations:[pose]},1);
  assert.deepEqual(next.positions.get(child),pose.position);assert.deepEqual(next.rotations.get(child),q);assert.deepEqual(next.scene.entities[1].transform.scale,pose.scale);
  for(const mutation of [op=>op.position[0]=NaN,op=>op.rotation=[0,0,0,0],op=>op.scale=[1,1,1],op=>delete op.data]){

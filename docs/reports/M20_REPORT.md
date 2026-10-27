@@ -1,8 +1,8 @@
-Current canonical review: **0.0.62 / SDK12**. All311 compiled public source contracts match; unchanged UnityEngine corpus and132 Development/effective-AOT observations pass. M20 stays open for complete per-signature behavior/dependency acceptance. [Current batch](M20_CANONICAL_BATCH.md). Older batch sections below retain their historical outcomes.
+Current canonical review: **0.0.62 / SDK12**. All311 compiled public source contracts match; unchanged UnityEngine corpus and267 Development/effective-AOT observations pass. M20 stays open for complete per-signature behavior/dependency acceptance. [Current batch](M20_CANONICAL_BATCH.md). Older batch sections below retain their historical outcomes.
 
 Current batch: **0.0.61 / SDK11 / M20.3a partial transform behavior**. [Current batch and failed closure gate](M20_TRANSFORM_BATCH.md). Native138 and editable development-Wasm51 observations pass. The unadapted UnityEngine corpus fails CS0246. This milestone is **not closed**; older batch counts below remain historical.
 
-# M20 â€” Objects, components and hierarchies (in progress)
+# M20 — Objects, components and hierarchies (in progress)
 
 Current review batch: Engine0.0.59 / scripting SDK10 / native formats1. Earlier public batch:0.0.58 / SDK9. This report does **not** close M20. The frozen denominator remains311 assigned signatures; alias behavior tests do not become certified Unity signatures.
 
@@ -42,4 +42,4 @@ Initial exact-head CI40145053827 detected a genuine old-demo assumption: Runtime
 
 M20.3: canonical UnityEngine source migration with preserved Axiom.Gameplay, transform/numeric/space contracts and the unadapted migration corpus. Complete exact overload/negative/reference-profile attribution, async/new/obsolete target members and managed serialization/navigation dependencies remain required. All three milestone closure criteria remain open. Do not label the complete milestone accepted merely because the alias behavior batches pass.
 
-[Plan](../architecture/M20_PLAN.md) Â· [Editable demo guide](../../demos/M20_GUIDE.md) Â· [Exact member ledger](../compatibility/m20-batches.json).
+[Plan](../architecture/M20_PLAN.md) · [Editable demo guide](../../demos/M20_GUIDE.md) · [Exact member ledger](../compatibility/m20-batches.json).

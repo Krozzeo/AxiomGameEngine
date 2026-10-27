@@ -8,11 +8,14 @@ Press Play and inspect these controllers after frame200:
 | --- | ---: | ---: |
 | Object Lifecycle Controller |32|0|
 | Transform Contracts Controller |19|0|
-| Unity Migration Controller |13|0|
+| Unity Migration Controller |20|0|
 | Async Instantiation Controller |17|0|
 | Primitive Contracts Controller |11|0|
 | Migration Corpus Observer |5|0|
 | Async Overload Controller |35|0|
+| Native Transform Controller |128|0|
+
+The Native Transform Controller compares128 three-level hierarchies with exact Unity6000.3.27f1 captures, and exercises default/explicit-pose clone defaults across those hierarchies. The Unity Migration Controller also checks that world-pose setters preserve local scale. Native Play-mode clone observations are a separate bounded reference sample; full M20 certification remains open.
 
 The async and primitive work starts in separate frame batches to respect the unchanged phase budget. All scripts are ordinary editable project files. The observer executes the original HierarchyMigration.cs without rewriting it. Primitive checks include the owned CPU/Wasm capsule resting on its finite plane. Stop restores the authored scene. Removing a runtime MeshFilter removes that mesh from rendering while retaining its collider. No runtime objects become saved authoring objects.
 

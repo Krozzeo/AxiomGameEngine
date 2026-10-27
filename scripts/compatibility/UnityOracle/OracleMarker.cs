@@ -1,0 +1,1 @@
+using UnityEngine; namespace OracleRuntime {public interface IOracleMarker {} public sealed class OracleMarker:MonoBehaviour,IOracleMarker {} }

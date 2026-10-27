@@ -14,8 +14,8 @@ public static class PrimitiveCases {
    U.Object.DestroyImmediate(primitive);U.Object.DestroyImmediate(clone);L.Context.Operations.Clear();
   }
   var sphere=U.GameObject.CreatePrimitive(U.PrimitiveType.Sphere);sphere.transform.localScale=new(2,3,1);check("scaled primitive sphere has world-space physical radius",Math.Abs(sphere.GetComponent<U.SphereCollider>()!.ClosestPoint(new U.Vector3(4,0,0)).x-1.5f)<1e-6);
-  check("canonical string queries resolve component base names",sphere.GetComponent("Collider")==sphere.GetComponent<U.SphereCollider>()&&sphere.GetComponent("UnityEngine.Component")==sphere.transform);
-  check("component string queries preserve source namespace and missing-type behavior",sphere.transform.GetComponent("UnityEngine.SphereCollider")==sphere.GetComponent<U.SphereCollider>()&&sphere.GetComponent("MissingComponent")==null);
+  check("canonical string queries resolve component base names",sphere.GetComponent("Collider")==sphere.GetComponent<U.SphereCollider>()&&sphere.GetComponent("Component")==sphere.transform);
+  check("component string queries reject qualified built-in names and preserve typed lookup",sphere.transform.GetComponent("UnityEngine.SphereCollider")==null&&sphere.GetComponent<U.SphereCollider>()!=null&&sphere.GetComponent("MissingComponent")==null);
   var capsule=U.GameObject.CreatePrimitive(U.PrimitiveType.Capsule);var nativeCapsule=capsule.LegacyGameObject.GetComponent<L.CapsuleCollider>()!;capsule.transform.rotation=U.Quaternion.Euler(0,0,90);
   check("capsule query hits rounded end cap",nativeCapsule.Raycast(new L.Ray(new(3,0,0),new(-1,0,0)),out var hit,10)&&Math.Abs(hit.distance-2)<1e-6);
   check("capsule query rejects bounding box corner",!nativeCapsule.Raycast(new L.Ray(new(3,.49,.49),new(-1,0,0)),out _,10));

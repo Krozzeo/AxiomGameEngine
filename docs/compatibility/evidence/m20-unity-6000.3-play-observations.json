@@ -1,0 +1,240 @@
+{
+    "unityVersion": "6000.3.27f1",
+    "coreAssemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737",
+    "profile": "Native Play mode: direct synchronous clone and world-setter observations; not complete lifecycle acceptance",
+    "error": "",
+    "facts": [
+        {
+            "key": "isPlaying",
+            "value": "True"
+        },
+        {
+            "key": "source.position",
+            "value": "1.32696748,-0.5176381,0.9659259"
+        },
+        {
+            "key": "source.rotation",
+            "value": "0.2520295,0.0323816836,-0.2561046,0.9326538"
+        },
+        {
+            "key": "source.local-rotation",
+            "value": "0.2796519,0.248740152,0.299271345,0.877701461"
+        },
+        {
+            "key": "source.lossy-scale",
+            "value": "-0.742995143,2.29833245,4.09453058"
+        },
+        {
+            "key": "generic.position",
+            "value": "1,0,0"
+        },
+        {
+            "key": "generic.rotation",
+            "value": "0.2796519,0.248740152,0.299271345,0.877701461"
+        },
+        {
+            "key": "generic.scale",
+            "value": "0.5,2,3"
+        },
+        {
+            "key": "untyped.position",
+            "value": "1,0,0"
+        },
+        {
+            "key": "untyped.rotation",
+            "value": "0.2796519,0.248740152,0.299271345,0.877701461"
+        },
+        {
+            "key": "untyped.scale",
+            "value": "0.5,2,3"
+        },
+        {
+            "key": "parameters-default.position",
+            "value": "1,0,0"
+        },
+        {
+            "key": "parameters-default.rotation",
+            "value": "0.2796519,0.248740152,0.299271345,0.877701461"
+        },
+        {
+            "key": "parameters-default.scale",
+            "value": "0.5,2,3"
+        },
+        {
+            "key": "parameters-world.position",
+            "value": "1.32696748,-0.5176381,0.9659259"
+        },
+        {
+            "key": "parameters-world.rotation",
+            "value": "0.2520295,0.0323816836,-0.2561046,0.9326538"
+        },
+        {
+            "key": "parameters-world.scale",
+            "value": "-0.742995143,2.29833245,4.09453058"
+        },
+        {
+            "key": "parent-null-world.position",
+            "value": "1,0,0"
+        },
+        {
+            "key": "parent-null-world.rotation",
+            "value": "0.2796519,0.248740152,0.299271345,0.877701461"
+        },
+        {
+            "key": "parent-null-world.scale",
+            "value": "0.5,2,3"
+        },
+        {
+            "key": "explicit-pose.position",
+            "value": "8,2,1"
+        },
+        {
+            "key": "explicit-pose.rotation",
+            "value": "0,0,0,1"
+        },
+        {
+            "key": "explicit-pose.scale",
+            "value": "0.5,2,3"
+        },
+        {
+            "key": "parameters-explicit-world.position",
+            "value": "8,2,1"
+        },
+        {
+            "key": "parameters-explicit-world.rotation",
+            "value": "0,0,0,1"
+        },
+        {
+            "key": "parameters-explicit-world.scale",
+            "value": "0.5,2,3"
+        },
+        {
+            "key": "parameters-explicit-local.position",
+            "value": "8,2,1"
+        },
+        {
+            "key": "parameters-explicit-local.rotation",
+            "value": "0,0,0,1"
+        },
+        {
+            "key": "parameters-explicit-local.scale",
+            "value": "0.5,2,3"
+        },
+        {
+            "key": "destination-scene.position",
+            "value": "1,0,0"
+        },
+        {
+            "key": "destination-scene.rotation",
+            "value": "0.2796519,0.248740152,0.299271345,0.877701461"
+        },
+        {
+            "key": "destination-scene.scale",
+            "value": "0.5,2,3"
+        },
+        {
+            "key": "parent-world.position",
+            "value": "1.32696724,-0.5176381,0.9659259"
+        },
+        {
+            "key": "parent-world.rotation",
+            "value": "0.2520295,0.0323816836,-0.2561046,0.9326538"
+        },
+        {
+            "key": "parent-world.scale",
+            "value": "-0.263191044,0.8655172,1.16271353"
+        },
+        {
+            "key": "parent-local.position",
+            "value": "13,0,0"
+        },
+        {
+            "key": "parent-local.rotation",
+            "value": "0.2796519,0.248740152,0.299271345,0.877701461"
+        },
+        {
+            "key": "parent-local.scale",
+            "value": "0.5,2,3"
+        },
+        {
+            "key": "pose-parent.position",
+            "value": "8,2,1"
+        },
+        {
+            "key": "pose-parent.rotation",
+            "value": "0,0,0,1"
+        },
+        {
+            "key": "pose-parent.scale",
+            "value": "0.5,2,3"
+        },
+        {
+            "key": "generic-parent.position",
+            "value": "13,0,0"
+        },
+        {
+            "key": "generic-parent.rotation",
+            "value": "0.2796519,0.248740152,0.299271345,0.877701461"
+        },
+        {
+            "key": "generic-parent.scale",
+            "value": "0.5,2,3"
+        },
+        {
+            "key": "untyped-parent.position",
+            "value": "13,0,0"
+        },
+        {
+            "key": "untyped-parent.rotation",
+            "value": "0.2796519,0.248740152,0.299271345,0.877701461"
+        },
+        {
+            "key": "untyped-parent.scale",
+            "value": "0.5,2,3"
+        },
+        {
+            "key": "untyped-parent-world.position",
+            "value": "1.32696724,-0.5176381,0.9659259"
+        },
+        {
+            "key": "untyped-parent-world.rotation",
+            "value": "0.2520295,0.0323816836,-0.2561046,0.9326538"
+        },
+        {
+            "key": "untyped-parent-world.scale",
+            "value": "-0.263191044,0.8655172,1.16271353"
+        },
+        {
+            "key": "untyped-pose.position",
+            "value": "8,2,1"
+        },
+        {
+            "key": "untyped-pose.rotation",
+            "value": "0,0,0,1"
+        },
+        {
+            "key": "untyped-pose.scale",
+            "value": "0.5,2,3"
+        },
+        {
+            "key": "untyped-pose-parent.position",
+            "value": "8,2,1"
+        },
+        {
+            "key": "untyped-pose-parent.rotation",
+            "value": "0,0,0,1"
+        },
+        {
+            "key": "untyped-pose-parent.scale",
+            "value": "0.5,2,3"
+        },
+        {
+            "key": "setter.rotation-local-scale",
+            "value": "0.5,2,3"
+        },
+        {
+            "key": "setter.pose-local-scale",
+            "value": "0.5,2,3"
+        }
+    ]
+}

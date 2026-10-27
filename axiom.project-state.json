@@ -1,7 +1,7 @@
 {
   "$schema": "./protocol/schema/project-state.schema.json",
   "stateVersion": 1,
-  "updatedAt": "2026-10-26",
+  "updatedAt": "2026-10-27",
   "engineVersion": "0.0.62",
   "activeMilestone": 20,
   "milestoneStatus": "in_progress",
@@ -9,7 +9,7 @@
     "activeMilestonePercent": 0,
     "wholeProjectPercent": null,
     "method": "docs/architecture/MILESTONE_REPORTING.md",
-    "scopeNote": "M19 stable remains main0.0.57. M20 SDK12 matches311 compiled public source contracts and runs the original UnityEngine corpus unchanged.334 native and132 Development/effective-AOT observations pass. Complete per-signature behavior/reference/dependency attribution remains open; fully accepted signatures0/311 and unchanged-corpus criterion1/3. M20 is not closed.",
+    "scopeNote": "M19 stable remains main0.0.57. M20 SDK12 matches311 compiled public source contracts and runs the original UnityEngine corpus unchanged.517 native and267 Development/effective-AOT observations pass. Complete per-signature behavior/reference/dependency attribution remains open; fully accepted signatures0/311 and unchanged-corpus criterion1/3. M20 is not closed.",
     "historicalMvpPercent": 94,
     "historicalMvpCompletedWeight": 122,
     "historicalMvpTotalWeight": 130
@@ -1747,7 +1747,7 @@
     "demos/M20_GUIDE.md"
   ],
   "nextTask": "Complete canonical UnityEngine/source/float migration, full Transform matrix/shear/local representation, assigned async/obsolete/package/message APIs and managed/navigation clone dependencies; run node scripts/compatibility/m20-closure.mjs --require-closed before any M20 closure.",
-  "activeRevision": "0.0.61 / SDK11 â€” partial M20.3a transform behavior; canonical migration gate fails",
+  "activeRevision": "0.0.61 / SDK11 \u2014 partial M20.3a transform behavior; canonical migration gate fails",
   "roadmap": {
     "version": 2,
     "manifest": "docs/architecture/roadmap-v2.json",

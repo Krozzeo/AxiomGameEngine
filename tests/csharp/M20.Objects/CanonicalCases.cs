@@ -3,7 +3,7 @@ using U=UnityEngine;
 public static class CanonicalCases {
  public static void Run(Action<string,bool> check,Action<int> reset){
   reset(30);var unnamed=new U.GameObject();
-  check("canonical default constructor has empty name and only Transform",unnamed.name==""&&unnamed.GetComponents<U.Component>().Length==1&&unnamed.transform.parent==null);
+  check("canonical default constructor follows frozen native name and only Transform",unnamed.name=="New Game Object"&&unnamed.GetComponents<U.Component>().Length==1&&unnamed.transform.parent==null);
   check("canonical default constructor belongs to active scene",unnamed.scene==U.SceneManagement.SceneManager.GetActiveScene());
   var configured=new U.GameObject("Configured",typeof(U.BoxCollider));check("canonical component constructor attaches supplied types after Transform",configured.GetComponents<U.Component>().Length==2&&configured.GetComponent<U.BoxCollider>()!=null);
   unnamed.name="Renamed";unnamed.name="";check("canonical live name can return to empty",unnamed.name=="");U.Object.DestroyImmediate(unnamed);U.Object.DestroyImmediate(configured);

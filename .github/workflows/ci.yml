@@ -149,7 +149,8 @@ jobs:
 
   browser-milestones:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    # Package mirrors can consume setup time; browser assertions retain their own existing time bounds.
+    timeout-minutes: 25
     strategy:
       fail-fast: false
       # Isolated runners: parallel browser jobs do not share GPU or scene state.

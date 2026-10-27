@@ -10,7 +10,7 @@ public struct InstantiateParameters {
 }
 
 public partial class Object {
- public static Object Instantiate(Object original,SceneManagement.Scene scene)=>Instantiate(original,new InstantiateParameters{scene=scene,worldSpace=true});
+ public static Object Instantiate(Object original,SceneManagement.Scene scene)=>Instantiate(original,new InstantiateParameters{scene=scene});
  public static T Instantiate<T>(T original,InstantiateParameters parameters) where T:Object {
   ArgumentNullException.ThrowIfNull(original);
   return (T)Wrap(Legacy.CloneBlueprint.Capture(original.Native).Instantiate(parameters));

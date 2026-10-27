@@ -11,7 +11,7 @@
   },
   "requiredRemaining": [
     "Complete attributed canonical positive/negative/lifecycle/reference review for every one of the311 frozen records; source matching and broad lab results are insufficient",
-    "Finish constructor edge-case attribution, persistent-scene ownership, degenerate transforms and applicable asset-backed clone requirements; implement missing required behavior rather than waiving scope. All53 obsolete consumer compiler contracts now pass; deprecated runtime behavior attribution remains open.",
+    "Finish constructor and degenerate-transform edge attribution and applicable asset-backed clone requirements; implement missing required behavior rather than waiving scope. Persistent-scene ownership/reparent lifecycle are now exercised natively and in Development/AOT. All53 obsolete consumer compiler contracts pass; deprecated runtime attribution remains open.",
     "Finish exact-head native/Wasm/AOT, UI/project/Stop/Undo/dependency regression, CI and public artifact acceptance"
   ],
   "records": [
@@ -175,7 +175,8 @@
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
       "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "nativePositiveEvidence": "evidence/m20-sync-clone-native-cases.json"
     },
     {
       "id": "unity63abi:0f3971a8815de837171afcc9",
@@ -1547,7 +1548,8 @@
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
       "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "nativePositiveEvidence": "evidence/m20-sync-clone-native-cases.json"
     },
     {
       "id": "unity63abi:59fd43ecb8aa882b11f8b8b7",
@@ -1561,7 +1563,8 @@
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
       "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "nativePositiveEvidence": "evidence/m20-sync-clone-native-cases.json"
     },
     {
       "id": "unity63abi:5a0701d8dca3a5c3b8d80cdf",
@@ -1575,7 +1578,8 @@
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
       "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "nativePositiveEvidence": "evidence/m20-sync-clone-native-cases.json"
     },
     {
       "id": "unity63abi:5b3e66afe646d9587c9e2c84",
@@ -1731,7 +1735,8 @@
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
       "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "nativePositiveEvidence": "evidence/m20-sync-clone-native-cases.json"
     },
     {
       "id": "unity63abi:64d280c6f61646257e6b0d38",
@@ -1807,7 +1812,8 @@
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
       "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "nativePositiveEvidence": "evidence/m20-sync-clone-native-cases.json"
     },
     {
       "id": "unity63abi:6cb646dccf3f12dd88297b8b",
@@ -2247,7 +2253,8 @@
       "unityBehaviorSignatureCertified": false,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
+      "nativePositiveEvidence": "evidence/m20-sync-clone-native-cases.json"
     },
     {
       "id": "unity63abi:852504445b3861eb1899e673",
@@ -2469,7 +2476,8 @@
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
       "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "nativePositiveEvidence": "evidence/m20-sync-clone-native-cases.json"
     },
     {
       "id": "unity63abi:90bce06bd71a64240787fe13",
@@ -2715,7 +2723,8 @@
       "unityBehaviorSignatureCertified": false,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
+      "nativePositiveEvidence": "evidence/m20-sync-clone-native-cases.json"
     },
     {
       "id": "unity63abi:9ca472a1cf35bcf35f094910",
@@ -3327,7 +3336,8 @@
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
       "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "nativePositiveEvidence": "evidence/m20-sync-clone-native-cases.json"
     },
     {
       "id": "unity63abi:c536bf082dd9410ae4b8dcaa",
@@ -3481,7 +3491,8 @@
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
       "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "nativePositiveEvidence": "evidence/m20-sync-clone-native-cases.json"
     },
     {
       "id": "unity63abi:cc7849175ffc885ad0000051",
@@ -3525,7 +3536,8 @@
       "unityBehaviorSignatureCertified": false,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
+      "nativePositiveEvidence": "evidence/m20-sync-clone-native-cases.json"
     },
     {
       "id": "unity63abi:cefef25826ba5df1c77ec094",
@@ -3957,7 +3969,8 @@
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
       "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "nativePositiveEvidence": "evidence/m20-sync-clone-native-cases.json"
     },
     {
       "id": "unity63abi:ebdc532e50dffcdc0603b809",
@@ -4298,7 +4311,7 @@
       "id": "20.3b",
       "engineVersion": "0.0.62",
       "sdkVersion": 12,
-      "status": "311 compiled source contracts matched;334 native and132 Development/effective-AOT observations; full behavior attribution and closure remain open",
+      "status": "311 compiled source contracts matched;517 native and267 Development/effective-AOT observations; full behavior attribution and closure remain open",
       "report": "docs/reports/M20_CANONICAL_BATCH.md"
     }
   ],
@@ -4315,7 +4328,7 @@
     },
     "hierarchyReferenceLifecycle": {
       "status": "partial",
-      "reason": "334 native and 132 Development/effective-AOT lab observations pass; all 311 source contracts match. Full per-signature behavior/reference attribution and remaining edge/dependency audit are open"
+      "reason": "517 native and267 Development/effective-AOT observations pass, including128 captured native Unity signed hierarchies and13 native Play-mode synchronous clone signatures (17 positive variants). All311 source contracts match. Full per-signature positive/negative/lifecycle/async/dependency attribution and required asset cloning/lifetime remain open."
     },
     "regressionAndDependencies": {
       "status": "partial",
@@ -4329,6 +4342,8 @@
     "developmentWasm": "evidence/m20-sdk12-development-wasm.json",
     "aotWasm": "evidence/m20-sdk12-aot-wasm.json",
     "unadaptedCorpus": "evidence/m20-sdk12-migration.json",
-    "obsoleteCompiler": "evidence/m20-sdk12-obsolete-compile.json"
+    "obsoleteCompiler": "evidence/m20-sdk12-obsolete-compile.json",
+    "nativeEditorReference": "evidence/m20-unity-6000.3-native-observations.json",
+    "nativePlayReference": "evidence/m20-unity-6000.3-play-observations.json"
   }
 }

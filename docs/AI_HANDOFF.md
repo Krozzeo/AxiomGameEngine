@@ -1,12 +1,14 @@
-# Current canonical batch â€”0.0.62 / SDK12 / M20 in progress
+# Current canonical batch —0.0.62 / SDK12 / M20 in progress
 
-All311 frozen public source contracts match the owned compiled SDK;334 native and132 Development/effective-AOT observations pass. The original HierarchyMigration.cs corpus now executes byte-for-byte unchanged. Canonical float facades share the legacy runtime; affine matrices, serialized/cyclic clones, async/bulk APIs and six owned primitives are implemented/tested. The browser harness asserts effective build mode after fixing an automatic Development fallback.
+All311 frozen public source contracts match the owned compiled SDK;517 native and267 Development/effective-AOT observations pass. The original HierarchyMigration.cs corpus now executes byte-for-byte unchanged. Canonical float facades share the legacy runtime; affine matrices, serialized/cyclic clones, async/bulk APIs and six owned primitives are implemented/tested. The browser harness asserts effective build mode after fixing an automatic Development fallback.
+
+Exact native Unity6000.3.27f1 is now executable in an isolated reference harness; both native Editor and Play observations are committed as public facts only. Parameterless name is New Game Object (the earlier doc-derived empty name was wrong), Transform scale is projected, signed-parent rotations mirror, and world setters preserve local scale. All13 synchronous clone signatures (17 positive variants) match the native Play sample.128 signed hierarchy fixtures run natively, through the host validator and in both real Wasm modes; full Node checks482/482. Remaining asset lifetime/cloning and per-overload negative/lifecycle/async attribution are still required. Harness reproduction: scripts/compatibility/UnityOracle/README.md. No vendor binary or raw account/license log is committed.
 
 Do not close M20 from these counts: per-signature positive/negative/lifecycle/reference/dependency attribution remains incomplete, and full certified behavior signatures remain0/311. One of three full closure criteria (unchanged corpus) passes. Stable main stays0.0.57. No automatic merge. See [current batch](reports/M20_CANONICAL_BATCH.md); older sections below are historical.
 
 ---
 
-# M20.3a transform behavior â€” Engine 0.0.61 / SDK11
+# M20.3a transform behavior — Engine 0.0.61 / SDK11
 
 M20 remains **in progress**. This batch fixes host publication of descendant transforms, atomic pose/reparent rejection and adds tested legacy Euler/axis/orbit/look/direction/span APIs. 138 native observations and 32 lifecycle + 19 transform development-Wasm observations pass, including next-frame consistency and exact Stop restoration. The required unadapted UnityEngine corpus fails CS0246; all 311 assigned records and 0 certified exact signatures remain visible.
 
@@ -14,15 +16,15 @@ Full Transform matrices/shear/zero-scale local state, canonical namespace/float 
 
 ---
 
-# Version-owned demo integration â€” Engine0.0.60 new experimental build
+# Version-owned demo integration — Engine0.0.60 new experimental build
 
 Optional IPC1 capability `project.demos` plus a manifest demo catalog enable Platform0.1.11 Load Demos. This build declares only M20 Object Lifecycle Lab; generation requires a fresh authorized destination and explicit declared IDs, returns native project paths and replays operation receipts. The original public0.0.60 artifact is immutable. Math Lab demos are deferred. SDK10, native formats1 and M20.2 behavior remain unchanged; this does not close M20 or add Unity signatures. [Guide](../demos/M20_GUIDE.md).
 
-# Integration handoff â€” Engine0.0.60 / Platform0.1.9 SDK
+# Integration handoff — Engine0.0.60 / Platform0.1.9 SDK
 
 Public provider pin d9561e94d7285d30d8e056f7e58b21f1ec163180 supports slash-containing model IDs and strips all configured provider credentials from child environments. Host provider adapters keep the existing stateless tool/result/usage contract. Account connection remains exclusively in Platform; project model/reasoning overrides remain independent. M20.2 behavior is the preceding0.0.59 batch, SDK10/native formats1 are unchanged, and M20.3/assigned closure gates remain pending. No automatic merge; preserve stable0.0.57 and experimental0.0.59 recovery/publication.
 
-# Current handoff â€” M20 in progress / Engine0.0.59 / SDK10
+# Current handoff — M20 in progress / Engine0.0.59 / SDK10
 
 M19 is stable v0.0.57. M20.1 public experimental0.0.58 at9236610ff42a561125033a8e59987149035bf9ea passed CI350/48 checks and actual public Platform download, side-by-side installation, explicit activation, hosted packaged17-check C#/Wasm demo and save/close. [Public evidence](compatibility/evidence/m20-public-0.0.58.json).
 
@@ -32,7 +34,7 @@ Native formats1, shared Platform account authority, user projects and recovery r
 
 ---
 
-# Current handoff â€” M20 in progress / Engine0.0.58 / SDK9
+# Current handoff — M20 in progress / Engine0.0.58 / SDK9
 
 M19 #60 was owner-approved and merged at46e2bbc86f7eec5891c0e92074b2ae870c9253db. Main CI40135221130 attempt2 passed after an intermittent M9 menu-close timeout; unchanged local/remote retries passed. Stable v0.0.57 is published and verified via actual Platform download, install and project create/save/reopen. [M20 report](reports/M20_REPORT.md).
 
@@ -44,9 +46,9 @@ Earlier sections below are retained history.
 
 ---
 
-# Current handoff â€” M19 / Engine0.0.57
+# Current handoff — M19 / Engine0.0.57
 
-Base consolidation is complete: Engine#59 â†’ main791c54a509f759777ecf2266c86fce80d2275920; Platform#9 â†’ main7c03b7fc6f25fdceeda645bd1bf33534751e68e9; Math Lab#2 â†’ main4171441658640a6d8da29dcdcee5b27888a3aa75. Their CI passed before owner-authorized merges. Engine#54/#56/#57/#58 were closed only after verifying their heads were ancestors of main. Recovery refs remain untouched.
+Base consolidation is complete: Engine#59 → main791c54a509f759777ecf2266c86fce80d2275920; Platform#9 → main7c03b7fc6f25fdceeda645bd1bf33534751e68e9; Math Lab#2 → main4171441658640a6d8da29dcdcee5b27888a3aa75. Their CI passed before owner-authorized merges. Engine#54/#56/#57/#58 were closed only after verifying their heads were ancestors of main. Recovery refs remain untouched.
 
 M19 is implemented in the0.0.57 review branch, with4/4 local audit criteria passed. [Report](reports/M19_REPORT.md), [exact denominators](compatibility/README.md), [scope weights](compatibility/SCOPE_WEIGHTS.md), [demo](../demos/M19_GUIDE.md).49,471 declared ABI signatures,40,126 overlapping published contracts and75,743 separate package UIDs.1,120 partial ABI alias candidates; formally verified full native source/behavior signatures remain zero. This is strict attribution; useful existing SDK8 APIs still work.29 package inventories remain blocked; other device/platform/AOT/reference-execution profiles are not credited.
 
@@ -58,27 +60,27 @@ The sections below are historical snapshots, superseded by this handoff and the 
 
 ---
 
-# Current handoff â€” Engine0.0.56 / Platform0.1.7 product audit
+# Current handoff — Engine0.0.56 / Platform0.1.7 product audit
 
-Owner approved account authority/inheritance, public prepared-release discovery/installations, persistent product storage and diagnostics. Engine0.0.56/native game format1/scripting SDK8 is a review candidate based on P5; earlier Engine P2â€“P5 stacked branches are not implicitly merged. Platform0.1.6 startup recovery was integrated into main at5fb826792fa58032c932174634bafb3d5f14bc0b; the0.1.7 expansion is separate. Existing protected recovery refs remain unchanged.
+Owner approved account authority/inheritance, public prepared-release discovery/installations, persistent product storage and diagnostics. Engine0.0.56/native game format1/scripting SDK8 is a review candidate based on P5; earlier Engine P2–P5 stacked branches are not implicitly merged. Platform0.1.6 startup recovery was integrated into main at5fb826792fa58032c932174634bafb3d5f14bc0b; the0.1.7 expansion is separate. Existing protected recovery refs remain unchanged.
 
 [Architecture audit and validation limits](reports/ARCHITECTURE_AUDIT_0_0_56.md), [product contract](architecture/PRODUCT_INTEGRATION_0_0_56.md), [release notes](releases/0.0.56.md). Accounts connect/disconnect only in Platform; product HTTP and parent broker reject account changes. Hosted AI readiness follows verified Hub state. Empty model and reasoning platform mean Same as Hub; project overrides persist and model tests are separate. Task budgets/instructions/confirmation/PMD/semantic tools/MAIN review/Apply remain product-owned. Never send credentials through chat or extract Git credentials.
 
 Platform owns official GitHub release manifests, compatible artifacts, SHA256/staged installation, persistent product storage, deferred activation/rollback and sanitized diagnostics. Catalogs use installed descriptors/handshake, not manual game-project version edits. Package/product versions are synchronized by the npm version hook. Old source-only/prerelease assets are not prepared product downloads. Exact release publication and CI state belong in delivery evidence; local ZIP availability is not proof of upstream integration.
 
-M18.4 remains closed under ADR0034's explicit scope. M19 audit has not started; all M19â€“M40 Unity/shader/compute/GPU planning and full signature denominators remain unchanged. Standalone playable game export is still missing and retained in Engine build/export planning after Platform ADR-P0007. Older #47/#51/#55 were confirmed open; current passing tests are not causal closure. Physical hardware/live model/account/manual native/clean-machine acceptance remains separate.
+M18.4 remains closed under ADR0034's explicit scope. M19 audit has not started; all M19–M40 Unity/shader/compute/GPU planning and full signature denominators remain unchanged. Standalone playable game export is still missing and retained in Engine build/export planning after Platform ADR-P0007. Older #47/#51/#55 were confirmed open; current passing tests are not causal closure. Physical hardware/live model/account/manual native/clean-machine acceptance remains separate.
 
 ## Historical handoff snapshots
 
 The material below is historical context. Its version, Platform-phase completion and export ownership statements are superseded by the current handoff above and the0.0.56 audit.
 
-# Current handoff â€” Game Engine / Platform P5 candidate
+# Current handoff — Game Engine / Platform P5 candidate
 
 Engine0.0.54 / scripting SDK8; Platform0.1.4/API0.1/IPC1/native formats1; independent Math Lab0.1.0. Public provider099d0d4c6098f434428793ebbe38d696e61f55c9 pinned by HTTPS/integrity. P5 branch feat/p5-shared-editor-shell is stacked on P4, not main. [Current changes/acceptance](architecture/PLATFORM_P5.md).
 
-P5 negotiates the hosted framing origin, consumes shared folder leases/native picker, supports file-selected local import and works in Platform's one-tab/disconnected/reconnecting editor shell. It adds no Unity scripting/shader/GPU coverage. Math Lab is independently versioned and imports no Engine code. Local Engine447/Platform36/Math6 and browser P1â€“P5 use controlled accounts/Null; interactive native choice, real models/GPU and earlier CI/performance gates remain separate. An earlier Windows EPERM during AI settings rename passed on full rerun; no permanent race fix is claimed.
+P5 negotiates the hosted framing origin, consumes shared folder leases/native picker, supports file-selected local import and works in Platform's one-tab/disconnected/reconnecting editor shell. It adds no Unity scripting/shader/GPU coverage. Math Lab is independently versioned and imports no Engine code. Local Engine447/Platform36/Math6 and browser P1–P5 use controlled accounts/Null; interactive native choice, real models/GPU and earlier CI/performance gates remain separate. An earlier Windows EPERM during AI settings rename passed on full rerun; no permanent race fix is claimed.
 
-P4 still lacks a standalone game export pipeline and cannot be fully closed. Preserve main/recovery refs, existing #47/#51/#55, PMD/tools/MAIN transaction safeguards, project model/limits and M19â€“M40 Unity/shader/compute/GPU plan. Credentials stay in host memory; never request tokens in chat or extract internal Git credentials. Historical text below is reference only.
+P4 still lacks a standalone game export pipeline and cannot be fully closed. Preserve main/recovery refs, existing #47/#51/#55, PMD/tools/MAIN transaction safeguards, project model/limits and M19–M40 Unity/shader/compute/GPU plan. Credentials stay in host memory; never request tokens in chat or extract internal Git credentials. Historical text below is reference only.
 
 ---
 
@@ -92,8 +94,8 @@ P4: unified Hub/session table and icon lifecycle; separate Settings, shared acco
 
 Platform owns generic transport/credentials/turns/usage/cancellation/registry/diff/gates/journal. Engine owns context/PMD/C#/semantic tools/domain acceptance/reconciliation and MAIN resources/transaction/rollback. Shared account does not grant Apply/publication or cross-project access. Project model/limits/confirmation/preferences persist, connection is retested on reopen. Host strips OPENAI_API_KEY from children; keys entered in editor transit to host memory only. Late/cancelled responses cannot run tools; uncertain usage stays visible and late shutdown cannot overwrite new ledgers. Preserve prior journals/configuration and inspect/copy before lock recovery.
 
-Local P3:445 Engine,95 focused,21 Platform and browser approvalâ†’proposalâ†’reviewâ†’Apply; HTTP fixtures/Null. P4 adds adapter/Hub/distribution tests; final counts and exact package versions belong in P4 report. Platform P3 CI passed; Engine CI 336 (43/46) failed M17/M18.3.11/aggregate. #47/#51/#55, dense performance (~5.1FPS in historical1024-body Null editor), real-model quality/cost and native GitHub remain pending.
+Local P3:445 Engine,95 focused,21 Platform and browser approval→proposal→review→Apply; HTTP fixtures/Null. P4 adds adapter/Hub/distribution tests; final counts and exact package versions belong in P4 report. Platform P3 CI passed; Engine CI 336 (43/46) failed M17/M18.3.11/aggregate. #47/#51/#55, dense performance (~5.1FPS in historical1024-body Null editor), real-model quality/cost and native GitHub remain pending.
 
-P4 is not fully closed: no standalone game export pipeline exists yet, so direct editor startup cannot satisfy the export gate. Manual Windows chooser/fresh-machine runtime download and real accounts stay separate. P5 unstarted, scope via ADR first. Unity/shaders/GPU M19â€“M40 remain planned with 45 main milestones/23 historically closed; no audited full API percentage before M19. Never request secrets through chat or read internal credentials. TestRepo only for explicitly authorized testing.
+P4 is not fully closed: no standalone game export pipeline exists yet, so direct editor startup cannot satisfy the export gate. Manual Windows chooser/fresh-machine runtime download and real accounts stay separate. P5 unstarted, scope via ADR first. Unity/shaders/GPU M19–M40 remain planned with 45 main milestones/23 historically closed; no audited full API percentage before M19. Never request secrets through chat or read internal credentials. TestRepo only for explicitly authorized testing.
 
 Current common SDK source:6e8e05d3934e649df1fb89228b3bac2965d37018, shared with Math Lab0.1.2. GPU initialization now tries a labeled fallback device and optional timestamps cannot block otherwise usable drawing. This is rendering robustness, not GPU-physics acceptance.

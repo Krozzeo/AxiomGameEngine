@@ -19,11 +19,11 @@ public readonly struct Scene : IEquatable<Scene> {
 
 // Namespace: Axiom.Gameplay.SceneManagement
 public readonly struct Scene {
- public string name {get;}public string path {get;}public int buildIndex {get;}public bool isLoaded {get{var title=name;return SceneManager.Loaded.Any(s=>s.name==title);}}
- internal Scene(string title,string source,int index){name=title;path=source;buildIndex=index;}
+ public string name {get;}public string path {get;}public int buildIndex {get;}internal readonly bool PersistentContext;private readonly int runtimeGeneration;internal string OwnerKey=>PersistentContext?SceneManager.PersistentOwner:name;public bool isLoaded {get{if(PersistentContext)return runtimeGeneration==Context.Generation;var title=name;return SceneManager.Loaded.Any(s=>s.name==title);}}
+ internal Scene(string title,string source,int index,bool persistent=false){name=title;path=source;buildIndex=index;PersistentContext=persistent;runtimeGeneration=persistent?Context.Generation:0;}
  public bool alwaysActive {get=>SceneManager.IsSceneAlwaysActive(this);set=>SceneManager.SetSceneAlwaysActive(this,value);}
- public bool IsValid()=>!string.IsNullOrEmpty(name);
- public GameObject[] GetRootGameObjects(){var title=name;return Context.Entities.Keys.Where(id=>Context.Parents.GetValueOrDefault(id)==null&&SceneManager.Owners.GetValueOrDefault(id,SceneManager.GetActiveScene().name)==title).Select(id=>new GameObject(new Entity(id,Context.Generation))).ToArray();}
+ public bool IsValid()=>!string.IsNullOrEmpty(name)&&(!PersistentContext||runtimeGeneration==Context.Generation);
+ public GameObject[] GetRootGameObjects(){var title=OwnerKey;if(!IsValid())return Array.Empty<GameObject>();return Context.Entities.Keys.Where(id=>Context.Parents.GetValueOrDefault(id)==null&&SceneManager.Owners.GetValueOrDefault(id,SceneManager.GetActiveScene().name)==title).Select(id=>new GameObject(new Entity(id,Context.Generation))).ToArray();}
  public int rootCount=>GetRootGameObjects().Length;
 }
 
