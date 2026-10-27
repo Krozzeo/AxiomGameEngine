@@ -51,6 +51,7 @@ public static class TransformCases {
   t.rotation=Quaternion.AngleAxis(90,Vector3.up);t.Rotate(Vector3.right,90,Space.World);check("world axis rotation multiplies globally",Near(t.forward,Vector3.right));
   var zeroAxis=t.rotation;operations=Context.Operations.Count;t.Rotate(Vector3.zero,180);check("zero rotation axis is a no-op",t.rotation==zeroAxis&&Context.Operations.Count==operations);
   foreach(var angle in new[]{90d,-90d}){t.eulerAngles=new(angle,35,20);var singularForward=t.forward;var singularRight=t.right;t.eulerAngles=t.eulerAngles;check("Euler singularity round trip "+angle,Near(t.forward,singularForward)&&Near(t.right,singularRight));}
+  foreach(var angle in new[]{89.9999d,-89.9999d,89.99999999d,-89.99999999d}){t.eulerAngles=new(angle,35,20);var basisForward=t.forward;var basisRight=t.right;t.eulerAngles=t.eulerAngles;check("Euler near singularity round trip "+angle,Near(t.forward,basisForward)&&Near(t.right,basisRight));}
   t.SetPositionAndRotation(Vector3.right,Quaternion.identity);t.RotateAround(Vector3.zero,Vector3.up,90);check("rotate around changes pose together",Pose(t,new(0,0,-1),Vector3.right));
   t.LookAt(t.position+Vector3.right);check("look at vector points forward",Near(t.forward,Vector3.right));
   reference.position=t.position+Vector3.up;t.LookAt(reference,Vector3.forward);check("look at transform supports custom up",Near(t.forward,Vector3.up)&&Near(t.up,Vector3.forward));

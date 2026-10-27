@@ -18,8 +18,9 @@ internal static class TransformMath {
  }
  internal static Vector3 EulerAngles(Quaternion value) {
   var q=Normalize(value);var right=q*Vector3.right;var up=q*Vector3.up;var forward=q*Vector3.forward;
-  var x=Math.Asin(Math.Clamp(-forward.Y,-1,1));double y,z;
-  if(Math.Abs(Math.Cos(x))>1e-7){y=Math.Atan2(forward.X,forward.Z);z=Math.Atan2(right.Y,up.Y);}
+  // atan2 retains the small horizontal basis instead of amplifying platform rounding through asin near +/-90 degrees.
+  var horizontal=Math.Sqrt(forward.X*forward.X+forward.Z*forward.Z);var x=Math.Atan2(-forward.Y,horizontal);double y,z;
+  if(horizontal>1e-7){y=Math.Atan2(forward.X,forward.Z);z=Math.Atan2(right.Y,up.Y);}
   else{y=Math.Atan2(-right.Z,right.X);z=0;}
   static double Degrees(double radians){var result=radians*180/Math.PI%360;return result<0?result+360:result;}
   return new(Degrees(x),Degrees(y),Degrees(z));

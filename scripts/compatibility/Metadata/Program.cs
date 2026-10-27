@@ -7,7 +7,7 @@ using System.Text.Json;
 using System.Text.RegularExpressions;
 
 // PE metadata only: never load or execute a vendor assembly or installer.
-var sdkMode=args.Length>2&&args[2]=="--sdk";var root=sdkMode?Path.GetDirectoryName(Path.GetFullPath(args[0]))!:Path.GetFullPath(args[0]);var seenAssemblies=new HashSet<string>();var wanted=args.Length>2&&!sdkMode?JsonDocument.Parse(File.ReadAllText(args[2])).RootElement.EnumerateArray().Select(r=>Regex.Replace(r.GetProperty("owner").GetString()!,"<[^>]+>|`[0-9]+","")).ToHashSet():new HashSet<string>();using var output=File.Create(args[1]);using var writer=new Utf8JsonWriter(output);writer.WriteStartArray();int count=0;
+var sdkMode=args.Length>2&&args[2]=="--sdk";var root=sdkMode?Path.GetDirectoryName(Path.GetFullPath(args[0]))!:Path.GetFullPath(args[0]);var seenAssemblies=new HashSet<string>();var wanted=args.Length>2&&!sdkMode?JsonDocument.Parse(File.ReadAllText(args[2])).RootElement.EnumerateArray().Select(r=>Regex.Replace(r.GetProperty("owner").GetString()!,"<[^>]+>|`[0-9]+","")).ToHashSet():new HashSet<string>();Directory.CreateDirectory(Path.GetDirectoryName(Path.GetFullPath(args[1]))!);using var output=File.Create(args[1]);using var writer=new Utf8JsonWriter(output);writer.WriteStartArray();int count=0;
 foreach(var file in (sdkMode?(IEnumerable<string>)new[]{Path.GetFullPath(args[0])}:Directory.EnumerateFiles(root,"*.dll",SearchOption.AllDirectories).Order())) {
  var relative=Path.GetRelativePath(root,file).Replace('\\','/');
  if(!sdkMode&&!(relative.StartsWith("editor/$_OUTDIR/Managed/")||((relative.StartsWith("android/")||relative.StartsWith("ios/"))&&Path.GetFileName(file).StartsWith("UnityEditor."))))continue;

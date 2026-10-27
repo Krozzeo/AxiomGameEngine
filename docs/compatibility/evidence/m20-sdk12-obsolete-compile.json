@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "passed": true,
   "scope": "Owned SDK consumer compiler diagnostics only; not runtime behavior certification.",
-  "assemblySha256": "94e1fcee6e4039f9e3c925af1ac15d29a48dc32fbec1fb35b6fbe3f70adef3c4",
+  "assemblySha256": "9c3a9c5424ce6daa96bca32639205cac8556c6f77836ddd4a6c1a7c9130d1d0f",
   "consumerSha256": "9df57bb71226a65da3d343cd42f1384adf7c527d9672d9ff138e815c3e9a75f0",
   "compilerErrorCases": 30,
   "compilerWarningCases": 23,

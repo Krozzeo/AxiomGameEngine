@@ -2,13 +2,13 @@ Current canonical review: **0.0.62 / SDK12**. All311 compiled public source cont
 
 Historical partial batch: **0.0.61 / SDK11 / M20.3a transform behavior**. Canonical migration corpus fails CS0246; all three full closure criteria remain open. [Batch report](../reports/M20_TRANSFORM_BATCH.md).
 
-# M20 — Compatible objects, components and hierarchies
+# M20 â€” Compatible objects, components and hierarchies
 
 Approved plan since 2026-10-19. **In progress: M20.1 identity/lifetime and M20.2 query/order/graph behavior batches, Engine 0.0.59 / SDK10.** The preceding 0.0.58 / SDK9 experimental package is publicly verified. Whole-milestone acceptance remains open. [Report](../reports/M20_REPORT.md), [exact member ledger](../compatibility/m20-batches.json), [editable demo](../../demos/M20_GUIDE.md). Existing aliases and new behavior checks are not certified Unity source signatures.
 
 Minimum dependencies: M19.
 
-[Roadmap](ROADMAP_M19_M40.md) · [Manifest](roadmap-v2.json) · [GPU/shaders](GPU_PHYSICS_AND_SHADERS_PLAN.md)
+[Roadmap](ROADMAP_M19_M40.md) Â· [Manifest](roadmap-v2.json) Â· [GPU/shaders](GPU_PHYSICS_AND_SHADERS_PLAN.md)
 
 ## Required scope
 
@@ -34,7 +34,7 @@ Object Lifecycle Lab: hierarchies, destroyed references, clones and activation c
 
 ## Shared execution rules
 
-Before implementing, attach exact M19 signatures/overloads, ownership, dependencies, contracts and tests. Family lists do not replace the member inventory. Work in coherent vertical batches (roughly20–40 signatures when useful), including engine/C# bridge behavior, tests, editable demo and documentation; a phase may require several releases.
+Before implementing, attach exact M19 signatures/overloads, ownership, dependencies, contracts and tests. Family lists do not replace the member inventory. Work in coherent vertical batches (roughly20â€“40 signatures when useful), including engine/C# bridge behavior, tests, editable demo and documentation; a phase may require several releases.
 
 Verify actual behavior/errors/references/resources/Play-Stop/persistence/compatibility and regression across supported C# development/AOT/Windows and native/Wasm profiles. Rendering/audio/devices need observable output evidence. Empty wrappers, fake values or compile-only signatures do not count. Keep partial/blocked capabilities visible.
 

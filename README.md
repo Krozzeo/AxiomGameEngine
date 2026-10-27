@@ -1,4 +1,4 @@
-Current review: **0.0.62 / SDK12 / canonical M20 core and dependency profiles**. All311 compiled public source contracts match;330 native and132 Development/effective-AOT observations pass. The original UnityEngine corpus executes unchanged. Complete per-signature behavior acceptance remains open. [Current report](docs/reports/M20_CANONICAL_BATCH.md).
+Current review: **0.0.62 / SDK12 / canonical M20 core and dependency profiles**. All311 compiled public source contracts match;334 native and132 Development/effective-AOT observations pass. The original UnityEngine corpus executes unchanged. Complete per-signature behavior acceptance remains open. [Current report](docs/reports/M20_CANONICAL_BATCH.md).
 
 # Axiom Game Engine
 
@@ -8,7 +8,7 @@ A local browser game editor with Rust/WebAssembly kernel, WebGPU renderer and C#
 
 ## Axiom family
 
-This is the first product of [Axiom Platform](https://github.com/Krozzeo/AxiomPlatform). Platform owns Hub/shared infrastructure/SDK; Engine owns specialized editor, scenes/assets/C#/rendering/physics/audio/animation/export and its adapter. [Transition](docs/architecture/PLATFORM_TRANSITION.md). Engine M19–M40 still targets functional Unity API compatibility plus shaders/compute/GPU physics. Platform work does not increase their coverage.
+This is the first product of [Axiom Platform](https://github.com/Krozzeo/AxiomPlatform). Platform owns Hub/shared infrastructure/SDK; Engine owns specialized editor, scenes/assets/C#/rendering/physics/audio/animation/export and its adapter. [Transition](docs/architecture/PLATFORM_TRANSITION.md). Engine M19â€“M40 still targets functional Unity API compatibility plus shaders/compute/GPU physics. Platform work does not increase their coverage.
 
 The prepared combined P4 ZIP has a root **Start Axiom.cmd** launcher: extract both sibling folders and double-click. It checks dependencies, installs missing local runtimes/dependencies, opens the browser and retains startup errors. [P4 guide](docs/architecture/PLATFORM_P4.md).
 
@@ -30,7 +30,7 @@ New3D projects/scenes include Cube, Directional Light and configured Camera. Pla
 
 ## Roadmap and evidence
 
-[RoadmapM19–M40](docs/architecture/ROADMAP_M19_M40.md) keeps45 main milestones/23 historically closed and 22 planned. M19 audits the frozen Unity 6.3 target before percentages can be measured. M40 inherits former M19 hardening. No current audited whole-API percentage or GPU-physics completion is claimed. Standalone game build/export is planned and not currently exposed; direct editor startup is a different capability.
+[RoadmapM19â€“M40](docs/architecture/ROADMAP_M19_M40.md) keeps45 main milestones/23 historically closed and 22 planned. M19 audits the frozen Unity 6.3 target before percentages can be measured. M40 inherits former M19 hardening. No current audited whole-API percentage or GPU-physics completion is claimed. Standalone game build/export is planned and not currently exposed; direct editor startup is a different capability.
 
 ```powershell
 npm run check
@@ -45,6 +45,6 @@ npm run demo creates References & Inspector and related labs; [demo map](demos/R
 
 Code/UI/maintained docs use English. Original-language historical snapshots are retained as reference text, not current instructions. [Contributing](CONTRIBUTING.md). [MIT](LICENSE); [third-party notices](THIRD_PARTY_NOTICES.md) remain applicable.
 
-[P5 shared editor lifecycle and second-consumer integration](docs/architecture/PLATFORM_P5.md). Math Lab is an independent product; Unity/shader/GPU coverage and Engine M19–M40 are unchanged.
+[P5 shared editor lifecycle and second-consumer integration](docs/architecture/PLATFORM_P5.md). Math Lab is an independent product; Unity/shader/GPU coverage and Engine M19â€“M40 are unchanged.
 
 Account connection is managed exclusively in Platform. Project model/reasoning can use Same as Hub or explicit overrides. Engine software updates are discovered through prepared GitHub releases; game publication destinations remain project-specific. `npm version` synchronizes package/product descriptor/state through the version hook.

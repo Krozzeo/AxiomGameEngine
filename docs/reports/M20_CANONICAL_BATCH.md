@@ -1,4 +1,4 @@
-# M20 canonical core — Engine 0.0.62 / SDK12
+# M20 canonical core â€” Engine 0.0.62 / SDK12
 
 M20 remains **in progress**. The owned compiled SDK matches all **311 frozen public source contracts** for Object, Component, GameObject and Transform. This is a declaration/type/constraint/parameter-mode audit, separate from complete behavior certification. The original migration corpus now compiles and executes unchanged. Do not carry forward the previous CS0246 failure as the current result.
 
@@ -23,7 +23,7 @@ The compile controller retains the saved AOT build mode on project/branch entry 
 ## Evidence
 
 - [Compiled source audit](../compatibility/evidence/m20-sdk12-source.json):311/311 declaration, base/visibility/layout flag, constraint, parameter-mode and obsolete-classification matches. [Owned PE facts](../compatibility/evidence/m20-sdk12-abi.json) contain declarations/metadata, never vendor implementations.
-- [Native .NET](../compatibility/evidence/m20-sdk12-native.json):330 semantic observations across the retained and canonical surfaces. The test count is not a count of certified target signatures.
+- [Native .NET](../compatibility/evidence/m20-sdk12-native.json):334 semantic observations across the retained and canonical surfaces. The test count is not a count of certified target signatures.
 - [Development editor/Wasm](../compatibility/evidence/m20-sdk12-development-wasm.json) and [effective AOT editor/Wasm](../compatibility/evidence/m20-sdk12-aot-wasm.json):132 observations each, no page errors, and exact Stop restoration.
 - [Original migration corpus](../compatibility/evidence/m20-sdk12-migration.json):unchanged source/hash, real private Start, serialized float pose, hierarchy, rotation and delayed destruction in both execution modes. Earlier failed migration evidence is preserved as history.
 - [Obsolete compiler contracts](../compatibility/evidence/m20-sdk12-obsolete-compile.json):53 direct consumer sites,30 required CS0619 errors and23 CS0618 warnings. Public attribute blobs match the frozen reference; no vendor method bodies are included.
