@@ -55,3 +55,9 @@ Native behavior checks: `npm run test:native:m20`. Real editor/Wasm and Stop res
 The `Destroy` change is intentional: scheduled objects/components remain alive during the current Update/LateUpdate and are invalidated in the end phase before the next rendered frame. Scripts needing immediate removal must use `DestroyImmediate`. Delays use scaled game time. Null/destroyed targets are harmless. Destruction callbacks are idempotent even when they request destruction recursively. Old component references remain destroyed after another component is attached in the same slot.
 
 Not certified here: all Unity overloads, UnityEngine numeric/namespace compatibility, async instantiation, tag registries, Transform matrices or whole-milestone completion. Component order/indices are supported for the existing component profile; unsupported managed serialization and navigation-agent clone profiles reject explicitly. No physical GPU or external Unity execution comparison is claimed.
+
+## Asset Lifetime Lab —0.0.62
+
+Load Demos also creates **Demo · M20 Asset Lifetime Lab** from this installation. Press Play and inspect Asset Lifetime Controller: Passed17, Failed0. Async Lifecycle Controller finishes with Passed137, Failed0. It exercises all17 direct async overloads with activation gates, cancellation/completion events, initialization, identity/pose and destruction. The same editable source runs in the independent native Unity harness. Stop restores the exact authored scene.
+
+Runtime assets are temporary; cloned Mesh/TextAsset identities and names are independent, while imported geometry remains immutable. Async standalone asset rejection matches Unity; the async graph cases share asset references. These observations do not close the full311-record milestone.

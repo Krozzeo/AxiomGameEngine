@@ -64,7 +64,7 @@ public sealed partial class Transform {
  public void SetPositionAndRotation(Vector3 position,Quaternion rotation)=>Context.ChangeTransform(Entity,position,rotation);
  public void SetLocalPositionAndRotation(Vector3 position,Quaternion rotation)=>Context.LocalTransform(Entity,position,rotation);
  public void Translate(Vector3 translation,Space relativeTo){TransformMath.SpaceValue(relativeTo);if(relativeTo==Space.World)position+=translation;else Translate(translation);}
- public void Rotate(Vector3 eulers,Space relativeTo=Space.Self){TransformMath.SpaceValue(relativeTo);var q=TransformMath.Euler(eulers);rotation=relativeTo==Space.Self?rotation*q:q*rotation;}
+ public void Rotate(Vector3 eulers,Space relativeTo=Space.Self){TransformMath.SpaceValue(relativeTo);var q=TransformMath.Euler(eulers);if(relativeTo==Space.Self)localRotation=localRotation*q;else rotation=q*rotation;}
 }
 
 // Namespace: Axiom.Gameplay
@@ -154,8 +154,8 @@ public partial class Transform {
  public int hierarchyCapacity {get=>Legacy.TransformGraph.Capacity(root.LegacyTransform.Entity);set=>Legacy.TransformGraph.SetCapacity(root.LegacyTransform.Entity,value);}
  [Obsolete("FindChild has been deprecated. Use Find instead (UnityUpgradable) -> Find([mscorlib] System.String)",false)]public Transform? FindChild(string n)=>Find(n);
  [Obsolete("warning use Transform.childCount instead (UnityUpgradable) -> Transform.childCount",false)]public int GetChildCount()=>childCount;
- [Obsolete("warning use Transform.Rotate instead.")]public void RotateAroundLocal(Vector3 axis,float angle)=>Rotate(axis,angle,Space.Self);
- [Obsolete("warning use Transform.Rotate instead.")]public void RotateAround(Vector3 axis,float angle)=>Rotate(axis,angle,Space.World);
+ [Obsolete("warning use Transform.Rotate instead.")]public void RotateAroundLocal(Vector3 axis,float angle)=>localRotation=Quaternion.AngleAxis((float)(angle*180/System.Math.PI),axis)*localRotation;
+ [Obsolete("warning use Transform.Rotate instead.")]public void RotateAround(Vector3 axis,float angle)=>Rotate(axis,(float)(angle*180/System.Math.PI),Space.World);
 }
 
 // Namespace: Axiom.Gameplay

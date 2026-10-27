@@ -13,14 +13,20 @@ The Inspector lock pins its target independently of app selection. Additional In
 // Namespace: Axiom.Gameplay
 public abstract class ProjectAsset : Object {internal string Path {get;}public string path=>Path;public string name=>Path.Split('/').Last();public string assetId {get;}internal ProjectAsset(string path,string id){Path=path;assetId=id;}}
 
+// Namespace: UnityEngine
+public class Texture2D:Object {internal Texture2D(Axiom.Gameplay.Texture2D value){Wrapped=value;}}
+
 // Namespace: Axiom.Gameplay
 public sealed class Texture2D(string path,string id) : ProjectAsset(path,id) {}
+
+// Namespace: UnityEngine
+public class AudioClip:Object {internal AudioClip(Axiom.Gameplay.AudioClip value){Wrapped=value;}}
 
 // Namespace: Axiom.Gameplay
 public sealed class AudioClip(string path,string id) : ProjectAsset(path,id) {}
 
 // Namespace: UnityEngine
-public class Mesh : Object {internal Mesh(Legacy.Mesh value){Wrapped=value;}}
+public class Mesh : Object {public Mesh(){Wrapped=new Legacy.Mesh("","");Legacy.RuntimeAssets.Register(Wrapped,true,"");CacheFacade();}internal Mesh(Legacy.Mesh value){Wrapped=value;}}
 
 // Namespace: Axiom.Gameplay
 public sealed class Mesh(string path,string id) : ProjectAsset(path,id) {}

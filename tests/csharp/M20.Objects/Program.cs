@@ -71,6 +71,9 @@ PersistenceCases.Run(Check,Reset);
 HierarchyActivationCases.Run(Check,Reset);
 NativeReferenceCases.Run(Check,Reset);
 NativeCloneReferenceCases.Run(Check,Reset);
+AssetCases.Run(Check,Reset);
+AsyncLifecycleCases.Run(Check,Reset);
+NativeEdgeCases.Run(Check,Reset);
 MatrixCases.Run(Check,Reset);
 for(var i=0;i<NativeTransformFixtures.Count;i++){Reset(900+i);Check("exact Unity native signed hierarchy "+i,NativeTransformFixtures.Check(i));}
 ManagedCloneCases.Run(Check,Reset);

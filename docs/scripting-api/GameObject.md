@@ -104,9 +104,9 @@ public sealed partial class GameObject {
 // Namespace: UnityEngine
 public sealed partial class GameObject : Object {
  internal Legacy.GameObject LegacyGameObject {get{if(!this)throw new MissingReferenceException("GameObject has been destroyed");return Wrapped as Legacy.GameObject??throw new MissingReferenceException("GameObject is not attached");}}
- internal GameObject(Legacy.GameObject native){Wrapped=native;CacheFacade();}
+ internal GameObject(Legacy.GameObject native,bool facade){Wrapped=native;CacheFacade();}
  public static implicit operator GameObject(Legacy.GameObject value)=>ReferenceEquals(value,null)?null!:(GameObject)Wrap(value);
- public GameObject():this("New Game Object"){}public GameObject(string name){ArgumentNullException.ThrowIfNull(name);if(name.Length>128)throw new ArgumentException("Object name exceeds runtime bounds",nameof(name));Wrapped=new Legacy.GameObject(Legacy.Context.CreateObject(name));CacheFacade();}public GameObject(string name,params Type[] components):this(name){foreach(var type in components)AddComponent(type);}
+ public GameObject():this("New Game Object"){}public GameObject(string name){name??="New Game Object";if(name.Length>128)throw new ArgumentException("Object name exceeds runtime bounds",nameof(name));Wrapped=new Legacy.GameObject(Legacy.Context.CreateObject(name));CacheFacade();}public GameObject(string name,params Type[] components):this(name){foreach(var type in components)AddComponent(type);}
  public Transform transform=>LegacyGameObject.transform;public GameObject gameObject=>this;
  public bool activeSelf=>LegacyGameObject.activeSelf;public bool activeInHierarchy=>LegacyGameObject.activeInHierarchy;public void SetActive(bool value)=>LegacyGameObject.SetActive(value);
  public int layer {get=>LegacyGameObject.layer;set=>LegacyGameObject.layer=value;}public string tag {get=>LegacyGameObject.tag;set{Tags.Require(value);LegacyGameObject.tag=value;}}public bool CompareTag(string tag){Tags.Require(tag);return LegacyGameObject.CompareTag(tag);}
@@ -246,7 +246,7 @@ public partial class GameObject {
   var shape=index switch{0=>"sphere",1 or 2=>"capsule",3=>"box",4=>"plane",_=>"quad"};var half=index switch{1 or 2=>new[]{.5,1,.5},4=>new[]{5d,0,5},5=>new[]{.5,.5,0},_=>new[]{.5,.5,.5}};
   node["collider"]=new JsonObject{["dimension"]=3,["shape"]=shape,["halfExtents"]=new JsonArray(half.Select(v=>(JsonNode?)JsonValue.Create(v)).ToArray()),["trigger"]=false,["layer"]=1,["mask"]=4294967295u};
   Legacy.Context.EntityData[entity.Id]=Legacy.Context.ParseData(node.ToJsonString());Legacy.Context.Operations[^1]=new("primitive",entity.Id,null,default,null,Data:index.ToString(System.Globalization.CultureInfo.InvariantCulture));Legacy.Context.Refresh(entity);
-  var native=new Legacy.GameObject(entity);Legacy.Context.ComponentOrders[entity]=new[]{native.transform.GetInstanceID(),new Legacy.MeshFilter(entity).GetInstanceID(),new Legacy.MeshRenderer(entity).GetInstanceID(),native.GetComponent<Legacy.Collider>()!.GetInstanceID()}.ToList();return native;
+  Legacy.RuntimeAssets.BindPrimitive(entity,Legacy.PrimitiveMeshes.Get(PrimitiveCatalog.Ids[index]),index>=4);var native=new Legacy.GameObject(entity);Legacy.Context.ComponentOrders[entity]=new[]{native.transform.GetInstanceID(),new Legacy.MeshFilter(entity).GetInstanceID(),new Legacy.MeshRenderer(entity).GetInstanceID(),native.GetComponent<Legacy.Collider>()!.GetInstanceID()}.ToList();return native;
  }
 }
 ```

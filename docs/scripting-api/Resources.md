@@ -12,6 +12,12 @@ PrefabAsset is an explicit Axiom resource type, rather than Unity's asset-backed
 ## Implemented declarations
 
 ```csharp
+// Namespace: UnityEngine
+public static class Resources {
+ public static T[] FindObjectsOfTypeAll<T>() where T:Object=>NativeObjects.All(typeof(T)).Cast<T>().ToArray();public static Object[] FindObjectsOfTypeAll(Type type)=>NativeObjects.All(type);
+ public static T? Load<T>(string path) where T:Object {var type=typeof(T)==typeof(TextAsset)?typeof(Axiom.Gameplay.TextAsset):typeof(T)==typeof(Mesh)?typeof(Axiom.Gameplay.Mesh):typeof(T)==typeof(Texture2D)?typeof(Axiom.Gameplay.Texture2D):typeof(T)==typeof(AudioClip)?typeof(Axiom.Gameplay.AudioClip):typeof(Axiom.Gameplay.Object);var native=Axiom.Gameplay.RuntimeAssets.Load(type,path);return native==null?null:(T)Object.Wrap(native);}
+}
+
 // Namespace: Axiom.Gameplay
 public static class Resources {
  public static ResourceRequest LoadAsync<T>(string path) where T:Object=>new(Load<T>(path));
@@ -20,6 +26,13 @@ public static class Resources {
  private static Object? Asset(Type type,JsonElement r){var path=r.GetProperty("path").GetString()!;var kind=r.GetProperty("type").GetString();var id=r.TryGetProperty("assetId",out var asset)?asset.GetString()!:"";return type==typeof(Texture2D)&&kind=="texture"?new Texture2D(path,id):type==typeof(AudioClip)&&kind=="audio"?new AudioClip(path,id):type==typeof(Mesh)&&kind=="mesh"?new Mesh(path,id):null;}
  public static T? Load<T>(string path) where T:Object {var resource=Find(path);if(resource==null)return null;var r=resource.Value;Object? value=typeof(T)==typeof(TextAsset)?(r.TryGetProperty("text",out var text)?new TextAsset(path,text.GetString()!):null):typeof(T)==typeof(PrefabAsset)&&r.GetProperty("type").GetString()=="prefab"?new PrefabAsset(r.GetProperty("path").GetString()!):typeof(T)==typeof(SceneAsset)&&r.GetProperty("type").GetString()=="scene"?new SceneAsset(r.GetProperty("path").GetString()!):Asset(typeof(T),r);return value as T;}
  public static T[] LoadAll<T>(string path="") where T:Object=>Data.EnumerateArray().Where(r=>r.GetProperty("path").GetString()!.StartsWith(path,StringComparison.Ordinal)).Select(r=>Load<T>(r.GetProperty("path").GetString()!)).OfType<T>().ToArray();
+}
+
+// Namespace: UnityEngine
+public class TextAsset:Object {
+ public TextAsset():this(""){}public TextAsset(string text){Wrapped=new Axiom.Gameplay.TextAsset("",text??"");Axiom.Gameplay.RuntimeAssets.Register(Wrapped,true,"");CacheFacade();}
+ internal TextAsset(Axiom.Gameplay.TextAsset value){Wrapped=value;}
+ public string text=>this?((Axiom.Gameplay.TextAsset)Native).text:throw new MissingReferenceException("TextAsset has been destroyed");public byte[] bytes=>System.Text.Encoding.UTF8.GetBytes(text);
 }
 
 // Namespace: Axiom.Gameplay

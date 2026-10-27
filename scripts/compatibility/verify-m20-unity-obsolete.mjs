@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';
+import {readFile,writeFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+const [logPath,consumerPath,corePath,outputPath]=process.argv.slice(2);if(!outputPath)throw Error('Supply native compiler log, identical consumer source, frozen CoreModule and output JSON');
+const hash=value=>createHash('sha256').update(value).digest('hex'),coreSha=hash(await readFile(corePath));assert.equal(coreSha,'42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737');
+const log=await readFile(logPath,'utf8'),source=await readFile(consumerPath),cases=JSON.parse(await readFile(consumerPath+'.cases.json','utf8'));assert(log.includes('6000.3.27f1'));
+const observed=new Set([...log.matchAll(/Probe\.cs\((\d+),\d+\): (?:error|warning) (CS\d+)/g)].map(match=>match[1]+'|'+match[2])),expected=new Set(cases.map(row=>row.line+'|'+row.expectedDiagnostic));assert.equal(cases.length,53);assert.deepEqual([...observed].sort(),[...expected].sort());
+const unexpected=log.split('\n').filter(line=>/error CS\d+/.test(line)&&!line.includes('Probe.cs'));assert.deepEqual(unexpected,[]);
+const report={schemaVersion:1,passed:true,profile:'Actual Unity6000.3.27f1 C# compiler in a fresh disposable project',scope:'Expected CS0619/CS0618 diagnostics for the same consumer compiled against the owned SDK. Warning-only runtime behavior remains separate.',referenceCoreModuleSha256:coreSha,consumerSha256:hash(source),compilerErrorCases:cases.filter(row=>row.expectedDiagnostic==='CS0619').length,compilerWarningCases:cases.filter(row=>row.expectedDiagnostic==='CS0618').length,cases:cases.map(row=>({...row,passed:true}))};
+await writeFile(outputPath,JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify({passed:true,errors:report.compilerErrorCases,warnings:report.compilerWarningCases,total:cases.length}));

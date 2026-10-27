@@ -1,4 +1,4 @@
-Current review: **0.0.62 / SDK12 / canonical M20 core and dependency profiles**. All311 compiled public source contracts match;517 native and267 Development/effective-AOT observations pass. The original UnityEngine corpus executes unchanged. Complete per-signature behavior acceptance remains open. [Current report](docs/reports/M20_CANONICAL_BATCH.md).
+Current review: **0.0.62 / SDK12**. All311 frozen compiled source contracts match. Current native suite686; real browser267 core plus154 asset/lifecycle checks per Development/effective-AOT mode. Attributed acceptance47/311:17 async behavior contracts and30 compile-error obsolete contracts. M20 remains open; source matches and test counts are not full Unity parity.
 
 # Axiom Game Engine
 

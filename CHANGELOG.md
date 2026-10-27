@@ -4,7 +4,10 @@
 - Retain full affine matrices/shear/zero-scale local state across host frames. Add managed/reference graph clones, deferred/cancellable async integration, all17 direct async overload cases, real bulk identities and disposable NativeArray storage.
 - Add six owned primitive meshes, typed component/mesh identities and Rust CPU/Wasm capsule/finite-surface physics. Retain the broader physics/asset/Collections areas as separate incomplete milestones.
 - Fix qualified/comma-declared Inspector fields, operation-budget mutation ordering and saved AOT build-mode restoration. The harness verifies the mode actually executed.
-- 517 native observations and267 editor observations in each Development/effective-AOT mode pass. M20 remains open pending complete per-signature behavior/reference/dependency attribution and exact-head publication gates; source matching is not full functional parity.
+- Add owned runtime asset identities, synchronous Mesh/TextAsset/resource clones, temporary Inspector references, mesh assignment/retirement and a version-owned asset/lifecycle demo. Match native standalone-asset async rejection.
+- Certify17 async overloads through the same137-check native Unity/Axiom/Development/AOT lifecycle corpus and30 obsolete compile-error contracts through all three compilers. Preserve311 targets;47 accepted.
+- Correct null-name/null-original contracts, mirrored-parent Euler/deprecated radian rotations, and physics local-pose/matrix snapshots that broke M18.3 grounding.
+- 686 native observations,267 core plus154 asset/lifecycle editor checks per mode, and486 Node checks pass. M20 remains open pending complete per-signature behavior/reference/dependency attribution and exact-head publication gates; source matching is not full functional parity.
 
 # 0.0.61 — M20.3a transform behavior (partial)
 

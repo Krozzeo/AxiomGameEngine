@@ -1,7 +1,7 @@
 {
     "unityVersion": "6000.3.27f1",
     "coreAssemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737",
-    "profile": "Native Play mode: direct synchronous clone and world-setter observations; not complete lifecycle acceptance",
+    "profile": "Native Play mode: attributed synchronous/async clone and lifecycle observations; unrelated API areas are not certified",
     "error": "",
     "facts": [
         {
@@ -235,6 +235,344 @@
         {
             "key": "setter.pose-local-scale",
             "value": "0.5,2,3"
+        },
+        {
+            "key": "find-path.PathLeaf",
+            "value": "PathLeaf"
+        },
+        {
+            "key": "find-path.PathRoot/PathChild/PathLeaf",
+            "value": "PathLeaf"
+        },
+        {
+            "key": "find-path./PathRoot/PathChild/PathLeaf",
+            "value": "PathLeaf"
+        },
+        {
+            "key": "find-path.PathChild/PathLeaf",
+            "value": "PathLeaf"
+        },
+        {
+            "key": "find-path./PathChild/PathLeaf",
+            "value": "null"
+        },
+        {
+            "key": "find-path.PathRoot//PathChild/PathLeaf",
+            "value": "null"
+        },
+        {
+            "key": "find-path.",
+            "value": "null"
+        },
+        {
+            "key": "find-path.inactive",
+            "value": "null"
+        },
+        {
+            "key": "transform-find.inactive",
+            "value": "True"
+        },
+        {
+            "key": "get-child.-1",
+            "value": "UnityEngine.UnityException"
+        },
+        {
+            "key": "get-child.1",
+            "value": "UnityEngine.UnityException"
+        },
+        {
+            "key": "transform-find.null",
+            "value": "System.ArgumentNullException"
+        },
+        {
+            "key": "is-child-of.null",
+            "value": "System.ArgumentNullException"
+        },
+        {
+            "key": "add-transform.duplicate",
+            "value": "null"
+        },
+        {
+            "key": "find-path.null",
+            "value": "null"
+        },
+        {
+            "key": "stale-transform.GetChild",
+            "value": "UnityEngine.MissingReferenceException"
+        },
+        {
+            "key": "stale-transform.Find",
+            "value": "UnityEngine.MissingReferenceException"
+        },
+        {
+            "key": "stale-transform.IsChildOf",
+            "value": "UnityEngine.MissingReferenceException"
+        },
+        {
+            "key": "asset.mesh.clone-live",
+            "value": "True"
+        },
+        {
+            "key": "asset.mesh.clone-name",
+            "value": "Owned mesh(Clone)"
+        },
+        {
+            "key": "asset.mesh.clone-vertices",
+            "value": "3"
+        },
+        {
+            "key": "asset.mesh.source-name",
+            "value": "Owned mesh"
+        },
+        {
+            "key": "asset.mesh.find-runtime",
+            "value": "True"
+        },
+        {
+            "key": "asset.mesh.destroy-null",
+            "value": "True"
+        },
+        {
+            "key": "asset.mesh.source-live",
+            "value": "True"
+        },
+        {
+            "key": "asset.text.clone-text",
+            "value": "Native text"
+        },
+        {
+            "key": "asset.text.clone-name",
+            "value": "Original text(Clone)"
+        },
+        {
+            "key": "asset.text.destroy-null",
+            "value": "True"
+        },
+        {
+            "key": "asset.mesh.async-returned",
+            "value": "True"
+        },
+        {
+            "key": "asset.mesh.async-exception",
+            "value": "System.NullReferenceException: Object reference not set to an instance of an object."
+        },
+        {
+            "key": "asset.text.async-returned",
+            "value": "True"
+        },
+        {
+            "key": "asset.text.async-exception",
+            "value": "System.NullReferenceException"
+        },
+        {
+            "key": "async.null",
+            "value": "System.ArgumentException"
+        },
+        {
+            "key": "sync.null",
+            "value": "System.ArgumentException"
+        },
+        {
+            "key": "obsolete.local-before",
+            "value": "-0.0337826647,0.25660482,0.126078621,0.9576622"
+        },
+        {
+            "key": "obsolete.candidate-pre",
+            "value": "-0.9949323,-0.09914388,0.01674674"
+        },
+        {
+            "key": "obsolete.candidate-post",
+            "value": "-1.00000012,-5.26835642E-09,-1.1920929E-07"
+        },
+        {
+            "key": "obsolete.local-after",
+            "value": "0.06526309,0.8586165,0.113039,0.495722443"
+        },
+        {
+            "key": "obsolete.rotate-local.forward",
+            "value": "-0.9949323,-0.09914385,0.0167467482"
+        },
+        {
+            "key": "rotate.self-axis.forward",
+            "value": "1,2.63417776E-09,-1.1920929E-07"
+        },
+        {
+            "key": "rotate.self-euler.forward",
+            "value": "-1.00000012,-5.26835642E-09,-1.1920929E-07"
+        },
+        {
+            "key": "obsolete.rotate-world.forward",
+            "value": "1,-7.902534E-09,-1.1920929E-07"
+        },
+        {
+            "key": "constructor.null-components",
+            "value": "System.NullReferenceException"
+        },
+        {
+            "key": "constructor.null-name",
+            "value": "New Game Object"
+        },
+        {
+            "key": "reference-async.unity63abi:0ebd40215c5ae498e9a5b5c2.x",
+            "value": "103"
+        },
+        {
+            "key": "reference-async.unity63abi:0ebd40215c5ae498e9a5b5c2.null",
+            "value": "True"
+        },
+        {
+            "key": "reference-async.unity63abi:15b514a3d26315c94a258845.x",
+            "value": "2,2"
+        },
+        {
+            "key": "reference-async.unity63abi:15b514a3d26315c94a258845.null",
+            "value": "True"
+        },
+        {
+            "key": "reference-async.unity63abi:1902e37dc5b7132a2fe40d47.x",
+            "value": "2,2"
+        },
+        {
+            "key": "reference-async.unity63abi:1902e37dc5b7132a2fe40d47.null",
+            "value": "True"
+        },
+        {
+            "key": "reference-async.unity63abi:2c1804183f00b086ddf640ad.x",
+            "value": "2"
+        },
+        {
+            "key": "reference-async.unity63abi:2c1804183f00b086ddf640ad.null",
+            "value": "True"
+        },
+        {
+            "key": "reference-async.unity63abi:2fc8fd946bb01fb7d2ab1b8d.x",
+            "value": "13"
+        },
+        {
+            "key": "reference-async.unity63abi:2fc8fd946bb01fb7d2ab1b8d.null",
+            "value": "True"
+        },
+        {
+            "key": "reference-async.unity63abi:3a3d3ecd871841fb51d7bdf0.x",
+            "value": "12,14"
+        },
+        {
+            "key": "reference-async.unity63abi:3a3d3ecd871841fb51d7bdf0.null",
+            "value": "True"
+        },
+        {
+            "key": "reference-async.unity63abi:598f5222b6c8bbd94fe0d8ec.x",
+            "value": "12,12"
+        },
+        {
+            "key": "reference-async.unity63abi:598f5222b6c8bbd94fe0d8ec.null",
+            "value": "True"
+        },
+        {
+            "key": "reference-async.unity63abi:7865adff3e8f63be840e62e2.x",
+            "value": "2,4"
+        },
+        {
+            "key": "reference-async.unity63abi:7865adff3e8f63be840e62e2.null",
+            "value": "True"
+        },
+        {
+            "key": "reference-async.unity63abi:7c3b868fd418bd56029c5bed.x",
+            "value": "2,4"
+        },
+        {
+            "key": "reference-async.unity63abi:7c3b868fd418bd56029c5bed.null",
+            "value": "True"
+        },
+        {
+            "key": "reference-async.unity63abi:8b7a8fc6e4cdc85bd5c67523.x",
+            "value": "2,4"
+        },
+        {
+            "key": "reference-async.unity63abi:8b7a8fc6e4cdc85bd5c67523.null",
+            "value": "True"
+        },
+        {
+            "key": "reference-async.unity63abi:c31cbe2c98853aee9b00d561.x",
+            "value": "103,103"
+        },
+        {
+            "key": "reference-async.unity63abi:c31cbe2c98853aee9b00d561.null",
+            "value": "True"
+        },
+        {
+            "key": "reference-async.unity63abi:c9b54a0504016b5625c8af1f.x",
+            "value": "2,2"
+        },
+        {
+            "key": "reference-async.unity63abi:c9b54a0504016b5625c8af1f.null",
+            "value": "True"
+        },
+        {
+            "key": "reference-async.unity63abi:cc336411186ab7ce1405ca72.x",
+            "value": "2"
+        },
+        {
+            "key": "reference-async.unity63abi:cc336411186ab7ce1405ca72.null",
+            "value": "True"
+        },
+        {
+            "key": "reference-async.unity63abi:d41bbd79d916d2a70c0efe07.x",
+            "value": "103"
+        },
+        {
+            "key": "reference-async.unity63abi:d41bbd79d916d2a70c0efe07.null",
+            "value": "True"
+        },
+        {
+            "key": "reference-async.unity63abi:e91477eb9c6c3e07c3a1a97f.x",
+            "value": "103,103"
+        },
+        {
+            "key": "reference-async.unity63abi:e91477eb9c6c3e07c3a1a97f.null",
+            "value": "True"
+        },
+        {
+            "key": "reference-async.unity63abi:ee1e80b8a594c72c0b70ba67.x",
+            "value": "13,13"
+        },
+        {
+            "key": "reference-async.unity63abi:ee1e80b8a594c72c0b70ba67.null",
+            "value": "True"
+        },
+        {
+            "key": "reference-async.unity63abi:f9cbb2bb3492e8525ecc58fc.x",
+            "value": "12"
+        },
+        {
+            "key": "reference-async.unity63abi:f9cbb2bb3492e8525ecc58fc.null",
+            "value": "True"
+        },
+        {
+            "key": "async.lifecycle.passed",
+            "value": "137"
+        },
+        {
+            "key": "async.lifecycle.failed",
+            "value": "0"
+        },
+        {
+            "key": "async.lifecycle.report",
+            "value": "a01.held:pass;a01.cancelled:pass;a01.cancelled-completed:pass;a02.held:pass;a02.cancelled:pass;a02.cancelled-completed:pass;a03.held:pass;a03.cancelled:pass;a03.cancelled-completed:pass;a04.held:pass;a04.cancelled:pass;a04.cancelled-completed:pass;a05.held:pass;a05.cancelled:pass;a05.cancelled-completed:pass;a06.held:pass;a06.cancelled:pass;a06.cancelled-completed:pass;a07.held:pass;a07.cancelled:pass;a07.cancelled-completed:pass;a08.held:pass;a08.cancelled:pass;a08.cancelled-completed:pass;a09.held:pass;a09.cancelled:pass;a09.cancelled-completed:pass;a10.held:pass;a10.cancelled:pass;a10.cancelled-completed:pass;a11.held:pass;a11.cancelled:pass;a11.cancelled-completed:pass;a12.held:pass;a12.cancelled:pass;a12.cancelled-completed:pass;a13.held:pass;a13.cancelled:pass;a13.cancelled-completed:pass;a14.held:pass;a14.cancelled:pass;a14.cancelled-completed:pass;a15.held:pass;a15.cancelled:pass;a15.cancelled-completed:pass;a16.held:pass;a16.cancelled:pass;a16.cancelled-completed:pass;a17.held:pass;a17.cancelled:pass;a17.cancelled-completed:pass;a01.positive:pass;a01.null:pass;a01.initialize:pass;a01.completed:pass;a01.destroyed:pass;a02.positive:pass;a02.null:pass;a02.initialize:pass;a02.completed:pass;a02.destroyed:pass;a03.positive:pass;a03.null:pass;a03.initialize:pass;a03.completed:pass;a03.destroyed:pass;a04.positive:pass;a04.null:pass;a04.initialize:pass;a04.completed:pass;a04.destroyed:pass;a05.positive:pass;a05.null:pass;a05.initialize:pass;a05.completed:pass;a05.destroyed:pass;a06.positive:pass;a06.null:pass;a06.initialize:pass;a06.completed:pass;a06.destroyed:pass;a07.positive:pass;a07.null:pass;a07.initialize:pass;a07.completed:pass;a07.destroyed:pass;a08.positive:pass;a08.null:pass;a08.initialize:pass;a08.completed:pass;a08.destroyed:pass;a09.positive:pass;a09.null:pass;a09.initialize:pass;a09.completed:pass;a09.destroyed:pass;a10.positive:pass;a10.null:pass;a10.initialize:pass;a10.completed:pass;a10.destroyed:pass;a11.positive:pass;a11.null:pass;a11.initialize:pass;a11.completed:pass;a11.destroyed:pass;a12.positive:pass;a12.null:pass;a12.initialize:pass;a12.completed:pass;a12.destroyed:pass;a13.positive:pass;a13.null:pass;a13.initialize:pass;a13.completed:pass;a13.destroyed:pass;a14.positive:pass;a14.null:pass;a14.initialize:pass;a14.completed:pass;a14.destroyed:pass;a15.positive:pass;a15.null:pass;a15.initialize:pass;a15.completed:pass;a15.destroyed:pass;a16.positive:pass;a16.null:pass;a16.initialize:pass;a16.completed:pass;a16.destroyed:pass;a17.positive:pass;a17.null:pass;a17.initialize:pass;a17.completed:pass;a17.destroyed:pass;async.lifecycle.cleanup:pass;"
+        }
+    ],
+    "corpusSourceHashes": [
+        {
+            "key": "AsyncLifecycleLab.cs",
+            "value": "4a87b4eb9da5f3e99abb97f75828503fe5d171c146ce790d55299776d667ff5b"
+        },
+        {
+            "key": "AsyncLifecycleProbe.cs",
+            "value": "ebd88dea2d80b00efa629c0017db9f0f4a480e29ef7069f55b688ef66b561915"
+        },
+        {
+            "key": "AsyncOverloadCatalog.cs",
+            "value": "9b1b575563af068f721fb7e50ffacd313df149ad514c180620f73ba9034c4ed2"
         }
     ]
 }

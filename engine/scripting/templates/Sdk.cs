@@ -338,7 +338,7 @@ internal static partial class Context {
     if(op.Message!=null)writer.WriteString("message",op.Message);
     writer.WriteEndObject();
    }
-   writer.WriteEndArray();if(error==null)fields?.Invoke(writer);writer.WriteEndObject();
+   writer.WriteEndArray();if(error==null)fields?.Invoke(writer);RuntimeAssets.Write(writer);writer.WriteEndObject();
   }
   return System.Text.Encoding.UTF8.GetString(stream.ToArray());
  }

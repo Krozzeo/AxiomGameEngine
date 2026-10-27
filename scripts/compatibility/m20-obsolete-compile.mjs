@@ -31,11 +31,12 @@ const cases=targets.map(target=>{
  lines.push(expression+';');
  return {id:target.id,declaration:target.declaration,line:lines.length,expectedDiagnostic:reference.attribute.obsoleteError?'CS0619':'CS0618',referenceAttributeSha256:original.blobSha256};
 });
-lines.push('}}');const source=lines.join('\n')+'\n';const folder=await mkdtemp(join(tmpdir(),'axiom-m20-obsolete-'));
+lines.push('}}');const source=lines.join('\n')+'\n';const emit=process.argv.indexOf('--consumer-source');if(emit>=0){if(!process.argv[emit+1])throw Error('--consumer-source requires a path');await writeFile(process.argv[emit+1],source);await writeFile(process.argv[emit+1]+'.cases.json',JSON.stringify(cases,null,2)+'\n');}const folder=await mkdtemp(join(tmpdir(),'axiom-m20-obsolete-'));
 try {
  const escaped=dll.replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;');
  await writeFile(join(folder,'Probe.cs'),source);
- await writeFile(join(folder,'Probe.csproj'),'<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><TargetFramework>net10.0</TargetFramework><Nullable>disable</Nullable><WarningLevel>4</WarningLevel><TreatWarningsAsErrors>false</TreatWarningsAsErrors></PropertyGroup><ItemGroup><Reference Include="M20.Objects"><HintPath>'+escaped+'</HintPath></Reference></ItemGroup></Project>');
+ const wasm=process.argv.includes('--wasm');if(wasm)await writeFile(join(folder,'Main.cs'),'internal static class Program {public static void Main(){}}');
+ await writeFile(join(folder,'Probe.csproj'),'<Project Sdk="'+(wasm?'Microsoft.NET.Sdk.WebAssembly':'Microsoft.NET.Sdk')+'"><PropertyGroup><TargetFramework>net10.0</TargetFramework>'+(wasm?'<OutputType>Exe</OutputType><RuntimeIdentifier>browser-wasm</RuntimeIdentifier>':'')+'<Nullable>disable</Nullable><WarningLevel>4</WarningLevel><TreatWarningsAsErrors>false</TreatWarningsAsErrors></PropertyGroup><ItemGroup><Reference Include="M20.Objects"><HintPath>'+escaped+'</HintPath></Reference></ItemGroup></Project>');
  const dotnet=process.env.DOTNET_HOST_PATH??(process.platform==='win32'?join(process.env.ProgramFiles??'C:\\Program Files','dotnet','dotnet.exe'):'dotnet');
  const {code,output}=await new Promise((resolve,reject)=>{const child=spawn(dotnet,['build',join(folder,'Probe.csproj'),'--nologo','-v:q'],{windowsHide:true});let output='';child.stdout.on('data',value=>output+=value);child.stderr.on('data',value=>output+=value);child.on('error',reject);child.on('close',code=>resolve({code,output}));});
  assert.notEqual(code,0,'Removed APIs must fail consumer compilation');
@@ -43,7 +44,7 @@ try {
  assert(diagnostics.length,output);
  for(const entry of cases)assert(diagnostics.some(diagnostic=>diagnostic.line===entry.line&&diagnostic.code===entry.expectedDiagnostic),JSON.stringify(entry)+'\n'+output);
  for(const diagnostic of diagnostics)assert(cases.some(entry=>entry.line===diagnostic.line&&entry.expectedDiagnostic===diagnostic.code),'Unexpected consumer diagnostic '+JSON.stringify(diagnostic)+'\n'+output);
- const report={schemaVersion:1,passed:true,scope:'Owned SDK consumer compiler diagnostics only; not runtime behavior certification.',assemblySha256,consumerSha256:createHash('sha256').update(source).digest('hex'),compilerErrorCases:cases.filter(entry=>entry.expectedDiagnostic==='CS0619').length,compilerWarningCases:cases.filter(entry=>entry.expectedDiagnostic==='CS0618').length,cases};
+ const report={schemaVersion:1,passed:true,profile:wasm?'C#/Wasm consumer compiler':'Native .NET consumer compiler',scope:'Expected consumer compiler diagnostics only. Compiler-error obsolete members cannot be executed; warning-only runtime behavior is separate.',assemblySha256,consumerSha256:createHash('sha256').update(source).digest('hex'),compilerErrorCases:cases.filter(entry=>entry.expectedDiagnostic==='CS0619').length,compilerWarningCases:cases.filter(entry=>entry.expectedDiagnostic==='CS0618').length,cases};
  if(process.argv[3])await writeFile(process.argv[3],JSON.stringify(report,null,2)+'\n');
  console.log(JSON.stringify({passed:true,errors:report.compilerErrorCases,warnings:report.compilerWarningCases,total:cases.length}));
 } finally {await rm(folder,{recursive:true,force:true});}

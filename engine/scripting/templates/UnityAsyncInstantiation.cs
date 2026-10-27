@@ -5,15 +5,15 @@ namespace UnityEngine;
 
 public class YieldInstruction {}
 public class AsyncOperation : YieldInstruction {
- internal bool Done,EventRaised;internal readonly int CreationFrame=Legacy.Time.frameCount;
+ internal bool Done,EventRaised,Unavailable;internal void RequireHandle(){if(Unavailable)throw new NullReferenceException();}internal readonly int CreationFrame=Legacy.Time.frameCount;
  private Action<AsyncOperation>? callbacks;
- public bool isDone=>Done;
- public virtual float progress=>Done?1:0;
- public int priority {get;set;}
- public bool allowSceneActivation {get;set;}=true;
+ public bool isDone {get{RequireHandle();return Done;}}
+ public virtual float progress {get{RequireHandle();return Done?1:0;}}
+ private int priorityValue;public int priority {get{RequireHandle();return priorityValue;}set{RequireHandle();priorityValue=value;}}
+ private bool activate=true;public bool allowSceneActivation {get{RequireHandle();return activate;}set{RequireHandle();activate=value;}}
  public event Action<AsyncOperation> completed {
-  add{if(EventRaised)value(this);else callbacks+=value;}
-  remove{callbacks-=value;}
+  add{RequireHandle();if(EventRaised)value(this);else callbacks+=value;}
+  remove{RequireHandle();callbacks-=value;}
  }
  internal void DispatchCompleted(){if(!Done||EventRaised||Legacy.Time.frameCount<=CreationFrame)return;EventRaised=true;var handlers=callbacks;callbacks=null;handlers?.Invoke(this);}
  internal void Abandon(){Done=true;EventRaised=true;callbacks=null;}
@@ -25,10 +25,10 @@ public class AsyncInstantiateOperation : AsyncOperation {
  internal CancellationToken Token;internal bool CancelRequested,WasCancelled;
  internal Object[]? Objects;internal Exception? Failure;
  public Object[] Result=>Objects!;
- public override float progress=>Done?1:Integrate!=null?.9f:0;
- public void Cancel(){if(!Done)CancelRequested=true;}
- public bool IsWaitingForSceneActivation()=>!Done&&!allowSceneActivation&&!CancelRequested&&!Token.IsCancellationRequested&&Integrate!=null;
- public void WaitForCompletion(){if(!Done){allowSceneActivation=true;Step();}if(Failure!=null)System.Runtime.ExceptionServices.ExceptionDispatchInfo.Capture(Failure).Throw();}
+ public override float progress {get{RequireHandle();return Done?1:Integrate!=null?.9f:0;}}
+ public void Cancel(){RequireHandle();if(!Done)CancelRequested=true;}
+ public bool IsWaitingForSceneActivation(){RequireHandle();return !Done&&!allowSceneActivation&&!CancelRequested&&!Token.IsCancellationRequested&&Integrate!=null;}
+ public void WaitForCompletion(){RequireHandle();if(!Done){allowSceneActivation=true;Step();}if(Failure!=null)System.Runtime.ExceptionServices.ExceptionDispatchInfo.Capture(Failure).Throw();}
  public static float GetIntegrationTimeMS()=>integrationTime;
  public static void SetIntegrationTimeMS(float integrationTimeMS){if(!float.IsFinite(integrationTimeMS)||integrationTimeMS<=0)throw new ArgumentOutOfRangeException(nameof(integrationTimeMS));integrationTime=integrationTimeMS;}
  internal void Step(){
@@ -54,7 +54,8 @@ public class AsyncInstantiateOperation<T> : AsyncInstantiateOperation where T:Ob
 internal static class AsyncInstantiationQueue {
  private static readonly List<AsyncInstantiateOperation> Operations=new();
  internal static AsyncInstantiateOperation<T> Begin<T>(T original,int count,InstantiateParameters parameters,Vector3[] positions,Quaternion[] rotations,CancellationToken cancellationToken) where T:Object {
-  ArgumentNullException.ThrowIfNull(original);if(!original)throw new MissingReferenceException("Cannot clone a destroyed object");
+  if(ReferenceEquals(original,null)||!original)throw new ArgumentException("The Object you want to instantiate is null.");
+  if(original.Native is not Legacy.GameObject and not Legacy.Component){Legacy.Debug.LogError("Cannot instantiate multiple objects that are not connected to GameObject, please use a loop over Instantiate");return new AsyncInstantiateOperation<T>{Unavailable=true,Token=cancellationToken};}
   if(count<1||count>Legacy.Limits.Entities)throw new ArgumentOutOfRangeException(nameof(count));
   foreach(var p in positions)Legacy.TransformMath.Finite(p);foreach(var q in rotations)Legacy.TransformMath.Normalize(q);
   if(Operations.Count>=256)throw new InvalidOperationException("Asynchronous instantiation queue is full");

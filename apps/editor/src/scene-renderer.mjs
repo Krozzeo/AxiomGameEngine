@@ -286,7 +286,7 @@ export async function createSceneRenderer({ canvas, stateElement, traceOutput, b
         }catch(error){if(ticket===generation&&!disposed){scriptFault=error.message;reportError(error);active.dispose();scriptRuntime=null;}}
         finally{scriptFlight=null;}
       };
-      const syncRuntime=packet=>{const byId=new Map(runtimeScene.entities.map(e=>[e.id,e]));if(packet.transforms)for(const item of packet.transforms){const e=byId.get(item.id);if(e)e.transform=item.transform;}if(packet.physics)for(const b of packet.physics.bodies){const e=byId.get(b.id);if(e?.rigidBody){e.rigidBody.velocity=b.velocity;e.rigidBody.angularVelocity=b.angularVelocity;e.rigidBody.sleeping=b.sleeping;}}};
+      const syncRuntime=packet=>{const byId=new Map(runtimeScene.entities.map(e=>[e.id,e]));if(packet.transforms)for(const item of packet.transforms){const e=byId.get(item.id);if(e){e.transform=item.transform;if(item.runtimeLocalTransform){e.runtimeLocalTransform=item.runtimeLocalTransform;e.runtimeMatrix=item.runtimeMatrix;}}}if(packet.physics)for(const b of packet.physics.bodies){const e=byId.get(b.id);if(e?.rigidBody){e.rigidBody.velocity=b.velocity;e.rigidBody.angularVelocity=b.angularVelocity;e.rigidBody.sleeping=b.sleeping;}}};
       const phased=playing&&!twoDPaused&&!!scriptRuntime;
       if(phased){
        if(pendingEndPacket)await runScriptPhase('end-apply');await runScriptPhase('frame');const fixed=kernel.beginFixedFrame(Math.min(delta*scriptTimeScale,.25),trace+1n);
@@ -305,7 +305,7 @@ export async function createSceneRenderer({ canvas, stateElement, traceOutput, b
       profiler.scope(diagnostic,'animation.evaluate',stageStart,performance.now());stageStart=performance.now();
       lastPacket=packet;lastTraceId=diagnostic.traceId;
       const byId=new Map(runtimeScene.entities.map(e=>[e.id,e]));
-      if(packet.transforms)for(const item of packet.transforms){const e=byId.get(item.id);if(e)e.transform=item.transform;}
+      if(packet.transforms)for(const item of packet.transforms){const e=byId.get(item.id);if(e){e.transform=item.transform;if(item.runtimeLocalTransform){e.runtimeLocalTransform=item.runtimeLocalTransform;e.runtimeMatrix=item.runtimeMatrix;}}}
       if(packet.physics){for(const b of packet.physics.bodies){const e=byId.get(b.id);if(!e)continue;if(!packet.transforms){e.transform.position=b.position;e.transform.rotation=b.rotation;}if(e.rigidBody){e.rigidBody.velocity=b.velocity;e.rigidBody.angularVelocity=b.angularVelocity;e.rigidBody.sleeping=b.sleeping;}}diagnostic.physics=packet.physics;}
       let previewScene=null;
       if(transformPreview){const draft=structuredClone(authoredHierarchy);draft.entities=updateTransforms(draft.entities,transformPreview.updates??[{entityId:transformPreview.entityId,transform:transformPreview.transform}],'world');previewScene=worldScene(draft);}

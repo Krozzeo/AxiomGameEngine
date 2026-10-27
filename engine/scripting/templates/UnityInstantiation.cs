@@ -12,11 +12,11 @@ public struct InstantiateParameters {
 public partial class Object {
  public static Object Instantiate(Object original,SceneManagement.Scene scene)=>Instantiate(original,new InstantiateParameters{scene=scene});
  public static T Instantiate<T>(T original,InstantiateParameters parameters) where T:Object {
-  ArgumentNullException.ThrowIfNull(original);
+  if(ReferenceEquals(original,null)||!original)throw new ArgumentException("The Object you want to instantiate is null.");
   return (T)Wrap(Legacy.CloneBlueprint.Capture(original.Native).Instantiate(parameters));
  }
  public static T Instantiate<T>(T original,Vector3 position,Quaternion rotation,InstantiateParameters parameters) where T:Object {
-  ArgumentNullException.ThrowIfNull(original);
+  if(ReferenceEquals(original,null)||!original)throw new ArgumentException("The Object you want to instantiate is null.");
   return (T)Wrap(Legacy.CloneBlueprint.Capture(original.Native).Instantiate(parameters,position,rotation));
  }
 }

@@ -12,15 +12,15 @@
     "Stop restores the complete authored scene; runtime objects, fields and resource handles do not become authoring changes"
   ],
   "pageErrors": [],
-  "profile": "Real aot C#/Wasm in the editor, Null renderer; includes128 independent Unity6000.3 native edit-mode transform fixtures, not GPU pixels or complete Unity behavior parity",
+  "profile": "Axiom development C#/Wasm and Null editor; aliased observations, not native Unity conformance",
   "httpErrors": [],
   "consoleErrors": [],
   "executedBuild": {
-    "id": "e01bc3a3-cb89-4f53-90b4-ce952aba3ddb",
+    "id": "7787dac0-6c4c-41b2-bf9b-36d3dd0e9088",
     "mode": "aot",
     "sdkVersion": 12,
-    "sourceHash": "73b2f9b8ab371ac8a1e3a9a3c15f9e7792f4bc1860efe79e351a3359635a1b8c",
-    "bytes": 25931824
+    "sourceHash": "ab1a0cab030c4136fc577ddbaac107fe9ff1b0a41e220f46cafbb9a59188b985",
+    "bytes": 26040561
   },
   "cases": {
     "identity.wrapper": "pass",
@@ -310,6 +310,5 @@
     "native.transform.126": "pass",
     "native.transform.127": "pass"
   },
-  "passed": true,
-  "totalChecks": 267
+  "passed": true
 }

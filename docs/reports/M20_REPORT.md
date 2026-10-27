@@ -1,4 +1,4 @@
-Current canonical review: **0.0.62 / SDK12**. All311 compiled public source contracts match; unchanged UnityEngine corpus and267 Development/effective-AOT observations pass. M20 stays open for complete per-signature behavior/dependency acceptance. [Current batch](M20_CANONICAL_BATCH.md). Older batch sections below retain their historical outcomes.
+Current review: **0.0.62 / SDK12**. All311 frozen compiled source contracts match. Current native suite686; real browser267 core plus154 asset/lifecycle checks per Development/effective-AOT mode. Attributed acceptance47/311:17 async behavior contracts and30 compile-error obsolete contracts. M20 remains open; source matches and test counts are not full Unity parity.
 
 Current batch: **0.0.61 / SDK11 / M20.3a partial transform behavior**. [Current batch and failed closure gate](M20_TRANSFORM_BATCH.md). Native138 and editable development-Wasm51 observations pass. The unadapted UnityEngine corpus fails CS0246. This milestone is **not closed**; older batch counts below remain historical.
 

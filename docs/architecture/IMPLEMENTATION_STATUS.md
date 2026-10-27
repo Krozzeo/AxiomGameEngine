@@ -1,3 +1,11 @@
+# Current canonical M20 batch —0.0.62 / SDK12
+
+Current review: **0.0.62 / SDK12**. All311 frozen compiled source contracts match. Current native suite686; real browser267 core plus154 asset/lifecycle checks per Development/effective-AOT mode. Attributed acceptance47/311:17 async behavior contracts and30 compile-error obsolete contracts. M20 remains open; source matches and test counts are not full Unity parity. See [current report](../reports/M20_CANONICAL_BATCH.md). Stable main remains0.0.57.
+
+---
+
+## Historical partial transform batch
+
 # M20.3a transform behavior — Engine 0.0.61 / SDK11
 
 M20 remains **in progress**. This batch fixes host publication of descendant transforms, atomic pose/reparent rejection and adds tested legacy Euler/axis/orbit/look/direction/span APIs. 138 native observations and 32 lifecycle + 19 transform development-Wasm observations pass, including next-frame consistency and exact Stop restoration. The required unadapted UnityEngine corpus fails CS0246; all 311 assigned records and 0 certified exact signatures remain visible.

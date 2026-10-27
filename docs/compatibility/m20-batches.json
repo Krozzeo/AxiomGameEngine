@@ -3,7 +3,7 @@
   "milestone": "M20",
   "targetRecords": 311,
   "status": "in_progress",
-  "certifiedUnitySignatures": 0,
+  "certifiedUnitySignatures": 47,
   "batch": "0.0.62 / SDK12 / canonical core and dependency profiles, behavior attribution in progress",
   "evidence": {
     "native": "evidence/m20-queries-native-windows.json",
@@ -156,12 +156,44 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.AsyncInstantiateOperation`1<T> InstantiateAsync<T>(T original);",
       "member": "InstantiateAsync",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct overload: parented-source pose/count/identity, ArgumentException for null input, cancellation with one completion callback and no Awake, activation hold, one Awake/OnEnable after release, one completion callback, and actual result destruction/OnDisable/OnDestroy. The identical lifecycle corpus runs in native Unity, native Axiom and both Wasm modes. Non-scene-object async rejection follows the native negative reference; synchronous asset cloning is a separate dependency.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-6000.3-play-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-native.json",
+          "caseIds": [
+            "a01.held",
+            "a01.cancelled",
+            "a01.cancelled-completed",
+            "a01.positive",
+            "a01.null",
+            "a01.initialize",
+            "a01.completed",
+            "a01.destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-assets-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-assets-aot-wasm.json",
+          "caseIds": [
+            "a01.held",
+            "a01.cancelled",
+            "a01.cancelled-completed",
+            "a01.positive",
+            "a01.null",
+            "a01.initialize",
+            "a01.completed",
+            "a01.destroyed"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:0ee966233251556d78696f58",
@@ -281,12 +313,44 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.AsyncInstantiateOperation`1<T> InstantiateAsync<T>(T original, int count, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation);",
       "member": "InstantiateAsync",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct overload: parented-source pose/count/identity, ArgumentException for null input, cancellation with one completion callback and no Awake, activation hold, one Awake/OnEnable after release, one completion callback, and actual result destruction/OnDisable/OnDestroy. The identical lifecycle corpus runs in native Unity, native Axiom and both Wasm modes. Non-scene-object async rejection follows the native negative reference; synchronous asset cloning is a separate dependency.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-6000.3-play-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-native.json",
+          "caseIds": [
+            "a02.held",
+            "a02.cancelled",
+            "a02.cancelled-completed",
+            "a02.positive",
+            "a02.null",
+            "a02.initialize",
+            "a02.completed",
+            "a02.destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-assets-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-assets-aot-wasm.json",
+          "caseIds": [
+            "a02.held",
+            "a02.cancelled",
+            "a02.cancelled-completed",
+            "a02.positive",
+            "a02.null",
+            "a02.initialize",
+            "a02.completed",
+            "a02.destroyed"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:160660381215027e2830e101",
@@ -379,12 +443,44 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.AsyncInstantiateOperation`1<T> InstantiateAsync<T>(T original, int count, UnityEngine.Transform parent, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation, System.Threading.CancellationToken cancellationToken);",
       "member": "InstantiateAsync",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct overload: parented-source pose/count/identity, ArgumentException for null input, cancellation with one completion callback and no Awake, activation hold, one Awake/OnEnable after release, one completion callback, and actual result destruction/OnDisable/OnDestroy. The identical lifecycle corpus runs in native Unity, native Axiom and both Wasm modes. Non-scene-object async rejection follows the native negative reference; synchronous asset cloning is a separate dependency.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-6000.3-play-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-native.json",
+          "caseIds": [
+            "a03.held",
+            "a03.cancelled",
+            "a03.cancelled-completed",
+            "a03.positive",
+            "a03.null",
+            "a03.initialize",
+            "a03.completed",
+            "a03.destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-assets-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-assets-aot-wasm.json",
+          "caseIds": [
+            "a03.held",
+            "a03.cancelled",
+            "a03.cancelled-completed",
+            "a03.positive",
+            "a03.null",
+            "a03.initialize",
+            "a03.completed",
+            "a03.destroyed"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:19aafc1cc75398a18786ddbe",
@@ -405,17 +501,34 @@
       "owner": "UnityEngine.Component",
       "declaration": "public UnityEngine.Component animation { public get; }",
       "member": "animation",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-compiler-contract",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "compilerObservation": {
         "passed": true,
         "expectedDiagnostic": "CS0619",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "This exact member is Obsolete(error:true). Its direct public C# consumer must be rejected with CS0619 by both native Unity and the Axiom native/Wasm compilers. No normal compiled runtime invocation exists; this acceptance does not claim a usable deprecated feature.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-obsolete-compile.json",
+          "caseId": "unity63abi:19c05cd366ae9d8a325b94b9",
+          "diagnostic": "CS0619",
+          "profile": "Actual frozen Unity compiler"
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-obsolete-wasm-compile.json",
+          "caseId": "unity63abi:19c05cd366ae9d8a325b94b9",
+          "diagnostic": "CS0619",
+          "profile": "Actual C#/Wasm compiler"
+        },
+        "ownedNativeCompiler": "evidence/m20-sdk12-obsolete-compile.json"
       }
     },
     {
@@ -473,17 +586,34 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public UnityEngine.Component light { public get; }",
       "member": "light",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-compiler-contract",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "compilerObservation": {
         "passed": true,
         "expectedDiagnostic": "CS0619",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "This exact member is Obsolete(error:true). Its direct public C# consumer must be rejected with CS0619 by both native Unity and the Axiom native/Wasm compilers. No normal compiled runtime invocation exists; this acceptance does not claim a usable deprecated feature.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-obsolete-compile.json",
+          "caseId": "unity63abi:1d15af8006e9deb6dd0ea83e",
+          "diagnostic": "CS0619",
+          "profile": "Actual frozen Unity compiler"
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-obsolete-wasm-compile.json",
+          "caseId": "unity63abi:1d15af8006e9deb6dd0ea83e",
+          "diagnostic": "CS0619",
+          "profile": "Actual C#/Wasm compiler"
+        },
+        "ownedNativeCompiler": "evidence/m20-sdk12-obsolete-compile.json"
       }
     },
     {
@@ -515,17 +645,34 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public UnityEngine.Component rigidbody2D { public get; }",
       "member": "rigidbody2D",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-compiler-contract",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "compilerObservation": {
         "passed": true,
         "expectedDiagnostic": "CS0619",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "This exact member is Obsolete(error:true). Its direct public C# consumer must be rejected with CS0619 by both native Unity and the Axiom native/Wasm compilers. No normal compiled runtime invocation exists; this acceptance does not claim a usable deprecated feature.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-obsolete-compile.json",
+          "caseId": "unity63abi:20e1e83cca8a5074140b551d",
+          "diagnostic": "CS0619",
+          "profile": "Actual frozen Unity compiler"
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-obsolete-wasm-compile.json",
+          "caseId": "unity63abi:20e1e83cca8a5074140b551d",
+          "diagnostic": "CS0619",
+          "profile": "Actual C#/Wasm compiler"
+        },
+        "ownedNativeCompiler": "evidence/m20-sdk12-obsolete-compile.json"
       }
     },
     {
@@ -603,17 +750,34 @@
       "owner": "UnityEngine.Component",
       "declaration": "public UnityEngine.Component rigidbody2D { public get; }",
       "member": "rigidbody2D",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-compiler-contract",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "compilerObservation": {
         "passed": true,
         "expectedDiagnostic": "CS0619",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "This exact member is Obsolete(error:true). Its direct public C# consumer must be rejected with CS0619 by both native Unity and the Axiom native/Wasm compilers. No normal compiled runtime invocation exists; this acceptance does not claim a usable deprecated feature.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-obsolete-compile.json",
+          "caseId": "unity63abi:29a87473fcdf88d32dd42541",
+          "diagnostic": "CS0619",
+          "profile": "Actual frozen Unity compiler"
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-obsolete-wasm-compile.json",
+          "caseId": "unity63abi:29a87473fcdf88d32dd42541",
+          "diagnostic": "CS0619",
+          "profile": "Actual C#/Wasm compiler"
+        },
+        "ownedNativeCompiler": "evidence/m20-sdk12-obsolete-compile.json"
       }
     },
     {
@@ -649,12 +813,44 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.AsyncInstantiateOperation`1<T> InstantiateAsync<T>(T original, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation);",
       "member": "InstantiateAsync",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct overload: parented-source pose/count/identity, ArgumentException for null input, cancellation with one completion callback and no Awake, activation hold, one Awake/OnEnable after release, one completion callback, and actual result destruction/OnDisable/OnDestroy. The identical lifecycle corpus runs in native Unity, native Axiom and both Wasm modes. Non-scene-object async rejection follows the native negative reference; synchronous asset cloning is a separate dependency.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-6000.3-play-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-native.json",
+          "caseIds": [
+            "a04.held",
+            "a04.cancelled",
+            "a04.cancelled-completed",
+            "a04.positive",
+            "a04.null",
+            "a04.initialize",
+            "a04.completed",
+            "a04.destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-assets-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-assets-aot-wasm.json",
+          "caseIds": [
+            "a04.held",
+            "a04.cancelled",
+            "a04.cancelled-completed",
+            "a04.positive",
+            "a04.null",
+            "a04.initialize",
+            "a04.completed",
+            "a04.destroyed"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:2cc1372ff0892fcb7b782f92",
@@ -763,12 +959,44 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.AsyncInstantiateOperation`1<T> InstantiateAsync<T>(T original, UnityEngine.InstantiateParameters parameters, System.Threading.CancellationToken cancellationToken = null);",
       "member": "InstantiateAsync",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct overload: parented-source pose/count/identity, ArgumentException for null input, cancellation with one completion callback and no Awake, activation hold, one Awake/OnEnable after release, one completion callback, and actual result destruction/OnDisable/OnDestroy. The identical lifecycle corpus runs in native Unity, native Axiom and both Wasm modes. Non-scene-object async rejection follows the native negative reference; synchronous asset cloning is a separate dependency.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-6000.3-play-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-native.json",
+          "caseIds": [
+            "a05.held",
+            "a05.cancelled",
+            "a05.cancelled-completed",
+            "a05.positive",
+            "a05.null",
+            "a05.initialize",
+            "a05.completed",
+            "a05.destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-assets-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-assets-aot-wasm.json",
+          "caseIds": [
+            "a05.held",
+            "a05.cancelled",
+            "a05.cancelled-completed",
+            "a05.positive",
+            "a05.null",
+            "a05.initialize",
+            "a05.completed",
+            "a05.destroyed"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:304de50705506d36fe1c5933",
@@ -787,17 +1015,34 @@
       "owner": "UnityEngine.Component",
       "declaration": "public UnityEngine.Component collider2D { public get; }",
       "member": "collider2D",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-compiler-contract",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "compilerObservation": {
         "passed": true,
         "expectedDiagnostic": "CS0619",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "This exact member is Obsolete(error:true). Its direct public C# consumer must be rejected with CS0619 by both native Unity and the Axiom native/Wasm compilers. No normal compiled runtime invocation exists; this acceptance does not claim a usable deprecated feature.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-obsolete-compile.json",
+          "caseId": "unity63abi:3197e5e7dc6193093945b6e6",
+          "diagnostic": "CS0619",
+          "profile": "Actual frozen Unity compiler"
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-obsolete-wasm-compile.json",
+          "caseId": "unity63abi:3197e5e7dc6193093945b6e6",
+          "diagnostic": "CS0619",
+          "profile": "Actual C#/Wasm compiler"
+        },
+        "ownedNativeCompiler": "evidence/m20-sdk12-obsolete-compile.json"
       }
     },
     {
@@ -805,17 +1050,34 @@
       "owner": "UnityEngine.Component",
       "declaration": "public UnityEngine.Component constantForce { public get; }",
       "member": "constantForce",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-compiler-contract",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "compilerObservation": {
         "passed": true,
         "expectedDiagnostic": "CS0619",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "This exact member is Obsolete(error:true). Its direct public C# consumer must be rejected with CS0619 by both native Unity and the Axiom native/Wasm compilers. No normal compiled runtime invocation exists; this acceptance does not claim a usable deprecated feature.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-obsolete-compile.json",
+          "caseId": "unity63abi:31a6f577b2a2c69b1326a7df",
+          "diagnostic": "CS0619",
+          "profile": "Actual frozen Unity compiler"
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-obsolete-wasm-compile.json",
+          "caseId": "unity63abi:31a6f577b2a2c69b1326a7df",
+          "diagnostic": "CS0619",
+          "profile": "Actual C#/Wasm compiler"
+        },
+        "ownedNativeCompiler": "evidence/m20-sdk12-obsolete-compile.json"
       }
     },
     {
@@ -985,17 +1247,34 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public UnityEngine.Component collider { public get; }",
       "member": "collider",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-compiler-contract",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "compilerObservation": {
         "passed": true,
         "expectedDiagnostic": "CS0619",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "This exact member is Obsolete(error:true). Its direct public C# consumer must be rejected with CS0619 by both native Unity and the Axiom native/Wasm compilers. No normal compiled runtime invocation exists; this acceptance does not claim a usable deprecated feature.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-obsolete-compile.json",
+          "caseId": "unity63abi:3a08a22358af337f95d4b981",
+          "diagnostic": "CS0619",
+          "profile": "Actual frozen Unity compiler"
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-obsolete-wasm-compile.json",
+          "caseId": "unity63abi:3a08a22358af337f95d4b981",
+          "diagnostic": "CS0619",
+          "profile": "Actual C#/Wasm compiler"
+        },
+        "ownedNativeCompiler": "evidence/m20-sdk12-obsolete-compile.json"
       }
     },
     {
@@ -1003,12 +1282,44 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.AsyncInstantiateOperation`1<T> InstantiateAsync<T>(T original, int count, System.ReadOnlySpan`1<UnityEngine.Vector3> positions, System.ReadOnlySpan`1<UnityEngine.Quaternion> rotations, UnityEngine.InstantiateParameters parameters, System.Threading.CancellationToken cancellationToken = null);",
       "member": "InstantiateAsync",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct overload: parented-source pose/count/identity, ArgumentException for null input, cancellation with one completion callback and no Awake, activation hold, one Awake/OnEnable after release, one completion callback, and actual result destruction/OnDisable/OnDestroy. The identical lifecycle corpus runs in native Unity, native Axiom and both Wasm modes. Non-scene-object async rejection follows the native negative reference; synchronous asset cloning is a separate dependency.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-6000.3-play-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-native.json",
+          "caseIds": [
+            "a06.held",
+            "a06.cancelled",
+            "a06.cancelled-completed",
+            "a06.positive",
+            "a06.null",
+            "a06.initialize",
+            "a06.completed",
+            "a06.destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-assets-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-assets-aot-wasm.json",
+          "caseIds": [
+            "a06.held",
+            "a06.cancelled",
+            "a06.cancelled-completed",
+            "a06.positive",
+            "a06.null",
+            "a06.initialize",
+            "a06.completed",
+            "a06.destroyed"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:3ab348dead5757b454480fda",
@@ -1189,17 +1500,34 @@
       "owner": "UnityEngine.Component",
       "declaration": "public UnityEngine.Component collider { public get; }",
       "member": "collider",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-compiler-contract",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "compilerObservation": {
         "passed": true,
         "expectedDiagnostic": "CS0619",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "This exact member is Obsolete(error:true). Its direct public C# consumer must be rejected with CS0619 by both native Unity and the Axiom native/Wasm compilers. No normal compiled runtime invocation exists; this acceptance does not claim a usable deprecated feature.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-obsolete-compile.json",
+          "caseId": "unity63abi:427119c44e33f3887fe52647",
+          "diagnostic": "CS0619",
+          "profile": "Actual frozen Unity compiler"
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-obsolete-wasm-compile.json",
+          "caseId": "unity63abi:427119c44e33f3887fe52647",
+          "diagnostic": "CS0619",
+          "profile": "Actual C#/Wasm compiler"
+        },
+        "ownedNativeCompiler": "evidence/m20-sdk12-obsolete-compile.json"
       }
     },
     {
@@ -1281,17 +1609,34 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public UnityEngine.Component rigidbody { public get; }",
       "member": "rigidbody",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-compiler-contract",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "compilerObservation": {
         "passed": true,
         "expectedDiagnostic": "CS0619",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "This exact member is Obsolete(error:true). Its direct public C# consumer must be rejected with CS0619 by both native Unity and the Axiom native/Wasm compilers. No normal compiled runtime invocation exists; this acceptance does not claim a usable deprecated feature.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-obsolete-compile.json",
+          "caseId": "unity63abi:49b7b74afaf9ba8a9ec32149",
+          "diagnostic": "CS0619",
+          "profile": "Actual frozen Unity compiler"
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-obsolete-wasm-compile.json",
+          "caseId": "unity63abi:49b7b74afaf9ba8a9ec32149",
+          "diagnostic": "CS0619",
+          "profile": "Actual C#/Wasm compiler"
+        },
+        "ownedNativeCompiler": "evidence/m20-sdk12-obsolete-compile.json"
       }
     },
     {
@@ -1397,17 +1742,34 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public UnityEngine.Component particleSystem { public get; }",
       "member": "particleSystem",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-compiler-contract",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "compilerObservation": {
         "passed": true,
         "expectedDiagnostic": "CS0619",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "This exact member is Obsolete(error:true). Its direct public C# consumer must be rejected with CS0619 by both native Unity and the Axiom native/Wasm compilers. No normal compiled runtime invocation exists; this acceptance does not claim a usable deprecated feature.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-obsolete-compile.json",
+          "caseId": "unity63abi:53cc48cba9ae65dbd9084dae",
+          "diagnostic": "CS0619",
+          "profile": "Actual frozen Unity compiler"
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-obsolete-wasm-compile.json",
+          "caseId": "unity63abi:53cc48cba9ae65dbd9084dae",
+          "diagnostic": "CS0619",
+          "profile": "Actual C#/Wasm compiler"
+        },
+        "ownedNativeCompiler": "evidence/m20-sdk12-obsolete-compile.json"
       }
     },
     {
@@ -1415,17 +1777,34 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public UnityEngine.Component AddComponent(string className);",
       "member": "AddComponent",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-compiler-contract",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "compilerObservation": {
         "passed": true,
         "expectedDiagnostic": "CS0619",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "This exact member is Obsolete(error:true). Its direct public C# consumer must be rejected with CS0619 by both native Unity and the Axiom native/Wasm compilers. No normal compiled runtime invocation exists; this acceptance does not claim a usable deprecated feature.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-obsolete-compile.json",
+          "caseId": "unity63abi:54c8791657ad3876aeb3fc41",
+          "diagnostic": "CS0619",
+          "profile": "Actual frozen Unity compiler"
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-obsolete-wasm-compile.json",
+          "caseId": "unity63abi:54c8791657ad3876aeb3fc41",
+          "diagnostic": "CS0619",
+          "profile": "Actual C#/Wasm compiler"
+        },
+        "ownedNativeCompiler": "evidence/m20-sdk12-obsolete-compile.json"
       }
     },
     {
@@ -1529,12 +1908,44 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.AsyncInstantiateOperation`1<T> InstantiateAsync<T>(T original, int count, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation, UnityEngine.InstantiateParameters parameters, System.Threading.CancellationToken cancellationToken = null);",
       "member": "InstantiateAsync",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct overload: parented-source pose/count/identity, ArgumentException for null input, cancellation with one completion callback and no Awake, activation hold, one Awake/OnEnable after release, one completion callback, and actual result destruction/OnDisable/OnDestroy. The identical lifecycle corpus runs in native Unity, native Axiom and both Wasm modes. Non-scene-object async rejection follows the native negative reference; synchronous asset cloning is a separate dependency.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-6000.3-play-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-native.json",
+          "caseIds": [
+            "a07.held",
+            "a07.cancelled",
+            "a07.cancelled-completed",
+            "a07.positive",
+            "a07.null",
+            "a07.initialize",
+            "a07.completed",
+            "a07.destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-assets-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-assets-aot-wasm.json",
+          "caseIds": [
+            "a07.held",
+            "a07.cancelled",
+            "a07.cancelled-completed",
+            "a07.positive",
+            "a07.null",
+            "a07.initialize",
+            "a07.completed",
+            "a07.destroyed"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:59fcfaca6872b386dac23585",
@@ -1598,17 +2009,34 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public void PlayAnimation(UnityEngine.Object animation);",
       "member": "PlayAnimation",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-compiler-contract",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "compilerObservation": {
         "passed": true,
         "expectedDiagnostic": "CS0619",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "This exact member is Obsolete(error:true). Its direct public C# consumer must be rejected with CS0619 by both native Unity and the Axiom native/Wasm compilers. No normal compiled runtime invocation exists; this acceptance does not claim a usable deprecated feature.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-obsolete-compile.json",
+          "caseId": "unity63abi:5f0696131f05163a84b9e339",
+          "diagnostic": "CS0619",
+          "profile": "Actual frozen Unity compiler"
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-obsolete-wasm-compile.json",
+          "caseId": "unity63abi:5f0696131f05163a84b9e339",
+          "diagnostic": "CS0619",
+          "profile": "Actual C#/Wasm compiler"
+        },
+        "ownedNativeCompiler": "evidence/m20-sdk12-obsolete-compile.json"
       }
     },
     {
@@ -1670,17 +2098,34 @@
       "owner": "UnityEngine.Component",
       "declaration": "public UnityEngine.Component rigidbody { public get; }",
       "member": "rigidbody",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-compiler-contract",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "compilerObservation": {
         "passed": true,
         "expectedDiagnostic": "CS0619",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "This exact member is Obsolete(error:true). Its direct public C# consumer must be rejected with CS0619 by both native Unity and the Axiom native/Wasm compilers. No normal compiled runtime invocation exists; this acceptance does not claim a usable deprecated feature.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-obsolete-compile.json",
+          "caseId": "unity63abi:60b1fdefcbe9e68c4f6155bf",
+          "diagnostic": "CS0619",
+          "profile": "Actual frozen Unity compiler"
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-obsolete-wasm-compile.json",
+          "caseId": "unity63abi:60b1fdefcbe9e68c4f6155bf",
+          "diagnostic": "CS0619",
+          "profile": "Actual C#/Wasm compiler"
+        },
+        "ownedNativeCompiler": "evidence/m20-sdk12-obsolete-compile.json"
       }
     },
     {
@@ -1926,17 +2371,34 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public UnityEngine.Component audio { public get; }",
       "member": "audio",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-compiler-contract",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "compilerObservation": {
         "passed": true,
         "expectedDiagnostic": "CS0619",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "This exact member is Obsolete(error:true). Its direct public C# consumer must be rejected with CS0619 by both native Unity and the Axiom native/Wasm compilers. No normal compiled runtime invocation exists; this acceptance does not claim a usable deprecated feature.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-obsolete-compile.json",
+          "caseId": "unity63abi:722dfc84cb9e4270fabb5702",
+          "diagnostic": "CS0619",
+          "profile": "Actual frozen Unity compiler"
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-obsolete-wasm-compile.json",
+          "caseId": "unity63abi:722dfc84cb9e4270fabb5702",
+          "diagnostic": "CS0619",
+          "profile": "Actual C#/Wasm compiler"
+        },
+        "ownedNativeCompiler": "evidence/m20-sdk12-obsolete-compile.json"
       }
     },
     {
@@ -2078,12 +2540,44 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.AsyncInstantiateOperation`1<T> InstantiateAsync<T>(T original, int count, UnityEngine.Transform parent, System.ReadOnlySpan`1<UnityEngine.Vector3> positions, System.ReadOnlySpan`1<UnityEngine.Quaternion> rotations);",
       "member": "InstantiateAsync",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct overload: parented-source pose/count/identity, ArgumentException for null input, cancellation with one completion callback and no Awake, activation hold, one Awake/OnEnable after release, one completion callback, and actual result destruction/OnDisable/OnDestroy. The identical lifecycle corpus runs in native Unity, native Axiom and both Wasm modes. Non-scene-object async rejection follows the native negative reference; synchronous asset cloning is a separate dependency.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-6000.3-play-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-native.json",
+          "caseIds": [
+            "a08.held",
+            "a08.cancelled",
+            "a08.cancelled-completed",
+            "a08.positive",
+            "a08.null",
+            "a08.initialize",
+            "a08.completed",
+            "a08.destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-assets-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-assets-aot-wasm.json",
+          "caseIds": [
+            "a08.held",
+            "a08.cancelled",
+            "a08.cancelled-completed",
+            "a08.positive",
+            "a08.null",
+            "a08.initialize",
+            "a08.completed",
+            "a08.destroyed"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:79ae6ad08b143c69e796b268",
@@ -2140,12 +2634,44 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.AsyncInstantiateOperation`1<T> InstantiateAsync<T>(T original, int count, System.ReadOnlySpan`1<UnityEngine.Vector3> positions, System.ReadOnlySpan`1<UnityEngine.Quaternion> rotations);",
       "member": "InstantiateAsync",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct overload: parented-source pose/count/identity, ArgumentException for null input, cancellation with one completion callback and no Awake, activation hold, one Awake/OnEnable after release, one completion callback, and actual result destruction/OnDisable/OnDestroy. The identical lifecycle corpus runs in native Unity, native Axiom and both Wasm modes. Non-scene-object async rejection follows the native negative reference; synchronous asset cloning is a separate dependency.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-6000.3-play-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-native.json",
+          "caseIds": [
+            "a09.held",
+            "a09.cancelled",
+            "a09.cancelled-completed",
+            "a09.positive",
+            "a09.null",
+            "a09.initialize",
+            "a09.completed",
+            "a09.destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-assets-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-assets-aot-wasm.json",
+          "caseIds": [
+            "a09.held",
+            "a09.cancelled",
+            "a09.cancelled-completed",
+            "a09.positive",
+            "a09.null",
+            "a09.initialize",
+            "a09.completed",
+            "a09.destroyed"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:7e9f2163bc86e7039530d149",
@@ -2176,17 +2702,34 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public UnityEngine.Component renderer { public get; }",
       "member": "renderer",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-compiler-contract",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "compilerObservation": {
         "passed": true,
         "expectedDiagnostic": "CS0619",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "This exact member is Obsolete(error:true). Its direct public C# consumer must be rejected with CS0619 by both native Unity and the Axiom native/Wasm compilers. No normal compiled runtime invocation exists; this acceptance does not claim a usable deprecated feature.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-obsolete-compile.json",
+          "caseId": "unity63abi:81549c4e94a13ba815419134",
+          "diagnostic": "CS0619",
+          "profile": "Actual frozen Unity compiler"
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-obsolete-wasm-compile.json",
+          "caseId": "unity63abi:81549c4e94a13ba815419134",
+          "diagnostic": "CS0619",
+          "profile": "Actual C#/Wasm compiler"
+        },
+        "ownedNativeCompiler": "evidence/m20-sdk12-obsolete-compile.json"
       }
     },
     {
@@ -2206,17 +2749,34 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public UnityEngine.Component collider2D { public get; }",
       "member": "collider2D",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-compiler-contract",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "compilerObservation": {
         "passed": true,
         "expectedDiagnostic": "CS0619",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "This exact member is Obsolete(error:true). Its direct public C# consumer must be rejected with CS0619 by both native Unity and the Axiom native/Wasm compilers. No normal compiled runtime invocation exists; this acceptance does not claim a usable deprecated feature.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-obsolete-compile.json",
+          "caseId": "unity63abi:834b105436321d6992eb7806",
+          "diagnostic": "CS0619",
+          "profile": "Actual frozen Unity compiler"
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-obsolete-wasm-compile.json",
+          "caseId": "unity63abi:834b105436321d6992eb7806",
+          "diagnostic": "CS0619",
+          "profile": "Actual C#/Wasm compiler"
+        },
+        "ownedNativeCompiler": "evidence/m20-sdk12-obsolete-compile.json"
       }
     },
     {
@@ -2387,12 +2947,44 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.AsyncInstantiateOperation`1<T> InstantiateAsync<T>(T original, int count, UnityEngine.Transform parent, System.ReadOnlySpan`1<UnityEngine.Vector3> positions, System.ReadOnlySpan`1<UnityEngine.Quaternion> rotations, System.Threading.CancellationToken cancellationToken);",
       "member": "InstantiateAsync",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct overload: parented-source pose/count/identity, ArgumentException for null input, cancellation with one completion callback and no Awake, activation hold, one Awake/OnEnable after release, one completion callback, and actual result destruction/OnDisable/OnDestroy. The identical lifecycle corpus runs in native Unity, native Axiom and both Wasm modes. Non-scene-object async rejection follows the native negative reference; synchronous asset cloning is a separate dependency.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-6000.3-play-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-native.json",
+          "caseIds": [
+            "a10.held",
+            "a10.cancelled",
+            "a10.cancelled-completed",
+            "a10.positive",
+            "a10.null",
+            "a10.initialize",
+            "a10.completed",
+            "a10.destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-assets-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-assets-aot-wasm.json",
+          "caseIds": [
+            "a10.held",
+            "a10.cancelled",
+            "a10.cancelled-completed",
+            "a10.positive",
+            "a10.null",
+            "a10.initialize",
+            "a10.completed",
+            "a10.destroyed"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:8c262a4db84c344beed6692d",
@@ -2423,17 +3015,34 @@
       "owner": "UnityEngine.Component",
       "declaration": "public UnityEngine.Component audio { public get; }",
       "member": "audio",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-compiler-contract",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "compilerObservation": {
         "passed": true,
         "expectedDiagnostic": "CS0619",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "This exact member is Obsolete(error:true). Its direct public C# consumer must be rejected with CS0619 by both native Unity and the Axiom native/Wasm compilers. No normal compiled runtime invocation exists; this acceptance does not claim a usable deprecated feature.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-obsolete-compile.json",
+          "caseId": "unity63abi:8cb02b05839f8ad07a3a0314",
+          "diagnostic": "CS0619",
+          "profile": "Actual frozen Unity compiler"
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-obsolete-wasm-compile.json",
+          "caseId": "unity63abi:8cb02b05839f8ad07a3a0314",
+          "diagnostic": "CS0619",
+          "profile": "Actual C#/Wasm compiler"
+        },
+        "ownedNativeCompiler": "evidence/m20-sdk12-obsolete-compile.json"
       }
     },
     {
@@ -2484,17 +3093,34 @@
       "owner": "UnityEngine.Component",
       "declaration": "public UnityEngine.Component renderer { public get; }",
       "member": "renderer",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-compiler-contract",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "compilerObservation": {
         "passed": true,
         "expectedDiagnostic": "CS0619",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "This exact member is Obsolete(error:true). Its direct public C# consumer must be rejected with CS0619 by both native Unity and the Axiom native/Wasm compilers. No normal compiled runtime invocation exists; this acceptance does not claim a usable deprecated feature.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-obsolete-compile.json",
+          "caseId": "unity63abi:90bce06bd71a64240787fe13",
+          "diagnostic": "CS0619",
+          "profile": "Actual frozen Unity compiler"
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-obsolete-wasm-compile.json",
+          "caseId": "unity63abi:90bce06bd71a64240787fe13",
+          "diagnostic": "CS0619",
+          "profile": "Actual C#/Wasm compiler"
+        },
+        "ownedNativeCompiler": "evidence/m20-sdk12-obsolete-compile.json"
       }
     },
     {
@@ -2540,17 +3166,34 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public UnityEngine.Component camera { public get; }",
       "member": "camera",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-compiler-contract",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "compilerObservation": {
         "passed": true,
         "expectedDiagnostic": "CS0619",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "This exact member is Obsolete(error:true). Its direct public C# consumer must be rejected with CS0619 by both native Unity and the Axiom native/Wasm compilers. No normal compiled runtime invocation exists; this acceptance does not claim a usable deprecated feature.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-obsolete-compile.json",
+          "caseId": "unity63abi:94481eeada2474736238874b",
+          "diagnostic": "CS0619",
+          "profile": "Actual frozen Unity compiler"
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-obsolete-wasm-compile.json",
+          "caseId": "unity63abi:94481eeada2474736238874b",
+          "diagnostic": "CS0619",
+          "profile": "Actual C#/Wasm compiler"
+        },
+        "ownedNativeCompiler": "evidence/m20-sdk12-obsolete-compile.json"
       }
     },
     {
@@ -3025,17 +3668,34 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public UnityEngine.Component networkView { public get; }",
       "member": "networkView",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-compiler-contract",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "compilerObservation": {
         "passed": true,
         "expectedDiagnostic": "CS0619",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "This exact member is Obsolete(error:true). Its direct public C# consumer must be rejected with CS0619 by both native Unity and the Axiom native/Wasm compilers. No normal compiled runtime invocation exists; this acceptance does not claim a usable deprecated feature.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-obsolete-compile.json",
+          "caseId": "unity63abi:b2be5703500ba237844b805f",
+          "diagnostic": "CS0619",
+          "profile": "Actual frozen Unity compiler"
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-obsolete-wasm-compile.json",
+          "caseId": "unity63abi:b2be5703500ba237844b805f",
+          "diagnostic": "CS0619",
+          "profile": "Actual C#/Wasm compiler"
+        },
+        "ownedNativeCompiler": "evidence/m20-sdk12-obsolete-compile.json"
       }
     },
     {
@@ -3167,17 +3827,34 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public UnityEngine.Component hingeJoint { public get; }",
       "member": "hingeJoint",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-compiler-contract",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "compilerObservation": {
         "passed": true,
         "expectedDiagnostic": "CS0619",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "This exact member is Obsolete(error:true). Its direct public C# consumer must be rejected with CS0619 by both native Unity and the Axiom native/Wasm compilers. No normal compiled runtime invocation exists; this acceptance does not claim a usable deprecated feature.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-obsolete-compile.json",
+          "caseId": "unity63abi:b712629fa0a1ba359cf15c2e",
+          "diagnostic": "CS0619",
+          "profile": "Actual frozen Unity compiler"
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-obsolete-wasm-compile.json",
+          "caseId": "unity63abi:b712629fa0a1ba359cf15c2e",
+          "diagnostic": "CS0619",
+          "profile": "Actual C#/Wasm compiler"
+        },
+        "ownedNativeCompiler": "evidence/m20-sdk12-obsolete-compile.json"
       }
     },
     {
@@ -3251,17 +3928,34 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public UnityEngine.Component animation { public get; }",
       "member": "animation",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-compiler-contract",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "compilerObservation": {
         "passed": true,
         "expectedDiagnostic": "CS0619",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "This exact member is Obsolete(error:true). Its direct public C# consumer must be rejected with CS0619 by both native Unity and the Axiom native/Wasm compilers. No normal compiled runtime invocation exists; this acceptance does not claim a usable deprecated feature.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-obsolete-compile.json",
+          "caseId": "unity63abi:bcb90ff3f5ba35a76838d349",
+          "diagnostic": "CS0619",
+          "profile": "Actual frozen Unity compiler"
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-obsolete-wasm-compile.json",
+          "caseId": "unity63abi:bcb90ff3f5ba35a76838d349",
+          "diagnostic": "CS0619",
+          "profile": "Actual C#/Wasm compiler"
+        },
+        "ownedNativeCompiler": "evidence/m20-sdk12-obsolete-compile.json"
       }
     },
     {
@@ -3317,12 +4011,44 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.AsyncInstantiateOperation`1<T> InstantiateAsync<T>(T original, int count);",
       "member": "InstantiateAsync",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct overload: parented-source pose/count/identity, ArgumentException for null input, cancellation with one completion callback and no Awake, activation hold, one Awake/OnEnable after release, one completion callback, and actual result destruction/OnDisable/OnDestroy. The identical lifecycle corpus runs in native Unity, native Axiom and both Wasm modes. Non-scene-object async rejection follows the native negative reference; synchronous asset cloning is a separate dependency.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-6000.3-play-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-native.json",
+          "caseIds": [
+            "a11.held",
+            "a11.cancelled",
+            "a11.cancelled-completed",
+            "a11.positive",
+            "a11.null",
+            "a11.initialize",
+            "a11.completed",
+            "a11.destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-assets-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-assets-aot-wasm.json",
+          "caseIds": [
+            "a11.held",
+            "a11.cancelled",
+            "a11.cancelled-completed",
+            "a11.positive",
+            "a11.null",
+            "a11.initialize",
+            "a11.completed",
+            "a11.destroyed"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:c5053806fcfe25cd0e53924b",
@@ -3368,17 +4094,34 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public void SampleAnimation(UnityEngine.Object clip, float time);",
       "member": "SampleAnimation",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-compiler-contract",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "compilerObservation": {
         "passed": true,
         "expectedDiagnostic": "CS0619",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "This exact member is Obsolete(error:true). Its direct public C# consumer must be rejected with CS0619 by both native Unity and the Axiom native/Wasm compilers. No normal compiled runtime invocation exists; this acceptance does not claim a usable deprecated feature.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-obsolete-compile.json",
+          "caseId": "unity63abi:c623d6d3f5582e85af95aadb",
+          "diagnostic": "CS0619",
+          "profile": "Actual frozen Unity compiler"
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-obsolete-wasm-compile.json",
+          "caseId": "unity63abi:c623d6d3f5582e85af95aadb",
+          "diagnostic": "CS0619",
+          "profile": "Actual C#/Wasm compiler"
+        },
+        "ownedNativeCompiler": "evidence/m20-sdk12-obsolete-compile.json"
       }
     },
     {
@@ -3448,12 +4191,44 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.AsyncInstantiateOperation`1<T> InstantiateAsync<T>(T original, int count, UnityEngine.Transform parent, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation);",
       "member": "InstantiateAsync",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct overload: parented-source pose/count/identity, ArgumentException for null input, cancellation with one completion callback and no Awake, activation hold, one Awake/OnEnable after release, one completion callback, and actual result destruction/OnDisable/OnDestroy. The identical lifecycle corpus runs in native Unity, native Axiom and both Wasm modes. Non-scene-object async rejection follows the native negative reference; synchronous asset cloning is a separate dependency.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-6000.3-play-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-native.json",
+          "caseIds": [
+            "a12.held",
+            "a12.cancelled",
+            "a12.cancelled-completed",
+            "a12.positive",
+            "a12.null",
+            "a12.initialize",
+            "a12.completed",
+            "a12.destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-assets-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-assets-aot-wasm.json",
+          "caseIds": [
+            "a12.held",
+            "a12.cancelled",
+            "a12.cancelled-completed",
+            "a12.positive",
+            "a12.null",
+            "a12.initialize",
+            "a12.completed",
+            "a12.destroyed"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:cc183076ed3f9e5d9ff6341c",
@@ -3472,12 +4247,44 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.AsyncInstantiateOperation`1<T> InstantiateAsync<T>(T original, UnityEngine.Transform parent, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation);",
       "member": "InstantiateAsync",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct overload: parented-source pose/count/identity, ArgumentException for null input, cancellation with one completion callback and no Awake, activation hold, one Awake/OnEnable after release, one completion callback, and actual result destruction/OnDisable/OnDestroy. The identical lifecycle corpus runs in native Unity, native Axiom and both Wasm modes. Non-scene-object async rejection follows the native negative reference; synchronous asset cloning is a separate dependency.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-6000.3-play-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-native.json",
+          "caseIds": [
+            "a13.held",
+            "a13.cancelled",
+            "a13.cancelled-completed",
+            "a13.positive",
+            "a13.null",
+            "a13.initialize",
+            "a13.completed",
+            "a13.destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-assets-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-assets-aot-wasm.json",
+          "caseIds": [
+            "a13.held",
+            "a13.cancelled",
+            "a13.cancelled-completed",
+            "a13.positive",
+            "a13.null",
+            "a13.initialize",
+            "a13.completed",
+            "a13.destroyed"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:cc3ff64315c89b13813d4d34",
@@ -3513,17 +4320,34 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public void StopAnimation();",
       "member": "StopAnimation",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-compiler-contract",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "compilerObservation": {
         "passed": true,
         "expectedDiagnostic": "CS0619",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "This exact member is Obsolete(error:true). Its direct public C# consumer must be rejected with CS0619 by both native Unity and the Axiom native/Wasm compilers. No normal compiled runtime invocation exists; this acceptance does not claim a usable deprecated feature.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-obsolete-compile.json",
+          "caseId": "unity63abi:ce2ea94c6adb9c579969d237",
+          "diagnostic": "CS0619",
+          "profile": "Actual frozen Unity compiler"
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-obsolete-wasm-compile.json",
+          "caseId": "unity63abi:ce2ea94c6adb9c579969d237",
+          "diagnostic": "CS0619",
+          "profile": "Actual C#/Wasm compiler"
+        },
+        "ownedNativeCompiler": "evidence/m20-sdk12-obsolete-compile.json"
       }
     },
     {
@@ -3582,12 +4406,44 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.AsyncInstantiateOperation`1<T> InstantiateAsync<T>(T original, UnityEngine.Transform parent);",
       "member": "InstantiateAsync",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct overload: parented-source pose/count/identity, ArgumentException for null input, cancellation with one completion callback and no Awake, activation hold, one Awake/OnEnable after release, one completion callback, and actual result destruction/OnDisable/OnDestroy. The identical lifecycle corpus runs in native Unity, native Axiom and both Wasm modes. Non-scene-object async rejection follows the native negative reference; synchronous asset cloning is a separate dependency.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-6000.3-play-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-native.json",
+          "caseIds": [
+            "a14.held",
+            "a14.cancelled",
+            "a14.cancelled-completed",
+            "a14.positive",
+            "a14.null",
+            "a14.initialize",
+            "a14.completed",
+            "a14.destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-assets-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-assets-aot-wasm.json",
+          "caseIds": [
+            "a14.held",
+            "a14.cancelled",
+            "a14.cancelled-completed",
+            "a14.positive",
+            "a14.null",
+            "a14.initialize",
+            "a14.completed",
+            "a14.destroyed"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:d43f31bcc5cd064999aecfae",
@@ -3680,17 +4536,34 @@
       "owner": "UnityEngine.Component",
       "declaration": "public UnityEngine.Component light { public get; }",
       "member": "light",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-compiler-contract",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "compilerObservation": {
         "passed": true,
         "expectedDiagnostic": "CS0619",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "This exact member is Obsolete(error:true). Its direct public C# consumer must be rejected with CS0619 by both native Unity and the Axiom native/Wasm compilers. No normal compiled runtime invocation exists; this acceptance does not claim a usable deprecated feature.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-obsolete-compile.json",
+          "caseId": "unity63abi:dbca1c0f0957a26d50f31a68",
+          "diagnostic": "CS0619",
+          "profile": "Actual frozen Unity compiler"
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-obsolete-wasm-compile.json",
+          "caseId": "unity63abi:dbca1c0f0957a26d50f31a68",
+          "diagnostic": "CS0619",
+          "profile": "Actual C#/Wasm compiler"
+        },
+        "ownedNativeCompiler": "evidence/m20-sdk12-obsolete-compile.json"
       }
     },
     {
@@ -3830,17 +4703,34 @@
       "owner": "UnityEngine.Component",
       "declaration": "public UnityEngine.Component particleSystem { public get; }",
       "member": "particleSystem",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-compiler-contract",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "compilerObservation": {
         "passed": true,
         "expectedDiagnostic": "CS0619",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "This exact member is Obsolete(error:true). Its direct public C# consumer must be rejected with CS0619 by both native Unity and the Axiom native/Wasm compilers. No normal compiled runtime invocation exists; this acceptance does not claim a usable deprecated feature.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-obsolete-compile.json",
+          "caseId": "unity63abi:e4bd6f1793f06d64995aafac",
+          "diagnostic": "CS0619",
+          "profile": "Actual frozen Unity compiler"
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-obsolete-wasm-compile.json",
+          "caseId": "unity63abi:e4bd6f1793f06d64995aafac",
+          "diagnostic": "CS0619",
+          "profile": "Actual C#/Wasm compiler"
+        },
+        "ownedNativeCompiler": "evidence/m20-sdk12-obsolete-compile.json"
       }
     },
     {
@@ -3868,17 +4758,34 @@
       "owner": "UnityEngine.Component",
       "declaration": "public UnityEngine.Component hingeJoint { public get; }",
       "member": "hingeJoint",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-compiler-contract",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "compilerObservation": {
         "passed": true,
         "expectedDiagnostic": "CS0619",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "This exact member is Obsolete(error:true). Its direct public C# consumer must be rejected with CS0619 by both native Unity and the Axiom native/Wasm compilers. No normal compiled runtime invocation exists; this acceptance does not claim a usable deprecated feature.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-obsolete-compile.json",
+          "caseId": "unity63abi:e5ed694d2602ffc440b29e4c",
+          "diagnostic": "CS0619",
+          "profile": "Actual frozen Unity compiler"
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-obsolete-wasm-compile.json",
+          "caseId": "unity63abi:e5ed694d2602ffc440b29e4c",
+          "diagnostic": "CS0619",
+          "profile": "Actual C#/Wasm compiler"
+        },
+        "ownedNativeCompiler": "evidence/m20-sdk12-obsolete-compile.json"
       }
     },
     {
@@ -3912,12 +4819,44 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.AsyncInstantiateOperation`1<T> InstantiateAsync<T>(T original, int count, UnityEngine.Transform parent);",
       "member": "InstantiateAsync",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct overload: parented-source pose/count/identity, ArgumentException for null input, cancellation with one completion callback and no Awake, activation hold, one Awake/OnEnable after release, one completion callback, and actual result destruction/OnDisable/OnDestroy. The identical lifecycle corpus runs in native Unity, native Axiom and both Wasm modes. Non-scene-object async rejection follows the native negative reference; synchronous asset cloning is a separate dependency.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-6000.3-play-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-native.json",
+          "caseIds": [
+            "a15.held",
+            "a15.cancelled",
+            "a15.cancelled-completed",
+            "a15.positive",
+            "a15.null",
+            "a15.initialize",
+            "a15.completed",
+            "a15.destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-assets-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-assets-aot-wasm.json",
+          "caseIds": [
+            "a15.held",
+            "a15.cancelled",
+            "a15.cancelled-completed",
+            "a15.positive",
+            "a15.null",
+            "a15.initialize",
+            "a15.completed",
+            "a15.destroyed"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:e9334e22cd48999eeda08a35",
@@ -4017,12 +4956,44 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.AsyncInstantiateOperation`1<T> InstantiateAsync<T>(T original, int count, UnityEngine.InstantiateParameters parameters, System.Threading.CancellationToken cancellationToken = null);",
       "member": "InstantiateAsync",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct overload: parented-source pose/count/identity, ArgumentException for null input, cancellation with one completion callback and no Awake, activation hold, one Awake/OnEnable after release, one completion callback, and actual result destruction/OnDisable/OnDestroy. The identical lifecycle corpus runs in native Unity, native Axiom and both Wasm modes. Non-scene-object async rejection follows the native negative reference; synchronous asset cloning is a separate dependency.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-6000.3-play-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-native.json",
+          "caseIds": [
+            "a16.held",
+            "a16.cancelled",
+            "a16.cancelled-completed",
+            "a16.positive",
+            "a16.null",
+            "a16.initialize",
+            "a16.completed",
+            "a16.destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-assets-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-assets-aot-wasm.json",
+          "caseIds": [
+            "a16.held",
+            "a16.cancelled",
+            "a16.cancelled-completed",
+            "a16.positive",
+            "a16.null",
+            "a16.initialize",
+            "a16.completed",
+            "a16.destroyed"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:eeed0f9b5534f4a6dcc280fe",
@@ -4095,17 +5066,34 @@
       "owner": "UnityEngine.Component",
       "declaration": "public UnityEngine.Component networkView { public get; }",
       "member": "networkView",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-compiler-contract",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "compilerObservation": {
         "passed": true,
         "expectedDiagnostic": "CS0619",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "This exact member is Obsolete(error:true). Its direct public C# consumer must be rejected with CS0619 by both native Unity and the Axiom native/Wasm compilers. No normal compiled runtime invocation exists; this acceptance does not claim a usable deprecated feature.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-obsolete-compile.json",
+          "caseId": "unity63abi:f22bd26fa276dee8a1d2287b",
+          "diagnostic": "CS0619",
+          "profile": "Actual frozen Unity compiler"
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-obsolete-wasm-compile.json",
+          "caseId": "unity63abi:f22bd26fa276dee8a1d2287b",
+          "diagnostic": "CS0619",
+          "profile": "Actual C#/Wasm compiler"
+        },
+        "ownedNativeCompiler": "evidence/m20-sdk12-obsolete-compile.json"
       }
     },
     {
@@ -4125,17 +5113,34 @@
       "owner": "UnityEngine.Component",
       "declaration": "public UnityEngine.Component camera { public get; }",
       "member": "camera",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-compiler-contract",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "compilerObservation": {
         "passed": true,
         "expectedDiagnostic": "CS0619",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "This exact member is Obsolete(error:true). Its direct public C# consumer must be rejected with CS0619 by both native Unity and the Axiom native/Wasm compilers. No normal compiled runtime invocation exists; this acceptance does not claim a usable deprecated feature.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-obsolete-compile.json",
+          "caseId": "unity63abi:f57d53ab3cb7db1afa132a3f",
+          "diagnostic": "CS0619",
+          "profile": "Actual frozen Unity compiler"
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-obsolete-wasm-compile.json",
+          "caseId": "unity63abi:f57d53ab3cb7db1afa132a3f",
+          "diagnostic": "CS0619",
+          "profile": "Actual C#/Wasm compiler"
+        },
+        "ownedNativeCompiler": "evidence/m20-sdk12-obsolete-compile.json"
       }
     },
     {
@@ -4143,17 +5148,34 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public UnityEngine.Component constantForce { public get; }",
       "member": "constantForce",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-compiler-contract",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "compilerObservation": {
         "passed": true,
         "expectedDiagnostic": "CS0619",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "This exact member is Obsolete(error:true). Its direct public C# consumer must be rejected with CS0619 by both native Unity and the Axiom native/Wasm compilers. No normal compiled runtime invocation exists; this acceptance does not claim a usable deprecated feature.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-obsolete-compile.json",
+          "caseId": "unity63abi:f635df5aa2dc21f1a742f242",
+          "diagnostic": "CS0619",
+          "profile": "Actual frozen Unity compiler"
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-obsolete-wasm-compile.json",
+          "caseId": "unity63abi:f635df5aa2dc21f1a742f242",
+          "diagnostic": "CS0619",
+          "profile": "Actual C#/Wasm compiler"
+        },
+        "ownedNativeCompiler": "evidence/m20-sdk12-obsolete-compile.json"
       }
     },
     {
@@ -4187,12 +5209,44 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.AsyncInstantiateOperation`1<T> InstantiateAsync<T>(T original, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation, UnityEngine.InstantiateParameters parameters, System.Threading.CancellationToken cancellationToken = null);",
       "member": "InstantiateAsync",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct overload: parented-source pose/count/identity, ArgumentException for null input, cancellation with one completion callback and no Awake, activation hold, one Awake/OnEnable after release, one completion callback, and actual result destruction/OnDisable/OnDestroy. The identical lifecycle corpus runs in native Unity, native Axiom and both Wasm modes. Non-scene-object async rejection follows the native negative reference; synchronous asset cloning is a separate dependency.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-6000.3-play-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-native.json",
+          "caseIds": [
+            "a17.held",
+            "a17.cancelled",
+            "a17.cancelled-completed",
+            "a17.positive",
+            "a17.null",
+            "a17.initialize",
+            "a17.completed",
+            "a17.destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-assets-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-assets-aot-wasm.json",
+          "caseIds": [
+            "a17.held",
+            "a17.cancelled",
+            "a17.cancelled-completed",
+            "a17.positive",
+            "a17.null",
+            "a17.initialize",
+            "a17.completed",
+            "a17.destroyed"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:f9e93fa2051bd38d547390f8",
@@ -4328,7 +5382,7 @@
     },
     "hierarchyReferenceLifecycle": {
       "status": "partial",
-      "reason": "517 native and267 Development/effective-AOT observations pass, including128 captured native Unity signed hierarchies and13 native Play-mode synchronous clone signatures (17 positive variants). All311 source contracts match. Full per-signature positive/negative/lifecycle/async/dependency attribution and required asset cloning/lifetime remain open."
+      "reason": "686 native observations,267 core plus154 asset/lifecycle checks in each real Development/AOT mode pass. Exact native Unity corpus hashes and per-overload cases certify17 async signatures; identical native/Wasm/native-Unity consumer diagnostics certify30 obsolete compile-error contracts.47 accepted/311,264 remaining. Supported synchronous asset lifetimes/cloning implemented; remaining required dependencies and per-signature domains remain open."
     },
     "regressionAndDependencies": {
       "status": "partial",
@@ -4344,6 +5398,11 @@
     "unadaptedCorpus": "evidence/m20-sdk12-migration.json",
     "obsoleteCompiler": "evidence/m20-sdk12-obsolete-compile.json",
     "nativeEditorReference": "evidence/m20-unity-6000.3-native-observations.json",
-    "nativePlayReference": "evidence/m20-unity-6000.3-play-observations.json"
+    "nativePlayReference": "evidence/m20-unity-6000.3-play-observations.json",
+    "assetsDevelopmentWasm": "evidence/m20-sdk12-assets-development-wasm.json",
+    "assetsAotWasm": "evidence/m20-sdk12-assets-aot-wasm.json",
+    "asyncAcceptance": "evidence/m20-async-native-acceptance.json",
+    "nativeObsoleteCompiler": "evidence/m20-unity-obsolete-compile.json",
+    "wasmObsoleteCompiler": "evidence/m20-sdk12-obsolete-wasm-compile.json"
   }
 }

@@ -1,3 +1,4 @@
+import {createM20AssetsProject} from '../demos/create-m20-assets-project.mjs';
 import {createM20Project} from '../demos/create-m20-project.mjs';
 import {SharedAiProvider} from 'axiom-platform/ai-peer';
 import {readFile,lstat,realpath,readdir} from 'node:fs/promises';
@@ -53,9 +54,9 @@ export class GameEngineAdapter {
     if(method==='project.detect')return this.detect(params.path);
     if(method==='project.demos'){
       const destination=await this.path(params.destination,true);if((await readdir(destination)).length)fail('projectBusy','Demos require a new empty directory.');
-      if(!Array.isArray(params.demoIds)||params.demoIds.length!==1||params.demoIds[0]!=='m20-object-lifecycle')fail('invalidRequest','Choose a demo supplied by this installed version.');
-      const demo=await createM20Project(destination,{folders:true}),store=new ProjectStore(destination,{folders:true});await store.directory();const project=await this.detect(join(destination,store.filename(demo.id)));
-      return {productVersion:manifest.productVersion,projects:[{demoId:'m20-object-lifecycle',...project}]};
+      if(!Array.isArray(params.demoIds)||!params.demoIds.length||new Set(params.demoIds).size!==params.demoIds.length||params.demoIds.some(id=>!manifest.demos.some(demo=>demo.id===id)))fail('invalidRequest','Choose a demo supplied by this installed version.');
+      const projects=[];for(const demoId of params.demoIds){const create=demoId==='m20-object-lifecycle'?createM20Project:createM20AssetsProject,demo=await create(destination,{folders:true}),store=new ProjectStore(destination,{folders:true});await store.directory();const project=await this.detect(join(destination,store.filename(demo.id)));projects.push({demoId,...project});}
+      return {productVersion:manifest.productVersion,projects};
     }
 
     if(method==='project.github.list'){

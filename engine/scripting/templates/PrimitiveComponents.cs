@@ -7,13 +7,13 @@ public sealed class CapsuleCollider : Collider {
 }
 public sealed class MeshFilter : Component {
  internal MeshFilter(Entity entity){Entity=entity;}
- public Mesh? sharedMesh=>Context.EntityData[Entity.Id].TryGetProperty("runtimeMeshAssetId",out var asset)?PrimitiveMeshes.Get(asset.GetString()!):null;
+ public Mesh? sharedMesh=>RuntimeAssets.MeshOf(Entity);
 }
 public sealed class MeshCollider : Collider {
  internal MeshCollider(Entity entity):base(entity){}
- public Mesh? sharedMesh=>gameObject.GetComponent<MeshFilter>()?.sharedMesh;
+ public Mesh? sharedMesh=>RuntimeAssets.MeshOf(Entity,true);
 }
 internal static class PrimitiveMeshes {
  private static readonly Dictionary<string,Mesh> Assets=new();
- internal static Mesh Get(string id){if(!Assets.TryGetValue(id,out var asset)){var index=Array.IndexOf(UnityEngine.PrimitiveCatalog.Ids,id);if(index<0)throw new ArgumentException("Built-in mesh identity is unavailable");Assets[id]=asset=new Mesh("Built-in/"+UnityEngine.PrimitiveCatalog.Names[index],id);}return asset;}
+ internal static Mesh Get(string id){if(!Assets.TryGetValue(id,out var asset)||!asset){var index=Array.IndexOf(UnityEngine.PrimitiveCatalog.Ids,id);if(index<0)throw new ArgumentException("Built-in mesh identity is unavailable");Assets[id]=asset=new Mesh("Built-in/"+UnityEngine.PrimitiveCatalog.Names[index],id);}return asset;}
 }

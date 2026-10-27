@@ -16,7 +16,7 @@ public partial class GameObject {
   var shape=index switch{0=>"sphere",1 or 2=>"capsule",3=>"box",4=>"plane",_=>"quad"};var half=index switch{1 or 2=>new[]{.5,1,.5},4=>new[]{5d,0,5},5=>new[]{.5,.5,0},_=>new[]{.5,.5,.5}};
   node["collider"]=new JsonObject{["dimension"]=3,["shape"]=shape,["halfExtents"]=new JsonArray(half.Select(v=>(JsonNode?)JsonValue.Create(v)).ToArray()),["trigger"]=false,["layer"]=1,["mask"]=4294967295u};
   Legacy.Context.EntityData[entity.Id]=Legacy.Context.ParseData(node.ToJsonString());Legacy.Context.Operations[^1]=new("primitive",entity.Id,null,default,null,Data:index.ToString(System.Globalization.CultureInfo.InvariantCulture));Legacy.Context.Refresh(entity);
-  var native=new Legacy.GameObject(entity);Legacy.Context.ComponentOrders[entity]=new[]{native.transform.GetInstanceID(),new Legacy.MeshFilter(entity).GetInstanceID(),new Legacy.MeshRenderer(entity).GetInstanceID(),native.GetComponent<Legacy.Collider>()!.GetInstanceID()}.ToList();return native;
+  Legacy.RuntimeAssets.BindPrimitive(entity,Legacy.PrimitiveMeshes.Get(PrimitiveCatalog.Ids[index]),index>=4);var native=new Legacy.GameObject(entity);Legacy.Context.ComponentOrders[entity]=new[]{native.transform.GetInstanceID(),new Legacy.MeshFilter(entity).GetInstanceID(),new Legacy.MeshRenderer(entity).GetInstanceID(),native.GetComponent<Legacy.Collider>()!.GetInstanceID()}.ToList();return native;
  }
 }
 public class Collider : Component {
@@ -29,7 +29,7 @@ public class BoxCollider : Collider {internal BoxCollider(Legacy.BoxCollider val
 public class SphereCollider : Collider {internal SphereCollider(Legacy.SphereCollider value):base(value){}public float radius {get=>(float)((Legacy.SphereCollider)LegacyComponent).radius;set=>((Legacy.SphereCollider)LegacyComponent).radius=value;}}
 public class CapsuleCollider : Collider {internal CapsuleCollider(Legacy.CapsuleCollider value):base(value){}public float radius {get=>(float)((Legacy.CapsuleCollider)LegacyComponent).radius;set=>((Legacy.CapsuleCollider)LegacyComponent).radius=value;}public float height {get=>(float)((Legacy.CapsuleCollider)LegacyComponent).height;set=>((Legacy.CapsuleCollider)LegacyComponent).height=value;}}
 public class MeshCollider : Collider {internal MeshCollider(Legacy.MeshCollider value):base(value){}public Mesh? sharedMesh=>((Legacy.MeshCollider)LegacyComponent).sharedMesh is {} mesh?(Mesh)Wrap(mesh):null;}
-public class MeshFilter : Component {internal MeshFilter(Legacy.MeshFilter value){Wrapped=value;}public Mesh? sharedMesh=>((Legacy.MeshFilter)LegacyComponent).sharedMesh is {} mesh?(Mesh)Wrap(mesh):null;}
+public class MeshFilter : Component {internal MeshFilter(Legacy.MeshFilter value){Wrapped=value;}public Mesh? sharedMesh {get=>((Legacy.MeshFilter)LegacyComponent).sharedMesh is {} mesh?(Mesh)Wrap(mesh):null;set=>Legacy.RuntimeAssets.AssignMesh(LegacyComponent.Entity,value?.Native as Legacy.Mesh);}}
 public class Renderer : Component {internal Renderer(Legacy.Renderer value){Wrapped=value;}public bool enabled {get=>((Legacy.Renderer)LegacyComponent).enabled;set=>((Legacy.Renderer)LegacyComponent).enabled=value;}}
 public class MeshRenderer : Renderer {internal MeshRenderer(Legacy.MeshRenderer value):base(value){}}
-public class Mesh : Object {internal Mesh(Legacy.Mesh value){Wrapped=value;}}
+public class Mesh : Object {public Mesh(){Wrapped=new Legacy.Mesh("","");Legacy.RuntimeAssets.Register(Wrapped,true,"");CacheFacade();}internal Mesh(Legacy.Mesh value){Wrapped=value;}}

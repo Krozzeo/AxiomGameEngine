@@ -16,8 +16,10 @@ test('M20 batch ledger preserves every assigned target and never certifies alias
  const target=rows.filter(r=>r.milestone==='M20');
  assert.equal(target.length,311);assert.equal(ledger.targetRecords,311);
  assert.deepEqual(ledger.records.map(r=>r.id).sort(),target.map(r=>r.id).sort());
- assert.equal(ledger.certifiedUnitySignatures,0);assert.equal(ledger.status,'in_progress');
- assert.ok(ledger.records.every(r=>r.unitySourceCertified===false&&r.unityBehaviorSignatureCertified===false));
+ const accepted=ledger.records.filter(r=>r.unitySourceCertified&&r.unityBehaviorSignatureCertified);
+ assert.equal(ledger.certifiedUnitySignatures,accepted.length);
+ for(const r of accepted){assert.ok(r.acceptance?.contract);assert.equal(r.acceptance?.native?.passed,true);assert.equal(r.acceptance?.wasm?.passed,true);assert.notEqual(r.status,'alias-behavior-tested');}
+ assert.ok(ledger.records.filter(r=>r.status==='alias-behavior-tested').every(r=>!r.unityBehaviorSignatureCertified));
  const native=await json(ledger.evidence.native),wasm=await json(ledger.evidence.developmentWasm);
  assert.equal(native.passed,true);assert.equal(native.checks.length,87);
  assert.equal(wasm.passed,true);assert.equal(wasm.passedChecks,32);assert.equal(wasm.failedChecks,0);

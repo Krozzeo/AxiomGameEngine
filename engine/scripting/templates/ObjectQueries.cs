@@ -78,7 +78,7 @@ public partial class Component {
 public partial class Object {
  private static Object CloneObject(Object original,Vector3? position,Quaternion? rotation,Transform? parent,bool worldPositionStays){
   ArgumentNullException.ThrowIfNull(original);if(!original)throw new ArgumentException("Cannot clone a destroyed object",nameof(original));
-  var source=original is GameObject go?go:original is Component component?component.gameObject:throw new NotSupportedException("This object requires its asset/resource cloning API");
+  if(RuntimeAssets.IsAsset(original))return RuntimeAssets.Clone(RuntimeAssets.Capture(original),1)[0];var source=original is GameObject go?go:original is Component component?component.gameObject:throw new NotSupportedException("This object requires its asset/resource cloning API");
   var useLocal=!position.HasValue&&parent!=null&&!worldPositionStays;var local=useLocal?Context.Local(source.Entity):null;
   var entity=Context.CloneHierarchy(source.Entity,position??source.transform.position,rotation??source.transform.rotation,false);var clone=new GameObject(entity);
   if(parent!=null)clone.transform.SetParent(parent,true);if(useLocal)Context.LocalTransform(entity,local!.Position,local.Rotation,local.Scale);

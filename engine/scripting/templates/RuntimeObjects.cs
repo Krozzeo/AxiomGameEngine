@@ -44,7 +44,7 @@ public partial class Object {
  public static void Destroy(Object? target)=>RuntimeLifecycle.DestroyAfter(target,0);
  public static void Destroy(Object? target,double delay)=>RuntimeLifecycle.DestroyAfter(target,delay);
  public static void DestroyImmediate(Object? target)=>RuntimeLifecycle.DestroyNow(target);
- public static void DestroyImmediate(Object? target,bool allowDestroyingAssets)=>RuntimeLifecycle.DestroyNow(target);
+ public static void DestroyImmediate(Object? target,bool allowDestroyingAssets)=>RuntimeLifecycle.DestroyNow(target,allowDestroyingAssets);
  public static void Destroy(GameObject target,double delay)=>RuntimeLifecycle.DestroyAfter(target,delay);
  public static void Destroy(Component target,double delay)=>RuntimeLifecycle.DestroyAfter(target,delay);
  public static GameObject Instantiate(GameObject original,Transform? parent)=>Instantiate(original,parent,false);
@@ -96,7 +96,7 @@ public sealed partial class Transform {
  public void SetPositionAndRotation(Vector3 position,Quaternion rotation)=>Context.ChangeTransform(Entity,position,rotation);
  public void SetLocalPositionAndRotation(Vector3 position,Quaternion rotation)=>Context.LocalTransform(Entity,position,rotation);
  public void Translate(Vector3 translation,Space relativeTo){TransformMath.SpaceValue(relativeTo);if(relativeTo==Space.World)position+=translation;else Translate(translation);}
- public void Rotate(Vector3 eulers,Space relativeTo=Space.Self){TransformMath.SpaceValue(relativeTo);var q=TransformMath.Euler(eulers);rotation=relativeTo==Space.Self?rotation*q:q*rotation;}
+ public void Rotate(Vector3 eulers,Space relativeTo=Space.Self){TransformMath.SpaceValue(relativeTo);var q=TransformMath.Euler(eulers);if(relativeTo==Space.Self)localRotation=localRotation*q;else rotation=q*rotation;}
 }
 
 public partial class Object {
@@ -113,7 +113,7 @@ public partial class Object {
  public override bool Equals(object? other)=>other is Object obj?this==obj:ReferenceEquals(other,null)&&!Exists(this);
  public static bool operator ==(Object? left,Object? right){if(ReferenceEquals(left,right))return true;if(ReferenceEquals(left,null))return !Exists(right);if(ReferenceEquals(right,null))return !Exists(left);return left.GetInstanceID()==right.GetInstanceID();}
  public static bool operator !=(Object? left,Object? right)=>!(left==right);
- private static bool Exists(Object? value){if(ReferenceEquals(value,null))return false;if(value.identityEntity is not Entity e)return value is not Component;if(e.Generation!=Context.Generation||!Context.Entities.ContainsKey(e.Id)||Context.ObjectEpochs.GetValueOrDefault((e,value.identitySlot!))!=value.identityEpoch)return false;if(value is Script script)return Context.LiveScripts.Any(s=>ReferenceEquals(s,script));if(value is MeshFilter filter)return Context.EntityData[e.Id].TryGetProperty("runtimeMeshFilter",out var meshFilter)&&meshFilter.GetBoolean();if(value is AI.NavMeshAgent agent)return AI.NavMeshAgent.Agents.TryGetValue(e.Id,out var live)&&ReferenceEquals(agent,live);if(value is Component c&&Context.ComponentKey(c.GetType()) is string key)return Context.EntityData[e.Id].TryGetProperty(key,out _);return true;}
+ private static bool Exists(Object? value){if(ReferenceEquals(value,null))return false;if(value.AssetState is {} state&&(!state.Live||state.Generation!=Context.Generation))return false;if(value.identityEntity is not Entity e)return value is not Component;if(e.Generation!=Context.Generation||!Context.Entities.ContainsKey(e.Id)||Context.ObjectEpochs.GetValueOrDefault((e,value.identitySlot!))!=value.identityEpoch)return false;if(value is Script script)return Context.LiveScripts.Any(s=>ReferenceEquals(s,script));if(value is MeshFilter filter)return Context.EntityData[e.Id].TryGetProperty("runtimeMeshFilter",out var meshFilter)&&meshFilter.GetBoolean();if(value is AI.NavMeshAgent agent)return AI.NavMeshAgent.Agents.TryGetValue(e.Id,out var live)&&ReferenceEquals(agent,live);if(value is Component c&&Context.ComponentKey(c.GetType()) is string key)return Context.EntityData[e.Id].TryGetProperty(key,out _);return true;}
  public static implicit operator bool(Object? value)=>Exists(value);
 }
 internal static partial class Context {
@@ -122,7 +122,7 @@ internal static partial class Context {
  internal static readonly Dictionary<(Entity Entity,string Slot),int> ObjectEpochs=new();
  internal static void InvalidateIdentity(Entity entity,string slot){var epoch=ObjectEpochs.GetValueOrDefault((entity,slot));if(ObjectIdentities.Remove((entity,slot,epoch),out var id)){UnityEngine.Object.ForgetNative(id);if(ComponentOrders.TryGetValue(entity,out var order))order.Remove(id);}ObjectEpochs[(entity,slot)]=epoch+1;}
  internal static void ForgetIdentity(Entity entity,string slot){if(ObjectIdentities.Remove((entity,slot,ObjectEpochs.GetValueOrDefault((entity,slot))),out var id)){UnityEngine.Object.ForgetNative(id);if(ComponentOrders.TryGetValue(entity,out var order))order.Remove(id);}ObjectEpochs.Remove((entity,slot));}
- internal static void RetireIdentities(string id){TransformGraph.Forget(id);ComponentOrders.Remove(new Entity(id,Generation));foreach(var key in ObjectIdentities.Keys.Where(k=>k.Entity.Id==id).ToArray()){UnityEngine.Object.ForgetNative(ObjectIdentities[key]);ObjectIdentities.Remove(key);}foreach(var key in ObjectEpochs.Keys.Where(k=>k.Entity.Id==id).ToArray())ObjectEpochs.Remove(key);}
+ internal static void RetireIdentities(string id){RuntimeAssets.Forget(new Entity(id,Generation));TransformGraph.Forget(id);ComponentOrders.Remove(new Entity(id,Generation));foreach(var key in ObjectIdentities.Keys.Where(k=>k.Entity.Id==id).ToArray()){UnityEngine.Object.ForgetNative(ObjectIdentities[key]);ObjectIdentities.Remove(key);}foreach(var key in ObjectEpochs.Keys.Where(k=>k.Entity.Id==id).ToArray())ObjectEpochs.Remove(key);}
 }
 public sealed partial class Transform {
  public int GetSiblingIndex(){var siblings=Context.Parents.Where(p=>p.Value==Context.Parents.GetValueOrDefault(Entity.Id)).Select(p=>p.Key).ToList();return siblings.IndexOf(Entity.Id);}

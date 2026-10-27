@@ -1,7 +1,7 @@
 import {builtinPrimitiveAsset} from '../scene/builtin-primitives.mjs';
 import {activeGameCamera} from '../scene/camera.mjs';
 import {worldScene,worldTransforms,localTransform,applyWorldOverrides,activeEntities,reparent} from '../scene/hierarchy.mjs';
-import {cameraMatrix,matrixMultiply} from '../renderer/render-math.mjs';
+import {cameraMatrix,matrixMultiply,modelMatrix} from '../renderer/render-math.mjs';
 const compiledModules=new WeakMap();
 const sharedVertices=new WeakMap();
 function verticesFor(primitive){let value=sharedVertices.get(primitive);if(!value){value=new Float32Array(primitive.vertices);sharedVertices.set(primitive,value);}return value;}
@@ -106,7 +106,7 @@ export async function loadKernel(bytes) {
         physics.transforms(compiled.scene.entities.filter(e=>e.collider&&!e.rigidBody).map(e=>[e.id,e.transform]));
       }
       const matrices=new Map(compiled.scene.entities.map(e=>[e.id,e.transform.matrix]));const camera=activeGameCamera(compiled.scene)??{position:[0,0,6],target:[0,0,0],projection:"perspective",fov:60,orthoHeight:6};const vp=cameraMatrix(camera,aspect);const draws=options.draw===false?[]:compiled.draws.map(draw=>{const exact=matrices.get(draw.entityId);return {handle:draw.handle,mvp:exact?Float32Array.from(matrixMultiply(vp,exact)):Float32Array.from({length:16},(_,i)=>api.axiom_scene_matrix(id,draw.handle,i,1)),model:exact?Float32Array.from(exact):Float32Array.from({length:16},(_,i)=>api.axiom_scene_matrix(id,draw.handle,i,0))};});
-      return {transforms:compiled.scene.entities.map(e=>({id:e.id,transform:e.transform})),physics:physical,draws,frame:Number(api.axiom_frame(id)),trace:api.axiom_trace(id).toString(),fixedSteps:api.axiom_fixed_steps(id),nullProcessedMeshes:options.draw===false?0:api.axiom_scene_null(id)};
+      return {transforms:compiled.scene.entities.map(e=>({id:e.id,transform:e.transform,...(e.runtimeLocalTransform?{runtimeLocalTransform:e.runtimeLocalTransform,runtimeMatrix:e.transform.matrix??modelMatrix(e.transform)}:{})})),physics:physical,draws,frame:Number(api.axiom_frame(id)),trace:api.axiom_trace(id).toString(),fixedSteps:api.axiom_fixed_steps(id),nullProcessedMeshes:options.draw===false?0:api.axiom_scene_null(id)};
     },
     dispose() {
       if (!disposed) api.axiom_destroy(id);
@@ -121,7 +121,7 @@ export function scenePrimitives(scene, assets) {
   const draws=[];
   for(const entity of scene.entities) {
     if(!entity.renderable||entity.componentEnabled?.renderable===false) continue;
-    if(entity.runtimeMeshAssetId&&entity.runtimeMeshFilter!==true)continue;const asset=assets.get(entity.renderable.assetId)??builtinPrimitiveAsset(entity.renderable.assetId);
+    if(entity.runtimeMeshAssetId&&(entity.runtimeMeshFilter!==true||entity.runtimeMeshAssigned===false))continue;const asset=assets.get(entity.renderable.assetId)??builtinPrimitiveAsset(entity.renderable.assetId);
     if(!asset || asset.kind!==entity.renderable.kind) throw new Error("AX_ASSET_0001: missing runtime asset");
     let primitives=asset.primitives;
     if(asset.kind==="sprite") {

@@ -9,7 +9,7 @@
     "activeMilestonePercent": 0,
     "wholeProjectPercent": null,
     "method": "docs/architecture/MILESTONE_REPORTING.md",
-    "scopeNote": "M19 stable remains main0.0.57. M20 SDK12 matches311 compiled public source contracts and runs the original UnityEngine corpus unchanged.517 native and267 Development/effective-AOT observations pass. Complete per-signature behavior/reference/dependency attribution remains open; fully accepted signatures0/311 and unchanged-corpus criterion1/3. M20 is not closed.",
+    "scopeNote": "Current review: 0.0.62 / SDK12. All311 frozen compiled source contracts match. Current native suite686; real browser267 core plus154 asset/lifecycle checks per Development/effective-AOT mode. Attributed acceptance47/311:17 async behavior contracts and30 compile-error obsolete contracts. M20 remains open; source matches and test counts are not full Unity parity.",
     "historicalMvpPercent": 94,
     "historicalMvpCompletedWeight": 122,
     "historicalMvpTotalWeight": 130
@@ -1532,8 +1532,8 @@
   "blockedChecks": [
     "Live-account vision quality and actual billed token usage require a connected model; no paid requests were run.",
     "M18.3.11 dense physics fluency remains unaccepted; this GitHub integration does not implement GPU physics.",
-    "M20 source migration: unchanged UnityEngine corpus fails CS0246; whole-milestone closure remains open.",
-    "M20 Transform matrices/shear/zero-scale local state, assigned async/package/message/obsolete APIs and managed/navigation clone dependencies are incomplete."
+    "M20 remaining264 signatures require per-overload native Unity and real Wasm behavior/dependency acceptance; unchanged UnityEngine migration now passes.",
+    "M20 remaining264 signatures require per-overload native Unity and real Wasm behavior/dependency acceptance; unchanged UnityEngine migration now passes."
   ],
   "protocolVersions": {
     "command": 1,
@@ -1746,8 +1746,8 @@
     "docs/compatibility/m20-batches.json",
     "demos/M20_GUIDE.md"
   ],
-  "nextTask": "Complete canonical UnityEngine/source/float migration, full Transform matrix/shear/local representation, assigned async/obsolete/package/message APIs and managed/navigation clone dependencies; run node scripts/compatibility/m20-closure.mjs --require-closed before any M20 closure.",
-  "activeRevision": "0.0.61 / SDK11 \u2014 partial M20.3a transform behavior; canonical migration gate fails",
+  "nextTask": "Complete attributed positive/negative/lifecycle/dependency acceptance for remaining264 of311 M20 contracts; rerun exact-head CI and artifact acceptance. Require m20-closure.mjs --require-closed before closure.",
+  "activeRevision": "0.0.62 / SDK12 — canonical source contracts match;47 attributed contracts accepted, M20 remains open",
   "roadmap": {
     "version": 2,
     "manifest": "docs/architecture/roadmap-v2.json",
