@@ -12,7 +12,7 @@ New-Item -ItemType Directory -Path (Join-Path $oracleProject 'Assets/Editor'),(J
 Copy-Item -LiteralPath (Join-Path $PSScriptRoot 'M20Oracle.cs') -Destination (Join-Path $oracleProject 'Assets/Editor/M20Oracle.cs')
 Copy-Item -LiteralPath (Join-Path $PSScriptRoot 'OracleMarker.cs') -Destination (Join-Path $oracleProject 'Assets/OracleMarker.cs')
 Copy-Item -LiteralPath (Join-Path $PSScriptRoot 'M20PlayOracle.cs') -Destination (Join-Path $oracleProject 'Assets/Editor/M20PlayOracle.cs')
-foreach($oracleSourceName in @('AsyncLifecycleLab.cs','AsyncLifecycleProbe.cs')){Copy-Item -LiteralPath (Join-Path $oracleRepo ('demos/scripts/'+$oracleSourceName)) -Destination (Join-Path $oracleProject ('Assets/'+$oracleSourceName))}
+foreach($oracleSourceName in @('AsyncLifecycleLab.cs','AsyncLifecycleProbe.cs','HierarchyPathLab.cs')){Copy-Item -LiteralPath (Join-Path $oracleRepo ('demos/scripts/'+$oracleSourceName)) -Destination (Join-Path $oracleProject ('Assets/'+$oracleSourceName))}
 Copy-Item -LiteralPath (Join-Path $oracleRepo 'demos/scripts/AsyncOverloadCatalog.cs') -Destination (Join-Path $oracleProject 'Assets/AsyncOverloadCatalog.original.txt')
 Copy-Item -LiteralPath (Join-Path $PSScriptRoot 'AsyncOverloadCatalog.cs') -Destination (Join-Path $oracleProject 'Assets/AsyncOverloadCatalog.cs')
 [IO.File]::WriteAllText((Join-Path $oracleProject 'Packages/manifest.json'),'{}')

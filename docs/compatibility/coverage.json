@@ -37,10 +37,10 @@
     "UnityInstantiation.cs": "0f477a3af32ab5b40f6edfefd98235d9e028cf8695f4f6fa91aa9e4f81f8bf11",
     "UnityMath.cs": "0904149c30d6671a1224782b4f5bed82688fc2545bb2eaafec1c2164a8809bd5",
     "UnityMessages.cs": "6ea455c3f100c49b21187a4609b732bff279048c8beae1a472cd84209aed1220",
-    "UnityObjects.cs": "d8abb5e0bac01afdb8f533df1e95a736398c4abf5ed84789f4b39bd716026c65",
+    "UnityObjects.cs": "f619de58f38d05cb83c96ff62d3a74fc658d2c37cef85b2d64227e1dde8dcaee",
     "UnityObsolete.cs": "149ba2895bb23231148a0b705900af5195646bafe07c292f60f427822e3548ca",
     "UnityPrimitives.cs": "9a2e20fb5b075018988ce984e38327fecf3ed0a899576e1e4750b7e5a029b2c1",
-    "UnityQueries.cs": "50d4574cada04237de0c92aba960590c2483d15eb50a43da1183da0c8f75e643",
+    "UnityQueries.cs": "30ef8bcc1d360ec5ee1c0ac4fe620c292dc81d9224eade54675f3bab4cfb1383",
     "UnityScenes.cs": "49039e4dc18dd16db4b5dff912591d7358088b6de61af01551d9c09ca90c4188",
     "UnityScriptBridge.cs": "3c87dea59e877c00fffc1b51232f27a3012431e301c5cccb7eefa0dae09c730e",
     "UnityTags.cs": "ec16ef824fe998761d235288359a373372ca5dd33e5c5c8910829ff20a49d3bb"

@@ -4,7 +4,7 @@
   "referenceCoreModuleSha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737",
   "corpusSourceHashes": {
     "demos/scripts/AsyncOverloadCatalog.cs": "9b1b575563af068f721fb7e50ffacd313df149ad514c180620f73ba9034c4ed2",
-    "demos/scripts/AsyncLifecycleLab.cs": "4a87b4eb9da5f3e99abb97f75828503fe5d171c146ce790d55299776d667ff5b",
+    "demos/scripts/AsyncLifecycleLab.cs": "a9da52bf77c7c9aaa6926701cd911d97da07d1c36b767f09f172d2f2aa4d5746",
     "demos/scripts/AsyncLifecycleProbe.cs": "ebd88dea2d80b00efa629c0017db9f0f4a480e29ef7069f55b688ef66b561915"
   },
   "acceptedSignatures": 17,

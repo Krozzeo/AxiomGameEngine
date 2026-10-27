@@ -29,7 +29,7 @@ The compile controller retains the saved AOT build mode on project/branch entry 
 ## Evidence
 
 - [Compiled source audit](../compatibility/evidence/m20-sdk12-source.json):311/311 declaration, base/visibility/layout flag, constraint, parameter-mode and obsolete-classification matches. [Owned PE facts](../compatibility/evidence/m20-sdk12-abi.json) contain declarations/metadata, never vendor implementations.
-- [Native .NET](../compatibility/evidence/m20-sdk12-native.json):686 semantic observations across the retained and canonical surfaces. The test count is not a count of certified target signatures.
+- [Native .NET](../compatibility/evidence/m20-sdk12-native.json):722 semantic observations across the retained and canonical surfaces. The test count is not a count of certified target signatures.
 - [Development editor/Wasm](../compatibility/evidence/m20-sdk12-development-wasm.json) and [effective AOT editor/Wasm](../compatibility/evidence/m20-sdk12-aot-wasm.json):267 observations each, no page errors, and exact Stop restoration.
 - [Original migration corpus](../compatibility/evidence/m20-sdk12-migration.json):unchanged source/hash, real private Start, serialized float pose, hierarchy, rotation and delayed destruction in both execution modes. Earlier failed migration evidence is preserved as history.
 - [Obsolete compiler contracts](../compatibility/evidence/m20-sdk12-obsolete-compile.json):53 direct consumer sites,30 required CS0619 errors and23 CS0618 warnings. Public attribute blobs match the frozen reference; no vendor method bodies are included.
@@ -46,7 +46,7 @@ Owned synchronous Mesh, TextAsset, Texture2D and AudioClip resource clones have 
 
 [Development](../compatibility/evidence/m20-sdk12-assets-development-wasm.json) and [AOT](../compatibility/evidence/m20-sdk12-assets-aot-wasm.json) each pass17 asset checks plus the identical137-check async lifecycle corpus, no page errors, exact Stop restoration. The [async acceptance](../compatibility/evidence/m20-async-native-acceptance.json) attributes cancellation, activation hold, null rejection, pose/count/identity, Awake/OnEnable, completion events and result destruction to all17 exact overloads.
 
-The [actual native compiler](../compatibility/evidence/m20-unity-obsolete-compile.json) and owned native/Wasm compilers observe the same53 consumer sites:30 CS0619 errors and23 CS0618 warnings. Only the30 required compile-error records gain compiler-contract acceptance; warning records still need runtime attribution. No vendor method bodies/binaries are shipped. Total accepted47/311; remaining264.
+The [actual native compiler](../compatibility/evidence/m20-unity-obsolete-compile.json) and owned native/Wasm compilers observe the same53 consumer sites:30 CS0619 errors and23 CS0618 warnings. Only the30 required compile-error records gain compiler-contract acceptance; warning records still need runtime attribution. No vendor method bodies/binaries are shipped. Total accepted51/311; remaining260.
 
 The retained M18.3 test exposed a physics transport bug: world position advanced while cached local transforms/matrices stayed old. The kernel now publishes fresh world/local/matrix snapshots; the real grounding test passes10 criteria. The C# mini-server serves hierarchy/runtime-asset imports required by the shared runtime.
 
@@ -54,4 +54,12 @@ The retained M18.3 test exposed a physics transport bug: world position advanced
 
 Keep all 311 records. Attribute canonical positive, negative and lifecycle observations to every remaining overload; broad family tests must not be promoted into per-signature proof. Finish the reference/edge/dependency review, including remaining constructor edge cases, additional asset-backed clone requirements and degenerate transforms. Obsolete compiler-error/warning contracts are verified; deprecated runtime behavior still needs per-signature attribution. Implement any missing required behavior rather than waiving a record or changing its milestone.
 
-The unchanged-corpus criterion now passes. Hierarchy/reference/lifecycle acceptance and final regression/dependency/publication criteria remain open. The strict closure command still rejects a full close with47/311 accepted contracts (17 behavior and30 compiler-error contracts). Source matching must not be presented as 100% functional Unity API parity. Stable main remains0.0.57; no automatic merge is authorized by this report.
+The unchanged-corpus criterion now passes. Hierarchy/reference/lifecycle acceptance and final regression/dependency/publication criteria remain open. The strict closure command still rejects a full close with51/311 accepted contracts (21 behavior and30 compiler-error contracts). Source matching must not be presented as 100% functional Unity API parity. Stable main remains0.0.57; no automatic merge is authorized by this report.
+
+## Hierarchy path/query edge acceptance
+
+The identical36-check HierarchyPathLab runs in actual Unity, native Axiom and Development/AOT. It confirms active-only absolute/relative GameObject paths, inactive Transform paths, exact bounds/null/destroyed-handle exceptions and duplicate Transform rejection without mutation. Four exact path/ancestry signatures gain attributed acceptance. Canonical query null Type errors and null result-list no-ops also match native observations; retained legacy callers keep their earlier contract. These negative query samples alone do not certify the whole component-query family.
+
+A repeated native run exposed a test timing assumption: cancelled async operations need not finish within three frames. The unchanged137 assertions now wait for actual completion before checking null results and one event; the same revised source passed twice in fresh native projects and in both Wasm modes. The failed three-frame probe is retained locally rather than reported as a product pass.
+
+Core267 checks, asset/lifecycle/hierarchy190 checks per mode, native722, Node486/486 and both Development/AOT runtime API regressions pass. Required remaining dependencies include multiple same-type runtime components, full applicable cloning domains and remaining attributed Transform/query/message/object contracts. Native cycle-parent and Transform-destruction probes reveal log-and-no-op behavior that still requires canonical corrections; those signatures are not accepted.

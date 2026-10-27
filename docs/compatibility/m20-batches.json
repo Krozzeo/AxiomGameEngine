@@ -3,14 +3,14 @@
   "milestone": "M20",
   "targetRecords": 311,
   "status": "in_progress",
-  "certifiedUnitySignatures": 47,
+  "certifiedUnitySignatures": 51,
   "batch": "0.0.62 / SDK12 / canonical core and dependency profiles, behavior attribution in progress",
   "evidence": {
     "native": "evidence/m20-queries-native-windows.json",
     "developmentWasm": "evidence/m20-queries-development-wasm.json"
   },
   "requiredRemaining": [
-    "Complete attributed canonical positive/negative/lifecycle/reference review for every one of the311 frozen records; source matching and broad lab results are insufficient",
+    "Complete attributed canonical positive/negative/lifecycle/reference review for remaining260 of311 frozen records; source matching and broad lab results are insufficient",
     "Finish constructor and degenerate-transform edge attribution and applicable asset-backed clone requirements; implement missing required behavior rather than waiving scope. Persistent-scene ownership/reparent lifecycle are now exercised natively and in Development/AOT. All53 obsolete consumer compiler contracts pass; deprecated runtime attribution remains open.",
     "Finish exact-head native/Wasm/AOT, UI/project/Stop/Undo/dependency regression, CI and public artifact acceptance"
   ],
@@ -215,12 +215,50 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public static UnityEngine.GameObject Find(string name);",
       "member": "Find",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Active-only name, relative suffix and absolute-root hierarchy paths; missing, empty, null, repeated-slash and wrong-root paths return null. Destroyed subtrees leave the search. No ordering guarantee for duplicate paths is introduced.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-6000.3-play-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-native.json",
+          "caseIds": [
+            "find.leaf",
+            "find.relative",
+            "find.absolute",
+            "find.suffix",
+            "find.wrong-root",
+            "find.double-slash",
+            "find.empty",
+            "find.null",
+            "find.missing",
+            "find.inactive",
+            "find.destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-assets-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-assets-aot-wasm.json",
+          "caseIds": [
+            "find.leaf",
+            "find.relative",
+            "find.absolute",
+            "find.suffix",
+            "find.wrong-root",
+            "find.double-slash",
+            "find.empty",
+            "find.null",
+            "find.missing",
+            "find.inactive",
+            "find.destroyed"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:0f3f34f8fda17c97f572798f",
@@ -3632,24 +3670,76 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public UnityEngine.Transform Find(string n);",
       "member": "Find",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact descendant relative path and inactive descendant lookup; absent paths return null, null input throws ArgumentNullException, destroyed owners throw MissingReferenceException.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-6000.3-play-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-native.json",
+          "caseIds": [
+            "transform.find-path",
+            "transform.find-missing",
+            "transform.find-null",
+            "transform.find-inactive",
+            "transform.find-destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-assets-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-assets-aot-wasm.json",
+          "caseIds": [
+            "transform.find-path",
+            "transform.find-missing",
+            "transform.find-null",
+            "transform.find-inactive",
+            "transform.find-destroyed"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:b04b82890256b13f9b689c12",
       "owner": "UnityEngine.Transform",
       "declaration": "public bool IsChildOf(UnityEngine.Transform parent);",
       "member": "IsChildOf",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Self and transitive ancestry return true, foreign ancestry false; null parent throws ArgumentNullException and destroyed owner throws MissingReferenceException.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-6000.3-play-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-native.json",
+          "caseIds": [
+            "is-child.self",
+            "is-child.descendant",
+            "is-child.foreign",
+            "is-child.null",
+            "is-child.destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-assets-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-assets-aot-wasm.json",
+          "caseIds": [
+            "is-child.self",
+            "is-child.descendant",
+            "is-child.foreign",
+            "is-child.null",
+            "is-child.destroyed"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:b139062a6e7c9861faded49c",
@@ -5253,12 +5343,36 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public UnityEngine.Transform GetChild(int index);",
       "member": "GetChild",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Direct child identity at index0; negative/high indices throw exact UnityException and destroyed owners throw MissingReferenceException.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-6000.3-play-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-native.json",
+          "caseIds": [
+            "child.valid",
+            "child.negative",
+            "child.outside",
+            "child.destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-assets-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-assets-aot-wasm.json",
+          "caseIds": [
+            "child.valid",
+            "child.negative",
+            "child.outside",
+            "child.destroyed"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:fa3e8a13b714b5411cac5c37",
@@ -5382,7 +5496,7 @@
     },
     "hierarchyReferenceLifecycle": {
       "status": "partial",
-      "reason": "686 native observations,267 core plus154 asset/lifecycle checks in each real Development/AOT mode pass. Exact native Unity corpus hashes and per-overload cases certify17 async signatures; identical native/Wasm/native-Unity consumer diagnostics certify30 obsolete compile-error contracts.47 accepted/311,264 remaining. Supported synchronous asset lifetimes/cloning implemented; remaining required dependencies and per-signature domains remain open."
+      "reason": "722 native observations,267 core plus190 asset/lifecycle/hierarchy checks in each real Development/AOT mode pass. Identical source-hashed corpora certify17 async and4 hierarchy methods.30 obsolete compiler-error contracts match actual native and owned native/Wasm compilers.51 accepted/311; remaining260 require attributed domains/dependencies. Native cycle-parent/Transform destruction no-op semantics and multiple same-type component storage remain known required work."
     },
     "regressionAndDependencies": {
       "status": "partial",
@@ -5403,6 +5517,7 @@
     "assetsAotWasm": "evidence/m20-sdk12-assets-aot-wasm.json",
     "asyncAcceptance": "evidence/m20-async-native-acceptance.json",
     "nativeObsoleteCompiler": "evidence/m20-unity-obsolete-compile.json",
-    "wasmObsoleteCompiler": "evidence/m20-sdk12-obsolete-wasm-compile.json"
+    "wasmObsoleteCompiler": "evidence/m20-sdk12-obsolete-wasm-compile.json",
+    "hierarchyAcceptance": "evidence/m20-hierarchy-native-acceptance.json"
   }
 }

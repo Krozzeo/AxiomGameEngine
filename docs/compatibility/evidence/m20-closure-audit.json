@@ -2,7 +2,7 @@
   "milestone": "M20",
   "complete": false,
   "targetRecords": 311,
-  "certifiedUnitySignatures": 47,
+  "certifiedUnitySignatures": 51,
   "areas": {
     "UnityEngine.Component": {
       "targets": 62,
@@ -12,12 +12,12 @@
     "UnityEngine.GameObject": {
       "targets": 96,
       "aliasBehaviorTargets": 32,
-      "certifiedTargets": 17
+      "certifiedTargets": 18
     },
     "UnityEngine.Transform": {
       "targets": 81,
       "aliasBehaviorTargets": 0,
-      "certifiedTargets": 0
+      "certifiedTargets": 3
     },
     "UnityEngine.Object": {
       "targets": 72,
@@ -105,13 +105,6 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static T Instantiate<T>(T original, UnityEngine.Transform parent);",
       "status": "alias-behavior-tested",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:0f3971a8815de837171afcc9",
-      "owner": "UnityEngine.GameObject",
-      "declaration": "public static UnityEngine.GameObject Find(string name);",
-      "status": "pending",
       "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
     },
     {
@@ -1347,20 +1340,6 @@
       "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
     },
     {
-      "id": "unity63abi:af721c1755e5162cb27482c1",
-      "owner": "UnityEngine.Transform",
-      "declaration": "public UnityEngine.Transform Find(string n);",
-      "status": "pending",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:b04b82890256b13f9b689c12",
-      "owner": "UnityEngine.Transform",
-      "declaration": "public bool IsChildOf(UnityEngine.Transform parent);",
-      "status": "pending",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
       "id": "unity63abi:b139062a6e7c9861faded49c",
       "owner": "UnityEngine.GameObject",
       "declaration": "public static UnityEngine.SceneManagement.Scene GetScene(UnityEngine.EntityId entityId);",
@@ -1826,13 +1805,6 @@
       "id": "unity63abi:f816d4b6301c3fc813107ffc",
       "owner": "UnityEngine.Transform",
       "declaration": "public void SetPositionAndRotation(UnityEngine.Vector3 position, UnityEngine.Quaternion rotation);",
-      "status": "pending",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:f9e93fa2051bd38d547390f8",
-      "owner": "UnityEngine.Transform",
-      "declaration": "public UnityEngine.Transform GetChild(int index);",
       "status": "pending",
       "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
     },

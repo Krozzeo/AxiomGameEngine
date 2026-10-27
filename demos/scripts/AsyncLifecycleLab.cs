@@ -18,11 +18,12 @@ public sealed class AsyncLifecycleLab:MonoBehaviour {
    cancelled=AsyncOverloadCatalog.Begin(source,destination.transform);cancelCallbacks=new int[cancelled.Count];for(var i=0;i<cancelled.Count;i++){var index=i;cancelled[i].Operation.completed+=_=>cancelCallbacks[index]++;cancelled[i].Operation.Cancel();}gated=AsyncOverloadCatalog.Begin(source,destination.transform);callbacks=new int[gated.Count];for(var i=0;i<gated.Count;i++){var index=i;gated[i].Operation.allowSceneActivation=false;gated[i].Operation.completed+=_=>callbacks[index]++;}
   }
   if(Frames==23){
-   for(var i=0;i<gated.Count;i++){Check(gated[i].Label+".held",!gated[i].Operation.isDone&&AsyncLifecycleProbe.GlobalAwakes==1);Check(cancelled[i].Label+".cancelled",cancelled[i].Operation.isDone&&cancelled[i].Operation.Result==null);Check(cancelled[i].Label+".cancelled-completed",cancelCallbacks[i]==1);}foreach(var value in gated)value.Operation.allowSceneActivation=true;
+   for(var i=0;i<gated.Count;i++){Check(gated[i].Label+".held",!gated[i].Operation.isDone&&AsyncLifecycleProbe.GlobalAwakes==1);}foreach(var value in gated)value.Operation.allowSceneActivation=true;
   }
-  if(Complete||gated==null||Frames<24||!gated.TrueForAll(value=>value.Operation.isDone))return;
+  if(Complete||gated==null||Frames<24||(!gated.TrueForAll(value=>value.Operation.isDone)||!cancelled.TrueForAll(value=>value.Operation.isDone)))return;
   if(released<0){released=Frames;return;}if(Frames<=released)return;
   for(var i=0;i<gated.Count;i++){
+   Check(cancelled[i].Label+".cancelled",cancelled[i].Operation.Result==null);Check(cancelled[i].Label+".cancelled-completed",cancelCallbacks[i]==1);
    var value=gated[i];var result=value.Operation.Result;bool pose=result!=null&&result.Length==value.ExpectedX.Length,initialized=pose;
    if(pose)foreach(var pair in Enumerate(result)){pose&=System.Math.Abs(pair.Value.transform.position.x-value.ExpectedX[pair.Key])<.00001f&&pair.Value!=source;var probe=pair.Value.GetComponent<AsyncLifecycleProbe>();initialized&=probe!=null&&probe.AwakeCalls==1&&probe.EnableCalls==1;}
    Check(value.Label+".positive",pose);Check(value.Label+".null",value.RejectedNull);Check(value.Label+".initialize",initialized);Check(value.Label+".completed",callbacks[i]==1);

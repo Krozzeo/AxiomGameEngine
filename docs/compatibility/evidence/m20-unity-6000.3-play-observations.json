@@ -237,6 +237,234 @@
             "value": "0.5,2,3"
         },
         {
+            "key": "hierarchy.find.leaf",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.find.relative",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.find.absolute",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.find.suffix",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.find.wrong-root",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.find.double-slash",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.find.empty",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.find.null",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.find.missing",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.transform.find-path",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.transform.find-missing",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.transform.find-null",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.child.valid",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.child.negative",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.child.outside",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.is-child.self",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.is-child.descendant",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.is-child.foreign",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.is-child.null",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.find.inactive",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.transform.find-inactive",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.add-transform.duplicate",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.query.type-null",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.query.types-null",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.query.type-invalid",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.query.types-invalid",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.query.generic-invalid",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.query.generics-invalid",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.query.list-null",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.query.children-list-null",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.query.parent-list-null",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.query.string-null",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.child.destroyed",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.transform.find-destroyed",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.is-child.destroyed",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.find.destroyed",
+            "value": "True"
+        },
+        {
+            "key": "edge.parent-cycle",
+            "value": "returned"
+        },
+        {
+            "key": "edge.parent-cycle-kept",
+            "value": "True"
+        },
+        {
+            "key": "edge.parent-self",
+            "value": "returned"
+        },
+        {
+            "key": "edge.parent-self-kept",
+            "value": "True"
+        },
+        {
+            "key": "edge.destroy-transform",
+            "value": "returned"
+        },
+        {
+            "key": "edge.destroy-transform-kept",
+            "value": "True"
+        },
+        {
+            "key": "edge.dont-destroy-null",
+            "value": "System.ArgumentNullException"
+        },
+        {
+            "key": "edge.component-index-negative",
+            "value": "System.ArgumentOutOfRangeException"
+        },
+        {
+            "key": "edge.component-index-high",
+            "value": "System.ArgumentOutOfRangeException"
+        },
+        {
+            "key": "edge.component-index-wrong-type",
+            "value": "System.InvalidCastException"
+        },
+        {
+            "key": "edge.is-child-destroyed-parent",
+            "value": "UnityEngine.MissingReferenceException"
+        },
+        {
+            "key": "query-exception.GetComponent.null",
+            "value": "System.ArgumentException"
+        },
+        {
+            "key": "query-exception.GetComponents.null",
+            "value": "System.ArgumentException"
+        },
+        {
+            "key": "query-exception.GetComponent.invalid",
+            "value": "System.ArgumentException"
+        },
+        {
+            "key": "query-exception.GetComponents.invalid",
+            "value": "System.ArgumentException"
+        },
+        {
+            "key": "query-exception.GetComponent.generic-invalid",
+            "value": "System.ArgumentException"
+        },
+        {
+            "key": "query-exception.GetComponents.generic-invalid",
+            "value": "System.ArgumentException"
+        },
+        {
+            "key": "query-exception.GetComponents.list-null",
+            "value": "returned"
+        },
+        {
+            "key": "query-exception.GetComponentsInChildren.list-null",
+            "value": "returned"
+        },
+        {
+            "key": "query-exception.GetComponentsInParent.list-null",
+            "value": "returned"
+        },
+        {
+            "key": "query-exception.GetComponent.string-null",
+            "value": "returned"
+        },
+        {
             "key": "find-path.PathLeaf",
             "value": "PathLeaf"
         },
@@ -558,13 +786,13 @@
         },
         {
             "key": "async.lifecycle.report",
-            "value": "a01.held:pass;a01.cancelled:pass;a01.cancelled-completed:pass;a02.held:pass;a02.cancelled:pass;a02.cancelled-completed:pass;a03.held:pass;a03.cancelled:pass;a03.cancelled-completed:pass;a04.held:pass;a04.cancelled:pass;a04.cancelled-completed:pass;a05.held:pass;a05.cancelled:pass;a05.cancelled-completed:pass;a06.held:pass;a06.cancelled:pass;a06.cancelled-completed:pass;a07.held:pass;a07.cancelled:pass;a07.cancelled-completed:pass;a08.held:pass;a08.cancelled:pass;a08.cancelled-completed:pass;a09.held:pass;a09.cancelled:pass;a09.cancelled-completed:pass;a10.held:pass;a10.cancelled:pass;a10.cancelled-completed:pass;a11.held:pass;a11.cancelled:pass;a11.cancelled-completed:pass;a12.held:pass;a12.cancelled:pass;a12.cancelled-completed:pass;a13.held:pass;a13.cancelled:pass;a13.cancelled-completed:pass;a14.held:pass;a14.cancelled:pass;a14.cancelled-completed:pass;a15.held:pass;a15.cancelled:pass;a15.cancelled-completed:pass;a16.held:pass;a16.cancelled:pass;a16.cancelled-completed:pass;a17.held:pass;a17.cancelled:pass;a17.cancelled-completed:pass;a01.positive:pass;a01.null:pass;a01.initialize:pass;a01.completed:pass;a01.destroyed:pass;a02.positive:pass;a02.null:pass;a02.initialize:pass;a02.completed:pass;a02.destroyed:pass;a03.positive:pass;a03.null:pass;a03.initialize:pass;a03.completed:pass;a03.destroyed:pass;a04.positive:pass;a04.null:pass;a04.initialize:pass;a04.completed:pass;a04.destroyed:pass;a05.positive:pass;a05.null:pass;a05.initialize:pass;a05.completed:pass;a05.destroyed:pass;a06.positive:pass;a06.null:pass;a06.initialize:pass;a06.completed:pass;a06.destroyed:pass;a07.positive:pass;a07.null:pass;a07.initialize:pass;a07.completed:pass;a07.destroyed:pass;a08.positive:pass;a08.null:pass;a08.initialize:pass;a08.completed:pass;a08.destroyed:pass;a09.positive:pass;a09.null:pass;a09.initialize:pass;a09.completed:pass;a09.destroyed:pass;a10.positive:pass;a10.null:pass;a10.initialize:pass;a10.completed:pass;a10.destroyed:pass;a11.positive:pass;a11.null:pass;a11.initialize:pass;a11.completed:pass;a11.destroyed:pass;a12.positive:pass;a12.null:pass;a12.initialize:pass;a12.completed:pass;a12.destroyed:pass;a13.positive:pass;a13.null:pass;a13.initialize:pass;a13.completed:pass;a13.destroyed:pass;a14.positive:pass;a14.null:pass;a14.initialize:pass;a14.completed:pass;a14.destroyed:pass;a15.positive:pass;a15.null:pass;a15.initialize:pass;a15.completed:pass;a15.destroyed:pass;a16.positive:pass;a16.null:pass;a16.initialize:pass;a16.completed:pass;a16.destroyed:pass;a17.positive:pass;a17.null:pass;a17.initialize:pass;a17.completed:pass;a17.destroyed:pass;async.lifecycle.cleanup:pass;"
+            "value": "a01.held:pass;a02.held:pass;a03.held:pass;a04.held:pass;a05.held:pass;a06.held:pass;a07.held:pass;a08.held:pass;a09.held:pass;a10.held:pass;a11.held:pass;a12.held:pass;a13.held:pass;a14.held:pass;a15.held:pass;a16.held:pass;a17.held:pass;a01.cancelled:pass;a01.cancelled-completed:pass;a01.positive:pass;a01.null:pass;a01.initialize:pass;a01.completed:pass;a01.destroyed:pass;a02.cancelled:pass;a02.cancelled-completed:pass;a02.positive:pass;a02.null:pass;a02.initialize:pass;a02.completed:pass;a02.destroyed:pass;a03.cancelled:pass;a03.cancelled-completed:pass;a03.positive:pass;a03.null:pass;a03.initialize:pass;a03.completed:pass;a03.destroyed:pass;a04.cancelled:pass;a04.cancelled-completed:pass;a04.positive:pass;a04.null:pass;a04.initialize:pass;a04.completed:pass;a04.destroyed:pass;a05.cancelled:pass;a05.cancelled-completed:pass;a05.positive:pass;a05.null:pass;a05.initialize:pass;a05.completed:pass;a05.destroyed:pass;a06.cancelled:pass;a06.cancelled-completed:pass;a06.positive:pass;a06.null:pass;a06.initialize:pass;a06.completed:pass;a06.destroyed:pass;a07.cancelled:pass;a07.cancelled-completed:pass;a07.positive:pass;a07.null:pass;a07.initialize:pass;a07.completed:pass;a07.destroyed:pass;a08.cancelled:pass;a08.cancelled-completed:pass;a08.positive:pass;a08.null:pass;a08.initialize:pass;a08.completed:pass;a08.destroyed:pass;a09.cancelled:pass;a09.cancelled-completed:pass;a09.positive:pass;a09.null:pass;a09.initialize:pass;a09.completed:pass;a09.destroyed:pass;a10.cancelled:pass;a10.cancelled-completed:pass;a10.positive:pass;a10.null:pass;a10.initialize:pass;a10.completed:pass;a10.destroyed:pass;a11.cancelled:pass;a11.cancelled-completed:pass;a11.positive:pass;a11.null:pass;a11.initialize:pass;a11.completed:pass;a11.destroyed:pass;a12.cancelled:pass;a12.cancelled-completed:pass;a12.positive:pass;a12.null:pass;a12.initialize:pass;a12.completed:pass;a12.destroyed:pass;a13.cancelled:pass;a13.cancelled-completed:pass;a13.positive:pass;a13.null:pass;a13.initialize:pass;a13.completed:pass;a13.destroyed:pass;a14.cancelled:pass;a14.cancelled-completed:pass;a14.positive:pass;a14.null:pass;a14.initialize:pass;a14.completed:pass;a14.destroyed:pass;a15.cancelled:pass;a15.cancelled-completed:pass;a15.positive:pass;a15.null:pass;a15.initialize:pass;a15.completed:pass;a15.destroyed:pass;a16.cancelled:pass;a16.cancelled-completed:pass;a16.positive:pass;a16.null:pass;a16.initialize:pass;a16.completed:pass;a16.destroyed:pass;a17.cancelled:pass;a17.cancelled-completed:pass;a17.positive:pass;a17.null:pass;a17.initialize:pass;a17.completed:pass;a17.destroyed:pass;async.lifecycle.cleanup:pass;"
         }
     ],
     "corpusSourceHashes": [
         {
             "key": "AsyncLifecycleLab.cs",
-            "value": "4a87b4eb9da5f3e99abb97f75828503fe5d171c146ce790d55299776d667ff5b"
+            "value": "a9da52bf77c7c9aaa6926701cd911d97da07d1c36b767f09f172d2f2aa4d5746"
         },
         {
             "key": "AsyncLifecycleProbe.cs",
@@ -573,6 +801,10 @@
         {
             "key": "AsyncOverloadCatalog.cs",
             "value": "9b1b575563af068f721fb7e50ffacd313df149ad514c180620f73ba9034c4ed2"
+        },
+        {
+            "key": "HierarchyPathLab.cs",
+            "value": "7d3f396c6bbdfdf60787e4a3ac7d2e43882305f7d980f6bad5f945e724b72c1b"
         }
     ]
 }
