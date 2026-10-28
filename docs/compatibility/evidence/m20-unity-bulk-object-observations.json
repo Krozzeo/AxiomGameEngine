@@ -1,0 +1,309 @@
+{
+    "unityVersion": "6000.3.27f1",
+    "coreAssemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737",
+    "sourceSha256": "9be7161edd14fc80126a062c66944c32c16ad0f9d9a39848075b703395bc05c6",
+    "error": "",
+    "profile": "Native Play bulk object probes",
+    "rows": [
+        {
+            "index": 0,
+            "profile": "live",
+            "data": "source:False,other:False",
+            "error": ""
+        },
+        {
+            "index": 0,
+            "profile": "duplicate",
+            "data": "source:False,other:True",
+            "error": ""
+        },
+        {
+            "index": 0,
+            "profile": "component",
+            "data": "source:False,other:True",
+            "error": ""
+        },
+        {
+            "index": 0,
+            "profile": "zero",
+            "data": "source:False,other:True",
+            "error": ""
+        },
+        {
+            "index": 0,
+            "profile": "retired",
+            "data": "source:True,other:False",
+            "error": ""
+        },
+        {
+            "index": 0,
+            "profile": "empty",
+            "data": "source:True,other:True",
+            "error": ""
+        },
+        {
+            "index": 1,
+            "profile": "live",
+            "data": "source:False,other:False",
+            "error": ""
+        },
+        {
+            "index": 1,
+            "profile": "duplicate",
+            "data": "source:False,other:True",
+            "error": ""
+        },
+        {
+            "index": 1,
+            "profile": "component",
+            "data": "source:False,other:True",
+            "error": ""
+        },
+        {
+            "index": 1,
+            "profile": "zero",
+            "data": "source:False,other:True",
+            "error": ""
+        },
+        {
+            "index": 1,
+            "profile": "retired",
+            "data": "source:True,other:False",
+            "error": ""
+        },
+        {
+            "index": 1,
+            "profile": "empty",
+            "data": "source:True,other:True",
+            "error": ""
+        },
+        {
+            "index": 2,
+            "profile": "live",
+            "data": "source:False,other:False",
+            "error": ""
+        },
+        {
+            "index": 2,
+            "profile": "duplicate",
+            "data": "source:False,other:True",
+            "error": ""
+        },
+        {
+            "index": 2,
+            "profile": "component",
+            "data": "source:False,other:True",
+            "error": ""
+        },
+        {
+            "index": 2,
+            "profile": "zero",
+            "data": "source:False,other:True",
+            "error": ""
+        },
+        {
+            "index": 2,
+            "profile": "retired",
+            "data": "source:True,other:False",
+            "error": ""
+        },
+        {
+            "index": 2,
+            "profile": "empty",
+            "data": "source:True,other:True",
+            "error": ""
+        },
+        {
+            "index": 2,
+            "profile": "default-array",
+            "data": "source:True,other:True",
+            "error": "System.ArgumentException"
+        },
+        {
+            "index": 2,
+            "profile": "disposed-array",
+            "data": "source:True,other:True",
+            "error": "System.ArgumentException"
+        },
+        {
+            "index": 3,
+            "profile": "live",
+            "data": "source:False,other:False",
+            "error": ""
+        },
+        {
+            "index": 3,
+            "profile": "duplicate",
+            "data": "source:False,other:True",
+            "error": ""
+        },
+        {
+            "index": 3,
+            "profile": "component",
+            "data": "source:False,other:True",
+            "error": ""
+        },
+        {
+            "index": 3,
+            "profile": "zero",
+            "data": "source:False,other:True",
+            "error": ""
+        },
+        {
+            "index": 3,
+            "profile": "retired",
+            "data": "source:True,other:False",
+            "error": ""
+        },
+        {
+            "index": 3,
+            "profile": "empty",
+            "data": "source:True,other:True",
+            "error": ""
+        },
+        {
+            "index": 3,
+            "profile": "default-array",
+            "data": "source:True,other:True",
+            "error": "System.ArgumentException"
+        },
+        {
+            "index": 3,
+            "profile": "disposed-array",
+            "data": "source:True,other:True",
+            "error": "System.ArgumentException"
+        },
+        {
+            "index": 4,
+            "profile": "live",
+            "data": "length:1,filled:True,transforms:True",
+            "error": ""
+        },
+        {
+            "index": 4,
+            "profile": "two",
+            "data": "length:2,filled:True,True,transforms:True,True",
+            "error": ""
+        },
+        {
+            "index": 4,
+            "profile": "zero",
+            "data": "length:0,filled:,transforms:",
+            "error": ""
+        },
+        {
+            "index": 4,
+            "profile": "negative",
+            "data": "source:True,other:True",
+            "error": "System.ArgumentException"
+        },
+        {
+            "index": 4,
+            "profile": "source-zero",
+            "data": "length:1,filled:False,transforms:False",
+            "error": ""
+        },
+        {
+            "index": 4,
+            "profile": "source-component",
+            "data": "length:1,filled:False,transforms:False",
+            "error": ""
+        },
+        {
+            "index": 4,
+            "profile": "source-retired",
+            "data": "length:1,filled:False,transforms:False",
+            "error": ""
+        },
+        {
+            "index": 4,
+            "profile": "short",
+            "data": "source:True,other:True",
+            "error": "System.ArgumentException"
+        },
+        {
+            "index": 4,
+            "profile": "long",
+            "data": "source:True,other:True",
+            "error": "System.ArgumentException"
+        },
+        {
+            "index": 4,
+            "profile": "default-array",
+            "data": "source:True,other:True",
+            "error": "System.ArgumentException"
+        },
+        {
+            "index": 4,
+            "profile": "disposed-array",
+            "data": "source:True,other:True",
+            "error": "System.ArgumentException"
+        },
+        {
+            "index": 5,
+            "profile": "live",
+            "data": "length:1,filled:True,transforms:True",
+            "error": ""
+        },
+        {
+            "index": 5,
+            "profile": "two",
+            "data": "length:2,filled:True,True,transforms:True,True",
+            "error": ""
+        },
+        {
+            "index": 5,
+            "profile": "zero",
+            "data": "length:0,filled:,transforms:",
+            "error": ""
+        },
+        {
+            "index": 5,
+            "profile": "negative",
+            "data": "source:True,other:True",
+            "error": "System.ArgumentException"
+        },
+        {
+            "index": 5,
+            "profile": "source-zero",
+            "data": "length:1,filled:False,transforms:False",
+            "error": ""
+        },
+        {
+            "index": 5,
+            "profile": "source-component",
+            "data": "length:1,filled:False,transforms:False",
+            "error": ""
+        },
+        {
+            "index": 5,
+            "profile": "source-retired",
+            "data": "length:1,filled:False,transforms:False",
+            "error": ""
+        },
+        {
+            "index": 5,
+            "profile": "short",
+            "data": "source:True,other:True",
+            "error": "System.ArgumentException"
+        },
+        {
+            "index": 5,
+            "profile": "long",
+            "data": "source:True,other:True",
+            "error": "System.ArgumentException"
+        },
+        {
+            "index": 5,
+            "profile": "default-array",
+            "data": "source:True,other:True",
+            "error": "System.ArgumentException"
+        },
+        {
+            "index": 5,
+            "profile": "disposed-array",
+            "data": "source:True,other:True",
+            "error": "System.ArgumentException"
+        }
+    ]
+}

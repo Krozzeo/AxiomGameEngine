@@ -97,3 +97,16 @@ Load **Demo · M20 GameObject State Lab**. Play and select **GameObject State Co
 ## Message dispatch
 
 Load **Demo · M20 Message Dispatch Lab**. Play and select **Message Dispatch Controller**: Count360, Passed360, Failed0, empty Diagnostics and Complete enabled are expected. The real compiled receiver includes private and inherited methods. The same24 direct public overloads cover self/upwards/broadcast, disabled/inactive/retired receivers, null/object/wrong payloads, missing names, receiver exceptions and options. Expected negative cases log errors; the controller keeps running and compares captured outcomes. Stop restores the complete authored scene. Repeated same-type receivers and ambiguous same-name method overloads are separate dependencies.
+
+## Synchronous cloning, bulk operations, lifetime and tag searches
+
+Load the corresponding version-owned demo through Platform. Select its controller, press Play and wait for Complete. Each expects Failed0, empty Diagnostics, and Count=Passed:
+
+| Demo | Controller | Checks |
+| --- | --- | --- |
+| M20 Synchronous Clone Lab | Clone Controller | 91 |
+| M20 Bulk Objects Lab | Bulk Objects Controller | 50 |
+| M20 Object Lifetime Lab | Object Lifetime Controller | 122 |
+| M20 Tag Search Lab | Tag Search Controller | 39 |
+
+Cloning preserves the hierarchy and its local/world poses; destroyed parents behave as null while destroyed sources reject. Bulk activation skips invalid Unity IDs, while host command packets still reject invalid entity identities atomically. Lifetime checks deliberately advance across frames and delays, including persistent roots and scene unloading. Tag searches cover exact null/unknown/list exceptions and the pinned Unity behavior for Untagged. Expected negative cases can log errors; the controller compares the outcome and continues. Stop restores the complete authored project scene. These labs add exact overload evidence; repeated component storage, compound physics and full Inspector/reference dependencies remain required before closing M20.

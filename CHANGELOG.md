@@ -1,5 +1,6 @@
 # 0.0.62 — Canonical M20 core and dependency profiles (in progress)
 
+- Add30 attributed signatures (308/311 total): synchronous clone13, bulk6, lifetime7 and tag search4. Match destroyed clone sources/parents, bulk invalid IDs and arrays, persistence asset/unbound behavior, tag search exceptions and Untagged results. Add four standard demos and canonical shared Time/scene unload bridges; M20 remains open.
 - Attribute24 message overloads through360 native Play/.NET/Development/AOT outcomes (278/311 accepted). Match null-payload/inactive-upwards/name/options semantics. Register inherited components and preserve private base members/fields in AOT; package the shared type-discovery module. M20 remains open.
 
 - Attribute17 GameObject/Component state, constructor, scene and handle contracts via53 native Play/.NET/Development/AOT cases (254/311 accepted). Match native invalid-layer log/no-op behavior and add GameObject State Lab. M20 remains open.

@@ -1,0 +1,687 @@
+{
+  "passed": true,
+  "checks": 91,
+  "sourceSha256": "a622968b595634077a32acc595a39dc9f7617d353c1510f2dc33c1bf48d6ee65",
+  "sdkSources": {
+    "CloneBlueprint.cs": "3a3ab814a67ad94e0ca666450a68f28678ba13b63ed47b0d3751b530c58747b7",
+    "CloneSerialization.cs": "f67fe7e4e4814e67e677cfbe6a9bc6dfa523537816771fb5ffb26fc9195df37c",
+    "Compatibility.cs": "d98c7adc88c7d973c2f745a3dc261008852776225b1dfa70f5e8d3b9cb3a56e7",
+    "GeneratedComponents.cs": "07807ab2184cf5b49b0ac8f0a411406494942428a365aa38b460a4ab75f1a18d",
+    "Input.cs": "9eeff6a9fd60e7fbf0b6717e7a50e91da890c65bc0871106d91bfcdd3cb22799",
+    "Inspector.cs": "504ac497fdd7d3b9c9cc0659604ce357ae4dfb27ab06b7709db97cd50914b4af",
+    "NativeArray.cs": "d813de30e56d2558bcea934f2b60b5f0dec5b5ecb3bf24c7553757813b16e489",
+    "Navigation.cs": "5ffad821a5e052ee28cd73314ed7d506a7450a0eaa8e5509f8688548f8dd3ca4",
+    "Networking.cs": "b733b687ead62593c24a331b679f72615278b20a0b354b32208c18cfc569d4db",
+    "ObjectQueries.cs": "21ab890a68ed58662644c24c4d8142d2f3a8ff478c2fee526d63d3ef3fb79068",
+    "Physics.cs": "80a6db2102e613f415d9b8f7db69cb43e8cd5e1ae88a1e5fe8f54697f0764753",
+    "PhysicsAdvanced.cs": "ccdb89a3fa3beba8b2546e9ef30949517f92bfecd94de13491442769998281b0",
+    "Platform.cs": "3413dac8c9790a30daf1bc5ec9862255934c6c0263fdb249262b1ab17f47e35a",
+    "Presentation.cs": "e36d90a8ca871e239fe39d2d4621158af7dba2ddb381eade2878df562907c0c4",
+    "PrimitiveComponents.cs": "6d48e04972210540f225a5c8a7ea916172365889d48f5604dd1aa88a0ce70435",
+    "PrimitiveGeometry.cs": "83e4a3717778dfec54f27d6e1e9821bb65c83645b2df5ffd73edbfde83a029ef",
+    "ProjectRuntime.cs": "633400c52836657894f1ab31f063ff27070ca6e4bec6747dec629ab2013283d7",
+    "RuntimeAssets.cs": "cac4da72377fb20c36a8e39040b2bfba49a6581da5dc046e2f21291a4a63a747",
+    "RuntimeObjects.cs": "3c875257307294dbe50b22c69b8e8dca95fc6804f762dbe2221d7af1b551ebc2",
+    "SceneManagement.cs": "7074a5b1c88cc23272839f894d832c93ed2f0d777ac5cc859dbc4406b61ec95c",
+    "Scheduling.cs": "3ba28de61b37614232da8cae86f4aca4c77700c44eda020be104899ac8db5d71",
+    "Sdk.cs": "9219ffe1c64f2f3e598d334b8a839e8b598780039319fe9d56f138e08b2928d6",
+    "ShapeCasts.cs": "998c72d1156139ea9494be9ab0e45f0a54345dfb6e4190769658108e47913a06",
+    "TransformGraph.cs": "531c1677d6b3aba5e12798a832f380ff0f9aa104c6bb0c19a26e51a5452bb96f",
+    "TransformMatrices.cs": "4ae6e29219920202b466292bc128a3db7f4e7a7b77d941f201363e323d7f2be7",
+    "TransformOperations.cs": "d3e8835dcbf7b7534739d327698d7749faaba5539d53f4f3c390643ea8a31254",
+    "UnityAsyncInstantiation.cs": "3e01883fb13df9c79ab9d1c9ff569af9de23622f031a810348e1d04700f79f04",
+    "UnityBulkObjects.cs": "8e8df4d4667cb8bb03ce5507c352ca9a05fa6c6100c91824df41f9a49e81563c",
+    "UnityInstantiation.cs": "e4142b143976bd0292afbe84e637ca38d9f33958350dfdf8b852c3ad082feb7f",
+    "UnityMath.cs": "0904149c30d6671a1224782b4f5bed82688fc2545bb2eaafec1c2164a8809bd5",
+    "UnityMessages.cs": "2295c8a98ab8293783f8845a15bba254a7d3a809a0a5d62d129f241a81d0b25d",
+    "UnityObjects.cs": "ce2c62330312415ea143c1c35284a1bb2dc237f3e1c92251bdffe1c9a3bda5cc",
+    "UnityObsolete.cs": "149ba2895bb23231148a0b705900af5195646bafe07c292f60f427822e3548ca",
+    "UnityPrimitives.cs": "9a2e20fb5b075018988ce984e38327fecf3ed0a899576e1e4750b7e5a029b2c1",
+    "UnityQueries.cs": "e30000f8b885e57084151d29fbffee46f5754b20ccde8b28d61a110708ccf6f3",
+    "UnityScenes.cs": "5ee5c49b62fcdea16594f2f3cc24ce1bb1b2b1b31ebda4e5ae6cafa6397ec4cb",
+    "UnityScriptBridge.cs": "3c87dea59e877c00fffc1b51232f27a3012431e301c5cccb7eefa0dae09c730e",
+    "UnityTags.cs": "ec16ef824fe998761d235288359a373372ca5dd33e5c5c8910829ff20a49d3bb",
+    "UnityTime.cs": "abcc83c9996119975f26967ceb2eed1ec0fba8d2aba6ae501026d82a5a06a946"
+  },
+  "evidenceSha256": "d52a7ac3178b58d5bbef3d1d21116da5d733d0f65eb78f448db7a3d5347007b1",
+  "mismatches": [],
+  "rows": [
+    {
+      "index": 0,
+      "profile": "regular",
+      "data": "z81qQYcblED6eC1Bhdi4PrBhtT7059o+H84/PwAAgD8AAABAAABAQIgujz6+tX4+FzqZPguxYD8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:True:False:7:Player:True:1:True:False"
+    },
+    {
+      "index": 0,
+      "profile": "world",
+      "data": "z81qQYcblED6eC1Bhdi4PrBhtT7059o+H84/PwAAgD8AAABAAABAQIgujz6+tX4+FzqZPguxYD8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:True:False:7:Player:True:1:True:False"
+    },
+    {
+      "index": 0,
+      "profile": "null-parent",
+      "data": "AACAPwAAAEAAAEBAiC6PPr61fj4XOpk+C7FgPwAAgD8AAABAAABAQIgujz6+tX4+FzqZPguxYD8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:True:True:7:Player:True:1:True:False"
+    },
+    {
+      "index": 0,
+      "profile": "component",
+      "data": "z81qQYcblED6eC1Bhdi4PrBhtT7059o+H84/PwAAgD8AAABAAABAQIgujz6+tX4+FzqZPguxYD8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:True:False:7:Player:True:1:True:False"
+    },
+    {
+      "index": 0,
+      "profile": "null-source",
+      "data": "",
+      "error": "System.ArgumentException",
+      "meta": ""
+    },
+    {
+      "index": 0,
+      "profile": "retired-source",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException",
+      "meta": ""
+    },
+    {
+      "index": 0,
+      "profile": "retired-parent",
+      "data": "AACAPwAAAEAAAEBAiC6PPr61fj4XOpk+C7FgPwAAgD8AAABAAABAQIgujz6+tX4+FzqZPguxYD8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:True:True:7:Player:True:1:True:False"
+    },
+    {
+      "index": 1,
+      "profile": "regular",
+      "data": "AAAAQQAAAEAAAIA/m0WQPSWQ8T1F1lU+it93PwxAPb/vxQg/7USyPqEQJb2Evog8s34yPU+Dfz8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:True:False:7:Player:True:1:True:False"
+    },
+    {
+      "index": 1,
+      "profile": "world",
+      "data": "AAAAQQAAAEAAAIA/m0WQPSWQ8T1F1lU+it93PwxAPb/vxQg/7USyPqEQJb2Evog8s34yPU+Dfz8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:True:False:7:Player:True:1:True:False"
+    },
+    {
+      "index": 1,
+      "profile": "null-parent",
+      "data": "AAAAQQAAAEAAAIA/m0WQPSWQ8T1F1lU+it93PwAAAEEAAABAAACAP5tFkD0lkPE9RdZVPorfdz8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:True:True:7:Player:True:1:True:False"
+    },
+    {
+      "index": 1,
+      "profile": "component",
+      "data": "AAAAQQAAAEAAAIA/m0WQPSWQ8T1F1lU+it93PwxAPb/vxQg/7USyPqEQJb2Evog8s34yPU+Dfz8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:True:False:7:Player:True:1:True:False"
+    },
+    {
+      "index": 1,
+      "profile": "null-source",
+      "data": "",
+      "error": "System.ArgumentException",
+      "meta": ""
+    },
+    {
+      "index": 1,
+      "profile": "retired-source",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException",
+      "meta": ""
+    },
+    {
+      "index": 1,
+      "profile": "retired-parent",
+      "data": "AAAAQQAAAEAAAIA/m0WQPSWQ8T1F1lU+it93PwAAAEEAAABAAACAP5tFkD0lkPE9RdZVPorfdz8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:True:True:7:Player:True:1:True:False"
+    },
+    {
+      "index": 2,
+      "profile": "regular",
+      "data": "z81qQYcblED6eC1Bhdi4PrBhtT7059o+H84/PwAAgD8AAABAAABAQIgujz6+tX4+FzqZPguxYD8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:True:False:7:Player:True:1:True:False"
+    },
+    {
+      "index": 2,
+      "profile": "world",
+      "data": "JR6sQBn2Fb+3TWBBAgqBPqSiBD0jIIO+ZcJuP2sgKcCgqag/Pe1YQFOpNz7qQRG+14u/vlcUZj/Sl6e+ZPG2Px2O9T8=",
+      "error": "",
+      "meta": "True:True:True:True:False:7:Player:True:1:True:False"
+    },
+    {
+      "index": 2,
+      "profile": "null-parent",
+      "data": "AACAPwAAAEAAAEBAiC6PPr61fj4XOpk+C7FgPwAAgD8AAABAAABAQIgujz6+tX4+FzqZPguxYD8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:True:True:7:Player:True:1:True:False"
+    },
+    {
+      "index": 2,
+      "profile": "component",
+      "data": "z81qQYcblED6eC1Bhdi4PrBhtT7059o+H84/PwAAgD8AAABAAABAQIgujz6+tX4+FzqZPguxYD8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:True:False:7:Player:True:1:True:False"
+    },
+    {
+      "index": 2,
+      "profile": "null-source",
+      "data": "",
+      "error": "System.ArgumentException",
+      "meta": ""
+    },
+    {
+      "index": 2,
+      "profile": "retired-source",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException",
+      "meta": ""
+    },
+    {
+      "index": 2,
+      "profile": "retired-parent",
+      "data": "AACAPwAAAEAAAEBAiC6PPr61fj4XOpk+C7FgPwAAgD8AAABAAABAQIgujz6+tX4+FzqZPguxYD8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:True:True:7:Player:True:1:True:False"
+    },
+    {
+      "index": 3,
+      "profile": "regular",
+      "data": "AAAAQQAAAEAAAIA/m0WQPSWQ8T1F1lU+it93PwxAPb/vxQg/7USyPqEQJb2Evog8s34yPU+Dfz8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:True:False:7:Player:True:1:True:False"
+    },
+    {
+      "index": 3,
+      "profile": "world",
+      "data": "AAAAQQAAAEAAAIA/m0WQPSWQ8T1F1lU+it93PwxAPb/vxQg/7USyPqEQJb2Evog8s34yPU+Dfz8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:True:False:7:Player:True:1:True:False"
+    },
+    {
+      "index": 3,
+      "profile": "null-parent",
+      "data": "AAAAQQAAAEAAAIA/m0WQPSWQ8T1F1lU+it93PwAAAEEAAABAAACAP5tFkD0lkPE9RdZVPorfdz8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:True:True:7:Player:True:1:True:False"
+    },
+    {
+      "index": 3,
+      "profile": "component",
+      "data": "AAAAQQAAAEAAAIA/m0WQPSWQ8T1F1lU+it93PwxAPb/vxQg/7USyPqEQJb2Evog8s34yPU+Dfz8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:True:False:7:Player:True:1:True:False"
+    },
+    {
+      "index": 3,
+      "profile": "null-source",
+      "data": "",
+      "error": "System.ArgumentException",
+      "meta": ""
+    },
+    {
+      "index": 3,
+      "profile": "retired-source",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException",
+      "meta": ""
+    },
+    {
+      "index": 3,
+      "profile": "retired-parent",
+      "data": "AAAAQQAAAEAAAIA/m0WQPSWQ8T1F1lU+it93PwAAAEEAAABAAACAP5tFkD0lkPE9RdZVPorfdz8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:True:True:7:Player:True:1:True:False"
+    },
+    {
+      "index": 4,
+      "profile": "regular",
+      "data": "z81qQYcblED6eC1Bhdi4PrBhtT7059o+H84/PwAAgD8AAABAAABAQIgujz6+tX4+FzqZPguxYD8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:True:False:7:Player:True:1:True:False"
+    },
+    {
+      "index": 4,
+      "profile": "world",
+      "data": "JR6sQBn2Fb+3TWBBAgqBPqSiBD0jIIO+ZcJuP2sgKcCgqag/Pe1YQFOpNz7qQRG+14u/vlcUZj/Sl6e+ZPG2Px2O9T8=",
+      "error": "",
+      "meta": "True:True:True:True:False:7:Player:True:1:True:False"
+    },
+    {
+      "index": 4,
+      "profile": "null-parent",
+      "data": "AACAPwAAAEAAAEBAiC6PPr61fj4XOpk+C7FgPwAAgD8AAABAAABAQIgujz6+tX4+FzqZPguxYD8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:True:True:7:Player:True:1:True:False"
+    },
+    {
+      "index": 4,
+      "profile": "component",
+      "data": "z81qQYcblED6eC1Bhdi4PrBhtT7059o+H84/PwAAgD8AAABAAABAQIgujz6+tX4+FzqZPguxYD8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:True:False:7:Player:True:1:True:False"
+    },
+    {
+      "index": 4,
+      "profile": "null-source",
+      "data": "",
+      "error": "System.ArgumentException",
+      "meta": ""
+    },
+    {
+      "index": 4,
+      "profile": "retired-source",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException",
+      "meta": ""
+    },
+    {
+      "index": 4,
+      "profile": "retired-parent",
+      "data": "AACAPwAAAEAAAEBAiC6PPr61fj4XOpk+C7FgPwAAgD8AAABAAABAQIgujz6+tX4+FzqZPguxYD8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:True:True:7:Player:True:1:True:False"
+    },
+    {
+      "index": 5,
+      "profile": "regular",
+      "data": "z81qQYcblED6eC1Bhdi4PrBhtT7059o+H84/PwAAgD8AAABAAABAQIgujz6+tX4+FzqZPguxYD8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:True:False:7:Player:True:1:True:False"
+    },
+    {
+      "index": 5,
+      "profile": "world",
+      "data": "z81qQYcblED6eC1Bhdi4PrBhtT7059o+H84/PwAAgD8AAABAAABAQIgujz6+tX4+FzqZPguxYD8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:True:False:7:Player:True:1:True:False"
+    },
+    {
+      "index": 5,
+      "profile": "null-parent",
+      "data": "AACAPwAAAEAAAEBAiC6PPr61fj4XOpk+C7FgPwAAgD8AAABAAABAQIgujz6+tX4+FzqZPguxYD8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:True:True:7:Player:True:1:True:False"
+    },
+    {
+      "index": 5,
+      "profile": "component",
+      "data": "z81qQYcblED6eC1Bhdi4PrBhtT7059o+H84/PwAAgD8AAABAAABAQIgujz6+tX4+FzqZPguxYD8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:True:False:7:Player:True:1:True:False"
+    },
+    {
+      "index": 5,
+      "profile": "null-source",
+      "data": "",
+      "error": "System.ArgumentException",
+      "meta": ""
+    },
+    {
+      "index": 5,
+      "profile": "retired-source",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException",
+      "meta": ""
+    },
+    {
+      "index": 5,
+      "profile": "retired-parent",
+      "data": "AACAPwAAAEAAAEBAiC6PPr61fj4XOpk+C7FgPwAAgD8AAABAAABAQIgujz6+tX4+FzqZPguxYD8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:True:True:7:Player:True:1:True:False"
+    },
+    {
+      "index": 6,
+      "profile": "regular",
+      "data": "AACAPwAAAEAAAEBAiC6PPr61fj4XOpk+C7FgPwAAgD8AAABAAABAQIgujz6+tX4+FzqZPguxYD8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:False:True:7:Player:True:1:True:False"
+    },
+    {
+      "index": 6,
+      "profile": "world",
+      "data": "AACAPwAAAEAAAEBAiC6PPr61fj4XOpk+C7FgPwAAgD8AAABAAABAQIgujz6+tX4+FzqZPguxYD8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:False:True:7:Player:True:1:True:False"
+    },
+    {
+      "index": 6,
+      "profile": "null-parent",
+      "data": "AACAPwAAAEAAAEBAiC6PPr61fj4XOpk+C7FgPwAAgD8AAABAAABAQIgujz6+tX4+FzqZPguxYD8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:True:True:7:Player:True:1:True:False"
+    },
+    {
+      "index": 6,
+      "profile": "component",
+      "data": "AACAPwAAAEAAAEBAiC6PPr61fj4XOpk+C7FgPwAAgD8AAABAAABAQIgujz6+tX4+FzqZPguxYD8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:False:True:7:Player:True:1:True:False"
+    },
+    {
+      "index": 6,
+      "profile": "null-source",
+      "data": "",
+      "error": "System.ArgumentException",
+      "meta": ""
+    },
+    {
+      "index": 6,
+      "profile": "retired-source",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException",
+      "meta": ""
+    },
+    {
+      "index": 6,
+      "profile": "retired-parent",
+      "data": "AACAPwAAAEAAAEBAiC6PPr61fj4XOpk+C7FgPwAAgD8AAABAAABAQIgujz6+tX4+FzqZPguxYD8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:True:True:7:Player:True:1:True:False"
+    },
+    {
+      "index": 7,
+      "profile": "regular",
+      "data": "AAAAQQAAAEAAAIA/m0WQPSWQ8T1F1lU+it93PwAAAEEAAABAAACAP5tFkD0lkPE9RdZVPorfdz8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:False:True:7:Player:True:1:True:False"
+    },
+    {
+      "index": 7,
+      "profile": "world",
+      "data": "AAAAQQAAAEAAAIA/m0WQPSWQ8T1F1lU+it93PwAAAEEAAABAAACAP5tFkD0lkPE9RdZVPorfdz8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:False:True:7:Player:True:1:True:False"
+    },
+    {
+      "index": 7,
+      "profile": "null-parent",
+      "data": "AAAAQQAAAEAAAIA/m0WQPSWQ8T1F1lU+it93PwAAAEEAAABAAACAP5tFkD0lkPE9RdZVPorfdz8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:True:True:7:Player:True:1:True:False"
+    },
+    {
+      "index": 7,
+      "profile": "component",
+      "data": "AAAAQQAAAEAAAIA/m0WQPSWQ8T1F1lU+it93PwAAAEEAAABAAACAP5tFkD0lkPE9RdZVPorfdz8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:False:True:7:Player:True:1:True:False"
+    },
+    {
+      "index": 7,
+      "profile": "null-source",
+      "data": "",
+      "error": "System.ArgumentException",
+      "meta": ""
+    },
+    {
+      "index": 7,
+      "profile": "retired-source",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException",
+      "meta": ""
+    },
+    {
+      "index": 7,
+      "profile": "retired-parent",
+      "data": "AAAAQQAAAEAAAIA/m0WQPSWQ8T1F1lU+it93PwAAAEEAAABAAACAP5tFkD0lkPE9RdZVPorfdz8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:True:True:7:Player:True:1:True:False"
+    },
+    {
+      "index": 8,
+      "profile": "regular",
+      "data": "z81qQYcblED6eC1Bhdi4PrBhtT7059o+H84/PwAAgD8AAABAAABAQIgujz6+tX4+FzqZPguxYD8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:True:False:7:Player:True:1:True:False"
+    },
+    {
+      "index": 8,
+      "profile": "world",
+      "data": "JR6sQBn2Fb+3TWBBAgqBPqSiBD0jIIO+ZcJuP2sgKcCgqag/Pe1YQFOpNz7qQRG+14u/vlcUZj/Sl6e+ZPG2Px2O9T8=",
+      "error": "",
+      "meta": "True:True:True:True:False:7:Player:True:1:True:False"
+    },
+    {
+      "index": 8,
+      "profile": "null-parent",
+      "data": "AACAPwAAAEAAAEBAiC6PPr61fj4XOpk+C7FgPwAAgD8AAABAAABAQIgujz6+tX4+FzqZPguxYD8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:True:True:7:Player:True:1:True:False"
+    },
+    {
+      "index": 8,
+      "profile": "component",
+      "data": "z81qQYcblED6eC1Bhdi4PrBhtT7059o+H84/PwAAgD8AAABAAABAQIgujz6+tX4+FzqZPguxYD8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:True:False:7:Player:True:1:True:False"
+    },
+    {
+      "index": 8,
+      "profile": "null-source",
+      "data": "",
+      "error": "System.ArgumentException",
+      "meta": ""
+    },
+    {
+      "index": 8,
+      "profile": "retired-source",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException",
+      "meta": ""
+    },
+    {
+      "index": 8,
+      "profile": "retired-parent",
+      "data": "AACAPwAAAEAAAEBAiC6PPr61fj4XOpk+C7FgPwAAgD8AAABAAABAQIgujz6+tX4+FzqZPguxYD8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:True:True:7:Player:True:1:True:False"
+    },
+    {
+      "index": 9,
+      "profile": "regular",
+      "data": "AACAPwAAAEAAAEBAiC6PPr61fj4XOpk+C7FgPwAAgD8AAABAAABAQIgujz6+tX4+FzqZPguxYD8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:False:True:7:Player:True:1:True:False"
+    },
+    {
+      "index": 9,
+      "profile": "world",
+      "data": "AACAPwAAAEAAAEBAiC6PPr61fj4XOpk+C7FgPwAAgD8AAABAAABAQIgujz6+tX4+FzqZPguxYD8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:False:True:7:Player:True:1:True:False"
+    },
+    {
+      "index": 9,
+      "profile": "null-parent",
+      "data": "AACAPwAAAEAAAEBAiC6PPr61fj4XOpk+C7FgPwAAgD8AAABAAABAQIgujz6+tX4+FzqZPguxYD8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:True:True:7:Player:True:1:True:False"
+    },
+    {
+      "index": 9,
+      "profile": "component",
+      "data": "AACAPwAAAEAAAEBAiC6PPr61fj4XOpk+C7FgPwAAgD8AAABAAABAQIgujz6+tX4+FzqZPguxYD8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:False:True:7:Player:True:1:True:False"
+    },
+    {
+      "index": 9,
+      "profile": "null-source",
+      "data": "",
+      "error": "System.ArgumentException",
+      "meta": ""
+    },
+    {
+      "index": 9,
+      "profile": "retired-source",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException",
+      "meta": ""
+    },
+    {
+      "index": 9,
+      "profile": "retired-parent",
+      "data": "AACAPwAAAEAAAEBAiC6PPr61fj4XOpk+C7FgPwAAgD8AAABAAABAQIgujz6+tX4+FzqZPguxYD8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:True:True:7:Player:True:1:True:False"
+    },
+    {
+      "index": 10,
+      "profile": "regular",
+      "data": "AACAPwAAAEAAAEBAiC6PPr61fj4XOpk+C7FgPwAAgD8AAABAAABAQIgujz6+tX4+FzqZPguxYD8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:False:True:7:Player:True:1:True:False"
+    },
+    {
+      "index": 10,
+      "profile": "world",
+      "data": "AACAPwAAAEAAAEBAiC6PPr61fj4XOpk+C7FgPwAAgD8AAABAAABAQIgujz6+tX4+FzqZPguxYD8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:False:True:7:Player:True:1:True:False"
+    },
+    {
+      "index": 10,
+      "profile": "null-parent",
+      "data": "AACAPwAAAEAAAEBAiC6PPr61fj4XOpk+C7FgPwAAgD8AAABAAABAQIgujz6+tX4+FzqZPguxYD8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:True:True:7:Player:True:1:True:False"
+    },
+    {
+      "index": 10,
+      "profile": "component",
+      "data": "AACAPwAAAEAAAEBAiC6PPr61fj4XOpk+C7FgPwAAgD8AAABAAABAQIgujz6+tX4+FzqZPguxYD8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:False:True:7:Player:True:1:True:False"
+    },
+    {
+      "index": 10,
+      "profile": "null-source",
+      "data": "",
+      "error": "System.ArgumentException",
+      "meta": ""
+    },
+    {
+      "index": 10,
+      "profile": "retired-source",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException",
+      "meta": ""
+    },
+    {
+      "index": 10,
+      "profile": "retired-parent",
+      "data": "AACAPwAAAEAAAEBAiC6PPr61fj4XOpk+C7FgPwAAgD8AAABAAABAQIgujz6+tX4+FzqZPguxYD8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:True:True:7:Player:True:1:True:False"
+    },
+    {
+      "index": 11,
+      "profile": "regular",
+      "data": "lBQAQiF0UUFmsSu/OeE1PjlYWj5PGro+oqljPwAAAEEAAABAAACAP5tFkD0lkPE9RdZVPorfdz8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:True:False:7:Player:True:1:True:False"
+    },
+    {
+      "index": 11,
+      "profile": "world",
+      "data": "AAAAQQAAAEAAAIA/m0WQPSWQ8T1F1lU+it93PwxAPb/vxQg/7USyPqEQJb2Evog8s34yPU+Dfz8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:True:False:7:Player:True:1:True:False"
+    },
+    {
+      "index": 11,
+      "profile": "null-parent",
+      "data": "AAAAQQAAAEAAAIA/m0WQPSWQ8T1F1lU+it93PwAAAEEAAABAAACAP5tFkD0lkPE9RdZVPorfdz8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:True:True:7:Player:True:1:True:False"
+    },
+    {
+      "index": 11,
+      "profile": "component",
+      "data": "lBQAQiF0UUFmsSu/OeE1PjlYWj5PGro+oqljPwAAAEEAAABAAACAP5tFkD0lkPE9RdZVPorfdz8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:True:False:7:Player:True:1:True:False"
+    },
+    {
+      "index": 11,
+      "profile": "null-source",
+      "data": "",
+      "error": "System.ArgumentException",
+      "meta": ""
+    },
+    {
+      "index": 11,
+      "profile": "retired-source",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException",
+      "meta": ""
+    },
+    {
+      "index": 11,
+      "profile": "retired-parent",
+      "data": "AAAAQQAAAEAAAIA/m0WQPSWQ8T1F1lU+it93PwAAAEEAAABAAACAP5tFkD0lkPE9RdZVPorfdz8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:True:True:7:Player:True:1:True:False"
+    },
+    {
+      "index": 12,
+      "profile": "regular",
+      "data": "AAAAQQAAAEAAAIA/m0WQPSWQ8T1F1lU+it93PwAAAEEAAABAAACAP5tFkD0lkPE9RdZVPorfdz8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:False:True:7:Player:True:1:True:False"
+    },
+    {
+      "index": 12,
+      "profile": "world",
+      "data": "AAAAQQAAAEAAAIA/m0WQPSWQ8T1F1lU+it93PwAAAEEAAABAAACAP5tFkD0lkPE9RdZVPorfdz8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:False:True:7:Player:True:1:True:False"
+    },
+    {
+      "index": 12,
+      "profile": "null-parent",
+      "data": "AAAAQQAAAEAAAIA/m0WQPSWQ8T1F1lU+it93PwAAAEEAAABAAACAP5tFkD0lkPE9RdZVPorfdz8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:True:True:7:Player:True:1:True:False"
+    },
+    {
+      "index": 12,
+      "profile": "component",
+      "data": "AAAAQQAAAEAAAIA/m0WQPSWQ8T1F1lU+it93PwAAAEEAAABAAACAP5tFkD0lkPE9RdZVPorfdz8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:False:True:7:Player:True:1:True:False"
+    },
+    {
+      "index": 12,
+      "profile": "null-source",
+      "data": "",
+      "error": "System.ArgumentException",
+      "meta": ""
+    },
+    {
+      "index": 12,
+      "profile": "retired-source",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException",
+      "meta": ""
+    },
+    {
+      "index": 12,
+      "profile": "retired-parent",
+      "data": "AAAAQQAAAEAAAIA/m0WQPSWQ8T1F1lU+it93PwAAAEEAAABAAACAP5tFkD0lkPE9RdZVPorfdz8AAAA/AAAAQAAAQEA=",
+      "error": "",
+      "meta": "True:True:True:True:True:7:Player:True:1:True:False"
+    }
+  ]
+}

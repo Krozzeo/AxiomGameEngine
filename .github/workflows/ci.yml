@@ -137,6 +137,18 @@ jobs:
           node scripts/compatibility/m20-source-audit.mjs .axiom/m20-current-abi.json .axiom/m20-current-source.json
           node scripts/compatibility/m20-obsolete-compile.mjs tests/csharp/M20.Objects/bin/Debug/net10.0/M20.Objects.dll .axiom/m20-current-obsolete-compile.json .axiom/m20-current-abi.json
       - run: dotnet build tests/csharp/M20.Migration --nologo -v:q
+      - run: node scripts/compatibility/generate-m20-sync-clone-fixtures.mjs --check
+      - run: dotnet run --project tests/csharp/M20.SyncClone/M20.SyncClone.csproj
+      - run: node scripts/compatibility/generate-m20-bulk-object-fixtures.mjs --check
+      - run: dotnet run --project tests/csharp/M20.BulkObjects/M20.BulkObjects.csproj
+      - run: node scripts/compatibility/generate-m20-object-lifetime-fixtures.mjs --check
+      - run: dotnet run --project tests/csharp/M20.ObjectLifetime/M20.ObjectLifetime.csproj
+      - run: node scripts/compatibility/generate-m20-tag-search-fixtures.mjs --check
+      - run: dotnet run --project tests/csharp/M20.TagSearch/M20.TagSearch.csproj
+      - run: node tests/browser/m20-tag-search.mjs
+      - run: node tests/browser/m20-object-lifetime.mjs
+      - run: node tests/browser/m20-bulk-objects.mjs
+      - run: node tests/browser/m20-sync-clone.mjs
       - run: node tests/browser/m20-messages.mjs
         env:
           AXIOM_CSHARP_MODE: ${{ matrix.mode }}
@@ -195,6 +207,10 @@ jobs:
             .axiom/browser-m20-find*
             .axiom/browser-m20-gameobject-state*
             .axiom/browser-m20-messages*
+            .axiom/browser-m20-sync-clone*
+            .axiom/browser-m20-bulk-objects*
+            .axiom/browser-m20-object-lifetime*
+            .axiom/browser-m20-tag-search*
 
   browser-milestones:
     runs-on: ubuntu-latest

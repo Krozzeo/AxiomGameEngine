@@ -1,0 +1,215 @@
+{
+  "schemaVersion": 1,
+  "targetSignatures": 13,
+  "expectedObservations": 91,
+  "records": [
+    {
+      "id": "unity63abi:0ee966233251556d78696f58",
+      "owner": "UnityEngine.Object",
+      "index": 0,
+      "declaration": "public static T Instantiate<T>(T original, UnityEngine.Transform parent);",
+      "profiles": [
+        "regular",
+        "world",
+        "null-parent",
+        "component",
+        "null-source",
+        "retired-source",
+        "retired-parent"
+      ],
+      "certified": true
+    },
+    {
+      "id": "unity63abi:59fcfaca6872b386dac23585",
+      "owner": "UnityEngine.Object",
+      "index": 1,
+      "declaration": "public static T Instantiate<T>(T original, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation, UnityEngine.Transform parent);",
+      "profiles": [
+        "regular",
+        "world",
+        "null-parent",
+        "component",
+        "null-source",
+        "retired-source",
+        "retired-parent"
+      ],
+      "certified": true
+    },
+    {
+      "id": "unity63abi:59fd43ecb8aa882b11f8b8b7",
+      "owner": "UnityEngine.Object",
+      "index": 2,
+      "declaration": "public static UnityEngine.Object Instantiate(UnityEngine.Object original, UnityEngine.Transform parent, bool instantiateInWorldSpace);",
+      "profiles": [
+        "regular",
+        "world",
+        "null-parent",
+        "component",
+        "null-source",
+        "retired-source",
+        "retired-parent"
+      ],
+      "certified": true
+    },
+    {
+      "id": "unity63abi:5a0701d8dca3a5c3b8d80cdf",
+      "owner": "UnityEngine.Object",
+      "index": 3,
+      "declaration": "public static UnityEngine.Object Instantiate(UnityEngine.Object original, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation, UnityEngine.Transform parent);",
+      "profiles": [
+        "regular",
+        "world",
+        "null-parent",
+        "component",
+        "null-source",
+        "retired-source",
+        "retired-parent"
+      ],
+      "certified": true
+    },
+    {
+      "id": "unity63abi:64316228d6bac2b71b7b49f5",
+      "owner": "UnityEngine.Object",
+      "index": 4,
+      "declaration": "public static T Instantiate<T>(T original, UnityEngine.Transform parent, bool worldPositionStays);",
+      "profiles": [
+        "regular",
+        "world",
+        "null-parent",
+        "component",
+        "null-source",
+        "retired-source",
+        "retired-parent"
+      ],
+      "certified": true
+    },
+    {
+      "id": "unity63abi:6a99c2f72fff0cc5fd17659f",
+      "owner": "UnityEngine.Object",
+      "index": 5,
+      "declaration": "public static UnityEngine.Object Instantiate(UnityEngine.Object original, UnityEngine.Transform parent);",
+      "profiles": [
+        "regular",
+        "world",
+        "null-parent",
+        "component",
+        "null-source",
+        "retired-source",
+        "retired-parent"
+      ],
+      "certified": true
+    },
+    {
+      "id": "unity63abi:851f45d6adca7e4eeca55f3a",
+      "owner": "UnityEngine.Object",
+      "index": 6,
+      "declaration": "public static UnityEngine.Object Instantiate(UnityEngine.Object original, UnityEngine.SceneManagement.Scene scene);",
+      "profiles": [
+        "regular",
+        "world",
+        "null-parent",
+        "component",
+        "null-source",
+        "retired-source",
+        "retired-parent"
+      ],
+      "certified": true
+    },
+    {
+      "id": "unity63abi:8e08d28359a39dc8ed318dbc",
+      "owner": "UnityEngine.Object",
+      "index": 7,
+      "declaration": "public static UnityEngine.Object Instantiate(UnityEngine.Object original, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation);",
+      "profiles": [
+        "regular",
+        "world",
+        "null-parent",
+        "component",
+        "null-source",
+        "retired-source",
+        "retired-parent"
+      ],
+      "certified": true
+    },
+    {
+      "id": "unity63abi:9c0289db94ea27500f4c4baa",
+      "owner": "UnityEngine.Object",
+      "index": 8,
+      "declaration": "public static T Instantiate<T>(T original, UnityEngine.InstantiateParameters parameters);",
+      "profiles": [
+        "regular",
+        "world",
+        "null-parent",
+        "component",
+        "null-source",
+        "retired-source",
+        "retired-parent"
+      ],
+      "certified": true
+    },
+    {
+      "id": "unity63abi:c5053806fcfe25cd0e53924b",
+      "owner": "UnityEngine.Object",
+      "index": 9,
+      "declaration": "public static UnityEngine.Object Instantiate(UnityEngine.Object original);",
+      "profiles": [
+        "regular",
+        "world",
+        "null-parent",
+        "component",
+        "null-source",
+        "retired-source",
+        "retired-parent"
+      ],
+      "certified": true
+    },
+    {
+      "id": "unity63abi:cc3ff64315c89b13813d4d34",
+      "owner": "UnityEngine.Object",
+      "index": 10,
+      "declaration": "public static T Instantiate<T>(T original);",
+      "profiles": [
+        "regular",
+        "world",
+        "null-parent",
+        "component",
+        "null-source",
+        "retired-source",
+        "retired-parent"
+      ],
+      "certified": true
+    },
+    {
+      "id": "unity63abi:ce9cc94143a657f7c0d2466e",
+      "owner": "UnityEngine.Object",
+      "index": 11,
+      "declaration": "public static T Instantiate<T>(T original, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation, UnityEngine.InstantiateParameters parameters);",
+      "profiles": [
+        "regular",
+        "world",
+        "null-parent",
+        "component",
+        "null-source",
+        "retired-source",
+        "retired-parent"
+      ],
+      "certified": true
+    },
+    {
+      "id": "unity63abi:eb6ff574007ef48a1c2cda26",
+      "owner": "UnityEngine.Object",
+      "index": 12,
+      "declaration": "public static T Instantiate<T>(T original, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation);",
+      "profiles": [
+        "regular",
+        "world",
+        "null-parent",
+        "component",
+        "null-source",
+        "retired-source",
+        "retired-parent"
+      ],
+      "certified": true
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "targetSignatures": 6,
+  "expectedObservations": 50,
+  "records": [
+    {
+      "id": "unity63abi:2da1ada35b3e43b87d88e1e2",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public static void SetGameObjectsActive(System.ReadOnlySpan`1<int> instanceIDs, bool active);",
+      "index": 0,
+      "profiles": [
+        "live",
+        "duplicate",
+        "component",
+        "zero",
+        "retired",
+        "empty"
+      ],
+      "certified": true
+    },
+    {
+      "id": "unity63abi:2cfb00f3bc5cf0bf6d2cba72",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public static void SetGameObjectsActive(System.ReadOnlySpan`1<UnityEngine.EntityId> entityIds, bool active);",
+      "index": 1,
+      "profiles": [
+        "live",
+        "duplicate",
+        "component",
+        "zero",
+        "retired",
+        "empty"
+      ],
+      "certified": true
+    },
+    {
+      "id": "unity63abi:c75500bcbb28857f0e047d9d",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public static void SetGameObjectsActive(Unity.Collections.NativeArray`1<int> instanceIDs, bool active);",
+      "index": 2,
+      "profiles": [
+        "live",
+        "duplicate",
+        "component",
+        "zero",
+        "retired",
+        "empty",
+        "default-array",
+        "disposed-array"
+      ],
+      "certified": true
+    },
+    {
+      "id": "unity63abi:592a0134c188696e35bf4e66",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public static void SetGameObjectsActive(Unity.Collections.NativeArray`1<UnityEngine.EntityId> entityIds, bool active);",
+      "index": 3,
+      "profiles": [
+        "live",
+        "duplicate",
+        "component",
+        "zero",
+        "retired",
+        "empty",
+        "default-array",
+        "disposed-array"
+      ],
+      "certified": true
+    },
+    {
+      "id": "unity63abi:c71087ff75aa4beaae39e4d5",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public static void InstantiateGameObjects(int sourceInstanceID, int count, Unity.Collections.NativeArray`1<int> newInstanceIDs, Unity.Collections.NativeArray`1<int> newTransformInstanceIDs, UnityEngine.SceneManagement.Scene destinationScene = null);",
+      "index": 4,
+      "profiles": [
+        "live",
+        "two",
+        "zero",
+        "negative",
+        "source-zero",
+        "source-component",
+        "source-retired",
+        "short",
+        "long",
+        "default-array",
+        "disposed-array"
+      ],
+      "certified": true
+    },
+    {
+      "id": "unity63abi:a4edd9a83887c123596ea70f",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public static void InstantiateGameObjects(UnityEngine.EntityId sourceEntityId, int count, Unity.Collections.NativeArray`1<UnityEngine.EntityId> newEntityIds, Unity.Collections.NativeArray`1<UnityEngine.EntityId> newTransformEntityIds, UnityEngine.SceneManagement.Scene destinationScene = null);",
+      "index": 5,
+      "profiles": [
+        "live",
+        "two",
+        "zero",
+        "negative",
+        "source-zero",
+        "source-component",
+        "source-retired",
+        "short",
+        "long",
+        "default-array",
+        "disposed-array"
+      ],
+      "certified": true
+    }
+  ]
+}

@@ -1,0 +1,741 @@
+{
+    "unityVersion": "6000.3.27f1",
+    "coreAssemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737",
+    "sourceSha256": "370b0dbc016d005ef6b0a7008d65a8208d28b1169000995767a58bfa7678a4c0",
+    "error": "",
+    "profile": "Native Play frame-stepped object lifetime",
+    "rows": [
+        {
+            "index": 0,
+            "profile": "game-object.call",
+            "data": "True:True:True",
+            "error": ""
+        },
+        {
+            "index": 0,
+            "profile": "game-object.after-frame",
+            "data": "False:False:False",
+            "error": ""
+        },
+        {
+            "index": 0,
+            "profile": "component.call",
+            "data": "True:True:True",
+            "error": ""
+        },
+        {
+            "index": 0,
+            "profile": "component.after-frame",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 0,
+            "profile": "transform.call",
+            "data": "True:True:True",
+            "error": ""
+        },
+        {
+            "index": 0,
+            "profile": "transform.after-frame",
+            "data": "True:True:True",
+            "error": ""
+        },
+        {
+            "index": 0,
+            "profile": "text.call",
+            "data": "True:True:True",
+            "error": ""
+        },
+        {
+            "index": 0,
+            "profile": "text.after-frame",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 0,
+            "profile": "mesh.call",
+            "data": "True:True:True",
+            "error": ""
+        },
+        {
+            "index": 0,
+            "profile": "mesh.after-frame",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 0,
+            "profile": "null.call",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 0,
+            "profile": "null.after-frame",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 0,
+            "profile": "retired.call",
+            "data": "False:False:False",
+            "error": ""
+        },
+        {
+            "index": 0,
+            "profile": "retired.after-frame",
+            "data": "False:False:False",
+            "error": ""
+        },
+        {
+            "index": 0,
+            "profile": "unbound.call",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 0,
+            "profile": "unbound.after-frame",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 1,
+            "profile": "game-object.call",
+            "data": "True:True:True",
+            "error": ""
+        },
+        {
+            "index": 1,
+            "profile": "game-object.after-frame",
+            "data": "False:False:False",
+            "error": ""
+        },
+        {
+            "index": 1,
+            "profile": "component.call",
+            "data": "True:True:True",
+            "error": ""
+        },
+        {
+            "index": 1,
+            "profile": "component.after-frame",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 1,
+            "profile": "transform.call",
+            "data": "True:True:True",
+            "error": ""
+        },
+        {
+            "index": 1,
+            "profile": "transform.after-frame",
+            "data": "True:True:True",
+            "error": ""
+        },
+        {
+            "index": 1,
+            "profile": "text.call",
+            "data": "True:True:True",
+            "error": ""
+        },
+        {
+            "index": 1,
+            "profile": "text.after-frame",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 1,
+            "profile": "mesh.call",
+            "data": "True:True:True",
+            "error": ""
+        },
+        {
+            "index": 1,
+            "profile": "mesh.after-frame",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 1,
+            "profile": "null.call",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 1,
+            "profile": "null.after-frame",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 1,
+            "profile": "retired.call",
+            "data": "False:False:False",
+            "error": ""
+        },
+        {
+            "index": 1,
+            "profile": "retired.after-frame",
+            "data": "False:False:False",
+            "error": ""
+        },
+        {
+            "index": 1,
+            "profile": "unbound.call",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 1,
+            "profile": "unbound.after-frame",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 1,
+            "profile": "positive-delay.call",
+            "data": "True:True:True",
+            "error": ""
+        },
+        {
+            "index": 1,
+            "profile": "positive-delay.after-delay",
+            "data": "False:False:False",
+            "error": ""
+        },
+        {
+            "index": 1,
+            "profile": "negative-delay.call",
+            "data": "True:True:True",
+            "error": ""
+        },
+        {
+            "index": 1,
+            "profile": "negative-delay.after-frame",
+            "data": "False:False:False",
+            "error": ""
+        },
+        {
+            "index": 2,
+            "profile": "game-object.call",
+            "data": "False:False:False",
+            "error": ""
+        },
+        {
+            "index": 2,
+            "profile": "game-object.after-frame",
+            "data": "False:False:False",
+            "error": ""
+        },
+        {
+            "index": 2,
+            "profile": "component.call",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 2,
+            "profile": "component.after-frame",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 2,
+            "profile": "transform.call",
+            "data": "True:True:True",
+            "error": ""
+        },
+        {
+            "index": 2,
+            "profile": "transform.after-frame",
+            "data": "True:True:True",
+            "error": ""
+        },
+        {
+            "index": 2,
+            "profile": "text.call",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 2,
+            "profile": "text.after-frame",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 2,
+            "profile": "mesh.call",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 2,
+            "profile": "mesh.after-frame",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 2,
+            "profile": "null.call",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 2,
+            "profile": "null.after-frame",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 2,
+            "profile": "retired.call",
+            "data": "False:False:False",
+            "error": ""
+        },
+        {
+            "index": 2,
+            "profile": "retired.after-frame",
+            "data": "False:False:False",
+            "error": ""
+        },
+        {
+            "index": 2,
+            "profile": "unbound.call",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 2,
+            "profile": "unbound.after-frame",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 3,
+            "profile": "game-object.call",
+            "data": "False:False:False",
+            "error": ""
+        },
+        {
+            "index": 3,
+            "profile": "game-object.after-frame",
+            "data": "False:False:False",
+            "error": ""
+        },
+        {
+            "index": 3,
+            "profile": "component.call",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 3,
+            "profile": "component.after-frame",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 3,
+            "profile": "transform.call",
+            "data": "True:True:True",
+            "error": ""
+        },
+        {
+            "index": 3,
+            "profile": "transform.after-frame",
+            "data": "True:True:True",
+            "error": ""
+        },
+        {
+            "index": 3,
+            "profile": "text.call",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 3,
+            "profile": "text.after-frame",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 3,
+            "profile": "mesh.call",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 3,
+            "profile": "mesh.after-frame",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 3,
+            "profile": "null.call",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 3,
+            "profile": "null.after-frame",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 3,
+            "profile": "retired.call",
+            "data": "False:False:False",
+            "error": ""
+        },
+        {
+            "index": 3,
+            "profile": "retired.after-frame",
+            "data": "False:False:False",
+            "error": ""
+        },
+        {
+            "index": 3,
+            "profile": "unbound.call",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 3,
+            "profile": "unbound.after-frame",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 3,
+            "profile": "deny-assets.call",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 3,
+            "profile": "deny-assets.after-frame",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 4,
+            "profile": "game-object.call",
+            "data": "True:True:True",
+            "error": ""
+        },
+        {
+            "index": 4,
+            "profile": "game-object.after-frame",
+            "data": "False:False:False",
+            "error": ""
+        },
+        {
+            "index": 4,
+            "profile": "component.call",
+            "data": "True:True:True",
+            "error": ""
+        },
+        {
+            "index": 4,
+            "profile": "component.after-frame",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 4,
+            "profile": "transform.call",
+            "data": "True:True:True",
+            "error": ""
+        },
+        {
+            "index": 4,
+            "profile": "transform.after-frame",
+            "data": "True:True:True",
+            "error": ""
+        },
+        {
+            "index": 4,
+            "profile": "text.call",
+            "data": "True:True:True",
+            "error": ""
+        },
+        {
+            "index": 4,
+            "profile": "text.after-frame",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 4,
+            "profile": "mesh.call",
+            "data": "True:True:True",
+            "error": ""
+        },
+        {
+            "index": 4,
+            "profile": "mesh.after-frame",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 4,
+            "profile": "null.call",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 4,
+            "profile": "null.after-frame",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 4,
+            "profile": "retired.call",
+            "data": "False:False:False",
+            "error": ""
+        },
+        {
+            "index": 4,
+            "profile": "retired.after-frame",
+            "data": "False:False:False",
+            "error": ""
+        },
+        {
+            "index": 4,
+            "profile": "unbound.call",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 4,
+            "profile": "unbound.after-frame",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 5,
+            "profile": "game-object.call",
+            "data": "True:True:True",
+            "error": ""
+        },
+        {
+            "index": 5,
+            "profile": "game-object.after-frame",
+            "data": "False:False:False",
+            "error": ""
+        },
+        {
+            "index": 5,
+            "profile": "component.call",
+            "data": "True:True:True",
+            "error": ""
+        },
+        {
+            "index": 5,
+            "profile": "component.after-frame",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 5,
+            "profile": "transform.call",
+            "data": "True:True:True",
+            "error": ""
+        },
+        {
+            "index": 5,
+            "profile": "transform.after-frame",
+            "data": "True:True:True",
+            "error": ""
+        },
+        {
+            "index": 5,
+            "profile": "text.call",
+            "data": "True:True:True",
+            "error": ""
+        },
+        {
+            "index": 5,
+            "profile": "text.after-frame",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 5,
+            "profile": "mesh.call",
+            "data": "True:True:True",
+            "error": ""
+        },
+        {
+            "index": 5,
+            "profile": "mesh.after-frame",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 5,
+            "profile": "null.call",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 5,
+            "profile": "null.after-frame",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 5,
+            "profile": "retired.call",
+            "data": "False:False:False",
+            "error": ""
+        },
+        {
+            "index": 5,
+            "profile": "retired.after-frame",
+            "data": "False:False:False",
+            "error": ""
+        },
+        {
+            "index": 5,
+            "profile": "unbound.call",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 5,
+            "profile": "unbound.after-frame",
+            "data": "False:True:True",
+            "error": ""
+        },
+        {
+            "index": 5,
+            "profile": "positive-delay.call",
+            "data": "True:True:True",
+            "error": ""
+        },
+        {
+            "index": 5,
+            "profile": "positive-delay.after-delay",
+            "data": "False:False:False",
+            "error": ""
+        },
+        {
+            "index": 5,
+            "profile": "negative-delay.call",
+            "data": "True:True:True",
+            "error": ""
+        },
+        {
+            "index": 5,
+            "profile": "negative-delay.after-frame",
+            "data": "False:False:False",
+            "error": ""
+        },
+        {
+            "index": 6,
+            "profile": "root.call",
+            "data": "True:True:True:True:True",
+            "error": ""
+        },
+        {
+            "index": 6,
+            "profile": "root.unloaded",
+            "data": "True:True:True:True",
+            "error": ""
+        },
+        {
+            "index": 6,
+            "profile": "root-component.call",
+            "data": "True:True:True:True:True",
+            "error": ""
+        },
+        {
+            "index": 6,
+            "profile": "root-component.unloaded",
+            "data": "True:True:True:True",
+            "error": ""
+        },
+        {
+            "index": 6,
+            "profile": "child.call",
+            "data": "True:True:True:False:False",
+            "error": ""
+        },
+        {
+            "index": 6,
+            "profile": "child.unloaded",
+            "data": "False:False:False:True",
+            "error": ""
+        },
+        {
+            "index": 6,
+            "profile": "child-component.call",
+            "data": "True:True:True:False:False",
+            "error": ""
+        },
+        {
+            "index": 6,
+            "profile": "child-component.unloaded",
+            "data": "False:False:False:True",
+            "error": ""
+        },
+        {
+            "index": 6,
+            "profile": "text.call",
+            "data": "True:True:True:False:False",
+            "error": ""
+        },
+        {
+            "index": 6,
+            "profile": "text.unloaded",
+            "data": "True:False:False:True",
+            "error": ""
+        },
+        {
+            "index": 6,
+            "profile": "null.call",
+            "data": "False:True:True",
+            "error": "System.ArgumentNullException"
+        },
+        {
+            "index": 6,
+            "profile": "null.unloaded",
+            "data": "False:False:False:True",
+            "error": ""
+        },
+        {
+            "index": 6,
+            "profile": "retired.call",
+            "data": "False:False:False",
+            "error": "UnityEngine.MissingReferenceException"
+        },
+        {
+            "index": 6,
+            "profile": "retired.unloaded",
+            "data": "False:False:False:True",
+            "error": ""
+        },
+        {
+            "index": 6,
+            "profile": "unbound.call",
+            "data": "False:True:True",
+            "error": "System.ArgumentNullException"
+        },
+        {
+            "index": 6,
+            "profile": "unbound.unloaded",
+            "data": "False:False:False:True",
+            "error": ""
+        }
+    ]
+}

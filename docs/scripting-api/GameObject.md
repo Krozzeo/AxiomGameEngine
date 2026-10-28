@@ -115,7 +115,8 @@ public sealed partial class GameObject : Object {
   if(string.IsNullOrEmpty(name))return null;var rooted=name.StartsWith('/');var parts=(rooted?name[1..]:name).Split('/');if(parts.Any(string.IsNullOrEmpty))return null;
   foreach(var id in Legacy.Context.Entities.Keys){if(!Legacy.Context.IsActive(id)||rooted&&Legacy.Context.Parents.GetValueOrDefault(id)!=null)continue;var candidate=(GameObject)new Legacy.GameObject(new Legacy.Entity(id,Legacy.Context.Generation));if(candidate.name!=parts[0])continue;var current=candidate.transform;var matched=true;foreach(var part in parts.Skip(1)){var next=Enumerable.Range(0,current.childCount).Select(current.GetChild).FirstOrDefault(child=>child.gameObject.activeInHierarchy&&child.gameObject.name==part);if(next==null){matched=false;break;}current=next;}if(matched)return current.gameObject;
   }return null;
- }public static GameObject? FindWithTag(string tag){Tags.Require(tag);return Legacy.GameObject.FindWithTag(tag);}public static GameObject? FindGameObjectWithTag(string tag)=>FindWithTag(tag);public static GameObject[] FindGameObjectsWithTag(string tag){Tags.Require(tag);return Legacy.GameObject.FindGameObjectsWithTag(tag).Select(go=>(GameObject)go).ToArray();}public static void FindGameObjectsWithTag(string tag,List<GameObject> results){ArgumentNullException.ThrowIfNull(results);results.Clear();results.AddRange(FindGameObjectsWithTag(tag));}
+ }private static void SearchTag(string tag){if(string.IsNullOrEmpty(tag))throw new ArgumentException("Tag must not be null or empty",nameof(tag));Tags.Require(tag);}
+ public static GameObject? FindWithTag(string tag){SearchTag(tag);return tag=="Untagged"?null:Legacy.GameObject.FindWithTag(tag);}public static GameObject? FindGameObjectWithTag(string tag)=>FindWithTag(tag);public static GameObject[] FindGameObjectsWithTag(string tag){SearchTag(tag);return tag=="Untagged"?Array.Empty<GameObject>():Legacy.GameObject.FindGameObjectsWithTag(tag).Select(go=>(GameObject)go).ToArray();}public static void FindGameObjectsWithTag(string tag,List<GameObject> results){results.Clear();results.AddRange(FindGameObjectsWithTag(tag));}
  public T AddComponent<T>() where T:Component=>(T)AddComponent(typeof(T));public Component AddComponent(Type componentType){var owner=LegacyGameObject;if(componentType==typeof(Transform)){Legacy.Debug.LogError("Cannot add Transform because this GameObject already contains one");return null!;}return owner.AddComponent(componentType);}
  public T? GetComponent<T>()=>LegacyGameObject.GetComponent<T>();public Component? GetComponent(Type type)=>LegacyGameObject.GetComponent(QueryType(type));public Component? GetComponent(string type){_=LegacyGameObject;if(string.IsNullOrEmpty(type))return null;return GetComponents<Component>().FirstOrDefault(component=>Matches(component.Native is Legacy.UnityScriptAdapter adapter?adapter.Target.GetType():component.Native.GetType()));bool Matches(Type candidate){for(var current=candidate;current!=null&&(typeof(Component).IsAssignableFrom(current)||typeof(Legacy.Component).IsAssignableFrom(current));current=current.BaseType){var script=(typeof(MonoBehaviour).IsAssignableFrom(current)&&current!=typeof(MonoBehaviour))||(typeof(Legacy.Script).IsAssignableFrom(current)&&current!=typeof(Legacy.Script)&&current!=typeof(Legacy.MonoBehaviour));if(current.Name==type||script&&current.FullName==type)return true;}return false;}}
  public T[] GetComponents<T>()=>LegacyGameObject.GetComponents<T>();public Component[] GetComponents(Type type)=>LegacyGameObject.GetComponents(QueryType(type)).Select(native=>(Component)Wrap(native)).ToArray();public void GetComponents<T>(List<T> results){var owner=LegacyGameObject;if(results!=null)owner.GetComponents(results);}
@@ -157,13 +158,14 @@ public partial class GameObject {
 
 // Namespace: UnityEngine
 public partial class GameObject {
+ private static Legacy.GameObject? BulkTarget(int id){try{return NativeObjects.GameObject(id);}catch(ArgumentException){return null;}}
  public SceneManagement.Scene scene=>LegacyGameObject.scene;
  [Obsolete("Obsolete. Please use GameObject.GetScene(EntityId entityId) instead.")]
  public static SceneManagement.Scene GetScene(int instanceID)=>GetScene(new EntityId(instanceID));
  public static SceneManagement.Scene GetScene(EntityId entityId){try{return NativeObjects.GameObject(entityId.Value).scene;}catch(ArgumentException){return default;}}
  [Obsolete("Obsolete. Please use GameObject.SetGameObjectsActive(ReadOnlySpan<EntityId>, bool) instead.")]
  public static void SetGameObjectsActive(ReadOnlySpan<int> instanceIDs,bool active){
-  var targets=instanceIDs.ToArray().Distinct().Select(NativeObjects.GameObject).ToArray();
+  var targets=instanceIDs.ToArray().Distinct().Select(BulkTarget).OfType<Legacy.GameObject>().ToArray();
   if(targets.Length==0)return;
   var ids=new System.Text.Json.Nodes.JsonArray(targets.Select(go=>(System.Text.Json.Nodes.JsonNode?)System.Text.Json.Nodes.JsonValue.Create(go.Entity.Id)).ToArray());
   Legacy.Context.Add(new("activeMany","",null,default,null,Data:new System.Text.Json.Nodes.JsonObject{["ids"]=ids,["active"]=active}.ToJsonString()));
@@ -172,20 +174,20 @@ public partial class GameObject {
  }
  public static void SetGameObjectsActive(ReadOnlySpan<EntityId> entityIds,bool active)=>SetGameObjectsActive(entityIds.ToArray().Select(id=>id.Value).ToArray().AsSpan(),active);
  [Obsolete("Obsolete. Please use GameObject.SetGameObjectsActive(NativeArray<EntityId>, bool) instead.")]
- public static void SetGameObjectsActive(NativeArray<int> instanceIDs,bool active)=>SetGameObjectsActive(instanceIDs.ToArray().AsSpan(),active);
- public static void SetGameObjectsActive(NativeArray<EntityId> entityIds,bool active)=>SetGameObjectsActive(entityIds.ToArray().AsSpan(),active);
+ public static void SetGameObjectsActive(NativeArray<int> instanceIDs,bool active){if(!instanceIDs.IsCreated)throw new ArgumentException("The input NativeArray must be created.");SetGameObjectsActive(instanceIDs.ToArray().AsSpan(),active);}
+ public static void SetGameObjectsActive(NativeArray<EntityId> entityIds,bool active){if(!entityIds.IsCreated)throw new ArgumentException("The input NativeArray must be created.");SetGameObjectsActive(entityIds.ToArray().AsSpan(),active);}
  [Obsolete("Obsolete. Please use GameObject.InstantiateGameObjects(EntityId, int, NativeArray<EntityId>, NativeArray<EntityId>, Scene) instead.")]
  public static void InstantiateGameObjects(int sourceInstanceID,int count,NativeArray<int> newInstanceIDs,NativeArray<int> newTransformInstanceIDs,SceneManagement.Scene destinationScene=default){
-  if(!newInstanceIDs.IsCreated||!newTransformInstanceIDs.IsCreated)throw new ObjectDisposedException("Clone output arrays");
+  if(!newInstanceIDs.IsCreated||!newTransformInstanceIDs.IsCreated)throw new ArgumentException("Clone output arrays must be created");
   if(count<0||newInstanceIDs.Length!=count||newTransformInstanceIDs.Length!=count)throw new ArgumentException("Clone output arrays must match count");
   if(count==0)return;
-  var source=NativeObjects.GameObject(sourceInstanceID);
+  var source=BulkTarget(sourceInstanceID);if(source==null)return;
   var objects=Legacy.CloneBlueprint.Capture(source).InstantiateBatch(count,new InstantiateParameters{scene=destinationScene,worldSpace=true},Array.Empty<Vector3>(),Array.Empty<Quaternion>(),false).Cast<Legacy.GameObject>().ToArray();
   for(var i=0;i<count;i++){newInstanceIDs[i]=objects[i].GetInstanceID();newTransformInstanceIDs[i]=objects[i].transform.GetInstanceID();}
   Legacy.RuntimeLifecycle.Initialize();
  }
  public static void InstantiateGameObjects(EntityId sourceEntityId,int count,NativeArray<EntityId> newEntityIds,NativeArray<EntityId> newTransformEntityIds,SceneManagement.Scene destinationScene=default){
-  if(!newEntityIds.IsCreated||!newTransformEntityIds.IsCreated)throw new ObjectDisposedException("Clone output arrays");
+  if(!newEntityIds.IsCreated||!newTransformEntityIds.IsCreated)throw new ArgumentException("Clone output arrays must be created");
   if(count<0||newEntityIds.Length!=count||newTransformEntityIds.Length!=count)throw new ArgumentException("Clone output arrays must match count");
   using var gameObjects=new NativeArray<int>(count,Allocator.Temp);using var transforms=new NativeArray<int>(count,Allocator.Temp);
   InstantiateGameObjects(sourceEntityId.Value,count,gameObjects,transforms,destinationScene);

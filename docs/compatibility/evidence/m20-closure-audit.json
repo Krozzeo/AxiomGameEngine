@@ -2,7 +2,7 @@
   "milestone": "M20",
   "complete": false,
   "targetRecords": 311,
-  "certifiedUnitySignatures": 278,
+  "certifiedUnitySignatures": 308,
   "areas": {
     "UnityEngine.Component": {
       "targets": 62,
@@ -12,7 +12,7 @@
     "UnityEngine.GameObject": {
       "targets": 96,
       "aliasBehaviorTargets": 1,
-      "certifiedTargets": 83
+      "certifiedTargets": 93
     },
     "UnityEngine.Transform": {
       "targets": 81,
@@ -21,8 +21,8 @@
     },
     "UnityEngine.Object": {
       "targets": 72,
-      "aliasBehaviorTargets": 14,
-      "certifiedTargets": 52
+      "aliasBehaviorTargets": 0,
+      "certifiedTargets": 72
     }
   },
   "failedCriteria": [
@@ -31,142 +31,9 @@
   ],
   "unaccepted": [
     {
-      "id": "unity63abi:0788d4b6f80d4d1cdadd2de0",
-      "owner": "UnityEngine.Object",
-      "declaration": "public static void DontDestroyOnLoad(UnityEngine.Object target);",
-      "status": "pending",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:0cccf5bebb0c1c9f9c7f324c",
-      "owner": "UnityEngine.Object",
-      "declaration": "public static void DestroyObject(UnityEngine.Object obj);",
-      "status": "pending",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:0ee966233251556d78696f58",
-      "owner": "UnityEngine.Object",
-      "declaration": "public static T Instantiate<T>(T original, UnityEngine.Transform parent);",
-      "status": "alias-behavior-tested",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:213ed386f24b03daa57951df",
-      "owner": "UnityEngine.Object",
-      "declaration": "public static void DestroyObject(UnityEngine.Object obj, float t);",
-      "status": "pending",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:2cfb00f3bc5cf0bf6d2cba72",
-      "owner": "UnityEngine.GameObject",
-      "declaration": "public static void SetGameObjectsActive(System.ReadOnlySpan`1<UnityEngine.EntityId> entityIds, bool active);",
-      "status": "pending",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:2da1ada35b3e43b87d88e1e2",
-      "owner": "UnityEngine.GameObject",
-      "declaration": "public static void SetGameObjectsActive(System.ReadOnlySpan`1<int> instanceIDs, bool active);",
-      "status": "pending",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:33ba9989c10e83ccca343383",
-      "owner": "UnityEngine.GameObject",
-      "declaration": "public static UnityEngine.GameObject[] FindGameObjectsWithTag(string tag);",
-      "status": "pending",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:36fcd203a7684cd9af33ddb4",
-      "owner": "UnityEngine.GameObject",
-      "declaration": "public static UnityEngine.GameObject FindWithTag(string tag);",
-      "status": "pending",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:3ab348dead5757b454480fda",
-      "owner": "UnityEngine.Object",
-      "declaration": "public static void Destroy(UnityEngine.Object obj);",
-      "status": "alias-behavior-tested",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
       "id": "unity63abi:5174ba12e927c74a92090d3f",
       "owner": "UnityEngine.GameObject",
       "declaration": "public static UnityEngine.GameObject CreatePrimitive(UnityEngine.PrimitiveType type);",
-      "status": "pending",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:592a0134c188696e35bf4e66",
-      "owner": "UnityEngine.GameObject",
-      "declaration": "public static void SetGameObjectsActive(Unity.Collections.NativeArray`1<UnityEngine.EntityId> entityIds, bool active);",
-      "status": "pending",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:59fcfaca6872b386dac23585",
-      "owner": "UnityEngine.Object",
-      "declaration": "public static T Instantiate<T>(T original, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation, UnityEngine.Transform parent);",
-      "status": "alias-behavior-tested",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:59fd43ecb8aa882b11f8b8b7",
-      "owner": "UnityEngine.Object",
-      "declaration": "public static UnityEngine.Object Instantiate(UnityEngine.Object original, UnityEngine.Transform parent, bool instantiateInWorldSpace);",
-      "status": "alias-behavior-tested",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:5a0701d8dca3a5c3b8d80cdf",
-      "owner": "UnityEngine.Object",
-      "declaration": "public static UnityEngine.Object Instantiate(UnityEngine.Object original, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation, UnityEngine.Transform parent);",
-      "status": "alias-behavior-tested",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:64316228d6bac2b71b7b49f5",
-      "owner": "UnityEngine.Object",
-      "declaration": "public static T Instantiate<T>(T original, UnityEngine.Transform parent, bool worldPositionStays);",
-      "status": "alias-behavior-tested",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:6a99c2f72fff0cc5fd17659f",
-      "owner": "UnityEngine.Object",
-      "declaration": "public static UnityEngine.Object Instantiate(UnityEngine.Object original, UnityEngine.Transform parent);",
-      "status": "alias-behavior-tested",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:851f45d6adca7e4eeca55f3a",
-      "owner": "UnityEngine.Object",
-      "declaration": "public static UnityEngine.Object Instantiate(UnityEngine.Object original, UnityEngine.SceneManagement.Scene scene);",
-      "status": "pending",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:8e08d28359a39dc8ed318dbc",
-      "owner": "UnityEngine.Object",
-      "declaration": "public static UnityEngine.Object Instantiate(UnityEngine.Object original, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation);",
-      "status": "alias-behavior-tested",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:9787f518ff864182a93c1b44",
-      "owner": "UnityEngine.Object",
-      "declaration": "public static void DestroyImmediate(UnityEngine.Object obj, bool allowDestroyingAssets);",
-      "status": "alias-behavior-tested",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:9c0289db94ea27500f4c4baa",
-      "owner": "UnityEngine.Object",
-      "declaration": "public static T Instantiate<T>(T original, UnityEngine.InstantiateParameters parameters);",
       "status": "pending",
       "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
     },
@@ -178,87 +45,10 @@
       "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
     },
     {
-      "id": "unity63abi:a4edd9a83887c123596ea70f",
-      "owner": "UnityEngine.GameObject",
-      "declaration": "public static void InstantiateGameObjects(UnityEngine.EntityId sourceEntityId, int count, Unity.Collections.NativeArray`1<UnityEngine.EntityId> newEntityIds, Unity.Collections.NativeArray`1<UnityEngine.EntityId> newTransformEntityIds, UnityEngine.SceneManagement.Scene destinationScene = null);",
-      "status": "pending",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
       "id": "unity63abi:be3d0d74fe44daf23e8bdfcb",
       "owner": "UnityEngine.GameObject",
       "declaration": "public T AddComponent<T>();",
       "status": "pending",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:c5053806fcfe25cd0e53924b",
-      "owner": "UnityEngine.Object",
-      "declaration": "public static UnityEngine.Object Instantiate(UnityEngine.Object original);",
-      "status": "alias-behavior-tested",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:c566f1d711ae904e6885c84e",
-      "owner": "UnityEngine.GameObject",
-      "declaration": "public static void FindGameObjectsWithTag(string tag, System.Collections.Generic.List`1<UnityEngine.GameObject> results);",
-      "status": "pending",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:c71087ff75aa4beaae39e4d5",
-      "owner": "UnityEngine.GameObject",
-      "declaration": "public static void InstantiateGameObjects(int sourceInstanceID, int count, Unity.Collections.NativeArray`1<int> newInstanceIDs, Unity.Collections.NativeArray`1<int> newTransformInstanceIDs, UnityEngine.SceneManagement.Scene destinationScene = null);",
-      "status": "pending",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:c75500bcbb28857f0e047d9d",
-      "owner": "UnityEngine.GameObject",
-      "declaration": "public static void SetGameObjectsActive(Unity.Collections.NativeArray`1<int> instanceIDs, bool active);",
-      "status": "pending",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:cc3ff64315c89b13813d4d34",
-      "owner": "UnityEngine.Object",
-      "declaration": "public static T Instantiate<T>(T original);",
-      "status": "alias-behavior-tested",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:ce9cc94143a657f7c0d2466e",
-      "owner": "UnityEngine.Object",
-      "declaration": "public static T Instantiate<T>(T original, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation, UnityEngine.InstantiateParameters parameters);",
-      "status": "pending",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:cf508885d36f017e0859dee9",
-      "owner": "UnityEngine.Object",
-      "declaration": "public static void Destroy(UnityEngine.Object obj, float t);",
-      "status": "alias-behavior-tested",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:d9bb1556c2620581230f065f",
-      "owner": "UnityEngine.GameObject",
-      "declaration": "public static UnityEngine.GameObject FindGameObjectWithTag(string tag);",
-      "status": "pending",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:eb6ff574007ef48a1c2cda26",
-      "owner": "UnityEngine.Object",
-      "declaration": "public static T Instantiate<T>(T original, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation);",
-      "status": "alias-behavior-tested",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:edfe7179c65337bce9d8a21b",
-      "owner": "UnityEngine.Object",
-      "declaration": "public static void DestroyImmediate(UnityEngine.Object obj);",
-      "status": "alias-behavior-tested",
       "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
     }
   ]

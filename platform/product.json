@@ -65,6 +65,22 @@
     {
       "id": "m20-message-dispatch",
       "name": "M20 Message Dispatch Lab"
+    },
+    {
+      "id": "m20-sync-clone",
+      "name": "M20 Synchronous Clone Lab"
+    },
+    {
+      "id": "m20-bulk-objects",
+      "name": "M20 Bulk Objects Lab"
+    },
+    {
+      "id": "m20-object-lifetime",
+      "name": "M20 Object Lifetime Lab"
+    },
+    {
+      "id": "m20-tag-search",
+      "name": "M20 Tag Search Lab"
     }
   ]
 }

@@ -3,16 +3,16 @@
   "milestone": "M20",
   "targetRecords": 311,
   "status": "in_progress",
-  "certifiedUnitySignatures": 278,
+  "certifiedUnitySignatures": 308,
   "batch": "0.0.62 / SDK12 / canonical core and dependency profiles, behavior attribution in progress",
   "evidence": {
     "native": "evidence/m20-queries-native-windows.json",
     "developmentWasm": "evidence/m20-queries-development-wasm.json"
   },
   "requiredRemaining": [
-    "Complete attributed canonical positive/negative/lifecycle/reference review for remaining182 of311 frozen records; source matching and broad lab results are insufficient",
-    "Finish constructor and degenerate-transform edge attribution and applicable asset-backed clone requirements; implement missing required behavior rather than waiving scope. Persistent-scene ownership/reparent lifecycle are now exercised natively and in Development/AOT. All53 obsolete consumer compiler contracts pass; deprecated runtime attribution remains open.",
-    "Finish exact-head native/Wasm/AOT, UI/project/Stop/Undo/dependency regression, CI and public artifact acceptance"
+    "Finish exact AddComponent(Type), AddComponent<T> and CreatePrimitive acceptance for the remaining3 of311 frozen signatures. Do not infer full input-domain parity from bounded profiles.",
+    "Complete required same-type component storage, independent lifetime/activation, clone/reference remapping, Inspector edits and compound physics integration; retain existing generation, operation and attachment budgets.",
+    "Finish exact-head native/Wasm/AOT, UI/project/Stop/Undo/dependency regression, CI and public artifact acceptance. Main remains unchanged."
   ],
   "records": [
     {
@@ -210,12 +210,61 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static void DontDestroyOnLoad(UnityEngine.Object target);",
       "member": "DontDestroyOnLoad",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact Destroy, DestroyImmediate, obsolete DestroyObject and DontDestroyOnLoad overloads against Unity6000.3.27f1 Play, advanced one iterator step per frame. GameObject/child, BoxCollider, protected Transform, owned TextAsset/Mesh, null, retired and unbound handles retain immediate and next-frame states and caller exceptions. Positive/negative delays on delayed overloads use the same simulation clock, with native captureDeltaTime1/60 and an after-deadline observation. Both allowDestroyingAssets values cover owned assets; borrowed editor/persistent disk assets are separate. Root/root-component persistence keeps its subtree in the private scene after source unload; child requests and TextAssets log/no-op, null/unbound throw ArgumentNullException, retired targets throw MissingReferenceException. Same portable source runs in .NET and both effective browser modes with exact Stop restoration. Callback multiplicity/order and repeated-type retirement remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-object-lifetime-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-object-lifetime-native.json",
+          "caseIndex": 6,
+          "profiles": [
+            "root.call",
+            "root.unloaded",
+            "root-component.call",
+            "root-component.unloaded",
+            "child.call",
+            "child.unloaded",
+            "child-component.call",
+            "child-component.unloaded",
+            "text.call",
+            "text.unloaded",
+            "null.call",
+            "null.unloaded",
+            "retired.call",
+            "retired.unloaded",
+            "unbound.call",
+            "unbound.unloaded"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-object-lifetime-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-object-lifetime-aot-wasm.json",
+          "caseIds": [
+            "l107",
+            "l108",
+            "l109",
+            "l110",
+            "l111",
+            "l112",
+            "l113",
+            "l114",
+            "l115",
+            "l116",
+            "l117",
+            "l118",
+            "l119",
+            "l120",
+            "l121",
+            "l122"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:08407fa4b36251de1c07491c",
@@ -369,17 +418,66 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static void DestroyObject(UnityEngine.Object obj);",
       "member": "DestroyObject",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "compilerObservation": {
         "passed": true,
         "expectedDiagnostic": "CS0618",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "Exact Destroy, DestroyImmediate, obsolete DestroyObject and DontDestroyOnLoad overloads against Unity6000.3.27f1 Play, advanced one iterator step per frame. GameObject/child, BoxCollider, protected Transform, owned TextAsset/Mesh, null, retired and unbound handles retain immediate and next-frame states and caller exceptions. Positive/negative delays on delayed overloads use the same simulation clock, with native captureDeltaTime1/60 and an after-deadline observation. Both allowDestroyingAssets values cover owned assets; borrowed editor/persistent disk assets are separate. Root/root-component persistence keeps its subtree in the private scene after source unload; child requests and TextAssets log/no-op, null/unbound throw ArgumentNullException, retired targets throw MissingReferenceException. Same portable source runs in .NET and both effective browser modes with exact Stop restoration. Callback multiplicity/order and repeated-type retirement remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-object-lifetime-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-object-lifetime-native.json",
+          "caseIndex": 4,
+          "profiles": [
+            "game-object.call",
+            "game-object.after-frame",
+            "component.call",
+            "component.after-frame",
+            "transform.call",
+            "transform.after-frame",
+            "text.call",
+            "text.after-frame",
+            "mesh.call",
+            "mesh.after-frame",
+            "null.call",
+            "null.after-frame",
+            "retired.call",
+            "retired.after-frame",
+            "unbound.call",
+            "unbound.after-frame"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-object-lifetime-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-object-lifetime-aot-wasm.json",
+          "caseIds": [
+            "l071",
+            "l072",
+            "l073",
+            "l074",
+            "l075",
+            "l076",
+            "l077",
+            "l078",
+            "l079",
+            "l080",
+            "l081",
+            "l082",
+            "l083",
+            "l084",
+            "l085",
+            "l086"
+          ]
+        }
       }
     },
     {
@@ -492,15 +590,46 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static T Instantiate<T>(T original, UnityEngine.Transform parent);",
       "member": "Instantiate",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "nativePositiveEvidence": "evidence/m20-sync-clone-native-cases.json"
+      "nativePositiveEvidence": "evidence/m20-sync-clone-native-cases.json",
+      "acceptance": {
+        "contract": "Exact direct synchronous Instantiate overload against Unity6000.3.27f1 Play: GameObject and Transform results, rotated/scaled/reflected source hierarchy and destination parent, local/world/null-parent variants, explicit poses, scene destination, null/retired sources and retired parents. Pose floats use relative2e-5 tolerance and quaternion sign equivalence. Metadata retains clone identity/type/name, parent, layer/tag/static state and inactive descendants. Retired sources throw MissingReferenceException; retired parents act as null. The same source runs in native .NET and Development/effective-AOT browsers with exact Stop restoration. Managed graph/reference remapping, repeated-type components and further asset/input domains are separate required dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-sync-clone-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-sync-clone-native.json",
+          "caseIndex": 0,
+          "profiles": [
+            "regular",
+            "world",
+            "null-parent",
+            "component",
+            "null-source",
+            "retired-source",
+            "retired-parent"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-sync-clone-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-sync-clone-aot-wasm.json",
+          "caseIds": [
+            "c001",
+            "c002",
+            "c003",
+            "c004",
+            "c005",
+            "c006",
+            "c007"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:0f3971a8815de837171afcc9",
@@ -1635,17 +1764,74 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static void DestroyObject(UnityEngine.Object obj, float t);",
       "member": "DestroyObject",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "compilerObservation": {
         "passed": true,
         "expectedDiagnostic": "CS0618",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "Exact Destroy, DestroyImmediate, obsolete DestroyObject and DontDestroyOnLoad overloads against Unity6000.3.27f1 Play, advanced one iterator step per frame. GameObject/child, BoxCollider, protected Transform, owned TextAsset/Mesh, null, retired and unbound handles retain immediate and next-frame states and caller exceptions. Positive/negative delays on delayed overloads use the same simulation clock, with native captureDeltaTime1/60 and an after-deadline observation. Both allowDestroyingAssets values cover owned assets; borrowed editor/persistent disk assets are separate. Root/root-component persistence keeps its subtree in the private scene after source unload; child requests and TextAssets log/no-op, null/unbound throw ArgumentNullException, retired targets throw MissingReferenceException. Same portable source runs in .NET and both effective browser modes with exact Stop restoration. Callback multiplicity/order and repeated-type retirement remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-object-lifetime-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-object-lifetime-native.json",
+          "caseIndex": 5,
+          "profiles": [
+            "game-object.call",
+            "game-object.after-frame",
+            "component.call",
+            "component.after-frame",
+            "transform.call",
+            "transform.after-frame",
+            "text.call",
+            "text.after-frame",
+            "mesh.call",
+            "mesh.after-frame",
+            "null.call",
+            "null.after-frame",
+            "retired.call",
+            "retired.after-frame",
+            "unbound.call",
+            "unbound.after-frame",
+            "positive-delay.call",
+            "positive-delay.after-delay",
+            "negative-delay.call",
+            "negative-delay.after-frame"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-object-lifetime-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-object-lifetime-aot-wasm.json",
+          "caseIds": [
+            "l087",
+            "l088",
+            "l089",
+            "l090",
+            "l091",
+            "l092",
+            "l093",
+            "l094",
+            "l095",
+            "l096",
+            "l097",
+            "l098",
+            "l099",
+            "l100",
+            "l101",
+            "l102",
+            "l103",
+            "l104",
+            "l105",
+            "l106"
+          ]
+        }
       }
     },
     {
@@ -2115,12 +2301,41 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public static void SetGameObjectsActive(System.ReadOnlySpan`1<UnityEngine.EntityId> entityIds, bool active);",
       "member": "SetGameObjectsActive",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct int/EntityId span and NativeArray activation, and int/EntityId bulk clone calls against Unity6000.3.27f1 Play. Live/duplicate/component/zero/retired IDs, empty spans, uncreated/disposed arrays, clone counts1/2/0/negative and short/long outputs retain exact exceptions and resulting activation/output occupancy. Activation skips invalid identities while applying valid IDs; invalid clone sources leave outputs untouched; output lengths must equal count. Per-ID ownership, distinct clone identities and destination scene integration have additional owned core regressions. NativeArray allocation/Jobs interoperability and full capacity/overlap domains are outside this bounded API profile. Same source executes in .NET and both effective browser modes with exact Stop restoration; host packet validation remains strict.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-bulk-object-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-bulk-objects-native.json",
+          "caseIndex": 1,
+          "profiles": [
+            "live",
+            "duplicate",
+            "component",
+            "zero",
+            "retired",
+            "empty"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-bulk-objects-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-bulk-objects-aot-wasm.json",
+          "caseIds": [
+            "b007",
+            "b008",
+            "b009",
+            "b010",
+            "b011",
+            "b012"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:2d0219405f216b4ac3a3018e",
@@ -2157,17 +2372,46 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public static void SetGameObjectsActive(System.ReadOnlySpan`1<int> instanceIDs, bool active);",
       "member": "SetGameObjectsActive",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "compilerObservation": {
         "passed": true,
         "expectedDiagnostic": "CS0618",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "Exact direct int/EntityId span and NativeArray activation, and int/EntityId bulk clone calls against Unity6000.3.27f1 Play. Live/duplicate/component/zero/retired IDs, empty spans, uncreated/disposed arrays, clone counts1/2/0/negative and short/long outputs retain exact exceptions and resulting activation/output occupancy. Activation skips invalid identities while applying valid IDs; invalid clone sources leave outputs untouched; output lengths must equal count. Per-ID ownership, distinct clone identities and destination scene integration have additional owned core regressions. NativeArray allocation/Jobs interoperability and full capacity/overlap domains are outside this bounded API profile. Same source executes in .NET and both effective browser modes with exact Stop restoration; host packet validation remains strict.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-bulk-object-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-bulk-objects-native.json",
+          "caseIndex": 0,
+          "profiles": [
+            "live",
+            "duplicate",
+            "component",
+            "zero",
+            "retired",
+            "empty"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-bulk-objects-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-bulk-objects-aot-wasm.json",
+          "caseIds": [
+            "b001",
+            "b002",
+            "b003",
+            "b004",
+            "b005",
+            "b006"
+          ]
+        }
       }
     },
     {
@@ -2603,12 +2847,47 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public static UnityEngine.GameObject[] FindGameObjectsWithTag(string tag);",
       "member": "FindGameObjectsWithTag",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct scalar/alias/array/list tag searches against Unity6000.3.27f1 Play: controlled active hierarchy, inactive/retired objects, built-in Player/Finish/Untagged, explicitly assigned Untagged, unknown/null/empty tags and null result lists combined with valid/null/unknown tags. Scalar choice is eligible membership and array/list membership is normalized to controlled sorted names; unspecified search order is not inferred. Untagged searches return no match in the pinned reference, including explicit assignment. Null/empty tags throw ArgumentException, unknown tags UnityException; list clearing occurs before tag validation and a null list throws NullReferenceException first. Same source executes in .NET and both effective browser modes with exact Stop restoration. Custom project tag-catalog authoring and cross-scene ordering remain separate.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-tag-search-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-tag-search-native.json",
+          "caseIndex": 2,
+          "profiles": [
+            "Player",
+            "Finish",
+            "Untagged",
+            "unknown",
+            "null",
+            "empty",
+            "inactive",
+            "retired",
+            "explicit-untagged"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-tag-search-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-tag-search-aot-wasm.json",
+          "caseIds": [
+            "t019",
+            "t020",
+            "t021",
+            "t022",
+            "t023",
+            "t024",
+            "t025",
+            "t026",
+            "t027"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:34b1b2a371445c5cf7c8fe08",
@@ -2901,12 +3180,47 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public static UnityEngine.GameObject FindWithTag(string tag);",
       "member": "FindWithTag",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct scalar/alias/array/list tag searches against Unity6000.3.27f1 Play: controlled active hierarchy, inactive/retired objects, built-in Player/Finish/Untagged, explicitly assigned Untagged, unknown/null/empty tags and null result lists combined with valid/null/unknown tags. Scalar choice is eligible membership and array/list membership is normalized to controlled sorted names; unspecified search order is not inferred. Untagged searches return no match in the pinned reference, including explicit assignment. Null/empty tags throw ArgumentException, unknown tags UnityException; list clearing occurs before tag validation and a null list throws NullReferenceException first. Same source executes in .NET and both effective browser modes with exact Stop restoration. Custom project tag-catalog authoring and cross-scene ordering remain separate.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-tag-search-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-tag-search-native.json",
+          "caseIndex": 0,
+          "profiles": [
+            "Player",
+            "Finish",
+            "Untagged",
+            "unknown",
+            "null",
+            "empty",
+            "inactive",
+            "retired",
+            "explicit-untagged"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-tag-search-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-tag-search-aot-wasm.json",
+          "caseIds": [
+            "t001",
+            "t002",
+            "t003",
+            "t004",
+            "t005",
+            "t006",
+            "t007",
+            "t008",
+            "t009"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:39716172f20cadd1ffd0ced8",
@@ -3075,14 +3389,63 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static void Destroy(UnityEngine.Object obj);",
       "member": "Destroy",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/RuntimeObjects.cs; Scheduling.cs; Compatibility.cs",
       "evidence": "tests/csharp/M20.Objects/Program.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact Destroy, DestroyImmediate, obsolete DestroyObject and DontDestroyOnLoad overloads against Unity6000.3.27f1 Play, advanced one iterator step per frame. GameObject/child, BoxCollider, protected Transform, owned TextAsset/Mesh, null, retired and unbound handles retain immediate and next-frame states and caller exceptions. Positive/negative delays on delayed overloads use the same simulation clock, with native captureDeltaTime1/60 and an after-deadline observation. Both allowDestroyingAssets values cover owned assets; borrowed editor/persistent disk assets are separate. Root/root-component persistence keeps its subtree in the private scene after source unload; child requests and TextAssets log/no-op, null/unbound throw ArgumentNullException, retired targets throw MissingReferenceException. Same portable source runs in .NET and both effective browser modes with exact Stop restoration. Callback multiplicity/order and repeated-type retirement remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-object-lifetime-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-object-lifetime-native.json",
+          "caseIndex": 0,
+          "profiles": [
+            "game-object.call",
+            "game-object.after-frame",
+            "component.call",
+            "component.after-frame",
+            "transform.call",
+            "transform.after-frame",
+            "text.call",
+            "text.after-frame",
+            "mesh.call",
+            "mesh.after-frame",
+            "null.call",
+            "null.after-frame",
+            "retired.call",
+            "retired.after-frame",
+            "unbound.call",
+            "unbound.after-frame"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-object-lifetime-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-object-lifetime-aot-wasm.json",
+          "caseIds": [
+            "l001",
+            "l002",
+            "l003",
+            "l004",
+            "l005",
+            "l006",
+            "l007",
+            "l008",
+            "l009",
+            "l010",
+            "l011",
+            "l012",
+            "l013",
+            "l014",
+            "l015",
+            "l016"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:3b016ed797047803e8a253fc",
@@ -4537,12 +4900,45 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public static void SetGameObjectsActive(Unity.Collections.NativeArray`1<UnityEngine.EntityId> entityIds, bool active);",
       "member": "SetGameObjectsActive",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct int/EntityId span and NativeArray activation, and int/EntityId bulk clone calls against Unity6000.3.27f1 Play. Live/duplicate/component/zero/retired IDs, empty spans, uncreated/disposed arrays, clone counts1/2/0/negative and short/long outputs retain exact exceptions and resulting activation/output occupancy. Activation skips invalid identities while applying valid IDs; invalid clone sources leave outputs untouched; output lengths must equal count. Per-ID ownership, distinct clone identities and destination scene integration have additional owned core regressions. NativeArray allocation/Jobs interoperability and full capacity/overlap domains are outside this bounded API profile. Same source executes in .NET and both effective browser modes with exact Stop restoration; host packet validation remains strict.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-bulk-object-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-bulk-objects-native.json",
+          "caseIndex": 3,
+          "profiles": [
+            "live",
+            "duplicate",
+            "component",
+            "zero",
+            "retired",
+            "empty",
+            "default-array",
+            "disposed-array"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-bulk-objects-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-bulk-objects-aot-wasm.json",
+          "caseIds": [
+            "b021",
+            "b022",
+            "b023",
+            "b024",
+            "b025",
+            "b026",
+            "b027",
+            "b028"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:596db428f951b74f4407f112",
@@ -4648,45 +5044,138 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static T Instantiate<T>(T original, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation, UnityEngine.Transform parent);",
       "member": "Instantiate",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "nativePositiveEvidence": "evidence/m20-sync-clone-native-cases.json"
+      "nativePositiveEvidence": "evidence/m20-sync-clone-native-cases.json",
+      "acceptance": {
+        "contract": "Exact direct synchronous Instantiate overload against Unity6000.3.27f1 Play: GameObject and Transform results, rotated/scaled/reflected source hierarchy and destination parent, local/world/null-parent variants, explicit poses, scene destination, null/retired sources and retired parents. Pose floats use relative2e-5 tolerance and quaternion sign equivalence. Metadata retains clone identity/type/name, parent, layer/tag/static state and inactive descendants. Retired sources throw MissingReferenceException; retired parents act as null. The same source runs in native .NET and Development/effective-AOT browsers with exact Stop restoration. Managed graph/reference remapping, repeated-type components and further asset/input domains are separate required dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-sync-clone-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-sync-clone-native.json",
+          "caseIndex": 1,
+          "profiles": [
+            "regular",
+            "world",
+            "null-parent",
+            "component",
+            "null-source",
+            "retired-source",
+            "retired-parent"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-sync-clone-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-sync-clone-aot-wasm.json",
+          "caseIds": [
+            "c008",
+            "c009",
+            "c010",
+            "c011",
+            "c012",
+            "c013",
+            "c014"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:59fd43ecb8aa882b11f8b8b7",
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.Object Instantiate(UnityEngine.Object original, UnityEngine.Transform parent, bool instantiateInWorldSpace);",
       "member": "Instantiate",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "nativePositiveEvidence": "evidence/m20-sync-clone-native-cases.json"
+      "nativePositiveEvidence": "evidence/m20-sync-clone-native-cases.json",
+      "acceptance": {
+        "contract": "Exact direct synchronous Instantiate overload against Unity6000.3.27f1 Play: GameObject and Transform results, rotated/scaled/reflected source hierarchy and destination parent, local/world/null-parent variants, explicit poses, scene destination, null/retired sources and retired parents. Pose floats use relative2e-5 tolerance and quaternion sign equivalence. Metadata retains clone identity/type/name, parent, layer/tag/static state and inactive descendants. Retired sources throw MissingReferenceException; retired parents act as null. The same source runs in native .NET and Development/effective-AOT browsers with exact Stop restoration. Managed graph/reference remapping, repeated-type components and further asset/input domains are separate required dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-sync-clone-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-sync-clone-native.json",
+          "caseIndex": 2,
+          "profiles": [
+            "regular",
+            "world",
+            "null-parent",
+            "component",
+            "null-source",
+            "retired-source",
+            "retired-parent"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-sync-clone-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-sync-clone-aot-wasm.json",
+          "caseIds": [
+            "c015",
+            "c016",
+            "c017",
+            "c018",
+            "c019",
+            "c020",
+            "c021"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:5a0701d8dca3a5c3b8d80cdf",
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.Object Instantiate(UnityEngine.Object original, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation, UnityEngine.Transform parent);",
       "member": "Instantiate",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "nativePositiveEvidence": "evidence/m20-sync-clone-native-cases.json"
+      "nativePositiveEvidence": "evidence/m20-sync-clone-native-cases.json",
+      "acceptance": {
+        "contract": "Exact direct synchronous Instantiate overload against Unity6000.3.27f1 Play: GameObject and Transform results, rotated/scaled/reflected source hierarchy and destination parent, local/world/null-parent variants, explicit poses, scene destination, null/retired sources and retired parents. Pose floats use relative2e-5 tolerance and quaternion sign equivalence. Metadata retains clone identity/type/name, parent, layer/tag/static state and inactive descendants. Retired sources throw MissingReferenceException; retired parents act as null. The same source runs in native .NET and Development/effective-AOT browsers with exact Stop restoration. Managed graph/reference remapping, repeated-type components and further asset/input domains are separate required dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-sync-clone-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-sync-clone-native.json",
+          "caseIndex": 3,
+          "profiles": [
+            "regular",
+            "world",
+            "null-parent",
+            "component",
+            "null-source",
+            "retired-source",
+            "retired-parent"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-sync-clone-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-sync-clone-aot-wasm.json",
+          "caseIds": [
+            "c022",
+            "c023",
+            "c024",
+            "c025",
+            "c026",
+            "c027",
+            "c028"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:5b3e66afe646d9587c9e2c84",
@@ -5110,15 +5599,46 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static T Instantiate<T>(T original, UnityEngine.Transform parent, bool worldPositionStays);",
       "member": "Instantiate",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "nativePositiveEvidence": "evidence/m20-sync-clone-native-cases.json"
+      "nativePositiveEvidence": "evidence/m20-sync-clone-native-cases.json",
+      "acceptance": {
+        "contract": "Exact direct synchronous Instantiate overload against Unity6000.3.27f1 Play: GameObject and Transform results, rotated/scaled/reflected source hierarchy and destination parent, local/world/null-parent variants, explicit poses, scene destination, null/retired sources and retired parents. Pose floats use relative2e-5 tolerance and quaternion sign equivalence. Metadata retains clone identity/type/name, parent, layer/tag/static state and inactive descendants. Retired sources throw MissingReferenceException; retired parents act as null. The same source runs in native .NET and Development/effective-AOT browsers with exact Stop restoration. Managed graph/reference remapping, repeated-type components and further asset/input domains are separate required dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-sync-clone-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-sync-clone-native.json",
+          "caseIndex": 4,
+          "profiles": [
+            "regular",
+            "world",
+            "null-parent",
+            "component",
+            "null-source",
+            "retired-source",
+            "retired-parent"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-sync-clone-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-sync-clone-aot-wasm.json",
+          "caseIds": [
+            "c029",
+            "c030",
+            "c031",
+            "c032",
+            "c033",
+            "c034",
+            "c035"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:64d280c6f61646257e6b0d38",
@@ -5350,15 +5870,46 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.Object Instantiate(UnityEngine.Object original, UnityEngine.Transform parent);",
       "member": "Instantiate",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "nativePositiveEvidence": "evidence/m20-sync-clone-native-cases.json"
+      "nativePositiveEvidence": "evidence/m20-sync-clone-native-cases.json",
+      "acceptance": {
+        "contract": "Exact direct synchronous Instantiate overload against Unity6000.3.27f1 Play: GameObject and Transform results, rotated/scaled/reflected source hierarchy and destination parent, local/world/null-parent variants, explicit poses, scene destination, null/retired sources and retired parents. Pose floats use relative2e-5 tolerance and quaternion sign equivalence. Metadata retains clone identity/type/name, parent, layer/tag/static state and inactive descendants. Retired sources throw MissingReferenceException; retired parents act as null. The same source runs in native .NET and Development/effective-AOT browsers with exact Stop restoration. Managed graph/reference remapping, repeated-type components and further asset/input domains are separate required dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-sync-clone-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-sync-clone-native.json",
+          "caseIndex": 5,
+          "profiles": [
+            "regular",
+            "world",
+            "null-parent",
+            "component",
+            "null-source",
+            "retired-source",
+            "retired-parent"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-sync-clone-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-sync-clone-aot-wasm.json",
+          "caseIds": [
+            "c036",
+            "c037",
+            "c038",
+            "c039",
+            "c040",
+            "c041",
+            "c042"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:6cb646dccf3f12dd88297b8b",
@@ -6721,13 +7272,44 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.Object Instantiate(UnityEngine.Object original, UnityEngine.SceneManagement.Scene scene);",
       "member": "Instantiate",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
-      "nativePositiveEvidence": "evidence/m20-sync-clone-native-cases.json"
+      "nativePositiveEvidence": "evidence/m20-sync-clone-native-cases.json",
+      "acceptance": {
+        "contract": "Exact direct synchronous Instantiate overload against Unity6000.3.27f1 Play: GameObject and Transform results, rotated/scaled/reflected source hierarchy and destination parent, local/world/null-parent variants, explicit poses, scene destination, null/retired sources and retired parents. Pose floats use relative2e-5 tolerance and quaternion sign equivalence. Metadata retains clone identity/type/name, parent, layer/tag/static state and inactive descendants. Retired sources throw MissingReferenceException; retired parents act as null. The same source runs in native .NET and Development/effective-AOT browsers with exact Stop restoration. Managed graph/reference remapping, repeated-type components and further asset/input domains are separate required dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-sync-clone-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-sync-clone-native.json",
+          "caseIndex": 6,
+          "profiles": [
+            "regular",
+            "world",
+            "null-parent",
+            "component",
+            "null-source",
+            "retired-source",
+            "retired-parent"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-sync-clone-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-sync-clone-aot-wasm.json",
+          "caseIds": [
+            "c043",
+            "c044",
+            "c045",
+            "c046",
+            "c047",
+            "c048",
+            "c049"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:852504445b3861eb1899e673",
@@ -7438,15 +8020,46 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.Object Instantiate(UnityEngine.Object original, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation);",
       "member": "Instantiate",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "nativePositiveEvidence": "evidence/m20-sync-clone-native-cases.json"
+      "nativePositiveEvidence": "evidence/m20-sync-clone-native-cases.json",
+      "acceptance": {
+        "contract": "Exact direct synchronous Instantiate overload against Unity6000.3.27f1 Play: GameObject and Transform results, rotated/scaled/reflected source hierarchy and destination parent, local/world/null-parent variants, explicit poses, scene destination, null/retired sources and retired parents. Pose floats use relative2e-5 tolerance and quaternion sign equivalence. Metadata retains clone identity/type/name, parent, layer/tag/static state and inactive descendants. Retired sources throw MissingReferenceException; retired parents act as null. The same source runs in native .NET and Development/effective-AOT browsers with exact Stop restoration. Managed graph/reference remapping, repeated-type components and further asset/input domains are separate required dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-sync-clone-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-sync-clone-native.json",
+          "caseIndex": 7,
+          "profiles": [
+            "regular",
+            "world",
+            "null-parent",
+            "component",
+            "null-source",
+            "retired-source",
+            "retired-parent"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-sync-clone-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-sync-clone-aot-wasm.json",
+          "caseIds": [
+            "c050",
+            "c051",
+            "c052",
+            "c053",
+            "c054",
+            "c055",
+            "c056"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:90bce06bd71a64240787fe13",
@@ -7847,14 +8460,67 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static void DestroyImmediate(UnityEngine.Object obj, bool allowDestroyingAssets);",
       "member": "DestroyImmediate",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/RuntimeObjects.cs; Scheduling.cs; Compatibility.cs",
       "evidence": "tests/csharp/M20.Objects/Program.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact Destroy, DestroyImmediate, obsolete DestroyObject and DontDestroyOnLoad overloads against Unity6000.3.27f1 Play, advanced one iterator step per frame. GameObject/child, BoxCollider, protected Transform, owned TextAsset/Mesh, null, retired and unbound handles retain immediate and next-frame states and caller exceptions. Positive/negative delays on delayed overloads use the same simulation clock, with native captureDeltaTime1/60 and an after-deadline observation. Both allowDestroyingAssets values cover owned assets; borrowed editor/persistent disk assets are separate. Root/root-component persistence keeps its subtree in the private scene after source unload; child requests and TextAssets log/no-op, null/unbound throw ArgumentNullException, retired targets throw MissingReferenceException. Same portable source runs in .NET and both effective browser modes with exact Stop restoration. Callback multiplicity/order and repeated-type retirement remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-object-lifetime-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-object-lifetime-native.json",
+          "caseIndex": 3,
+          "profiles": [
+            "game-object.call",
+            "game-object.after-frame",
+            "component.call",
+            "component.after-frame",
+            "transform.call",
+            "transform.after-frame",
+            "text.call",
+            "text.after-frame",
+            "mesh.call",
+            "mesh.after-frame",
+            "null.call",
+            "null.after-frame",
+            "retired.call",
+            "retired.after-frame",
+            "unbound.call",
+            "unbound.after-frame",
+            "deny-assets.call",
+            "deny-assets.after-frame"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-object-lifetime-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-object-lifetime-aot-wasm.json",
+          "caseIds": [
+            "l053",
+            "l054",
+            "l055",
+            "l056",
+            "l057",
+            "l058",
+            "l059",
+            "l060",
+            "l061",
+            "l062",
+            "l063",
+            "l064",
+            "l065",
+            "l066",
+            "l067",
+            "l068",
+            "l069",
+            "l070"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:97bcb61a53a136c96ab92cb3",
@@ -8255,13 +8921,44 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static T Instantiate<T>(T original, UnityEngine.InstantiateParameters parameters);",
       "member": "Instantiate",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
-      "nativePositiveEvidence": "evidence/m20-sync-clone-native-cases.json"
+      "nativePositiveEvidence": "evidence/m20-sync-clone-native-cases.json",
+      "acceptance": {
+        "contract": "Exact direct synchronous Instantiate overload against Unity6000.3.27f1 Play: GameObject and Transform results, rotated/scaled/reflected source hierarchy and destination parent, local/world/null-parent variants, explicit poses, scene destination, null/retired sources and retired parents. Pose floats use relative2e-5 tolerance and quaternion sign equivalence. Metadata retains clone identity/type/name, parent, layer/tag/static state and inactive descendants. Retired sources throw MissingReferenceException; retired parents act as null. The same source runs in native .NET and Development/effective-AOT browsers with exact Stop restoration. Managed graph/reference remapping, repeated-type components and further asset/input domains are separate required dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-sync-clone-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-sync-clone-native.json",
+          "caseIndex": 8,
+          "profiles": [
+            "regular",
+            "world",
+            "null-parent",
+            "component",
+            "null-source",
+            "retired-source",
+            "retired-parent"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-sync-clone-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-sync-clone-aot-wasm.json",
+          "caseIds": [
+            "c057",
+            "c058",
+            "c059",
+            "c060",
+            "c061",
+            "c062",
+            "c063"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:9ca472a1cf35bcf35f094910",
@@ -8786,12 +9483,51 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public static void InstantiateGameObjects(UnityEngine.EntityId sourceEntityId, int count, Unity.Collections.NativeArray`1<UnityEngine.EntityId> newEntityIds, Unity.Collections.NativeArray`1<UnityEngine.EntityId> newTransformEntityIds, UnityEngine.SceneManagement.Scene destinationScene = null);",
       "member": "InstantiateGameObjects",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct int/EntityId span and NativeArray activation, and int/EntityId bulk clone calls against Unity6000.3.27f1 Play. Live/duplicate/component/zero/retired IDs, empty spans, uncreated/disposed arrays, clone counts1/2/0/negative and short/long outputs retain exact exceptions and resulting activation/output occupancy. Activation skips invalid identities while applying valid IDs; invalid clone sources leave outputs untouched; output lengths must equal count. Per-ID ownership, distinct clone identities and destination scene integration have additional owned core regressions. NativeArray allocation/Jobs interoperability and full capacity/overlap domains are outside this bounded API profile. Same source executes in .NET and both effective browser modes with exact Stop restoration; host packet validation remains strict.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-bulk-object-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-bulk-objects-native.json",
+          "caseIndex": 5,
+          "profiles": [
+            "live",
+            "two",
+            "zero",
+            "negative",
+            "source-zero",
+            "source-component",
+            "source-retired",
+            "short",
+            "long",
+            "default-array",
+            "disposed-array"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-bulk-objects-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-bulk-objects-aot-wasm.json",
+          "caseIds": [
+            "b040",
+            "b041",
+            "b042",
+            "b043",
+            "b044",
+            "b045",
+            "b046",
+            "b047",
+            "b048",
+            "b049",
+            "b050"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:a4f22e3407ac37024ecb1680",
@@ -10221,15 +10957,46 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.Object Instantiate(UnityEngine.Object original);",
       "member": "Instantiate",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "nativePositiveEvidence": "evidence/m20-sync-clone-native-cases.json"
+      "nativePositiveEvidence": "evidence/m20-sync-clone-native-cases.json",
+      "acceptance": {
+        "contract": "Exact direct synchronous Instantiate overload against Unity6000.3.27f1 Play: GameObject and Transform results, rotated/scaled/reflected source hierarchy and destination parent, local/world/null-parent variants, explicit poses, scene destination, null/retired sources and retired parents. Pose floats use relative2e-5 tolerance and quaternion sign equivalence. Metadata retains clone identity/type/name, parent, layer/tag/static state and inactive descendants. Retired sources throw MissingReferenceException; retired parents act as null. The same source runs in native .NET and Development/effective-AOT browsers with exact Stop restoration. Managed graph/reference remapping, repeated-type components and further asset/input domains are separate required dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-sync-clone-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-sync-clone-native.json",
+          "caseIndex": 9,
+          "profiles": [
+            "regular",
+            "world",
+            "null-parent",
+            "component",
+            "null-source",
+            "retired-source",
+            "retired-parent"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-sync-clone-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-sync-clone-aot-wasm.json",
+          "caseIds": [
+            "c064",
+            "c065",
+            "c066",
+            "c067",
+            "c068",
+            "c069",
+            "c070"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:c536bf082dd9410ae4b8dcaa",
@@ -10283,12 +11050,53 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public static void FindGameObjectsWithTag(string tag, System.Collections.Generic.List`1<UnityEngine.GameObject> results);",
       "member": "FindGameObjectsWithTag",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct scalar/alias/array/list tag searches against Unity6000.3.27f1 Play: controlled active hierarchy, inactive/retired objects, built-in Player/Finish/Untagged, explicitly assigned Untagged, unknown/null/empty tags and null result lists combined with valid/null/unknown tags. Scalar choice is eligible membership and array/list membership is normalized to controlled sorted names; unspecified search order is not inferred. Untagged searches return no match in the pinned reference, including explicit assignment. Null/empty tags throw ArgumentException, unknown tags UnityException; list clearing occurs before tag validation and a null list throws NullReferenceException first. Same source executes in .NET and both effective browser modes with exact Stop restoration. Custom project tag-catalog authoring and cross-scene ordering remain separate.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-tag-search-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-tag-search-native.json",
+          "caseIndex": 3,
+          "profiles": [
+            "Player",
+            "Finish",
+            "Untagged",
+            "unknown",
+            "null",
+            "empty",
+            "inactive",
+            "retired",
+            "explicit-untagged",
+            "null-results",
+            "null-tag-and-results",
+            "unknown-tag-and-results"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-tag-search-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-tag-search-aot-wasm.json",
+          "caseIds": [
+            "t028",
+            "t029",
+            "t030",
+            "t031",
+            "t032",
+            "t033",
+            "t034",
+            "t035",
+            "t036",
+            "t037",
+            "t038",
+            "t039"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:c623d6d3f5582e85af95aadb",
@@ -10330,17 +11138,56 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public static void InstantiateGameObjects(int sourceInstanceID, int count, Unity.Collections.NativeArray`1<int> newInstanceIDs, Unity.Collections.NativeArray`1<int> newTransformInstanceIDs, UnityEngine.SceneManagement.Scene destinationScene = null);",
       "member": "InstantiateGameObjects",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "compilerObservation": {
         "passed": true,
         "expectedDiagnostic": "CS0618",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "Exact direct int/EntityId span and NativeArray activation, and int/EntityId bulk clone calls against Unity6000.3.27f1 Play. Live/duplicate/component/zero/retired IDs, empty spans, uncreated/disposed arrays, clone counts1/2/0/negative and short/long outputs retain exact exceptions and resulting activation/output occupancy. Activation skips invalid identities while applying valid IDs; invalid clone sources leave outputs untouched; output lengths must equal count. Per-ID ownership, distinct clone identities and destination scene integration have additional owned core regressions. NativeArray allocation/Jobs interoperability and full capacity/overlap domains are outside this bounded API profile. Same source executes in .NET and both effective browser modes with exact Stop restoration; host packet validation remains strict.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-bulk-object-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-bulk-objects-native.json",
+          "caseIndex": 4,
+          "profiles": [
+            "live",
+            "two",
+            "zero",
+            "negative",
+            "source-zero",
+            "source-component",
+            "source-retired",
+            "short",
+            "long",
+            "default-array",
+            "disposed-array"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-bulk-objects-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-bulk-objects-aot-wasm.json",
+          "caseIds": [
+            "b029",
+            "b030",
+            "b031",
+            "b032",
+            "b033",
+            "b034",
+            "b035",
+            "b036",
+            "b037",
+            "b038",
+            "b039"
+          ]
+        }
       }
     },
     {
@@ -10348,17 +11195,50 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public static void SetGameObjectsActive(Unity.Collections.NativeArray`1<int> instanceIDs, bool active);",
       "member": "SetGameObjectsActive",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "compilerObservation": {
         "passed": true,
         "expectedDiagnostic": "CS0618",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "Exact direct int/EntityId span and NativeArray activation, and int/EntityId bulk clone calls against Unity6000.3.27f1 Play. Live/duplicate/component/zero/retired IDs, empty spans, uncreated/disposed arrays, clone counts1/2/0/negative and short/long outputs retain exact exceptions and resulting activation/output occupancy. Activation skips invalid identities while applying valid IDs; invalid clone sources leave outputs untouched; output lengths must equal count. Per-ID ownership, distinct clone identities and destination scene integration have additional owned core regressions. NativeArray allocation/Jobs interoperability and full capacity/overlap domains are outside this bounded API profile. Same source executes in .NET and both effective browser modes with exact Stop restoration; host packet validation remains strict.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-bulk-object-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-bulk-objects-native.json",
+          "caseIndex": 2,
+          "profiles": [
+            "live",
+            "duplicate",
+            "component",
+            "zero",
+            "retired",
+            "empty",
+            "default-array",
+            "disposed-array"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-bulk-objects-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-bulk-objects-aot-wasm.json",
+          "caseIds": [
+            "b013",
+            "b014",
+            "b015",
+            "b016",
+            "b017",
+            "b018",
+            "b019",
+            "b020"
+          ]
+        }
       }
     },
     {
@@ -10592,15 +11472,46 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static T Instantiate<T>(T original);",
       "member": "Instantiate",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "nativePositiveEvidence": "evidence/m20-sync-clone-native-cases.json"
+      "nativePositiveEvidence": "evidence/m20-sync-clone-native-cases.json",
+      "acceptance": {
+        "contract": "Exact direct synchronous Instantiate overload against Unity6000.3.27f1 Play: GameObject and Transform results, rotated/scaled/reflected source hierarchy and destination parent, local/world/null-parent variants, explicit poses, scene destination, null/retired sources and retired parents. Pose floats use relative2e-5 tolerance and quaternion sign equivalence. Metadata retains clone identity/type/name, parent, layer/tag/static state and inactive descendants. Retired sources throw MissingReferenceException; retired parents act as null. The same source runs in native .NET and Development/effective-AOT browsers with exact Stop restoration. Managed graph/reference remapping, repeated-type components and further asset/input domains are separate required dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-sync-clone-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-sync-clone-native.json",
+          "caseIndex": 10,
+          "profiles": [
+            "regular",
+            "world",
+            "null-parent",
+            "component",
+            "null-source",
+            "retired-source",
+            "retired-parent"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-sync-clone-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-sync-clone-aot-wasm.json",
+          "caseIds": [
+            "c071",
+            "c072",
+            "c073",
+            "c074",
+            "c075",
+            "c076",
+            "c077"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:cc7849175ffc885ad0000051",
@@ -10678,13 +11589,44 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static T Instantiate<T>(T original, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation, UnityEngine.InstantiateParameters parameters);",
       "member": "Instantiate",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
-      "nativePositiveEvidence": "evidence/m20-sync-clone-native-cases.json"
+      "nativePositiveEvidence": "evidence/m20-sync-clone-native-cases.json",
+      "acceptance": {
+        "contract": "Exact direct synchronous Instantiate overload against Unity6000.3.27f1 Play: GameObject and Transform results, rotated/scaled/reflected source hierarchy and destination parent, local/world/null-parent variants, explicit poses, scene destination, null/retired sources and retired parents. Pose floats use relative2e-5 tolerance and quaternion sign equivalence. Metadata retains clone identity/type/name, parent, layer/tag/static state and inactive descendants. Retired sources throw MissingReferenceException; retired parents act as null. The same source runs in native .NET and Development/effective-AOT browsers with exact Stop restoration. Managed graph/reference remapping, repeated-type components and further asset/input domains are separate required dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-sync-clone-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-sync-clone-native.json",
+          "caseIndex": 11,
+          "profiles": [
+            "regular",
+            "world",
+            "null-parent",
+            "component",
+            "null-source",
+            "retired-source",
+            "retired-parent"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-sync-clone-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-sync-clone-aot-wasm.json",
+          "caseIds": [
+            "c078",
+            "c079",
+            "c080",
+            "c081",
+            "c082",
+            "c083",
+            "c084"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:cefef25826ba5df1c77ec094",
@@ -10736,14 +11678,71 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static void Destroy(UnityEngine.Object obj, float t);",
       "member": "Destroy",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/RuntimeObjects.cs; Scheduling.cs; Compatibility.cs",
       "evidence": "tests/csharp/M20.Objects/Program.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact Destroy, DestroyImmediate, obsolete DestroyObject and DontDestroyOnLoad overloads against Unity6000.3.27f1 Play, advanced one iterator step per frame. GameObject/child, BoxCollider, protected Transform, owned TextAsset/Mesh, null, retired and unbound handles retain immediate and next-frame states and caller exceptions. Positive/negative delays on delayed overloads use the same simulation clock, with native captureDeltaTime1/60 and an after-deadline observation. Both allowDestroyingAssets values cover owned assets; borrowed editor/persistent disk assets are separate. Root/root-component persistence keeps its subtree in the private scene after source unload; child requests and TextAssets log/no-op, null/unbound throw ArgumentNullException, retired targets throw MissingReferenceException. Same portable source runs in .NET and both effective browser modes with exact Stop restoration. Callback multiplicity/order and repeated-type retirement remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-object-lifetime-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-object-lifetime-native.json",
+          "caseIndex": 1,
+          "profiles": [
+            "game-object.call",
+            "game-object.after-frame",
+            "component.call",
+            "component.after-frame",
+            "transform.call",
+            "transform.after-frame",
+            "text.call",
+            "text.after-frame",
+            "mesh.call",
+            "mesh.after-frame",
+            "null.call",
+            "null.after-frame",
+            "retired.call",
+            "retired.after-frame",
+            "unbound.call",
+            "unbound.after-frame",
+            "positive-delay.call",
+            "positive-delay.after-delay",
+            "negative-delay.call",
+            "negative-delay.after-frame"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-object-lifetime-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-object-lifetime-aot-wasm.json",
+          "caseIds": [
+            "l017",
+            "l018",
+            "l019",
+            "l020",
+            "l021",
+            "l022",
+            "l023",
+            "l024",
+            "l025",
+            "l026",
+            "l027",
+            "l028",
+            "l029",
+            "l030",
+            "l031",
+            "l032",
+            "l033",
+            "l034",
+            "l035",
+            "l036"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:d13e9e63ce02fa760dfa3e47",
@@ -10982,12 +11981,47 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public static UnityEngine.GameObject FindGameObjectWithTag(string tag);",
       "member": "FindGameObjectWithTag",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct scalar/alias/array/list tag searches against Unity6000.3.27f1 Play: controlled active hierarchy, inactive/retired objects, built-in Player/Finish/Untagged, explicitly assigned Untagged, unknown/null/empty tags and null result lists combined with valid/null/unknown tags. Scalar choice is eligible membership and array/list membership is normalized to controlled sorted names; unspecified search order is not inferred. Untagged searches return no match in the pinned reference, including explicit assignment. Null/empty tags throw ArgumentException, unknown tags UnityException; list clearing occurs before tag validation and a null list throws NullReferenceException first. Same source executes in .NET and both effective browser modes with exact Stop restoration. Custom project tag-catalog authoring and cross-scene ordering remain separate.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-tag-search-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-tag-search-native.json",
+          "caseIndex": 1,
+          "profiles": [
+            "Player",
+            "Finish",
+            "Untagged",
+            "unknown",
+            "null",
+            "empty",
+            "inactive",
+            "retired",
+            "explicit-untagged"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-tag-search-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-tag-search-aot-wasm.json",
+          "caseIds": [
+            "t010",
+            "t011",
+            "t012",
+            "t013",
+            "t014",
+            "t015",
+            "t016",
+            "t017",
+            "t018"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:da792905643ed2f80c6fb063",
@@ -11939,15 +12973,46 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static T Instantiate<T>(T original, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation);",
       "member": "Instantiate",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "nativePositiveEvidence": "evidence/m20-sync-clone-native-cases.json"
+      "nativePositiveEvidence": "evidence/m20-sync-clone-native-cases.json",
+      "acceptance": {
+        "contract": "Exact direct synchronous Instantiate overload against Unity6000.3.27f1 Play: GameObject and Transform results, rotated/scaled/reflected source hierarchy and destination parent, local/world/null-parent variants, explicit poses, scene destination, null/retired sources and retired parents. Pose floats use relative2e-5 tolerance and quaternion sign equivalence. Metadata retains clone identity/type/name, parent, layer/tag/static state and inactive descendants. Retired sources throw MissingReferenceException; retired parents act as null. The same source runs in native .NET and Development/effective-AOT browsers with exact Stop restoration. Managed graph/reference remapping, repeated-type components and further asset/input domains are separate required dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-sync-clone-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-sync-clone-native.json",
+          "caseIndex": 12,
+          "profiles": [
+            "regular",
+            "world",
+            "null-parent",
+            "component",
+            "null-source",
+            "retired-source",
+            "retired-parent"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-sync-clone-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-sync-clone-aot-wasm.json",
+          "caseIds": [
+            "c085",
+            "c086",
+            "c087",
+            "c088",
+            "c089",
+            "c090",
+            "c091"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:ebdc532e50dffcdc0603b809",
@@ -12037,14 +13102,63 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static void DestroyImmediate(UnityEngine.Object obj);",
       "member": "DestroyImmediate",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/RuntimeObjects.cs; Scheduling.cs; Compatibility.cs",
       "evidence": "tests/csharp/M20.Objects/Program.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact Destroy, DestroyImmediate, obsolete DestroyObject and DontDestroyOnLoad overloads against Unity6000.3.27f1 Play, advanced one iterator step per frame. GameObject/child, BoxCollider, protected Transform, owned TextAsset/Mesh, null, retired and unbound handles retain immediate and next-frame states and caller exceptions. Positive/negative delays on delayed overloads use the same simulation clock, with native captureDeltaTime1/60 and an after-deadline observation. Both allowDestroyingAssets values cover owned assets; borrowed editor/persistent disk assets are separate. Root/root-component persistence keeps its subtree in the private scene after source unload; child requests and TextAssets log/no-op, null/unbound throw ArgumentNullException, retired targets throw MissingReferenceException. Same portable source runs in .NET and both effective browser modes with exact Stop restoration. Callback multiplicity/order and repeated-type retirement remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-object-lifetime-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-object-lifetime-native.json",
+          "caseIndex": 2,
+          "profiles": [
+            "game-object.call",
+            "game-object.after-frame",
+            "component.call",
+            "component.after-frame",
+            "transform.call",
+            "transform.after-frame",
+            "text.call",
+            "text.after-frame",
+            "mesh.call",
+            "mesh.after-frame",
+            "null.call",
+            "null.after-frame",
+            "retired.call",
+            "retired.after-frame",
+            "unbound.call",
+            "unbound.after-frame"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-object-lifetime-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-object-lifetime-aot-wasm.json",
+          "caseIds": [
+            "l037",
+            "l038",
+            "l039",
+            "l040",
+            "l041",
+            "l042",
+            "l043",
+            "l044",
+            "l045",
+            "l046",
+            "l047",
+            "l048",
+            "l049",
+            "l050",
+            "l051",
+            "l052"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:ee1e80b8a594c72c0b70ba67",

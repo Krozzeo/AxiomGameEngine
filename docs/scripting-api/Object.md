@@ -111,8 +111,8 @@ public partial class Object {
  public static Object Instantiate(Object original,Vector3 position,Quaternion rotation,Transform? parent)=>Instantiate<Object>(original,position,rotation,new InstantiateParameters{parent=parent,worldSpace=true});
  public static T Instantiate<T>(T original) where T:Object=>(T)Instantiate((Object)original);public static T Instantiate<T>(T original,Vector3 position,Quaternion rotation) where T:Object=>(T)Instantiate((Object)original,position,rotation);public static T Instantiate<T>(T original,Transform? parent) where T:Object=>(T)Instantiate((Object)original,parent);public static T Instantiate<T>(T original,Transform? parent,bool worldPositionStays) where T:Object=>(T)Instantiate((Object)original,parent,worldPositionStays);public static T Instantiate<T>(T original,Vector3 position,Quaternion rotation,Transform? parent) where T:Object=>(T)Instantiate((Object)original,position,rotation,parent);
  public static void DontDestroyOnLoad(Object target){
-  ArgumentNullException.ThrowIfNull(target);if(!target)throw new MissingReferenceException("The persistence target has been destroyed");
-  var value=target.Native;var owner=value is Legacy.GameObject go?go:value is Legacy.Component component?component.gameObject:throw new ArgumentException("A scene object is required",nameof(target));
+  ArgumentNullException.ThrowIfNull(target);if(ReferenceEquals(target.Wrapped,null))throw new ArgumentNullException(nameof(target));if(!target)throw new MissingReferenceException("The persistence target has been destroyed");
+  var value=target.Native;if(value is not Legacy.GameObject and not Legacy.Component){Legacy.Debug.LogWarning("DontDestroyOnLoad only works for root GameObjects or components on root GameObjects.");return;}var owner=value is Legacy.GameObject go?go:((Legacy.Component)value).gameObject;
   // Unity's canonical API never promotes a child request to its root. The legacy API retains its own contract.
   if(owner.transform.parent!=null){Legacy.Debug.LogWarning("DontDestroyOnLoad only works for root GameObjects or components on root GameObjects.");return;}
   Legacy.SceneManagement.SceneManager.MakePersistent(owner);
@@ -152,11 +152,15 @@ public partial class Object {
 public partial class Object {
  public static Object Instantiate(Object original,SceneManagement.Scene scene)=>Instantiate(original,new InstantiateParameters{scene=scene});
  public static T Instantiate<T>(T original,InstantiateParameters parameters) where T:Object {
-  if(ReferenceEquals(original,null)||!original)throw new ArgumentException("The Object you want to instantiate is null.");
+  if(ReferenceEquals(original,null))throw new ArgumentException("The Object you want to instantiate is null.");
+  if(!original)throw new MissingReferenceException("The Object you want to instantiate has been destroyed.");
+  if(!parameters.parent)parameters.parent=null;
   return (T)Wrap(Legacy.CloneBlueprint.Capture(original.Native).Instantiate(parameters));
  }
  public static T Instantiate<T>(T original,Vector3 position,Quaternion rotation,InstantiateParameters parameters) where T:Object {
-  if(ReferenceEquals(original,null)||!original)throw new ArgumentException("The Object you want to instantiate is null.");
+  if(ReferenceEquals(original,null))throw new ArgumentException("The Object you want to instantiate is null.");
+  if(!original)throw new MissingReferenceException("The Object you want to instantiate has been destroyed.");
+  if(!parameters.parent)parameters.parent=null;
   return (T)Wrap(Legacy.CloneBlueprint.Capture(original.Native).Instantiate(parameters,position,rotation));
  }
 }

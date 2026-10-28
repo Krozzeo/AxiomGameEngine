@@ -8,5 +8,7 @@ public readonly struct Scene : IEquatable<Scene> {
  public static implicit operator Scene(Axiom.Gameplay.SceneManagement.Scene value)=>new(value);public static implicit operator Axiom.Gameplay.SceneManagement.Scene(Scene value)=>value.Native;
 }
 public static class SceneManager {
+ public static UnityEngine.AsyncOperation UnloadSceneAsync(string sceneName)=>UnityEngine.AsyncInstantiationQueue.Adapt(Axiom.Gameplay.SceneManagement.SceneManager.UnloadSceneAsync(sceneName));
+ public static UnityEngine.AsyncOperation UnloadSceneAsync(Scene scene)=>UnloadSceneAsync(scene.name);
  public static Scene GetActiveScene()=>Axiom.Gameplay.SceneManagement.SceneManager.GetActiveScene();public static Scene GetSceneByName(string name)=>Axiom.Gameplay.SceneManagement.SceneManager.GetSceneByName(name);public static Scene GetSceneByPath(string scenePath)=>Axiom.Gameplay.SceneManagement.SceneManager.GetSceneByPath(scenePath);public static Scene CreateScene(string sceneName)=>Axiom.Gameplay.SceneManagement.SceneManager.CreateScene(sceneName);public static bool SetActiveScene(Scene scene)=>Axiom.Gameplay.SceneManagement.SceneManager.SetActiveScene(scene);public static void MoveGameObjectToScene(UnityEngine.GameObject go,Scene scene)=>Axiom.Gameplay.SceneManagement.SceneManager.MoveGameObjectToScene(go.LegacyGameObject,scene);
 }

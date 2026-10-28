@@ -1,0 +1,180 @@
+{
+  "schemaVersion": 1,
+  "passed": true,
+  "referenceCoreModuleSha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737",
+  "corpusSourceHashes": {
+    "BulkObjectCorpus.cs": "9be7161edd14fc80126a062c66944c32c16ad0f9d9a39848075b703395bc05c6",
+    "BulkObjectReference.cs": "b36c022f727f62a98295e7d4fc9754484b2d1daf49f37802bd06889943cf4ace",
+    "BulkObjectLab.cs": "909fe19b241391426f6e8b786b9e827f9bd00e548be8fbdf980b2677dbf37be4"
+  },
+  "acceptedSignatures": 6,
+  "observations": 50,
+  "records": [
+    {
+      "id": "unity63abi:2da1ada35b3e43b87d88e1e2",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public static void SetGameObjectsActive(System.ReadOnlySpan`1<int> instanceIDs, bool active);",
+      "index": 0,
+      "profiles": [
+        "live",
+        "duplicate",
+        "component",
+        "zero",
+        "retired",
+        "empty"
+      ],
+      "caseIds": [
+        "b001",
+        "b002",
+        "b003",
+        "b004",
+        "b005",
+        "b006"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:2cfb00f3bc5cf0bf6d2cba72",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public static void SetGameObjectsActive(System.ReadOnlySpan`1<UnityEngine.EntityId> entityIds, bool active);",
+      "index": 1,
+      "profiles": [
+        "live",
+        "duplicate",
+        "component",
+        "zero",
+        "retired",
+        "empty"
+      ],
+      "caseIds": [
+        "b007",
+        "b008",
+        "b009",
+        "b010",
+        "b011",
+        "b012"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:c75500bcbb28857f0e047d9d",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public static void SetGameObjectsActive(Unity.Collections.NativeArray`1<int> instanceIDs, bool active);",
+      "index": 2,
+      "profiles": [
+        "live",
+        "duplicate",
+        "component",
+        "zero",
+        "retired",
+        "empty",
+        "default-array",
+        "disposed-array"
+      ],
+      "caseIds": [
+        "b013",
+        "b014",
+        "b015",
+        "b016",
+        "b017",
+        "b018",
+        "b019",
+        "b020"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:592a0134c188696e35bf4e66",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public static void SetGameObjectsActive(Unity.Collections.NativeArray`1<UnityEngine.EntityId> entityIds, bool active);",
+      "index": 3,
+      "profiles": [
+        "live",
+        "duplicate",
+        "component",
+        "zero",
+        "retired",
+        "empty",
+        "default-array",
+        "disposed-array"
+      ],
+      "caseIds": [
+        "b021",
+        "b022",
+        "b023",
+        "b024",
+        "b025",
+        "b026",
+        "b027",
+        "b028"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:c71087ff75aa4beaae39e4d5",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public static void InstantiateGameObjects(int sourceInstanceID, int count, Unity.Collections.NativeArray`1<int> newInstanceIDs, Unity.Collections.NativeArray`1<int> newTransformInstanceIDs, UnityEngine.SceneManagement.Scene destinationScene = null);",
+      "index": 4,
+      "profiles": [
+        "live",
+        "two",
+        "zero",
+        "negative",
+        "source-zero",
+        "source-component",
+        "source-retired",
+        "short",
+        "long",
+        "default-array",
+        "disposed-array"
+      ],
+      "caseIds": [
+        "b029",
+        "b030",
+        "b031",
+        "b032",
+        "b033",
+        "b034",
+        "b035",
+        "b036",
+        "b037",
+        "b038",
+        "b039"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:a4edd9a83887c123596ea70f",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public static void InstantiateGameObjects(UnityEngine.EntityId sourceEntityId, int count, Unity.Collections.NativeArray`1<UnityEngine.EntityId> newEntityIds, Unity.Collections.NativeArray`1<UnityEngine.EntityId> newTransformEntityIds, UnityEngine.SceneManagement.Scene destinationScene = null);",
+      "index": 5,
+      "profiles": [
+        "live",
+        "two",
+        "zero",
+        "negative",
+        "source-zero",
+        "source-component",
+        "source-retired",
+        "short",
+        "long",
+        "default-array",
+        "disposed-array"
+      ],
+      "caseIds": [
+        "b040",
+        "b041",
+        "b042",
+        "b043",
+        "b044",
+        "b045",
+        "b046",
+        "b047",
+        "b048",
+        "b049",
+        "b050"
+      ],
+      "passed": true
+    }
+  ]
+}

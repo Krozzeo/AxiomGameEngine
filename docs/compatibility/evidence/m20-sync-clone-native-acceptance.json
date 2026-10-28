@@ -1,0 +1,339 @@
+{
+  "schemaVersion": 1,
+  "passed": true,
+  "referenceCoreModuleSha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737",
+  "corpusSourceHashes": {
+    "SyncCloneCorpus.cs": "a622968b595634077a32acc595a39dc9f7617d353c1510f2dc33c1bf48d6ee65",
+    "SyncCloneReference.cs": "f15bf3f3c3008a708a11c0b64f80b2ccb153b4bde0c9d9801a27a3d2ca9f6bc6",
+    "SyncCloneLab.cs": "15a8a0def724d7a56bd5853165944684f1b32f111d8fa44a6f3dd10f5f15c097"
+  },
+  "acceptedSignatures": 13,
+  "observations": 91,
+  "records": [
+    {
+      "id": "unity63abi:0ee966233251556d78696f58",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static T Instantiate<T>(T original, UnityEngine.Transform parent);",
+      "index": 0,
+      "profiles": [
+        "regular",
+        "world",
+        "null-parent",
+        "component",
+        "null-source",
+        "retired-source",
+        "retired-parent"
+      ],
+      "caseIds": [
+        "c001",
+        "c002",
+        "c003",
+        "c004",
+        "c005",
+        "c006",
+        "c007"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:59fcfaca6872b386dac23585",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static T Instantiate<T>(T original, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation, UnityEngine.Transform parent);",
+      "index": 1,
+      "profiles": [
+        "regular",
+        "world",
+        "null-parent",
+        "component",
+        "null-source",
+        "retired-source",
+        "retired-parent"
+      ],
+      "caseIds": [
+        "c008",
+        "c009",
+        "c010",
+        "c011",
+        "c012",
+        "c013",
+        "c014"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:59fd43ecb8aa882b11f8b8b7",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object Instantiate(UnityEngine.Object original, UnityEngine.Transform parent, bool instantiateInWorldSpace);",
+      "index": 2,
+      "profiles": [
+        "regular",
+        "world",
+        "null-parent",
+        "component",
+        "null-source",
+        "retired-source",
+        "retired-parent"
+      ],
+      "caseIds": [
+        "c015",
+        "c016",
+        "c017",
+        "c018",
+        "c019",
+        "c020",
+        "c021"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:5a0701d8dca3a5c3b8d80cdf",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object Instantiate(UnityEngine.Object original, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation, UnityEngine.Transform parent);",
+      "index": 3,
+      "profiles": [
+        "regular",
+        "world",
+        "null-parent",
+        "component",
+        "null-source",
+        "retired-source",
+        "retired-parent"
+      ],
+      "caseIds": [
+        "c022",
+        "c023",
+        "c024",
+        "c025",
+        "c026",
+        "c027",
+        "c028"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:64316228d6bac2b71b7b49f5",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static T Instantiate<T>(T original, UnityEngine.Transform parent, bool worldPositionStays);",
+      "index": 4,
+      "profiles": [
+        "regular",
+        "world",
+        "null-parent",
+        "component",
+        "null-source",
+        "retired-source",
+        "retired-parent"
+      ],
+      "caseIds": [
+        "c029",
+        "c030",
+        "c031",
+        "c032",
+        "c033",
+        "c034",
+        "c035"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:6a99c2f72fff0cc5fd17659f",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object Instantiate(UnityEngine.Object original, UnityEngine.Transform parent);",
+      "index": 5,
+      "profiles": [
+        "regular",
+        "world",
+        "null-parent",
+        "component",
+        "null-source",
+        "retired-source",
+        "retired-parent"
+      ],
+      "caseIds": [
+        "c036",
+        "c037",
+        "c038",
+        "c039",
+        "c040",
+        "c041",
+        "c042"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:851f45d6adca7e4eeca55f3a",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object Instantiate(UnityEngine.Object original, UnityEngine.SceneManagement.Scene scene);",
+      "index": 6,
+      "profiles": [
+        "regular",
+        "world",
+        "null-parent",
+        "component",
+        "null-source",
+        "retired-source",
+        "retired-parent"
+      ],
+      "caseIds": [
+        "c043",
+        "c044",
+        "c045",
+        "c046",
+        "c047",
+        "c048",
+        "c049"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:8e08d28359a39dc8ed318dbc",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object Instantiate(UnityEngine.Object original, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation);",
+      "index": 7,
+      "profiles": [
+        "regular",
+        "world",
+        "null-parent",
+        "component",
+        "null-source",
+        "retired-source",
+        "retired-parent"
+      ],
+      "caseIds": [
+        "c050",
+        "c051",
+        "c052",
+        "c053",
+        "c054",
+        "c055",
+        "c056"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:9c0289db94ea27500f4c4baa",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static T Instantiate<T>(T original, UnityEngine.InstantiateParameters parameters);",
+      "index": 8,
+      "profiles": [
+        "regular",
+        "world",
+        "null-parent",
+        "component",
+        "null-source",
+        "retired-source",
+        "retired-parent"
+      ],
+      "caseIds": [
+        "c057",
+        "c058",
+        "c059",
+        "c060",
+        "c061",
+        "c062",
+        "c063"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:c5053806fcfe25cd0e53924b",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object Instantiate(UnityEngine.Object original);",
+      "index": 9,
+      "profiles": [
+        "regular",
+        "world",
+        "null-parent",
+        "component",
+        "null-source",
+        "retired-source",
+        "retired-parent"
+      ],
+      "caseIds": [
+        "c064",
+        "c065",
+        "c066",
+        "c067",
+        "c068",
+        "c069",
+        "c070"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:cc3ff64315c89b13813d4d34",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static T Instantiate<T>(T original);",
+      "index": 10,
+      "profiles": [
+        "regular",
+        "world",
+        "null-parent",
+        "component",
+        "null-source",
+        "retired-source",
+        "retired-parent"
+      ],
+      "caseIds": [
+        "c071",
+        "c072",
+        "c073",
+        "c074",
+        "c075",
+        "c076",
+        "c077"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:ce9cc94143a657f7c0d2466e",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static T Instantiate<T>(T original, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation, UnityEngine.InstantiateParameters parameters);",
+      "index": 11,
+      "profiles": [
+        "regular",
+        "world",
+        "null-parent",
+        "component",
+        "null-source",
+        "retired-source",
+        "retired-parent"
+      ],
+      "caseIds": [
+        "c078",
+        "c079",
+        "c080",
+        "c081",
+        "c082",
+        "c083",
+        "c084"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:eb6ff574007ef48a1c2cda26",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static T Instantiate<T>(T original, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation);",
+      "index": 12,
+      "profiles": [
+        "regular",
+        "world",
+        "null-parent",
+        "component",
+        "null-source",
+        "retired-source",
+        "retired-parent"
+      ],
+      "caseIds": [
+        "c085",
+        "c086",
+        "c087",
+        "c088",
+        "c089",
+        "c090",
+        "c091"
+      ],
+      "passed": true
+    }
+  ]
+}

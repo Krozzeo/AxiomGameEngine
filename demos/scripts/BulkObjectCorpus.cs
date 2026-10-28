@@ -1,0 +1,25 @@
+using System;
+using System.Linq;
+using System.Collections.Generic;
+using UnityEngine;
+using Unity.Collections;
+namespace Game {
+public static class BulkObjectCorpus {
+ [Serializable] public sealed class Observation {public int index;public string profile="",data="",error="";}
+ public static IEnumerable<Observation> Run(){for(var index=0;index<6;index++)foreach(var profile in index<2?new[]{"live","duplicate","component","zero","retired","empty"}:index<4?new[]{"live","duplicate","component","zero","retired","empty","default-array","disposed-array"}:new[]{"live","two","zero","negative","source-zero","source-component","source-retired","short","long","default-array","disposed-array"})yield return Evaluate(index,profile);}
+ private static Observation Evaluate(int index,string profile){var row=new Observation{index=index,profile=profile};var source=new GameObject("B source");var other=new GameObject("B other");var child=new GameObject("B child");child.transform.SetParent(source.transform,false);var id=source.GetInstanceID();var entity=source.GetEntityId();var transformId=source.transform.GetInstanceID();var transformEntity=source.transform.GetEntityId();
+  if(profile=="retired"||profile=="source-retired")UnityEngine.Object.DestroyImmediate(source);
+  try{row.data=index<4?Activate(index,profile,source,other,id,entity,transformId,transformEntity):Clone(index,profile,source,id,entity,transformId,transformEntity);}catch(Exception error){row.error=error.GetType().FullName;row.data="source:"+(source?source.activeSelf:true)+",other:"+other.activeSelf;}
+  foreach(var clone in UnityEngine.Object.FindObjectsByType<GameObject>(FindObjectsSortMode.None).Where(value=>value.name.StartsWith("B source(Clone)",StringComparison.Ordinal)).ToArray())UnityEngine.Object.DestroyImmediate(clone);if(source)UnityEngine.Object.DestroyImmediate(source);UnityEngine.Object.DestroyImmediate(other);return row;
+ }
+ private static string Activate(int index,string profile,GameObject source,GameObject other,int id,EntityId entity,int transformId,EntityId transformEntity){
+  var ints=profile=="empty"?new int[0]:profile=="duplicate"?new[]{id,id}:new[]{id,profile=="component"?transformId:profile=="zero"?0:other.GetInstanceID()};var entities=profile=="empty"?new EntityId[0]:profile=="duplicate"?new[]{entity,entity}:new[]{entity,profile=="component"?transformEntity:profile=="zero"?default(EntityId):other.GetEntityId()};
+  if(index==0)GameObject.SetGameObjectsActive(new ReadOnlySpan<int>(ints),false);else if(index==1)GameObject.SetGameObjectsActive(new ReadOnlySpan<EntityId>(entities),false);else if(index==2){var array=profile=="default-array"?default(NativeArray<int>):new NativeArray<int>(ints,Allocator.Temp);try{if(profile=="disposed-array")array.Dispose();GameObject.SetGameObjectsActive(array,false);}finally{if(array.IsCreated)array.Dispose();}}else{var array=profile=="default-array"?default(NativeArray<EntityId>):new NativeArray<EntityId>(entities,Allocator.Temp);try{if(profile=="disposed-array")array.Dispose();GameObject.SetGameObjectsActive(array,false);}finally{if(array.IsCreated)array.Dispose();}}
+  return "source:"+(source?source.activeSelf:true)+",other:"+other.activeSelf;
+ }
+ private static string Clone(int index,string profile,GameObject source,int id,EntityId entity,int transformId,EntityId transformEntity){var count=profile=="two"?2:profile=="zero"?0:profile=="negative"?-1:1;var length=profile=="short"?0:profile=="long"?2:Math.Max(0,count);
+  if(index==4){var output=profile=="default-array"?default(NativeArray<int>):new NativeArray<int>(length,Allocator.Temp);var transforms=profile=="default-array"?default(NativeArray<int>):new NativeArray<int>(length,Allocator.Temp);try{if(profile=="disposed-array"){output.Dispose();transforms.Dispose();}GameObject.InstantiateGameObjects(profile=="source-zero"?0:profile=="source-component"?transformId:id,count,output,transforms);return !output.IsCreated||!transforms.IsCreated?"uncreated":"length:"+length+",filled:"+string.Join(",",output.ToArray().Select(value=>value!=0))+",transforms:"+string.Join(",",transforms.ToArray().Select(value=>value!=0));}finally{if(output.IsCreated)output.Dispose();if(transforms.IsCreated)transforms.Dispose();}}
+  else{var output=profile=="default-array"?default(NativeArray<EntityId>):new NativeArray<EntityId>(length,Allocator.Temp);var transforms=profile=="default-array"?default(NativeArray<EntityId>):new NativeArray<EntityId>(length,Allocator.Temp);try{if(profile=="disposed-array"){output.Dispose();transforms.Dispose();}GameObject.InstantiateGameObjects(profile=="source-zero"?default(EntityId):profile=="source-component"?transformEntity:entity,count,output,transforms);return !output.IsCreated||!transforms.IsCreated?"uncreated":"length:"+length+",filled:"+string.Join(",",output.ToArray().Select(value=>!value.Equals(default(EntityId))))+",transforms:"+string.Join(",",transforms.ToArray().Select(value=>!value.Equals(default(EntityId))));}finally{if(output.IsCreated)output.Dispose();if(transforms.IsCreated)transforms.Dispose();}}
+ }
+}
+}

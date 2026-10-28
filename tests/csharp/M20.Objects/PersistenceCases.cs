@@ -28,7 +28,7 @@ public static class PersistenceCases {
   try{U.Object.DontDestroyOnLoad(root);check("destroyed persistence target rejected",false);}catch(U.MissingReferenceException){check("destroyed persistence target rejected",true);}
   try{U.Object.DontDestroyOnLoad(null!);check("null persistence target rejected",false);}catch(ArgumentNullException){check("null persistence target rejected",true);}
   var before=Scenes.Persistent.Count;var unattached=new U.Object();
-  try{U.Object.DontDestroyOnLoad(unattached);check("unattached persistence target has no scene effect",false);}catch(U.MissingReferenceException){check("unattached persistence target has no scene effect",Scenes.Persistent.Count==before);}
+  try{U.Object.DontDestroyOnLoad(unattached);check("unattached persistence target has no scene effect",false);}catch(ArgumentNullException){check("unattached persistence target has no scene effect",Scenes.Persistent.Count==before);}
   reset(35);check("persistence registry clears on runtime reset",Scenes.Persistent.Count==0&&!persistent.IsValid()&&!persistent.isLoaded);
   var permanent=new U.GameObject("Permanent");var detached=new U.GameObject("Detached");detached.transform.SetParent(permanent.transform,false);U.Object.DontDestroyOnLoad(permanent);var permanentScene=permanent.scene;
   detached.transform.SetParent(null,true);check("detached persistent child retains its scene",detached.scene==permanentScene&&permanentScene.rootCount==2);

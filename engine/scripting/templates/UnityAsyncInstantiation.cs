@@ -5,17 +5,17 @@ namespace UnityEngine;
 
 public class YieldInstruction {}
 public class AsyncOperation : YieldInstruction {
- internal bool Done,EventRaised,Unavailable;internal void RequireHandle(){if(Unavailable)throw new NullReferenceException();}internal readonly int CreationFrame=Legacy.Time.frameCount;
+ internal Legacy.AsyncOperation? LegacyOperation;internal bool Done,EventRaised,Unavailable;internal void RequireHandle(){if(Unavailable)throw new NullReferenceException();}internal readonly int CreationFrame=Legacy.Time.frameCount;
  private Action<AsyncOperation>? callbacks;
- public bool isDone {get{RequireHandle();return Done;}}
- public virtual float progress {get{RequireHandle();return Done?1:0;}}
+ public bool isDone {get{RequireHandle();return LegacyOperation?.isDone??Done;}}
+ public virtual float progress {get{RequireHandle();return LegacyOperation is {} operation?(float)operation.progress:Done?1:0;}}
  private int priorityValue;public int priority {get{RequireHandle();return priorityValue;}set{RequireHandle();priorityValue=value;}}
  private bool activate=true;public bool allowSceneActivation {get{RequireHandle();return activate;}set{RequireHandle();activate=value;}}
  public event Action<AsyncOperation> completed {
   add{RequireHandle();if(EventRaised)value(this);else callbacks+=value;}
   remove{RequireHandle();callbacks-=value;}
  }
- internal void DispatchCompleted(){if(!Done||EventRaised||Legacy.Time.frameCount<=CreationFrame)return;EventRaised=true;var handlers=callbacks;callbacks=null;handlers?.Invoke(this);}
+ internal void DispatchCompleted(){if(!isDone||EventRaised||Legacy.Time.frameCount<=CreationFrame)return;EventRaised=true;var handlers=callbacks;callbacks=null;handlers?.Invoke(this);}
  internal void Abandon(){Done=true;EventRaised=true;callbacks=null;}
 }
 
@@ -53,6 +53,8 @@ public class AsyncInstantiateOperation<T> : AsyncInstantiateOperation where T:Ob
 
 internal static class AsyncInstantiationQueue {
  private static readonly List<AsyncInstantiateOperation> Operations=new();
+ private static readonly List<AsyncOperation> AdaptedOperations=new();
+ internal static AsyncOperation Adapt(Legacy.AsyncOperation value){if(AdaptedOperations.Count>=256)throw new InvalidOperationException("Asynchronous operation queue is full");var result=new AsyncOperation{LegacyOperation=value};AdaptedOperations.Add(result);return result;}
  internal static AsyncInstantiateOperation<T> Begin<T>(T original,int count,InstantiateParameters parameters,Vector3[] positions,Quaternion[] rotations,CancellationToken cancellationToken) where T:Object {
   if(ReferenceEquals(original,null)||!original)throw new ArgumentException("The Object you want to instantiate is null.");
   if(original.Native is not Legacy.GameObject and not Legacy.Component){Legacy.Debug.LogError("Cannot instantiate multiple objects that are not connected to GameObject, please use a loop over Instantiate");return new AsyncInstantiateOperation<T>{Unavailable=true,Token=cancellationToken};}
@@ -73,7 +75,8 @@ internal static class AsyncInstantiationQueue {
    if(operation.Failure!=null&&!operation.EventRaised)Legacy.Debug.LogError("AsyncInstantiate failed: "+operation.Failure.Message);
    operation.DispatchCompleted();if(operation.EventRaised)Operations.Remove(operation);
   }
+  foreach(var operation in AdaptedOperations.ToArray()){operation.DispatchCompleted();if(operation.EventRaised)AdaptedOperations.Remove(operation);}
   static float GetBudget()=>AsyncInstantiateOperation.GetIntegrationTimeMS();
  }
- internal static void Reset(){foreach(var operation in Operations){operation.Integrate=null;operation.CancelRequested=true;operation.WasCancelled=true;operation.Abandon();}Operations.Clear();}
+ internal static void Reset(){foreach(var operation in AdaptedOperations)operation.Abandon();AdaptedOperations.Clear();foreach(var operation in Operations){operation.Integrate=null;operation.CancelRequested=true;operation.WasCancelled=true;operation.Abandon();}Operations.Clear();}
 }
