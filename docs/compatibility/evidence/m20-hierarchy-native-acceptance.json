@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "passed": true,
   "referenceCoreModuleSha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737",
-  "corpusSourceSha256": "7d3f396c6bbdfdf60787e4a3ac7d2e43882305f7d980f6bad5f945e724b72c1b",
-  "acceptedSignatures": 4,
+  "corpusSourceSha256": "ad1c64e239d94ff5ecf06e984842bc25a5f37889df18e4e8f59f94b363ec4946",
+  "acceptedSignatures": 7,
   "records": [
     {
       "id": "unity63abi:0f3971a8815de837171afcc9",
@@ -59,6 +59,43 @@
         "is-child.foreign",
         "is-child.null",
         "is-child.destroyed"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:4670d270a0510d40f3c72abd",
+      "owner": "UnityEngine.Transform",
+      "declaration": "public void SetParent(UnityEngine.Transform p);",
+      "caseIds": [
+        "parent.default-world",
+        "parent.cycle",
+        "parent.self",
+        "parent.destroyed-target",
+        "parent.destroyed-owner"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:1f5b6f75114239813b529261",
+      "owner": "UnityEngine.Transform",
+      "declaration": "public void SetParent(UnityEngine.Transform parent, bool worldPositionStays);",
+      "caseIds": [
+        "parent.explicit-local",
+        "parent.explicit-world",
+        "parent.explicit-null",
+        "parent.cycle-local",
+        "parent.explicit-destroyed-owner"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:bc601dfd1d44ce38364de381",
+      "owner": "UnityEngine.Transform",
+      "declaration": "public UnityEngine.Transform parent { public get; public set; }",
+      "caseIds": [
+        "parent.property-world",
+        "parent.cycle-property",
+        "parent.property-destroyed-owner"
       ],
       "passed": true
     }

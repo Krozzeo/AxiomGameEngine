@@ -2,7 +2,7 @@
   "milestone": "M20",
   "complete": false,
   "targetRecords": 311,
-  "certifiedUnitySignatures": 51,
+  "certifiedUnitySignatures": 54,
   "areas": {
     "UnityEngine.Component": {
       "targets": 62,
@@ -17,7 +17,7 @@
     "UnityEngine.Transform": {
       "targets": 81,
       "aliasBehaviorTargets": 0,
-      "certifiedTargets": 3
+      "certifiedTargets": 6
     },
     "UnityEngine.Object": {
       "targets": 72,
@@ -230,13 +230,6 @@
       "id": "unity63abi:1c03bc7126462d7bb9d63c6c",
       "owner": "UnityEngine.Component",
       "declaration": "public UnityEngine.Component();",
-      "status": "pending",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:1f5b6f75114239813b529261",
-      "owner": "UnityEngine.Transform",
-      "declaration": "public void SetParent(UnityEngine.Transform parent, bool worldPositionStays);",
       "status": "pending",
       "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
     },
@@ -545,13 +538,6 @@
       "id": "unity63abi:45f6af1c7a47375015619bb6",
       "owner": "UnityEngine.Transform",
       "declaration": "public void InverseTransformPoints(System.Span`1<UnityEngine.Vector3> positions);",
-      "status": "pending",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:4670d270a0510d40f3c72abd",
-      "owner": "UnityEngine.Transform",
-      "declaration": "public void SetParent(UnityEngine.Transform p);",
       "status": "pending",
       "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
     },
@@ -1435,13 +1421,6 @@
       "owner": "UnityEngine.Component",
       "declaration": "public UnityEngine.Component[] GetComponentsInParent(System.Type t, bool includeInactive);",
       "status": "alias-behavior-tested",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:bc601dfd1d44ce38364de381",
-      "owner": "UnityEngine.Transform",
-      "declaration": "public UnityEngine.Transform parent { public get; public set; }",
-      "status": "pending",
       "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
     },
     {

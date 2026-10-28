@@ -62,4 +62,6 @@ Load Demos also creates **Demo · M20 Asset Lifetime Lab** from this installatio
 
 Runtime assets are temporary; cloned Mesh/TextAsset identities and names are independent, while imported geometry remains immutable. Async standalone asset rejection matches Unity; the async graph cases share asset references. These observations do not close the full311-record milestone.
 
-The same Asset Lifetime Lab also contains **Hierarchy Path Controller**: Passed36, Failed0. It exercises absolute/relative object lookup, inactive descendant paths, missing/null/out-of-range and destroyed references, duplicate Transform rejection and query null inputs. These are ordinary editable script calls compared with the exact native Unity reference.
+The same Asset Lifetime Lab also contains **Hierarchy Path Controller**: Passed54, Failed0. It exercises absolute/relative object lookup, inactive descendant paths, missing/null/out-of-range and destroyed references, duplicate Transform rejection and query null inputs. These are ordinary editable script calls compared with the exact native Unity reference.
+
+The hierarchy controller also checks explicit/default world/local reparenting, null/destroyed parent detachment, invalid cycles and attempted Transform destruction without graph changes. Errors are logged for forbidden operations; the controller continues.

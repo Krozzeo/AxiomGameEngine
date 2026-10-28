@@ -1,4 +1,4 @@
-Current review: **0.0.62 / SDK12**. All311 frozen compiled source contracts match. Current native suite722; real browser267 core plus190 asset/lifecycle checks per Development/effective-AOT mode. Attributed acceptance51/311:17 async behavior,4 hierarchy behavior and30 compile-error obsolete contracts. M20 remains open; source matches and test counts are not full Unity parity.
+Current review: **0.0.62 / SDK12**. All311 frozen compiled source contracts match. Current native suite740; real browser267 core plus208 asset/lifecycle checks per Development/effective-AOT mode. Attributed acceptance54/311:17 async behavior,7 hierarchy behavior and30 compile-error obsolete contracts. M20 remains open; source matches and test counts are not full Unity parity.
 
 # Axiom Game Engine
 

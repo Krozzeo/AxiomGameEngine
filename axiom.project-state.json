@@ -9,7 +9,7 @@
     "activeMilestonePercent": 33,
     "wholeProjectPercent": null,
     "method": "docs/architecture/MILESTONE_REPORTING.md",
-    "scopeNote": "M20 remains open.1/3 required milestone criteria passed (33% rounded); independent source audit311/311 and attributed contracts51/311 (17 async behavior,4 hierarchy behavior,30 compiler-error contracts). Native722,267 core plus190 asset/lifecycle/hierarchy checks per Development/AOT mode, Node486 pass. Remaining260 contracts and exact-head CI/artifact acceptance must complete; stable main0.0.57 unchanged.",
+    "scopeNote": "M20 remains open.1/3 required milestone criteria passed (33% rounded); independent source audit311/311 and attributed contracts54/311 (17 async behavior,7 hierarchy behavior,30 compiler-error contracts). Native740,267 core plus208 asset/lifecycle/hierarchy checks per Development/AOT mode, Node486 pass. Remaining257 contracts and exact-head CI/artifact acceptance must complete; stable main0.0.57 unchanged.",
     "historicalMvpPercent": 94,
     "historicalMvpCompletedWeight": 122,
     "historicalMvpTotalWeight": 130
@@ -1746,8 +1746,8 @@
     "docs/compatibility/m20-batches.json",
     "demos/M20_GUIDE.md"
   ],
-  "nextTask": "Complete remaining260 M20 contracts, beginning with native cycle-parent/Transform destruction no-op semantics and multiple same-type components; retain311 records and require strict closure plus final CI/artifact acceptance.",
-  "activeRevision": "0.0.62 / SDK12 —51 attributed contracts accepted; M20 remains open",
+  "nextTask": "Complete remaining257 M20 contracts, next direct vector/span transform native/Wasm comparisons and multiple same-type component dependencies; retain311 records and require strict closure plus final CI/artifact acceptance.",
+  "activeRevision": "0.0.62 / SDK12 —54 attributed contracts accepted; M20 remains open",
   "roadmap": {
     "version": 2,
     "manifest": "docs/architecture/roadmap-v2.json",

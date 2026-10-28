@@ -3,14 +3,14 @@
   "milestone": "M20",
   "targetRecords": 311,
   "status": "in_progress",
-  "certifiedUnitySignatures": 51,
+  "certifiedUnitySignatures": 54,
   "batch": "0.0.62 / SDK12 / canonical core and dependency profiles, behavior attribution in progress",
   "evidence": {
     "native": "evidence/m20-queries-native-windows.json",
     "developmentWasm": "evidence/m20-queries-development-wasm.json"
   },
   "requiredRemaining": [
-    "Complete attributed canonical positive/negative/lifecycle/reference review for remaining260 of311 frozen records; source matching and broad lab results are insufficient",
+    "Complete attributed canonical positive/negative/lifecycle/reference review for remaining257 of311 frozen records; source matching and broad lab results are insufficient",
     "Finish constructor and degenerate-transform edge attribution and applicable asset-backed clone requirements; implement missing required behavior rather than waiving scope. Persistent-scene ownership/reparent lifecycle are now exercised natively and in Development/AOT. All53 obsolete consumer compiler contracts pass; deprecated runtime attribution remains open.",
     "Finish exact-head native/Wasm/AOT, UI/project/Stop/Undo/dependency regression, CI and public artifact acceptance"
   ],
@@ -659,12 +659,38 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public void SetParent(UnityEngine.Transform parent, bool worldPositionStays);",
       "member": "SetParent",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Explicit local/world reparenting and null detachment preserve their observed coordinate spaces; cycle rejection logs without mutation, destroyed owner rejected.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-6000.3-play-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-native.json",
+          "caseIds": [
+            "parent.explicit-local",
+            "parent.explicit-world",
+            "parent.explicit-null",
+            "parent.cycle-local",
+            "parent.explicit-destroyed-owner"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-assets-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-assets-aot-wasm.json",
+          "caseIds": [
+            "parent.explicit-local",
+            "parent.explicit-world",
+            "parent.explicit-null",
+            "parent.cycle-local",
+            "parent.explicit-destroyed-owner"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:1f6180af653b21a7eaa7d5e7",
@@ -1599,12 +1625,38 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public void SetParent(UnityEngine.Transform p);",
       "member": "SetParent",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Default world-preserving reparenting, actual parent identity/local pose, self/cycle log-and-no-op, destroyed parent treated as null, destroyed owner rejected.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-6000.3-play-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-native.json",
+          "caseIds": [
+            "parent.default-world",
+            "parent.cycle",
+            "parent.self",
+            "parent.destroyed-target",
+            "parent.destroyed-owner"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-assets-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-assets-aot-wasm.json",
+          "caseIds": [
+            "parent.default-world",
+            "parent.cycle",
+            "parent.self",
+            "parent.destroyed-target",
+            "parent.destroyed-owner"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:46fa4200f7d5bbde1da932ce",
@@ -4006,12 +4058,34 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public UnityEngine.Transform parent { public get; public set; }",
       "member": "parent",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Parent property getter/setter shares native identity and world-preserving assignment; cyclic assignment logs without mutation, destroyed owner rejected.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-6000.3-play-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-native.json",
+          "caseIds": [
+            "parent.property-world",
+            "parent.cycle-property",
+            "parent.property-destroyed-owner"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-assets-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-assets-aot-wasm.json",
+          "caseIds": [
+            "parent.property-world",
+            "parent.cycle-property",
+            "parent.property-destroyed-owner"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:bcb90ff3f5ba35a76838d349",
@@ -5496,7 +5570,7 @@
     },
     "hierarchyReferenceLifecycle": {
       "status": "partial",
-      "reason": "722 native observations,267 core plus190 asset/lifecycle/hierarchy checks in each real Development/AOT mode pass. Identical source-hashed corpora certify17 async and4 hierarchy methods.30 obsolete compiler-error contracts match actual native and owned native/Wasm compilers.51 accepted/311; remaining260 require attributed domains/dependencies. Native cycle-parent/Transform destruction no-op semantics and multiple same-type component storage remain known required work."
+      "reason": "740 native observations,267 core plus208 asset/lifecycle/hierarchy checks per real Development/AOT mode pass. Source-hashed actual native Unity corpora certify17 async and7 hierarchy contracts;30 obsolete compiler-error contracts match all three compilers.54 accepted/311,257 remaining. Cycle rejection, destroyed-parent handling and standalone Transform destruction are corrected; full cloning/query/message/transform/object domains and multiple same-type components remain required."
     },
     "regressionAndDependencies": {
       "status": "partial",

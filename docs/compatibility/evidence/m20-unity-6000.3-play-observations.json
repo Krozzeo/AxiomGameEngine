@@ -365,6 +365,78 @@
             "value": "True"
         },
         {
+            "key": "hierarchy.parent.cycle",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.parent.self",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.parent.cycle-local",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.parent.cycle-property",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.destroy.transform-immediate",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.destroy.transform-allow-assets",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.destroy.transform",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.destroy.transform-delay",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.parent.default-world",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.parent.explicit-local",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.parent.explicit-world",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.parent.property-world",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.parent.explicit-null",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.parent.destroyed-target",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.destroy.negative-delay",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.parent.destroyed-owner",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.parent.explicit-destroyed-owner",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy.parent.property-destroyed-owner",
+            "value": "True"
+        },
+        {
             "key": "hierarchy.child.destroyed",
             "value": "True"
         },
@@ -423,6 +495,22 @@
         {
             "key": "edge.is-child-destroyed-parent",
             "value": "UnityEngine.MissingReferenceException"
+        },
+        {
+            "key": "edge.set-parent-destroyed-target",
+            "value": "returned"
+        },
+        {
+            "key": "edge.set-parent-destroyed-target-detached",
+            "value": "True"
+        },
+        {
+            "key": "edge.destroy-negative-delay",
+            "value": "returned"
+        },
+        {
+            "key": "edge.destroy-negative-delay-live-before-end",
+            "value": "True"
         },
         {
             "key": "query-exception.GetComponent.null",
@@ -804,7 +892,7 @@
         },
         {
             "key": "HierarchyPathLab.cs",
-            "value": "7d3f396c6bbdfdf60787e4a3ac7d2e43882305f7d980f6bad5f945e724b72c1b"
+            "value": "ad1c64e239d94ff5ecf06e984842bc25a5f37889df18e4e8f59f94b363ec4946"
         }
     ]
 }

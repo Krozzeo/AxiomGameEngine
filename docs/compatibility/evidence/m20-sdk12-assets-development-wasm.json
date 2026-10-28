@@ -5,14 +5,14 @@
     "AsyncLifecycleLab.cs": "a9da52bf77c7c9aaa6926701cd911d97da07d1c36b767f09f172d2f2aa4d5746",
     "AsyncLifecycleProbe.cs": "ebd88dea2d80b00efa629c0017db9f0f4a480e29ef7069f55b688ef66b561915",
     "AsyncOverloadCatalog.cs": "9b1b575563af068f721fb7e50ffacd313df149ad514c180620f73ba9034c4ed2",
-    "HierarchyPathLab.cs": "7d3f396c6bbdfdf60787e4a3ac7d2e43882305f7d980f6bad5f945e724b72c1b"
+    "HierarchyPathLab.cs": "ad1c64e239d94ff5ecf06e984842bc25a5f37889df18e4e8f59f94b363ec4946"
   },
   "executedBuild": {
-    "id": "478bb950-cf50-4e40-b314-8be38289f2d4",
+    "id": "3e6e2ffe-a6ee-403a-b2d4-e6211e3c8f92",
     "mode": "development",
     "sdkVersion": 12,
-    "sourceHash": "2aa7f4aedb52137450d550c9e79ee3ab19347b5115eec1f4fc9d7b21d32cb642",
-    "bytes": 13942832
+    "sourceHash": "09960d0ec2879c1e3bb1cc82fd81d429d9eecbc319d67b34574254bfb9eb8c69",
+    "bytes": 13947859
   },
   "report": "asset.identity:pass;asset.name:pass;asset.rename:pass;asset.binding:pass;asset.find:pass;asset.borrowed-excluded:pass;asset.text-content:pass;asset.text-name:pass;asset.next-frame-reference:pass;asset.destroy-deferred:pass;asset.destroy-complete:pass;asset.component-survives:pass;asset.restore-source:pass;asset.async-snapshot:pass;asset.async-rejects-text:pass;asset.borrowed-next-frame:pass;asset.cleanup:pass;",
   "cases": {
@@ -206,12 +206,30 @@
     "query.children-list-null": "pass",
     "query.parent-list-null": "pass",
     "query.string-null": "pass",
+    "parent.cycle": "pass",
+    "parent.self": "pass",
+    "parent.cycle-local": "pass",
+    "parent.cycle-property": "pass",
+    "destroy.transform-immediate": "pass",
+    "destroy.transform-allow-assets": "pass",
+    "destroy.transform": "pass",
+    "destroy.transform-delay": "pass",
+    "parent.default-world": "pass",
+    "parent.explicit-local": "pass",
+    "parent.explicit-world": "pass",
+    "parent.property-world": "pass",
+    "parent.explicit-null": "pass",
+    "parent.destroyed-target": "pass",
+    "destroy.negative-delay": "pass",
+    "parent.destroyed-owner": "pass",
+    "parent.explicit-destroyed-owner": "pass",
+    "parent.property-destroyed-owner": "pass",
     "child.destroyed": "pass",
     "transform.find-destroyed": "pass",
     "is-child.destroyed": "pass",
     "find.destroyed": "pass"
   },
   "passed": true,
-  "totalChecks": 190,
-  "profile": "Real development C#/Wasm in Null editor:36 hierarchy/query edges,17 asset checks and the same137-check per-overload lifecycle corpus executed in exact Unity6000.3.27f1; exact Stop restoration"
+  "totalChecks": 208,
+  "profile": "Real development C#/Wasm in Null editor:54 hierarchy/query edges,17 asset checks and the same137-check per-overload lifecycle corpus executed in exact Unity6000.3.27f1; exact Stop restoration"
 }
