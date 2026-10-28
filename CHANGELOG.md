@@ -1,5 +1,7 @@
 # 0.0.62 — Canonical M20 core and dependency profiles (in progress)
 
+- Add24 directly attributed vector/span contracts through240 native Unity/.NET/Development/AOT comparisons. Correct ancestor reflections, collapsed-axis inverse queries and exact span-length errors. Add the editable Vector Transforms Lab;78/311 contracts accepted.
+
 - Add canonical UnityEngine core inheritance/float facades on the shared native runtime;311 compiled public source contracts match the frozen scope. Preserve the original migration corpus without aliases or rewrites.
 - Retain full affine matrices/shear/zero-scale local state across host frames. Add managed/reference graph clones, deferred/cancellable async integration, all17 direct async overload cases, real bulk identities and disposable NativeArray storage.
 - Add six owned primitive meshes, typed component/mesh identities and Rust CPU/Wasm capsule/finite-surface physics. Retain the broader physics/asset/Collections areas as separate incomplete milestones.

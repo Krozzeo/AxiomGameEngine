@@ -1,0 +1,710 @@
+{
+  "schemaVersion": 1,
+  "passed": true,
+  "referenceCoreModuleSha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737",
+  "corpusSourceHashes": {
+    "VectorTransformCorpus.cs": "bdeb3982611985ee2fbce9685b7c75b8e1d1e0bf2396332d67a802704083714e",
+    "VectorTransformReference.cs": "b15b5e790f39abaf4b83081e9a64d777b57cae06662c734b1e49976069c1fe4f",
+    "VectorTransformLab.cs": "98966f1f5d40164a6c27ef056ee9be1ee23f9557084239dbd95ccccde8e44bce"
+  },
+  "acceptedSignatures": 24,
+  "observations": 240,
+  "records": [
+    {
+      "id": "unity63abi:0a2136a4f3ecec49639a423c",
+      "index": 0,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed"
+      ],
+      "caseIds": [
+        "v001",
+        "v002",
+        "v003",
+        "v004",
+        "v005",
+        "v006",
+        "v007",
+        "v008",
+        "v009"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:16ac17fd62c4405163438c3d",
+      "index": 1,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed",
+        "empty"
+      ],
+      "caseIds": [
+        "v010",
+        "v011",
+        "v012",
+        "v013",
+        "v014",
+        "v015",
+        "v016",
+        "v017",
+        "v018",
+        "v019"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:304de50705506d36fe1c5933",
+      "index": 2,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed",
+        "empty",
+        "short",
+        "long"
+      ],
+      "caseIds": [
+        "v020",
+        "v021",
+        "v022",
+        "v023",
+        "v024",
+        "v025",
+        "v026",
+        "v027",
+        "v028",
+        "v029",
+        "v030",
+        "v031"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:34b1b2a371445c5cf7c8fe08",
+      "index": 3,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed"
+      ],
+      "caseIds": [
+        "v032",
+        "v033",
+        "v034",
+        "v035",
+        "v036",
+        "v037",
+        "v038",
+        "v039",
+        "v040"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:36b6fc2866f56b8050988e1d",
+      "index": 4,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed",
+        "empty"
+      ],
+      "caseIds": [
+        "v041",
+        "v042",
+        "v043",
+        "v044",
+        "v045",
+        "v046",
+        "v047",
+        "v048",
+        "v049",
+        "v050"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:3d1675e6001711becacfadef",
+      "index": 5,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed"
+      ],
+      "caseIds": [
+        "v051",
+        "v052",
+        "v053",
+        "v054",
+        "v055",
+        "v056",
+        "v057",
+        "v058",
+        "v059"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:45f6af1c7a47375015619bb6",
+      "index": 6,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed",
+        "empty"
+      ],
+      "caseIds": [
+        "v060",
+        "v061",
+        "v062",
+        "v063",
+        "v064",
+        "v065",
+        "v066",
+        "v067",
+        "v068",
+        "v069"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:6fad33095e647f41ab5337c2",
+      "index": 7,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed"
+      ],
+      "caseIds": [
+        "v070",
+        "v071",
+        "v072",
+        "v073",
+        "v074",
+        "v075",
+        "v076",
+        "v077",
+        "v078"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:76bd09062bda2642e25d87cd",
+      "index": 8,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed",
+        "empty"
+      ],
+      "caseIds": [
+        "v079",
+        "v080",
+        "v081",
+        "v082",
+        "v083",
+        "v084",
+        "v085",
+        "v086",
+        "v087",
+        "v088"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:852504445b3861eb1899e673",
+      "index": 9,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed",
+        "empty",
+        "short",
+        "long"
+      ],
+      "caseIds": [
+        "v089",
+        "v090",
+        "v091",
+        "v092",
+        "v093",
+        "v094",
+        "v095",
+        "v096",
+        "v097",
+        "v098",
+        "v099",
+        "v100"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:8578dfa9563bd0c9c4615538",
+      "index": 10,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed"
+      ],
+      "caseIds": [
+        "v101",
+        "v102",
+        "v103",
+        "v104",
+        "v105",
+        "v106",
+        "v107",
+        "v108",
+        "v109"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:8c262a4db84c344beed6692d",
+      "index": 11,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed"
+      ],
+      "caseIds": [
+        "v110",
+        "v111",
+        "v112",
+        "v113",
+        "v114",
+        "v115",
+        "v116",
+        "v117",
+        "v118"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:8c78a465b26d23b32e91516b",
+      "index": 12,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed",
+        "empty",
+        "short",
+        "long"
+      ],
+      "caseIds": [
+        "v119",
+        "v120",
+        "v121",
+        "v122",
+        "v123",
+        "v124",
+        "v125",
+        "v126",
+        "v127",
+        "v128",
+        "v129",
+        "v130"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:9329a3ca741f74225c77d402",
+      "index": 13,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed",
+        "empty",
+        "short",
+        "long"
+      ],
+      "caseIds": [
+        "v131",
+        "v132",
+        "v133",
+        "v134",
+        "v135",
+        "v136",
+        "v137",
+        "v138",
+        "v139",
+        "v140",
+        "v141",
+        "v142"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:94cb61afce7b13a837f41c49",
+      "index": 14,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed"
+      ],
+      "caseIds": [
+        "v143",
+        "v144",
+        "v145",
+        "v146",
+        "v147",
+        "v148",
+        "v149",
+        "v150",
+        "v151"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:a240347b742d29805dd5da8b",
+      "index": 15,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed",
+        "empty",
+        "short",
+        "long"
+      ],
+      "caseIds": [
+        "v152",
+        "v153",
+        "v154",
+        "v155",
+        "v156",
+        "v157",
+        "v158",
+        "v159",
+        "v160",
+        "v161",
+        "v162",
+        "v163"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:b42a511bac0564b032adfe8e",
+      "index": 16,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed"
+      ],
+      "caseIds": [
+        "v164",
+        "v165",
+        "v166",
+        "v167",
+        "v168",
+        "v169",
+        "v170",
+        "v171",
+        "v172"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:b68ff3ebd42f2c959413e318",
+      "index": 17,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed",
+        "empty"
+      ],
+      "caseIds": [
+        "v173",
+        "v174",
+        "v175",
+        "v176",
+        "v177",
+        "v178",
+        "v179",
+        "v180",
+        "v181",
+        "v182"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:c188979cb3604c3d0ecf9995",
+      "index": 18,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed",
+        "empty",
+        "short",
+        "long"
+      ],
+      "caseIds": [
+        "v183",
+        "v184",
+        "v185",
+        "v186",
+        "v187",
+        "v188",
+        "v189",
+        "v190",
+        "v191",
+        "v192",
+        "v193",
+        "v194"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:cc183076ed3f9e5d9ff6341c",
+      "index": 19,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed",
+        "empty"
+      ],
+      "caseIds": [
+        "v195",
+        "v196",
+        "v197",
+        "v198",
+        "v199",
+        "v200",
+        "v201",
+        "v202",
+        "v203",
+        "v204"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:d13e9e63ce02fa760dfa3e47",
+      "index": 20,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed"
+      ],
+      "caseIds": [
+        "v205",
+        "v206",
+        "v207",
+        "v208",
+        "v209",
+        "v210",
+        "v211",
+        "v212",
+        "v213"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:da792905643ed2f80c6fb063",
+      "index": 21,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed"
+      ],
+      "caseIds": [
+        "v214",
+        "v215",
+        "v216",
+        "v217",
+        "v218",
+        "v219",
+        "v220",
+        "v221",
+        "v222"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:de18c9948b7538f417b4a87a",
+      "index": 22,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed"
+      ],
+      "caseIds": [
+        "v223",
+        "v224",
+        "v225",
+        "v226",
+        "v227",
+        "v228",
+        "v229",
+        "v230",
+        "v231"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:eb18f1714522fe93a6b9c0aa",
+      "index": 23,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed"
+      ],
+      "caseIds": [
+        "v232",
+        "v233",
+        "v234",
+        "v235",
+        "v236",
+        "v237",
+        "v238",
+        "v239",
+        "v240"
+      ],
+      "passed": true
+    }
+  ]
+}

@@ -37,6 +37,10 @@
     {
       "id": "m20-asset-lifetime",
       "name": "M20 Asset Lifetime Lab"
+    },
+    {
+      "id": "m20-vector-transforms",
+      "name": "M20 Vector Transforms Lab"
     }
   ]
 }

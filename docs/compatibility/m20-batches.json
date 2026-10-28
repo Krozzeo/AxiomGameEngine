@@ -3,14 +3,14 @@
   "milestone": "M20",
   "targetRecords": 311,
   "status": "in_progress",
-  "certifiedUnitySignatures": 54,
+  "certifiedUnitySignatures": 78,
   "batch": "0.0.62 / SDK12 / canonical core and dependency profiles, behavior attribution in progress",
   "evidence": {
     "native": "evidence/m20-queries-native-windows.json",
     "developmentWasm": "evidence/m20-queries-development-wasm.json"
   },
   "requiredRemaining": [
-    "Complete attributed canonical positive/negative/lifecycle/reference review for remaining257 of311 frozen records; source matching and broad lab results are insufficient",
+    "Complete attributed canonical positive/negative/lifecycle/reference review for remaining233 of311 frozen records; source matching and broad lab results are insufficient",
     "Finish constructor and degenerate-transform edge attribution and applicable asset-backed clone requirements; implement missing required behavior rather than waiving scope. Persistent-scene ownership/reparent lifecycle are now exercised natively and in Development/AOT. All53 obsolete consumer compiler contracts pass; deprecated runtime attribution remains open.",
     "Finish exact-head native/Wasm/AOT, UI/project/Stop/Undo/dependency regression, CI and public artifact acceptance"
   ],
@@ -114,12 +114,47 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public UnityEngine.Vector3 TransformPoint(float x, float y, float z);",
       "member": "TransformPoint",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public overload against Unity6000.3.27f1: regular, ancestor/local/double reflections, deep ancestors, collapsed parent/middle/child scales and destroyed owners. Span overloads additionally exercise empty inputs and, for separate destinations, short/long lengths requiring exact InvalidOperationException. Results, unchanged local/world poses and separate source arrays match native float observations with2e-5 relative tolerance; quaternion signs are orientation-equivalent. Identical corpus and native SDK input hashes are verified.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-vector-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-vectors-native.json",
+          "caseIndex": 0,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-vectors-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-vectors-aot-wasm.json",
+          "caseIds": [
+            "v001",
+            "v002",
+            "v003",
+            "v004",
+            "v005",
+            "v006",
+            "v007",
+            "v008",
+            "v009"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:0cccf5bebb0c1c9f9c7f324c",
@@ -409,12 +444,49 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public void InverseTransformDirections(System.Span`1<UnityEngine.Vector3> directions);",
       "member": "InverseTransformDirections",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public overload against Unity6000.3.27f1: regular, ancestor/local/double reflections, deep ancestors, collapsed parent/middle/child scales and destroyed owners. Span overloads additionally exercise empty inputs and, for separate destinations, short/long lengths requiring exact InvalidOperationException. Results, unchanged local/world poses and separate source arrays match native float observations with2e-5 relative tolerance; quaternion signs are orientation-equivalent. Identical corpus and native SDK input hashes are verified.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-vector-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-vectors-native.json",
+          "caseIndex": 1,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed",
+            "empty"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-vectors-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-vectors-aot-wasm.json",
+          "caseIds": [
+            "v010",
+            "v011",
+            "v012",
+            "v013",
+            "v014",
+            "v015",
+            "v016",
+            "v017",
+            "v018",
+            "v019"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:1733cf71b9e4a1d82beea15b",
@@ -1067,12 +1139,53 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public void InverseTransformDirections(System.ReadOnlySpan`1<UnityEngine.Vector3> directions, System.Span`1<UnityEngine.Vector3> transformedDirections);",
       "member": "InverseTransformDirections",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public overload against Unity6000.3.27f1: regular, ancestor/local/double reflections, deep ancestors, collapsed parent/middle/child scales and destroyed owners. Span overloads additionally exercise empty inputs and, for separate destinations, short/long lengths requiring exact InvalidOperationException. Results, unchanged local/world poses and separate source arrays match native float observations with2e-5 relative tolerance; quaternion signs are orientation-equivalent. Identical corpus and native SDK input hashes are verified.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-vector-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-vectors-native.json",
+          "caseIndex": 2,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed",
+            "empty",
+            "short",
+            "long"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-vectors-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-vectors-aot-wasm.json",
+          "caseIds": [
+            "v020",
+            "v021",
+            "v022",
+            "v023",
+            "v024",
+            "v025",
+            "v026",
+            "v027",
+            "v028",
+            "v029",
+            "v030",
+            "v031"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:3197e5e7dc6193093945b6e6",
@@ -1185,12 +1298,47 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public UnityEngine.Vector3 InverseTransformPoint(float x, float y, float z);",
       "member": "InverseTransformPoint",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public overload against Unity6000.3.27f1: regular, ancestor/local/double reflections, deep ancestors, collapsed parent/middle/child scales and destroyed owners. Span overloads additionally exercise empty inputs and, for separate destinations, short/long lengths requiring exact InvalidOperationException. Results, unchanged local/world poses and separate source arrays match native float observations with2e-5 relative tolerance; quaternion signs are orientation-equivalent. Identical corpus and native SDK input hashes are verified.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-vector-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-vectors-native.json",
+          "caseIndex": 3,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-vectors-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-vectors-aot-wasm.json",
+          "caseIds": [
+            "v032",
+            "v033",
+            "v034",
+            "v035",
+            "v036",
+            "v037",
+            "v038",
+            "v039",
+            "v040"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:3526b389767354ec01fa2640",
@@ -1255,12 +1403,49 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public void TransformDirections(System.Span`1<UnityEngine.Vector3> directions);",
       "member": "TransformDirections",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public overload against Unity6000.3.27f1: regular, ancestor/local/double reflections, deep ancestors, collapsed parent/middle/child scales and destroyed owners. Span overloads additionally exercise empty inputs and, for separate destinations, short/long lengths requiring exact InvalidOperationException. Results, unchanged local/world poses and separate source arrays match native float observations with2e-5 relative tolerance; quaternion signs are orientation-equivalent. Identical corpus and native SDK input hashes are verified.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-vector-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-vectors-native.json",
+          "caseIndex": 4,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed",
+            "empty"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-vectors-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-vectors-aot-wasm.json",
+          "caseIds": [
+            "v041",
+            "v042",
+            "v043",
+            "v044",
+            "v045",
+            "v046",
+            "v047",
+            "v048",
+            "v049",
+            "v050"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:36fcd203a7684cd9af33ddb4",
@@ -1480,12 +1665,47 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public UnityEngine.Vector3 TransformDirection(UnityEngine.Vector3 direction);",
       "member": "TransformDirection",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public overload against Unity6000.3.27f1: regular, ancestor/local/double reflections, deep ancestors, collapsed parent/middle/child scales and destroyed owners. Span overloads additionally exercise empty inputs and, for separate destinations, short/long lengths requiring exact InvalidOperationException. Results, unchanged local/world poses and separate source arrays match native float observations with2e-5 relative tolerance; quaternion signs are orientation-equivalent. Identical corpus and native SDK input hashes are verified.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-vector-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-vectors-native.json",
+          "caseIndex": 5,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-vectors-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-vectors-aot-wasm.json",
+          "caseIds": [
+            "v051",
+            "v052",
+            "v053",
+            "v054",
+            "v055",
+            "v056",
+            "v057",
+            "v058",
+            "v059"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:3dbad36c56b9645efff726a3",
@@ -1613,12 +1833,49 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public void InverseTransformPoints(System.Span`1<UnityEngine.Vector3> positions);",
       "member": "InverseTransformPoints",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public overload against Unity6000.3.27f1: regular, ancestor/local/double reflections, deep ancestors, collapsed parent/middle/child scales and destroyed owners. Span overloads additionally exercise empty inputs and, for separate destinations, short/long lengths requiring exact InvalidOperationException. Results, unchanged local/world poses and separate source arrays match native float observations with2e-5 relative tolerance; quaternion signs are orientation-equivalent. Identical corpus and native SDK input hashes are verified.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-vector-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-vectors-native.json",
+          "caseIndex": 6,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed",
+            "empty"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-vectors-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-vectors-aot-wasm.json",
+          "caseIds": [
+            "v060",
+            "v061",
+            "v062",
+            "v063",
+            "v064",
+            "v065",
+            "v066",
+            "v067",
+            "v068",
+            "v069"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:4670d270a0510d40f3c72abd",
@@ -2425,12 +2682,47 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public UnityEngine.Vector3 InverseTransformVector(float x, float y, float z);",
       "member": "InverseTransformVector",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public overload against Unity6000.3.27f1: regular, ancestor/local/double reflections, deep ancestors, collapsed parent/middle/child scales and destroyed owners. Span overloads additionally exercise empty inputs and, for separate destinations, short/long lengths requiring exact InvalidOperationException. Results, unchanged local/world poses and separate source arrays match native float observations with2e-5 relative tolerance; quaternion signs are orientation-equivalent. Identical corpus and native SDK input hashes are verified.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-vector-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-vectors-native.json",
+          "caseIndex": 7,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-vectors-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-vectors-aot-wasm.json",
+          "caseIds": [
+            "v070",
+            "v071",
+            "v072",
+            "v073",
+            "v074",
+            "v075",
+            "v076",
+            "v077",
+            "v078"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:6fc5b8ae22b7cdba8b07d1d7",
@@ -2586,12 +2878,49 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public void TransformPoints(System.Span`1<UnityEngine.Vector3> positions);",
       "member": "TransformPoints",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public overload against Unity6000.3.27f1: regular, ancestor/local/double reflections, deep ancestors, collapsed parent/middle/child scales and destroyed owners. Span overloads additionally exercise empty inputs and, for separate destinations, short/long lengths requiring exact InvalidOperationException. Results, unchanged local/world poses and separate source arrays match native float observations with2e-5 relative tolerance; quaternion signs are orientation-equivalent. Identical corpus and native SDK input hashes are verified.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-vector-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-vectors-native.json",
+          "caseIndex": 8,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed",
+            "empty"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-vectors-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-vectors-aot-wasm.json",
+          "caseIds": [
+            "v079",
+            "v080",
+            "v081",
+            "v082",
+            "v083",
+            "v084",
+            "v085",
+            "v086",
+            "v087",
+            "v088"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:770f631cdebafc641ebcc0e5",
@@ -2911,24 +3240,100 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public void InverseTransformPoints(System.ReadOnlySpan`1<UnityEngine.Vector3> positions, System.Span`1<UnityEngine.Vector3> transformedPositions);",
       "member": "InverseTransformPoints",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public overload against Unity6000.3.27f1: regular, ancestor/local/double reflections, deep ancestors, collapsed parent/middle/child scales and destroyed owners. Span overloads additionally exercise empty inputs and, for separate destinations, short/long lengths requiring exact InvalidOperationException. Results, unchanged local/world poses and separate source arrays match native float observations with2e-5 relative tolerance; quaternion signs are orientation-equivalent. Identical corpus and native SDK input hashes are verified.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-vector-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-vectors-native.json",
+          "caseIndex": 9,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed",
+            "empty",
+            "short",
+            "long"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-vectors-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-vectors-aot-wasm.json",
+          "caseIds": [
+            "v089",
+            "v090",
+            "v091",
+            "v092",
+            "v093",
+            "v094",
+            "v095",
+            "v096",
+            "v097",
+            "v098",
+            "v099",
+            "v100"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:8578dfa9563bd0c9c4615538",
       "owner": "UnityEngine.Transform",
       "declaration": "public UnityEngine.Vector3 InverseTransformDirection(UnityEngine.Vector3 direction);",
       "member": "InverseTransformDirection",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public overload against Unity6000.3.27f1: regular, ancestor/local/double reflections, deep ancestors, collapsed parent/middle/child scales and destroyed owners. Span overloads additionally exercise empty inputs and, for separate destinations, short/long lengths requiring exact InvalidOperationException. Results, unchanged local/world poses and separate source arrays match native float observations with2e-5 relative tolerance; quaternion signs are orientation-equivalent. Identical corpus and native SDK input hashes are verified.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-vector-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-vectors-native.json",
+          "caseIndex": 10,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-vectors-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-vectors-aot-wasm.json",
+          "caseIds": [
+            "v101",
+            "v102",
+            "v103",
+            "v104",
+            "v105",
+            "v106",
+            "v107",
+            "v108",
+            "v109"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:871cb89cff0eabae94154bbb",
@@ -3081,24 +3486,100 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public UnityEngine.Vector3 TransformPoint(UnityEngine.Vector3 position);",
       "member": "TransformPoint",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public overload against Unity6000.3.27f1: regular, ancestor/local/double reflections, deep ancestors, collapsed parent/middle/child scales and destroyed owners. Span overloads additionally exercise empty inputs and, for separate destinations, short/long lengths requiring exact InvalidOperationException. Results, unchanged local/world poses and separate source arrays match native float observations with2e-5 relative tolerance; quaternion signs are orientation-equivalent. Identical corpus and native SDK input hashes are verified.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-vector-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-vectors-native.json",
+          "caseIndex": 11,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-vectors-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-vectors-aot-wasm.json",
+          "caseIds": [
+            "v110",
+            "v111",
+            "v112",
+            "v113",
+            "v114",
+            "v115",
+            "v116",
+            "v117",
+            "v118"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:8c78a465b26d23b32e91516b",
       "owner": "UnityEngine.Transform",
       "declaration": "public void TransformVectors(System.ReadOnlySpan`1<UnityEngine.Vector3> vectors, System.Span`1<UnityEngine.Vector3> transformedVectors);",
       "member": "TransformVectors",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public overload against Unity6000.3.27f1: regular, ancestor/local/double reflections, deep ancestors, collapsed parent/middle/child scales and destroyed owners. Span overloads additionally exercise empty inputs and, for separate destinations, short/long lengths requiring exact InvalidOperationException. Results, unchanged local/world poses and separate source arrays match native float observations with2e-5 relative tolerance; quaternion signs are orientation-equivalent. Identical corpus and native SDK input hashes are verified.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-vector-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-vectors-native.json",
+          "caseIndex": 12,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed",
+            "empty",
+            "short",
+            "long"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-vectors-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-vectors-aot-wasm.json",
+          "caseIds": [
+            "v119",
+            "v120",
+            "v121",
+            "v122",
+            "v123",
+            "v124",
+            "v125",
+            "v126",
+            "v127",
+            "v128",
+            "v129",
+            "v130"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:8cb02b05839f8ad07a3a0314",
@@ -3244,12 +3725,53 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public void TransformDirections(System.ReadOnlySpan`1<UnityEngine.Vector3> directions, System.Span`1<UnityEngine.Vector3> transformedDirections);",
       "member": "TransformDirections",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public overload against Unity6000.3.27f1: regular, ancestor/local/double reflections, deep ancestors, collapsed parent/middle/child scales and destroyed owners. Span overloads additionally exercise empty inputs and, for separate destinations, short/long lengths requiring exact InvalidOperationException. Results, unchanged local/world poses and separate source arrays match native float observations with2e-5 relative tolerance; quaternion signs are orientation-equivalent. Identical corpus and native SDK input hashes are verified.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-vector-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-vectors-native.json",
+          "caseIndex": 13,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed",
+            "empty",
+            "short",
+            "long"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-vectors-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-vectors-aot-wasm.json",
+          "caseIds": [
+            "v131",
+            "v132",
+            "v133",
+            "v134",
+            "v135",
+            "v136",
+            "v137",
+            "v138",
+            "v139",
+            "v140",
+            "v141",
+            "v142"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:94481eeada2474736238874b",
@@ -3291,12 +3813,47 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public UnityEngine.Vector3 TransformDirection(float x, float y, float z);",
       "member": "TransformDirection",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public overload against Unity6000.3.27f1: regular, ancestor/local/double reflections, deep ancestors, collapsed parent/middle/child scales and destroyed owners. Span overloads additionally exercise empty inputs and, for separate destinations, short/long lengths requiring exact InvalidOperationException. Results, unchanged local/world poses and separate source arrays match native float observations with2e-5 relative tolerance; quaternion signs are orientation-equivalent. Identical corpus and native SDK input hashes are verified.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-vector-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-vectors-native.json",
+          "caseIndex": 14,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-vectors-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-vectors-aot-wasm.json",
+          "caseIds": [
+            "v143",
+            "v144",
+            "v145",
+            "v146",
+            "v147",
+            "v148",
+            "v149",
+            "v150",
+            "v151"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:953913e52870db8c4d1b29df",
@@ -3514,12 +4071,53 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public void InverseTransformVectors(System.ReadOnlySpan`1<UnityEngine.Vector3> vectors, System.Span`1<UnityEngine.Vector3> transformedVectors);",
       "member": "InverseTransformVectors",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public overload against Unity6000.3.27f1: regular, ancestor/local/double reflections, deep ancestors, collapsed parent/middle/child scales and destroyed owners. Span overloads additionally exercise empty inputs and, for separate destinations, short/long lengths requiring exact InvalidOperationException. Results, unchanged local/world poses and separate source arrays match native float observations with2e-5 relative tolerance; quaternion signs are orientation-equivalent. Identical corpus and native SDK input hashes are verified.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-vector-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-vectors-native.json",
+          "caseIndex": 15,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed",
+            "empty",
+            "short",
+            "long"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-vectors-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-vectors-aot-wasm.json",
+          "caseIds": [
+            "v152",
+            "v153",
+            "v154",
+            "v155",
+            "v156",
+            "v157",
+            "v158",
+            "v159",
+            "v160",
+            "v161",
+            "v162",
+            "v163"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:a34cf610a968c997827ec92b",
@@ -3881,12 +4479,47 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public UnityEngine.Vector3 InverseTransformDirection(float x, float y, float z);",
       "member": "InverseTransformDirection",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public overload against Unity6000.3.27f1: regular, ancestor/local/double reflections, deep ancestors, collapsed parent/middle/child scales and destroyed owners. Span overloads additionally exercise empty inputs and, for separate destinations, short/long lengths requiring exact InvalidOperationException. Results, unchanged local/world poses and separate source arrays match native float observations with2e-5 relative tolerance; quaternion signs are orientation-equivalent. Identical corpus and native SDK input hashes are verified.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-vector-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-vectors-native.json",
+          "caseIndex": 16,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-vectors-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-vectors-aot-wasm.json",
+          "caseIds": [
+            "v164",
+            "v165",
+            "v166",
+            "v167",
+            "v168",
+            "v169",
+            "v170",
+            "v171",
+            "v172"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:b42e5e171e67be1acb59b9f0",
@@ -3945,12 +4578,49 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public void TransformVectors(System.Span`1<UnityEngine.Vector3> vectors);",
       "member": "TransformVectors",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public overload against Unity6000.3.27f1: regular, ancestor/local/double reflections, deep ancestors, collapsed parent/middle/child scales and destroyed owners. Span overloads additionally exercise empty inputs and, for separate destinations, short/long lengths requiring exact InvalidOperationException. Results, unchanged local/world poses and separate source arrays match native float observations with2e-5 relative tolerance; quaternion signs are orientation-equivalent. Identical corpus and native SDK input hashes are verified.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-vector-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-vectors-native.json",
+          "caseIndex": 17,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed",
+            "empty"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-vectors-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-vectors-aot-wasm.json",
+          "caseIds": [
+            "v173",
+            "v174",
+            "v175",
+            "v176",
+            "v177",
+            "v178",
+            "v179",
+            "v180",
+            "v181",
+            "v182"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:b6e93895f34125c2bf828131",
@@ -4163,12 +4833,53 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public void TransformPoints(System.ReadOnlySpan`1<UnityEngine.Vector3> positions, System.Span`1<UnityEngine.Vector3> transformedPositions);",
       "member": "TransformPoints",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public overload against Unity6000.3.27f1: regular, ancestor/local/double reflections, deep ancestors, collapsed parent/middle/child scales and destroyed owners. Span overloads additionally exercise empty inputs and, for separate destinations, short/long lengths requiring exact InvalidOperationException. Results, unchanged local/world poses and separate source arrays match native float observations with2e-5 relative tolerance; quaternion signs are orientation-equivalent. Identical corpus and native SDK input hashes are verified.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-vector-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-vectors-native.json",
+          "caseIndex": 18,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed",
+            "empty",
+            "short",
+            "long"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-vectors-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-vectors-aot-wasm.json",
+          "caseIds": [
+            "v183",
+            "v184",
+            "v185",
+            "v186",
+            "v187",
+            "v188",
+            "v189",
+            "v190",
+            "v191",
+            "v192",
+            "v193",
+            "v194"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:c31cbe2c98853aee9b00d561",
@@ -4399,12 +5110,49 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public void InverseTransformVectors(System.Span`1<UnityEngine.Vector3> vectors);",
       "member": "InverseTransformVectors",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public overload against Unity6000.3.27f1: regular, ancestor/local/double reflections, deep ancestors, collapsed parent/middle/child scales and destroyed owners. Span overloads additionally exercise empty inputs and, for separate destinations, short/long lengths requiring exact InvalidOperationException. Results, unchanged local/world poses and separate source arrays match native float observations with2e-5 relative tolerance; quaternion signs are orientation-equivalent. Identical corpus and native SDK input hashes are verified.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-vector-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-vectors-native.json",
+          "caseIndex": 19,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed",
+            "empty"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-vectors-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-vectors-aot-wasm.json",
+          "caseIds": [
+            "v195",
+            "v196",
+            "v197",
+            "v198",
+            "v199",
+            "v200",
+            "v201",
+            "v202",
+            "v203",
+            "v204"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:cc336411186ab7ce1405ca72",
@@ -4558,12 +5306,47 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public UnityEngine.Vector3 InverseTransformVector(UnityEngine.Vector3 vector);",
       "member": "InverseTransformVector",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public overload against Unity6000.3.27f1: regular, ancestor/local/double reflections, deep ancestors, collapsed parent/middle/child scales and destroyed owners. Span overloads additionally exercise empty inputs and, for separate destinations, short/long lengths requiring exact InvalidOperationException. Results, unchanged local/world poses and separate source arrays match native float observations with2e-5 relative tolerance; quaternion signs are orientation-equivalent. Identical corpus and native SDK input hashes are verified.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-vector-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-vectors-native.json",
+          "caseIndex": 20,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-vectors-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-vectors-aot-wasm.json",
+          "caseIds": [
+            "v205",
+            "v206",
+            "v207",
+            "v208",
+            "v209",
+            "v210",
+            "v211",
+            "v212",
+            "v213"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:d41bbd79d916d2a70c0efe07",
@@ -4674,12 +5457,47 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public UnityEngine.Vector3 TransformVector(float x, float y, float z);",
       "member": "TransformVector",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public overload against Unity6000.3.27f1: regular, ancestor/local/double reflections, deep ancestors, collapsed parent/middle/child scales and destroyed owners. Span overloads additionally exercise empty inputs and, for separate destinations, short/long lengths requiring exact InvalidOperationException. Results, unchanged local/world poses and separate source arrays match native float observations with2e-5 relative tolerance; quaternion signs are orientation-equivalent. Identical corpus and native SDK input hashes are verified.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-vector-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-vectors-native.json",
+          "caseIndex": 21,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-vectors-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-vectors-aot-wasm.json",
+          "caseIds": [
+            "v214",
+            "v215",
+            "v216",
+            "v217",
+            "v218",
+            "v219",
+            "v220",
+            "v221",
+            "v222"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:daa69bfbfdf7a489662b6eef",
@@ -4735,12 +5553,47 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public UnityEngine.Vector3 InverseTransformPoint(UnityEngine.Vector3 position);",
       "member": "InverseTransformPoint",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public overload against Unity6000.3.27f1: regular, ancestor/local/double reflections, deep ancestors, collapsed parent/middle/child scales and destroyed owners. Span overloads additionally exercise empty inputs and, for separate destinations, short/long lengths requiring exact InvalidOperationException. Results, unchanged local/world poses and separate source arrays match native float observations with2e-5 relative tolerance; quaternion signs are orientation-equivalent. Identical corpus and native SDK input hashes are verified.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-vector-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-vectors-native.json",
+          "caseIndex": 22,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-vectors-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-vectors-aot-wasm.json",
+          "caseIds": [
+            "v223",
+            "v224",
+            "v225",
+            "v226",
+            "v227",
+            "v228",
+            "v229",
+            "v230",
+            "v231"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:de5d51bf53322fd10e436b97",
@@ -5053,12 +5906,47 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public UnityEngine.Vector3 TransformVector(UnityEngine.Vector3 vector);",
       "member": "TransformVector",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public overload against Unity6000.3.27f1: regular, ancestor/local/double reflections, deep ancestors, collapsed parent/middle/child scales and destroyed owners. Span overloads additionally exercise empty inputs and, for separate destinations, short/long lengths requiring exact InvalidOperationException. Results, unchanged local/world poses and separate source arrays match native float observations with2e-5 relative tolerance; quaternion signs are orientation-equivalent. Identical corpus and native SDK input hashes are verified.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-vector-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-vectors-native.json",
+          "caseIndex": 23,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-vectors-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-vectors-aot-wasm.json",
+          "caseIds": [
+            "v232",
+            "v233",
+            "v234",
+            "v235",
+            "v236",
+            "v237",
+            "v238",
+            "v239",
+            "v240"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:eb6ff574007ef48a1c2cda26",
@@ -5570,7 +6458,7 @@
     },
     "hierarchyReferenceLifecycle": {
       "status": "partial",
-      "reason": "740 native observations,267 core plus208 asset/lifecycle/hierarchy checks per real Development/AOT mode pass. Source-hashed actual native Unity corpora certify17 async and7 hierarchy contracts;30 obsolete compiler-error contracts match all three compilers.54 accepted/311,257 remaining. Cycle rejection, destroyed-parent handling and standalone Transform destruction are corrected; full cloning/query/message/transform/object domains and multiple same-type components remain required."
+      "reason": "Native740 core+240 vector comparisons; real267 core+208 asset/lifecycle/hierarchy+240 vector checks per Development/AOT pass. Native source-hashed corpora certify17 async,7 hierarchy and24 vector contracts, plus30 obsolete compiler-error contracts.78/311 accepted; remaining233 and required component/cloning/object/message/pose/matrix domains remain open."
     },
     "regressionAndDependencies": {
       "status": "partial",
@@ -5592,6 +6480,11 @@
     "asyncAcceptance": "evidence/m20-async-native-acceptance.json",
     "nativeObsoleteCompiler": "evidence/m20-unity-obsolete-compile.json",
     "wasmObsoleteCompiler": "evidence/m20-sdk12-obsolete-wasm-compile.json",
-    "hierarchyAcceptance": "evidence/m20-hierarchy-native-acceptance.json"
+    "hierarchyAcceptance": "evidence/m20-hierarchy-native-acceptance.json",
+    "vectorNative": "evidence/m20-sdk12-vectors-native.json",
+    "vectorDevelopmentWasm": "evidence/m20-sdk12-vectors-development-wasm.json",
+    "vectorAotWasm": "evidence/m20-sdk12-vectors-aot-wasm.json",
+    "vectorNativeReference": "evidence/m20-unity-vector-transform-observations.json",
+    "vectorAcceptance": "evidence/m20-vector-native-acceptance.json"
   }
 }

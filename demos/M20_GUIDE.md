@@ -65,3 +65,7 @@ Runtime assets are temporary; cloned Mesh/TextAsset identities and names are ind
 The same Asset Lifetime Lab also contains **Hierarchy Path Controller**: Passed54, Failed0. It exercises absolute/relative object lookup, inactive descendant paths, missing/null/out-of-range and destroyed references, duplicate Transform rejection and query null inputs. These are ordinary editable script calls compared with the exact native Unity reference.
 
 The hierarchy controller also checks explicit/default world/local reparenting, null/destroyed parent detachment, invalid cycles and attempted Transform destruction without graph changes. Errors are logged for forbidden operations; the controller continues.
+
+## Vector Transforms Lab —0.0.62
+
+Platform Load Demos also creates **Demo · M20 Vector Transforms Lab**. Press Play and select Vector Transform Controller. It finishes Count240, Passed240, Failed0; Diagnostics stays empty. The same direct-call corpus covers24 scalar/vector/in-place/separate-span overloads under regular, reflected, deep and collapsed-scale hierarchies, destroyed owners and empty/mismatched span lengths. Reference data comes from the exact native Unity version; all scripts are editable. Stop restores the authored project. These results verify CPU/.NET/Wasm behavior, not GPU pixels or all311 M20 contracts.

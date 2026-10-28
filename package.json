@@ -88,7 +88,8 @@
     "test:native:m20": "dotnet run --project tests/csharp/M20.Objects/M20.Objects.csproj",
     "audit:m20": "node scripts/compatibility/m20-closure.mjs",
     "check:m20-closure": "node scripts/compatibility/m20-closure.mjs --require-closed",
-    "test:browser:m20-assets": "node tests/browser/m20-assets.mjs"
+    "test:browser:m20-assets": "node tests/browser/m20-assets.mjs",
+    "test:browser:m20-vectors": "node tests/browser/m20-vectors.mjs"
   },
   "dependencies": {
     "axiom-platform": "https://codeload.github.com/Krozzeo/AxiomPlatform/tar.gz/d9561e94d7285d30d8e056f7e58b21f1ec163180",

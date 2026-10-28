@@ -76,3 +76,19 @@ internal static class TransformGraph {
  }
  private static string State(Affine matrix,Transform local){using var stream=new MemoryStream();using(var writer=new Utf8JsonWriter(stream)){writer.WriteStartObject();writer.WriteStartObject("transformState");writer.WriteStartArray("matrix");foreach(var value in matrix.M)writer.WriteNumberValue(value);writer.WriteEndArray();writer.WriteStartObject("local");writer.WritePropertyName("position");local.Position.Write(writer);writer.WriteStartArray("rotation");writer.WriteNumberValue(local.Rotation.X);writer.WriteNumberValue(local.Rotation.Y);writer.WriteNumberValue(local.Rotation.Z);writer.WriteNumberValue(local.Rotation.W);writer.WriteEndArray();writer.WritePropertyName("scale");local.Scale.Write(writer);writer.WriteEndObject();writer.WriteEndObject();writer.WriteEndObject();}return System.Text.Encoding.UTF8.GetString(stream.ToArray());}
 }
+
+// Canonical queries preserve ancestor reflections and invert each TRS separately.
+// A collapsed scale axis has a zero reciprocal, matching the native reference.
+internal static class TransformQueries {
+ private static Vector3 Sign(Vector3 scale)=>new(scale.X<0?-1:1,scale.Y<0?-1:1,scale.Z<0?-1:1);
+ private static Vector3 Multiply(Vector3 a,Vector3 b)=>new(a.X*b.X,a.Y*b.Y,a.Z*b.Z);
+ internal static Vector3 Direction(Entity entity,Vector3 value,bool inverse){
+  var local=Context.Local(entity);var parent=Context.Parents.GetValueOrDefault(entity.Id);
+  if(inverse){if(parent!=null){var owner=new Entity(parent,Context.Generation);value=Multiply(Sign(Context.Local(owner).Scale),Direction(owner,value,true));}return Quaternion.Inverse(local.Rotation)*value;}
+  value=local.Rotation*value;if(parent==null)return value;var ancestor=new Entity(parent,Context.Generation);return Direction(ancestor,Multiply(Sign(Context.Local(ancestor).Scale),value),false);
+ }
+ internal static Vector3 Inverse(Entity entity,Vector3 value,bool point){
+  var local=Context.Local(entity);var parent=Context.Parents.GetValueOrDefault(entity.Id);if(parent!=null)value=Inverse(new Entity(parent,Context.Generation),value,point);if(point)value-=local.Position;value=Quaternion.Inverse(local.Rotation)*value;
+  return new(local.Scale.X==0?0:value.X/local.Scale.X,local.Scale.Y==0?0:value.Y/local.Scale.Y,local.Scale.Z==0?0:value.Z/local.Scale.Z);
+ }
+}
