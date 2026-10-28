@@ -1,0 +1,987 @@
+{
+  "schemaVersion": 1,
+  "targetSignatures": 56,
+  "expectedObservations": 476,
+  "records": [
+    {
+      "index": 0,
+      "id": "unity63abi:011c30daa68f9899c7ea9d8e",
+      "owner": "UnityEngine.Component",
+      "declaration": "public UnityEngine.Component GetComponent(System.Type type);",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "null-type",
+        "invalid-type",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 1,
+      "id": "unity63abi:0233bbfe0438eaacac181ed3",
+      "owner": "UnityEngine.Component",
+      "declaration": "public bool TryGetComponent<T>(out T component);",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 2,
+      "id": "unity63abi:0303cc374882a50e63a55eb8",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public UnityEngine.Component[] GetComponentsInChildren(System.Type type);",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "null-type",
+        "invalid-type",
+        "child-only",
+        "inactive-target",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 3,
+      "id": "unity63abi:08407fa4b36251de1c07491c",
+      "owner": "UnityEngine.Component",
+      "declaration": "public T[] GetComponentsInChildren<T>(bool includeInactive);",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "include-inactive",
+        "child-only",
+        "inactive-target",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 4,
+      "id": "unity63abi:084eb12136e109b72bc50436",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public UnityEngine.Component GetComponentInParent(System.Type type, bool includeInactive);",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "include-inactive",
+        "null-type",
+        "invalid-type",
+        "parent-only",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 5,
+      "id": "unity63abi:111ba6b4664912b4b6afc358",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public UnityEngine.Component[] GetComponents(System.Type type);",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "null-type",
+        "invalid-type",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 6,
+      "id": "unity63abi:19aafc1cc75398a18786ddbe",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public UnityEngine.Component[] GetComponentsInChildren(System.Type type, bool includeInactive);",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "include-inactive",
+        "null-type",
+        "invalid-type",
+        "child-only",
+        "inactive-target",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 7,
+      "id": "unity63abi:1a291efb1cb1729442d53a2a",
+      "owner": "UnityEngine.Component",
+      "declaration": "public UnityEngine.Component[] GetComponents(System.Type type);",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "null-type",
+        "invalid-type",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 8,
+      "id": "unity63abi:2181fda2c12461bb28c522cc",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void GetComponentsInChildren<T>(bool includeInactive, System.Collections.Generic.List`1<T> results);",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "include-inactive",
+        "null-list",
+        "child-only",
+        "inactive-target",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 9,
+      "id": "unity63abi:27e25da246a8fbb06bd311bc",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public T[] GetComponentsInParent<T>(bool includeInactive);",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "include-inactive",
+        "parent-only",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 10,
+      "id": "unity63abi:2aae189876d9abe173f01dc2",
+      "owner": "UnityEngine.Component",
+      "declaration": "public UnityEngine.Component GetComponentInParent(System.Type t, bool includeInactive);",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "include-inactive",
+        "null-type",
+        "invalid-type",
+        "parent-only",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 11,
+      "id": "unity63abi:356971597a474364cef3762e",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public bool TryGetComponent(System.Type type, out UnityEngine.Component component);",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "null-type",
+        "invalid-type",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 12,
+      "id": "unity63abi:399befba5b6e77b8fb404960",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public bool TryGetComponent<T>(out T component);",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 13,
+      "id": "unity63abi:3b14ea8ae2c923a3003864d6",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public T[] GetComponentsInChildren<T>(bool includeInactive);",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "include-inactive",
+        "child-only",
+        "inactive-target",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 14,
+      "id": "unity63abi:3ba01560e7ed33106e2b6681",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void GetComponentsInChildren<T>(System.Collections.Generic.List`1<T> results);",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "null-list",
+        "child-only",
+        "inactive-target",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 15,
+      "id": "unity63abi:3ef57d3ab2f00615865dc366",
+      "owner": "UnityEngine.Component",
+      "declaration": "public UnityEngine.Component[] GetComponentsInParent(System.Type t);",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "null-type",
+        "invalid-type",
+        "parent-only",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 16,
+      "id": "unity63abi:42ae92b14b85b93c5c9edd42",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public T GetComponentInParent<T>(bool includeInactive);",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "include-inactive",
+        "parent-only",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 17,
+      "id": "unity63abi:4d6fe284b6300453c8ae864a",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public T GetComponentInChildren<T>(bool includeInactive);",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "include-inactive",
+        "child-only",
+        "inactive-target",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 18,
+      "id": "unity63abi:4e35669518407556c955c1a4",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void GetComponents(System.Type type, System.Collections.Generic.List`1<UnityEngine.Component> results);",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "null-type",
+        "invalid-type",
+        "null-list",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 19,
+      "id": "unity63abi:55b3a82bb9cc248288fc184f",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public T GetComponent<T>();",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 20,
+      "id": "unity63abi:57b5f710b536158d6f0e4706",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void GetComponents<T>(System.Collections.Generic.List`1<T> results);",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "null-list",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 21,
+      "id": "unity63abi:5f332bf8bb2b72ce6ad5a24a",
+      "owner": "UnityEngine.Component",
+      "declaration": "public UnityEngine.Component GetComponentInParent(System.Type t);",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "null-type",
+        "invalid-type",
+        "parent-only",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 22,
+      "id": "unity63abi:6038ec1d4008ac3e6712f04b",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public T GetComponentInChildren<T>();",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "child-only",
+        "inactive-target",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 23,
+      "id": "unity63abi:61f73b45ee1d50d255a67ea5",
+      "owner": "UnityEngine.Component",
+      "declaration": "public UnityEngine.Component[] GetComponentsInChildren(System.Type t, bool includeInactive);",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "include-inactive",
+        "null-type",
+        "invalid-type",
+        "child-only",
+        "inactive-target",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 24,
+      "id": "unity63abi:6367fd0a14f9c2396b56d8c7",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public T[] GetComponentsInChildren<T>();",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "child-only",
+        "inactive-target",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 25,
+      "id": "unity63abi:6850090142a1cc40d84058ce",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public T[] GetComponents<T>();",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 26,
+      "id": "unity63abi:6f958d527ab10c61ad594e81",
+      "owner": "UnityEngine.Component",
+      "declaration": "public T GetComponentInParent<T>();",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "parent-only",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 27,
+      "id": "unity63abi:72434d71d1000e0f32d0fdf3",
+      "owner": "UnityEngine.Component",
+      "declaration": "public T[] GetComponentsInParent<T>();",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "parent-only",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 28,
+      "id": "unity63abi:75848892cb9ecde212372804",
+      "owner": "UnityEngine.Component",
+      "declaration": "public UnityEngine.Component GetComponentInChildren(System.Type t, bool includeInactive);",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "include-inactive",
+        "null-type",
+        "invalid-type",
+        "child-only",
+        "inactive-target",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 29,
+      "id": "unity63abi:77a970ca08b41cc01027f140",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void GetComponents<T>(System.Collections.Generic.List`1<T> results);",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "null-list",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 30,
+      "id": "unity63abi:79ae6ad08b143c69e796b268",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public T GetComponentInParent<T>();",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "parent-only",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 31,
+      "id": "unity63abi:8438c3b0c7ad51d566ed99a7",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public UnityEngine.Component GetComponent(string type);",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "null-string",
+        "empty-string",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 32,
+      "id": "unity63abi:871cb89cff0eabae94154bbb",
+      "owner": "UnityEngine.Component",
+      "declaration": "public T[] GetComponents<T>();",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 33,
+      "id": "unity63abi:8d834215bdf7ce4d7d51df21",
+      "owner": "UnityEngine.Component",
+      "declaration": "public UnityEngine.Component GetComponentInChildren(System.Type t);",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "null-type",
+        "invalid-type",
+        "child-only",
+        "inactive-target",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 34,
+      "id": "unity63abi:8de4b4f27c491f1a92ba8df2",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void GetComponentsInParent<T>(bool includeInactive, System.Collections.Generic.List`1<T> results);",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "include-inactive",
+        "null-list",
+        "parent-only",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 35,
+      "id": "unity63abi:913192fd707ce44ceba80757",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void GetComponentsInParent<T>(bool includeInactive, System.Collections.Generic.List`1<T> results);",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "include-inactive",
+        "null-list",
+        "parent-only",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 36,
+      "id": "unity63abi:984e96e8e6d4c2acc836c90f",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public UnityEngine.Component[] GetComponentsInParent(System.Type type);",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "null-type",
+        "invalid-type",
+        "parent-only",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 37,
+      "id": "unity63abi:994f2cce1d0c27fb0f08f8cd",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public T[] GetComponentsInParent<T>();",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "parent-only",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 38,
+      "id": "unity63abi:995b3fe760f82b9845b42ae1",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public UnityEngine.Component GetComponentInChildren(System.Type type);",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "null-type",
+        "invalid-type",
+        "child-only",
+        "inactive-target",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 39,
+      "id": "unity63abi:9a43de8de1a81d7d87957996",
+      "owner": "UnityEngine.Component",
+      "declaration": "public T[] GetComponentsInParent<T>(bool includeInactive);",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "include-inactive",
+        "parent-only",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 40,
+      "id": "unity63abi:9ca472a1cf35bcf35f094910",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void GetComponents(System.Type type, System.Collections.Generic.List`1<UnityEngine.Component> results);",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "null-type",
+        "invalid-type",
+        "null-list",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 41,
+      "id": "unity63abi:a34cf610a968c997827ec92b",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public UnityEngine.Component GetComponent(System.Type type);",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "null-type",
+        "invalid-type",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 42,
+      "id": "unity63abi:a387d38067026497c40415ec",
+      "owner": "UnityEngine.Component",
+      "declaration": "public T GetComponentInChildren<T>(bool includeInactive);",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "include-inactive",
+        "child-only",
+        "inactive-target",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 43,
+      "id": "unity63abi:a42ee4400bcdff5e55de6b78",
+      "owner": "UnityEngine.Component",
+      "declaration": "public bool TryGetComponent(System.Type type, out UnityEngine.Component component);",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "null-type",
+        "invalid-type",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 44,
+      "id": "unity63abi:a9eaa6d7f4fa4249a40fb622",
+      "owner": "UnityEngine.Component",
+      "declaration": "public T GetComponentInParent<T>(bool includeInactive);",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "include-inactive",
+        "parent-only",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 45,
+      "id": "unity63abi:adb6415032017062b27565c5",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void GetComponentsInChildren<T>(System.Collections.Generic.List`1<T> results);",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "null-list",
+        "child-only",
+        "inactive-target",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 46,
+      "id": "unity63abi:b42e5e171e67be1acb59b9f0",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public UnityEngine.Component[] GetComponentsInParent(System.Type type, bool includeInactive);",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "include-inactive",
+        "null-type",
+        "invalid-type",
+        "parent-only",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 47,
+      "id": "unity63abi:bc4fad7c91366764e5ed730d",
+      "owner": "UnityEngine.Component",
+      "declaration": "public UnityEngine.Component[] GetComponentsInParent(System.Type t, bool includeInactive);",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "include-inactive",
+        "null-type",
+        "invalid-type",
+        "parent-only",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 48,
+      "id": "unity63abi:c7fac07a0c325bfeb2c89df3",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public UnityEngine.Component GetComponentInChildren(System.Type type, bool includeInactive);",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "include-inactive",
+        "null-type",
+        "invalid-type",
+        "child-only",
+        "inactive-target",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 49,
+      "id": "unity63abi:cefef25826ba5df1c77ec094",
+      "owner": "UnityEngine.Component",
+      "declaration": "public UnityEngine.Component GetComponent(string type);",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "null-string",
+        "empty-string",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 50,
+      "id": "unity63abi:d43f31bcc5cd064999aecfae",
+      "owner": "UnityEngine.Component",
+      "declaration": "public T[] GetComponentsInChildren<T>();",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "child-only",
+        "inactive-target",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 51,
+      "id": "unity63abi:d457c2b98c141d06c44f969b",
+      "owner": "UnityEngine.Component",
+      "declaration": "public T GetComponent<T>();",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 52,
+      "id": "unity63abi:df303ad528fa976b0647bf0a",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public UnityEngine.Component GetComponentInParent(System.Type type);",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "null-type",
+        "invalid-type",
+        "parent-only",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 53,
+      "id": "unity63abi:e8c14bf1a7cfb21d474379e7",
+      "owner": "UnityEngine.Component",
+      "declaration": "public T GetComponentInChildren<T>();",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "child-only",
+        "inactive-target",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 54,
+      "id": "unity63abi:e9334e22cd48999eeda08a35",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void GetComponentsInChildren<T>(bool includeInactive, System.Collections.Generic.List`1<T> result);",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "include-inactive",
+        "null-list",
+        "child-only",
+        "inactive-target",
+        "disabled-component"
+      ],
+      "certified": true
+    },
+    {
+      "index": 55,
+      "id": "unity63abi:ef58bb185421374f623c36c7",
+      "owner": "UnityEngine.Component",
+      "declaration": "public UnityEngine.Component[] GetComponentsInChildren(System.Type t);",
+      "profiles": [
+        "regular",
+        "inactive-self",
+        "inactive-parent",
+        "missing",
+        "retired",
+        "null-type",
+        "invalid-type",
+        "child-only",
+        "inactive-target",
+        "disabled-component"
+      ],
+      "certified": true
+    }
+  ]
+}

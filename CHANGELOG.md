@@ -1,5 +1,7 @@
 # 0.0.62 — Canonical M20 core and dependency profiles (in progress)
 
+- Attribute all56 Component/GameObject query overloads through476 native/.NET/Development/AOT cases (214/311 accepted). Match native inactive hierarchy traversal and null-Type TryGetComponent. Add version-owned Component Queries Lab; M20 remains open.
+
 - Make generated reference fixtures portable across operating systems by fixing the nonsemantic gzip OS header byte; preserve all recorded outcomes and fixture contents.
 - Add the portable77-case Object Contracts Lab and29 attributed native/Development/AOT contracts (158/311 accepted). Match native unbound/destroyed property exceptions, null names, generic component-slot casts and destroyed-owner index validation. M20 remains open.
 

@@ -3,7 +3,7 @@
   "passed": true,
   "profile": "C#/Wasm consumer compiler",
   "scope": "Expected consumer compiler diagnostics only. Compiler-error obsolete members cannot be executed; warning-only runtime behavior is separate.",
-  "assemblySha256": "b093c0cd8df515e8926dee47500055cb906952ba64f7f5dddf05e3cfcd9277ba",
+  "assemblySha256": "07f01936cb9fb31d771fdc605b0fa96e9ac07f0a96a04c45e0f1d9c6d4acc2f9",
   "consumerSha256": "9df57bb71226a65da3d343cd42f1384adf7c527d9672d9ff138e815c3e9a75f0",
   "compilerErrorCases": 30,
   "compilerWarningCases": 23,

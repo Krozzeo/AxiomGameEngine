@@ -1,10 +1,10 @@
-Current review: **0.0.62 / SDK12**. All311 frozen compiled source contracts match. Current native suites885 core+240 vector+348 pose comparisons; real browser267 core+271 asset/lifecycle/hierarchy+77 object metadata/index+240 vector+348 pose checks per Development/effective-AOT mode. Attributed acceptance158/311:128 behavior and30 compile-error obsolete contracts. Transform81/81 is accepted within the recorded bounded profiles. M20 remains open with153 contracts pending; source matches and test counts are not full Unity parity.
+Current review: **0.0.62 / SDK12**. All311 frozen compiled source contracts match. Attributed acceptance214/311:184 behavior and30 compile-error obsolete contracts. Transform81/81 and56 component-query overloads are accepted within the recorded bounded profiles. Native885 core+240 vectors+348 poses+476 query comparisons pass; the476-query demo passes Development/effective-AOT with exact Stop restoration, and Node486/486 passes. All six browser suites pass in both modes:267 core+271 asset/lifecycle/hierarchy+77 object metadata/index+240 vectors+348 poses+476 queries, with exact Stop restoration. M20 remains open with97 contracts pending; source matches and test counts are not full Unity parity.
 
 # Axiom Game Engine
 
 A local browser game editor with Rust/WebAssembly kernel, WebGPU renderer and C# gameplay. Includes2D/3D scenes, resources, CPU/Wasm physics, editing tools and isolated AI proposals with human review.
 
-**Stable: [0.0.57 / M19](https://github.com/Krozzeo/AxiomGameEngine/releases/tag/v0.0.57). Current review batch:0.0.62 / scripting SDK12 / canonical core, matrices, cloning, async/bulk APIs and primitive dependencies.** M20 remains in progress; the identity/lifetime and query/graph batches include an editable lab with 130 checks across seven controllers. [M20 report](docs/reports/M20_REPORT.md), [demo](demos/M20_GUIDE.md), [exact target ledger](docs/compatibility/m20-batches.json).
+**Stable: [0.0.57 / M19](https://github.com/Krozzeo/AxiomGameEngine/releases/tag/v0.0.57). Current review batch:0.0.62 / scripting SDK12 / canonical core, matrices, cloning, async/bulk APIs and primitive dependencies.** M20 remains in progress; six version-owned editable labs cover core267, assets/lifecycle/hierarchy271, object metadata77, vectors240, poses348 and queries476 checks. [M20 report](docs/reports/M20_REPORT.md), [demo](demos/M20_GUIDE.md), [exact target ledger](docs/compatibility/m20-batches.json).
 
 ## Axiom family
 

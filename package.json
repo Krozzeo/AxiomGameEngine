@@ -91,7 +91,8 @@
     "test:browser:m20-assets": "node tests/browser/m20-assets.mjs",
     "test:browser:m20-vectors": "node tests/browser/m20-vectors.mjs",
     "test:browser:m20-poses": "node tests/browser/m20-poses.mjs",
-    "test:browser:m20-objects": "node tests/browser/m20-objects.mjs"
+    "test:browser:m20-objects": "node tests/browser/m20-objects.mjs",
+    "test:browser:m20-queries": "node tests/browser/m20-queries.mjs"
   },
   "dependencies": {
     "axiom-platform": "https://codeload.github.com/Krozzeo/AxiomPlatform/tar.gz/d9561e94d7285d30d8e056f7e58b21f1ec163180",

@@ -79,3 +79,9 @@ Hierarchy Path Controller also exposes AuxiliaryPassed63, AuxiliaryFailed0 and A
 ## Object metadata and component indices
 
 Load **Demo · M20 Object Contracts Lab** from the same installation. Play and inspect **Object Contracts Controller**: Count77, Passed77, Failed0 and Complete enabled. The same direct corpus runs in native Unity6000.3.27f1, .NET and both browser modes. It exercises unbound/live/destroyed identities and fake null, names, registered tags, component flag propagation and independent flags, component index bounds/type exceptions and destroyed-owner checks. Stop restores the complete authored scene. These bounded profiles accept29 additional contracts; they do not certify multiple components of the same type or unregistered tags.
+
+## Component queries
+
+Load **Demo · M20 Component Queries Lab** from the exact installation. Play and select **Component Queries Controller**. Count476, Passed476, Failed0, Diagnostics empty and Complete enabled are expected. Report uses compact q001:p / q001:f entries to stay within existing field limits. The same56 direct public overloads run unchanged in Unity, .NET and both real browser modes. The corpus covers distinct Box/Sphere colliders and missing MeshCollider; custom script interfaces and duplicate components remain separate milestone dependencies. Stop restores the authored scene exactly.
+
+The native distinction matters: children are traversed relative to the query root even when its ancestors are inactive; inactive child subtrees are skipped unless included. Parent queries filter each candidate, including the receiver, by activeInHierarchy unless inactive objects are explicitly included.

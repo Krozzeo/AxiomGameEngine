@@ -49,6 +49,10 @@
     {
       "id": "m20-object-contracts",
       "name": "M20 Object Contracts Lab"
+    },
+    {
+      "id": "m20-component-queries",
+      "name": "M20 Component Queries Lab"
     }
   ]
 }

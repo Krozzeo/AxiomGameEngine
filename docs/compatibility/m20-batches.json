@@ -3,7 +3,7 @@
   "milestone": "M20",
   "targetRecords": 311,
   "status": "in_progress",
-  "certifiedUnitySignatures": 158,
+  "certifiedUnitySignatures": 214,
   "batch": "0.0.62 / SDK12 / canonical core and dependency profiles, behavior attribution in progress",
   "evidence": {
     "native": "evidence/m20-queries-native-windows.json",
@@ -20,42 +20,141 @@
       "owner": "UnityEngine.Component",
       "declaration": "public UnityEngine.Component GetComponent(System.Type type);",
       "member": "GetComponent",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 0,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "null-type",
+            "invalid-type",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q001",
+            "q002",
+            "q003",
+            "q004",
+            "q005",
+            "q006",
+            "q007",
+            "q008"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:0233bbfe0438eaacac181ed3",
       "owner": "UnityEngine.Component",
       "declaration": "public bool TryGetComponent<T>(out T component);",
       "member": "TryGetComponent",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 1,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q009",
+            "q010",
+            "q011",
+            "q012",
+            "q013",
+            "q014"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:0303cc374882a50e63a55eb8",
       "owner": "UnityEngine.GameObject",
       "declaration": "public UnityEngine.Component[] GetComponentsInChildren(System.Type type);",
       "member": "GetComponentsInChildren",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 2,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "null-type",
+            "invalid-type",
+            "child-only",
+            "inactive-target",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q015",
+            "q016",
+            "q017",
+            "q018",
+            "q019",
+            "q020",
+            "q021",
+            "q022",
+            "q023",
+            "q024"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:060ec14cc6fcf1d8df32ce69",
@@ -123,28 +222,100 @@
       "owner": "UnityEngine.Component",
       "declaration": "public T[] GetComponentsInChildren<T>(bool includeInactive);",
       "member": "GetComponentsInChildren",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 3,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "include-inactive",
+            "child-only",
+            "inactive-target",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q025",
+            "q026",
+            "q027",
+            "q028",
+            "q029",
+            "q030",
+            "q031",
+            "q032",
+            "q033"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:084eb12136e109b72bc50436",
       "owner": "UnityEngine.GameObject",
       "declaration": "public UnityEngine.Component GetComponentInParent(System.Type type, bool includeInactive);",
       "member": "GetComponentInParent",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 4,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "include-inactive",
+            "null-type",
+            "invalid-type",
+            "parent-only",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q034",
+            "q035",
+            "q036",
+            "q037",
+            "q038",
+            "q039",
+            "q040",
+            "q041",
+            "q042",
+            "q043"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:0a2136a4f3ecec49639a423c",
@@ -397,14 +568,47 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public UnityEngine.Component[] GetComponents(System.Type type);",
       "member": "GetComponents",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 5,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "null-type",
+            "invalid-type",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q044",
+            "q045",
+            "q046",
+            "q047",
+            "q048",
+            "q049",
+            "q050",
+            "q051"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:126db462beeaf3181ed7e976",
@@ -730,14 +934,53 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public UnityEngine.Component[] GetComponentsInChildren(System.Type type, bool includeInactive);",
       "member": "GetComponentsInChildren",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 6,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "include-inactive",
+            "null-type",
+            "invalid-type",
+            "child-only",
+            "inactive-target",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q052",
+            "q053",
+            "q054",
+            "q055",
+            "q056",
+            "q057",
+            "q058",
+            "q059",
+            "q060",
+            "q061",
+            "q062"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:19c05cd366ae9d8a325b94b9",
@@ -779,14 +1022,47 @@
       "owner": "UnityEngine.Component",
       "declaration": "public UnityEngine.Component[] GetComponents(System.Type type);",
       "member": "GetComponents",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 7,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "null-type",
+            "invalid-type",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q063",
+            "q064",
+            "q065",
+            "q066",
+            "q067",
+            "q068",
+            "q069",
+            "q070"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:1b4d61fea085bda7483aa85c",
@@ -1066,14 +1342,51 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public void GetComponentsInChildren<T>(bool includeInactive, System.Collections.Generic.List`1<T> results);",
       "member": "GetComponentsInChildren",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 8,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "include-inactive",
+            "null-list",
+            "child-only",
+            "inactive-target",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q071",
+            "q072",
+            "q073",
+            "q074",
+            "q075",
+            "q076",
+            "q077",
+            "q078",
+            "q079",
+            "q080"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:246e13baccf2c5a70652121e",
@@ -1178,14 +1491,47 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public T[] GetComponentsInParent<T>(bool includeInactive);",
       "member": "GetComponentsInParent",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 9,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "include-inactive",
+            "parent-only",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q081",
+            "q082",
+            "q083",
+            "q084",
+            "q085",
+            "q086",
+            "q087",
+            "q088"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:29a87473fcdf88d32dd42541",
@@ -1241,14 +1587,51 @@
       "owner": "UnityEngine.Component",
       "declaration": "public UnityEngine.Component GetComponentInParent(System.Type t, bool includeInactive);",
       "member": "GetComponentInParent",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 10,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "include-inactive",
+            "null-type",
+            "invalid-type",
+            "parent-only",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q089",
+            "q090",
+            "q091",
+            "q092",
+            "q093",
+            "q094",
+            "q095",
+            "q096",
+            "q097",
+            "q098"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:2c1804183f00b086ddf640ad",
@@ -1827,14 +2210,47 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public bool TryGetComponent(System.Type type, out UnityEngine.Component component);",
       "member": "TryGetComponent",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 11,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "null-type",
+            "invalid-type",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q099",
+            "q100",
+            "q101",
+            "q102",
+            "q103",
+            "q104",
+            "q105",
+            "q106"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:36597ab98d07f9dd0b924bec",
@@ -2002,14 +2418,43 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public bool TryGetComponent<T>(out T component);",
       "member": "TryGetComponent",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 12,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q107",
+            "q108",
+            "q109",
+            "q110",
+            "q111",
+            "q112"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:3a08a22358af337f95d4b981",
@@ -2121,28 +2566,98 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public T[] GetComponentsInChildren<T>(bool includeInactive);",
       "member": "GetComponentsInChildren",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 13,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "include-inactive",
+            "child-only",
+            "inactive-target",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q113",
+            "q114",
+            "q115",
+            "q116",
+            "q117",
+            "q118",
+            "q119",
+            "q120",
+            "q121"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:3ba01560e7ed33106e2b6681",
       "owner": "UnityEngine.Component",
       "declaration": "public void GetComponentsInChildren<T>(System.Collections.Generic.List`1<T> results);",
       "member": "GetComponentsInChildren",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 14,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "null-list",
+            "child-only",
+            "inactive-target",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q122",
+            "q123",
+            "q124",
+            "q125",
+            "q126",
+            "q127",
+            "q128",
+            "q129",
+            "q130"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:3c125f660b15000ef34385ed",
@@ -2294,14 +2809,49 @@
       "owner": "UnityEngine.Component",
       "declaration": "public UnityEngine.Component[] GetComponentsInParent(System.Type t);",
       "member": "GetComponentsInParent",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 15,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "null-type",
+            "invalid-type",
+            "parent-only",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q131",
+            "q132",
+            "q133",
+            "q134",
+            "q135",
+            "q136",
+            "q137",
+            "q138",
+            "q139"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:3f2b2d8e507fbf3e0f1c5665",
@@ -2429,14 +2979,47 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public T GetComponentInParent<T>(bool includeInactive);",
       "member": "GetComponentInParent",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 16,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "include-inactive",
+            "parent-only",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q140",
+            "q141",
+            "q142",
+            "q143",
+            "q144",
+            "q145",
+            "q146",
+            "q147"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:45f6af1c7a47375015619bb6",
@@ -2687,28 +3270,98 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public T GetComponentInChildren<T>(bool includeInactive);",
       "member": "GetComponentInChildren",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 17,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "include-inactive",
+            "child-only",
+            "inactive-target",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q148",
+            "q149",
+            "q150",
+            "q151",
+            "q152",
+            "q153",
+            "q154",
+            "q155",
+            "q156"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:4e35669518407556c955c1a4",
       "owner": "UnityEngine.Component",
       "declaration": "public void GetComponents(System.Type type, System.Collections.Generic.List`1<UnityEngine.Component> results);",
       "member": "GetComponents",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 18,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "null-type",
+            "invalid-type",
+            "null-list",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q157",
+            "q158",
+            "q159",
+            "q160",
+            "q161",
+            "q162",
+            "q163",
+            "q164",
+            "q165"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:4f14b55c8f4e49c834ef927c",
@@ -2880,14 +3533,43 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public T GetComponent<T>();",
       "member": "GetComponent",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 19,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q166",
+            "q167",
+            "q168",
+            "q169",
+            "q170",
+            "q171"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:578592e399e1c7035d132c78",
@@ -2912,14 +3594,45 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public void GetComponents<T>(System.Collections.Generic.List`1<T> results);",
       "member": "GetComponents",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 20,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "null-list",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q172",
+            "q173",
+            "q174",
+            "q175",
+            "q176",
+            "q177",
+            "q178"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:58c30bbde35fe71525636c36",
@@ -3184,14 +3897,49 @@
       "owner": "UnityEngine.Component",
       "declaration": "public UnityEngine.Component GetComponentInParent(System.Type t);",
       "member": "GetComponentInParent",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 21,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "null-type",
+            "invalid-type",
+            "parent-only",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q179",
+            "q180",
+            "q181",
+            "q182",
+            "q183",
+            "q184",
+            "q185",
+            "q186",
+            "q187"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:5f860ad2405ef6c5d2fae812",
@@ -3210,14 +3958,47 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public T GetComponentInChildren<T>();",
       "member": "GetComponentInChildren",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 22,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "child-only",
+            "inactive-target",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q188",
+            "q189",
+            "q190",
+            "q191",
+            "q192",
+            "q193",
+            "q194",
+            "q195"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:60868f28bb4e4725dfe012a8",
@@ -3299,28 +4080,100 @@
       "owner": "UnityEngine.Component",
       "declaration": "public UnityEngine.Component[] GetComponentsInChildren(System.Type t, bool includeInactive);",
       "member": "GetComponentsInChildren",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 23,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "include-inactive",
+            "null-type",
+            "invalid-type",
+            "child-only",
+            "inactive-target",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q196",
+            "q197",
+            "q198",
+            "q199",
+            "q200",
+            "q201",
+            "q202",
+            "q203",
+            "q204",
+            "q205",
+            "q206"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:6367fd0a14f9c2396b56d8c7",
       "owner": "UnityEngine.GameObject",
       "declaration": "public T[] GetComponentsInChildren<T>();",
       "member": "GetComponentsInChildren",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 24,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "child-only",
+            "inactive-target",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q207",
+            "q208",
+            "q209",
+            "q210",
+            "q211",
+            "q212",
+            "q213",
+            "q214"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:642a0a14bfc7f04d673e3852",
@@ -3366,14 +4219,43 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public T[] GetComponents<T>();",
       "member": "GetComponents",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 25,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q215",
+            "q216",
+            "q217",
+            "q218",
+            "q219",
+            "q220"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:68c24741754619f10c737595",
@@ -3579,14 +4461,45 @@
       "owner": "UnityEngine.Component",
       "declaration": "public T GetComponentInParent<T>();",
       "member": "GetComponentInParent",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 26,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "parent-only",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q221",
+            "q222",
+            "q223",
+            "q224",
+            "q225",
+            "q226",
+            "q227"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:6fad33095e647f41ab5337c2",
@@ -3745,14 +4658,45 @@
       "owner": "UnityEngine.Component",
       "declaration": "public T[] GetComponentsInParent<T>();",
       "member": "GetComponentsInParent",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 27,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "parent-only",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q228",
+            "q229",
+            "q230",
+            "q231",
+            "q232",
+            "q233",
+            "q234"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:72e65ef5fbeed2cd1bdf0b61",
@@ -3836,14 +4780,53 @@
       "owner": "UnityEngine.Component",
       "declaration": "public UnityEngine.Component GetComponentInChildren(System.Type t, bool includeInactive);",
       "member": "GetComponentInChildren",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 28,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "include-inactive",
+            "null-type",
+            "invalid-type",
+            "child-only",
+            "inactive-target",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q235",
+            "q236",
+            "q237",
+            "q238",
+            "q239",
+            "q240",
+            "q241",
+            "q242",
+            "q243",
+            "q244",
+            "q245"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:75a6abbefa5e71a7f3c54be2",
@@ -3937,14 +4920,45 @@
       "owner": "UnityEngine.Component",
       "declaration": "public void GetComponents<T>(System.Collections.Generic.List`1<T> results);",
       "member": "GetComponents",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 29,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "null-list",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q246",
+            "q247",
+            "q248",
+            "q249",
+            "q250",
+            "q251",
+            "q252"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:7865adff3e8f63be840e62e2",
@@ -3995,14 +5009,45 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public T GetComponentInParent<T>();",
       "member": "GetComponentInParent",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 30,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "parent-only",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q253",
+            "q254",
+            "q255",
+            "q256",
+            "q257",
+            "q258",
+            "q259"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:79ca13005c3b5fb5e68321ff",
@@ -4292,12 +5337,45 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public UnityEngine.Component GetComponent(string type);",
       "member": "GetComponent",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 31,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "null-string",
+            "empty-string",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q260",
+            "q261",
+            "q262",
+            "q263",
+            "q264",
+            "q265",
+            "q266",
+            "q267"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:84b7ecd742fb52f2b698b73c",
@@ -4464,14 +5542,43 @@
       "owner": "UnityEngine.Component",
       "declaration": "public T[] GetComponents<T>();",
       "member": "GetComponents",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 32,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q268",
+            "q269",
+            "q270",
+            "q271",
+            "q272",
+            "q273"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:884fe43513d07b82a0c12582",
@@ -4882,28 +5989,100 @@
       "owner": "UnityEngine.Component",
       "declaration": "public UnityEngine.Component GetComponentInChildren(System.Type t);",
       "member": "GetComponentInChildren",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 33,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "null-type",
+            "invalid-type",
+            "child-only",
+            "inactive-target",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q274",
+            "q275",
+            "q276",
+            "q277",
+            "q278",
+            "q279",
+            "q280",
+            "q281",
+            "q282",
+            "q283"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:8de4b4f27c491f1a92ba8df2",
       "owner": "UnityEngine.Component",
       "declaration": "public void GetComponentsInParent<T>(bool includeInactive, System.Collections.Generic.List`1<T> results);",
       "member": "GetComponentsInParent",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 34,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "include-inactive",
+            "null-list",
+            "parent-only",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q284",
+            "q285",
+            "q286",
+            "q287",
+            "q288",
+            "q289",
+            "q290",
+            "q291",
+            "q292"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:8e08d28359a39dc8ed318dbc",
@@ -4960,14 +6139,49 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public void GetComponentsInParent<T>(bool includeInactive, System.Collections.Generic.List`1<T> results);",
       "member": "GetComponentsInParent",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 35,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "include-inactive",
+            "null-list",
+            "parent-only",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q293",
+            "q294",
+            "q295",
+            "q296",
+            "q297",
+            "q298",
+            "q299",
+            "q300",
+            "q301"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:92aa2c2b24b61cadbcd3c5b5",
@@ -5253,56 +6467,192 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public UnityEngine.Component[] GetComponentsInParent(System.Type type);",
       "member": "GetComponentsInParent",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 36,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "null-type",
+            "invalid-type",
+            "parent-only",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q302",
+            "q303",
+            "q304",
+            "q305",
+            "q306",
+            "q307",
+            "q308",
+            "q309",
+            "q310"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:994f2cce1d0c27fb0f08f8cd",
       "owner": "UnityEngine.GameObject",
       "declaration": "public T[] GetComponentsInParent<T>();",
       "member": "GetComponentsInParent",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 37,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "parent-only",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q311",
+            "q312",
+            "q313",
+            "q314",
+            "q315",
+            "q316",
+            "q317"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:995b3fe760f82b9845b42ae1",
       "owner": "UnityEngine.GameObject",
       "declaration": "public UnityEngine.Component GetComponentInChildren(System.Type type);",
       "member": "GetComponentInChildren",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 38,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "null-type",
+            "invalid-type",
+            "child-only",
+            "inactive-target",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q318",
+            "q319",
+            "q320",
+            "q321",
+            "q322",
+            "q323",
+            "q324",
+            "q325",
+            "q326",
+            "q327"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:9a43de8de1a81d7d87957996",
       "owner": "UnityEngine.Component",
       "declaration": "public T[] GetComponentsInParent<T>(bool includeInactive);",
       "member": "GetComponentsInParent",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 39,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "include-inactive",
+            "parent-only",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q328",
+            "q329",
+            "q330",
+            "q331",
+            "q332",
+            "q333",
+            "q334",
+            "q335"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:9ae9d25537a1afeabfd10efb",
@@ -5430,14 +6780,49 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public void GetComponents(System.Type type, System.Collections.Generic.List`1<UnityEngine.Component> results);",
       "member": "GetComponents",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 40,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "null-type",
+            "invalid-type",
+            "null-list",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q336",
+            "q337",
+            "q338",
+            "q339",
+            "q340",
+            "q341",
+            "q342",
+            "q343",
+            "q344"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:9d0c72e08e543bc39f2cc609",
@@ -5622,14 +7007,47 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public UnityEngine.Component GetComponent(System.Type type);",
       "member": "GetComponent",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 41,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "null-type",
+            "invalid-type",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q345",
+            "q346",
+            "q347",
+            "q348",
+            "q349",
+            "q350",
+            "q351",
+            "q352"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:a36ea56f7dba884c6e80ed63",
@@ -5699,14 +7117,49 @@
       "owner": "UnityEngine.Component",
       "declaration": "public T GetComponentInChildren<T>(bool includeInactive);",
       "member": "GetComponentInChildren",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 42,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "include-inactive",
+            "child-only",
+            "inactive-target",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q353",
+            "q354",
+            "q355",
+            "q356",
+            "q357",
+            "q358",
+            "q359",
+            "q360",
+            "q361"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:a401395e1dfb3956a385610f",
@@ -5767,14 +7220,47 @@
       "owner": "UnityEngine.Component",
       "declaration": "public bool TryGetComponent(System.Type type, out UnityEngine.Component component);",
       "member": "TryGetComponent",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 43,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "null-type",
+            "invalid-type",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q362",
+            "q363",
+            "q364",
+            "q365",
+            "q366",
+            "q367",
+            "q368",
+            "q369"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:a4edd9a83887c123596ea70f",
@@ -5805,14 +7291,47 @@
       "owner": "UnityEngine.Component",
       "declaration": "public T GetComponentInParent<T>(bool includeInactive);",
       "member": "GetComponentInParent",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 44,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "include-inactive",
+            "parent-only",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q370",
+            "q371",
+            "q372",
+            "q373",
+            "q374",
+            "q375",
+            "q376",
+            "q377"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:aa8906e2024d0e436c57daa0",
@@ -5932,14 +7451,49 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public void GetComponentsInChildren<T>(System.Collections.Generic.List`1<T> results);",
       "member": "GetComponentsInChildren",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 45,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "null-list",
+            "child-only",
+            "inactive-target",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q378",
+            "q379",
+            "q380",
+            "q381",
+            "q382",
+            "q383",
+            "q384",
+            "q385",
+            "q386"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:af32009274032124b3ca0f29",
@@ -6222,14 +7776,51 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public UnityEngine.Component[] GetComponentsInParent(System.Type type, bool includeInactive);",
       "member": "GetComponentsInParent",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 46,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "include-inactive",
+            "null-type",
+            "invalid-type",
+            "parent-only",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q387",
+            "q388",
+            "q389",
+            "q390",
+            "q391",
+            "q392",
+            "q393",
+            "q394",
+            "q395",
+            "q396"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:b52e8b0c43310fe2b2a19329",
@@ -6491,14 +8082,51 @@
       "owner": "UnityEngine.Component",
       "declaration": "public UnityEngine.Component[] GetComponentsInParent(System.Type t, bool includeInactive);",
       "member": "GetComponentsInParent",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 47,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "include-inactive",
+            "null-type",
+            "invalid-type",
+            "parent-only",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q397",
+            "q398",
+            "q399",
+            "q400",
+            "q401",
+            "q402",
+            "q403",
+            "q404",
+            "q405",
+            "q406"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:bc601dfd1d44ce38364de381",
@@ -6852,14 +8480,53 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public UnityEngine.Component GetComponentInChildren(System.Type type, bool includeInactive);",
       "member": "GetComponentInChildren",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 48,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "include-inactive",
+            "null-type",
+            "invalid-type",
+            "child-only",
+            "inactive-target",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q407",
+            "q408",
+            "q409",
+            "q410",
+            "q411",
+            "q412",
+            "q413",
+            "q414",
+            "q415",
+            "q416",
+            "q417"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:c82c63c082d38eaac21a707c",
@@ -7138,12 +8805,45 @@
       "owner": "UnityEngine.Component",
       "declaration": "public UnityEngine.Component GetComponent(string type);",
       "member": "GetComponent",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 49,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "null-string",
+            "empty-string",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q418",
+            "q419",
+            "q420",
+            "q421",
+            "q422",
+            "q423",
+            "q424",
+            "q425"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:cf508885d36f017e0859dee9",
@@ -7255,28 +8955,90 @@
       "owner": "UnityEngine.Component",
       "declaration": "public T[] GetComponentsInChildren<T>();",
       "member": "GetComponentsInChildren",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 50,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "child-only",
+            "inactive-target",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q426",
+            "q427",
+            "q428",
+            "q429",
+            "q430",
+            "q431",
+            "q432",
+            "q433"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:d457c2b98c141d06c44f969b",
       "owner": "UnityEngine.Component",
       "declaration": "public T GetComponent<T>();",
       "member": "GetComponent",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 51,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q434",
+            "q435",
+            "q436",
+            "q437",
+            "q438",
+            "q439"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:d651c9fb2cc20b7df5cec460",
@@ -7554,14 +9316,49 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public UnityEngine.Component GetComponentInParent(System.Type type);",
       "member": "GetComponentInParent",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 52,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "null-type",
+            "invalid-type",
+            "parent-only",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q440",
+            "q441",
+            "q442",
+            "q443",
+            "q444",
+            "q445",
+            "q446",
+            "q447",
+            "q448"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:e023bf7f03785c7c93222b06",
@@ -7877,14 +9674,47 @@
       "owner": "UnityEngine.Component",
       "declaration": "public T GetComponentInChildren<T>();",
       "member": "GetComponentInChildren",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 53,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "child-only",
+            "inactive-target",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q449",
+            "q450",
+            "q451",
+            "q452",
+            "q453",
+            "q454",
+            "q455",
+            "q456"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:e91477eb9c6c3e07c3a1a97f",
@@ -7935,14 +9765,51 @@
       "owner": "UnityEngine.Component",
       "declaration": "public void GetComponentsInChildren<T>(bool includeInactive, System.Collections.Generic.List`1<T> result);",
       "member": "GetComponentsInChildren",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 54,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "include-inactive",
+            "null-list",
+            "child-only",
+            "inactive-target",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q457",
+            "q458",
+            "q459",
+            "q460",
+            "q461",
+            "q462",
+            "q463",
+            "q464",
+            "q465",
+            "q466"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:e9499c22dd413115284d016c",
@@ -8243,14 +10110,51 @@
       "owner": "UnityEngine.Component",
       "declaration": "public UnityEngine.Component[] GetComponentsInChildren(System.Type t);",
       "member": "GetComponentsInChildren",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct query overload against Unity6000.3.27f1 in a five-object hierarchy with distinct Sphere/Box attachments: ordered root/child/parent results, inactive receiver/ancestor and explicit includeInactive, missing/retired receiver, disabled component, child-only/parent-only and inactive-only matches where applicable. Type overloads include null/invalid types, string overloads null/empty names, and list overloads seeded/null lists. Generic types are Collider, BoxCollider, SphereCollider and missing MeshCollider. Repeated same-type attachments, script interfaces and broader creation/storage dependencies remain separate required milestone gates; no acceptance for those domains is inferred.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-component-query-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-queries-native.json",
+          "caseIndex": 55,
+          "profiles": [
+            "regular",
+            "inactive-self",
+            "inactive-parent",
+            "missing",
+            "retired",
+            "null-type",
+            "invalid-type",
+            "child-only",
+            "inactive-target",
+            "disabled-component"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-queries-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-queries-aot-wasm.json",
+          "caseIds": [
+            "q467",
+            "q468",
+            "q469",
+            "q470",
+            "q471",
+            "q472",
+            "q473",
+            "q474",
+            "q475",
+            "q476"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:f17e70d746283b09fb94e595",

@@ -6,11 +6,11 @@
     "ObjectMetaLab.cs": "21ed38e71344b5709ff5c796891423c5ccfa91d062e9ced6f760ecd014a3d3b2"
   },
   "executedBuild": {
-    "id": "ff839e47-bcfe-4d5a-b848-1dfc176a78cc",
+    "id": "7b84c6a3-c8c4-4fb8-9867-c69e77e17d59",
     "mode": "aot",
     "sdkVersion": 12,
     "sourceHash": "b0d642a8ba45000af0b20a7820d896848a266bce82e2024fea06a977c5576ab8",
-    "bytes": 25772537
+    "bytes": 25776753
   },
   "count": 77,
   "passedChecks": 77,
@@ -94,6 +94,5 @@
     "component.owner-retired": "pass",
     "component.transform-retired": "pass"
   },
-  "passed": true,
-  "profile": "Real aot C#/Wasm: same 77 direct Object/Component/GameObject identity, names, tags, flags and component-index cases executed in Unity6000.3.27f1; exact Stop restoration, Null renderer."
+  "passed": true
 }

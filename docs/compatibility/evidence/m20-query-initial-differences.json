@@ -1,0 +1,1112 @@
+{
+  "schemaVersion": 1,
+  "passed": false,
+  "historical": true,
+  "ownedSdkCommit": "a03659ee027a0a19eb3c3ccbcc5220aed32ff674",
+  "referenceUnityVersion": "6000.3.27f1",
+  "referenceCoreModuleSha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737",
+  "corpusSourceSha256": "b37d25ac7b8ab5592a0ef133ce48b3187253668dc4e2aca5576584aeb38f0ff0",
+  "observations": 362,
+  "mismatchCount": 61,
+  "note": "Initial failures are retained. The corrected final corpus adds profiles and passes476 cases; this historical failure never grants acceptance.",
+  "differences": [
+    {
+      "id": "unity63abi:0303cc374882a50e63a55eb8",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public UnityEngine.Component[] GetComponentsInChildren(System.Type type);",
+      "profile": "inactive-self",
+      "owned": {
+        "index": 2,
+        "profile": "inactive-self",
+        "data": "Q owner:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 2,
+        "profile": "inactive-self",
+        "data": "Q owner:SphereCollider,Q child:BoxCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:0303cc374882a50e63a55eb8",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public UnityEngine.Component[] GetComponentsInChildren(System.Type type);",
+      "profile": "inactive-parent",
+      "owned": {
+        "index": 2,
+        "profile": "inactive-parent",
+        "data": "Q owner:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 2,
+        "profile": "inactive-parent",
+        "data": "Q owner:SphereCollider,Q child:BoxCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:08407fa4b36251de1c07491c",
+      "owner": "UnityEngine.Component",
+      "declaration": "public T[] GetComponentsInChildren<T>(bool includeInactive);",
+      "profile": "inactive-self",
+      "owned": {
+        "index": 3,
+        "profile": "inactive-self",
+        "data": "Q owner:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 3,
+        "profile": "inactive-self",
+        "data": "Q owner:SphereCollider,Q child:BoxCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:08407fa4b36251de1c07491c",
+      "owner": "UnityEngine.Component",
+      "declaration": "public T[] GetComponentsInChildren<T>(bool includeInactive);",
+      "profile": "inactive-parent",
+      "owned": {
+        "index": 3,
+        "profile": "inactive-parent",
+        "data": "Q owner:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 3,
+        "profile": "inactive-parent",
+        "data": "Q owner:SphereCollider,Q child:BoxCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:084eb12136e109b72bc50436",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public UnityEngine.Component GetComponentInParent(System.Type type, bool includeInactive);",
+      "profile": "inactive-self",
+      "owned": {
+        "index": 4,
+        "profile": "inactive-self",
+        "data": "Q owner:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 4,
+        "profile": "inactive-self",
+        "data": "Q parent:BoxCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:084eb12136e109b72bc50436",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public UnityEngine.Component GetComponentInParent(System.Type type, bool includeInactive);",
+      "profile": "inactive-parent",
+      "owned": {
+        "index": 4,
+        "profile": "inactive-parent",
+        "data": "Q owner:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 4,
+        "profile": "inactive-parent",
+        "data": "Q ancestor:SphereCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:19aafc1cc75398a18786ddbe",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public UnityEngine.Component[] GetComponentsInChildren(System.Type type, bool includeInactive);",
+      "profile": "inactive-self",
+      "owned": {
+        "index": 6,
+        "profile": "inactive-self",
+        "data": "Q owner:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 6,
+        "profile": "inactive-self",
+        "data": "Q owner:SphereCollider,Q child:BoxCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:19aafc1cc75398a18786ddbe",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public UnityEngine.Component[] GetComponentsInChildren(System.Type type, bool includeInactive);",
+      "profile": "inactive-parent",
+      "owned": {
+        "index": 6,
+        "profile": "inactive-parent",
+        "data": "Q owner:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 6,
+        "profile": "inactive-parent",
+        "data": "Q owner:SphereCollider,Q child:BoxCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:2181fda2c12461bb28c522cc",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void GetComponentsInChildren<T>(bool includeInactive, System.Collections.Generic.List`1<T> results);",
+      "profile": "inactive-self",
+      "owned": {
+        "index": 8,
+        "profile": "inactive-self",
+        "data": "Q owner:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 8,
+        "profile": "inactive-self",
+        "data": "Q owner:SphereCollider,Q child:BoxCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:2181fda2c12461bb28c522cc",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void GetComponentsInChildren<T>(bool includeInactive, System.Collections.Generic.List`1<T> results);",
+      "profile": "inactive-parent",
+      "owned": {
+        "index": 8,
+        "profile": "inactive-parent",
+        "data": "Q owner:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 8,
+        "profile": "inactive-parent",
+        "data": "Q owner:SphereCollider,Q child:BoxCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:27e25da246a8fbb06bd311bc",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public T[] GetComponentsInParent<T>(bool includeInactive);",
+      "profile": "inactive-self",
+      "owned": {
+        "index": 9,
+        "profile": "inactive-self",
+        "data": "Q owner:SphereCollider,Q parent:BoxCollider,Q ancestor:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 9,
+        "profile": "inactive-self",
+        "data": "Q parent:BoxCollider,Q ancestor:SphereCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:27e25da246a8fbb06bd311bc",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public T[] GetComponentsInParent<T>(bool includeInactive);",
+      "profile": "inactive-parent",
+      "owned": {
+        "index": 9,
+        "profile": "inactive-parent",
+        "data": "Q owner:SphereCollider,Q ancestor:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 9,
+        "profile": "inactive-parent",
+        "data": "Q ancestor:SphereCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:2aae189876d9abe173f01dc2",
+      "owner": "UnityEngine.Component",
+      "declaration": "public UnityEngine.Component GetComponentInParent(System.Type t, bool includeInactive);",
+      "profile": "inactive-self",
+      "owned": {
+        "index": 10,
+        "profile": "inactive-self",
+        "data": "Q owner:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 10,
+        "profile": "inactive-self",
+        "data": "Q parent:BoxCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:2aae189876d9abe173f01dc2",
+      "owner": "UnityEngine.Component",
+      "declaration": "public UnityEngine.Component GetComponentInParent(System.Type t, bool includeInactive);",
+      "profile": "inactive-parent",
+      "owned": {
+        "index": 10,
+        "profile": "inactive-parent",
+        "data": "Q owner:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 10,
+        "profile": "inactive-parent",
+        "data": "Q ancestor:SphereCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:356971597a474364cef3762e",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public bool TryGetComponent(System.Type type, out UnityEngine.Component component);",
+      "profile": "null-type",
+      "owned": {
+        "index": 11,
+        "profile": "null-type",
+        "data": "",
+        "error": "System.ArgumentNullException"
+      },
+      "nativeUnity": {
+        "index": 11,
+        "profile": "null-type",
+        "data": "",
+        "error": "System.ArgumentException"
+      }
+    },
+    {
+      "id": "unity63abi:3b14ea8ae2c923a3003864d6",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public T[] GetComponentsInChildren<T>(bool includeInactive);",
+      "profile": "inactive-self",
+      "owned": {
+        "index": 13,
+        "profile": "inactive-self",
+        "data": "Q owner:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 13,
+        "profile": "inactive-self",
+        "data": "Q owner:SphereCollider,Q child:BoxCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:3b14ea8ae2c923a3003864d6",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public T[] GetComponentsInChildren<T>(bool includeInactive);",
+      "profile": "inactive-parent",
+      "owned": {
+        "index": 13,
+        "profile": "inactive-parent",
+        "data": "Q owner:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 13,
+        "profile": "inactive-parent",
+        "data": "Q owner:SphereCollider,Q child:BoxCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:3ba01560e7ed33106e2b6681",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void GetComponentsInChildren<T>(System.Collections.Generic.List`1<T> results);",
+      "profile": "inactive-self",
+      "owned": {
+        "index": 14,
+        "profile": "inactive-self",
+        "data": "Q owner:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 14,
+        "profile": "inactive-self",
+        "data": "Q owner:SphereCollider,Q child:BoxCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:3ba01560e7ed33106e2b6681",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void GetComponentsInChildren<T>(System.Collections.Generic.List`1<T> results);",
+      "profile": "inactive-parent",
+      "owned": {
+        "index": 14,
+        "profile": "inactive-parent",
+        "data": "Q owner:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 14,
+        "profile": "inactive-parent",
+        "data": "Q owner:SphereCollider,Q child:BoxCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:3ef57d3ab2f00615865dc366",
+      "owner": "UnityEngine.Component",
+      "declaration": "public UnityEngine.Component[] GetComponentsInParent(System.Type t);",
+      "profile": "inactive-self",
+      "owned": {
+        "index": 15,
+        "profile": "inactive-self",
+        "data": "Q owner:SphereCollider,Q parent:BoxCollider,Q ancestor:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 15,
+        "profile": "inactive-self",
+        "data": "Q parent:BoxCollider,Q ancestor:SphereCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:3ef57d3ab2f00615865dc366",
+      "owner": "UnityEngine.Component",
+      "declaration": "public UnityEngine.Component[] GetComponentsInParent(System.Type t);",
+      "profile": "inactive-parent",
+      "owned": {
+        "index": 15,
+        "profile": "inactive-parent",
+        "data": "Q owner:SphereCollider,Q ancestor:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 15,
+        "profile": "inactive-parent",
+        "data": "Q ancestor:SphereCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:42ae92b14b85b93c5c9edd42",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public T GetComponentInParent<T>(bool includeInactive);",
+      "profile": "inactive-self",
+      "owned": {
+        "index": 16,
+        "profile": "inactive-self",
+        "data": "Q owner:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 16,
+        "profile": "inactive-self",
+        "data": "Q parent:BoxCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:42ae92b14b85b93c5c9edd42",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public T GetComponentInParent<T>(bool includeInactive);",
+      "profile": "inactive-parent",
+      "owned": {
+        "index": 16,
+        "profile": "inactive-parent",
+        "data": "Q owner:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 16,
+        "profile": "inactive-parent",
+        "data": "Q ancestor:SphereCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:5f332bf8bb2b72ce6ad5a24a",
+      "owner": "UnityEngine.Component",
+      "declaration": "public UnityEngine.Component GetComponentInParent(System.Type t);",
+      "profile": "inactive-self",
+      "owned": {
+        "index": 21,
+        "profile": "inactive-self",
+        "data": "Q owner:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 21,
+        "profile": "inactive-self",
+        "data": "Q parent:BoxCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:5f332bf8bb2b72ce6ad5a24a",
+      "owner": "UnityEngine.Component",
+      "declaration": "public UnityEngine.Component GetComponentInParent(System.Type t);",
+      "profile": "inactive-parent",
+      "owned": {
+        "index": 21,
+        "profile": "inactive-parent",
+        "data": "Q owner:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 21,
+        "profile": "inactive-parent",
+        "data": "Q ancestor:SphereCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:61f73b45ee1d50d255a67ea5",
+      "owner": "UnityEngine.Component",
+      "declaration": "public UnityEngine.Component[] GetComponentsInChildren(System.Type t, bool includeInactive);",
+      "profile": "inactive-self",
+      "owned": {
+        "index": 23,
+        "profile": "inactive-self",
+        "data": "Q owner:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 23,
+        "profile": "inactive-self",
+        "data": "Q owner:SphereCollider,Q child:BoxCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:61f73b45ee1d50d255a67ea5",
+      "owner": "UnityEngine.Component",
+      "declaration": "public UnityEngine.Component[] GetComponentsInChildren(System.Type t, bool includeInactive);",
+      "profile": "inactive-parent",
+      "owned": {
+        "index": 23,
+        "profile": "inactive-parent",
+        "data": "Q owner:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 23,
+        "profile": "inactive-parent",
+        "data": "Q owner:SphereCollider,Q child:BoxCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:6367fd0a14f9c2396b56d8c7",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public T[] GetComponentsInChildren<T>();",
+      "profile": "inactive-self",
+      "owned": {
+        "index": 24,
+        "profile": "inactive-self",
+        "data": "Q owner:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 24,
+        "profile": "inactive-self",
+        "data": "Q owner:SphereCollider,Q child:BoxCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:6367fd0a14f9c2396b56d8c7",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public T[] GetComponentsInChildren<T>();",
+      "profile": "inactive-parent",
+      "owned": {
+        "index": 24,
+        "profile": "inactive-parent",
+        "data": "Q owner:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 24,
+        "profile": "inactive-parent",
+        "data": "Q owner:SphereCollider,Q child:BoxCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:6f958d527ab10c61ad594e81",
+      "owner": "UnityEngine.Component",
+      "declaration": "public T GetComponentInParent<T>();",
+      "profile": "inactive-self",
+      "owned": {
+        "index": 26,
+        "profile": "inactive-self",
+        "data": "Q owner:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 26,
+        "profile": "inactive-self",
+        "data": "Q parent:BoxCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:6f958d527ab10c61ad594e81",
+      "owner": "UnityEngine.Component",
+      "declaration": "public T GetComponentInParent<T>();",
+      "profile": "inactive-parent",
+      "owned": {
+        "index": 26,
+        "profile": "inactive-parent",
+        "data": "Q owner:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 26,
+        "profile": "inactive-parent",
+        "data": "Q ancestor:SphereCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:72434d71d1000e0f32d0fdf3",
+      "owner": "UnityEngine.Component",
+      "declaration": "public T[] GetComponentsInParent<T>();",
+      "profile": "inactive-self",
+      "owned": {
+        "index": 27,
+        "profile": "inactive-self",
+        "data": "Q owner:SphereCollider,Q parent:BoxCollider,Q ancestor:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 27,
+        "profile": "inactive-self",
+        "data": "Q parent:BoxCollider,Q ancestor:SphereCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:72434d71d1000e0f32d0fdf3",
+      "owner": "UnityEngine.Component",
+      "declaration": "public T[] GetComponentsInParent<T>();",
+      "profile": "inactive-parent",
+      "owned": {
+        "index": 27,
+        "profile": "inactive-parent",
+        "data": "Q owner:SphereCollider,Q ancestor:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 27,
+        "profile": "inactive-parent",
+        "data": "Q ancestor:SphereCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:79ae6ad08b143c69e796b268",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public T GetComponentInParent<T>();",
+      "profile": "inactive-self",
+      "owned": {
+        "index": 30,
+        "profile": "inactive-self",
+        "data": "Q owner:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 30,
+        "profile": "inactive-self",
+        "data": "Q parent:BoxCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:79ae6ad08b143c69e796b268",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public T GetComponentInParent<T>();",
+      "profile": "inactive-parent",
+      "owned": {
+        "index": 30,
+        "profile": "inactive-parent",
+        "data": "Q owner:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 30,
+        "profile": "inactive-parent",
+        "data": "Q ancestor:SphereCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:8de4b4f27c491f1a92ba8df2",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void GetComponentsInParent<T>(bool includeInactive, System.Collections.Generic.List`1<T> results);",
+      "profile": "inactive-self",
+      "owned": {
+        "index": 34,
+        "profile": "inactive-self",
+        "data": "Q owner:SphereCollider,Q parent:BoxCollider,Q ancestor:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 34,
+        "profile": "inactive-self",
+        "data": "Q parent:BoxCollider,Q ancestor:SphereCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:8de4b4f27c491f1a92ba8df2",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void GetComponentsInParent<T>(bool includeInactive, System.Collections.Generic.List`1<T> results);",
+      "profile": "inactive-parent",
+      "owned": {
+        "index": 34,
+        "profile": "inactive-parent",
+        "data": "Q owner:SphereCollider,Q ancestor:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 34,
+        "profile": "inactive-parent",
+        "data": "Q ancestor:SphereCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:913192fd707ce44ceba80757",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void GetComponentsInParent<T>(bool includeInactive, System.Collections.Generic.List`1<T> results);",
+      "profile": "inactive-self",
+      "owned": {
+        "index": 35,
+        "profile": "inactive-self",
+        "data": "Q owner:SphereCollider,Q parent:BoxCollider,Q ancestor:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 35,
+        "profile": "inactive-self",
+        "data": "Q parent:BoxCollider,Q ancestor:SphereCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:913192fd707ce44ceba80757",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void GetComponentsInParent<T>(bool includeInactive, System.Collections.Generic.List`1<T> results);",
+      "profile": "inactive-parent",
+      "owned": {
+        "index": 35,
+        "profile": "inactive-parent",
+        "data": "Q owner:SphereCollider,Q ancestor:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 35,
+        "profile": "inactive-parent",
+        "data": "Q ancestor:SphereCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:984e96e8e6d4c2acc836c90f",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public UnityEngine.Component[] GetComponentsInParent(System.Type type);",
+      "profile": "inactive-self",
+      "owned": {
+        "index": 36,
+        "profile": "inactive-self",
+        "data": "Q owner:SphereCollider,Q parent:BoxCollider,Q ancestor:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 36,
+        "profile": "inactive-self",
+        "data": "Q parent:BoxCollider,Q ancestor:SphereCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:984e96e8e6d4c2acc836c90f",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public UnityEngine.Component[] GetComponentsInParent(System.Type type);",
+      "profile": "inactive-parent",
+      "owned": {
+        "index": 36,
+        "profile": "inactive-parent",
+        "data": "Q owner:SphereCollider,Q ancestor:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 36,
+        "profile": "inactive-parent",
+        "data": "Q ancestor:SphereCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:994f2cce1d0c27fb0f08f8cd",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public T[] GetComponentsInParent<T>();",
+      "profile": "inactive-self",
+      "owned": {
+        "index": 37,
+        "profile": "inactive-self",
+        "data": "Q owner:SphereCollider,Q parent:BoxCollider,Q ancestor:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 37,
+        "profile": "inactive-self",
+        "data": "Q parent:BoxCollider,Q ancestor:SphereCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:994f2cce1d0c27fb0f08f8cd",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public T[] GetComponentsInParent<T>();",
+      "profile": "inactive-parent",
+      "owned": {
+        "index": 37,
+        "profile": "inactive-parent",
+        "data": "Q owner:SphereCollider,Q ancestor:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 37,
+        "profile": "inactive-parent",
+        "data": "Q ancestor:SphereCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:9a43de8de1a81d7d87957996",
+      "owner": "UnityEngine.Component",
+      "declaration": "public T[] GetComponentsInParent<T>(bool includeInactive);",
+      "profile": "inactive-self",
+      "owned": {
+        "index": 39,
+        "profile": "inactive-self",
+        "data": "Q owner:SphereCollider,Q parent:BoxCollider,Q ancestor:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 39,
+        "profile": "inactive-self",
+        "data": "Q parent:BoxCollider,Q ancestor:SphereCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:9a43de8de1a81d7d87957996",
+      "owner": "UnityEngine.Component",
+      "declaration": "public T[] GetComponentsInParent<T>(bool includeInactive);",
+      "profile": "inactive-parent",
+      "owned": {
+        "index": 39,
+        "profile": "inactive-parent",
+        "data": "Q owner:SphereCollider,Q ancestor:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 39,
+        "profile": "inactive-parent",
+        "data": "Q ancestor:SphereCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:a9eaa6d7f4fa4249a40fb622",
+      "owner": "UnityEngine.Component",
+      "declaration": "public T GetComponentInParent<T>(bool includeInactive);",
+      "profile": "inactive-self",
+      "owned": {
+        "index": 44,
+        "profile": "inactive-self",
+        "data": "Q owner:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 44,
+        "profile": "inactive-self",
+        "data": "Q parent:BoxCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:a9eaa6d7f4fa4249a40fb622",
+      "owner": "UnityEngine.Component",
+      "declaration": "public T GetComponentInParent<T>(bool includeInactive);",
+      "profile": "inactive-parent",
+      "owned": {
+        "index": 44,
+        "profile": "inactive-parent",
+        "data": "Q owner:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 44,
+        "profile": "inactive-parent",
+        "data": "Q ancestor:SphereCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:adb6415032017062b27565c5",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void GetComponentsInChildren<T>(System.Collections.Generic.List`1<T> results);",
+      "profile": "inactive-self",
+      "owned": {
+        "index": 45,
+        "profile": "inactive-self",
+        "data": "Q owner:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 45,
+        "profile": "inactive-self",
+        "data": "Q owner:SphereCollider,Q child:BoxCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:adb6415032017062b27565c5",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void GetComponentsInChildren<T>(System.Collections.Generic.List`1<T> results);",
+      "profile": "inactive-parent",
+      "owned": {
+        "index": 45,
+        "profile": "inactive-parent",
+        "data": "Q owner:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 45,
+        "profile": "inactive-parent",
+        "data": "Q owner:SphereCollider,Q child:BoxCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:b42e5e171e67be1acb59b9f0",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public UnityEngine.Component[] GetComponentsInParent(System.Type type, bool includeInactive);",
+      "profile": "inactive-self",
+      "owned": {
+        "index": 46,
+        "profile": "inactive-self",
+        "data": "Q owner:SphereCollider,Q parent:BoxCollider,Q ancestor:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 46,
+        "profile": "inactive-self",
+        "data": "Q parent:BoxCollider,Q ancestor:SphereCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:b42e5e171e67be1acb59b9f0",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public UnityEngine.Component[] GetComponentsInParent(System.Type type, bool includeInactive);",
+      "profile": "inactive-parent",
+      "owned": {
+        "index": 46,
+        "profile": "inactive-parent",
+        "data": "Q owner:SphereCollider,Q ancestor:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 46,
+        "profile": "inactive-parent",
+        "data": "Q ancestor:SphereCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:bc4fad7c91366764e5ed730d",
+      "owner": "UnityEngine.Component",
+      "declaration": "public UnityEngine.Component[] GetComponentsInParent(System.Type t, bool includeInactive);",
+      "profile": "inactive-self",
+      "owned": {
+        "index": 47,
+        "profile": "inactive-self",
+        "data": "Q owner:SphereCollider,Q parent:BoxCollider,Q ancestor:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 47,
+        "profile": "inactive-self",
+        "data": "Q parent:BoxCollider,Q ancestor:SphereCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:bc4fad7c91366764e5ed730d",
+      "owner": "UnityEngine.Component",
+      "declaration": "public UnityEngine.Component[] GetComponentsInParent(System.Type t, bool includeInactive);",
+      "profile": "inactive-parent",
+      "owned": {
+        "index": 47,
+        "profile": "inactive-parent",
+        "data": "Q owner:SphereCollider,Q ancestor:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 47,
+        "profile": "inactive-parent",
+        "data": "Q ancestor:SphereCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:d43f31bcc5cd064999aecfae",
+      "owner": "UnityEngine.Component",
+      "declaration": "public T[] GetComponentsInChildren<T>();",
+      "profile": "inactive-self",
+      "owned": {
+        "index": 50,
+        "profile": "inactive-self",
+        "data": "Q owner:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 50,
+        "profile": "inactive-self",
+        "data": "Q owner:SphereCollider,Q child:BoxCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:d43f31bcc5cd064999aecfae",
+      "owner": "UnityEngine.Component",
+      "declaration": "public T[] GetComponentsInChildren<T>();",
+      "profile": "inactive-parent",
+      "owned": {
+        "index": 50,
+        "profile": "inactive-parent",
+        "data": "Q owner:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 50,
+        "profile": "inactive-parent",
+        "data": "Q owner:SphereCollider,Q child:BoxCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:df303ad528fa976b0647bf0a",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public UnityEngine.Component GetComponentInParent(System.Type type);",
+      "profile": "inactive-self",
+      "owned": {
+        "index": 52,
+        "profile": "inactive-self",
+        "data": "Q owner:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 52,
+        "profile": "inactive-self",
+        "data": "Q parent:BoxCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:df303ad528fa976b0647bf0a",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public UnityEngine.Component GetComponentInParent(System.Type type);",
+      "profile": "inactive-parent",
+      "owned": {
+        "index": 52,
+        "profile": "inactive-parent",
+        "data": "Q owner:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 52,
+        "profile": "inactive-parent",
+        "data": "Q ancestor:SphereCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:e9334e22cd48999eeda08a35",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void GetComponentsInChildren<T>(bool includeInactive, System.Collections.Generic.List`1<T> result);",
+      "profile": "inactive-self",
+      "owned": {
+        "index": 54,
+        "profile": "inactive-self",
+        "data": "Q owner:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 54,
+        "profile": "inactive-self",
+        "data": "Q owner:SphereCollider,Q child:BoxCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:e9334e22cd48999eeda08a35",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void GetComponentsInChildren<T>(bool includeInactive, System.Collections.Generic.List`1<T> result);",
+      "profile": "inactive-parent",
+      "owned": {
+        "index": 54,
+        "profile": "inactive-parent",
+        "data": "Q owner:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 54,
+        "profile": "inactive-parent",
+        "data": "Q owner:SphereCollider,Q child:BoxCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:ef58bb185421374f623c36c7",
+      "owner": "UnityEngine.Component",
+      "declaration": "public UnityEngine.Component[] GetComponentsInChildren(System.Type t);",
+      "profile": "inactive-self",
+      "owned": {
+        "index": 55,
+        "profile": "inactive-self",
+        "data": "Q owner:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 55,
+        "profile": "inactive-self",
+        "data": "Q owner:SphereCollider,Q child:BoxCollider",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:ef58bb185421374f623c36c7",
+      "owner": "UnityEngine.Component",
+      "declaration": "public UnityEngine.Component[] GetComponentsInChildren(System.Type t);",
+      "profile": "inactive-parent",
+      "owned": {
+        "index": 55,
+        "profile": "inactive-parent",
+        "data": "Q owner:SphereCollider",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 55,
+        "profile": "inactive-parent",
+        "data": "Q owner:SphereCollider,Q child:BoxCollider",
+        "error": ""
+      }
+    }
+  ]
+}
