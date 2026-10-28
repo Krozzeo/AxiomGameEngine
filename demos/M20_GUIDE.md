@@ -89,3 +89,7 @@ The native distinction matters: children are traversed relative to the query roo
 ## Global object searches
 
 Load **Demo · M20 Object Find Lab**. Play and select **Object Find Controller**: Count152, Passed152, Failed0, empty Diagnostics and Complete enabled are expected. The same23 direct overloads execute against native Unity and both browser modes. The lab tests active/inactive objects, DontSave flags, retired objects, null/invalid Type arguments and owned TextAssets. First validates the lowest eligible actual ID; Any validates eligible membership without specifying which object must be returned. Stop restores the complete authored scene.
+
+## GameObject state and scenes
+
+Load **Demo · M20 GameObject State Lab**. Play and select **GameObject State Controller**: Count53, Passed53, Failed0, empty Diagnostics and Complete enabled are expected. The lab compares constructors, layer/static/activation flags, transform handles, scene movement/culling and ID lookup with exact native Play outcomes. Invalid layer assignments intentionally log an error and retain the prior layer without throwing. The runtime-only scene and objects disappear on Stop, restoring the entire authored scene. Duplicate component creation and full scene-manager behavior are separate dependencies.

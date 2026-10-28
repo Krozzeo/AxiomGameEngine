@@ -3,7 +3,7 @@
   "milestone": "M20",
   "targetRecords": 311,
   "status": "in_progress",
-  "certifiedUnitySignatures": 237,
+  "certifiedUnitySignatures": 254,
   "batch": "0.0.62 / SDK12 / canonical core and dependency profiles, behavior attribution in progress",
   "evidence": {
     "native": "evidence/m20-queries-native-windows.json",
@@ -508,12 +508,38 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public bool isStatic { public get; public set; }",
       "member": "isStatic",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Static state defaults false, can be set/reset independently of children and rejects retired reads; static batching/baking are outside this property profile.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-gameobject-state-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-gameobject-state-native.json",
+          "caseIds": [
+            "static.default",
+            "static.set",
+            "static.child",
+            "static.reset",
+            "retired.static"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-gameobject-state-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-gameobject-state-aot-wasm.json",
+          "caseIds": [
+            "static.default",
+            "static.set",
+            "static.child",
+            "static.reset",
+            "retired.static"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:100a314db26b4eef6aac14e3",
@@ -556,12 +582,34 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public UnityEngine.GameObject(string name);",
       "member": ".ctor",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Named construction retains empty/unicode strings and maps a null name to New Game Object, within the documented name budget.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-gameobject-state-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-gameobject-state-native.json",
+          "caseIds": [
+            "ctor.null-name",
+            "ctor.empty-name",
+            "ctor.named"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-gameobject-state-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-gameobject-state-aot-wasm.json",
+          "caseIds": [
+            "ctor.null-name",
+            "ctor.empty-name",
+            "ctor.named"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:111ba6b4664912b4b6afc358",
@@ -1880,12 +1928,44 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public int layer { public get; public set; }",
       "member": "layer",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Layer defaults to0, accepts31 independently of child layers, leaves31 unchanged on negative/32 assignments without throwing, and rejects retired reads. Logger implementation and broader physics filtering are separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-gameobject-state-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-gameobject-state-native.json",
+          "caseIds": [
+            "layer.default",
+            "layer.high",
+            "layer.child",
+            "layer.negative",
+            "layer.after-negative",
+            "layer.outside",
+            "layer.after-outside",
+            "retired.layer"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-gameobject-state-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-gameobject-state-aot-wasm.json",
+          "caseIds": [
+            "layer.default",
+            "layer.high",
+            "layer.child",
+            "layer.negative",
+            "layer.after-negative",
+            "layer.outside",
+            "layer.after-outside",
+            "retired.layer"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:2cfb00f3bc5cf0bf6d2cba72",
@@ -2551,17 +2631,39 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public void SetActiveRecursively(bool state);",
       "member": "SetActiveRecursively",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "compilerObservation": {
         "passed": true,
         "expectedDiagnostic": "CS0618",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "Deprecated recursive activation sets all local flags across three levels, independent of previous ancestor inactivity; lifecycle callback ordering is separate.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-gameobject-state-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-gameobject-state-native.json",
+          "caseIds": [
+            "active.recursive-on",
+            "active.recursive-off",
+            "active.alias"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-gameobject-state-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-gameobject-state-aot-wasm.json",
+          "caseIds": [
+            "active.recursive-on",
+            "active.recursive-off",
+            "active.alias"
+          ]
+        }
       }
     },
     {
@@ -2705,12 +2807,38 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public bool activeSelf { public get; }",
       "member": "activeSelf",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Local activation remains independent of inherited inactivity and rejects retired reads.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-gameobject-state-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-gameobject-state-native.json",
+          "caseIds": [
+            "active.initial",
+            "active.parent-off",
+            "active.child-retained",
+            "active.recursive-off",
+            "retired.active-self"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-gameobject-state-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-gameobject-state-aot-wasm.json",
+          "caseIds": [
+            "active.initial",
+            "active.parent-off",
+            "active.child-retained",
+            "active.recursive-off",
+            "retired.active-self"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:3b14ea8ae2c923a3003864d6",
@@ -3305,12 +3433,38 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public UnityEngine.TransformHandle transformHandle { public get; }",
       "member": "transformHandle",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Opaque TransformHandle equality identifies the same owner transform, differs from foreign/default handles and rejects retired owners; binary layout/unsafe external interop are outside this profile.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-gameobject-state-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-gameobject-state-native.json",
+          "caseIds": [
+            "handle.owner",
+            "handle.component",
+            "handle.foreign",
+            "handle.default",
+            "retired.handle"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-gameobject-state-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-gameobject-state-aot-wasm.json",
+          "caseIds": [
+            "handle.owner",
+            "handle.component",
+            "handle.foreign",
+            "handle.default",
+            "retired.handle"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:48a823c1a17035608e6b4562",
@@ -3818,17 +3972,41 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public static UnityEngine.SceneManagement.Scene GetScene(int instanceID);",
       "member": "GetScene",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "compilerObservation": {
         "passed": true,
         "expectedDiagnostic": "CS0618",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "Deprecated int lookup resolves live GameObject ownership, returns invalid for component/zero IDs and no longer resolves a destroyed object.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-gameobject-state-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-gameobject-state-native.json",
+          "caseIds": [
+            "scene.static-int",
+            "scene.component-int",
+            "scene.zero-int",
+            "retired.get-int"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-gameobject-state-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-gameobject-state-aot-wasm.json",
+          "caseIds": [
+            "scene.static-int",
+            "scene.component-int",
+            "scene.zero-int",
+            "retired.get-int"
+          ]
+        }
       }
     },
     {
@@ -4221,12 +4399,30 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public class UnityEngine.GameObject",
       "member": "GameObject",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Public nonabstract sealed GameObject derives from Object, with exact compiled source shape.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-gameobject-state-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-gameobject-state-native.json",
+          "caseIds": [
+            "type"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-gameobject-state-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-gameobject-state-aot-wasm.json",
+          "caseIds": [
+            "type"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:6038ec1d4008ac3e6712f04b",
@@ -4455,12 +4651,34 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public ulong sceneCullingMask { public get; }",
       "member": "sceneCullingMask",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Default and ordinary created runtime scenes expose the observed native mask16140901064495857664; retired receivers reject. Editor preview/custom culling scenes are outside this profile.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-gameobject-state-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-gameobject-state-native.json",
+          "caseIds": [
+            "scene.mask",
+            "scene.mask-moved",
+            "retired.mask"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-gameobject-state-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-gameobject-state-aot-wasm.json",
+          "caseIds": [
+            "scene.mask",
+            "scene.mask-moved",
+            "retired.mask"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:64316228d6bac2b71b7b49f5",
@@ -4537,12 +4755,34 @@
       "owner": "UnityEngine.Component",
       "declaration": "public UnityEngine.TransformHandle transformHandle { public get; }",
       "member": "transformHandle",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Component transform handle equals the owner handle; unbound and retired reads retain exact native exception types.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-gameobject-state-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-gameobject-state-native.json",
+          "caseIds": [
+            "handle.component",
+            "handle.unbound",
+            "retired.component-handle"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-gameobject-state-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-gameobject-state-aot-wasm.json",
+          "caseIds": [
+            "handle.component",
+            "handle.unbound",
+            "retired.component-handle"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:697cc7435fb2e573fc5e265d",
@@ -4561,12 +4801,34 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public UnityEngine.GameObject(string name, System.Type[] components);",
       "member": ".ctor",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "The component-array constructor attaches one BoxCollider beside the mandatory Transform. Null component arrays throw NullReferenceException after creating the named object, matching native partial-construction visibility. Other component types and duplicate storage remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-gameobject-state-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-gameobject-state-native.json",
+          "caseIds": [
+            "ctor.components",
+            "ctor.null-array",
+            "ctor.null-array-created"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-gameobject-state-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-gameobject-state-aot-wasm.json",
+          "caseIds": [
+            "ctor.components",
+            "ctor.null-array",
+            "ctor.null-array-created"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:6a99c2f72fff0cc5fd17659f",
@@ -5109,12 +5371,32 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public UnityEngine.GameObject();",
       "member": ".ctor",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Default construction creates New Game Object with one Transform.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-gameobject-state-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-gameobject-state-native.json",
+          "caseIds": [
+            "ctor.default",
+            "ctor.default-components"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-gameobject-state-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-gameobject-state-aot-wasm.json",
+          "caseIds": [
+            "ctor.default",
+            "ctor.default-components"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:75848892cb9ecde212372804",
@@ -6200,12 +6482,38 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public bool activeInHierarchy { public get; }",
       "member": "activeInHierarchy",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Hierarchy activation follows local and ancestor flags through three levels and rejects retired reads.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-gameobject-state-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-gameobject-state-native.json",
+          "caseIds": [
+            "active.initial",
+            "active.parent-off",
+            "active.child-retained",
+            "active.recursive-on",
+            "retired.active-hierarchy"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-gameobject-state-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-gameobject-state-aot-wasm.json",
+          "caseIds": [
+            "active.initial",
+            "active.parent-off",
+            "active.child-retained",
+            "active.recursive-on",
+            "retired.active-hierarchy"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:8a6a864f30139654276d0b36",
@@ -8051,12 +8359,36 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public static UnityEngine.SceneManagement.Scene GetScene(UnityEngine.EntityId entityId);",
       "member": "GetScene",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "EntityId lookup resolves live GameObject ownership, returns invalid for component/default IDs and no longer resolves a destroyed object.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-gameobject-state-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-gameobject-state-native.json",
+          "caseIds": [
+            "scene.static-entity",
+            "scene.component-entity",
+            "scene.zero-entity",
+            "retired.get-entity"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-gameobject-state-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-gameobject-state-aot-wasm.json",
+          "caseIds": [
+            "scene.static-entity",
+            "scene.component-entity",
+            "scene.zero-entity",
+            "retired.get-entity"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:b2be5703500ba237844b805f",
@@ -8144,12 +8476,34 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public void SetActive(bool value);",
       "member": "SetActive",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Local activation affects inherited visibility while retaining descendant activeSelf flags; retired receivers reject. Callback ordering remains a separate lifecycle dependency.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-gameobject-state-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-gameobject-state-native.json",
+          "caseIds": [
+            "active.parent-off",
+            "active.child-retained",
+            "retired.set-active"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-gameobject-state-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-gameobject-state-aot-wasm.json",
+          "caseIds": [
+            "active.parent-off",
+            "active.child-retained",
+            "retired.set-active"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:b42010dbe6a03ee341093d85",
@@ -8290,17 +8644,35 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public bool active { public get; public set; }",
       "member": "active",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "compilerObservation": {
         "passed": true,
         "expectedDiagnostic": "CS0618",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "Deprecated activation alias reads/sets the local owner state without overwriting a disabled child flag.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-gameobject-state-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-gameobject-state-native.json",
+          "caseIds": [
+            "active.alias"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-gameobject-state-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-gameobject-state-aot-wasm.json",
+          "caseIds": [
+            "active.alias"
+          ]
+        }
       }
     },
     {
@@ -9957,12 +10329,36 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public UnityEngine.SceneManagement.Scene scene { public get; }",
       "member": "scene",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Scene ownership follows explicit root movement together with nested descendants and returns to the initial scene; retired receivers reject. Broader SceneManager APIs remain separate.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-gameobject-state-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-gameobject-state-native.json",
+          "caseIds": [
+            "scene.initial",
+            "scene.moved",
+            "scene.returned",
+            "retired.scene"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-gameobject-state-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-gameobject-state-aot-wasm.json",
+          "caseIds": [
+            "scene.initial",
+            "scene.moved",
+            "scene.returned",
+            "retired.scene"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:e20727858307286494776aa2",

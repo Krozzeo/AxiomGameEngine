@@ -1,0 +1,221 @@
+{
+  "unityVersion": "6000.3.27f1",
+  "coreAssemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737",
+  "sourceSha256": "6093da785fcf4ecfa032082e44f1b9b00d6e74804bb0d67269dd01839fbf82e9",
+  "error": "",
+  "profile": "Native Play GameObject state and scene probes",
+  "facts": [
+    {
+      "key": "type",
+      "value": "True"
+    },
+    {
+      "key": "ctor.default",
+      "value": "New Game Object"
+    },
+    {
+      "key": "ctor.default-components",
+      "value": "1"
+    },
+    {
+      "key": "ctor.null-name",
+      "value": "New Game Object"
+    },
+    {
+      "key": "ctor.empty-name",
+      "value": ""
+    },
+    {
+      "key": "ctor.named",
+      "value": "G α"
+    },
+    {
+      "key": "ctor.components",
+      "value": "True"
+    },
+    {
+      "key": "ctor.null-array",
+      "value": "error:System.NullReferenceException"
+    },
+    {
+      "key": "ctor.null-array-created",
+      "value": "True"
+    },
+    {
+      "key": "layer.default",
+      "value": "0"
+    },
+    {
+      "key": "layer.high",
+      "value": "31"
+    },
+    {
+      "key": "layer.child",
+      "value": "0"
+    },
+    {
+      "key": "layer.negative",
+      "value": "ok"
+    },
+    {
+      "key": "layer.after-negative",
+      "value": "31"
+    },
+    {
+      "key": "layer.outside",
+      "value": "ok"
+    },
+    {
+      "key": "layer.after-outside",
+      "value": "31"
+    },
+    {
+      "key": "static.default",
+      "value": "False"
+    },
+    {
+      "key": "static.set",
+      "value": "True"
+    },
+    {
+      "key": "static.child",
+      "value": "False"
+    },
+    {
+      "key": "static.reset",
+      "value": "False"
+    },
+    {
+      "key": "active.initial",
+      "value": "True"
+    },
+    {
+      "key": "active.parent-off",
+      "value": "True"
+    },
+    {
+      "key": "active.child-retained",
+      "value": "True"
+    },
+    {
+      "key": "active.recursive-on",
+      "value": "True"
+    },
+    {
+      "key": "active.recursive-off",
+      "value": "True"
+    },
+    {
+      "key": "active.alias",
+      "value": "True"
+    },
+    {
+      "key": "handle.owner",
+      "value": "True"
+    },
+    {
+      "key": "handle.component",
+      "value": "True"
+    },
+    {
+      "key": "handle.foreign",
+      "value": "True"
+    },
+    {
+      "key": "handle.default",
+      "value": "True"
+    },
+    {
+      "key": "handle.unbound",
+      "value": "error:System.NullReferenceException"
+    },
+    {
+      "key": "scene.initial",
+      "value": "True"
+    },
+    {
+      "key": "scene.static-int",
+      "value": "True"
+    },
+    {
+      "key": "scene.static-entity",
+      "value": "True"
+    },
+    {
+      "key": "scene.component-int",
+      "value": "False"
+    },
+    {
+      "key": "scene.component-entity",
+      "value": "False"
+    },
+    {
+      "key": "scene.zero-int",
+      "value": "False"
+    },
+    {
+      "key": "scene.zero-entity",
+      "value": "False"
+    },
+    {
+      "key": "scene.mask",
+      "value": "16140901064495857664"
+    },
+    {
+      "key": "scene.moved",
+      "value": "True"
+    },
+    {
+      "key": "scene.mask-moved",
+      "value": "16140901064495857664"
+    },
+    {
+      "key": "scene.returned",
+      "value": "True"
+    },
+    {
+      "key": "retired.scene",
+      "value": "error:UnityEngine.MissingReferenceException"
+    },
+    {
+      "key": "retired.get-int",
+      "value": "False"
+    },
+    {
+      "key": "retired.get-entity",
+      "value": "False"
+    },
+    {
+      "key": "retired.mask",
+      "value": "error:UnityEngine.MissingReferenceException"
+    },
+    {
+      "key": "retired.handle",
+      "value": "error:UnityEngine.MissingReferenceException"
+    },
+    {
+      "key": "retired.component-handle",
+      "value": "error:UnityEngine.MissingReferenceException"
+    },
+    {
+      "key": "retired.active-self",
+      "value": "error:UnityEngine.MissingReferenceException"
+    },
+    {
+      "key": "retired.active-hierarchy",
+      "value": "error:UnityEngine.MissingReferenceException"
+    },
+    {
+      "key": "retired.set-active",
+      "value": "error:UnityEngine.MissingReferenceException"
+    },
+    {
+      "key": "retired.layer",
+      "value": "error:UnityEngine.MissingReferenceException"
+    },
+    {
+      "key": "retired.static",
+      "value": "error:UnityEngine.MissingReferenceException"
+    }
+  ]
+}

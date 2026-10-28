@@ -1,6 +1,6 @@
 # Current canonical M20 batch —0.0.62 / SDK12
 
-Current review: **0.0.62 / SDK12**. All311 frozen compiled source contracts match. Attributed acceptance237/311:207 behavior and30 compile-error obsolete contracts. Transform81/81,56 component queries and23 global-find overloads are accepted within recorded bounded profiles. Native885 core+240 vectors+348 poses+476 queries+152 finds and Node486/486 pass. All seven real browser suites pass per Development/effective-AOT mode:267 core+271 asset/lifecycle/hierarchy+77 Object+240 vectors+348 poses+476 queries+152 finds, with exact Stop restoration. M20 remains open with74 contracts pending; source matches and test counts are not full Unity parity.
+Current review: **0.0.62 / SDK12**. All311 frozen compiled source contracts match. Attributed acceptance254/311:224 behavior and30 compiler-error obsolete contracts. Transform81/81,56 queries,23 finds and17 state/scene/handle contracts are accepted in bounded profiles. Fresh native885+240+348+476+152+53 and the53-case state lab pass in Development/effective-AOT. The previous full seven-browser regression belongs to checkpoint39fe7e1; current-head CI remains separate. M20 stays open with57 contracts and structural dependencies pending.
 
 ---
 

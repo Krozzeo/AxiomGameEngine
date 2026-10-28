@@ -1,5 +1,7 @@
 # 0.0.62 — Canonical M20 core and dependency profiles (in progress)
 
+- Attribute17 GameObject/Component state, constructor, scene and handle contracts via53 native Play/.NET/Development/AOT cases (254/311 accepted). Match native invalid-layer log/no-op behavior and add GameObject State Lab. M20 remains open.
+
 - Attribute23 global-find overloads through152 native/.NET/Development/AOT comparisons (237/311 accepted). Match native invalid-Type null arrays/scalar exceptions and obsolete DontSave filtering; add Object Find Lab. M20 remains open.
 
 - Attribute all56 Component/GameObject query overloads through476 native/.NET/Development/AOT cases (214/311 accepted). Match native inactive hierarchy traversal and null-Type TryGetComponent. Add version-owned Component Queries Lab; M20 remains open.

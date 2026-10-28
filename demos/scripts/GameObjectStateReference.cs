@@ -1,0 +1,63 @@
+using System.Collections.Generic;
+namespace Game {
+// Own public outcomes observed in Unity6000.3.27f1 Play; no vendor implementation.
+public static class GameObjectStateReference {
+ public const string SourceSha256="6093da785fcf4ecfa032082e44f1b9b00d6e74804bb0d67269dd01839fbf82e9";
+ public const string EvidenceSha256="bc93baf7e27db0afa173e2362c994e71ab4e8e80c16986dc2710c74aa95f5987";
+ public const int ExpectedCount=53;
+ private static readonly Dictionary<string,string> Expected=new(){["type"]="True",
+["ctor.default"]="New Game Object",
+["ctor.default-components"]="1",
+["ctor.null-name"]="New Game Object",
+["ctor.empty-name"]="",
+["ctor.named"]="G α",
+["ctor.components"]="True",
+["ctor.null-array"]="error:System.NullReferenceException",
+["ctor.null-array-created"]="True",
+["layer.default"]="0",
+["layer.high"]="31",
+["layer.child"]="0",
+["layer.negative"]="ok",
+["layer.after-negative"]="31",
+["layer.outside"]="ok",
+["layer.after-outside"]="31",
+["static.default"]="False",
+["static.set"]="True",
+["static.child"]="False",
+["static.reset"]="False",
+["active.initial"]="True",
+["active.parent-off"]="True",
+["active.child-retained"]="True",
+["active.recursive-on"]="True",
+["active.recursive-off"]="True",
+["active.alias"]="True",
+["handle.owner"]="True",
+["handle.component"]="True",
+["handle.foreign"]="True",
+["handle.default"]="True",
+["handle.unbound"]="error:System.NullReferenceException",
+["scene.initial"]="True",
+["scene.static-int"]="True",
+["scene.static-entity"]="True",
+["scene.component-int"]="False",
+["scene.component-entity"]="False",
+["scene.zero-int"]="False",
+["scene.zero-entity"]="False",
+["scene.mask"]="16140901064495857664",
+["scene.moved"]="True",
+["scene.mask-moved"]="16140901064495857664",
+["scene.returned"]="True",
+["retired.scene"]="error:UnityEngine.MissingReferenceException",
+["retired.get-int"]="False",
+["retired.get-entity"]="False",
+["retired.mask"]="error:UnityEngine.MissingReferenceException",
+["retired.handle"]="error:UnityEngine.MissingReferenceException",
+["retired.component-handle"]="error:UnityEngine.MissingReferenceException",
+["retired.active-self"]="error:UnityEngine.MissingReferenceException",
+["retired.active-hierarchy"]="error:UnityEngine.MissingReferenceException",
+["retired.set-active"]="error:UnityEngine.MissingReferenceException",
+["retired.layer"]="error:UnityEngine.MissingReferenceException",
+["retired.static"]="error:UnityEngine.MissingReferenceException"};
+ public static string Compare(string key,string actual)=>!Expected.TryGetValue(key,out var expected)?"Unknown case "+key:actual==expected?"":"Expected "+expected+", actual "+actual;
+}
+}

@@ -127,12 +127,17 @@ jobs:
       - run: dotnet run --project tests/csharp/M20.Queries/M20.Queries.csproj
       - run: node scripts/compatibility/generate-m20-find-fixtures.mjs --check
       - run: dotnet run --project tests/csharp/M20.Find/M20.Find.csproj
+      - run: node scripts/compatibility/generate-m20-gameobject-fixtures.mjs --check
+      - run: dotnet run --project tests/csharp/M20.GameObjectState/M20.GameObjectState.csproj
       - name: Audit current compiled M20 source contracts and obsolete consumer diagnostics
         run: |
           dotnet run --project scripts/compatibility/Metadata -- tests/csharp/M20.Objects/bin/Debug/net10.0/M20.Objects.dll .axiom/m20-current-abi.json --sdk
           node scripts/compatibility/m20-source-audit.mjs .axiom/m20-current-abi.json .axiom/m20-current-source.json
           node scripts/compatibility/m20-obsolete-compile.mjs tests/csharp/M20.Objects/bin/Debug/net10.0/M20.Objects.dll .axiom/m20-current-obsolete-compile.json .axiom/m20-current-abi.json
       - run: dotnet build tests/csharp/M20.Migration --nologo -v:q
+      - run: node tests/browser/m20-gameobject-state.mjs
+        env:
+          AXIOM_CSHARP_MODE: ${{ matrix.mode }}
       - run: node tests/browser/m20-find.mjs
         env:
           AXIOM_CSHARP_MODE: ${{ matrix.mode }}
@@ -183,6 +188,7 @@ jobs:
             .axiom/browser-m20-objects*
             .axiom/browser-m20-queries*
             .axiom/browser-m20-find*
+            .axiom/browser-m20-gameobject-state*
 
   browser-milestones:
     runs-on: ubuntu-latest

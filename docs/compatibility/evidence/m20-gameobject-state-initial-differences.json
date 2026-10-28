@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "historical": true,
+  "passed": false,
+  "ownedSdkCommit": "39fe7e1",
+  "corpusSourceSha256": "6093da785fcf4ecfa032082e44f1b9b00d6e74804bb0d67269dd01839fbf82e9",
+  "observations": 53,
+  "mismatchCount": 2,
+  "differences": [
+    {
+      "case": "layer.negative",
+      "owned": "error:System.ArgumentOutOfRangeException",
+      "nativeUnity": "ok"
+    },
+    {
+      "case": "layer.outside",
+      "owned": "error:System.ArgumentOutOfRangeException",
+      "nativeUnity": "ok"
+    }
+  ]
+}

@@ -1,0 +1,207 @@
+{
+  "schemaVersion": 1,
+  "passed": true,
+  "referenceCoreModuleSha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737",
+  "corpusSourceSha256": "6093da785fcf4ecfa032082e44f1b9b00d6e74804bb0d67269dd01839fbf82e9",
+  "acceptedSignatures": 17,
+  "records": [
+    {
+      "id": "unity63abi:5f860ad2405ef6c5d2fae812",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public class UnityEngine.GameObject",
+      "caseIds": [
+        "type"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:74f5056bfba5e909f8206a40",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public UnityEngine.GameObject();",
+      "caseIds": [
+        "ctor.default",
+        "ctor.default-components"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:10cb30f83d581b531ca69ad1",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public UnityEngine.GameObject(string name);",
+      "caseIds": [
+        "ctor.null-name",
+        "ctor.empty-name",
+        "ctor.named"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:6a5227226e5816c9456a6d98",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public UnityEngine.GameObject(string name, System.Type[] components);",
+      "caseIds": [
+        "ctor.components",
+        "ctor.null-array",
+        "ctor.null-array-created"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:2cf1eb151041fbf96236ede1",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public int layer { public get; public set; }",
+      "caseIds": [
+        "layer.default",
+        "layer.high",
+        "layer.child",
+        "layer.negative",
+        "layer.after-negative",
+        "layer.outside",
+        "layer.after-outside",
+        "retired.layer"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:0f3f34f8fda17c97f572798f",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public bool isStatic { public get; public set; }",
+      "caseIds": [
+        "static.default",
+        "static.set",
+        "static.child",
+        "static.reset",
+        "retired.static"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:3b016ed797047803e8a253fc",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public bool activeSelf { public get; }",
+      "caseIds": [
+        "active.initial",
+        "active.parent-off",
+        "active.child-retained",
+        "active.recursive-off",
+        "retired.active-self"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:8a2b09c983a7c4c4f6634efc",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public bool activeInHierarchy { public get; }",
+      "caseIds": [
+        "active.initial",
+        "active.parent-off",
+        "active.child-retained",
+        "active.recursive-on",
+        "retired.active-hierarchy"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:b52e8b0c43310fe2b2a19329",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public bool active { public get; public set; }",
+      "caseIds": [
+        "active.alias"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:b3c05263c170916f3288c281",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void SetActive(bool value);",
+      "caseIds": [
+        "active.parent-off",
+        "active.child-retained",
+        "retired.set-active"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:39716172f20cadd1ffd0ced8",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void SetActiveRecursively(bool state);",
+      "caseIds": [
+        "active.recursive-on",
+        "active.recursive-off",
+        "active.alias"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:478318d1787c259d54b3d647",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public UnityEngine.TransformHandle transformHandle { public get; }",
+      "caseIds": [
+        "handle.owner",
+        "handle.component",
+        "handle.foreign",
+        "handle.default",
+        "retired.handle"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:68c24741754619f10c737595",
+      "owner": "UnityEngine.Component",
+      "declaration": "public UnityEngine.TransformHandle transformHandle { public get; }",
+      "caseIds": [
+        "handle.component",
+        "handle.unbound",
+        "retired.component-handle"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:e0be107c0a832275e454576b",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public UnityEngine.SceneManagement.Scene scene { public get; }",
+      "caseIds": [
+        "scene.initial",
+        "scene.moved",
+        "scene.returned",
+        "retired.scene"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:642a0a14bfc7f04d673e3852",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public ulong sceneCullingMask { public get; }",
+      "caseIds": [
+        "scene.mask",
+        "scene.mask-moved",
+        "retired.mask"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:578592e399e1c7035d132c78",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public static UnityEngine.SceneManagement.Scene GetScene(int instanceID);",
+      "caseIds": [
+        "scene.static-int",
+        "scene.component-int",
+        "scene.zero-int",
+        "retired.get-int"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:b139062a6e7c9861faded49c",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public static UnityEngine.SceneManagement.Scene GetScene(UnityEngine.EntityId entityId);",
+      "caseIds": [
+        "scene.static-entity",
+        "scene.component-entity",
+        "scene.zero-entity",
+        "retired.get-entity"
+      ],
+      "passed": true
+    }
+  ]
+}

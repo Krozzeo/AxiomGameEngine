@@ -109,7 +109,7 @@ public sealed partial class GameObject : Object {
  public GameObject():this("New Game Object"){}public GameObject(string name){name??="New Game Object";if(name.Length>128)throw new ArgumentException("Object name exceeds runtime bounds",nameof(name));Wrapped=new Legacy.GameObject(Legacy.Context.CreateObject(name));CacheFacade();}public GameObject(string name,params Type[] components):this(name){foreach(var type in components)AddComponent(type);}
  public Transform transform=>LegacyGameObject.transform;public GameObject gameObject=>this;
  public bool activeSelf=>LegacyGameObject.activeSelf;public bool activeInHierarchy=>LegacyGameObject.activeInHierarchy;public void SetActive(bool value)=>LegacyGameObject.SetActive(value);
- public int layer {get=>LegacyGameObject.layer;set=>LegacyGameObject.layer=value;}public string tag {get=>LegacyGameObject.tag;set{Tags.Require(value);LegacyGameObject.tag=value;}}public bool CompareTag(string tag){Tags.Require(tag);return LegacyGameObject.CompareTag(tag);}
+ public int layer {get=>LegacyGameObject.layer;set{var owner=LegacyGameObject;if(value<0||value>31){Legacy.Debug.LogError("A GameObject layer must be in range 0 through 31");return;}owner.layer=value;}}public string tag {get=>LegacyGameObject.tag;set{Tags.Require(value);LegacyGameObject.tag=value;}}public bool CompareTag(string tag){Tags.Require(tag);return LegacyGameObject.CompareTag(tag);}
  internal static Type QueryType(Type type)=>type??throw new ArgumentException("A component class or interface is required",nameof(type));
  public static GameObject? Find(string name){
   if(string.IsNullOrEmpty(name))return null;var rooted=name.StartsWith('/');var parts=(rooted?name[1..]:name).Split('/');if(parts.Any(string.IsNullOrEmpty))return null;
