@@ -85,3 +85,7 @@ Load **Demo · M20 Object Contracts Lab** from the same installation. Play and i
 Load **Demo · M20 Component Queries Lab** from the exact installation. Play and select **Component Queries Controller**. Count476, Passed476, Failed0, Diagnostics empty and Complete enabled are expected. Report uses compact q001:p / q001:f entries to stay within existing field limits. The same56 direct public overloads run unchanged in Unity, .NET and both real browser modes. The corpus covers distinct Box/Sphere colliders and missing MeshCollider; custom script interfaces and duplicate components remain separate milestone dependencies. Stop restores the authored scene exactly.
 
 The native distinction matters: children are traversed relative to the query root even when its ancestors are inactive; inactive child subtrees are skipped unless included. Parent queries filter each candidate, including the receiver, by activeInHierarchy unless inactive objects are explicitly included.
+
+## Global object searches
+
+Load **Demo · M20 Object Find Lab**. Play and select **Object Find Controller**: Count152, Passed152, Failed0, empty Diagnostics and Complete enabled are expected. The same23 direct overloads execute against native Unity and both browser modes. The lab tests active/inactive objects, DontSave flags, retired objects, null/invalid Type arguments and owned TextAssets. First validates the lowest eligible actual ID; Any validates eligible membership without specifying which object must be returned. Stop restores the complete authored scene.

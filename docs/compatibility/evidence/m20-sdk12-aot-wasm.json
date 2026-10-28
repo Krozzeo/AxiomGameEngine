@@ -16,11 +16,11 @@
   "httpErrors": [],
   "consoleErrors": [],
   "executedBuild": {
-    "id": "f8403fe1-d8b8-46db-814b-83518371efc4",
+    "id": "59d3fb0c-9d49-48d0-9584-f35be6f15b08",
     "mode": "aot",
     "sdkVersion": 12,
     "sourceHash": "ab1a0cab030c4136fc577ddbaac107fe9ff1b0a41e220f46cafbb9a59188b985",
-    "bytes": 26145697
+    "bytes": 26143665
   },
   "cases": {
     "identity.wrapper": "pass",

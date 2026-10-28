@@ -1,0 +1,921 @@
+{
+  "unityVersion": "6000.3.27f1",
+  "coreAssemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737",
+  "sourceSha256": "731911012532ee0ddc8022d32139e08826830fc759f8b384cfda4b4dd0f69fd7",
+  "error": "",
+  "profile": "Native Editor exact Object find overloads",
+  "rows": [
+    {
+      "index": 0,
+      "profile": "mixed",
+      "data": "member:True,eligible:True,lowest:True",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "include-inactive",
+      "data": "member:True,eligible:True,lowest:True",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "all-inactive",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "dont-save",
+      "data": "member:True,eligible:True,lowest:True",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "retired",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "null-type",
+      "data": "",
+      "error": "System.NullReferenceException"
+    },
+    {
+      "index": 0,
+      "profile": "invalid-type",
+      "data": "",
+      "error": "System.NullReferenceException"
+    },
+    {
+      "index": 1,
+      "profile": "mixed",
+      "data": "F active,F flags/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "include-inactive",
+      "data": "F active,F flags,F nested,F off/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "all-inactive",
+      "data": "/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "dont-save",
+      "data": "F active/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "retired",
+      "data": "/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "unsorted",
+      "data": "F active,F flags/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "null-type",
+      "data": "null-array",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "invalid-type",
+      "data": "null-array",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "assets",
+      "data": "F text/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 2,
+      "profile": "mixed",
+      "data": "member:True,eligible:True",
+      "error": ""
+    },
+    {
+      "index": 2,
+      "profile": "include-inactive",
+      "data": "member:True,eligible:True",
+      "error": ""
+    },
+    {
+      "index": 2,
+      "profile": "all-inactive",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 2,
+      "profile": "dont-save",
+      "data": "member:True,eligible:True",
+      "error": ""
+    },
+    {
+      "index": 2,
+      "profile": "retired",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 3,
+      "profile": "mixed",
+      "data": "F active,F flags/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 3,
+      "profile": "include-inactive",
+      "data": "F active,F flags/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 3,
+      "profile": "all-inactive",
+      "data": "/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 3,
+      "profile": "dont-save",
+      "data": "F active/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 3,
+      "profile": "retired",
+      "data": "/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 4,
+      "profile": "mixed",
+      "data": "member:True,eligible:True,lowest:True",
+      "error": ""
+    },
+    {
+      "index": 4,
+      "profile": "include-inactive",
+      "data": "member:True,eligible:True,lowest:True",
+      "error": ""
+    },
+    {
+      "index": 4,
+      "profile": "all-inactive",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 4,
+      "profile": "dont-save",
+      "data": "member:True,eligible:True,lowest:True",
+      "error": ""
+    },
+    {
+      "index": 4,
+      "profile": "retired",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 4,
+      "profile": "null-type",
+      "data": "",
+      "error": "System.NullReferenceException"
+    },
+    {
+      "index": 4,
+      "profile": "invalid-type",
+      "data": "",
+      "error": "System.NullReferenceException"
+    },
+    {
+      "index": 5,
+      "profile": "mixed",
+      "data": "F active,F flags/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 5,
+      "profile": "include-inactive",
+      "data": "F active,F flags/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 5,
+      "profile": "all-inactive",
+      "data": "/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 5,
+      "profile": "dont-save",
+      "data": "F active/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 5,
+      "profile": "retired",
+      "data": "/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 5,
+      "profile": "unsorted",
+      "data": "F active,F flags/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 6,
+      "profile": "mixed",
+      "data": "F active,F flags/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 6,
+      "profile": "include-inactive",
+      "data": "F active,F flags,F nested,F off/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 6,
+      "profile": "all-inactive",
+      "data": "/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 6,
+      "profile": "dont-save",
+      "data": "F active/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 6,
+      "profile": "retired",
+      "data": "/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 6,
+      "profile": "unsorted",
+      "data": "F active,F flags/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 7,
+      "profile": "mixed",
+      "data": "F active,F flags/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 7,
+      "profile": "include-inactive",
+      "data": "F active,F flags,F nested,F off/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 7,
+      "profile": "all-inactive",
+      "data": "/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 7,
+      "profile": "dont-save",
+      "data": "F active/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 7,
+      "profile": "retired",
+      "data": "/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 7,
+      "profile": "null-type",
+      "data": "null-array",
+      "error": ""
+    },
+    {
+      "index": 7,
+      "profile": "invalid-type",
+      "data": "null-array",
+      "error": ""
+    },
+    {
+      "index": 7,
+      "profile": "assets",
+      "data": "F text/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 8,
+      "profile": "mixed",
+      "data": "F active,F flags/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 8,
+      "profile": "include-inactive",
+      "data": "F active,F flags/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 8,
+      "profile": "all-inactive",
+      "data": "/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 8,
+      "profile": "dont-save",
+      "data": "F active/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 8,
+      "profile": "retired",
+      "data": "/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 8,
+      "profile": "null-type",
+      "data": "null-array",
+      "error": ""
+    },
+    {
+      "index": 8,
+      "profile": "invalid-type",
+      "data": "null-array",
+      "error": ""
+    },
+    {
+      "index": 8,
+      "profile": "assets",
+      "data": "F text/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 9,
+      "profile": "mixed",
+      "data": "F active,F flags,F nested,F off/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 9,
+      "profile": "include-inactive",
+      "data": "F active,F flags,F nested,F off/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 9,
+      "profile": "all-inactive",
+      "data": "F active,F flags,F nested,F off/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 9,
+      "profile": "dont-save",
+      "data": "F active,F nested,F off/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 9,
+      "profile": "retired",
+      "data": "/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 9,
+      "profile": "null-type",
+      "data": "null-array",
+      "error": ""
+    },
+    {
+      "index": 9,
+      "profile": "invalid-type",
+      "data": "null-array",
+      "error": ""
+    },
+    {
+      "index": 9,
+      "profile": "assets",
+      "data": "F text/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 10,
+      "profile": "mixed",
+      "data": "F active,F flags,F nested,F off/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 10,
+      "profile": "include-inactive",
+      "data": "F active,F flags,F nested,F off/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 10,
+      "profile": "all-inactive",
+      "data": "F active,F flags,F nested,F off/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 10,
+      "profile": "dont-save",
+      "data": "F active,F flags,F nested,F off/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 10,
+      "profile": "retired",
+      "data": "/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 10,
+      "profile": "null-type",
+      "data": "null-array",
+      "error": ""
+    },
+    {
+      "index": 10,
+      "profile": "invalid-type",
+      "data": "null-array",
+      "error": ""
+    },
+    {
+      "index": 10,
+      "profile": "assets",
+      "data": "F text,F text flags/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 11,
+      "profile": "mixed",
+      "data": "member:True,eligible:True,lowest:True",
+      "error": ""
+    },
+    {
+      "index": 11,
+      "profile": "include-inactive",
+      "data": "member:True,eligible:True,lowest:True",
+      "error": ""
+    },
+    {
+      "index": 11,
+      "profile": "all-inactive",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 11,
+      "profile": "dont-save",
+      "data": "member:True,eligible:True,lowest:True",
+      "error": ""
+    },
+    {
+      "index": 11,
+      "profile": "retired",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 12,
+      "profile": "mixed",
+      "data": "F active,F flags/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 12,
+      "profile": "include-inactive",
+      "data": "F active,F flags/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 12,
+      "profile": "all-inactive",
+      "data": "/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 12,
+      "profile": "dont-save",
+      "data": "F active/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 12,
+      "profile": "retired",
+      "data": "/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 12,
+      "profile": "null-type",
+      "data": "null-array",
+      "error": ""
+    },
+    {
+      "index": 12,
+      "profile": "invalid-type",
+      "data": "null-array",
+      "error": ""
+    },
+    {
+      "index": 12,
+      "profile": "assets",
+      "data": "F text/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 13,
+      "profile": "mixed",
+      "data": "member:True,eligible:True",
+      "error": ""
+    },
+    {
+      "index": 13,
+      "profile": "include-inactive",
+      "data": "member:True,eligible:True",
+      "error": ""
+    },
+    {
+      "index": 13,
+      "profile": "all-inactive",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 13,
+      "profile": "dont-save",
+      "data": "member:True,eligible:True",
+      "error": ""
+    },
+    {
+      "index": 13,
+      "profile": "retired",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 13,
+      "profile": "null-type",
+      "data": "",
+      "error": "System.NullReferenceException"
+    },
+    {
+      "index": 13,
+      "profile": "invalid-type",
+      "data": "",
+      "error": "System.NullReferenceException"
+    },
+    {
+      "index": 14,
+      "profile": "mixed",
+      "data": "member:True,eligible:True",
+      "error": ""
+    },
+    {
+      "index": 14,
+      "profile": "include-inactive",
+      "data": "member:True,eligible:True",
+      "error": ""
+    },
+    {
+      "index": 14,
+      "profile": "all-inactive",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 14,
+      "profile": "dont-save",
+      "data": "member:True,eligible:True",
+      "error": ""
+    },
+    {
+      "index": 14,
+      "profile": "retired",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 14,
+      "profile": "null-type",
+      "data": "",
+      "error": "System.NullReferenceException"
+    },
+    {
+      "index": 14,
+      "profile": "invalid-type",
+      "data": "",
+      "error": "System.NullReferenceException"
+    },
+    {
+      "index": 15,
+      "profile": "mixed",
+      "data": "member:True,eligible:True,lowest:True",
+      "error": ""
+    },
+    {
+      "index": 15,
+      "profile": "include-inactive",
+      "data": "member:True,eligible:True,lowest:True",
+      "error": ""
+    },
+    {
+      "index": 15,
+      "profile": "all-inactive",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 15,
+      "profile": "dont-save",
+      "data": "member:True,eligible:True,lowest:True",
+      "error": ""
+    },
+    {
+      "index": 15,
+      "profile": "retired",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 15,
+      "profile": "null-type",
+      "data": "",
+      "error": "System.NullReferenceException"
+    },
+    {
+      "index": 15,
+      "profile": "invalid-type",
+      "data": "",
+      "error": "System.NullReferenceException"
+    },
+    {
+      "index": 16,
+      "profile": "mixed",
+      "data": "F active,F flags/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 16,
+      "profile": "include-inactive",
+      "data": "F active,F flags/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 16,
+      "profile": "all-inactive",
+      "data": "/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 16,
+      "profile": "dont-save",
+      "data": "F active/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 16,
+      "profile": "retired",
+      "data": "/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 16,
+      "profile": "unsorted",
+      "data": "F active,F flags/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 16,
+      "profile": "null-type",
+      "data": "null-array",
+      "error": ""
+    },
+    {
+      "index": 16,
+      "profile": "invalid-type",
+      "data": "null-array",
+      "error": ""
+    },
+    {
+      "index": 16,
+      "profile": "assets",
+      "data": "F text/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 17,
+      "profile": "mixed",
+      "data": "member:True,eligible:True,lowest:True",
+      "error": ""
+    },
+    {
+      "index": 17,
+      "profile": "include-inactive",
+      "data": "member:True,eligible:True,lowest:True",
+      "error": ""
+    },
+    {
+      "index": 17,
+      "profile": "all-inactive",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 17,
+      "profile": "dont-save",
+      "data": "member:True,eligible:True,lowest:True",
+      "error": ""
+    },
+    {
+      "index": 17,
+      "profile": "retired",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 17,
+      "profile": "null-type",
+      "data": "",
+      "error": "System.NullReferenceException"
+    },
+    {
+      "index": 17,
+      "profile": "invalid-type",
+      "data": "",
+      "error": "System.NullReferenceException"
+    },
+    {
+      "index": 18,
+      "profile": "mixed",
+      "data": "member:True,eligible:True,lowest:True",
+      "error": ""
+    },
+    {
+      "index": 18,
+      "profile": "include-inactive",
+      "data": "member:True,eligible:True,lowest:True",
+      "error": ""
+    },
+    {
+      "index": 18,
+      "profile": "all-inactive",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 18,
+      "profile": "dont-save",
+      "data": "member:True,eligible:True,lowest:True",
+      "error": ""
+    },
+    {
+      "index": 18,
+      "profile": "retired",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 19,
+      "profile": "mixed",
+      "data": "F active,F flags/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 19,
+      "profile": "include-inactive",
+      "data": "F active,F flags,F nested,F off/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 19,
+      "profile": "all-inactive",
+      "data": "/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 19,
+      "profile": "dont-save",
+      "data": "F active/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 19,
+      "profile": "retired",
+      "data": "/ordered:True",
+      "error": ""
+    },
+    {
+      "index": 20,
+      "profile": "mixed",
+      "data": "member:True,eligible:True,lowest:True",
+      "error": ""
+    },
+    {
+      "index": 20,
+      "profile": "include-inactive",
+      "data": "member:True,eligible:True,lowest:True",
+      "error": ""
+    },
+    {
+      "index": 20,
+      "profile": "all-inactive",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 20,
+      "profile": "dont-save",
+      "data": "member:True,eligible:True,lowest:True",
+      "error": ""
+    },
+    {
+      "index": 20,
+      "profile": "retired",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 21,
+      "profile": "mixed",
+      "data": "member:True,eligible:True,lowest:True",
+      "error": ""
+    },
+    {
+      "index": 21,
+      "profile": "include-inactive",
+      "data": "member:True,eligible:True,lowest:True",
+      "error": ""
+    },
+    {
+      "index": 21,
+      "profile": "all-inactive",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 21,
+      "profile": "dont-save",
+      "data": "member:True,eligible:True,lowest:True",
+      "error": ""
+    },
+    {
+      "index": 21,
+      "profile": "retired",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 22,
+      "profile": "mixed",
+      "data": "member:True,eligible:True",
+      "error": ""
+    },
+    {
+      "index": 22,
+      "profile": "include-inactive",
+      "data": "member:True,eligible:True",
+      "error": ""
+    },
+    {
+      "index": 22,
+      "profile": "all-inactive",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 22,
+      "profile": "dont-save",
+      "data": "member:True,eligible:True",
+      "error": ""
+    },
+    {
+      "index": 22,
+      "profile": "retired",
+      "data": "null",
+      "error": ""
+    }
+  ]
+}

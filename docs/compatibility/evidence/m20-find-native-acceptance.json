@@ -1,0 +1,571 @@
+{
+  "schemaVersion": 1,
+  "passed": true,
+  "referenceCoreModuleSha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737",
+  "corpusSourceHashes": {
+    "ObjectFindCorpus.cs": "731911012532ee0ddc8022d32139e08826830fc759f8b384cfda4b4dd0f69fd7",
+    "ObjectFindReference.cs": "706f242ed92a9184dfdc869beb7263768d0d99659b7d2945a0283cf3e403a198",
+    "ObjectFindLab.cs": "dcb21aa374ead3db6916569e1ccf2eb6fe579f491e31f3309e7f7f24f617b127"
+  },
+  "acceptedSignatures": 23,
+  "observations": 152,
+  "records": [
+    {
+      "id": "unity63abi:160660381215027e2830e101",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object FindFirstObjectByType(System.Type type);",
+      "index": 0,
+      "profiles": [
+        "mixed",
+        "include-inactive",
+        "all-inactive",
+        "dont-save",
+        "retired",
+        "null-type",
+        "invalid-type"
+      ],
+      "caseIds": [
+        "f001",
+        "f002",
+        "f003",
+        "f004",
+        "f005",
+        "f006",
+        "f007"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:1733cf71b9e4a1d82beea15b",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object[] FindObjectsByType(System.Type type, UnityEngine.FindObjectsInactive findObjectsInactive, UnityEngine.FindObjectsSortMode sortMode);",
+      "index": 1,
+      "profiles": [
+        "mixed",
+        "include-inactive",
+        "all-inactive",
+        "dont-save",
+        "retired",
+        "unsorted",
+        "null-type",
+        "invalid-type",
+        "assets"
+      ],
+      "caseIds": [
+        "f008",
+        "f009",
+        "f010",
+        "f011",
+        "f012",
+        "f013",
+        "f014",
+        "f015",
+        "f016"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:1804db0bf7c8bd0be2f40c50",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static T FindAnyObjectByType<T>();",
+      "index": 2,
+      "profiles": [
+        "mixed",
+        "include-inactive",
+        "all-inactive",
+        "dont-save",
+        "retired"
+      ],
+      "caseIds": [
+        "f017",
+        "f018",
+        "f019",
+        "f020",
+        "f021"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:189d3c38f1fd90b59f489273",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static T[] FindObjectsOfType<T>();",
+      "index": 3,
+      "profiles": [
+        "mixed",
+        "include-inactive",
+        "all-inactive",
+        "dont-save",
+        "retired"
+      ],
+      "caseIds": [
+        "f022",
+        "f023",
+        "f024",
+        "f025",
+        "f026"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:2a47d9abb87993e1156db2cd",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object FindFirstObjectByType(System.Type type, UnityEngine.FindObjectsInactive findObjectsInactive);",
+      "index": 4,
+      "profiles": [
+        "mixed",
+        "include-inactive",
+        "all-inactive",
+        "dont-save",
+        "retired",
+        "null-type",
+        "invalid-type"
+      ],
+      "caseIds": [
+        "f027",
+        "f028",
+        "f029",
+        "f030",
+        "f031",
+        "f032",
+        "f033"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:3f2b2d8e507fbf3e0f1c5665",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static T[] FindObjectsByType<T>(UnityEngine.FindObjectsSortMode sortMode);",
+      "index": 5,
+      "profiles": [
+        "mixed",
+        "include-inactive",
+        "all-inactive",
+        "dont-save",
+        "retired",
+        "unsorted"
+      ],
+      "caseIds": [
+        "f034",
+        "f035",
+        "f036",
+        "f037",
+        "f038",
+        "f039"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:5163cd08a1ffa584529dc24d",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static T[] FindObjectsByType<T>(UnityEngine.FindObjectsInactive findObjectsInactive, UnityEngine.FindObjectsSortMode sortMode);",
+      "index": 6,
+      "profiles": [
+        "mixed",
+        "include-inactive",
+        "all-inactive",
+        "dont-save",
+        "retired",
+        "unsorted"
+      ],
+      "caseIds": [
+        "f040",
+        "f041",
+        "f042",
+        "f043",
+        "f044",
+        "f045"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:519e51568066d54fef389420",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object[] FindObjectsOfType(System.Type type, bool includeInactive);",
+      "index": 7,
+      "profiles": [
+        "mixed",
+        "include-inactive",
+        "all-inactive",
+        "dont-save",
+        "retired",
+        "null-type",
+        "invalid-type",
+        "assets"
+      ],
+      "caseIds": [
+        "f046",
+        "f047",
+        "f048",
+        "f049",
+        "f050",
+        "f051",
+        "f052",
+        "f053"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:58c30bbde35fe71525636c36",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object[] FindObjectsOfType(System.Type type);",
+      "index": 8,
+      "profiles": [
+        "mixed",
+        "include-inactive",
+        "all-inactive",
+        "dont-save",
+        "retired",
+        "null-type",
+        "invalid-type",
+        "assets"
+      ],
+      "caseIds": [
+        "f054",
+        "f055",
+        "f056",
+        "f057",
+        "f058",
+        "f059",
+        "f060",
+        "f061"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:6cb646dccf3f12dd88297b8b",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object[] FindObjectsOfTypeIncludingAssets(System.Type type);",
+      "index": 9,
+      "profiles": [
+        "mixed",
+        "include-inactive",
+        "all-inactive",
+        "dont-save",
+        "retired",
+        "null-type",
+        "invalid-type",
+        "assets"
+      ],
+      "caseIds": [
+        "f062",
+        "f063",
+        "f064",
+        "f065",
+        "f066",
+        "f067",
+        "f068",
+        "f069"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:72e65ef5fbeed2cd1bdf0b61",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object[] FindObjectsOfTypeAll(System.Type type);",
+      "index": 10,
+      "profiles": [
+        "mixed",
+        "include-inactive",
+        "all-inactive",
+        "dont-save",
+        "retired",
+        "null-type",
+        "invalid-type",
+        "assets"
+      ],
+      "caseIds": [
+        "f070",
+        "f071",
+        "f072",
+        "f073",
+        "f074",
+        "f075",
+        "f076",
+        "f077"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:75a6abbefa5e71a7f3c54be2",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static T FindObjectOfType<T>(bool includeInactive);",
+      "index": 11,
+      "profiles": [
+        "mixed",
+        "include-inactive",
+        "all-inactive",
+        "dont-save",
+        "retired"
+      ],
+      "caseIds": [
+        "f078",
+        "f079",
+        "f080",
+        "f081",
+        "f082"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:770f631cdebafc641ebcc0e5",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object[] FindSceneObjectsOfType(System.Type type);",
+      "index": 12,
+      "profiles": [
+        "mixed",
+        "include-inactive",
+        "all-inactive",
+        "dont-save",
+        "retired",
+        "null-type",
+        "invalid-type",
+        "assets"
+      ],
+      "caseIds": [
+        "f083",
+        "f084",
+        "f085",
+        "f086",
+        "f087",
+        "f088",
+        "f089",
+        "f090"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:88b75bd6422ff471910d3c68",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object FindAnyObjectByType(System.Type type);",
+      "index": 13,
+      "profiles": [
+        "mixed",
+        "include-inactive",
+        "all-inactive",
+        "dont-save",
+        "retired",
+        "null-type",
+        "invalid-type"
+      ],
+      "caseIds": [
+        "f091",
+        "f092",
+        "f093",
+        "f094",
+        "f095",
+        "f096",
+        "f097"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:a42a510744f016574cb81cd1",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object FindAnyObjectByType(System.Type type, UnityEngine.FindObjectsInactive findObjectsInactive);",
+      "index": 14,
+      "profiles": [
+        "mixed",
+        "include-inactive",
+        "all-inactive",
+        "dont-save",
+        "retired",
+        "null-type",
+        "invalid-type"
+      ],
+      "caseIds": [
+        "f098",
+        "f099",
+        "f100",
+        "f101",
+        "f102",
+        "f103",
+        "f104"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:b5cca99e69526730a06fa674",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object FindObjectOfType(System.Type type, bool includeInactive);",
+      "index": 15,
+      "profiles": [
+        "mixed",
+        "include-inactive",
+        "all-inactive",
+        "dont-save",
+        "retired",
+        "null-type",
+        "invalid-type"
+      ],
+      "caseIds": [
+        "f105",
+        "f106",
+        "f107",
+        "f108",
+        "f109",
+        "f110",
+        "f111"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:b8d62e6bf5959787baf10dfb",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object[] FindObjectsByType(System.Type type, UnityEngine.FindObjectsSortMode sortMode);",
+      "index": 16,
+      "profiles": [
+        "mixed",
+        "include-inactive",
+        "all-inactive",
+        "dont-save",
+        "retired",
+        "unsorted",
+        "null-type",
+        "invalid-type",
+        "assets"
+      ],
+      "caseIds": [
+        "f112",
+        "f113",
+        "f114",
+        "f115",
+        "f116",
+        "f117",
+        "f118",
+        "f119",
+        "f120"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:d651c9fb2cc20b7df5cec460",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object FindObjectOfType(System.Type type);",
+      "index": 17,
+      "profiles": [
+        "mixed",
+        "include-inactive",
+        "all-inactive",
+        "dont-save",
+        "retired",
+        "null-type",
+        "invalid-type"
+      ],
+      "caseIds": [
+        "f121",
+        "f122",
+        "f123",
+        "f124",
+        "f125",
+        "f126",
+        "f127"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:e4a51780cb939aeea6b1a2f5",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static T FindObjectOfType<T>();",
+      "index": 18,
+      "profiles": [
+        "mixed",
+        "include-inactive",
+        "all-inactive",
+        "dont-save",
+        "retired"
+      ],
+      "caseIds": [
+        "f128",
+        "f129",
+        "f130",
+        "f131",
+        "f132"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:e4d7f1585001e6160679aa03",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static T[] FindObjectsOfType<T>(bool includeInactive);",
+      "index": 19,
+      "profiles": [
+        "mixed",
+        "include-inactive",
+        "all-inactive",
+        "dont-save",
+        "retired"
+      ],
+      "caseIds": [
+        "f133",
+        "f134",
+        "f135",
+        "f136",
+        "f137"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:ebdc532e50dffcdc0603b809",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static T FindFirstObjectByType<T>();",
+      "index": 20,
+      "profiles": [
+        "mixed",
+        "include-inactive",
+        "all-inactive",
+        "dont-save",
+        "retired"
+      ],
+      "caseIds": [
+        "f138",
+        "f139",
+        "f140",
+        "f141",
+        "f142"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:f17e70d746283b09fb94e595",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static T FindFirstObjectByType<T>(UnityEngine.FindObjectsInactive findObjectsInactive);",
+      "index": 21,
+      "profiles": [
+        "mixed",
+        "include-inactive",
+        "all-inactive",
+        "dont-save",
+        "retired"
+      ],
+      "caseIds": [
+        "f143",
+        "f144",
+        "f145",
+        "f146",
+        "f147"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:f747b66108557aa199f2be1c",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static T FindAnyObjectByType<T>(UnityEngine.FindObjectsInactive findObjectsInactive);",
+      "index": 22,
+      "profiles": [
+        "mixed",
+        "include-inactive",
+        "all-inactive",
+        "dont-save",
+        "retired"
+      ],
+      "caseIds": [
+        "f148",
+        "f149",
+        "f150",
+        "f151",
+        "f152"
+      ],
+      "passed": true
+    }
+  ]
+}

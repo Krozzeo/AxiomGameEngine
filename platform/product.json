@@ -53,6 +53,10 @@
     {
       "id": "m20-component-queries",
       "name": "M20 Component Queries Lab"
+    },
+    {
+      "id": "m20-object-find",
+      "name": "M20 Object Find Lab"
     }
   ]
 }

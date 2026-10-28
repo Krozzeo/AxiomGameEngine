@@ -3,7 +3,7 @@
   "milestone": "M20",
   "targetRecords": 311,
   "status": "in_progress",
-  "certifiedUnitySignatures": 214,
+  "certifiedUnitySignatures": 237,
   "batch": "0.0.62 / SDK12 / canonical core and dependency profiles, behavior attribution in progress",
   "evidence": {
     "native": "evidence/m20-queries-native-windows.json",
@@ -767,14 +767,45 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.Object FindFirstObjectByType(System.Type type);",
       "member": "FindFirstObjectByType",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct global find overload against Unity6000.3.27f1 Editor: active/inactive/nested SphereCollider objects, explicit inactive inclusion, DontSave flags, retired objects, valid sort modes and null/invalid runtime types. Typed array overloads additionally find owned TextAssets and distinguish DontSave filtering from FindObjectsOfTypeAll. Array membership uses named controlled objects; sorted variants verify ascending actual instance IDs. First results verify the lowest eligible actual ID, and Any results membership only, without prescribing allocation-dependent identity or unspecified ordering. Native null-array/log behavior and exact scalar NullReferenceException are retained. Imported asset persistence, custom scripts and other creation/lifetime domains remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-object-find-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-find-native.json",
+          "caseIndex": 0,
+          "profiles": [
+            "mixed",
+            "include-inactive",
+            "all-inactive",
+            "dont-save",
+            "retired",
+            "null-type",
+            "invalid-type"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-find-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-find-aot-wasm.json",
+          "caseIds": [
+            "f001",
+            "f002",
+            "f003",
+            "f004",
+            "f005",
+            "f006",
+            "f007"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:16ac17fd62c4405163438c3d",
@@ -830,14 +861,49 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.Object[] FindObjectsByType(System.Type type, UnityEngine.FindObjectsInactive findObjectsInactive, UnityEngine.FindObjectsSortMode sortMode);",
       "member": "FindObjectsByType",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct global find overload against Unity6000.3.27f1 Editor: active/inactive/nested SphereCollider objects, explicit inactive inclusion, DontSave flags, retired objects, valid sort modes and null/invalid runtime types. Typed array overloads additionally find owned TextAssets and distinguish DontSave filtering from FindObjectsOfTypeAll. Array membership uses named controlled objects; sorted variants verify ascending actual instance IDs. First results verify the lowest eligible actual ID, and Any results membership only, without prescribing allocation-dependent identity or unspecified ordering. Native null-array/log behavior and exact scalar NullReferenceException are retained. Imported asset persistence, custom scripts and other creation/lifetime domains remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-object-find-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-find-native.json",
+          "caseIndex": 1,
+          "profiles": [
+            "mixed",
+            "include-inactive",
+            "all-inactive",
+            "dont-save",
+            "retired",
+            "unsorted",
+            "null-type",
+            "invalid-type",
+            "assets"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-find-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-find-aot-wasm.json",
+          "caseIds": [
+            "f008",
+            "f009",
+            "f010",
+            "f011",
+            "f012",
+            "f013",
+            "f014",
+            "f015",
+            "f016"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:173cd253421f3e902db5dbab",
@@ -856,26 +922,52 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static T FindAnyObjectByType<T>();",
       "member": "FindAnyObjectByType",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct global find overload against Unity6000.3.27f1 Editor: active/inactive/nested SphereCollider objects, explicit inactive inclusion, DontSave flags, retired objects, valid sort modes and null/invalid runtime types. Typed array overloads additionally find owned TextAssets and distinguish DontSave filtering from FindObjectsOfTypeAll. Array membership uses named controlled objects; sorted variants verify ascending actual instance IDs. First results verify the lowest eligible actual ID, and Any results membership only, without prescribing allocation-dependent identity or unspecified ordering. Native null-array/log behavior and exact scalar NullReferenceException are retained. Imported asset persistence, custom scripts and other creation/lifetime domains remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-object-find-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-find-native.json",
+          "caseIndex": 2,
+          "profiles": [
+            "mixed",
+            "include-inactive",
+            "all-inactive",
+            "dont-save",
+            "retired"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-find-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-find-aot-wasm.json",
+          "caseIds": [
+            "f017",
+            "f018",
+            "f019",
+            "f020",
+            "f021"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:189d3c38f1fd90b59f489273",
       "owner": "UnityEngine.Object",
       "declaration": "public static T[] FindObjectsOfType<T>();",
       "member": "FindObjectsOfType",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
       "compilerObservation": {
@@ -883,6 +975,34 @@
         "expectedDiagnostic": "CS0618",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "Exact direct global find overload against Unity6000.3.27f1 Editor: active/inactive/nested SphereCollider objects, explicit inactive inclusion, DontSave flags, retired objects, valid sort modes and null/invalid runtime types. Typed array overloads additionally find owned TextAssets and distinguish DontSave filtering from FindObjectsOfTypeAll. Array membership uses named controlled objects; sorted variants verify ascending actual instance IDs. First results verify the lowest eligible actual ID, and Any results membership only, without prescribing allocation-dependent identity or unspecified ordering. Native null-array/log behavior and exact scalar NullReferenceException are retained. Imported asset persistence, custom scripts and other creation/lifetime domains remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-object-find-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-find-native.json",
+          "caseIndex": 3,
+          "profiles": [
+            "mixed",
+            "include-inactive",
+            "all-inactive",
+            "dont-save",
+            "retired"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-find-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-find-aot-wasm.json",
+          "caseIds": [
+            "f022",
+            "f023",
+            "f024",
+            "f025",
+            "f026"
+          ]
+        }
       }
     },
     {
@@ -1573,14 +1693,45 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.Object FindFirstObjectByType(System.Type type, UnityEngine.FindObjectsInactive findObjectsInactive);",
       "member": "FindFirstObjectByType",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct global find overload against Unity6000.3.27f1 Editor: active/inactive/nested SphereCollider objects, explicit inactive inclusion, DontSave flags, retired objects, valid sort modes and null/invalid runtime types. Typed array overloads additionally find owned TextAssets and distinguish DontSave filtering from FindObjectsOfTypeAll. Array membership uses named controlled objects; sorted variants verify ascending actual instance IDs. First results verify the lowest eligible actual ID, and Any results membership only, without prescribing allocation-dependent identity or unspecified ordering. Native null-array/log behavior and exact scalar NullReferenceException are retained. Imported asset persistence, custom scripts and other creation/lifetime domains remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-object-find-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-find-native.json",
+          "caseIndex": 4,
+          "profiles": [
+            "mixed",
+            "include-inactive",
+            "all-inactive",
+            "dont-save",
+            "retired",
+            "null-type",
+            "invalid-type"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-find-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-find-aot-wasm.json",
+          "caseIds": [
+            "f027",
+            "f028",
+            "f029",
+            "f030",
+            "f031",
+            "f032",
+            "f033"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:2aae189876d9abe173f01dc2",
@@ -2858,14 +3009,43 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static T[] FindObjectsByType<T>(UnityEngine.FindObjectsSortMode sortMode);",
       "member": "FindObjectsByType",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct global find overload against Unity6000.3.27f1 Editor: active/inactive/nested SphereCollider objects, explicit inactive inclusion, DontSave flags, retired objects, valid sort modes and null/invalid runtime types. Typed array overloads additionally find owned TextAssets and distinguish DontSave filtering from FindObjectsOfTypeAll. Array membership uses named controlled objects; sorted variants verify ascending actual instance IDs. First results verify the lowest eligible actual ID, and Any results membership only, without prescribing allocation-dependent identity or unspecified ordering. Native null-array/log behavior and exact scalar NullReferenceException are retained. Imported asset persistence, custom scripts and other creation/lifetime domains remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-object-find-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-find-native.json",
+          "caseIndex": 5,
+          "profiles": [
+            "mixed",
+            "include-inactive",
+            "all-inactive",
+            "dont-save",
+            "retired",
+            "unsorted"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-find-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-find-aot-wasm.json",
+          "caseIds": [
+            "f034",
+            "f035",
+            "f036",
+            "f037",
+            "f038",
+            "f039"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:403604d50c40104df83a4395",
@@ -3417,14 +3597,43 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static T[] FindObjectsByType<T>(UnityEngine.FindObjectsInactive findObjectsInactive, UnityEngine.FindObjectsSortMode sortMode);",
       "member": "FindObjectsByType",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct global find overload against Unity6000.3.27f1 Editor: active/inactive/nested SphereCollider objects, explicit inactive inclusion, DontSave flags, retired objects, valid sort modes and null/invalid runtime types. Typed array overloads additionally find owned TextAssets and distinguish DontSave filtering from FindObjectsOfTypeAll. Array membership uses named controlled objects; sorted variants verify ascending actual instance IDs. First results verify the lowest eligible actual ID, and Any results membership only, without prescribing allocation-dependent identity or unspecified ordering. Native null-array/log behavior and exact scalar NullReferenceException are retained. Imported asset persistence, custom scripts and other creation/lifetime domains remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-object-find-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-find-native.json",
+          "caseIndex": 6,
+          "profiles": [
+            "mixed",
+            "include-inactive",
+            "all-inactive",
+            "dont-save",
+            "retired",
+            "unsorted"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-find-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-find-aot-wasm.json",
+          "caseIds": [
+            "f040",
+            "f041",
+            "f042",
+            "f043",
+            "f044",
+            "f045"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:5174ba12e927c74a92090d3f",
@@ -3443,12 +3652,11 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.Object[] FindObjectsOfType(System.Type type, bool includeInactive);",
       "member": "FindObjectsOfType",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
       "compilerObservation": {
@@ -3456,6 +3664,40 @@
         "expectedDiagnostic": "CS0618",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "Exact direct global find overload against Unity6000.3.27f1 Editor: active/inactive/nested SphereCollider objects, explicit inactive inclusion, DontSave flags, retired objects, valid sort modes and null/invalid runtime types. Typed array overloads additionally find owned TextAssets and distinguish DontSave filtering from FindObjectsOfTypeAll. Array membership uses named controlled objects; sorted variants verify ascending actual instance IDs. First results verify the lowest eligible actual ID, and Any results membership only, without prescribing allocation-dependent identity or unspecified ordering. Native null-array/log behavior and exact scalar NullReferenceException are retained. Imported asset persistence, custom scripts and other creation/lifetime domains remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-object-find-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-find-native.json",
+          "caseIndex": 7,
+          "profiles": [
+            "mixed",
+            "include-inactive",
+            "all-inactive",
+            "dont-save",
+            "retired",
+            "null-type",
+            "invalid-type",
+            "assets"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-find-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-find-aot-wasm.json",
+          "caseIds": [
+            "f046",
+            "f047",
+            "f048",
+            "f049",
+            "f050",
+            "f051",
+            "f052",
+            "f053"
+          ]
+        }
       }
     },
     {
@@ -3639,12 +3881,11 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.Object[] FindObjectsOfType(System.Type type);",
       "member": "FindObjectsOfType",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
       "compilerObservation": {
@@ -3652,6 +3893,40 @@
         "expectedDiagnostic": "CS0618",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "Exact direct global find overload against Unity6000.3.27f1 Editor: active/inactive/nested SphereCollider objects, explicit inactive inclusion, DontSave flags, retired objects, valid sort modes and null/invalid runtime types. Typed array overloads additionally find owned TextAssets and distinguish DontSave filtering from FindObjectsOfTypeAll. Array membership uses named controlled objects; sorted variants verify ascending actual instance IDs. First results verify the lowest eligible actual ID, and Any results membership only, without prescribing allocation-dependent identity or unspecified ordering. Native null-array/log behavior and exact scalar NullReferenceException are retained. Imported asset persistence, custom scripts and other creation/lifetime domains remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-object-find-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-find-native.json",
+          "caseIndex": 8,
+          "profiles": [
+            "mixed",
+            "include-inactive",
+            "all-inactive",
+            "dont-save",
+            "retired",
+            "null-type",
+            "invalid-type",
+            "assets"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-find-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-find-aot-wasm.json",
+          "caseIds": [
+            "f054",
+            "f055",
+            "f056",
+            "f057",
+            "f058",
+            "f059",
+            "f060",
+            "f061"
+          ]
+        }
       }
     },
     {
@@ -4313,17 +4588,50 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.Object[] FindObjectsOfTypeIncludingAssets(System.Type type);",
       "member": "FindObjectsOfTypeIncludingAssets",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "compilerObservation": {
         "passed": true,
         "expectedDiagnostic": "CS0618",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "Exact direct global find overload against Unity6000.3.27f1 Editor: active/inactive/nested SphereCollider objects, explicit inactive inclusion, DontSave flags, retired objects, valid sort modes and null/invalid runtime types. Typed array overloads additionally find owned TextAssets and distinguish DontSave filtering from FindObjectsOfTypeAll. Array membership uses named controlled objects; sorted variants verify ascending actual instance IDs. First results verify the lowest eligible actual ID, and Any results membership only, without prescribing allocation-dependent identity or unspecified ordering. Native null-array/log behavior and exact scalar NullReferenceException are retained. Imported asset persistence, custom scripts and other creation/lifetime domains remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-object-find-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-find-native.json",
+          "caseIndex": 9,
+          "profiles": [
+            "mixed",
+            "include-inactive",
+            "all-inactive",
+            "dont-save",
+            "retired",
+            "null-type",
+            "invalid-type",
+            "assets"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-find-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-find-aot-wasm.json",
+          "caseIds": [
+            "f062",
+            "f063",
+            "f064",
+            "f065",
+            "f066",
+            "f067",
+            "f068",
+            "f069"
+          ]
+        }
       }
     },
     {
@@ -4703,17 +5011,50 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.Object[] FindObjectsOfTypeAll(System.Type type);",
       "member": "FindObjectsOfTypeAll",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "compilerObservation": {
         "passed": true,
         "expectedDiagnostic": "CS0618",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "Exact direct global find overload against Unity6000.3.27f1 Editor: active/inactive/nested SphereCollider objects, explicit inactive inclusion, DontSave flags, retired objects, valid sort modes and null/invalid runtime types. Typed array overloads additionally find owned TextAssets and distinguish DontSave filtering from FindObjectsOfTypeAll. Array membership uses named controlled objects; sorted variants verify ascending actual instance IDs. First results verify the lowest eligible actual ID, and Any results membership only, without prescribing allocation-dependent identity or unspecified ordering. Native null-array/log behavior and exact scalar NullReferenceException are retained. Imported asset persistence, custom scripts and other creation/lifetime domains remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-object-find-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-find-native.json",
+          "caseIndex": 10,
+          "profiles": [
+            "mixed",
+            "include-inactive",
+            "all-inactive",
+            "dont-save",
+            "retired",
+            "null-type",
+            "invalid-type",
+            "assets"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-find-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-find-aot-wasm.json",
+          "caseIds": [
+            "f070",
+            "f071",
+            "f072",
+            "f073",
+            "f074",
+            "f075",
+            "f076",
+            "f077"
+          ]
+        }
       }
     },
     {
@@ -4833,12 +5174,11 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static T FindObjectOfType<T>(bool includeInactive);",
       "member": "FindObjectOfType",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
       "compilerObservation": {
@@ -4846,6 +5186,34 @@
         "expectedDiagnostic": "CS0618",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "Exact direct global find overload against Unity6000.3.27f1 Editor: active/inactive/nested SphereCollider objects, explicit inactive inclusion, DontSave flags, retired objects, valid sort modes and null/invalid runtime types. Typed array overloads additionally find owned TextAssets and distinguish DontSave filtering from FindObjectsOfTypeAll. Array membership uses named controlled objects; sorted variants verify ascending actual instance IDs. First results verify the lowest eligible actual ID, and Any results membership only, without prescribing allocation-dependent identity or unspecified ordering. Native null-array/log behavior and exact scalar NullReferenceException are retained. Imported asset persistence, custom scripts and other creation/lifetime domains remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-object-find-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-find-native.json",
+          "caseIndex": 11,
+          "profiles": [
+            "mixed",
+            "include-inactive",
+            "all-inactive",
+            "dont-save",
+            "retired"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-find-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-find-aot-wasm.json",
+          "caseIds": [
+            "f078",
+            "f079",
+            "f080",
+            "f081",
+            "f082"
+          ]
+        }
       }
     },
     {
@@ -4902,17 +5270,50 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.Object[] FindSceneObjectsOfType(System.Type type);",
       "member": "FindSceneObjectsOfType",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "compilerObservation": {
         "passed": true,
         "expectedDiagnostic": "CS0618",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "Exact direct global find overload against Unity6000.3.27f1 Editor: active/inactive/nested SphereCollider objects, explicit inactive inclusion, DontSave flags, retired objects, valid sort modes and null/invalid runtime types. Typed array overloads additionally find owned TextAssets and distinguish DontSave filtering from FindObjectsOfTypeAll. Array membership uses named controlled objects; sorted variants verify ascending actual instance IDs. First results verify the lowest eligible actual ID, and Any results membership only, without prescribing allocation-dependent identity or unspecified ordering. Native null-array/log behavior and exact scalar NullReferenceException are retained. Imported asset persistence, custom scripts and other creation/lifetime domains remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-object-find-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-find-native.json",
+          "caseIndex": 12,
+          "profiles": [
+            "mixed",
+            "include-inactive",
+            "all-inactive",
+            "dont-save",
+            "retired",
+            "null-type",
+            "invalid-type",
+            "assets"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-find-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-find-aot-wasm.json",
+          "caseIds": [
+            "f083",
+            "f084",
+            "f085",
+            "f086",
+            "f087",
+            "f088",
+            "f089",
+            "f090"
+          ]
+        }
       }
     },
     {
@@ -5621,14 +6022,45 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.Object FindAnyObjectByType(System.Type type);",
       "member": "FindAnyObjectByType",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct global find overload against Unity6000.3.27f1 Editor: active/inactive/nested SphereCollider objects, explicit inactive inclusion, DontSave flags, retired objects, valid sort modes and null/invalid runtime types. Typed array overloads additionally find owned TextAssets and distinguish DontSave filtering from FindObjectsOfTypeAll. Array membership uses named controlled objects; sorted variants verify ascending actual instance IDs. First results verify the lowest eligible actual ID, and Any results membership only, without prescribing allocation-dependent identity or unspecified ordering. Native null-array/log behavior and exact scalar NullReferenceException are retained. Imported asset persistence, custom scripts and other creation/lifetime domains remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-object-find-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-find-native.json",
+          "caseIndex": 13,
+          "profiles": [
+            "mixed",
+            "include-inactive",
+            "all-inactive",
+            "dont-save",
+            "retired",
+            "null-type",
+            "invalid-type"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-find-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-find-aot-wasm.json",
+          "caseIds": [
+            "f091",
+            "f092",
+            "f093",
+            "f094",
+            "f095",
+            "f096",
+            "f097"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:8945472dca6ba4b9882aa73b",
@@ -7206,14 +7638,45 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.Object FindAnyObjectByType(System.Type type, UnityEngine.FindObjectsInactive findObjectsInactive);",
       "member": "FindAnyObjectByType",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct global find overload against Unity6000.3.27f1 Editor: active/inactive/nested SphereCollider objects, explicit inactive inclusion, DontSave flags, retired objects, valid sort modes and null/invalid runtime types. Typed array overloads additionally find owned TextAssets and distinguish DontSave filtering from FindObjectsOfTypeAll. Array membership uses named controlled objects; sorted variants verify ascending actual instance IDs. First results verify the lowest eligible actual ID, and Any results membership only, without prescribing allocation-dependent identity or unspecified ordering. Native null-array/log behavior and exact scalar NullReferenceException are retained. Imported asset persistence, custom scripts and other creation/lifetime domains remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-object-find-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-find-native.json",
+          "caseIndex": 14,
+          "profiles": [
+            "mixed",
+            "include-inactive",
+            "all-inactive",
+            "dont-save",
+            "retired",
+            "null-type",
+            "invalid-type"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-find-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-find-aot-wasm.json",
+          "caseIds": [
+            "f098",
+            "f099",
+            "f100",
+            "f101",
+            "f102",
+            "f103",
+            "f104"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:a42ee4400bcdff5e55de6b78",
@@ -7845,12 +8308,11 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.Object FindObjectOfType(System.Type type, bool includeInactive);",
       "member": "FindObjectOfType",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
       "compilerObservation": {
@@ -7858,6 +8320,38 @@
         "expectedDiagnostic": "CS0618",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "Exact direct global find overload against Unity6000.3.27f1 Editor: active/inactive/nested SphereCollider objects, explicit inactive inclusion, DontSave flags, retired objects, valid sort modes and null/invalid runtime types. Typed array overloads additionally find owned TextAssets and distinguish DontSave filtering from FindObjectsOfTypeAll. Array membership uses named controlled objects; sorted variants verify ascending actual instance IDs. First results verify the lowest eligible actual ID, and Any results membership only, without prescribing allocation-dependent identity or unspecified ordering. Native null-array/log behavior and exact scalar NullReferenceException are retained. Imported asset persistence, custom scripts and other creation/lifetime domains remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-object-find-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-find-native.json",
+          "caseIndex": 15,
+          "profiles": [
+            "mixed",
+            "include-inactive",
+            "all-inactive",
+            "dont-save",
+            "retired",
+            "null-type",
+            "invalid-type"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-find-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-find-aot-wasm.json",
+          "caseIds": [
+            "f105",
+            "f106",
+            "f107",
+            "f108",
+            "f109",
+            "f110",
+            "f111"
+          ]
+        }
       }
     },
     {
@@ -8032,14 +8526,49 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.Object[] FindObjectsByType(System.Type type, UnityEngine.FindObjectsSortMode sortMode);",
       "member": "FindObjectsByType",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct global find overload against Unity6000.3.27f1 Editor: active/inactive/nested SphereCollider objects, explicit inactive inclusion, DontSave flags, retired objects, valid sort modes and null/invalid runtime types. Typed array overloads additionally find owned TextAssets and distinguish DontSave filtering from FindObjectsOfTypeAll. Array membership uses named controlled objects; sorted variants verify ascending actual instance IDs. First results verify the lowest eligible actual ID, and Any results membership only, without prescribing allocation-dependent identity or unspecified ordering. Native null-array/log behavior and exact scalar NullReferenceException are retained. Imported asset persistence, custom scripts and other creation/lifetime domains remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-object-find-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-find-native.json",
+          "caseIndex": 16,
+          "profiles": [
+            "mixed",
+            "include-inactive",
+            "all-inactive",
+            "dont-save",
+            "retired",
+            "unsorted",
+            "null-type",
+            "invalid-type",
+            "assets"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-find-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-find-aot-wasm.json",
+          "caseIds": [
+            "f112",
+            "f113",
+            "f114",
+            "f115",
+            "f116",
+            "f117",
+            "f118",
+            "f119",
+            "f120"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:baeec2f3e0eefc50a5cb555f",
@@ -9045,12 +9574,11 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.Object FindObjectOfType(System.Type type);",
       "member": "FindObjectOfType",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
       "compilerObservation": {
@@ -9058,6 +9586,38 @@
         "expectedDiagnostic": "CS0618",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "Exact direct global find overload against Unity6000.3.27f1 Editor: active/inactive/nested SphereCollider objects, explicit inactive inclusion, DontSave flags, retired objects, valid sort modes and null/invalid runtime types. Typed array overloads additionally find owned TextAssets and distinguish DontSave filtering from FindObjectsOfTypeAll. Array membership uses named controlled objects; sorted variants verify ascending actual instance IDs. First results verify the lowest eligible actual ID, and Any results membership only, without prescribing allocation-dependent identity or unspecified ordering. Native null-array/log behavior and exact scalar NullReferenceException are retained. Imported asset persistence, custom scripts and other creation/lifetime domains remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-object-find-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-find-native.json",
+          "caseIndex": 17,
+          "profiles": [
+            "mixed",
+            "include-inactive",
+            "all-inactive",
+            "dont-save",
+            "retired",
+            "null-type",
+            "invalid-type"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-find-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-find-aot-wasm.json",
+          "caseIds": [
+            "f121",
+            "f122",
+            "f123",
+            "f124",
+            "f125",
+            "f126",
+            "f127"
+          ]
+        }
       }
     },
     {
@@ -9515,12 +10075,11 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static T FindObjectOfType<T>();",
       "member": "FindObjectOfType",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
       "compilerObservation": {
@@ -9528,6 +10087,34 @@
         "expectedDiagnostic": "CS0618",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "Exact direct global find overload against Unity6000.3.27f1 Editor: active/inactive/nested SphereCollider objects, explicit inactive inclusion, DontSave flags, retired objects, valid sort modes and null/invalid runtime types. Typed array overloads additionally find owned TextAssets and distinguish DontSave filtering from FindObjectsOfTypeAll. Array membership uses named controlled objects; sorted variants verify ascending actual instance IDs. First results verify the lowest eligible actual ID, and Any results membership only, without prescribing allocation-dependent identity or unspecified ordering. Native null-array/log behavior and exact scalar NullReferenceException are retained. Imported asset persistence, custom scripts and other creation/lifetime domains remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-object-find-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-find-native.json",
+          "caseIndex": 18,
+          "profiles": [
+            "mixed",
+            "include-inactive",
+            "all-inactive",
+            "dont-save",
+            "retired"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-find-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-find-aot-wasm.json",
+          "caseIds": [
+            "f128",
+            "f129",
+            "f130",
+            "f131",
+            "f132"
+          ]
+        }
       }
     },
     {
@@ -9570,12 +10157,11 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static T[] FindObjectsOfType<T>(bool includeInactive);",
       "member": "FindObjectsOfType",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
       "compilerObservation": {
@@ -9583,6 +10169,34 @@
         "expectedDiagnostic": "CS0618",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "Exact direct global find overload against Unity6000.3.27f1 Editor: active/inactive/nested SphereCollider objects, explicit inactive inclusion, DontSave flags, retired objects, valid sort modes and null/invalid runtime types. Typed array overloads additionally find owned TextAssets and distinguish DontSave filtering from FindObjectsOfTypeAll. Array membership uses named controlled objects; sorted variants verify ascending actual instance IDs. First results verify the lowest eligible actual ID, and Any results membership only, without prescribing allocation-dependent identity or unspecified ordering. Native null-array/log behavior and exact scalar NullReferenceException are retained. Imported asset persistence, custom scripts and other creation/lifetime domains remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-object-find-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-find-native.json",
+          "caseIndex": 19,
+          "profiles": [
+            "mixed",
+            "include-inactive",
+            "all-inactive",
+            "dont-save",
+            "retired"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-find-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-find-aot-wasm.json",
+          "caseIds": [
+            "f133",
+            "f134",
+            "f135",
+            "f136",
+            "f137"
+          ]
+        }
       }
     },
     {
@@ -9910,14 +10524,41 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static T FindFirstObjectByType<T>();",
       "member": "FindFirstObjectByType",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct global find overload against Unity6000.3.27f1 Editor: active/inactive/nested SphereCollider objects, explicit inactive inclusion, DontSave flags, retired objects, valid sort modes and null/invalid runtime types. Typed array overloads additionally find owned TextAssets and distinguish DontSave filtering from FindObjectsOfTypeAll. Array membership uses named controlled objects; sorted variants verify ascending actual instance IDs. First results verify the lowest eligible actual ID, and Any results membership only, without prescribing allocation-dependent identity or unspecified ordering. Native null-array/log behavior and exact scalar NullReferenceException are retained. Imported asset persistence, custom scripts and other creation/lifetime domains remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-object-find-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-find-native.json",
+          "caseIndex": 20,
+          "profiles": [
+            "mixed",
+            "include-inactive",
+            "all-inactive",
+            "dont-save",
+            "retired"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-find-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-find-aot-wasm.json",
+          "caseIds": [
+            "f138",
+            "f139",
+            "f140",
+            "f141",
+            "f142"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:ed4c0ad7470c77869673b78b",
@@ -10161,14 +10802,41 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static T FindFirstObjectByType<T>(UnityEngine.FindObjectsInactive findObjectsInactive);",
       "member": "FindFirstObjectByType",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct global find overload against Unity6000.3.27f1 Editor: active/inactive/nested SphereCollider objects, explicit inactive inclusion, DontSave flags, retired objects, valid sort modes and null/invalid runtime types. Typed array overloads additionally find owned TextAssets and distinguish DontSave filtering from FindObjectsOfTypeAll. Array membership uses named controlled objects; sorted variants verify ascending actual instance IDs. First results verify the lowest eligible actual ID, and Any results membership only, without prescribing allocation-dependent identity or unspecified ordering. Native null-array/log behavior and exact scalar NullReferenceException are retained. Imported asset persistence, custom scripts and other creation/lifetime domains remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-object-find-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-find-native.json",
+          "caseIndex": 21,
+          "profiles": [
+            "mixed",
+            "include-inactive",
+            "all-inactive",
+            "dont-save",
+            "retired"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-find-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-find-aot-wasm.json",
+          "caseIds": [
+            "f143",
+            "f144",
+            "f145",
+            "f146",
+            "f147"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:f1f578e5780346fc420371bd",
@@ -10330,14 +10998,41 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static T FindAnyObjectByType<T>(UnityEngine.FindObjectsInactive findObjectsInactive);",
       "member": "FindAnyObjectByType",
-      "status": "alias-behavior-tested",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "implementation": "engine/scripting/templates/ObjectQueries.cs; RuntimeObjects.cs; Inspector.cs",
       "evidence": "tests/csharp/M20.Objects/{QueryCases,CloneCases,OrderCases}.cs and tests/browser/m20.mjs",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "sourceContractMatched": true,
-      "sourceEvidence": "evidence/m20-sdk12-source.json"
+      "sourceEvidence": "evidence/m20-sdk12-source.json",
+      "acceptance": {
+        "contract": "Exact direct global find overload against Unity6000.3.27f1 Editor: active/inactive/nested SphereCollider objects, explicit inactive inclusion, DontSave flags, retired objects, valid sort modes and null/invalid runtime types. Typed array overloads additionally find owned TextAssets and distinguish DontSave filtering from FindObjectsOfTypeAll. Array membership uses named controlled objects; sorted variants verify ascending actual instance IDs. First results verify the lowest eligible actual ID, and Any results membership only, without prescribing allocation-dependent identity or unspecified ordering. Native null-array/log behavior and exact scalar NullReferenceException are retained. Imported asset persistence, custom scripts and other creation/lifetime domains remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-object-find-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-find-native.json",
+          "caseIndex": 22,
+          "profiles": [
+            "mixed",
+            "include-inactive",
+            "all-inactive",
+            "dont-save",
+            "retired"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-find-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-find-aot-wasm.json",
+          "caseIds": [
+            "f148",
+            "f149",
+            "f150",
+            "f151",
+            "f152"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:f816d4b6301c3fc813107ffc",
