@@ -61,6 +61,10 @@
     {
       "id": "m20-gameobject-state",
       "name": "M20 GameObject State Lab"
+    },
+    {
+      "id": "m20-message-dispatch",
+      "name": "M20 Message Dispatch Lab"
     }
   ]
 }

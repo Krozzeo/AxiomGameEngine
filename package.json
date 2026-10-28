@@ -94,7 +94,8 @@
     "test:browser:m20-objects": "node tests/browser/m20-objects.mjs",
     "test:browser:m20-queries": "node tests/browser/m20-queries.mjs",
     "test:browser:m20-find": "node tests/browser/m20-find.mjs",
-    "test:browser:m20-gameobject-state": "node tests/browser/m20-gameobject-state.mjs"
+    "test:browser:m20-gameobject-state": "node tests/browser/m20-gameobject-state.mjs",
+    "test:browser:m20-messages": "node tests/browser/m20-messages.mjs"
   },
   "dependencies": {
     "axiom-platform": "https://codeload.github.com/Krozzeo/AxiomPlatform/tar.gz/d9561e94d7285d30d8e056f7e58b21f1ec163180",

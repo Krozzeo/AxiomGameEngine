@@ -6,11 +6,11 @@
     "ObjectMetaLab.cs": "21ed38e71344b5709ff5c796891423c5ccfa91d062e9ced6f760ecd014a3d3b2"
   },
   "executedBuild": {
-    "id": "5627ef4d-33e4-4fc3-adf7-6d7db3bdf59e",
+    "id": "6d6aca2c-ca03-436d-9610-68b75fea7450",
     "mode": "aot",
     "sdkVersion": 12,
     "sourceHash": "b0d642a8ba45000af0b20a7820d896848a266bce82e2024fea06a977c5576ab8",
-    "bytes": 25782797
+    "bytes": 25781246
   },
   "count": 77,
   "passedChecks": 77,

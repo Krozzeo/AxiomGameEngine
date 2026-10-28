@@ -9,7 +9,7 @@
     "activeMilestonePercent": 33,
     "wholeProjectPercent": null,
     "method": "docs/architecture/MILESTONE_REPORTING.md",
-    "scopeNote": "M20 stays open.1/3 required criteria passed (33% rounded). Source311/311; attributed254/311 (224 behavior,30 compiler-error). Fresh native885+240+348+476+152+53 and GameObject state53 per Development/AOT pass. Previous full seven-browser regression is checkpoint39fe7e1; exact-head CI remains separate. Remaining57 contracts and same-type component storage dependencies are required; main0.0.57 unchanged.",
+    "scopeNote": "M20 remains open.1/3 required criteria passed (33% rounded). Source311/311; attributed278/311 (248 behavior,30 compile-error). Component62/62 and Transform81/81 accepted in bounded profiles. Native888+240+348+476+152+53+360, messages360 per Development/AOT and Node489 pass. All nine browser suites pass per Development/effective-AOT mode with exact Stop restoration. Remaining33 contracts and structural storage/lifecycle/physics/Inspector dependencies remain required; stable main0.0.57 unchanged.",
     "historicalMvpPercent": 94,
     "historicalMvpCompletedWeight": 122,
     "historicalMvpTotalWeight": 130
@@ -1746,8 +1746,8 @@
     "docs/compatibility/m20-batches.json",
     "demos/M20_GUIDE.md"
   ],
-  "nextTask": "Complete57 remaining contracts:24 messages,2 AddComponent,1 CreatePrimitive,4 tag finds,6 bulk,13 sync clones,6 destroy and DontDestroyOnLoad. Complete same-type storage, identity/fields/references/physics/Inspector and strict CI/artifact gates.",
-  "activeRevision": "0.0.62 / SDK12 —254 attributed contracts; M20 open",
+  "nextTask": "Complete33 contracts:2 AddComponent,1 CreatePrimitive,4 tag finds,6 bulk,13 sync clones,6 destroy and DontDestroyOnLoad; finish required duplicate-type storage and full CI/artifact gates.",
+  "activeRevision": "0.0.62 / SDK12 —278 attributed contracts; M20 open",
   "roadmap": {
     "version": 2,
     "manifest": "docs/architecture/roadmap-v2.json",

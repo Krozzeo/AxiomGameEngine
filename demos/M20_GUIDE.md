@@ -93,3 +93,7 @@ Load **Demo · M20 Object Find Lab**. Play and select **Object Find Controller**
 ## GameObject state and scenes
 
 Load **Demo · M20 GameObject State Lab**. Play and select **GameObject State Controller**: Count53, Passed53, Failed0, empty Diagnostics and Complete enabled are expected. The lab compares constructors, layer/static/activation flags, transform handles, scene movement/culling and ID lookup with exact native Play outcomes. Invalid layer assignments intentionally log an error and retain the prior layer without throwing. The runtime-only scene and objects disappear on Stop, restoring the entire authored scene. Duplicate component creation and full scene-manager behavior are separate dependencies.
+
+## Message dispatch
+
+Load **Demo · M20 Message Dispatch Lab**. Play and select **Message Dispatch Controller**: Count360, Passed360, Failed0, empty Diagnostics and Complete enabled are expected. The real compiled receiver includes private and inherited methods. The same24 direct public overloads cover self/upwards/broadcast, disabled/inactive/retired receivers, null/object/wrong payloads, missing names, receiver exceptions and options. Expected negative cases log errors; the controller keeps running and compares captured outcomes. Stop restores the complete authored scene. Repeated same-type receivers and ambiguous same-name method overloads are separate dependencies.

@@ -2,17 +2,17 @@
   "milestone": "M20",
   "complete": false,
   "targetRecords": 311,
-  "certifiedUnitySignatures": 254,
+  "certifiedUnitySignatures": 278,
   "areas": {
     "UnityEngine.Component": {
       "targets": 62,
       "aliasBehaviorTargets": 0,
-      "certifiedTargets": 50
+      "certifiedTargets": 62
     },
     "UnityEngine.GameObject": {
       "targets": 96,
       "aliasBehaviorTargets": 1,
-      "certifiedTargets": 71
+      "certifiedTargets": 83
     },
     "UnityEngine.Transform": {
       "targets": 81,
@@ -45,31 +45,10 @@
       "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
     },
     {
-      "id": "unity63abi:0d35de078417c56dec756fe0",
-      "owner": "UnityEngine.Component",
-      "declaration": "public void SendMessageUpwards(string methodName, UnityEngine.SendMessageOptions options);",
-      "status": "pending",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
       "id": "unity63abi:0ee966233251556d78696f58",
       "owner": "UnityEngine.Object",
       "declaration": "public static T Instantiate<T>(T original, UnityEngine.Transform parent);",
       "status": "alias-behavior-tested",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:1550db123f61bacb9ccc6895",
-      "owner": "UnityEngine.Component",
-      "declaration": "public void SendMessageUpwards(string methodName, object value, UnityEngine.SendMessageOptions options);",
-      "status": "pending",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:173cd253421f3e902db5dbab",
-      "owner": "UnityEngine.Component",
-      "declaration": "public void BroadcastMessage(string methodName, object parameter);",
-      "status": "pending",
       "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
     },
     {
@@ -94,30 +73,9 @@
       "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
     },
     {
-      "id": "unity63abi:2f4dd5899cfa13cc7d122ff1",
-      "owner": "UnityEngine.Component",
-      "declaration": "public void SendMessageUpwards(string methodName, object value);",
-      "status": "pending",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:2f5bb6361625237eee0146c3",
-      "owner": "UnityEngine.Component",
-      "declaration": "public void SendMessage(string methodName);",
-      "status": "pending",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
       "id": "unity63abi:33ba9989c10e83ccca343383",
       "owner": "UnityEngine.GameObject",
       "declaration": "public static UnityEngine.GameObject[] FindGameObjectsWithTag(string tag);",
-      "status": "pending",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:3526b389767354ec01fa2640",
-      "owner": "UnityEngine.GameObject",
-      "declaration": "public void BroadcastMessage(string methodName, UnityEngine.SendMessageOptions options);",
       "status": "pending",
       "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
     },
@@ -133,27 +91,6 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static void Destroy(UnityEngine.Object obj);",
       "status": "alias-behavior-tested",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:3c125f660b15000ef34385ed",
-      "owner": "UnityEngine.GameObject",
-      "declaration": "public void SendMessageUpwards(string methodName);",
-      "status": "pending",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:3c4f0541d0d0ed31c5f18a25",
-      "owner": "UnityEngine.GameObject",
-      "declaration": "public void SendMessage(string methodName, UnityEngine.SendMessageOptions options);",
-      "status": "pending",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:46fa4200f7d5bbde1da932ce",
-      "owner": "UnityEngine.GameObject",
-      "declaration": "public void SendMessage(string methodName, object value, UnityEngine.SendMessageOptions options);",
-      "status": "pending",
       "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
     },
     {
@@ -199,38 +136,10 @@
       "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
     },
     {
-      "id": "unity63abi:64d280c6f61646257e6b0d38",
-      "owner": "UnityEngine.Component",
-      "declaration": "public void SendMessageUpwards(string methodName);",
-      "status": "pending",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:697cc7435fb2e573fc5e265d",
-      "owner": "UnityEngine.Component",
-      "declaration": "public void SendMessage(string methodName, object value);",
-      "status": "pending",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
       "id": "unity63abi:6a99c2f72fff0cc5fd17659f",
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.Object Instantiate(UnityEngine.Object original, UnityEngine.Transform parent);",
       "status": "alias-behavior-tested",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:79ca13005c3b5fb5e68321ff",
-      "owner": "UnityEngine.GameObject",
-      "declaration": "public void BroadcastMessage(string methodName);",
-      "status": "pending",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:8124d5ec4846c375c78408ad",
-      "owner": "UnityEngine.Component",
-      "declaration": "public void SendMessage(string methodName, object value, UnityEngine.SendMessageOptions options);",
-      "status": "pending",
       "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
     },
     {
@@ -245,27 +154,6 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static UnityEngine.Object Instantiate(UnityEngine.Object original, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation);",
       "status": "alias-behavior-tested",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:92aa2c2b24b61cadbcd3c5b5",
-      "owner": "UnityEngine.GameObject",
-      "declaration": "public void BroadcastMessage(string methodName, object parameter);",
-      "status": "pending",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:953913e52870db8c4d1b29df",
-      "owner": "UnityEngine.GameObject",
-      "declaration": "public void SendMessageUpwards(string methodName, object value);",
-      "status": "pending",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:95ff965b42ea8572a2b6ff60",
-      "owner": "UnityEngine.GameObject",
-      "declaration": "public void BroadcastMessage(string methodName, object parameter, UnityEngine.SendMessageOptions options);",
-      "status": "pending",
       "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
     },
     {
@@ -297,44 +185,9 @@
       "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
     },
     {
-      "id": "unity63abi:a4f22e3407ac37024ecb1680",
-      "owner": "UnityEngine.GameObject",
-      "declaration": "public void SendMessage(string methodName);",
-      "status": "pending",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:ad04d199de32b960f457ca71",
-      "owner": "UnityEngine.Component",
-      "declaration": "public void BroadcastMessage(string methodName);",
-      "status": "pending",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:af32009274032124b3ca0f29",
-      "owner": "UnityEngine.GameObject",
-      "declaration": "public void SendMessageUpwards(string methodName, UnityEngine.SendMessageOptions options);",
-      "status": "pending",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
       "id": "unity63abi:be3d0d74fe44daf23e8bdfcb",
       "owner": "UnityEngine.GameObject",
       "declaration": "public T AddComponent<T>();",
-      "status": "pending",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:c0294429738219f6641b85a2",
-      "owner": "UnityEngine.Component",
-      "declaration": "public void BroadcastMessage(string methodName, object parameter, UnityEngine.SendMessageOptions options);",
-      "status": "pending",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:c040d6d0a7919367ce1b7501",
-      "owner": "UnityEngine.Component",
-      "declaration": "public void SendMessage(string methodName, UnityEngine.SendMessageOptions options);",
       "status": "pending",
       "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
     },
@@ -395,13 +248,6 @@
       "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
     },
     {
-      "id": "unity63abi:e44c632f7cd8565d5bde6135",
-      "owner": "UnityEngine.GameObject",
-      "declaration": "public void SendMessageUpwards(string methodName, object value, UnityEngine.SendMessageOptions options);",
-      "status": "pending",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
       "id": "unity63abi:eb6ff574007ef48a1c2cda26",
       "owner": "UnityEngine.Object",
       "declaration": "public static T Instantiate<T>(T original, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation);",
@@ -413,20 +259,6 @@
       "owner": "UnityEngine.Object",
       "declaration": "public static void DestroyImmediate(UnityEngine.Object obj);",
       "status": "alias-behavior-tested",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:f57d0b9bca25c523b8cc186a",
-      "owner": "UnityEngine.Component",
-      "declaration": "public void BroadcastMessage(string methodName, UnityEngine.SendMessageOptions options);",
-      "status": "pending",
-      "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
-    },
-    {
-      "id": "unity63abi:fe170095eca287ca9e7a5ccf",
-      "owner": "UnityEngine.GameObject",
-      "declaration": "public void SendMessage(string methodName, object value);",
-      "status": "pending",
       "reason": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
     }
   ]

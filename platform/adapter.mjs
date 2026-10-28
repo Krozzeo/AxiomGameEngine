@@ -1,3 +1,4 @@
+import {createM20MessagesProject} from '../demos/create-m20-messages-project.mjs';
 import {createM20GameObjectStateProject} from '../demos/create-m20-gameobject-state-project.mjs';
 import {createM20FindProject} from '../demos/create-m20-find-project.mjs';
 import {createM20QueriesProject} from '../demos/create-m20-queries-project.mjs';
@@ -61,7 +62,7 @@ export class GameEngineAdapter {
     if(method==='project.demos'){
       const destination=await this.path(params.destination,true);if((await readdir(destination)).length)fail('projectBusy','Demos require a new empty directory.');
       if(!Array.isArray(params.demoIds)||!params.demoIds.length||new Set(params.demoIds).size!==params.demoIds.length||params.demoIds.some(id=>!manifest.demos.some(demo=>demo.id===id)))fail('invalidRequest','Choose a demo supplied by this installed version.');
-      const projects=[];for(const demoId of params.demoIds){const create=({'m20-object-lifecycle':createM20Project,'m20-asset-lifetime':createM20AssetsProject,'m20-vector-transforms':createM20VectorsProject,'m20-pose-transforms':createM20PosesProject,'m20-object-contracts':createM20ObjectsProject,'m20-component-queries':createM20QueriesProject,'m20-object-find':createM20FindProject,'m20-gameobject-state':createM20GameObjectStateProject})[demoId],demo=await create(destination,{folders:true}),store=new ProjectStore(destination,{folders:true});await store.directory();const project=await this.detect(join(destination,store.filename(demo.id)));projects.push({demoId,...project});}
+      const projects=[];for(const demoId of params.demoIds){const create=({'m20-object-lifecycle':createM20Project,'m20-asset-lifetime':createM20AssetsProject,'m20-vector-transforms':createM20VectorsProject,'m20-pose-transforms':createM20PosesProject,'m20-object-contracts':createM20ObjectsProject,'m20-component-queries':createM20QueriesProject,'m20-object-find':createM20FindProject,'m20-gameobject-state':createM20GameObjectStateProject,'m20-message-dispatch':createM20MessagesProject})[demoId],demo=await create(destination,{folders:true}),store=new ProjectStore(destination,{folders:true});await store.directory();const project=await this.detect(join(destination,store.filename(demo.id)));projects.push({demoId,...project});}
       return {productVersion:manifest.productVersion,projects};
     }
 

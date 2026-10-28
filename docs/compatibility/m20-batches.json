@@ -3,7 +3,7 @@
   "milestone": "M20",
   "targetRecords": 311,
   "status": "in_progress",
-  "certifiedUnitySignatures": 254,
+  "certifiedUnitySignatures": 278,
   "batch": "0.0.62 / SDK12 / canonical core and dependency profiles, behavior attribution in progress",
   "evidence": {
     "native": "evidence/m20-queries-native-windows.json",
@@ -387,12 +387,61 @@
       "owner": "UnityEngine.Component",
       "declaration": "public void SendMessageUpwards(string methodName, UnityEngine.SendMessageOptions options);",
       "member": "SendMessageUpwards",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct dispatch overload against Unity6000.3.27f1 Play: self/upwards/broadcast, zero/one/object/null/wrong-type payloads, missing/null/empty names, disabled receivers, inactive origin/ancestor, retired handles, throwing/private/inherited receivers and invalid77/DontRequireReceiver options where present. Results retain receiver identity/order and exact caller exceptions. Null payload does not invoke one-parameter receivers; Upwards reaches active ancestors from inactive origins. Receiver errors are logged and dispatch continues. The same source/receiver execute in .NET and both effective browser modes; inherited registration and base retention are exercised. Exact log wording, overloaded same-name receiver ambiguity, duplicate-type storage and other payload domains remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-message-dispatch-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-messages-native.json",
+          "caseIndex": 0,
+          "profiles": [
+            "zero",
+            "one",
+            "object-value",
+            "null-value",
+            "wrong-type",
+            "missing",
+            "inactive-self",
+            "inactive-parent",
+            "disabled",
+            "retired",
+            "null-name",
+            "empty-name",
+            "throws",
+            "inherited",
+            "dont-require",
+            "invalid-options"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-messages-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-messages-aot-wasm.json",
+          "caseIds": [
+            "m001",
+            "m002",
+            "m003",
+            "m004",
+            "m005",
+            "m006",
+            "m007",
+            "m008",
+            "m009",
+            "m010",
+            "m011",
+            "m012",
+            "m013",
+            "m014",
+            "m015",
+            "m016"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:0ebd40215c5ae498e9a5b5c2",
@@ -759,12 +808,61 @@
       "owner": "UnityEngine.Component",
       "declaration": "public void SendMessageUpwards(string methodName, object value, UnityEngine.SendMessageOptions options);",
       "member": "SendMessageUpwards",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct dispatch overload against Unity6000.3.27f1 Play: self/upwards/broadcast, zero/one/object/null/wrong-type payloads, missing/null/empty names, disabled receivers, inactive origin/ancestor, retired handles, throwing/private/inherited receivers and invalid77/DontRequireReceiver options where present. Results retain receiver identity/order and exact caller exceptions. Null payload does not invoke one-parameter receivers; Upwards reaches active ancestors from inactive origins. Receiver errors are logged and dispatch continues. The same source/receiver execute in .NET and both effective browser modes; inherited registration and base retention are exercised. Exact log wording, overloaded same-name receiver ambiguity, duplicate-type storage and other payload domains remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-message-dispatch-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-messages-native.json",
+          "caseIndex": 1,
+          "profiles": [
+            "zero",
+            "one",
+            "object-value",
+            "null-value",
+            "wrong-type",
+            "missing",
+            "inactive-self",
+            "inactive-parent",
+            "disabled",
+            "retired",
+            "null-name",
+            "empty-name",
+            "throws",
+            "inherited",
+            "dont-require",
+            "invalid-options"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-messages-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-messages-aot-wasm.json",
+          "caseIds": [
+            "m017",
+            "m018",
+            "m019",
+            "m020",
+            "m021",
+            "m022",
+            "m023",
+            "m024",
+            "m025",
+            "m026",
+            "m027",
+            "m028",
+            "m029",
+            "m030",
+            "m031",
+            "m032"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:15b514a3d26315c94a258845",
@@ -958,12 +1056,57 @@
       "owner": "UnityEngine.Component",
       "declaration": "public void BroadcastMessage(string methodName, object parameter);",
       "member": "BroadcastMessage",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct dispatch overload against Unity6000.3.27f1 Play: self/upwards/broadcast, zero/one/object/null/wrong-type payloads, missing/null/empty names, disabled receivers, inactive origin/ancestor, retired handles, throwing/private/inherited receivers and invalid77/DontRequireReceiver options where present. Results retain receiver identity/order and exact caller exceptions. Null payload does not invoke one-parameter receivers; Upwards reaches active ancestors from inactive origins. Receiver errors are logged and dispatch continues. The same source/receiver execute in .NET and both effective browser modes; inherited registration and base retention are exercised. Exact log wording, overloaded same-name receiver ambiguity, duplicate-type storage and other payload domains remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-message-dispatch-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-messages-native.json",
+          "caseIndex": 2,
+          "profiles": [
+            "zero",
+            "one",
+            "object-value",
+            "null-value",
+            "wrong-type",
+            "missing",
+            "inactive-self",
+            "inactive-parent",
+            "disabled",
+            "retired",
+            "null-name",
+            "empty-name",
+            "throws",
+            "inherited"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-messages-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-messages-aot-wasm.json",
+          "caseIds": [
+            "m033",
+            "m034",
+            "m035",
+            "m036",
+            "m037",
+            "m038",
+            "m039",
+            "m040",
+            "m041",
+            "m042",
+            "m043",
+            "m044",
+            "m045",
+            "m046"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:1804db0bf7c8bd0be2f40c50",
@@ -2032,24 +2175,114 @@
       "owner": "UnityEngine.Component",
       "declaration": "public void SendMessageUpwards(string methodName, object value);",
       "member": "SendMessageUpwards",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct dispatch overload against Unity6000.3.27f1 Play: self/upwards/broadcast, zero/one/object/null/wrong-type payloads, missing/null/empty names, disabled receivers, inactive origin/ancestor, retired handles, throwing/private/inherited receivers and invalid77/DontRequireReceiver options where present. Results retain receiver identity/order and exact caller exceptions. Null payload does not invoke one-parameter receivers; Upwards reaches active ancestors from inactive origins. Receiver errors are logged and dispatch continues. The same source/receiver execute in .NET and both effective browser modes; inherited registration and base retention are exercised. Exact log wording, overloaded same-name receiver ambiguity, duplicate-type storage and other payload domains remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-message-dispatch-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-messages-native.json",
+          "caseIndex": 3,
+          "profiles": [
+            "zero",
+            "one",
+            "object-value",
+            "null-value",
+            "wrong-type",
+            "missing",
+            "inactive-self",
+            "inactive-parent",
+            "disabled",
+            "retired",
+            "null-name",
+            "empty-name",
+            "throws",
+            "inherited"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-messages-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-messages-aot-wasm.json",
+          "caseIds": [
+            "m047",
+            "m048",
+            "m049",
+            "m050",
+            "m051",
+            "m052",
+            "m053",
+            "m054",
+            "m055",
+            "m056",
+            "m057",
+            "m058",
+            "m059",
+            "m060"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:2f5bb6361625237eee0146c3",
       "owner": "UnityEngine.Component",
       "declaration": "public void SendMessage(string methodName);",
       "member": "SendMessage",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct dispatch overload against Unity6000.3.27f1 Play: self/upwards/broadcast, zero/one/object/null/wrong-type payloads, missing/null/empty names, disabled receivers, inactive origin/ancestor, retired handles, throwing/private/inherited receivers and invalid77/DontRequireReceiver options where present. Results retain receiver identity/order and exact caller exceptions. Null payload does not invoke one-parameter receivers; Upwards reaches active ancestors from inactive origins. Receiver errors are logged and dispatch continues. The same source/receiver execute in .NET and both effective browser modes; inherited registration and base retention are exercised. Exact log wording, overloaded same-name receiver ambiguity, duplicate-type storage and other payload domains remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-message-dispatch-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-messages-native.json",
+          "caseIndex": 4,
+          "profiles": [
+            "zero",
+            "one",
+            "object-value",
+            "null-value",
+            "wrong-type",
+            "missing",
+            "inactive-self",
+            "inactive-parent",
+            "disabled",
+            "retired",
+            "null-name",
+            "empty-name",
+            "throws",
+            "inherited"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-messages-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-messages-aot-wasm.json",
+          "caseIds": [
+            "m061",
+            "m062",
+            "m063",
+            "m064",
+            "m065",
+            "m066",
+            "m067",
+            "m068",
+            "m069",
+            "m070",
+            "m071",
+            "m072",
+            "m073",
+            "m074"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:2f9a0b0fdb3b77f13c40a117",
@@ -2429,12 +2662,61 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public void BroadcastMessage(string methodName, UnityEngine.SendMessageOptions options);",
       "member": "BroadcastMessage",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct dispatch overload against Unity6000.3.27f1 Play: self/upwards/broadcast, zero/one/object/null/wrong-type payloads, missing/null/empty names, disabled receivers, inactive origin/ancestor, retired handles, throwing/private/inherited receivers and invalid77/DontRequireReceiver options where present. Results retain receiver identity/order and exact caller exceptions. Null payload does not invoke one-parameter receivers; Upwards reaches active ancestors from inactive origins. Receiver errors are logged and dispatch continues. The same source/receiver execute in .NET and both effective browser modes; inherited registration and base retention are exercised. Exact log wording, overloaded same-name receiver ambiguity, duplicate-type storage and other payload domains remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-message-dispatch-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-messages-native.json",
+          "caseIndex": 5,
+          "profiles": [
+            "zero",
+            "one",
+            "object-value",
+            "null-value",
+            "wrong-type",
+            "missing",
+            "inactive-self",
+            "inactive-parent",
+            "disabled",
+            "retired",
+            "null-name",
+            "empty-name",
+            "throws",
+            "inherited",
+            "dont-require",
+            "invalid-options"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-messages-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-messages-aot-wasm.json",
+          "caseIds": [
+            "m075",
+            "m076",
+            "m077",
+            "m078",
+            "m079",
+            "m080",
+            "m081",
+            "m082",
+            "m083",
+            "m084",
+            "m085",
+            "m086",
+            "m087",
+            "m088",
+            "m089",
+            "m090"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:356971597a474364cef3762e",
@@ -2943,12 +3225,57 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public void SendMessageUpwards(string methodName);",
       "member": "SendMessageUpwards",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct dispatch overload against Unity6000.3.27f1 Play: self/upwards/broadcast, zero/one/object/null/wrong-type payloads, missing/null/empty names, disabled receivers, inactive origin/ancestor, retired handles, throwing/private/inherited receivers and invalid77/DontRequireReceiver options where present. Results retain receiver identity/order and exact caller exceptions. Null payload does not invoke one-parameter receivers; Upwards reaches active ancestors from inactive origins. Receiver errors are logged and dispatch continues. The same source/receiver execute in .NET and both effective browser modes; inherited registration and base retention are exercised. Exact log wording, overloaded same-name receiver ambiguity, duplicate-type storage and other payload domains remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-message-dispatch-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-messages-native.json",
+          "caseIndex": 6,
+          "profiles": [
+            "zero",
+            "one",
+            "object-value",
+            "null-value",
+            "wrong-type",
+            "missing",
+            "inactive-self",
+            "inactive-parent",
+            "disabled",
+            "retired",
+            "null-name",
+            "empty-name",
+            "throws",
+            "inherited"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-messages-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-messages-aot-wasm.json",
+          "caseIds": [
+            "m091",
+            "m092",
+            "m093",
+            "m094",
+            "m095",
+            "m096",
+            "m097",
+            "m098",
+            "m099",
+            "m100",
+            "m101",
+            "m102",
+            "m103",
+            "m104"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:3c3677dfe6b16dc38cb3f2c6",
@@ -2987,12 +3314,61 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public void SendMessage(string methodName, UnityEngine.SendMessageOptions options);",
       "member": "SendMessage",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct dispatch overload against Unity6000.3.27f1 Play: self/upwards/broadcast, zero/one/object/null/wrong-type payloads, missing/null/empty names, disabled receivers, inactive origin/ancestor, retired handles, throwing/private/inherited receivers and invalid77/DontRequireReceiver options where present. Results retain receiver identity/order and exact caller exceptions. Null payload does not invoke one-parameter receivers; Upwards reaches active ancestors from inactive origins. Receiver errors are logged and dispatch continues. The same source/receiver execute in .NET and both effective browser modes; inherited registration and base retention are exercised. Exact log wording, overloaded same-name receiver ambiguity, duplicate-type storage and other payload domains remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-message-dispatch-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-messages-native.json",
+          "caseIndex": 7,
+          "profiles": [
+            "zero",
+            "one",
+            "object-value",
+            "null-value",
+            "wrong-type",
+            "missing",
+            "inactive-self",
+            "inactive-parent",
+            "disabled",
+            "retired",
+            "null-name",
+            "empty-name",
+            "throws",
+            "inherited",
+            "dont-require",
+            "invalid-options"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-messages-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-messages-aot-wasm.json",
+          "caseIds": [
+            "m105",
+            "m106",
+            "m107",
+            "m108",
+            "m109",
+            "m110",
+            "m111",
+            "m112",
+            "m113",
+            "m114",
+            "m115",
+            "m116",
+            "m117",
+            "m118",
+            "m119",
+            "m120"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:3d1675e6001711becacfadef",
@@ -3421,12 +3797,61 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public void SendMessage(string methodName, object value, UnityEngine.SendMessageOptions options);",
       "member": "SendMessage",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct dispatch overload against Unity6000.3.27f1 Play: self/upwards/broadcast, zero/one/object/null/wrong-type payloads, missing/null/empty names, disabled receivers, inactive origin/ancestor, retired handles, throwing/private/inherited receivers and invalid77/DontRequireReceiver options where present. Results retain receiver identity/order and exact caller exceptions. Null payload does not invoke one-parameter receivers; Upwards reaches active ancestors from inactive origins. Receiver errors are logged and dispatch continues. The same source/receiver execute in .NET and both effective browser modes; inherited registration and base retention are exercised. Exact log wording, overloaded same-name receiver ambiguity, duplicate-type storage and other payload domains remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-message-dispatch-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-messages-native.json",
+          "caseIndex": 8,
+          "profiles": [
+            "zero",
+            "one",
+            "object-value",
+            "null-value",
+            "wrong-type",
+            "missing",
+            "inactive-self",
+            "inactive-parent",
+            "disabled",
+            "retired",
+            "null-name",
+            "empty-name",
+            "throws",
+            "inherited",
+            "dont-require",
+            "invalid-options"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-messages-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-messages-aot-wasm.json",
+          "caseIds": [
+            "m121",
+            "m122",
+            "m123",
+            "m124",
+            "m125",
+            "m126",
+            "m127",
+            "m128",
+            "m129",
+            "m130",
+            "m131",
+            "m132",
+            "m133",
+            "m134",
+            "m135",
+            "m136"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:478318d1787c259d54b3d647",
@@ -4700,12 +5125,57 @@
       "owner": "UnityEngine.Component",
       "declaration": "public void SendMessageUpwards(string methodName);",
       "member": "SendMessageUpwards",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct dispatch overload against Unity6000.3.27f1 Play: self/upwards/broadcast, zero/one/object/null/wrong-type payloads, missing/null/empty names, disabled receivers, inactive origin/ancestor, retired handles, throwing/private/inherited receivers and invalid77/DontRequireReceiver options where present. Results retain receiver identity/order and exact caller exceptions. Null payload does not invoke one-parameter receivers; Upwards reaches active ancestors from inactive origins. Receiver errors are logged and dispatch continues. The same source/receiver execute in .NET and both effective browser modes; inherited registration and base retention are exercised. Exact log wording, overloaded same-name receiver ambiguity, duplicate-type storage and other payload domains remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-message-dispatch-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-messages-native.json",
+          "caseIndex": 9,
+          "profiles": [
+            "zero",
+            "one",
+            "object-value",
+            "null-value",
+            "wrong-type",
+            "missing",
+            "inactive-self",
+            "inactive-parent",
+            "disabled",
+            "retired",
+            "null-name",
+            "empty-name",
+            "throws",
+            "inherited"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-messages-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-messages-aot-wasm.json",
+          "caseIds": [
+            "m137",
+            "m138",
+            "m139",
+            "m140",
+            "m141",
+            "m142",
+            "m143",
+            "m144",
+            "m145",
+            "m146",
+            "m147",
+            "m148",
+            "m149",
+            "m150"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:6850090142a1cc40d84058ce",
@@ -4789,12 +5259,57 @@
       "owner": "UnityEngine.Component",
       "declaration": "public void SendMessage(string methodName, object value);",
       "member": "SendMessage",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct dispatch overload against Unity6000.3.27f1 Play: self/upwards/broadcast, zero/one/object/null/wrong-type payloads, missing/null/empty names, disabled receivers, inactive origin/ancestor, retired handles, throwing/private/inherited receivers and invalid77/DontRequireReceiver options where present. Results retain receiver identity/order and exact caller exceptions. Null payload does not invoke one-parameter receivers; Upwards reaches active ancestors from inactive origins. Receiver errors are logged and dispatch continues. The same source/receiver execute in .NET and both effective browser modes; inherited registration and base retention are exercised. Exact log wording, overloaded same-name receiver ambiguity, duplicate-type storage and other payload domains remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-message-dispatch-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-messages-native.json",
+          "caseIndex": 10,
+          "profiles": [
+            "zero",
+            "one",
+            "object-value",
+            "null-value",
+            "wrong-type",
+            "missing",
+            "inactive-self",
+            "inactive-parent",
+            "disabled",
+            "retired",
+            "null-name",
+            "empty-name",
+            "throws",
+            "inherited"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-messages-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-messages-aot-wasm.json",
+          "caseIds": [
+            "m151",
+            "m152",
+            "m153",
+            "m154",
+            "m155",
+            "m156",
+            "m157",
+            "m158",
+            "m159",
+            "m160",
+            "m161",
+            "m162",
+            "m163",
+            "m164"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:6a5227226e5816c9456a6d98",
@@ -5737,12 +6252,57 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public void BroadcastMessage(string methodName);",
       "member": "BroadcastMessage",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct dispatch overload against Unity6000.3.27f1 Play: self/upwards/broadcast, zero/one/object/null/wrong-type payloads, missing/null/empty names, disabled receivers, inactive origin/ancestor, retired handles, throwing/private/inherited receivers and invalid77/DontRequireReceiver options where present. Results retain receiver identity/order and exact caller exceptions. Null payload does not invoke one-parameter receivers; Upwards reaches active ancestors from inactive origins. Receiver errors are logged and dispatch continues. The same source/receiver execute in .NET and both effective browser modes; inherited registration and base retention are exercised. Exact log wording, overloaded same-name receiver ambiguity, duplicate-type storage and other payload domains remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-message-dispatch-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-messages-native.json",
+          "caseIndex": 11,
+          "profiles": [
+            "zero",
+            "one",
+            "object-value",
+            "null-value",
+            "wrong-type",
+            "missing",
+            "inactive-self",
+            "inactive-parent",
+            "disabled",
+            "retired",
+            "null-name",
+            "empty-name",
+            "throws",
+            "inherited"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-messages-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-messages-aot-wasm.json",
+          "caseIds": [
+            "m165",
+            "m166",
+            "m167",
+            "m168",
+            "m169",
+            "m170",
+            "m171",
+            "m172",
+            "m173",
+            "m174",
+            "m175",
+            "m176",
+            "m177",
+            "m178"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:7a6ca0b9375d6ae8dbdad3f5",
@@ -5904,12 +6464,61 @@
       "owner": "UnityEngine.Component",
       "declaration": "public void SendMessage(string methodName, object value, UnityEngine.SendMessageOptions options);",
       "member": "SendMessage",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct dispatch overload against Unity6000.3.27f1 Play: self/upwards/broadcast, zero/one/object/null/wrong-type payloads, missing/null/empty names, disabled receivers, inactive origin/ancestor, retired handles, throwing/private/inherited receivers and invalid77/DontRequireReceiver options where present. Results retain receiver identity/order and exact caller exceptions. Null payload does not invoke one-parameter receivers; Upwards reaches active ancestors from inactive origins. Receiver errors are logged and dispatch continues. The same source/receiver execute in .NET and both effective browser modes; inherited registration and base retention are exercised. Exact log wording, overloaded same-name receiver ambiguity, duplicate-type storage and other payload domains remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-message-dispatch-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-messages-native.json",
+          "caseIndex": 12,
+          "profiles": [
+            "zero",
+            "one",
+            "object-value",
+            "null-value",
+            "wrong-type",
+            "missing",
+            "inactive-self",
+            "inactive-parent",
+            "disabled",
+            "retired",
+            "null-name",
+            "empty-name",
+            "throws",
+            "inherited",
+            "dont-require",
+            "invalid-options"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-messages-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-messages-aot-wasm.json",
+          "caseIds": [
+            "m179",
+            "m180",
+            "m181",
+            "m182",
+            "m183",
+            "m184",
+            "m185",
+            "m186",
+            "m187",
+            "m188",
+            "m189",
+            "m190",
+            "m191",
+            "m192",
+            "m193",
+            "m194"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:81549c4e94a13ba815419134",
@@ -6928,12 +7537,57 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public void BroadcastMessage(string methodName, object parameter);",
       "member": "BroadcastMessage",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct dispatch overload against Unity6000.3.27f1 Play: self/upwards/broadcast, zero/one/object/null/wrong-type payloads, missing/null/empty names, disabled receivers, inactive origin/ancestor, retired handles, throwing/private/inherited receivers and invalid77/DontRequireReceiver options where present. Results retain receiver identity/order and exact caller exceptions. Null payload does not invoke one-parameter receivers; Upwards reaches active ancestors from inactive origins. Receiver errors are logged and dispatch continues. The same source/receiver execute in .NET and both effective browser modes; inherited registration and base retention are exercised. Exact log wording, overloaded same-name receiver ambiguity, duplicate-type storage and other payload domains remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-message-dispatch-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-messages-native.json",
+          "caseIndex": 13,
+          "profiles": [
+            "zero",
+            "one",
+            "object-value",
+            "null-value",
+            "wrong-type",
+            "missing",
+            "inactive-self",
+            "inactive-parent",
+            "disabled",
+            "retired",
+            "null-name",
+            "empty-name",
+            "throws",
+            "inherited"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-messages-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-messages-aot-wasm.json",
+          "caseIds": [
+            "m195",
+            "m196",
+            "m197",
+            "m198",
+            "m199",
+            "m200",
+            "m201",
+            "m202",
+            "m203",
+            "m204",
+            "m205",
+            "m206",
+            "m207",
+            "m208"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:9329a3ca741f74225c77d402",
@@ -7075,24 +7729,118 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public void SendMessageUpwards(string methodName, object value);",
       "member": "SendMessageUpwards",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct dispatch overload against Unity6000.3.27f1 Play: self/upwards/broadcast, zero/one/object/null/wrong-type payloads, missing/null/empty names, disabled receivers, inactive origin/ancestor, retired handles, throwing/private/inherited receivers and invalid77/DontRequireReceiver options where present. Results retain receiver identity/order and exact caller exceptions. Null payload does not invoke one-parameter receivers; Upwards reaches active ancestors from inactive origins. Receiver errors are logged and dispatch continues. The same source/receiver execute in .NET and both effective browser modes; inherited registration and base retention are exercised. Exact log wording, overloaded same-name receiver ambiguity, duplicate-type storage and other payload domains remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-message-dispatch-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-messages-native.json",
+          "caseIndex": 14,
+          "profiles": [
+            "zero",
+            "one",
+            "object-value",
+            "null-value",
+            "wrong-type",
+            "missing",
+            "inactive-self",
+            "inactive-parent",
+            "disabled",
+            "retired",
+            "null-name",
+            "empty-name",
+            "throws",
+            "inherited"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-messages-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-messages-aot-wasm.json",
+          "caseIds": [
+            "m209",
+            "m210",
+            "m211",
+            "m212",
+            "m213",
+            "m214",
+            "m215",
+            "m216",
+            "m217",
+            "m218",
+            "m219",
+            "m220",
+            "m221",
+            "m222"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:95ff965b42ea8572a2b6ff60",
       "owner": "UnityEngine.GameObject",
       "declaration": "public void BroadcastMessage(string methodName, object parameter, UnityEngine.SendMessageOptions options);",
       "member": "BroadcastMessage",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct dispatch overload against Unity6000.3.27f1 Play: self/upwards/broadcast, zero/one/object/null/wrong-type payloads, missing/null/empty names, disabled receivers, inactive origin/ancestor, retired handles, throwing/private/inherited receivers and invalid77/DontRequireReceiver options where present. Results retain receiver identity/order and exact caller exceptions. Null payload does not invoke one-parameter receivers; Upwards reaches active ancestors from inactive origins. Receiver errors are logged and dispatch continues. The same source/receiver execute in .NET and both effective browser modes; inherited registration and base retention are exercised. Exact log wording, overloaded same-name receiver ambiguity, duplicate-type storage and other payload domains remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-message-dispatch-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-messages-native.json",
+          "caseIndex": 15,
+          "profiles": [
+            "zero",
+            "one",
+            "object-value",
+            "null-value",
+            "wrong-type",
+            "missing",
+            "inactive-self",
+            "inactive-parent",
+            "disabled",
+            "retired",
+            "null-name",
+            "empty-name",
+            "throws",
+            "inherited",
+            "dont-require",
+            "invalid-options"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-messages-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-messages-aot-wasm.json",
+          "caseIds": [
+            "m223",
+            "m224",
+            "m225",
+            "m226",
+            "m227",
+            "m228",
+            "m229",
+            "m230",
+            "m231",
+            "m232",
+            "m233",
+            "m234",
+            "m235",
+            "m236",
+            "m237",
+            "m238"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:9787f518ff864182a93c1b44",
@@ -8050,12 +8798,57 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public void SendMessage(string methodName);",
       "member": "SendMessage",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct dispatch overload against Unity6000.3.27f1 Play: self/upwards/broadcast, zero/one/object/null/wrong-type payloads, missing/null/empty names, disabled receivers, inactive origin/ancestor, retired handles, throwing/private/inherited receivers and invalid77/DontRequireReceiver options where present. Results retain receiver identity/order and exact caller exceptions. Null payload does not invoke one-parameter receivers; Upwards reaches active ancestors from inactive origins. Receiver errors are logged and dispatch continues. The same source/receiver execute in .NET and both effective browser modes; inherited registration and base retention are exercised. Exact log wording, overloaded same-name receiver ambiguity, duplicate-type storage and other payload domains remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-message-dispatch-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-messages-native.json",
+          "caseIndex": 16,
+          "profiles": [
+            "zero",
+            "one",
+            "object-value",
+            "null-value",
+            "wrong-type",
+            "missing",
+            "inactive-self",
+            "inactive-parent",
+            "disabled",
+            "retired",
+            "null-name",
+            "empty-name",
+            "throws",
+            "inherited"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-messages-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-messages-aot-wasm.json",
+          "caseIds": [
+            "m239",
+            "m240",
+            "m241",
+            "m242",
+            "m243",
+            "m244",
+            "m245",
+            "m246",
+            "m247",
+            "m248",
+            "m249",
+            "m250",
+            "m251",
+            "m252"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:a9eaa6d7f4fa4249a40fb622",
@@ -8210,12 +9003,57 @@
       "owner": "UnityEngine.Component",
       "declaration": "public void BroadcastMessage(string methodName);",
       "member": "BroadcastMessage",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct dispatch overload against Unity6000.3.27f1 Play: self/upwards/broadcast, zero/one/object/null/wrong-type payloads, missing/null/empty names, disabled receivers, inactive origin/ancestor, retired handles, throwing/private/inherited receivers and invalid77/DontRequireReceiver options where present. Results retain receiver identity/order and exact caller exceptions. Null payload does not invoke one-parameter receivers; Upwards reaches active ancestors from inactive origins. Receiver errors are logged and dispatch continues. The same source/receiver execute in .NET and both effective browser modes; inherited registration and base retention are exercised. Exact log wording, overloaded same-name receiver ambiguity, duplicate-type storage and other payload domains remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-message-dispatch-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-messages-native.json",
+          "caseIndex": 17,
+          "profiles": [
+            "zero",
+            "one",
+            "object-value",
+            "null-value",
+            "wrong-type",
+            "missing",
+            "inactive-self",
+            "inactive-parent",
+            "disabled",
+            "retired",
+            "null-name",
+            "empty-name",
+            "throws",
+            "inherited"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-messages-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-messages-aot-wasm.json",
+          "caseIds": [
+            "m253",
+            "m254",
+            "m255",
+            "m256",
+            "m257",
+            "m258",
+            "m259",
+            "m260",
+            "m261",
+            "m262",
+            "m263",
+            "m264",
+            "m265",
+            "m266"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:adb6415032017062b27565c5",
@@ -8271,12 +9109,61 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public void SendMessageUpwards(string methodName, UnityEngine.SendMessageOptions options);",
       "member": "SendMessageUpwards",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct dispatch overload against Unity6000.3.27f1 Play: self/upwards/broadcast, zero/one/object/null/wrong-type payloads, missing/null/empty names, disabled receivers, inactive origin/ancestor, retired handles, throwing/private/inherited receivers and invalid77/DontRequireReceiver options where present. Results retain receiver identity/order and exact caller exceptions. Null payload does not invoke one-parameter receivers; Upwards reaches active ancestors from inactive origins. Receiver errors are logged and dispatch continues. The same source/receiver execute in .NET and both effective browser modes; inherited registration and base retention are exercised. Exact log wording, overloaded same-name receiver ambiguity, duplicate-type storage and other payload domains remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-message-dispatch-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-messages-native.json",
+          "caseIndex": 18,
+          "profiles": [
+            "zero",
+            "one",
+            "object-value",
+            "null-value",
+            "wrong-type",
+            "missing",
+            "inactive-self",
+            "inactive-parent",
+            "disabled",
+            "retired",
+            "null-name",
+            "empty-name",
+            "throws",
+            "inherited",
+            "dont-require",
+            "invalid-options"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-messages-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-messages-aot-wasm.json",
+          "caseIds": [
+            "m267",
+            "m268",
+            "m269",
+            "m270",
+            "m271",
+            "m272",
+            "m273",
+            "m274",
+            "m275",
+            "m276",
+            "m277",
+            "m278",
+            "m279",
+            "m280",
+            "m281",
+            "m282"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:af721c1755e5162cb27482c1",
@@ -9115,24 +10002,122 @@
       "owner": "UnityEngine.Component",
       "declaration": "public void BroadcastMessage(string methodName, object parameter, UnityEngine.SendMessageOptions options);",
       "member": "BroadcastMessage",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct dispatch overload against Unity6000.3.27f1 Play: self/upwards/broadcast, zero/one/object/null/wrong-type payloads, missing/null/empty names, disabled receivers, inactive origin/ancestor, retired handles, throwing/private/inherited receivers and invalid77/DontRequireReceiver options where present. Results retain receiver identity/order and exact caller exceptions. Null payload does not invoke one-parameter receivers; Upwards reaches active ancestors from inactive origins. Receiver errors are logged and dispatch continues. The same source/receiver execute in .NET and both effective browser modes; inherited registration and base retention are exercised. Exact log wording, overloaded same-name receiver ambiguity, duplicate-type storage and other payload domains remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-message-dispatch-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-messages-native.json",
+          "caseIndex": 19,
+          "profiles": [
+            "zero",
+            "one",
+            "object-value",
+            "null-value",
+            "wrong-type",
+            "missing",
+            "inactive-self",
+            "inactive-parent",
+            "disabled",
+            "retired",
+            "null-name",
+            "empty-name",
+            "throws",
+            "inherited",
+            "dont-require",
+            "invalid-options"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-messages-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-messages-aot-wasm.json",
+          "caseIds": [
+            "m283",
+            "m284",
+            "m285",
+            "m286",
+            "m287",
+            "m288",
+            "m289",
+            "m290",
+            "m291",
+            "m292",
+            "m293",
+            "m294",
+            "m295",
+            "m296",
+            "m297",
+            "m298"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:c040d6d0a7919367ce1b7501",
       "owner": "UnityEngine.Component",
       "declaration": "public void SendMessage(string methodName, UnityEngine.SendMessageOptions options);",
       "member": "SendMessage",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct dispatch overload against Unity6000.3.27f1 Play: self/upwards/broadcast, zero/one/object/null/wrong-type payloads, missing/null/empty names, disabled receivers, inactive origin/ancestor, retired handles, throwing/private/inherited receivers and invalid77/DontRequireReceiver options where present. Results retain receiver identity/order and exact caller exceptions. Null payload does not invoke one-parameter receivers; Upwards reaches active ancestors from inactive origins. Receiver errors are logged and dispatch continues. The same source/receiver execute in .NET and both effective browser modes; inherited registration and base retention are exercised. Exact log wording, overloaded same-name receiver ambiguity, duplicate-type storage and other payload domains remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-message-dispatch-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-messages-native.json",
+          "caseIndex": 20,
+          "profiles": [
+            "zero",
+            "one",
+            "object-value",
+            "null-value",
+            "wrong-type",
+            "missing",
+            "inactive-self",
+            "inactive-parent",
+            "disabled",
+            "retired",
+            "null-name",
+            "empty-name",
+            "throws",
+            "inherited",
+            "dont-require",
+            "invalid-options"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-messages-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-messages-aot-wasm.json",
+          "caseIds": [
+            "m299",
+            "m300",
+            "m301",
+            "m302",
+            "m303",
+            "m304",
+            "m305",
+            "m306",
+            "m307",
+            "m308",
+            "m309",
+            "m310",
+            "m311",
+            "m312",
+            "m313",
+            "m314"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:c188979cb3604c3d0ecf9995",
@@ -10459,12 +11444,61 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public void SendMessageUpwards(string methodName, object value, UnityEngine.SendMessageOptions options);",
       "member": "SendMessageUpwards",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct dispatch overload against Unity6000.3.27f1 Play: self/upwards/broadcast, zero/one/object/null/wrong-type payloads, missing/null/empty names, disabled receivers, inactive origin/ancestor, retired handles, throwing/private/inherited receivers and invalid77/DontRequireReceiver options where present. Results retain receiver identity/order and exact caller exceptions. Null payload does not invoke one-parameter receivers; Upwards reaches active ancestors from inactive origins. Receiver errors are logged and dispatch continues. The same source/receiver execute in .NET and both effective browser modes; inherited registration and base retention are exercised. Exact log wording, overloaded same-name receiver ambiguity, duplicate-type storage and other payload domains remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-message-dispatch-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-messages-native.json",
+          "caseIndex": 21,
+          "profiles": [
+            "zero",
+            "one",
+            "object-value",
+            "null-value",
+            "wrong-type",
+            "missing",
+            "inactive-self",
+            "inactive-parent",
+            "disabled",
+            "retired",
+            "null-name",
+            "empty-name",
+            "throws",
+            "inherited",
+            "dont-require",
+            "invalid-options"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-messages-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-messages-aot-wasm.json",
+          "caseIds": [
+            "m315",
+            "m316",
+            "m317",
+            "m318",
+            "m319",
+            "m320",
+            "m321",
+            "m322",
+            "m323",
+            "m324",
+            "m325",
+            "m326",
+            "m327",
+            "m328",
+            "m329",
+            "m330"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:e4a51780cb939aeea6b1a2f5",
@@ -11312,12 +12346,61 @@
       "owner": "UnityEngine.Component",
       "declaration": "public void BroadcastMessage(string methodName, UnityEngine.SendMessageOptions options);",
       "member": "BroadcastMessage",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct dispatch overload against Unity6000.3.27f1 Play: self/upwards/broadcast, zero/one/object/null/wrong-type payloads, missing/null/empty names, disabled receivers, inactive origin/ancestor, retired handles, throwing/private/inherited receivers and invalid77/DontRequireReceiver options where present. Results retain receiver identity/order and exact caller exceptions. Null payload does not invoke one-parameter receivers; Upwards reaches active ancestors from inactive origins. Receiver errors are logged and dispatch continues. The same source/receiver execute in .NET and both effective browser modes; inherited registration and base retention are exercised. Exact log wording, overloaded same-name receiver ambiguity, duplicate-type storage and other payload domains remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-message-dispatch-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-messages-native.json",
+          "caseIndex": 22,
+          "profiles": [
+            "zero",
+            "one",
+            "object-value",
+            "null-value",
+            "wrong-type",
+            "missing",
+            "inactive-self",
+            "inactive-parent",
+            "disabled",
+            "retired",
+            "null-name",
+            "empty-name",
+            "throws",
+            "inherited",
+            "dont-require",
+            "invalid-options"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-messages-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-messages-aot-wasm.json",
+          "caseIds": [
+            "m331",
+            "m332",
+            "m333",
+            "m334",
+            "m335",
+            "m336",
+            "m337",
+            "m338",
+            "m339",
+            "m340",
+            "m341",
+            "m342",
+            "m343",
+            "m344",
+            "m345",
+            "m346"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:f57d53ab3cb7db1afa132a3f",
@@ -11754,12 +12837,57 @@
       "owner": "UnityEngine.GameObject",
       "declaration": "public void SendMessage(string methodName, object value);",
       "member": "SendMessage",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct dispatch overload against Unity6000.3.27f1 Play: self/upwards/broadcast, zero/one/object/null/wrong-type payloads, missing/null/empty names, disabled receivers, inactive origin/ancestor, retired handles, throwing/private/inherited receivers and invalid77/DontRequireReceiver options where present. Results retain receiver identity/order and exact caller exceptions. Null payload does not invoke one-parameter receivers; Upwards reaches active ancestors from inactive origins. Receiver errors are logged and dispatch continues. The same source/receiver execute in .NET and both effective browser modes; inherited registration and base retention are exercised. Exact log wording, overloaded same-name receiver ambiguity, duplicate-type storage and other payload domains remain separate dependencies.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-message-dispatch-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-messages-native.json",
+          "caseIndex": 23,
+          "profiles": [
+            "zero",
+            "one",
+            "object-value",
+            "null-value",
+            "wrong-type",
+            "missing",
+            "inactive-self",
+            "inactive-parent",
+            "disabled",
+            "retired",
+            "null-name",
+            "empty-name",
+            "throws",
+            "inherited"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-messages-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-messages-aot-wasm.json",
+          "caseIds": [
+            "m347",
+            "m348",
+            "m349",
+            "m350",
+            "m351",
+            "m352",
+            "m353",
+            "m354",
+            "m355",
+            "m356",
+            "m357",
+            "m358",
+            "m359",
+            "m360"
+          ]
+        }
+      }
     }
   ],
   "batches": [

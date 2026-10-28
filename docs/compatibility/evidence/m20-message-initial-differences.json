@@ -1,0 +1,2317 @@
+{
+  "schemaVersion": 1,
+  "historical": true,
+  "passed": false,
+  "ownedSdkCommit": "936a6c922de7b6515e7055672da7627d8ad83a8d",
+  "corpusSourceSha256": "c2739f468fc9610edf822ca09506bc7d9b04156035a0b935493a460fff23c39d",
+  "receiverSourceSha256": "e2f108f33c35ea1e579cd60a0754d22d5d124ab54161375d836503b6772aa44a",
+  "observations": 360,
+  "mismatchCount": 128,
+  "note": "Separate-case log budgets are reset as in actual frames. The earlier165-mismatch cumulative-budget probe is invalid and never grants acceptance.",
+  "differences": [
+    {
+      "id": "unity63abi:0d35de078417c56dec756fe0",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void SendMessageUpwards(string methodName, UnityEngine.SendMessageOptions options);",
+      "profile": "one",
+      "owned": {
+        "index": 0,
+        "profile": "one",
+        "data": "M owner.Take=null,M root.Take=null",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 0,
+        "profile": "one",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:0d35de078417c56dec756fe0",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void SendMessageUpwards(string methodName, UnityEngine.SendMessageOptions options);",
+      "profile": "object-value",
+      "owned": {
+        "index": 0,
+        "profile": "object-value",
+        "data": "M owner.Take=null,M root.Take=null",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 0,
+        "profile": "object-value",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:0d35de078417c56dec756fe0",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void SendMessageUpwards(string methodName, UnityEngine.SendMessageOptions options);",
+      "profile": "null-value",
+      "owned": {
+        "index": 0,
+        "profile": "null-value",
+        "data": "M owner.Take=null,M root.Take=null",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 0,
+        "profile": "null-value",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:0d35de078417c56dec756fe0",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void SendMessageUpwards(string methodName, UnityEngine.SendMessageOptions options);",
+      "profile": "wrong-type",
+      "owned": {
+        "index": 0,
+        "profile": "wrong-type",
+        "data": "M owner.Int=0,M root.Int=0",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 0,
+        "profile": "wrong-type",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:0d35de078417c56dec756fe0",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void SendMessageUpwards(string methodName, UnityEngine.SendMessageOptions options);",
+      "profile": "inactive-self",
+      "owned": {
+        "index": 0,
+        "profile": "inactive-self",
+        "data": "",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 0,
+        "profile": "inactive-self",
+        "data": "M root.Ping",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:0d35de078417c56dec756fe0",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void SendMessageUpwards(string methodName, UnityEngine.SendMessageOptions options);",
+      "profile": "null-name",
+      "owned": {
+        "index": 0,
+        "profile": "null-name",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 0,
+        "profile": "null-name",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:0d35de078417c56dec756fe0",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void SendMessageUpwards(string methodName, UnityEngine.SendMessageOptions options);",
+      "profile": "empty-name",
+      "owned": {
+        "index": 0,
+        "profile": "empty-name",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 0,
+        "profile": "empty-name",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:0d35de078417c56dec756fe0",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void SendMessageUpwards(string methodName, UnityEngine.SendMessageOptions options);",
+      "profile": "invalid-options",
+      "owned": {
+        "index": 0,
+        "profile": "invalid-options",
+        "data": "",
+        "error": "System.ArgumentOutOfRangeException"
+      },
+      "nativeUnity": {
+        "index": 0,
+        "profile": "invalid-options",
+        "data": "M owner.Ping,M root.Ping",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:1550db123f61bacb9ccc6895",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void SendMessageUpwards(string methodName, object value, UnityEngine.SendMessageOptions options);",
+      "profile": "null-value",
+      "owned": {
+        "index": 1,
+        "profile": "null-value",
+        "data": "M owner.Take=null,M root.Take=null",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 1,
+        "profile": "null-value",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:1550db123f61bacb9ccc6895",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void SendMessageUpwards(string methodName, object value, UnityEngine.SendMessageOptions options);",
+      "profile": "inactive-self",
+      "owned": {
+        "index": 1,
+        "profile": "inactive-self",
+        "data": "",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 1,
+        "profile": "inactive-self",
+        "data": "M root.Ping",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:1550db123f61bacb9ccc6895",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void SendMessageUpwards(string methodName, object value, UnityEngine.SendMessageOptions options);",
+      "profile": "null-name",
+      "owned": {
+        "index": 1,
+        "profile": "null-name",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 1,
+        "profile": "null-name",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:1550db123f61bacb9ccc6895",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void SendMessageUpwards(string methodName, object value, UnityEngine.SendMessageOptions options);",
+      "profile": "empty-name",
+      "owned": {
+        "index": 1,
+        "profile": "empty-name",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 1,
+        "profile": "empty-name",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:1550db123f61bacb9ccc6895",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void SendMessageUpwards(string methodName, object value, UnityEngine.SendMessageOptions options);",
+      "profile": "invalid-options",
+      "owned": {
+        "index": 1,
+        "profile": "invalid-options",
+        "data": "",
+        "error": "System.ArgumentOutOfRangeException"
+      },
+      "nativeUnity": {
+        "index": 1,
+        "profile": "invalid-options",
+        "data": "M owner.Ping,M root.Ping",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:173cd253421f3e902db5dbab",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void BroadcastMessage(string methodName, object parameter);",
+      "profile": "null-value",
+      "owned": {
+        "index": 2,
+        "profile": "null-value",
+        "data": "M owner.Take=null,M child.Take=null",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 2,
+        "profile": "null-value",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:173cd253421f3e902db5dbab",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void BroadcastMessage(string methodName, object parameter);",
+      "profile": "null-name",
+      "owned": {
+        "index": 2,
+        "profile": "null-name",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 2,
+        "profile": "null-name",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:173cd253421f3e902db5dbab",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void BroadcastMessage(string methodName, object parameter);",
+      "profile": "empty-name",
+      "owned": {
+        "index": 2,
+        "profile": "empty-name",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 2,
+        "profile": "empty-name",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:2f4dd5899cfa13cc7d122ff1",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void SendMessageUpwards(string methodName, object value);",
+      "profile": "null-value",
+      "owned": {
+        "index": 3,
+        "profile": "null-value",
+        "data": "M owner.Take=null,M root.Take=null",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 3,
+        "profile": "null-value",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:2f4dd5899cfa13cc7d122ff1",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void SendMessageUpwards(string methodName, object value);",
+      "profile": "inactive-self",
+      "owned": {
+        "index": 3,
+        "profile": "inactive-self",
+        "data": "",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 3,
+        "profile": "inactive-self",
+        "data": "M root.Ping",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:2f4dd5899cfa13cc7d122ff1",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void SendMessageUpwards(string methodName, object value);",
+      "profile": "null-name",
+      "owned": {
+        "index": 3,
+        "profile": "null-name",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 3,
+        "profile": "null-name",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:2f4dd5899cfa13cc7d122ff1",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void SendMessageUpwards(string methodName, object value);",
+      "profile": "empty-name",
+      "owned": {
+        "index": 3,
+        "profile": "empty-name",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 3,
+        "profile": "empty-name",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:2f5bb6361625237eee0146c3",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void SendMessage(string methodName);",
+      "profile": "one",
+      "owned": {
+        "index": 4,
+        "profile": "one",
+        "data": "M owner.Take=null",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 4,
+        "profile": "one",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:2f5bb6361625237eee0146c3",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void SendMessage(string methodName);",
+      "profile": "object-value",
+      "owned": {
+        "index": 4,
+        "profile": "object-value",
+        "data": "M owner.Take=null",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 4,
+        "profile": "object-value",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:2f5bb6361625237eee0146c3",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void SendMessage(string methodName);",
+      "profile": "null-value",
+      "owned": {
+        "index": 4,
+        "profile": "null-value",
+        "data": "M owner.Take=null",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 4,
+        "profile": "null-value",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:2f5bb6361625237eee0146c3",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void SendMessage(string methodName);",
+      "profile": "wrong-type",
+      "owned": {
+        "index": 4,
+        "profile": "wrong-type",
+        "data": "M owner.Int=0",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 4,
+        "profile": "wrong-type",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:2f5bb6361625237eee0146c3",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void SendMessage(string methodName);",
+      "profile": "null-name",
+      "owned": {
+        "index": 4,
+        "profile": "null-name",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 4,
+        "profile": "null-name",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:2f5bb6361625237eee0146c3",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void SendMessage(string methodName);",
+      "profile": "empty-name",
+      "owned": {
+        "index": 4,
+        "profile": "empty-name",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 4,
+        "profile": "empty-name",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:3526b389767354ec01fa2640",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void BroadcastMessage(string methodName, UnityEngine.SendMessageOptions options);",
+      "profile": "one",
+      "owned": {
+        "index": 5,
+        "profile": "one",
+        "data": "M owner.Take=null,M child.Take=null",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 5,
+        "profile": "one",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:3526b389767354ec01fa2640",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void BroadcastMessage(string methodName, UnityEngine.SendMessageOptions options);",
+      "profile": "object-value",
+      "owned": {
+        "index": 5,
+        "profile": "object-value",
+        "data": "M owner.Take=null,M child.Take=null",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 5,
+        "profile": "object-value",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:3526b389767354ec01fa2640",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void BroadcastMessage(string methodName, UnityEngine.SendMessageOptions options);",
+      "profile": "null-value",
+      "owned": {
+        "index": 5,
+        "profile": "null-value",
+        "data": "M owner.Take=null,M child.Take=null",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 5,
+        "profile": "null-value",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:3526b389767354ec01fa2640",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void BroadcastMessage(string methodName, UnityEngine.SendMessageOptions options);",
+      "profile": "wrong-type",
+      "owned": {
+        "index": 5,
+        "profile": "wrong-type",
+        "data": "M owner.Int=0,M child.Int=0",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 5,
+        "profile": "wrong-type",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:3526b389767354ec01fa2640",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void BroadcastMessage(string methodName, UnityEngine.SendMessageOptions options);",
+      "profile": "null-name",
+      "owned": {
+        "index": 5,
+        "profile": "null-name",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 5,
+        "profile": "null-name",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:3526b389767354ec01fa2640",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void BroadcastMessage(string methodName, UnityEngine.SendMessageOptions options);",
+      "profile": "empty-name",
+      "owned": {
+        "index": 5,
+        "profile": "empty-name",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 5,
+        "profile": "empty-name",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:3526b389767354ec01fa2640",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void BroadcastMessage(string methodName, UnityEngine.SendMessageOptions options);",
+      "profile": "invalid-options",
+      "owned": {
+        "index": 5,
+        "profile": "invalid-options",
+        "data": "",
+        "error": "System.ArgumentOutOfRangeException"
+      },
+      "nativeUnity": {
+        "index": 5,
+        "profile": "invalid-options",
+        "data": "M owner.Ping,M child.Ping",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:3c125f660b15000ef34385ed",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void SendMessageUpwards(string methodName);",
+      "profile": "one",
+      "owned": {
+        "index": 6,
+        "profile": "one",
+        "data": "M owner.Take=null,M root.Take=null",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 6,
+        "profile": "one",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:3c125f660b15000ef34385ed",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void SendMessageUpwards(string methodName);",
+      "profile": "object-value",
+      "owned": {
+        "index": 6,
+        "profile": "object-value",
+        "data": "M owner.Take=null,M root.Take=null",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 6,
+        "profile": "object-value",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:3c125f660b15000ef34385ed",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void SendMessageUpwards(string methodName);",
+      "profile": "null-value",
+      "owned": {
+        "index": 6,
+        "profile": "null-value",
+        "data": "M owner.Take=null,M root.Take=null",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 6,
+        "profile": "null-value",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:3c125f660b15000ef34385ed",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void SendMessageUpwards(string methodName);",
+      "profile": "wrong-type",
+      "owned": {
+        "index": 6,
+        "profile": "wrong-type",
+        "data": "M owner.Int=0,M root.Int=0",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 6,
+        "profile": "wrong-type",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:3c125f660b15000ef34385ed",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void SendMessageUpwards(string methodName);",
+      "profile": "inactive-self",
+      "owned": {
+        "index": 6,
+        "profile": "inactive-self",
+        "data": "",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 6,
+        "profile": "inactive-self",
+        "data": "M root.Ping",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:3c125f660b15000ef34385ed",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void SendMessageUpwards(string methodName);",
+      "profile": "null-name",
+      "owned": {
+        "index": 6,
+        "profile": "null-name",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 6,
+        "profile": "null-name",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:3c125f660b15000ef34385ed",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void SendMessageUpwards(string methodName);",
+      "profile": "empty-name",
+      "owned": {
+        "index": 6,
+        "profile": "empty-name",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 6,
+        "profile": "empty-name",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:3c4f0541d0d0ed31c5f18a25",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void SendMessage(string methodName, UnityEngine.SendMessageOptions options);",
+      "profile": "one",
+      "owned": {
+        "index": 7,
+        "profile": "one",
+        "data": "M owner.Take=null",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 7,
+        "profile": "one",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:3c4f0541d0d0ed31c5f18a25",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void SendMessage(string methodName, UnityEngine.SendMessageOptions options);",
+      "profile": "object-value",
+      "owned": {
+        "index": 7,
+        "profile": "object-value",
+        "data": "M owner.Take=null",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 7,
+        "profile": "object-value",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:3c4f0541d0d0ed31c5f18a25",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void SendMessage(string methodName, UnityEngine.SendMessageOptions options);",
+      "profile": "null-value",
+      "owned": {
+        "index": 7,
+        "profile": "null-value",
+        "data": "M owner.Take=null",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 7,
+        "profile": "null-value",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:3c4f0541d0d0ed31c5f18a25",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void SendMessage(string methodName, UnityEngine.SendMessageOptions options);",
+      "profile": "wrong-type",
+      "owned": {
+        "index": 7,
+        "profile": "wrong-type",
+        "data": "M owner.Int=0",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 7,
+        "profile": "wrong-type",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:3c4f0541d0d0ed31c5f18a25",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void SendMessage(string methodName, UnityEngine.SendMessageOptions options);",
+      "profile": "null-name",
+      "owned": {
+        "index": 7,
+        "profile": "null-name",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 7,
+        "profile": "null-name",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:3c4f0541d0d0ed31c5f18a25",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void SendMessage(string methodName, UnityEngine.SendMessageOptions options);",
+      "profile": "empty-name",
+      "owned": {
+        "index": 7,
+        "profile": "empty-name",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 7,
+        "profile": "empty-name",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:3c4f0541d0d0ed31c5f18a25",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void SendMessage(string methodName, UnityEngine.SendMessageOptions options);",
+      "profile": "invalid-options",
+      "owned": {
+        "index": 7,
+        "profile": "invalid-options",
+        "data": "",
+        "error": "System.ArgumentOutOfRangeException"
+      },
+      "nativeUnity": {
+        "index": 7,
+        "profile": "invalid-options",
+        "data": "M owner.Ping",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:46fa4200f7d5bbde1da932ce",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void SendMessage(string methodName, object value, UnityEngine.SendMessageOptions options);",
+      "profile": "null-value",
+      "owned": {
+        "index": 8,
+        "profile": "null-value",
+        "data": "M owner.Take=null",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 8,
+        "profile": "null-value",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:46fa4200f7d5bbde1da932ce",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void SendMessage(string methodName, object value, UnityEngine.SendMessageOptions options);",
+      "profile": "null-name",
+      "owned": {
+        "index": 8,
+        "profile": "null-name",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 8,
+        "profile": "null-name",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:46fa4200f7d5bbde1da932ce",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void SendMessage(string methodName, object value, UnityEngine.SendMessageOptions options);",
+      "profile": "empty-name",
+      "owned": {
+        "index": 8,
+        "profile": "empty-name",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 8,
+        "profile": "empty-name",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:46fa4200f7d5bbde1da932ce",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void SendMessage(string methodName, object value, UnityEngine.SendMessageOptions options);",
+      "profile": "invalid-options",
+      "owned": {
+        "index": 8,
+        "profile": "invalid-options",
+        "data": "",
+        "error": "System.ArgumentOutOfRangeException"
+      },
+      "nativeUnity": {
+        "index": 8,
+        "profile": "invalid-options",
+        "data": "M owner.Ping",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:64d280c6f61646257e6b0d38",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void SendMessageUpwards(string methodName);",
+      "profile": "one",
+      "owned": {
+        "index": 9,
+        "profile": "one",
+        "data": "M owner.Take=null,M root.Take=null",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 9,
+        "profile": "one",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:64d280c6f61646257e6b0d38",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void SendMessageUpwards(string methodName);",
+      "profile": "object-value",
+      "owned": {
+        "index": 9,
+        "profile": "object-value",
+        "data": "M owner.Take=null,M root.Take=null",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 9,
+        "profile": "object-value",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:64d280c6f61646257e6b0d38",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void SendMessageUpwards(string methodName);",
+      "profile": "null-value",
+      "owned": {
+        "index": 9,
+        "profile": "null-value",
+        "data": "M owner.Take=null,M root.Take=null",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 9,
+        "profile": "null-value",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:64d280c6f61646257e6b0d38",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void SendMessageUpwards(string methodName);",
+      "profile": "wrong-type",
+      "owned": {
+        "index": 9,
+        "profile": "wrong-type",
+        "data": "M owner.Int=0,M root.Int=0",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 9,
+        "profile": "wrong-type",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:64d280c6f61646257e6b0d38",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void SendMessageUpwards(string methodName);",
+      "profile": "inactive-self",
+      "owned": {
+        "index": 9,
+        "profile": "inactive-self",
+        "data": "",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 9,
+        "profile": "inactive-self",
+        "data": "M root.Ping",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:64d280c6f61646257e6b0d38",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void SendMessageUpwards(string methodName);",
+      "profile": "null-name",
+      "owned": {
+        "index": 9,
+        "profile": "null-name",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 9,
+        "profile": "null-name",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:64d280c6f61646257e6b0d38",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void SendMessageUpwards(string methodName);",
+      "profile": "empty-name",
+      "owned": {
+        "index": 9,
+        "profile": "empty-name",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 9,
+        "profile": "empty-name",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:697cc7435fb2e573fc5e265d",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void SendMessage(string methodName, object value);",
+      "profile": "null-value",
+      "owned": {
+        "index": 10,
+        "profile": "null-value",
+        "data": "M owner.Take=null",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 10,
+        "profile": "null-value",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:697cc7435fb2e573fc5e265d",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void SendMessage(string methodName, object value);",
+      "profile": "null-name",
+      "owned": {
+        "index": 10,
+        "profile": "null-name",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 10,
+        "profile": "null-name",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:697cc7435fb2e573fc5e265d",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void SendMessage(string methodName, object value);",
+      "profile": "empty-name",
+      "owned": {
+        "index": 10,
+        "profile": "empty-name",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 10,
+        "profile": "empty-name",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:79ca13005c3b5fb5e68321ff",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void BroadcastMessage(string methodName);",
+      "profile": "one",
+      "owned": {
+        "index": 11,
+        "profile": "one",
+        "data": "M owner.Take=null,M child.Take=null",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 11,
+        "profile": "one",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:79ca13005c3b5fb5e68321ff",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void BroadcastMessage(string methodName);",
+      "profile": "object-value",
+      "owned": {
+        "index": 11,
+        "profile": "object-value",
+        "data": "M owner.Take=null,M child.Take=null",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 11,
+        "profile": "object-value",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:79ca13005c3b5fb5e68321ff",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void BroadcastMessage(string methodName);",
+      "profile": "null-value",
+      "owned": {
+        "index": 11,
+        "profile": "null-value",
+        "data": "M owner.Take=null,M child.Take=null",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 11,
+        "profile": "null-value",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:79ca13005c3b5fb5e68321ff",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void BroadcastMessage(string methodName);",
+      "profile": "wrong-type",
+      "owned": {
+        "index": 11,
+        "profile": "wrong-type",
+        "data": "M owner.Int=0,M child.Int=0",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 11,
+        "profile": "wrong-type",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:79ca13005c3b5fb5e68321ff",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void BroadcastMessage(string methodName);",
+      "profile": "null-name",
+      "owned": {
+        "index": 11,
+        "profile": "null-name",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 11,
+        "profile": "null-name",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:79ca13005c3b5fb5e68321ff",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void BroadcastMessage(string methodName);",
+      "profile": "empty-name",
+      "owned": {
+        "index": 11,
+        "profile": "empty-name",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 11,
+        "profile": "empty-name",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:8124d5ec4846c375c78408ad",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void SendMessage(string methodName, object value, UnityEngine.SendMessageOptions options);",
+      "profile": "null-value",
+      "owned": {
+        "index": 12,
+        "profile": "null-value",
+        "data": "M owner.Take=null",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 12,
+        "profile": "null-value",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:8124d5ec4846c375c78408ad",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void SendMessage(string methodName, object value, UnityEngine.SendMessageOptions options);",
+      "profile": "null-name",
+      "owned": {
+        "index": 12,
+        "profile": "null-name",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 12,
+        "profile": "null-name",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:8124d5ec4846c375c78408ad",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void SendMessage(string methodName, object value, UnityEngine.SendMessageOptions options);",
+      "profile": "empty-name",
+      "owned": {
+        "index": 12,
+        "profile": "empty-name",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 12,
+        "profile": "empty-name",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:8124d5ec4846c375c78408ad",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void SendMessage(string methodName, object value, UnityEngine.SendMessageOptions options);",
+      "profile": "invalid-options",
+      "owned": {
+        "index": 12,
+        "profile": "invalid-options",
+        "data": "",
+        "error": "System.ArgumentOutOfRangeException"
+      },
+      "nativeUnity": {
+        "index": 12,
+        "profile": "invalid-options",
+        "data": "M owner.Ping",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:92aa2c2b24b61cadbcd3c5b5",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void BroadcastMessage(string methodName, object parameter);",
+      "profile": "null-value",
+      "owned": {
+        "index": 13,
+        "profile": "null-value",
+        "data": "M owner.Take=null,M child.Take=null",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 13,
+        "profile": "null-value",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:92aa2c2b24b61cadbcd3c5b5",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void BroadcastMessage(string methodName, object parameter);",
+      "profile": "null-name",
+      "owned": {
+        "index": 13,
+        "profile": "null-name",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 13,
+        "profile": "null-name",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:92aa2c2b24b61cadbcd3c5b5",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void BroadcastMessage(string methodName, object parameter);",
+      "profile": "empty-name",
+      "owned": {
+        "index": 13,
+        "profile": "empty-name",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 13,
+        "profile": "empty-name",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:953913e52870db8c4d1b29df",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void SendMessageUpwards(string methodName, object value);",
+      "profile": "null-value",
+      "owned": {
+        "index": 14,
+        "profile": "null-value",
+        "data": "M owner.Take=null,M root.Take=null",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 14,
+        "profile": "null-value",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:953913e52870db8c4d1b29df",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void SendMessageUpwards(string methodName, object value);",
+      "profile": "inactive-self",
+      "owned": {
+        "index": 14,
+        "profile": "inactive-self",
+        "data": "",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 14,
+        "profile": "inactive-self",
+        "data": "M root.Ping",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:953913e52870db8c4d1b29df",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void SendMessageUpwards(string methodName, object value);",
+      "profile": "null-name",
+      "owned": {
+        "index": 14,
+        "profile": "null-name",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 14,
+        "profile": "null-name",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:953913e52870db8c4d1b29df",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void SendMessageUpwards(string methodName, object value);",
+      "profile": "empty-name",
+      "owned": {
+        "index": 14,
+        "profile": "empty-name",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 14,
+        "profile": "empty-name",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:95ff965b42ea8572a2b6ff60",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void BroadcastMessage(string methodName, object parameter, UnityEngine.SendMessageOptions options);",
+      "profile": "null-value",
+      "owned": {
+        "index": 15,
+        "profile": "null-value",
+        "data": "M owner.Take=null,M child.Take=null",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 15,
+        "profile": "null-value",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:95ff965b42ea8572a2b6ff60",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void BroadcastMessage(string methodName, object parameter, UnityEngine.SendMessageOptions options);",
+      "profile": "null-name",
+      "owned": {
+        "index": 15,
+        "profile": "null-name",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 15,
+        "profile": "null-name",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:95ff965b42ea8572a2b6ff60",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void BroadcastMessage(string methodName, object parameter, UnityEngine.SendMessageOptions options);",
+      "profile": "empty-name",
+      "owned": {
+        "index": 15,
+        "profile": "empty-name",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 15,
+        "profile": "empty-name",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:95ff965b42ea8572a2b6ff60",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void BroadcastMessage(string methodName, object parameter, UnityEngine.SendMessageOptions options);",
+      "profile": "invalid-options",
+      "owned": {
+        "index": 15,
+        "profile": "invalid-options",
+        "data": "",
+        "error": "System.ArgumentOutOfRangeException"
+      },
+      "nativeUnity": {
+        "index": 15,
+        "profile": "invalid-options",
+        "data": "M owner.Ping,M child.Ping",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:a4f22e3407ac37024ecb1680",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void SendMessage(string methodName);",
+      "profile": "one",
+      "owned": {
+        "index": 16,
+        "profile": "one",
+        "data": "M owner.Take=null",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 16,
+        "profile": "one",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:a4f22e3407ac37024ecb1680",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void SendMessage(string methodName);",
+      "profile": "object-value",
+      "owned": {
+        "index": 16,
+        "profile": "object-value",
+        "data": "M owner.Take=null",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 16,
+        "profile": "object-value",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:a4f22e3407ac37024ecb1680",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void SendMessage(string methodName);",
+      "profile": "null-value",
+      "owned": {
+        "index": 16,
+        "profile": "null-value",
+        "data": "M owner.Take=null",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 16,
+        "profile": "null-value",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:a4f22e3407ac37024ecb1680",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void SendMessage(string methodName);",
+      "profile": "wrong-type",
+      "owned": {
+        "index": 16,
+        "profile": "wrong-type",
+        "data": "M owner.Int=0",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 16,
+        "profile": "wrong-type",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:a4f22e3407ac37024ecb1680",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void SendMessage(string methodName);",
+      "profile": "null-name",
+      "owned": {
+        "index": 16,
+        "profile": "null-name",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 16,
+        "profile": "null-name",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:a4f22e3407ac37024ecb1680",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void SendMessage(string methodName);",
+      "profile": "empty-name",
+      "owned": {
+        "index": 16,
+        "profile": "empty-name",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 16,
+        "profile": "empty-name",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:ad04d199de32b960f457ca71",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void BroadcastMessage(string methodName);",
+      "profile": "one",
+      "owned": {
+        "index": 17,
+        "profile": "one",
+        "data": "M owner.Take=null,M child.Take=null",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 17,
+        "profile": "one",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:ad04d199de32b960f457ca71",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void BroadcastMessage(string methodName);",
+      "profile": "object-value",
+      "owned": {
+        "index": 17,
+        "profile": "object-value",
+        "data": "M owner.Take=null,M child.Take=null",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 17,
+        "profile": "object-value",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:ad04d199de32b960f457ca71",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void BroadcastMessage(string methodName);",
+      "profile": "null-value",
+      "owned": {
+        "index": 17,
+        "profile": "null-value",
+        "data": "M owner.Take=null,M child.Take=null",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 17,
+        "profile": "null-value",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:ad04d199de32b960f457ca71",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void BroadcastMessage(string methodName);",
+      "profile": "wrong-type",
+      "owned": {
+        "index": 17,
+        "profile": "wrong-type",
+        "data": "M owner.Int=0,M child.Int=0",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 17,
+        "profile": "wrong-type",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:ad04d199de32b960f457ca71",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void BroadcastMessage(string methodName);",
+      "profile": "null-name",
+      "owned": {
+        "index": 17,
+        "profile": "null-name",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 17,
+        "profile": "null-name",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:ad04d199de32b960f457ca71",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void BroadcastMessage(string methodName);",
+      "profile": "empty-name",
+      "owned": {
+        "index": 17,
+        "profile": "empty-name",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 17,
+        "profile": "empty-name",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:af32009274032124b3ca0f29",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void SendMessageUpwards(string methodName, UnityEngine.SendMessageOptions options);",
+      "profile": "one",
+      "owned": {
+        "index": 18,
+        "profile": "one",
+        "data": "M owner.Take=null,M root.Take=null",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 18,
+        "profile": "one",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:af32009274032124b3ca0f29",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void SendMessageUpwards(string methodName, UnityEngine.SendMessageOptions options);",
+      "profile": "object-value",
+      "owned": {
+        "index": 18,
+        "profile": "object-value",
+        "data": "M owner.Take=null,M root.Take=null",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 18,
+        "profile": "object-value",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:af32009274032124b3ca0f29",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void SendMessageUpwards(string methodName, UnityEngine.SendMessageOptions options);",
+      "profile": "null-value",
+      "owned": {
+        "index": 18,
+        "profile": "null-value",
+        "data": "M owner.Take=null,M root.Take=null",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 18,
+        "profile": "null-value",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:af32009274032124b3ca0f29",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void SendMessageUpwards(string methodName, UnityEngine.SendMessageOptions options);",
+      "profile": "wrong-type",
+      "owned": {
+        "index": 18,
+        "profile": "wrong-type",
+        "data": "M owner.Int=0,M root.Int=0",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 18,
+        "profile": "wrong-type",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:af32009274032124b3ca0f29",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void SendMessageUpwards(string methodName, UnityEngine.SendMessageOptions options);",
+      "profile": "inactive-self",
+      "owned": {
+        "index": 18,
+        "profile": "inactive-self",
+        "data": "",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 18,
+        "profile": "inactive-self",
+        "data": "M root.Ping",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:af32009274032124b3ca0f29",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void SendMessageUpwards(string methodName, UnityEngine.SendMessageOptions options);",
+      "profile": "null-name",
+      "owned": {
+        "index": 18,
+        "profile": "null-name",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 18,
+        "profile": "null-name",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:af32009274032124b3ca0f29",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void SendMessageUpwards(string methodName, UnityEngine.SendMessageOptions options);",
+      "profile": "empty-name",
+      "owned": {
+        "index": 18,
+        "profile": "empty-name",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 18,
+        "profile": "empty-name",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:af32009274032124b3ca0f29",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void SendMessageUpwards(string methodName, UnityEngine.SendMessageOptions options);",
+      "profile": "invalid-options",
+      "owned": {
+        "index": 18,
+        "profile": "invalid-options",
+        "data": "",
+        "error": "System.ArgumentOutOfRangeException"
+      },
+      "nativeUnity": {
+        "index": 18,
+        "profile": "invalid-options",
+        "data": "M owner.Ping,M root.Ping",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:c0294429738219f6641b85a2",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void BroadcastMessage(string methodName, object parameter, UnityEngine.SendMessageOptions options);",
+      "profile": "null-value",
+      "owned": {
+        "index": 19,
+        "profile": "null-value",
+        "data": "M owner.Take=null,M child.Take=null",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 19,
+        "profile": "null-value",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:c0294429738219f6641b85a2",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void BroadcastMessage(string methodName, object parameter, UnityEngine.SendMessageOptions options);",
+      "profile": "null-name",
+      "owned": {
+        "index": 19,
+        "profile": "null-name",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 19,
+        "profile": "null-name",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:c0294429738219f6641b85a2",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void BroadcastMessage(string methodName, object parameter, UnityEngine.SendMessageOptions options);",
+      "profile": "empty-name",
+      "owned": {
+        "index": 19,
+        "profile": "empty-name",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 19,
+        "profile": "empty-name",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:c0294429738219f6641b85a2",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void BroadcastMessage(string methodName, object parameter, UnityEngine.SendMessageOptions options);",
+      "profile": "invalid-options",
+      "owned": {
+        "index": 19,
+        "profile": "invalid-options",
+        "data": "",
+        "error": "System.ArgumentOutOfRangeException"
+      },
+      "nativeUnity": {
+        "index": 19,
+        "profile": "invalid-options",
+        "data": "M owner.Ping,M child.Ping",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:c040d6d0a7919367ce1b7501",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void SendMessage(string methodName, UnityEngine.SendMessageOptions options);",
+      "profile": "one",
+      "owned": {
+        "index": 20,
+        "profile": "one",
+        "data": "M owner.Take=null",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 20,
+        "profile": "one",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:c040d6d0a7919367ce1b7501",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void SendMessage(string methodName, UnityEngine.SendMessageOptions options);",
+      "profile": "object-value",
+      "owned": {
+        "index": 20,
+        "profile": "object-value",
+        "data": "M owner.Take=null",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 20,
+        "profile": "object-value",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:c040d6d0a7919367ce1b7501",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void SendMessage(string methodName, UnityEngine.SendMessageOptions options);",
+      "profile": "null-value",
+      "owned": {
+        "index": 20,
+        "profile": "null-value",
+        "data": "M owner.Take=null",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 20,
+        "profile": "null-value",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:c040d6d0a7919367ce1b7501",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void SendMessage(string methodName, UnityEngine.SendMessageOptions options);",
+      "profile": "wrong-type",
+      "owned": {
+        "index": 20,
+        "profile": "wrong-type",
+        "data": "M owner.Int=0",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 20,
+        "profile": "wrong-type",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:c040d6d0a7919367ce1b7501",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void SendMessage(string methodName, UnityEngine.SendMessageOptions options);",
+      "profile": "null-name",
+      "owned": {
+        "index": 20,
+        "profile": "null-name",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 20,
+        "profile": "null-name",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:c040d6d0a7919367ce1b7501",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void SendMessage(string methodName, UnityEngine.SendMessageOptions options);",
+      "profile": "empty-name",
+      "owned": {
+        "index": 20,
+        "profile": "empty-name",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 20,
+        "profile": "empty-name",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:c040d6d0a7919367ce1b7501",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void SendMessage(string methodName, UnityEngine.SendMessageOptions options);",
+      "profile": "invalid-options",
+      "owned": {
+        "index": 20,
+        "profile": "invalid-options",
+        "data": "",
+        "error": "System.ArgumentOutOfRangeException"
+      },
+      "nativeUnity": {
+        "index": 20,
+        "profile": "invalid-options",
+        "data": "M owner.Ping",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:e44c632f7cd8565d5bde6135",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void SendMessageUpwards(string methodName, object value, UnityEngine.SendMessageOptions options);",
+      "profile": "null-value",
+      "owned": {
+        "index": 21,
+        "profile": "null-value",
+        "data": "M owner.Take=null,M root.Take=null",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 21,
+        "profile": "null-value",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:e44c632f7cd8565d5bde6135",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void SendMessageUpwards(string methodName, object value, UnityEngine.SendMessageOptions options);",
+      "profile": "inactive-self",
+      "owned": {
+        "index": 21,
+        "profile": "inactive-self",
+        "data": "",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 21,
+        "profile": "inactive-self",
+        "data": "M root.Ping",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:e44c632f7cd8565d5bde6135",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void SendMessageUpwards(string methodName, object value, UnityEngine.SendMessageOptions options);",
+      "profile": "null-name",
+      "owned": {
+        "index": 21,
+        "profile": "null-name",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 21,
+        "profile": "null-name",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:e44c632f7cd8565d5bde6135",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void SendMessageUpwards(string methodName, object value, UnityEngine.SendMessageOptions options);",
+      "profile": "empty-name",
+      "owned": {
+        "index": 21,
+        "profile": "empty-name",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 21,
+        "profile": "empty-name",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:e44c632f7cd8565d5bde6135",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void SendMessageUpwards(string methodName, object value, UnityEngine.SendMessageOptions options);",
+      "profile": "invalid-options",
+      "owned": {
+        "index": 21,
+        "profile": "invalid-options",
+        "data": "",
+        "error": "System.ArgumentOutOfRangeException"
+      },
+      "nativeUnity": {
+        "index": 21,
+        "profile": "invalid-options",
+        "data": "M owner.Ping,M root.Ping",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:f57d0b9bca25c523b8cc186a",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void BroadcastMessage(string methodName, UnityEngine.SendMessageOptions options);",
+      "profile": "one",
+      "owned": {
+        "index": 22,
+        "profile": "one",
+        "data": "M owner.Take=null,M child.Take=null",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 22,
+        "profile": "one",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:f57d0b9bca25c523b8cc186a",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void BroadcastMessage(string methodName, UnityEngine.SendMessageOptions options);",
+      "profile": "object-value",
+      "owned": {
+        "index": 22,
+        "profile": "object-value",
+        "data": "M owner.Take=null,M child.Take=null",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 22,
+        "profile": "object-value",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:f57d0b9bca25c523b8cc186a",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void BroadcastMessage(string methodName, UnityEngine.SendMessageOptions options);",
+      "profile": "null-value",
+      "owned": {
+        "index": 22,
+        "profile": "null-value",
+        "data": "M owner.Take=null,M child.Take=null",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 22,
+        "profile": "null-value",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:f57d0b9bca25c523b8cc186a",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void BroadcastMessage(string methodName, UnityEngine.SendMessageOptions options);",
+      "profile": "wrong-type",
+      "owned": {
+        "index": 22,
+        "profile": "wrong-type",
+        "data": "M owner.Int=0,M child.Int=0",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 22,
+        "profile": "wrong-type",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:f57d0b9bca25c523b8cc186a",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void BroadcastMessage(string methodName, UnityEngine.SendMessageOptions options);",
+      "profile": "null-name",
+      "owned": {
+        "index": 22,
+        "profile": "null-name",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 22,
+        "profile": "null-name",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:f57d0b9bca25c523b8cc186a",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void BroadcastMessage(string methodName, UnityEngine.SendMessageOptions options);",
+      "profile": "empty-name",
+      "owned": {
+        "index": 22,
+        "profile": "empty-name",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 22,
+        "profile": "empty-name",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:f57d0b9bca25c523b8cc186a",
+      "owner": "UnityEngine.Component",
+      "declaration": "public void BroadcastMessage(string methodName, UnityEngine.SendMessageOptions options);",
+      "profile": "invalid-options",
+      "owned": {
+        "index": 22,
+        "profile": "invalid-options",
+        "data": "",
+        "error": "System.ArgumentOutOfRangeException"
+      },
+      "nativeUnity": {
+        "index": 22,
+        "profile": "invalid-options",
+        "data": "M owner.Ping,M child.Ping",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:fe170095eca287ca9e7a5ccf",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void SendMessage(string methodName, object value);",
+      "profile": "null-value",
+      "owned": {
+        "index": 23,
+        "profile": "null-value",
+        "data": "M owner.Take=null",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 23,
+        "profile": "null-value",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:fe170095eca287ca9e7a5ccf",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void SendMessage(string methodName, object value);",
+      "profile": "null-name",
+      "owned": {
+        "index": 23,
+        "profile": "null-name",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 23,
+        "profile": "null-name",
+        "data": "",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:fe170095eca287ca9e7a5ccf",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void SendMessage(string methodName, object value);",
+      "profile": "empty-name",
+      "owned": {
+        "index": 23,
+        "profile": "empty-name",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 23,
+        "profile": "empty-name",
+        "data": "",
+        "error": ""
+      }
+    }
+  ]
+}

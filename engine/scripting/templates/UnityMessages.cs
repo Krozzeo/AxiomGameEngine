@@ -4,12 +4,12 @@ namespace UnityEngine;
 public enum SendMessageOptions {RequireReceiver,DontRequireReceiver}
 internal static class Messages {
  internal static void Send(GameObject origin,string name,object? value,bool supplied,int direction,SendMessageOptions options){
-  if(string.IsNullOrEmpty(name))throw new ArgumentException("A method name is required",nameof(name));if(!Enum.IsDefined(options))throw new ArgumentOutOfRangeException(nameof(options));if(!origin.activeInHierarchy)return;
-  var receivers=new List<GameObject>();if(direction==2)receivers.AddRange(origin.GetComponentsInChildren<Transform>().Select(t=>t.gameObject));else for(GameObject? current=origin;current;current=direction==1?current.transform.parent?.gameObject:null)receivers.Add(current!);
+  _=origin.LegacyGameObject;if(string.IsNullOrEmpty(name)){if(options==SendMessageOptions.RequireReceiver)Legacy.Debug.LogError("Message has no receiver on "+origin.name);return;}if(direction!=1&&!origin.activeInHierarchy)return;
+  var receivers=new List<GameObject>();if(direction==2)receivers.AddRange(origin.GetComponentsInChildren<Transform>().Select(t=>t.gameObject));else for(GameObject? current=origin;current;current=direction==1?current.transform.parent?.gameObject:null)if(current!.activeInHierarchy)receivers.Add(current);
   var found=false;foreach(var go in receivers)foreach(var component in go.LegacyGameObject.AllComponents()){
    if(component is not Legacy.Script script)continue;var target=Legacy.ScriptBridge.Value(script);MethodInfo? method=null;
    for(var type=target.GetType();type!=null&&type!=typeof(MonoBehaviour)&&type!=typeof(Legacy.MonoBehaviour)&&type!=typeof(Legacy.Script);type=type.BaseType){method=type.GetMethods(BindingFlags.Public|BindingFlags.NonPublic|BindingFlags.Instance|BindingFlags.DeclaredOnly).FirstOrDefault(candidate=>candidate.Name==name&&!candidate.ContainsGenericParameters&&candidate.GetParameters().Length<2);if(method!=null)break;}
-   if(method==null)continue;found=true;var parameters=method.GetParameters();var argument=supplied?value:null;
+   if(method==null)continue;var parameters=method.GetParameters();var argument=supplied?value:null;if(parameters.Length==1&&argument==null)continue;found=true;
    if(argument is Object canonical&&parameters.Length==1&&typeof(Legacy.Object).IsAssignableFrom(parameters[0].ParameterType))argument=canonical.Native;
    else if(argument is Legacy.Object native&&parameters.Length==1&&typeof(Object).IsAssignableFrom(parameters[0].ParameterType))argument=Object.Wrap(native);
    try{method.Invoke(target,parameters.Length==0?null:new[]{argument});}catch(TargetInvocationException error){Legacy.Debug.LogError(error.InnerException??error);}catch(ArgumentException error){Legacy.Debug.LogError(error);}
