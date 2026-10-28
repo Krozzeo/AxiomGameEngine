@@ -69,3 +69,7 @@ The hierarchy controller also checks explicit/default world/local reparenting, n
 ## Vector Transforms Lab —0.0.62
 
 Platform Load Demos also creates **Demo · M20 Vector Transforms Lab**. Press Play and select Vector Transform Controller. It finishes Count240, Passed240, Failed0; Diagnostics stays empty. The same direct-call corpus covers24 scalar/vector/in-place/separate-span overloads under regular, reflected, deep and collapsed-scale hierarchies, destroyed owners and empty/mismatched span lengths. Reference data comes from the exact native Unity version; all scripts are editable. Stop restores the authored project. These results verify CPU/.NET/Wasm behavior, not GPU pixels or all311 M20 contracts.
+
+## Pose Transforms Lab —0.0.62
+
+Platform Load Demos also creates **Demo · M20 Pose Transforms Lab**. Press Play and select Pose Transform Controller. Expected: Count348, Passed348, Failed0, empty Diagnostics. It exercises36 direct position/local position/rotation/scale/Euler/axis/matrix/translation/look-at/pose overloads against actual native outcomes. Null LookAt targets are no-ops; zero direction setters use identity; reflected/collapsed coordinate spaces retain native behavior. Scripts and compact reference fixtures are ordinary editable project files. Stop restores the authored scene. This is CPU/.NET/Wasm acceptance; M20's full311-record closure remains open.

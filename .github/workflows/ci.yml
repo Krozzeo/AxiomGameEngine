@@ -120,12 +120,18 @@ jobs:
       - run: python scripts/compatibility/generate-m20-vector-corpus.py --check
       - run: node scripts/compatibility/generate-m20-vector-fixtures.mjs --check
       - run: dotnet run --project tests/csharp/M20.Vectors/M20.Vectors.csproj
+      - run: python scripts/compatibility/generate-m20-pose-corpus.py --check
+      - run: node scripts/compatibility/generate-m20-pose-fixtures.mjs --check
+      - run: dotnet run --project tests/csharp/M20.Poses/M20.Poses.csproj
       - name: Audit current compiled M20 source contracts and obsolete consumer diagnostics
         run: |
           dotnet run --project scripts/compatibility/Metadata -- tests/csharp/M20.Objects/bin/Debug/net10.0/M20.Objects.dll .axiom/m20-current-abi.json --sdk
           node scripts/compatibility/m20-source-audit.mjs .axiom/m20-current-abi.json .axiom/m20-current-source.json
           node scripts/compatibility/m20-obsolete-compile.mjs tests/csharp/M20.Objects/bin/Debug/net10.0/M20.Objects.dll .axiom/m20-current-obsolete-compile.json .axiom/m20-current-abi.json
       - run: dotnet build tests/csharp/M20.Migration --nologo -v:q
+      - run: node tests/browser/m20-poses.mjs
+        env:
+          AXIOM_CSHARP_MODE: ${{ matrix.mode }}
       - run: node tests/browser/m20-vectors.mjs
         env:
           AXIOM_CSHARP_MODE: ${{ matrix.mode }}
@@ -160,6 +166,7 @@ jobs:
             .axiom/browser-m20-evidence*
             .axiom/browser-m20-assets*
             .axiom/browser-m20-vectors*
+            .axiom/browser-m20-poses*
 
   browser-milestones:
     runs-on: ubuntu-latest

@@ -1,6 +1,6 @@
 # Current canonical M20 batch —0.0.62 / SDK12
 
-Current review: **0.0.62 / SDK12**. All311 frozen compiled source contracts match. Current native suites740 core plus240 vector comparisons; real browser267 core plus208 asset/lifecycle/hierarchy plus240 vector checks per Development/effective-AOT mode. Attributed acceptance78/311:48 behavior and30 compile-error obsolete contracts. M20 remains open; source matches and test counts are not full Unity parity. See [current report](../reports/M20_CANONICAL_BATCH.md). Stable main remains0.0.57.
+Current review: **0.0.62 / SDK12**. All311 frozen compiled source contracts match. Current native suites740 core+240 vector+348 pose comparisons; real browser267 core+208 asset/lifecycle/hierarchy+240 vector+348 pose checks per Development/effective-AOT mode. Attributed acceptance114/311:84 behavior and30 compile-error obsolete contracts. M20 remains open; source matches and test counts are not full Unity parity. See [current report](../reports/M20_CANONICAL_BATCH.md). Stable main remains0.0.57.
 
 ---
 

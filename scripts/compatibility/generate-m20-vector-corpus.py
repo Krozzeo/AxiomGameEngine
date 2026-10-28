@@ -49,7 +49,7 @@ public static class VectorTransformCorpus {
   if(profile=="deep-mirror"||profile=="deep-collapse"){middle.transform.localPosition=new Vector3(0,1,0);middle.transform.localRotation=Quaternion.Euler(10,15,20);middle.transform.localScale=profile=="deep-mirror"?new Vector3(1,-2,3):new Vector3(0,2,1);}
   var target=child.transform;target.localPosition=new Vector3(1,2,3);target.localRotation=Quaternion.Euler(20,40,45);target.localScale=profile=="local-mirror"||profile=="double-mirror"?new Vector3(-.5f,2,3):profile=="collapsed-child"?new Vector3(0,2,3):new Vector3(.5f,2,3);
   if(profile=="destroyed")UnityEngine.Object.DestroyImmediate(root);
-  try{var result=Invoke(index,target,profile=="empty"?1:profile=="short"?2:profile=="long"?3:0);row.data=Encode(State(target).Concat(result).ToArray());}catch(Exception error){row.error=error.GetType().FullName;}finally{if(root)UnityEngine.Object.DestroyImmediate(root);}
+  try{var result=Invoke(index,target,profile=="empty"?1:profile=="short"?2:profile=="long"?3:0);row.data=Encode(profile=="destroyed"?result:State(target).Concat(result).ToArray());}catch(Exception error){row.error=error.GetType().FullName;}finally{if(root)UnityEngine.Object.DestroyImmediate(root);}
   return row;
  }
  private static float[] Invoke(int index,Transform t,int size){switch(index){BODIES default:throw new ArgumentOutOfRangeException(nameof(index));}}

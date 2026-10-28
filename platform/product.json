@@ -41,6 +41,10 @@
     {
       "id": "m20-vector-transforms",
       "name": "M20 Vector Transforms Lab"
+    },
+    {
+      "id": "m20-pose-transforms",
+      "name": "M20 Pose Transforms Lab"
     }
   ]
 }

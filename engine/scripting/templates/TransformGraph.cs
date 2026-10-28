@@ -35,9 +35,9 @@ internal static class TransformGraph {
   static double Divide(double value,double divisor){if(divisor==0)throw new InvalidOperationException("Cannot preserve world scale through a singular parent");return value/divisor;}
   return new(inverse.Point(position),r,new(Divide(scale.X,basis.X),Divide(scale.Y,basis.Y),Divide(scale.Z,basis.Z)));
  }
- internal static void SetWorld(Entity entity,Vector3? position,Quaternion? rotation,Vector3? scale,int reserve=0){
+ internal static void SetWorld(Entity entity,Vector3? position,Quaternion? rotation,Vector3? scale,int reserve=0,bool canonical=false){
   var old=Context.Read(entity);var local=Local(entity);var parent=Context.Parents.GetValueOrDefault(entity.Id);var p=local.Position;var q=local.Rotation;
-  if(position is Vector3 point)p=parent==null?point:(World(new(parent,Context.Generation)).Inverse()??throw new InvalidOperationException("Cannot set world position through a singular parent")).Point(point);
+  if(position is Vector3 point)p=parent==null?point:canonical?TransformQueries.Inverse(new(parent,Context.Generation),point,true):(World(new(parent,Context.Generation)).Inverse()??throw new InvalidOperationException("Cannot set world position through a singular parent")).Point(point);
   if(rotation is Quaternion requested){q=TransformMath.Normalize(requested);if(parent!=null){var pose=Context.Read(new(parent,Context.Generation));q=Affine.Mirror(Quaternion.Inverse(pose.Rotation)*q,pose.Scale);}}
   // Position/rotation setters preserve local scale, even when world projected scale changes.
   var s=scale is Vector3 value?Relative(entity,position??old.Position,rotation??old.Rotation,value,parent).Scale:local.Scale;
@@ -87,6 +87,7 @@ internal static class TransformQueries {
   if(inverse){if(parent!=null){var owner=new Entity(parent,Context.Generation);value=Multiply(Sign(Context.Local(owner).Scale),Direction(owner,value,true));}return Quaternion.Inverse(local.Rotation)*value;}
   value=local.Rotation*value;if(parent==null)return value;var ancestor=new Entity(parent,Context.Generation);return Direction(ancestor,Multiply(Sign(Context.Local(ancestor).Scale),value),false);
  }
+ internal static Affine InverseMatrix(Entity entity){var origin=Inverse(entity,Vector3.zero,true);var x=Inverse(entity,Vector3.right,false);var y=Inverse(entity,Vector3.up,false);var z=Inverse(entity,Vector3.forward,false);return new(new[]{x.X,x.Y,x.Z,0,y.X,y.Y,y.Z,0,z.X,z.Y,z.Z,0,origin.X,origin.Y,origin.Z,1});}
  internal static Vector3 Inverse(Entity entity,Vector3 value,bool point){
   var local=Context.Local(entity);var parent=Context.Parents.GetValueOrDefault(entity.Id);if(parent!=null)value=Inverse(new Entity(parent,Context.Generation),value,point);if(point)value-=local.Position;value=Quaternion.Inverse(local.Rotation)*value;
   return new(local.Scale.X==0?0:value.X/local.Scale.X,local.Scale.Y==0?0:value.Y/local.Scale.Y,local.Scale.Z==0?0:value.Z/local.Scale.Z);

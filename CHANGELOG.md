@@ -1,5 +1,7 @@
 # 0.0.62 — Canonical M20 core and dependency profiles (in progress)
 
+- Add36 directly attributed pose/rotation/matrix contracts through348 native/.NET/Development/AOT cases. Match reflected translations/axis rotations, collapsed-coordinate setters and inverse matrices, zero directions and null LookAt behavior. Add Pose Transforms Lab;114/311 contracts accepted.
+
 - Add24 directly attributed vector/span contracts through240 native Unity/.NET/Development/AOT comparisons. Correct ancestor reflections, collapsed-axis inverse queries and exact span-length errors. Add the editable Vector Transforms Lab;78/311 contracts accepted.
 
 - Add canonical UnityEngine core inheritance/float facades on the shared native runtime;311 compiled public source contracts match the frozen scope. Preserve the original migration corpus without aliases or rewrites.

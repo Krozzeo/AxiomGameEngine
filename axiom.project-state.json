@@ -1,7 +1,7 @@
 {
   "$schema": "./protocol/schema/project-state.schema.json",
   "stateVersion": 1,
-  "updatedAt": "2026-10-27",
+  "updatedAt": "2026-10-28",
   "engineVersion": "0.0.62",
   "activeMilestone": 20,
   "milestoneStatus": "in_progress",
@@ -9,7 +9,7 @@
     "activeMilestonePercent": 33,
     "wholeProjectPercent": null,
     "method": "docs/architecture/MILESTONE_REPORTING.md",
-    "scopeNote": "M20 remains open.1/3 required milestone criteria passed (33% rounded); independent source audit311/311 and attributed contracts78/311 (48 behavior,30 compiler-error contracts). Native740 core+240 vectors,267 core+208 asset/lifecycle/hierarchy+240 vectors per Development/AOT mode and Node486 pass. Remaining233 contracts and exact-head CI/artifact acceptance must complete; stable main0.0.57 unchanged.",
+    "scopeNote": "M20 remains open.1/3 required milestone criteria passed (33% rounded); independent source audit311/311 and attributed contracts114/311 (84 behavior,30 compiler-error contracts). Native740 core+240 vectors+348 poses,267+208+240+348 per Development/AOT mode and Node486 pass. Remaining197 contracts and exact-head CI/artifact acceptance must complete; stable main0.0.57 unchanged.",
     "historicalMvpPercent": 94,
     "historicalMvpCompletedWeight": 122,
     "historicalMvpTotalWeight": 130
@@ -1746,8 +1746,8 @@
     "docs/compatibility/m20-batches.json",
     "demos/M20_GUIDE.md"
   ],
-  "nextTask": "Complete remaining233 M20 contracts: direct pose/rotation/matrix reference comparisons, same-type component storage/query/clone dependencies, remaining object/message/constructor contracts; retain311 records and strict closure/CI/artifact gates.",
-  "activeRevision": "0.0.62 / SDK12 —78 attributed contracts accepted; M20 remains open",
+  "nextTask": "Finish15 remaining Transform contracts using native hierarchy/enumerator/hasChanged observations; implement same-type component storage/query/clone dependencies and remaining object/message/constructor domains. Preserve311 records and strict closure/CI/artifact gates.",
+  "activeRevision": "0.0.62 / SDK12 —114 attributed contracts accepted; M20 remains open",
   "roadmap": {
     "version": 2,
     "manifest": "docs/architecture/roadmap-v2.json",

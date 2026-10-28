@@ -3,14 +3,14 @@
   "milestone": "M20",
   "targetRecords": 311,
   "status": "in_progress",
-  "certifiedUnitySignatures": 78,
+  "certifiedUnitySignatures": 114,
   "batch": "0.0.62 / SDK12 / canonical core and dependency profiles, behavior attribution in progress",
   "evidence": {
     "native": "evidence/m20-queries-native-windows.json",
     "developmentWasm": "evidence/m20-queries-development-wasm.json"
   },
   "requiredRemaining": [
-    "Complete attributed canonical positive/negative/lifecycle/reference review for remaining233 of311 frozen records; source matching and broad lab results are insufficient",
+    "Complete attributed canonical positive/negative/lifecycle/reference review for remaining197 of311 frozen records; source matching and broad lab results are insufficient",
     "Finish constructor and degenerate-transform edge attribution and applicable asset-backed clone requirements; implement missing required behavior rather than waiving scope. Persistent-scene ownership/reparent lifecycle are now exercised natively and in Development/AOT. All53 obsolete consumer compiler contracts pass; deprecated runtime attribution remains open.",
     "Finish exact-head native/Wasm/AOT, UI/project/Stop/Undo/dependency regression, CI and public artifact acceptance"
   ],
@@ -62,12 +62,49 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public void LookAt(UnityEngine.Vector3 worldPosition);",
       "member": "LookAt",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public pose/rotation/matrix overload against Unity6000.3.27f1. Regular, local/ancestor/double/deep reflections, collapsed parent/middle/child axes, destroyed receivers, applicable null targets, zero axes/directions and explicit Self/World modes. Actual errors, local/world poses and returned values match native outcomes; nullable LookAt is a native no-op. Float tolerance2e-5 relative, quaternion orientations equivalent, Euler differences wrapped modulo360. Identical corpus, generated fixture and actual native SDK/project input hashes are required",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-pose-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-poses-native.json",
+          "caseIndex": 0,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed",
+            "zero-input"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-poses-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-poses-aot-wasm.json",
+          "caseIds": [
+            "p001",
+            "p002",
+            "p003",
+            "p004",
+            "p005",
+            "p006",
+            "p007",
+            "p008",
+            "p009",
+            "p010"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:0788d4b6f80d4d1cdadd2de0",
@@ -350,24 +387,96 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public UnityEngine.Vector3 right { public get; public set; }",
       "member": "right",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public pose/rotation/matrix overload against Unity6000.3.27f1. Regular, local/ancestor/double/deep reflections, collapsed parent/middle/child axes, destroyed receivers, applicable null targets, zero axes/directions and explicit Self/World modes. Actual errors, local/world poses and returned values match native outcomes; nullable LookAt is a native no-op. Float tolerance2e-5 relative, quaternion orientations equivalent, Euler differences wrapped modulo360. Identical corpus, generated fixture and actual native SDK/project input hashes are required",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-pose-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-poses-native.json",
+          "caseIndex": 1,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed",
+            "zero-input"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-poses-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-poses-aot-wasm.json",
+          "caseIds": [
+            "p011",
+            "p012",
+            "p013",
+            "p014",
+            "p015",
+            "p016",
+            "p017",
+            "p018",
+            "p019",
+            "p020"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:142e6eb4d9dbb1ba016206ef",
       "owner": "UnityEngine.Transform",
       "declaration": "public void Rotate(UnityEngine.Vector3 eulers);",
       "member": "Rotate",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public pose/rotation/matrix overload against Unity6000.3.27f1. Regular, local/ancestor/double/deep reflections, collapsed parent/middle/child axes, destroyed receivers, applicable null targets, zero axes/directions and explicit Self/World modes. Actual errors, local/world poses and returned values match native outcomes; nullable LookAt is a native no-op. Float tolerance2e-5 relative, quaternion orientations equivalent, Euler differences wrapped modulo360. Identical corpus, generated fixture and actual native SDK/project input hashes are required",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-pose-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-poses-native.json",
+          "caseIndex": 2,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-poses-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-poses-aot-wasm.json",
+          "caseIds": [
+            "p021",
+            "p022",
+            "p023",
+            "p024",
+            "p025",
+            "p026",
+            "p027",
+            "p028",
+            "p029"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:1550db123f61bacb9ccc6895",
@@ -769,12 +878,47 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public UnityEngine.Quaternion rotation { public get; public set; }",
       "member": "rotation",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public pose/rotation/matrix overload against Unity6000.3.27f1. Regular, local/ancestor/double/deep reflections, collapsed parent/middle/child axes, destroyed receivers, applicable null targets, zero axes/directions and explicit Self/World modes. Actual errors, local/world poses and returned values match native outcomes; nullable LookAt is a native no-op. Float tolerance2e-5 relative, quaternion orientations equivalent, Euler differences wrapped modulo360. Identical corpus, generated fixture and actual native SDK/project input hashes are required",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-pose-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-poses-native.json",
+          "caseIndex": 3,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-poses-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-poses-aot-wasm.json",
+          "caseIds": [
+            "p030",
+            "p031",
+            "p032",
+            "p033",
+            "p034",
+            "p035",
+            "p036",
+            "p037",
+            "p038"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:20e1e83cca8a5074140b551d",
@@ -848,24 +992,98 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public void LookAt(UnityEngine.Transform target, UnityEngine.Vector3 worldUp);",
       "member": "LookAt",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public pose/rotation/matrix overload against Unity6000.3.27f1. Regular, local/ancestor/double/deep reflections, collapsed parent/middle/child axes, destroyed receivers, applicable null targets, zero axes/directions and explicit Self/World modes. Actual errors, local/world poses and returned values match native outcomes; nullable LookAt is a native no-op. Float tolerance2e-5 relative, quaternion orientations equivalent, Euler differences wrapped modulo360. Identical corpus, generated fixture and actual native SDK/project input hashes are required",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-pose-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-poses-native.json",
+          "caseIndex": 4,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed",
+            "null"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-poses-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-poses-aot-wasm.json",
+          "caseIds": [
+            "p039",
+            "p040",
+            "p041",
+            "p042",
+            "p043",
+            "p044",
+            "p045",
+            "p046",
+            "p047",
+            "p048"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:2473cbda4eb132095f83459b",
       "owner": "UnityEngine.Transform",
       "declaration": "public void RotateAround(UnityEngine.Vector3 point, UnityEngine.Vector3 axis, float angle);",
       "member": "RotateAround",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public pose/rotation/matrix overload against Unity6000.3.27f1. Regular, local/ancestor/double/deep reflections, collapsed parent/middle/child axes, destroyed receivers, applicable null targets, zero axes/directions and explicit Self/World modes. Actual errors, local/world poses and returned values match native outcomes; nullable LookAt is a native no-op. Float tolerance2e-5 relative, quaternion orientations equivalent, Euler differences wrapped modulo360. Identical corpus, generated fixture and actual native SDK/project input hashes are required",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-pose-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-poses-native.json",
+          "caseIndex": 5,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed",
+            "zero-input"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-poses-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-poses-aot-wasm.json",
+          "caseIds": [
+            "p049",
+            "p050",
+            "p051",
+            "p052",
+            "p053",
+            "p054",
+            "p055",
+            "p056",
+            "p057",
+            "p058"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:27e25da246a8fbb06bd311bc",
@@ -993,12 +1211,47 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public UnityEngine.Matrix4x4 localToWorldMatrix { public get; }",
       "member": "localToWorldMatrix",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public pose/rotation/matrix overload against Unity6000.3.27f1. Regular, local/ancestor/double/deep reflections, collapsed parent/middle/child axes, destroyed receivers, applicable null targets, zero axes/directions and explicit Self/World modes. Actual errors, local/world poses and returned values match native outcomes; nullable LookAt is a native no-op. Float tolerance2e-5 relative, quaternion orientations equivalent, Euler differences wrapped modulo360. Identical corpus, generated fixture and actual native SDK/project input hashes are required",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-pose-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-poses-native.json",
+          "caseIndex": 6,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-poses-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-poses-aot-wasm.json",
+          "caseIds": [
+            "p059",
+            "p060",
+            "p061",
+            "p062",
+            "p063",
+            "p064",
+            "p065",
+            "p066",
+            "p067"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:2cf1eb151041fbf96236ede1",
@@ -1083,12 +1336,47 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public void SetLocalPositionAndRotation(UnityEngine.Vector3 localPosition, UnityEngine.Quaternion localRotation);",
       "member": "SetLocalPositionAndRotation",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public pose/rotation/matrix overload against Unity6000.3.27f1. Regular, local/ancestor/double/deep reflections, collapsed parent/middle/child axes, destroyed receivers, applicable null targets, zero axes/directions and explicit Self/World modes. Actual errors, local/world poses and returned values match native outcomes; nullable LookAt is a native no-op. Float tolerance2e-5 relative, quaternion orientations equivalent, Euler differences wrapped modulo360. Identical corpus, generated fixture and actual native SDK/project input hashes are required",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-pose-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-poses-native.json",
+          "caseIndex": 7,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-poses-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-poses-aot-wasm.json",
+          "caseIds": [
+            "p068",
+            "p069",
+            "p070",
+            "p071",
+            "p072",
+            "p073",
+            "p074",
+            "p075",
+            "p076"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:2fc8fd946bb01fb7d2ab1b8d",
@@ -1262,24 +1550,100 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public void Rotate(UnityEngine.Vector3 eulers, UnityEngine.Space relativeTo);",
       "member": "Rotate",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public pose/rotation/matrix overload against Unity6000.3.27f1. Regular, local/ancestor/double/deep reflections, collapsed parent/middle/child axes, destroyed receivers, applicable null targets, zero axes/directions and explicit Self/World modes. Actual errors, local/world poses and returned values match native outcomes; nullable LookAt is a native no-op. Float tolerance2e-5 relative, quaternion orientations equivalent, Euler differences wrapped modulo360. Identical corpus, generated fixture and actual native SDK/project input hashes are required",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-pose-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-poses-native.json",
+          "caseIndex": 8,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed",
+            "world",
+            "world-mirrored"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-poses-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-poses-aot-wasm.json",
+          "caseIds": [
+            "p077",
+            "p078",
+            "p079",
+            "p080",
+            "p081",
+            "p082",
+            "p083",
+            "p084",
+            "p085",
+            "p086",
+            "p087"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:32cd943e83389d1a6869be74",
       "owner": "UnityEngine.Transform",
       "declaration": "public void LookAt(UnityEngine.Transform target);",
       "member": "LookAt",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public pose/rotation/matrix overload against Unity6000.3.27f1. Regular, local/ancestor/double/deep reflections, collapsed parent/middle/child axes, destroyed receivers, applicable null targets, zero axes/directions and explicit Self/World modes. Actual errors, local/world poses and returned values match native outcomes; nullable LookAt is a native no-op. Float tolerance2e-5 relative, quaternion orientations equivalent, Euler differences wrapped modulo360. Identical corpus, generated fixture and actual native SDK/project input hashes are required",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-pose-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-poses-native.json",
+          "caseIndex": 9,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed",
+            "null"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-poses-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-poses-aot-wasm.json",
+          "caseIds": [
+            "p088",
+            "p089",
+            "p090",
+            "p091",
+            "p092",
+            "p093",
+            "p094",
+            "p095",
+            "p096",
+            "p097"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:33ba9989c10e83ccca343383",
@@ -1944,12 +2308,49 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public void LookAt(UnityEngine.Vector3 worldPosition, UnityEngine.Vector3 worldUp);",
       "member": "LookAt",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public pose/rotation/matrix overload against Unity6000.3.27f1. Regular, local/ancestor/double/deep reflections, collapsed parent/middle/child axes, destroyed receivers, applicable null targets, zero axes/directions and explicit Self/World modes. Actual errors, local/world poses and returned values match native outcomes; nullable LookAt is a native no-op. Float tolerance2e-5 relative, quaternion orientations equivalent, Euler differences wrapped modulo360. Identical corpus, generated fixture and actual native SDK/project input hashes are required",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-pose-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-poses-native.json",
+          "caseIndex": 10,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed",
+            "zero-input"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-poses-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-poses-aot-wasm.json",
+          "caseIds": [
+            "p098",
+            "p099",
+            "p100",
+            "p101",
+            "p102",
+            "p103",
+            "p104",
+            "p105",
+            "p106",
+            "p107"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:49b7b74afaf9ba8a9ec32149",
@@ -1991,12 +2392,49 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public void Translate(float x, float y, float z, UnityEngine.Transform relativeTo);",
       "member": "Translate",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public pose/rotation/matrix overload against Unity6000.3.27f1. Regular, local/ancestor/double/deep reflections, collapsed parent/middle/child axes, destroyed receivers, applicable null targets, zero axes/directions and explicit Self/World modes. Actual errors, local/world poses and returned values match native outcomes; nullable LookAt is a native no-op. Float tolerance2e-5 relative, quaternion orientations equivalent, Euler differences wrapped modulo360. Identical corpus, generated fixture and actual native SDK/project input hashes are required",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-pose-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-poses-native.json",
+          "caseIndex": 11,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed",
+            "null"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-poses-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-poses-aot-wasm.json",
+          "caseIds": [
+            "p108",
+            "p109",
+            "p110",
+            "p111",
+            "p112",
+            "p113",
+            "p114",
+            "p115",
+            "p116",
+            "p117"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:4d6fe284b6300453c8ae864a",
@@ -2031,12 +2469,49 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public UnityEngine.Vector3 up { public get; public set; }",
       "member": "up",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public pose/rotation/matrix overload against Unity6000.3.27f1. Regular, local/ancestor/double/deep reflections, collapsed parent/middle/child axes, destroyed receivers, applicable null targets, zero axes/directions and explicit Self/World modes. Actual errors, local/world poses and returned values match native outcomes; nullable LookAt is a native no-op. Float tolerance2e-5 relative, quaternion orientations equivalent, Euler differences wrapped modulo360. Identical corpus, generated fixture and actual native SDK/project input hashes are required",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-pose-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-poses-native.json",
+          "caseIndex": 12,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed",
+            "zero-input"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-poses-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-poses-aot-wasm.json",
+          "caseIds": [
+            "p118",
+            "p119",
+            "p120",
+            "p121",
+            "p122",
+            "p123",
+            "p124",
+            "p125",
+            "p126",
+            "p127"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:5163cd08a1ffa584529dc24d",
@@ -2237,17 +2712,54 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public void RotateAroundLocal(UnityEngine.Vector3 axis, float angle);",
       "member": "RotateAroundLocal",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "compilerObservation": {
         "passed": true,
         "expectedDiagnostic": "CS0618",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "Exact direct public pose/rotation/matrix overload against Unity6000.3.27f1. Regular, local/ancestor/double/deep reflections, collapsed parent/middle/child axes, destroyed receivers, applicable null targets, zero axes/directions and explicit Self/World modes. Actual errors, local/world poses and returned values match native outcomes; nullable LookAt is a native no-op. Float tolerance2e-5 relative, quaternion orientations equivalent, Euler differences wrapped modulo360. Identical corpus, generated fixture and actual native SDK/project input hashes are required",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-pose-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-poses-native.json",
+          "caseIndex": 13,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed",
+            "zero-input"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-poses-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-poses-aot-wasm.json",
+          "caseIds": [
+            "p128",
+            "p129",
+            "p130",
+            "p131",
+            "p132",
+            "p133",
+            "p134",
+            "p135",
+            "p136",
+            "p137"
+          ]
+        }
       }
     },
     {
@@ -2344,12 +2856,47 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public UnityEngine.Vector3 localEulerAngles { public get; public set; }",
       "member": "localEulerAngles",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public pose/rotation/matrix overload against Unity6000.3.27f1. Regular, local/ancestor/double/deep reflections, collapsed parent/middle/child axes, destroyed receivers, applicable null targets, zero axes/directions and explicit Self/World modes. Actual errors, local/world poses and returned values match native outcomes; nullable LookAt is a native no-op. Float tolerance2e-5 relative, quaternion orientations equivalent, Euler differences wrapped modulo360. Identical corpus, generated fixture and actual native SDK/project input hashes are required",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-pose-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-poses-native.json",
+          "caseIndex": 14,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-poses-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-poses-aot-wasm.json",
+          "caseIds": [
+            "p138",
+            "p139",
+            "p140",
+            "p141",
+            "p142",
+            "p143",
+            "p144",
+            "p145",
+            "p146"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:5f0696131f05163a84b9e339",
@@ -2630,24 +3177,96 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public UnityEngine.Vector3 lossyScale { public get; }",
       "member": "lossyScale",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public pose/rotation/matrix overload against Unity6000.3.27f1. Regular, local/ancestor/double/deep reflections, collapsed parent/middle/child axes, destroyed receivers, applicable null targets, zero axes/directions and explicit Self/World modes. Actual errors, local/world poses and returned values match native outcomes; nullable LookAt is a native no-op. Float tolerance2e-5 relative, quaternion orientations equivalent, Euler differences wrapped modulo360. Identical corpus, generated fixture and actual native SDK/project input hashes are required",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-pose-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-poses-native.json",
+          "caseIndex": 15,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-poses-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-poses-aot-wasm.json",
+          "caseIds": [
+            "p147",
+            "p148",
+            "p149",
+            "p150",
+            "p151",
+            "p152",
+            "p153",
+            "p154",
+            "p155"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:6eb6798046e60a49e44c7f50",
       "owner": "UnityEngine.Transform",
       "declaration": "public void Rotate(UnityEngine.Vector3 axis, float angle);",
       "member": "Rotate",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public pose/rotation/matrix overload against Unity6000.3.27f1. Regular, local/ancestor/double/deep reflections, collapsed parent/middle/child axes, destroyed receivers, applicable null targets, zero axes/directions and explicit Self/World modes. Actual errors, local/world poses and returned values match native outcomes; nullable LookAt is a native no-op. Float tolerance2e-5 relative, quaternion orientations equivalent, Euler differences wrapped modulo360. Identical corpus, generated fixture and actual native SDK/project input hashes are required",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-pose-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-poses-native.json",
+          "caseIndex": 16,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed",
+            "zero-input"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-poses-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-poses-aot-wasm.json",
+          "caseIds": [
+            "p156",
+            "p157",
+            "p158",
+            "p159",
+            "p160",
+            "p161",
+            "p162",
+            "p163",
+            "p164",
+            "p165"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:6f63acfef89198d5fc027b62",
@@ -2820,12 +3439,47 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public void GetPositionAndRotation(out UnityEngine.Vector3 position, out UnityEngine.Quaternion rotation);",
       "member": "GetPositionAndRotation",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public pose/rotation/matrix overload against Unity6000.3.27f1. Regular, local/ancestor/double/deep reflections, collapsed parent/middle/child axes, destroyed receivers, applicable null targets, zero axes/directions and explicit Self/World modes. Actual errors, local/world poses and returned values match native outcomes; nullable LookAt is a native no-op. Float tolerance2e-5 relative, quaternion orientations equivalent, Euler differences wrapped modulo360. Identical corpus, generated fixture and actual native SDK/project input hashes are required",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-pose-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-poses-native.json",
+          "caseIndex": 17,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-poses-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-poses-aot-wasm.json",
+          "caseIds": [
+            "p166",
+            "p167",
+            "p168",
+            "p169",
+            "p170",
+            "p171",
+            "p172",
+            "p173",
+            "p174"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:74f5056bfba5e909f8206a40",
@@ -3041,12 +3695,47 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public UnityEngine.Quaternion localRotation { public get; public set; }",
       "member": "localRotation",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public pose/rotation/matrix overload against Unity6000.3.27f1. Regular, local/ancestor/double/deep reflections, collapsed parent/middle/child axes, destroyed receivers, applicable null targets, zero axes/directions and explicit Self/World modes. Actual errors, local/world poses and returned values match native outcomes; nullable LookAt is a native no-op. Float tolerance2e-5 relative, quaternion orientations equivalent, Euler differences wrapped modulo360. Identical corpus, generated fixture and actual native SDK/project input hashes are required",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-pose-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-poses-native.json",
+          "caseIndex": 18,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-poses-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-poses-aot-wasm.json",
+          "caseIds": [
+            "p175",
+            "p176",
+            "p177",
+            "p178",
+            "p179",
+            "p180",
+            "p181",
+            "p182",
+            "p183"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:7c3b868fd418bd56029c5bed",
@@ -3215,12 +3904,47 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public UnityEngine.Vector3 position { public get; public set; }",
       "member": "position",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public pose/rotation/matrix overload against Unity6000.3.27f1. Regular, local/ancestor/double/deep reflections, collapsed parent/middle/child axes, destroyed receivers, applicable null targets, zero axes/directions and explicit Self/World modes. Actual errors, local/world poses and returned values match native outcomes; nullable LookAt is a native no-op. Float tolerance2e-5 relative, quaternion orientations equivalent, Euler differences wrapped modulo360. Identical corpus, generated fixture and actual native SDK/project input hashes are required",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-pose-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-poses-native.json",
+          "caseIndex": 19,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-poses-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-poses-aot-wasm.json",
+          "caseIds": [
+            "p184",
+            "p185",
+            "p186",
+            "p187",
+            "p188",
+            "p189",
+            "p190",
+            "p191",
+            "p192"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:851f45d6adca7e4eeca55f3a",
@@ -3406,12 +4130,51 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public void Rotate(float xAngle, float yAngle, float zAngle, UnityEngine.Space relativeTo);",
       "member": "Rotate",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public pose/rotation/matrix overload against Unity6000.3.27f1. Regular, local/ancestor/double/deep reflections, collapsed parent/middle/child axes, destroyed receivers, applicable null targets, zero axes/directions and explicit Self/World modes. Actual errors, local/world poses and returned values match native outcomes; nullable LookAt is a native no-op. Float tolerance2e-5 relative, quaternion orientations equivalent, Euler differences wrapped modulo360. Identical corpus, generated fixture and actual native SDK/project input hashes are required",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-pose-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-poses-native.json",
+          "caseIndex": 20,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed",
+            "world",
+            "world-mirrored"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-poses-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-poses-aot-wasm.json",
+          "caseIds": [
+            "p193",
+            "p194",
+            "p195",
+            "p196",
+            "p197",
+            "p198",
+            "p199",
+            "p200",
+            "p201",
+            "p202",
+            "p203"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:8a2b09c983a7c4c4f6634efc",
@@ -3898,24 +4661,94 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public void Rotate(float xAngle, float yAngle, float zAngle);",
       "member": "Rotate",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public pose/rotation/matrix overload against Unity6000.3.27f1. Regular, local/ancestor/double/deep reflections, collapsed parent/middle/child axes, destroyed receivers, applicable null targets, zero axes/directions and explicit Self/World modes. Actual errors, local/world poses and returned values match native outcomes; nullable LookAt is a native no-op. Float tolerance2e-5 relative, quaternion orientations equivalent, Euler differences wrapped modulo360. Identical corpus, generated fixture and actual native SDK/project input hashes are required",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-pose-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-poses-native.json",
+          "caseIndex": 21,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-poses-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-poses-aot-wasm.json",
+          "caseIds": [
+            "p204",
+            "p205",
+            "p206",
+            "p207",
+            "p208",
+            "p209",
+            "p210",
+            "p211",
+            "p212"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:9832d417ab73e90fa122c522",
       "owner": "UnityEngine.Transform",
       "declaration": "public UnityEngine.Matrix4x4 worldToLocalMatrix { public get; }",
       "member": "worldToLocalMatrix",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public pose/rotation/matrix overload against Unity6000.3.27f1. Regular, local/ancestor/double/deep reflections, collapsed parent/middle/child axes, destroyed receivers, applicable null targets, zero axes/directions and explicit Self/World modes. Actual errors, local/world poses and returned values match native outcomes; nullable LookAt is a native no-op. Float tolerance2e-5 relative, quaternion orientations equivalent, Euler differences wrapped modulo360. Identical corpus, generated fixture and actual native SDK/project input hashes are required",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-pose-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-poses-native.json",
+          "caseIndex": 22,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-poses-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-poses-aot-wasm.json",
+          "caseIds": [
+            "p213",
+            "p214",
+            "p215",
+            "p216",
+            "p217",
+            "p218",
+            "p219",
+            "p220",
+            "p221"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:984e96e8e6d4c2acc836c90f",
@@ -3978,29 +4811,107 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public void Rotate(UnityEngine.Vector3 axis, float angle, UnityEngine.Space relativeTo);",
       "member": "Rotate",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public pose/rotation/matrix overload against Unity6000.3.27f1. Regular, local/ancestor/double/deep reflections, collapsed parent/middle/child axes, destroyed receivers, applicable null targets, zero axes/directions and explicit Self/World modes. Actual errors, local/world poses and returned values match native outcomes; nullable LookAt is a native no-op. Float tolerance2e-5 relative, quaternion orientations equivalent, Euler differences wrapped modulo360. Identical corpus, generated fixture and actual native SDK/project input hashes are required",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-pose-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-poses-native.json",
+          "caseIndex": 23,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed",
+            "world",
+            "world-mirrored",
+            "zero-input"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-poses-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-poses-aot-wasm.json",
+          "caseIds": [
+            "p222",
+            "p223",
+            "p224",
+            "p225",
+            "p226",
+            "p227",
+            "p228",
+            "p229",
+            "p230",
+            "p231",
+            "p232",
+            "p233"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:9b0295bf5ceef0bf4fe47b95",
       "owner": "UnityEngine.Transform",
       "declaration": "public void RotateAround(UnityEngine.Vector3 axis, float angle);",
       "member": "RotateAround",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "compilerObservation": {
         "passed": true,
         "expectedDiagnostic": "CS0618",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "Exact direct public pose/rotation/matrix overload against Unity6000.3.27f1. Regular, local/ancestor/double/deep reflections, collapsed parent/middle/child axes, destroyed receivers, applicable null targets, zero axes/directions and explicit Self/World modes. Actual errors, local/world poses and returned values match native outcomes; nullable LookAt is a native no-op. Float tolerance2e-5 relative, quaternion orientations equivalent, Euler differences wrapped modulo360. Identical corpus, generated fixture and actual native SDK/project input hashes are required",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-pose-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-poses-native.json",
+          "caseIndex": 24,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed",
+            "zero-input"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-poses-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-poses-aot-wasm.json",
+          "caseIds": [
+            "p234",
+            "p235",
+            "p236",
+            "p237",
+            "p238",
+            "p239",
+            "p240",
+            "p241",
+            "p242",
+            "p243"
+          ]
+        }
       }
     },
     {
@@ -4035,12 +4946,47 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public void GetLocalPositionAndRotation(out UnityEngine.Vector3 localPosition, out UnityEngine.Quaternion localRotation);",
       "member": "GetLocalPositionAndRotation",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public pose/rotation/matrix overload against Unity6000.3.27f1. Regular, local/ancestor/double/deep reflections, collapsed parent/middle/child axes, destroyed receivers, applicable null targets, zero axes/directions and explicit Self/World modes. Actual errors, local/world poses and returned values match native outcomes; nullable LookAt is a native no-op. Float tolerance2e-5 relative, quaternion orientations equivalent, Euler differences wrapped modulo360. Identical corpus, generated fixture and actual native SDK/project input hashes are required",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-pose-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-poses-native.json",
+          "caseIndex": 25,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-poses-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-poses-aot-wasm.json",
+          "caseIds": [
+            "p244",
+            "p245",
+            "p246",
+            "p247",
+            "p248",
+            "p249",
+            "p250",
+            "p251",
+            "p252"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:a02d229db3d1c615a60d53d9",
@@ -4138,12 +5084,49 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public void Translate(UnityEngine.Vector3 translation, UnityEngine.Transform relativeTo);",
       "member": "Translate",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public pose/rotation/matrix overload against Unity6000.3.27f1. Regular, local/ancestor/double/deep reflections, collapsed parent/middle/child axes, destroyed receivers, applicable null targets, zero axes/directions and explicit Self/World modes. Actual errors, local/world poses and returned values match native outcomes; nullable LookAt is a native no-op. Float tolerance2e-5 relative, quaternion orientations equivalent, Euler differences wrapped modulo360. Identical corpus, generated fixture and actual native SDK/project input hashes are required",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-pose-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-poses-native.json",
+          "caseIndex": 26,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed",
+            "null"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-poses-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-poses-aot-wasm.json",
+          "caseIds": [
+            "p253",
+            "p254",
+            "p255",
+            "p256",
+            "p257",
+            "p258",
+            "p259",
+            "p260",
+            "p261",
+            "p262"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:a37c29a1673c4c0adcbeb627",
@@ -4258,12 +5241,47 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public UnityEngine.Vector3 localPosition { public get; public set; }",
       "member": "localPosition",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public pose/rotation/matrix overload against Unity6000.3.27f1. Regular, local/ancestor/double/deep reflections, collapsed parent/middle/child axes, destroyed receivers, applicable null targets, zero axes/directions and explicit Self/World modes. Actual errors, local/world poses and returned values match native outcomes; nullable LookAt is a native no-op. Float tolerance2e-5 relative, quaternion orientations equivalent, Euler differences wrapped modulo360. Identical corpus, generated fixture and actual native SDK/project input hashes are required",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-pose-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-poses-native.json",
+          "caseIndex": 27,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-poses-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-poses-aot-wasm.json",
+          "caseIds": [
+            "p263",
+            "p264",
+            "p265",
+            "p266",
+            "p267",
+            "p268",
+            "p269",
+            "p270",
+            "p271"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:ac3ed4d6b2bd0ec4b76e005a",
@@ -4674,12 +5692,51 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public void Translate(UnityEngine.Vector3 translation, UnityEngine.Space relativeTo);",
       "member": "Translate",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public pose/rotation/matrix overload against Unity6000.3.27f1. Regular, local/ancestor/double/deep reflections, collapsed parent/middle/child axes, destroyed receivers, applicable null targets, zero axes/directions and explicit Self/World modes. Actual errors, local/world poses and returned values match native outcomes; nullable LookAt is a native no-op. Float tolerance2e-5 relative, quaternion orientations equivalent, Euler differences wrapped modulo360. Identical corpus, generated fixture and actual native SDK/project input hashes are required",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-pose-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-poses-native.json",
+          "caseIndex": 28,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed",
+            "world",
+            "world-mirrored"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-poses-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-poses-aot-wasm.json",
+          "caseIds": [
+            "p272",
+            "p273",
+            "p274",
+            "p275",
+            "p276",
+            "p277",
+            "p278",
+            "p279",
+            "p280",
+            "p281",
+            "p282"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:b8d62e6bf5959787baf10dfb",
@@ -4945,12 +6002,47 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public UnityEngine.Vector3 localScale { public get; public set; }",
       "member": "localScale",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public pose/rotation/matrix overload against Unity6000.3.27f1. Regular, local/ancestor/double/deep reflections, collapsed parent/middle/child axes, destroyed receivers, applicable null targets, zero axes/directions and explicit Self/World modes. Actual errors, local/world poses and returned values match native outcomes; nullable LookAt is a native no-op. Float tolerance2e-5 relative, quaternion orientations equivalent, Euler differences wrapped modulo360. Identical corpus, generated fixture and actual native SDK/project input hashes are required",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-pose-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-poses-native.json",
+          "caseIndex": 29,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-poses-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-poses-aot-wasm.json",
+          "caseIds": [
+            "p283",
+            "p284",
+            "p285",
+            "p286",
+            "p287",
+            "p288",
+            "p289",
+            "p290",
+            "p291"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:c566f1d711ae904e6885c84e",
@@ -5664,24 +6756,94 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public void Translate(UnityEngine.Vector3 translation);",
       "member": "Translate",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public pose/rotation/matrix overload against Unity6000.3.27f1. Regular, local/ancestor/double/deep reflections, collapsed parent/middle/child axes, destroyed receivers, applicable null targets, zero axes/directions and explicit Self/World modes. Actual errors, local/world poses and returned values match native outcomes; nullable LookAt is a native no-op. Float tolerance2e-5 relative, quaternion orientations equivalent, Euler differences wrapped modulo360. Identical corpus, generated fixture and actual native SDK/project input hashes are required",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-pose-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-poses-native.json",
+          "caseIndex": 30,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-poses-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-poses-aot-wasm.json",
+          "caseIds": [
+            "p292",
+            "p293",
+            "p294",
+            "p295",
+            "p296",
+            "p297",
+            "p298",
+            "p299",
+            "p300"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:e3808095f538aa05d715d89d",
       "owner": "UnityEngine.Transform",
       "declaration": "public UnityEngine.Vector3 eulerAngles { public get; public set; }",
       "member": "eulerAngles",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public pose/rotation/matrix overload against Unity6000.3.27f1. Regular, local/ancestor/double/deep reflections, collapsed parent/middle/child axes, destroyed receivers, applicable null targets, zero axes/directions and explicit Self/World modes. Actual errors, local/world poses and returned values match native outcomes; nullable LookAt is a native no-op. Float tolerance2e-5 relative, quaternion orientations equivalent, Euler differences wrapped modulo360. Identical corpus, generated fixture and actual native SDK/project input hashes are required",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-pose-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-poses-native.json",
+          "caseIndex": 31,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-poses-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-poses-aot-wasm.json",
+          "caseIds": [
+            "p301",
+            "p302",
+            "p303",
+            "p304",
+            "p305",
+            "p306",
+            "p307",
+            "p308",
+            "p309"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:e44c632f7cd8565d5bde6135",
@@ -5810,12 +6972,49 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public UnityEngine.Vector3 forward { public get; public set; }",
       "member": "forward",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public pose/rotation/matrix overload against Unity6000.3.27f1. Regular, local/ancestor/double/deep reflections, collapsed parent/middle/child axes, destroyed receivers, applicable null targets, zero axes/directions and explicit Self/World modes. Actual errors, local/world poses and returned values match native outcomes; nullable LookAt is a native no-op. Float tolerance2e-5 relative, quaternion orientations equivalent, Euler differences wrapped modulo360. Identical corpus, generated fixture and actual native SDK/project input hashes are required",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-pose-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-poses-native.json",
+          "caseIndex": 32,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed",
+            "zero-input"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-poses-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-poses-aot-wasm.json",
+          "caseIds": [
+            "p310",
+            "p311",
+            "p312",
+            "p313",
+            "p314",
+            "p315",
+            "p316",
+            "p317",
+            "p318",
+            "p319"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:e8c14bf1a7cfb21d474379e7",
@@ -6249,12 +7448,47 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public void SetPositionAndRotation(UnityEngine.Vector3 position, UnityEngine.Quaternion rotation);",
       "member": "SetPositionAndRotation",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public pose/rotation/matrix overload against Unity6000.3.27f1. Regular, local/ancestor/double/deep reflections, collapsed parent/middle/child axes, destroyed receivers, applicable null targets, zero axes/directions and explicit Self/World modes. Actual errors, local/world poses and returned values match native outcomes; nullable LookAt is a native no-op. Float tolerance2e-5 relative, quaternion orientations equivalent, Euler differences wrapped modulo360. Identical corpus, generated fixture and actual native SDK/project input hashes are required",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-pose-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-poses-native.json",
+          "caseIndex": 33,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-poses-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-poses-aot-wasm.json",
+          "caseIds": [
+            "p320",
+            "p321",
+            "p322",
+            "p323",
+            "p324",
+            "p325",
+            "p326",
+            "p327",
+            "p328"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:f9cbb2bb3492e8525ecc58fc",
@@ -6365,12 +7599,47 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public void Translate(float x, float y, float z);",
       "member": "Translate",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public pose/rotation/matrix overload against Unity6000.3.27f1. Regular, local/ancestor/double/deep reflections, collapsed parent/middle/child axes, destroyed receivers, applicable null targets, zero axes/directions and explicit Self/World modes. Actual errors, local/world poses and returned values match native outcomes; nullable LookAt is a native no-op. Float tolerance2e-5 relative, quaternion orientations equivalent, Euler differences wrapped modulo360. Identical corpus, generated fixture and actual native SDK/project input hashes are required",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-pose-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-poses-native.json",
+          "caseIndex": 34,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-poses-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-poses-aot-wasm.json",
+          "caseIds": [
+            "p329",
+            "p330",
+            "p331",
+            "p332",
+            "p333",
+            "p334",
+            "p335",
+            "p336",
+            "p337"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:fbc4ff25f053f72719e386ff",
@@ -6389,12 +7658,51 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public void Translate(float x, float y, float z, UnityEngine.Space relativeTo);",
       "member": "Translate",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Exact direct public pose/rotation/matrix overload against Unity6000.3.27f1. Regular, local/ancestor/double/deep reflections, collapsed parent/middle/child axes, destroyed receivers, applicable null targets, zero axes/directions and explicit Self/World modes. Actual errors, local/world poses and returned values match native outcomes; nullable LookAt is a native no-op. Float tolerance2e-5 relative, quaternion orientations equivalent, Euler differences wrapped modulo360. Identical corpus, generated fixture and actual native SDK/project input hashes are required",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-pose-transform-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-poses-native.json",
+          "caseIndex": 35,
+          "profiles": [
+            "regular",
+            "mirrored",
+            "collapsed",
+            "local-mirror",
+            "double-mirror",
+            "deep-mirror",
+            "deep-collapse",
+            "collapsed-child",
+            "destroyed",
+            "world",
+            "world-mirrored"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-poses-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-poses-aot-wasm.json",
+          "caseIds": [
+            "p338",
+            "p339",
+            "p340",
+            "p341",
+            "p342",
+            "p343",
+            "p344",
+            "p345",
+            "p346",
+            "p347",
+            "p348"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:fe170095eca287ca9e7a5ccf",
@@ -6458,7 +7766,7 @@
     },
     "hierarchyReferenceLifecycle": {
       "status": "partial",
-      "reason": "Native740 core+240 vector comparisons; real267 core+208 asset/lifecycle/hierarchy+240 vector checks per Development/AOT pass. Native source-hashed corpora certify17 async,7 hierarchy and24 vector contracts, plus30 obsolete compiler-error contracts.78/311 accepted; remaining233 and required component/cloning/object/message/pose/matrix domains remain open."
+      "reason": "Native740 core+240 vector+348 pose checks;267+208+240+348 per actual Development/AOT mode pass. Native source-hashed corpora certify17 async,7 hierarchy,24 vector and36 pose contracts, plus30 compiler-error contracts.114/311 accepted;197 remain. Hierarchy/enumerator/hasChanged, component/query/message/constructor/clone/object dependencies remain required."
     },
     "regressionAndDependencies": {
       "status": "partial",
@@ -6485,6 +7793,11 @@
     "vectorDevelopmentWasm": "evidence/m20-sdk12-vectors-development-wasm.json",
     "vectorAotWasm": "evidence/m20-sdk12-vectors-aot-wasm.json",
     "vectorNativeReference": "evidence/m20-unity-vector-transform-observations.json",
-    "vectorAcceptance": "evidence/m20-vector-native-acceptance.json"
+    "vectorAcceptance": "evidence/m20-vector-native-acceptance.json",
+    "poseNative": "evidence/m20-sdk12-poses-native.json",
+    "poseDevelopmentWasm": "evidence/m20-sdk12-poses-development-wasm.json",
+    "poseAotWasm": "evidence/m20-sdk12-poses-aot-wasm.json",
+    "poseNativeReference": "evidence/m20-unity-pose-transform-observations.json",
+    "poseAcceptance": "evidence/m20-pose-native-acceptance.json"
   }
 }
