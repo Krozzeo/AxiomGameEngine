@@ -2,8 +2,9 @@ using System;
 using UnityEngine;
 namespace Game {
 public sealed class HierarchyPathLab:MonoBehaviour {
- public int Passed,Failed;public string Report="";private bool complete;
- private void Update(){if(complete)return;complete=true;RunCases((key,value)=>{if(value)Passed++;else Failed++;Report+=key+":"+(value?"pass":"fail")+";";});}
+ public int Passed,Failed;public string Report="";private bool complete,auxComplete;
+ public int AuxiliaryPassed,AuxiliaryFailed;public string AuxiliaryReport="";
+ private void Update(){if(complete){if(!auxComplete){auxComplete=true;HierarchyAuxCorpus.RunCases((key,value)=>{if(value)AuxiliaryPassed++;else AuxiliaryFailed++;AuxiliaryReport+=key+":"+(value?"pass":"fail")+";";});}return;}complete=true;RunCases((key,value)=>{if(value)Passed++;else Failed++;Report+=key+":"+(value?"pass":"fail")+";";});}
  public static void RunCases(Action<string,bool> check){
   var root=new GameObject("PathRoot");var child=new GameObject("PathChild");child.transform.SetParent(root.transform,false);var leaf=new GameObject("PathLeaf");leaf.transform.SetParent(child.transform,false);var other=new GameObject("OtherRoot");
   check("find.leaf",GameObject.Find("PathLeaf")==leaf);

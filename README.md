@@ -1,4 +1,4 @@
-Current review: **0.0.62 / SDK12**. All311 frozen compiled source contracts match. Current native suites740 core+240 vector+348 pose comparisons; real browser267 core+208 asset/lifecycle/hierarchy+240 vector+348 pose checks per Development/effective-AOT mode. Attributed acceptance114/311:84 behavior and30 compile-error obsolete contracts. M20 remains open; source matches and test counts are not full Unity parity.
+Current review: **0.0.62 / SDK12**. All311 frozen compiled source contracts match. Current native suites808 core+240 vector+348 pose comparisons; real browser267 core+271 asset/lifecycle/hierarchy+240 vector+348 pose checks per Development/effective-AOT mode. Attributed acceptance129/311:99 behavior and30 compile-error obsolete contracts. Transform81/81 is accepted within the recorded bounded profiles. M20 remains open; source matches and test counts are not full Unity parity.
 
 # Axiom Game Engine
 

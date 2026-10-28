@@ -3,14 +3,14 @@
   "milestone": "M20",
   "targetRecords": 311,
   "status": "in_progress",
-  "certifiedUnitySignatures": 114,
+  "certifiedUnitySignatures": 129,
   "batch": "0.0.62 / SDK12 / canonical core and dependency profiles, behavior attribution in progress",
   "evidence": {
     "native": "evidence/m20-queries-native-windows.json",
     "developmentWasm": "evidence/m20-queries-development-wasm.json"
   },
   "requiredRemaining": [
-    "Complete attributed canonical positive/negative/lifecycle/reference review for remaining197 of311 frozen records; source matching and broad lab results are insufficient",
+    "Complete attributed canonical positive/negative/lifecycle/reference review for remaining182 of311 frozen records; source matching and broad lab results are insufficient",
     "Finish constructor and degenerate-transform edge attribution and applicable asset-backed clone requirements; implement missing required behavior rather than waiving scope. Persistent-scene ownership/reparent lifecycle are now exercised natively and in Development/AOT. All53 obsolete consumer compiler contracts pass; deprecated runtime attribution remains open.",
     "Finish exact-head native/Wasm/AOT, UI/project/Stop/Undo/dependency regression, CI and public artifact acceptance"
   ],
@@ -349,12 +349,36 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public int childCount { public get; }",
       "member": "childCount",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Direct child count includes inactive children, excludes deeper descendants, updates after detachment and rejects a retired receiver.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-6000.3-play-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-native.json",
+          "caseIds": [
+            "count.initial",
+            "count.direct",
+            "count.dead",
+            "detach.children"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-assets-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-assets-aot-wasm.json",
+          "caseIds": [
+            "count.initial",
+            "count.direct",
+            "count.dead",
+            "detach.children"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:10cb30f83d581b531ca69ad1",
@@ -781,12 +805,32 @@
       "owner": "UnityEngine.Transform",
       "declaration": "protected UnityEngine.Transform();",
       "member": ".ctor",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Protected default constructor is callable from a derived class and creates an unbound null-like object with retained managed reference and zero native identity.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-6000.3-play-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-native.json",
+          "caseIds": [
+            "constructor.protected",
+            "constructor.unbound"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-assets-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-assets-aot-wasm.json",
+          "caseIds": [
+            "constructor.protected",
+            "constructor.unbound"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:1c03bc7126462d7bb9d63c6c",
@@ -1749,17 +1793,41 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public UnityEngine.Transform FindChild(string n);",
       "member": "FindChild",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "compilerObservation": {
         "passed": true,
         "expectedDiagnostic": "CS0618",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "Deprecated path lookup includes inactive descendants, returns null when absent, and preserves exact null-input and retired-receiver exceptions.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-6000.3-play-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-native.json",
+          "caseIds": [
+            "find-child.path",
+            "find-child.missing",
+            "find-child.null",
+            "find-child.dead"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-assets-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-assets-aot-wasm.json",
+          "caseIds": [
+            "find-child.path",
+            "find-child.missing",
+            "find-child.null",
+            "find-child.dead"
+          ]
+        }
       }
     },
     {
@@ -2005,12 +2073,32 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public void SetAsLastSibling();",
       "member": "SetAsLastSibling",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Moves the live child to the last index and rejects retired receivers.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-6000.3-play-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-native.json",
+          "caseIds": [
+            "sibling.last",
+            "sibling.last-dead"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-assets-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-assets-aot-wasm.json",
+          "caseIds": [
+            "sibling.last",
+            "sibling.last-dead"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:3c4f0541d0d0ed31c5f18a25",
@@ -2118,29 +2206,71 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public void SetAsFirstSibling();",
       "member": "SetAsFirstSibling",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Moves the live child to index zero and rejects retired receivers.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-6000.3-play-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-native.json",
+          "caseIds": [
+            "sibling.first",
+            "sibling.first-dead"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-assets-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-assets-aot-wasm.json",
+          "caseIds": [
+            "sibling.first",
+            "sibling.first-dead"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:4157039e7c1a32de1d351220",
       "owner": "UnityEngine.Transform",
       "declaration": "public int GetChildCount();",
       "member": "GetChildCount",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature.",
       "compilerObservation": {
         "passed": true,
         "expectedDiagnostic": "CS0618",
         "evidence": "evidence/m20-sdk12-obsolete-compile.json",
         "runtimeBehaviorCertified": false
+      },
+      "acceptance": {
+        "contract": "Deprecated runtime alias returns direct child count and the native destroyed-receiver exception.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-6000.3-play-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-native.json",
+          "caseIds": [
+            "count.initial",
+            "count.direct",
+            "count.old-dead"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-assets-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-assets-aot-wasm.json",
+          "caseIds": [
+            "count.initial",
+            "count.direct",
+            "count.old-dead"
+          ]
+        }
       }
     },
     {
@@ -4078,12 +4208,36 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public int hierarchyCount { public get; }",
       "member": "hierarchyCount",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Whole-root hierarchy count is shared by descendants, includes inactive objects, updates after detach and rejects retired handles.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-6000.3-play-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-native.json",
+          "caseIds": [
+            "count.initial",
+            "count.shared",
+            "detach.count",
+            "hierarchy.dead"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-assets-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-assets-aot-wasm.json",
+          "caseIds": [
+            "count.initial",
+            "count.shared",
+            "detach.count",
+            "hierarchy.dead"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:88b75bd6422ff471910d3c68",
@@ -4104,12 +4258,42 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public int GetSiblingIndex();",
       "member": "GetSiblingIndex",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Immediate sibling indices track order and native clamps; reassigning the same parent retains order and flags, retired handles reject.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-6000.3-play-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-native.json",
+          "caseIds": [
+            "sibling.initial",
+            "sibling.high",
+            "sibling.low",
+            "sibling.first",
+            "sibling.last",
+            "sibling.same-parent",
+            "sibling.dead"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-assets-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-assets-aot-wasm.json",
+          "caseIds": [
+            "sibling.initial",
+            "sibling.high",
+            "sibling.low",
+            "sibling.first",
+            "sibling.last",
+            "sibling.same-parent",
+            "sibling.dead"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:89d50c8560222ea1c2a57596",
@@ -4993,24 +5177,78 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public class UnityEngine.Transform",
       "member": "Transform",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Public nonsealed nonabstract Transform derives from Component and implements IEnumerable, with the exact compiled source contract.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-6000.3-play-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-native.json",
+          "caseIds": [
+            "type.base",
+            "type.enumerable",
+            "type.visibility"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-assets-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-assets-aot-wasm.json",
+          "caseIds": [
+            "type.base",
+            "type.enumerable",
+            "type.visibility"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:a0f85420198049908fb56ddd",
       "owner": "UnityEngine.Transform",
       "declaration": "public int hierarchyCapacity { public get; public set; }",
       "member": "hierarchyCapacity",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Root-shared reserved capacity starts at one, grows on attachment, accepts explicit reservation and clamps nonpositive requests to count; detached trees receive independent capacity and retired receivers reject. Allocation remains within the Engine bounded profile.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-6000.3-play-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-native.json",
+          "caseIds": [
+            "capacity.initial",
+            "capacity.first-parent",
+            "capacity.shared",
+            "capacity.minimum",
+            "capacity.negative",
+            "capacity.live-grow",
+            "detach.capacity",
+            "capacity.dead"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-assets-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-assets-aot-wasm.json",
+          "caseIds": [
+            "capacity.initial",
+            "capacity.first-parent",
+            "capacity.shared",
+            "capacity.minimum",
+            "capacity.negative",
+            "capacity.live-grow",
+            "detach.capacity",
+            "capacity.dead"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:a240347b742d29805dd5da8b",
@@ -5288,12 +5526,54 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public bool hasChanged { public get; public set; }",
       "member": "hasChanged",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "New transforms start changed; explicit reset/set, unchanged assignments, changed local values and ancestor updates follow native flags. Retired handles reject. Separate input regressions preserve resets across unchanged frames and detect external pose input.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-6000.3-play-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-native.json",
+          "caseIds": [
+            "changed.initial",
+            "changed.reset",
+            "changed.same-world-position",
+            "changed.same-local-position",
+            "changed.same-world-rotation",
+            "changed.same-local-rotation",
+            "changed.same-scale",
+            "changed.same-world-pose",
+            "changed.same-local-pose",
+            "changed.explicit",
+            "changed.local",
+            "changed.ancestor",
+            "changed.dead"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-assets-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-assets-aot-wasm.json",
+          "caseIds": [
+            "changed.initial",
+            "changed.reset",
+            "changed.same-world-position",
+            "changed.same-local-position",
+            "changed.same-world-rotation",
+            "changed.same-local-rotation",
+            "changed.same-scale",
+            "changed.same-world-pose",
+            "changed.same-local-pose",
+            "changed.explicit",
+            "changed.local",
+            "changed.ancestor",
+            "changed.dead"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:ad04d199de32b960f457ca71",
@@ -5461,12 +5741,46 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public System.Collections.IEnumerator GetEnumerator();",
       "member": "GetEnumerator",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Live immediate-child enumeration sees later additions, preserves order/reset, and exposes exact UnityException bounds plus MissingReferenceException after retirement.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-6000.3-play-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-native.json",
+          "caseIds": [
+            "enumerator.before",
+            "enumerator.first",
+            "enumerator.second",
+            "enumerator.live",
+            "enumerator.end",
+            "enumerator.after",
+            "enumerator.reset",
+            "enumerator.dead-move",
+            "enumerator.dead-current"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-assets-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-assets-aot-wasm.json",
+          "caseIds": [
+            "enumerator.before",
+            "enumerator.first",
+            "enumerator.second",
+            "enumerator.live",
+            "enumerator.end",
+            "enumerator.after",
+            "enumerator.reset",
+            "enumerator.dead-move",
+            "enumerator.dead-current"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:b3c05263c170916f3288c281",
@@ -5485,12 +5799,36 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public UnityEngine.Transform root { public get; }",
       "member": "root",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Root identity follows live ancestry, updates on detach and rejects retired handles.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-6000.3-play-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-native.json",
+          "caseIds": [
+            "root.self",
+            "root.descendant",
+            "detach.root",
+            "root.dead"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-assets-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-assets-aot-wasm.json",
+          "caseIds": [
+            "root.self",
+            "root.descendant",
+            "detach.root",
+            "root.dead"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:b42a511bac0564b032adfe8e",
@@ -7263,12 +7601,40 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public void DetachChildren();",
       "member": "DetachChildren",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Detaches immediate children while preserving world poses and nested ancestry, updates independent hierarchy counts/capacity, and rejects retired receivers.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-6000.3-play-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-native.json",
+          "caseIds": [
+            "detach.children",
+            "detach.world",
+            "detach.root",
+            "detach.count",
+            "detach.capacity",
+            "detach.dead"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-assets-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-assets-aot-wasm.json",
+          "caseIds": [
+            "detach.children",
+            "detach.world",
+            "detach.root",
+            "detach.count",
+            "detach.capacity",
+            "detach.dead"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:ef58bb185421374f623c36c7",
@@ -7575,12 +7941,34 @@
       "owner": "UnityEngine.Transform",
       "declaration": "public void SetSiblingIndex(int index);",
       "member": "SetSiblingIndex",
-      "status": "pending",
-      "unitySourceCertified": false,
-      "unityBehaviorSignatureCertified": false,
+      "status": "certified-behavior",
+      "unitySourceCertified": true,
+      "unityBehaviorSignatureCertified": true,
       "sourceContractMatched": true,
       "sourceEvidence": "evidence/m20-sdk12-source.json",
-      "remaining": "Exact compiled public source contract matches the frozen target. Per-overload positive, negative, lifecycle and dependency acceptance still requires attributed review; broad lab results alone do not certify this signature."
+      "acceptance": {
+        "contract": "Large and negative indices place at the end under the observed native rules; retired receivers reject.",
+        "native": {
+          "passed": true,
+          "evidence": "evidence/m20-unity-6000.3-play-observations.json",
+          "ownedEvidence": "evidence/m20-sdk12-native.json",
+          "caseIds": [
+            "sibling.high",
+            "sibling.low",
+            "sibling.set-dead"
+          ]
+        },
+        "wasm": {
+          "passed": true,
+          "evidence": "evidence/m20-sdk12-assets-development-wasm.json",
+          "aotEvidence": "evidence/m20-sdk12-assets-aot-wasm.json",
+          "caseIds": [
+            "sibling.high",
+            "sibling.low",
+            "sibling.set-dead"
+          ]
+        }
+      }
     },
     {
       "id": "unity63abi:fa73939f583219eca7f12643",
@@ -7766,7 +8154,7 @@
     },
     "hierarchyReferenceLifecycle": {
       "status": "partial",
-      "reason": "Native740 core+240 vector+348 pose checks;267+208+240+348 per actual Development/AOT mode pass. Native source-hashed corpora certify17 async,7 hierarchy,24 vector and36 pose contracts, plus30 compiler-error contracts.114/311 accepted;197 remain. Hierarchy/enumerator/hasChanged, component/query/message/constructor/clone/object dependencies remain required."
+      "reason": "Transform81/81 accepted across attributed bounded native/Wasm profiles. Core808+240 vectors+348 poses;267+271+240+348 per actual Development/AOT mode pass.129/311 accepted (99 behavior,30 compiler-error contracts); remaining182 Object/Component/GameObject contracts and required dependencies stay open."
     },
     "regressionAndDependencies": {
       "status": "partial",
@@ -7798,6 +8186,7 @@
     "poseDevelopmentWasm": "evidence/m20-sdk12-poses-development-wasm.json",
     "poseAotWasm": "evidence/m20-sdk12-poses-aot-wasm.json",
     "poseNativeReference": "evidence/m20-unity-pose-transform-observations.json",
-    "poseAcceptance": "evidence/m20-pose-native-acceptance.json"
+    "poseAcceptance": "evidence/m20-pose-native-acceptance.json",
+    "transformAuxAcceptance": "evidence/m20-transform-aux-native-acceptance.json"
   }
 }

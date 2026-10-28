@@ -295,6 +295,7 @@ internal static partial class Context {
   Add(new("log","",null,default,message));Logs++;
  }
  internal static void Load(JsonElement value) {
+  var previousTransforms=new Dictionary<string,Transform>(Entities);var previousParents=new Dictionary<string,string?>(Parents);
   if(value.TryGetProperty("runtimeMetrics",out var metrics))RuntimeStats.Data=metrics.Clone();if(value.TryGetProperty("platform",out var platform))Application.Data=platform.Clone();
   Input.Load(value,value.GetProperty("action").GetString() is "start" or "frame" or "step");
   if(value.GetProperty("action").GetString() is "frame" or "step" or "start"){PreviousKeys.Clear();PreviousKeys.UnionWith(Keys);}Keys.Clear();MouseDelta=new(0,0);Operations.Clear();Logs=0;
@@ -313,7 +314,7 @@ internal static partial class Context {
    Entities.Add(id,Transform.Read(e.GetProperty("transform")));
   }
   }
-  if(reuse.ValueKind!=JsonValueKind.True)TransformGraph.Load();if(value.TryGetProperty("mouseDelta",out var mouse)){var x=mouse[0].GetDouble();var y=mouse[1].GetDouble();if(!double.IsFinite(x)||!double.IsFinite(y)||Math.Abs(x)>10000||Math.Abs(y)>10000)throw new ArgumentException("Invalid mouse delta");MouseDelta=new(x,y);}
+  if(reuse.ValueKind!=JsonValueKind.True)TransformGraph.Load(previousTransforms,previousParents,value.GetProperty("action").GetString()=="start");if(value.TryGetProperty("mouseDelta",out var mouse)){var x=mouse[0].GetDouble();var y=mouse[1].GetDouble();if(!double.IsFinite(x)||!double.IsFinite(y)||Math.Abs(x)>10000||Math.Abs(y)>10000)throw new ArgumentException("Invalid mouse delta");MouseDelta=new(x,y);}
   foreach(var key in value.GetProperty("keys").EnumerateArray()) {if(Keys.Count>=64)throw new ArgumentException("Input limit exceeded");Keys.Add(key.GetString()!);}
   if(value.GetProperty("action").GetString()=="start")foreach(var id in Entities.Keys)new GameObject(new Entity(id,Generation)).AllComponents();Networking.UnityWebRequest.Load(value);
  }

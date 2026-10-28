@@ -8,12 +8,19 @@ internal static class TransformGraph {
  internal static void Reset(){Locals.Clear();Changed.Clear();Capacities.Clear();}
  internal static void Seed(Entity entity,Transform local){Locals[entity]=local;Changed.Add(entity);}
  internal static void Forget(string id){foreach(var key in Locals.Keys.Where(e=>e.Id==id).ToArray())Locals.Remove(key);Changed.RemoveWhere(e=>e.Id==id);foreach(var key in Capacities.Keys.Where(e=>e.Id==id).ToArray())Capacities.Remove(key);}
+ internal static Entity RootOf(Entity entity){_=Context.Read(entity);while(Context.Parents.GetValueOrDefault(entity.Id) is string parent)entity=new(parent,Context.Generation);return entity;}
  internal static int Count(Entity root){_=Context.Read(root);var ids=new HashSet<string>{root.Id};var changed=true;while(changed){changed=false;foreach(var entry in Context.Parents)if(entry.Value!=null&&ids.Contains(entry.Value)&&ids.Add(entry.Key))changed=true;}return ids.Count;}
  internal static int Capacity(Entity root){var count=Count(root);return Math.Max(count,Capacities.GetValueOrDefault(root,count));}
- internal static void SetCapacity(Entity root,int capacity){if(capacity<0||capacity>Limits.Entities)throw new ArgumentOutOfRangeException(nameof(capacity));capacity=Math.Max(capacity,Count(root));Locals.EnsureCapacity(Math.Max(Locals.Count,capacity));Capacities[root]=capacity;}
- internal static void Load(){
-  Locals.Clear();Changed.RemoveWhere(e=>e.Generation!=Context.Generation||!Context.Entities.ContainsKey(e.Id));
+ internal static void SetCapacity(Entity root,int capacity){if(capacity>Limits.Entities)throw new ArgumentOutOfRangeException(nameof(capacity));capacity=Math.Max(capacity,Count(root));Locals.EnsureCapacity(Math.Max(Locals.Count,capacity));Capacities[root]=capacity;}
+ internal static void Load(Dictionary<string,Transform> previous,Dictionary<string,string?> previousParents,bool initial){
+  var previousLocals=new Dictionary<Entity,Transform>(Locals);Locals.Clear();Changed.RemoveWhere(e=>e.Generation!=Context.Generation||!Context.Entities.ContainsKey(e.Id));
   foreach(var (id,data) in Context.EntityData)if(data.TryGetProperty("runtimeLocalTransform",out var local))Locals[new(id,Context.Generation)]=Transform.Read(local);
+  static bool V(Vector3 a,Vector3 b)=>(float)a.X==(float)b.X&&(float)a.Y==(float)b.Y&&(float)a.Z==(float)b.Z;
+  static bool Q(Quaternion a,Quaternion b)=>(float)a.X==(float)b.X&&(float)a.Y==(float)b.Y&&(float)a.Z==(float)b.Z&&(float)a.W==(float)b.W;
+  static bool Same(Transform a,Transform b)=>V(a.Position,b.Position)&&Q(a.Rotation,b.Rotation)&&V(a.Scale,b.Scale);
+  var incomingChanges=new HashSet<string>();foreach(var (id,pose) in Context.Entities){var entity=new Entity(id,Context.Generation);if(initial||!previous.TryGetValue(id,out var old)||!Same(old,pose)||previousParents.GetValueOrDefault(id)!=Context.Parents.GetValueOrDefault(id)||previousLocals.TryGetValue(entity,out var oldLocal)&&Locals.TryGetValue(entity,out var nextLocal)&&!Same(oldLocal,nextLocal))incomingChanges.Add(id);}
+  var changed=true;while(changed){changed=false;foreach(var (id,parent) in Context.Parents)if(parent!=null&&incomingChanges.Contains(parent)&&incomingChanges.Add(id))changed=true;}foreach(var id in incomingChanges)Changed.Add(new Entity(id,Context.Generation));
+
  }
  internal static Transform Local(Entity entity){
   var world=Context.Read(entity);if(Locals.TryGetValue(entity,out var local))return local;
@@ -47,10 +54,13 @@ internal static class TransformGraph {
  internal static void Parent(Entity entity,Transform? parent,bool keepWorld){
   var old=Context.Read(entity);if(!ReferenceEquals(parent,null))_=Context.Read(parent.Entity);var id=parent?.Entity.Id;
   for(var current=id;current!=null;current=Context.Parents.GetValueOrDefault(current))if(current==entity.Id)throw new ArgumentException("Hierarchy cycle");
+  var oldRoot=RootOf(entity);var destinationRoot=parent==null?entity:RootOf(parent.Entity);var previousCapacity=parent==null?0:Capacity(destinationRoot);var subtreeCount=Count(entity);
   var local=keepWorld?Relative(entity,old.Position,old.Rotation,old.Scale,id):Local(entity);
-  Apply(entity,local,id,true,0,!keepWorld,!keepWorld,!keepWorld);
+  void CapacityCommitted(){if(oldRoot==entity&&parent!=null)Capacities.Remove(entity);if(parent==null){if(oldRoot!=entity)Capacities[entity]=subtreeCount;}else{var required=Count(destinationRoot);var capacity=previousCapacity;while(capacity<required)capacity=checked(capacity*2+2);Capacities[destinationRoot]=capacity;Locals.EnsureCapacity(Math.Max(Locals.Count,capacity));}}
+  Apply(entity,local,id,true,0,!keepWorld,!keepWorld,!keepWorld,CapacityCommitted);
+
  }
- private static void Apply(Entity entity,Transform target,string? parent,bool reparent,int reserve,bool forcePosition,bool forceRotation,bool forceScale){
+ private static void Apply(Entity entity,Transform target,string? parent,bool reparent,int reserve,bool forcePosition,bool forceRotation,bool forceScale,Action? committed=null){
   Validate(target.Position);Validate(target.Scale);target=new(target.Position,TransformMath.Normalize(target.Rotation),target.Scale);
   var handles=new List<Entity>{entity};for(var i=0;i<handles.Count;i++)handles.AddRange(Context.Parents.Where(pair=>pair.Value==handles[i].Id).Select(pair=>new Entity(pair.Key,Context.Generation)));
   foreach(var handle in handles)_=Local(handle);
@@ -72,7 +82,7 @@ internal static class TransformGraph {
   if(Context.Operations.Count+operations.Count+reserve+(reparent?1:0)>Limits.Operations)throw new InvalidOperationException($"AX_SCRIPT_0003: operation limit exceeded (existing={Context.Operations.Count}, requested={operations.Count+reserve+(reparent?1:0)}, subtree={handles.Count})");
   Locals[entity]=target;if(reparent){Context.Parents[entity.Id]=parent;Context.Operations.Add(new("parent",entity.Id,null,default,null,Name:parent,Data:parentState));}
   Context.Operations.AddRange(operations);foreach(var handle in handles){Context.Entities[handle.Id]=poses[handle.Id];Changed.Add(handle);}
-  if(reparent){SceneManagement.SceneManager.Reparented(entity,parent);RuntimeLifecycle.Activation();}
+  committed?.Invoke();if(reparent){SceneManagement.SceneManager.Reparented(entity,parent);RuntimeLifecycle.Activation();}
  }
  private static string State(Affine matrix,Transform local){using var stream=new MemoryStream();using(var writer=new Utf8JsonWriter(stream)){writer.WriteStartObject();writer.WriteStartObject("transformState");writer.WriteStartArray("matrix");foreach(var value in matrix.M)writer.WriteNumberValue(value);writer.WriteEndArray();writer.WriteStartObject("local");writer.WritePropertyName("position");local.Position.Write(writer);writer.WriteStartArray("rotation");writer.WriteNumberValue(local.Rotation.X);writer.WriteNumberValue(local.Rotation.Y);writer.WriteNumberValue(local.Rotation.Z);writer.WriteNumberValue(local.Rotation.W);writer.WriteEndArray();writer.WritePropertyName("scale");local.Scale.Write(writer);writer.WriteEndObject();writer.WriteEndObject();writer.WriteEndObject();}return System.Text.Encoding.UTF8.GetString(stream.ToArray());}
 }

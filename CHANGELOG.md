@@ -1,5 +1,7 @@
 # 0.0.62 — Canonical M20 core and dependency profiles (in progress)
 
+- Complete recorded acceptance for all81 Transform contracts. Add63 native/Wasm hierarchy cases, live enumeration, root-shared capacity/growth, no-op assignments and change flags across external input frames.129/311 M20 contracts accepted; other areas remain open.
+
 - Add36 directly attributed pose/rotation/matrix contracts through348 native/.NET/Development/AOT cases. Match reflected translations/axis rotations, collapsed-coordinate setters and inverse matrices, zero directions and null LookAt behavior. Add Pose Transforms Lab;114/311 contracts accepted.
 
 - Add24 directly attributed vector/span contracts through240 native Unity/.NET/Development/AOT comparisons. Correct ancestor reflections, collapsed-axis inverse queries and exact span-length errors. Add the editable Vector Transforms Lab;78/311 contracts accepted.

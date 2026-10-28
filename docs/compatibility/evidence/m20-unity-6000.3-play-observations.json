@@ -237,6 +237,258 @@
             "value": "0.5,2,3"
         },
         {
+            "key": "hierarchy-aux.type.base",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.type.enumerable",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.type.visibility",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.constructor.protected",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.constructor.unbound",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.changed.initial",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.capacity.initial",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.count.initial",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.root.self",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.changed.reset",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.changed.same-world-position",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.changed.same-local-position",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.changed.same-world-rotation",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.changed.same-local-rotation",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.changed.same-scale",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.changed.same-world-pose",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.changed.same-local-pose",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.changed.explicit",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.capacity.first-parent",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.count.direct",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.count.shared",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.root.descendant",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.find-child.path",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.find-child.missing",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.find-child.null",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.capacity.shared",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.capacity.minimum",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.capacity.negative",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.sibling.initial",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.sibling.high",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.sibling.low",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.sibling.first",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.sibling.last",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.sibling.same-parent",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.changed.local",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.changed.ancestor",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.enumerator.before",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.enumerator.first",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.enumerator.second",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.enumerator.live",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.enumerator.end",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.enumerator.after",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.enumerator.reset",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.capacity.live-grow",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.detach.children",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.detach.world",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.detach.root",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.detach.count",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.detach.capacity",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.enumerator.dead-move",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.enumerator.dead-current",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.count.dead",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.count.old-dead",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.hierarchy.dead",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.capacity.dead",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.root.dead",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.find-child.dead",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.sibling.dead",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.sibling.set-dead",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.sibling.first-dead",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.sibling.last-dead",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.detach.dead",
+            "value": "True"
+        },
+        {
+            "key": "hierarchy-aux.changed.dead",
+            "value": "True"
+        },
+        {
             "key": "hierarchy.find.leaf",
             "value": "True"
         },
@@ -892,7 +1144,11 @@
         },
         {
             "key": "HierarchyPathLab.cs",
-            "value": "ad1c64e239d94ff5ecf06e984842bc25a5f37889df18e4e8f59f94b363ec4946"
+            "value": "68d1f9d79b251e234e0a1655d234d5a61a724d617dabbc44bbf0ba10ed261660"
+        },
+        {
+            "key": "HierarchyAuxCorpus.cs",
+            "value": "409825b1a61eeef55007da5a3af58fe407bce95427edb31a9f6d3a5bd0dce73e"
         }
     ]
 }
