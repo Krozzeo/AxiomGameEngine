@@ -1,5 +1,8 @@
 # 0.0.62 — Canonical M20 core and dependency profiles (in progress)
 
+- Make generated reference fixtures portable across operating systems by fixing the nonsemantic gzip OS header byte; preserve all recorded outcomes and fixture contents.
+- Add the portable77-case Object Contracts Lab and29 attributed native/Development/AOT contracts (158/311 accepted). Match native unbound/destroyed property exceptions, null names, generic component-slot casts and destroyed-owner index validation. M20 remains open.
+
 - Complete recorded acceptance for all81 Transform contracts. Add63 native/Wasm hierarchy cases, live enumeration, root-shared capacity/growth, no-op assignments and change flags across external input frames.129/311 M20 contracts accepted; other areas remain open.
 
 - Add36 directly attributed pose/rotation/matrix contracts through348 native/.NET/Development/AOT cases. Match reflected translations/axis rotations, collapsed-coordinate setters and inverse matrices, zero directions and null LookAt behavior. Add Pose Transforms Lab;114/311 contracts accepted.

@@ -5,7 +5,8 @@ import {gzipSync} from 'node:zlib';
 const root=new URL('../../',import.meta.url),path='docs/compatibility/evidence/m20-unity-vector-transform-observations.json',raw=await readFile(new URL(path,root)),native=JSON.parse(raw),catalog=JSON.parse(await readFile(new URL('docs/compatibility/evidence/m20-vector-transform-cases.json',root),'utf8')),hash=bytes=>createHash('sha256').update(bytes).digest('hex');
 assert(!native.error);assert.equal(native.unityVersion,'6000.3.27f1');assert.equal(native.coreAssemblySha256,'42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737');assert.equal(native.sourceSha256,hash(await readFile(new URL('demos/scripts/VectorTransformCorpus.cs',root))));
 const keys=catalog.records.flatMap(row=>row.profiles.map(profile=>row.index+'.'+profile));assert.equal(native.rows.length,catalog.expectedObservations);assert.deepEqual(native.rows.map(row=>row.index+'.'+row.profile).sort(),keys.sort());
-const data=gzipSync(Buffer.from(native.rows.map(row=>row.index+'.'+row.profile+'|'+row.error+'|'+row.data).join('\n'))).toString('base64');
+// Freeze the transport-only gzip OS byte to the existing fixture value. Native outcomes and compressed payload stay identical across Windows/Linux/macOS.
+const packed=gzipSync(Buffer.from(native.rows.map(row=>row.index+'.'+row.profile+'|'+row.error+'|'+row.data).join('\n')));packed[9]=10;const data=packed.toString('base64');
 const source=`using System;
 using System.Collections.Generic;
 using System.IO;

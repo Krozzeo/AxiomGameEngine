@@ -1,1154 +1,1466 @@
 {
-    "unityVersion": "6000.3.27f1",
-    "coreAssemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737",
-    "profile": "Native Play mode: attributed synchronous/async clone and lifecycle observations; unrelated API areas are not certified",
-    "error": "",
-    "facts": [
-        {
-            "key": "isPlaying",
-            "value": "True"
-        },
-        {
-            "key": "source.position",
-            "value": "1.32696748,-0.5176381,0.9659259"
-        },
-        {
-            "key": "source.rotation",
-            "value": "0.2520295,0.0323816836,-0.2561046,0.9326538"
-        },
-        {
-            "key": "source.local-rotation",
-            "value": "0.2796519,0.248740152,0.299271345,0.877701461"
-        },
-        {
-            "key": "source.lossy-scale",
-            "value": "-0.742995143,2.29833245,4.09453058"
-        },
-        {
-            "key": "generic.position",
-            "value": "1,0,0"
-        },
-        {
-            "key": "generic.rotation",
-            "value": "0.2796519,0.248740152,0.299271345,0.877701461"
-        },
-        {
-            "key": "generic.scale",
-            "value": "0.5,2,3"
-        },
-        {
-            "key": "untyped.position",
-            "value": "1,0,0"
-        },
-        {
-            "key": "untyped.rotation",
-            "value": "0.2796519,0.248740152,0.299271345,0.877701461"
-        },
-        {
-            "key": "untyped.scale",
-            "value": "0.5,2,3"
-        },
-        {
-            "key": "parameters-default.position",
-            "value": "1,0,0"
-        },
-        {
-            "key": "parameters-default.rotation",
-            "value": "0.2796519,0.248740152,0.299271345,0.877701461"
-        },
-        {
-            "key": "parameters-default.scale",
-            "value": "0.5,2,3"
-        },
-        {
-            "key": "parameters-world.position",
-            "value": "1.32696748,-0.5176381,0.9659259"
-        },
-        {
-            "key": "parameters-world.rotation",
-            "value": "0.2520295,0.0323816836,-0.2561046,0.9326538"
-        },
-        {
-            "key": "parameters-world.scale",
-            "value": "-0.742995143,2.29833245,4.09453058"
-        },
-        {
-            "key": "parent-null-world.position",
-            "value": "1,0,0"
-        },
-        {
-            "key": "parent-null-world.rotation",
-            "value": "0.2796519,0.248740152,0.299271345,0.877701461"
-        },
-        {
-            "key": "parent-null-world.scale",
-            "value": "0.5,2,3"
-        },
-        {
-            "key": "explicit-pose.position",
-            "value": "8,2,1"
-        },
-        {
-            "key": "explicit-pose.rotation",
-            "value": "0,0,0,1"
-        },
-        {
-            "key": "explicit-pose.scale",
-            "value": "0.5,2,3"
-        },
-        {
-            "key": "parameters-explicit-world.position",
-            "value": "8,2,1"
-        },
-        {
-            "key": "parameters-explicit-world.rotation",
-            "value": "0,0,0,1"
-        },
-        {
-            "key": "parameters-explicit-world.scale",
-            "value": "0.5,2,3"
-        },
-        {
-            "key": "parameters-explicit-local.position",
-            "value": "8,2,1"
-        },
-        {
-            "key": "parameters-explicit-local.rotation",
-            "value": "0,0,0,1"
-        },
-        {
-            "key": "parameters-explicit-local.scale",
-            "value": "0.5,2,3"
-        },
-        {
-            "key": "destination-scene.position",
-            "value": "1,0,0"
-        },
-        {
-            "key": "destination-scene.rotation",
-            "value": "0.2796519,0.248740152,0.299271345,0.877701461"
-        },
-        {
-            "key": "destination-scene.scale",
-            "value": "0.5,2,3"
-        },
-        {
-            "key": "parent-world.position",
-            "value": "1.32696724,-0.5176381,0.9659259"
-        },
-        {
-            "key": "parent-world.rotation",
-            "value": "0.2520295,0.0323816836,-0.2561046,0.9326538"
-        },
-        {
-            "key": "parent-world.scale",
-            "value": "-0.263191044,0.8655172,1.16271353"
-        },
-        {
-            "key": "parent-local.position",
-            "value": "13,0,0"
-        },
-        {
-            "key": "parent-local.rotation",
-            "value": "0.2796519,0.248740152,0.299271345,0.877701461"
-        },
-        {
-            "key": "parent-local.scale",
-            "value": "0.5,2,3"
-        },
-        {
-            "key": "pose-parent.position",
-            "value": "8,2,1"
-        },
-        {
-            "key": "pose-parent.rotation",
-            "value": "0,0,0,1"
-        },
-        {
-            "key": "pose-parent.scale",
-            "value": "0.5,2,3"
-        },
-        {
-            "key": "generic-parent.position",
-            "value": "13,0,0"
-        },
-        {
-            "key": "generic-parent.rotation",
-            "value": "0.2796519,0.248740152,0.299271345,0.877701461"
-        },
-        {
-            "key": "generic-parent.scale",
-            "value": "0.5,2,3"
-        },
-        {
-            "key": "untyped-parent.position",
-            "value": "13,0,0"
-        },
-        {
-            "key": "untyped-parent.rotation",
-            "value": "0.2796519,0.248740152,0.299271345,0.877701461"
-        },
-        {
-            "key": "untyped-parent.scale",
-            "value": "0.5,2,3"
-        },
-        {
-            "key": "untyped-parent-world.position",
-            "value": "1.32696724,-0.5176381,0.9659259"
-        },
-        {
-            "key": "untyped-parent-world.rotation",
-            "value": "0.2520295,0.0323816836,-0.2561046,0.9326538"
-        },
-        {
-            "key": "untyped-parent-world.scale",
-            "value": "-0.263191044,0.8655172,1.16271353"
-        },
-        {
-            "key": "untyped-pose.position",
-            "value": "8,2,1"
-        },
-        {
-            "key": "untyped-pose.rotation",
-            "value": "0,0,0,1"
-        },
-        {
-            "key": "untyped-pose.scale",
-            "value": "0.5,2,3"
-        },
-        {
-            "key": "untyped-pose-parent.position",
-            "value": "8,2,1"
-        },
-        {
-            "key": "untyped-pose-parent.rotation",
-            "value": "0,0,0,1"
-        },
-        {
-            "key": "untyped-pose-parent.scale",
-            "value": "0.5,2,3"
-        },
-        {
-            "key": "setter.rotation-local-scale",
-            "value": "0.5,2,3"
-        },
-        {
-            "key": "setter.pose-local-scale",
-            "value": "0.5,2,3"
-        },
-        {
-            "key": "hierarchy-aux.type.base",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.type.enumerable",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.type.visibility",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.constructor.protected",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.constructor.unbound",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.changed.initial",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.capacity.initial",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.count.initial",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.root.self",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.changed.reset",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.changed.same-world-position",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.changed.same-local-position",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.changed.same-world-rotation",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.changed.same-local-rotation",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.changed.same-scale",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.changed.same-world-pose",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.changed.same-local-pose",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.changed.explicit",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.capacity.first-parent",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.count.direct",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.count.shared",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.root.descendant",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.find-child.path",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.find-child.missing",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.find-child.null",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.capacity.shared",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.capacity.minimum",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.capacity.negative",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.sibling.initial",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.sibling.high",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.sibling.low",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.sibling.first",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.sibling.last",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.sibling.same-parent",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.changed.local",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.changed.ancestor",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.enumerator.before",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.enumerator.first",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.enumerator.second",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.enumerator.live",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.enumerator.end",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.enumerator.after",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.enumerator.reset",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.capacity.live-grow",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.detach.children",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.detach.world",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.detach.root",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.detach.count",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.detach.capacity",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.enumerator.dead-move",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.enumerator.dead-current",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.count.dead",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.count.old-dead",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.hierarchy.dead",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.capacity.dead",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.root.dead",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.find-child.dead",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.sibling.dead",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.sibling.set-dead",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.sibling.first-dead",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.sibling.last-dead",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.detach.dead",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy-aux.changed.dead",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.find.leaf",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.find.relative",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.find.absolute",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.find.suffix",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.find.wrong-root",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.find.double-slash",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.find.empty",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.find.null",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.find.missing",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.transform.find-path",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.transform.find-missing",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.transform.find-null",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.child.valid",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.child.negative",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.child.outside",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.is-child.self",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.is-child.descendant",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.is-child.foreign",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.is-child.null",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.find.inactive",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.transform.find-inactive",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.add-transform.duplicate",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.query.type-null",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.query.types-null",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.query.type-invalid",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.query.types-invalid",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.query.generic-invalid",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.query.generics-invalid",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.query.list-null",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.query.children-list-null",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.query.parent-list-null",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.query.string-null",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.parent.cycle",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.parent.self",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.parent.cycle-local",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.parent.cycle-property",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.destroy.transform-immediate",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.destroy.transform-allow-assets",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.destroy.transform",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.destroy.transform-delay",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.parent.default-world",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.parent.explicit-local",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.parent.explicit-world",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.parent.property-world",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.parent.explicit-null",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.parent.destroyed-target",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.destroy.negative-delay",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.parent.destroyed-owner",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.parent.explicit-destroyed-owner",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.parent.property-destroyed-owner",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.child.destroyed",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.transform.find-destroyed",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.is-child.destroyed",
-            "value": "True"
-        },
-        {
-            "key": "hierarchy.find.destroyed",
-            "value": "True"
-        },
-        {
-            "key": "edge.parent-cycle",
-            "value": "returned"
-        },
-        {
-            "key": "edge.parent-cycle-kept",
-            "value": "True"
-        },
-        {
-            "key": "edge.parent-self",
-            "value": "returned"
-        },
-        {
-            "key": "edge.parent-self-kept",
-            "value": "True"
-        },
-        {
-            "key": "edge.destroy-transform",
-            "value": "returned"
-        },
-        {
-            "key": "edge.destroy-transform-kept",
-            "value": "True"
-        },
-        {
-            "key": "edge.dont-destroy-null",
-            "value": "System.ArgumentNullException"
-        },
-        {
-            "key": "edge.component-index-negative",
-            "value": "System.ArgumentOutOfRangeException"
-        },
-        {
-            "key": "edge.component-index-high",
-            "value": "System.ArgumentOutOfRangeException"
-        },
-        {
-            "key": "edge.component-index-wrong-type",
-            "value": "System.InvalidCastException"
-        },
-        {
-            "key": "edge.is-child-destroyed-parent",
-            "value": "UnityEngine.MissingReferenceException"
-        },
-        {
-            "key": "edge.set-parent-destroyed-target",
-            "value": "returned"
-        },
-        {
-            "key": "edge.set-parent-destroyed-target-detached",
-            "value": "True"
-        },
-        {
-            "key": "edge.destroy-negative-delay",
-            "value": "returned"
-        },
-        {
-            "key": "edge.destroy-negative-delay-live-before-end",
-            "value": "True"
-        },
-        {
-            "key": "query-exception.GetComponent.null",
-            "value": "System.ArgumentException"
-        },
-        {
-            "key": "query-exception.GetComponents.null",
-            "value": "System.ArgumentException"
-        },
-        {
-            "key": "query-exception.GetComponent.invalid",
-            "value": "System.ArgumentException"
-        },
-        {
-            "key": "query-exception.GetComponents.invalid",
-            "value": "System.ArgumentException"
-        },
-        {
-            "key": "query-exception.GetComponent.generic-invalid",
-            "value": "System.ArgumentException"
-        },
-        {
-            "key": "query-exception.GetComponents.generic-invalid",
-            "value": "System.ArgumentException"
-        },
-        {
-            "key": "query-exception.GetComponents.list-null",
-            "value": "returned"
-        },
-        {
-            "key": "query-exception.GetComponentsInChildren.list-null",
-            "value": "returned"
-        },
-        {
-            "key": "query-exception.GetComponentsInParent.list-null",
-            "value": "returned"
-        },
-        {
-            "key": "query-exception.GetComponent.string-null",
-            "value": "returned"
-        },
-        {
-            "key": "find-path.PathLeaf",
-            "value": "PathLeaf"
-        },
-        {
-            "key": "find-path.PathRoot/PathChild/PathLeaf",
-            "value": "PathLeaf"
-        },
-        {
-            "key": "find-path./PathRoot/PathChild/PathLeaf",
-            "value": "PathLeaf"
-        },
-        {
-            "key": "find-path.PathChild/PathLeaf",
-            "value": "PathLeaf"
-        },
-        {
-            "key": "find-path./PathChild/PathLeaf",
-            "value": "null"
-        },
-        {
-            "key": "find-path.PathRoot//PathChild/PathLeaf",
-            "value": "null"
-        },
-        {
-            "key": "find-path.",
-            "value": "null"
-        },
-        {
-            "key": "find-path.inactive",
-            "value": "null"
-        },
-        {
-            "key": "transform-find.inactive",
-            "value": "True"
-        },
-        {
-            "key": "get-child.-1",
-            "value": "UnityEngine.UnityException"
-        },
-        {
-            "key": "get-child.1",
-            "value": "UnityEngine.UnityException"
-        },
-        {
-            "key": "transform-find.null",
-            "value": "System.ArgumentNullException"
-        },
-        {
-            "key": "is-child-of.null",
-            "value": "System.ArgumentNullException"
-        },
-        {
-            "key": "add-transform.duplicate",
-            "value": "null"
-        },
-        {
-            "key": "find-path.null",
-            "value": "null"
-        },
-        {
-            "key": "stale-transform.GetChild",
-            "value": "UnityEngine.MissingReferenceException"
-        },
-        {
-            "key": "stale-transform.Find",
-            "value": "UnityEngine.MissingReferenceException"
-        },
-        {
-            "key": "stale-transform.IsChildOf",
-            "value": "UnityEngine.MissingReferenceException"
-        },
-        {
-            "key": "asset.mesh.clone-live",
-            "value": "True"
-        },
-        {
-            "key": "asset.mesh.clone-name",
-            "value": "Owned mesh(Clone)"
-        },
-        {
-            "key": "asset.mesh.clone-vertices",
-            "value": "3"
-        },
-        {
-            "key": "asset.mesh.source-name",
-            "value": "Owned mesh"
-        },
-        {
-            "key": "asset.mesh.find-runtime",
-            "value": "True"
-        },
-        {
-            "key": "asset.mesh.destroy-null",
-            "value": "True"
-        },
-        {
-            "key": "asset.mesh.source-live",
-            "value": "True"
-        },
-        {
-            "key": "asset.text.clone-text",
-            "value": "Native text"
-        },
-        {
-            "key": "asset.text.clone-name",
-            "value": "Original text(Clone)"
-        },
-        {
-            "key": "asset.text.destroy-null",
-            "value": "True"
-        },
-        {
-            "key": "asset.mesh.async-returned",
-            "value": "True"
-        },
-        {
-            "key": "asset.mesh.async-exception",
-            "value": "System.NullReferenceException: Object reference not set to an instance of an object."
-        },
-        {
-            "key": "asset.text.async-returned",
-            "value": "True"
-        },
-        {
-            "key": "asset.text.async-exception",
-            "value": "System.NullReferenceException"
-        },
-        {
-            "key": "async.null",
-            "value": "System.ArgumentException"
-        },
-        {
-            "key": "sync.null",
-            "value": "System.ArgumentException"
-        },
-        {
-            "key": "obsolete.local-before",
-            "value": "-0.0337826647,0.25660482,0.126078621,0.9576622"
-        },
-        {
-            "key": "obsolete.candidate-pre",
-            "value": "-0.9949323,-0.09914388,0.01674674"
-        },
-        {
-            "key": "obsolete.candidate-post",
-            "value": "-1.00000012,-5.26835642E-09,-1.1920929E-07"
-        },
-        {
-            "key": "obsolete.local-after",
-            "value": "0.06526309,0.8586165,0.113039,0.495722443"
-        },
-        {
-            "key": "obsolete.rotate-local.forward",
-            "value": "-0.9949323,-0.09914385,0.0167467482"
-        },
-        {
-            "key": "rotate.self-axis.forward",
-            "value": "1,2.63417776E-09,-1.1920929E-07"
-        },
-        {
-            "key": "rotate.self-euler.forward",
-            "value": "-1.00000012,-5.26835642E-09,-1.1920929E-07"
-        },
-        {
-            "key": "obsolete.rotate-world.forward",
-            "value": "1,-7.902534E-09,-1.1920929E-07"
-        },
-        {
-            "key": "constructor.null-components",
-            "value": "System.NullReferenceException"
-        },
-        {
-            "key": "constructor.null-name",
-            "value": "New Game Object"
-        },
-        {
-            "key": "reference-async.unity63abi:0ebd40215c5ae498e9a5b5c2.x",
-            "value": "103"
-        },
-        {
-            "key": "reference-async.unity63abi:0ebd40215c5ae498e9a5b5c2.null",
-            "value": "True"
-        },
-        {
-            "key": "reference-async.unity63abi:15b514a3d26315c94a258845.x",
-            "value": "2,2"
-        },
-        {
-            "key": "reference-async.unity63abi:15b514a3d26315c94a258845.null",
-            "value": "True"
-        },
-        {
-            "key": "reference-async.unity63abi:1902e37dc5b7132a2fe40d47.x",
-            "value": "2,2"
-        },
-        {
-            "key": "reference-async.unity63abi:1902e37dc5b7132a2fe40d47.null",
-            "value": "True"
-        },
-        {
-            "key": "reference-async.unity63abi:2c1804183f00b086ddf640ad.x",
-            "value": "2"
-        },
-        {
-            "key": "reference-async.unity63abi:2c1804183f00b086ddf640ad.null",
-            "value": "True"
-        },
-        {
-            "key": "reference-async.unity63abi:2fc8fd946bb01fb7d2ab1b8d.x",
-            "value": "13"
-        },
-        {
-            "key": "reference-async.unity63abi:2fc8fd946bb01fb7d2ab1b8d.null",
-            "value": "True"
-        },
-        {
-            "key": "reference-async.unity63abi:3a3d3ecd871841fb51d7bdf0.x",
-            "value": "12,14"
-        },
-        {
-            "key": "reference-async.unity63abi:3a3d3ecd871841fb51d7bdf0.null",
-            "value": "True"
-        },
-        {
-            "key": "reference-async.unity63abi:598f5222b6c8bbd94fe0d8ec.x",
-            "value": "12,12"
-        },
-        {
-            "key": "reference-async.unity63abi:598f5222b6c8bbd94fe0d8ec.null",
-            "value": "True"
-        },
-        {
-            "key": "reference-async.unity63abi:7865adff3e8f63be840e62e2.x",
-            "value": "2,4"
-        },
-        {
-            "key": "reference-async.unity63abi:7865adff3e8f63be840e62e2.null",
-            "value": "True"
-        },
-        {
-            "key": "reference-async.unity63abi:7c3b868fd418bd56029c5bed.x",
-            "value": "2,4"
-        },
-        {
-            "key": "reference-async.unity63abi:7c3b868fd418bd56029c5bed.null",
-            "value": "True"
-        },
-        {
-            "key": "reference-async.unity63abi:8b7a8fc6e4cdc85bd5c67523.x",
-            "value": "2,4"
-        },
-        {
-            "key": "reference-async.unity63abi:8b7a8fc6e4cdc85bd5c67523.null",
-            "value": "True"
-        },
-        {
-            "key": "reference-async.unity63abi:c31cbe2c98853aee9b00d561.x",
-            "value": "103,103"
-        },
-        {
-            "key": "reference-async.unity63abi:c31cbe2c98853aee9b00d561.null",
-            "value": "True"
-        },
-        {
-            "key": "reference-async.unity63abi:c9b54a0504016b5625c8af1f.x",
-            "value": "2,2"
-        },
-        {
-            "key": "reference-async.unity63abi:c9b54a0504016b5625c8af1f.null",
-            "value": "True"
-        },
-        {
-            "key": "reference-async.unity63abi:cc336411186ab7ce1405ca72.x",
-            "value": "2"
-        },
-        {
-            "key": "reference-async.unity63abi:cc336411186ab7ce1405ca72.null",
-            "value": "True"
-        },
-        {
-            "key": "reference-async.unity63abi:d41bbd79d916d2a70c0efe07.x",
-            "value": "103"
-        },
-        {
-            "key": "reference-async.unity63abi:d41bbd79d916d2a70c0efe07.null",
-            "value": "True"
-        },
-        {
-            "key": "reference-async.unity63abi:e91477eb9c6c3e07c3a1a97f.x",
-            "value": "103,103"
-        },
-        {
-            "key": "reference-async.unity63abi:e91477eb9c6c3e07c3a1a97f.null",
-            "value": "True"
-        },
-        {
-            "key": "reference-async.unity63abi:ee1e80b8a594c72c0b70ba67.x",
-            "value": "13,13"
-        },
-        {
-            "key": "reference-async.unity63abi:ee1e80b8a594c72c0b70ba67.null",
-            "value": "True"
-        },
-        {
-            "key": "reference-async.unity63abi:f9cbb2bb3492e8525ecc58fc.x",
-            "value": "12"
-        },
-        {
-            "key": "reference-async.unity63abi:f9cbb2bb3492e8525ecc58fc.null",
-            "value": "True"
-        },
-        {
-            "key": "async.lifecycle.passed",
-            "value": "137"
-        },
-        {
-            "key": "async.lifecycle.failed",
-            "value": "0"
-        },
-        {
-            "key": "async.lifecycle.report",
-            "value": "a01.held:pass;a02.held:pass;a03.held:pass;a04.held:pass;a05.held:pass;a06.held:pass;a07.held:pass;a08.held:pass;a09.held:pass;a10.held:pass;a11.held:pass;a12.held:pass;a13.held:pass;a14.held:pass;a15.held:pass;a16.held:pass;a17.held:pass;a01.cancelled:pass;a01.cancelled-completed:pass;a01.positive:pass;a01.null:pass;a01.initialize:pass;a01.completed:pass;a01.destroyed:pass;a02.cancelled:pass;a02.cancelled-completed:pass;a02.positive:pass;a02.null:pass;a02.initialize:pass;a02.completed:pass;a02.destroyed:pass;a03.cancelled:pass;a03.cancelled-completed:pass;a03.positive:pass;a03.null:pass;a03.initialize:pass;a03.completed:pass;a03.destroyed:pass;a04.cancelled:pass;a04.cancelled-completed:pass;a04.positive:pass;a04.null:pass;a04.initialize:pass;a04.completed:pass;a04.destroyed:pass;a05.cancelled:pass;a05.cancelled-completed:pass;a05.positive:pass;a05.null:pass;a05.initialize:pass;a05.completed:pass;a05.destroyed:pass;a06.cancelled:pass;a06.cancelled-completed:pass;a06.positive:pass;a06.null:pass;a06.initialize:pass;a06.completed:pass;a06.destroyed:pass;a07.cancelled:pass;a07.cancelled-completed:pass;a07.positive:pass;a07.null:pass;a07.initialize:pass;a07.completed:pass;a07.destroyed:pass;a08.cancelled:pass;a08.cancelled-completed:pass;a08.positive:pass;a08.null:pass;a08.initialize:pass;a08.completed:pass;a08.destroyed:pass;a09.cancelled:pass;a09.cancelled-completed:pass;a09.positive:pass;a09.null:pass;a09.initialize:pass;a09.completed:pass;a09.destroyed:pass;a10.cancelled:pass;a10.cancelled-completed:pass;a10.positive:pass;a10.null:pass;a10.initialize:pass;a10.completed:pass;a10.destroyed:pass;a11.cancelled:pass;a11.cancelled-completed:pass;a11.positive:pass;a11.null:pass;a11.initialize:pass;a11.completed:pass;a11.destroyed:pass;a12.cancelled:pass;a12.cancelled-completed:pass;a12.positive:pass;a12.null:pass;a12.initialize:pass;a12.completed:pass;a12.destroyed:pass;a13.cancelled:pass;a13.cancelled-completed:pass;a13.positive:pass;a13.null:pass;a13.initialize:pass;a13.completed:pass;a13.destroyed:pass;a14.cancelled:pass;a14.cancelled-completed:pass;a14.positive:pass;a14.null:pass;a14.initialize:pass;a14.completed:pass;a14.destroyed:pass;a15.cancelled:pass;a15.cancelled-completed:pass;a15.positive:pass;a15.null:pass;a15.initialize:pass;a15.completed:pass;a15.destroyed:pass;a16.cancelled:pass;a16.cancelled-completed:pass;a16.positive:pass;a16.null:pass;a16.initialize:pass;a16.completed:pass;a16.destroyed:pass;a17.cancelled:pass;a17.cancelled-completed:pass;a17.positive:pass;a17.null:pass;a17.initialize:pass;a17.completed:pass;a17.destroyed:pass;async.lifecycle.cleanup:pass;"
-        }
-    ],
-    "corpusSourceHashes": [
-        {
-            "key": "AsyncLifecycleLab.cs",
-            "value": "a9da52bf77c7c9aaa6926701cd911d97da07d1c36b767f09f172d2f2aa4d5746"
-        },
-        {
-            "key": "AsyncLifecycleProbe.cs",
-            "value": "ebd88dea2d80b00efa629c0017db9f0f4a480e29ef7069f55b688ef66b561915"
-        },
-        {
-            "key": "AsyncOverloadCatalog.cs",
-            "value": "9b1b575563af068f721fb7e50ffacd313df149ad514c180620f73ba9034c4ed2"
-        },
-        {
-            "key": "HierarchyPathLab.cs",
-            "value": "68d1f9d79b251e234e0a1655d234d5a61a724d617dabbc44bbf0ba10ed261660"
-        },
-        {
-            "key": "HierarchyAuxCorpus.cs",
-            "value": "409825b1a61eeef55007da5a3af58fe407bce95427edb31a9f6d3a5bd0dce73e"
-        }
-    ]
+  "unityVersion": "6000.3.27f1",
+  "coreAssemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737",
+  "profile": "Native Play mode: attributed synchronous/async clone and lifecycle observations; unrelated API areas are not certified",
+  "error": "",
+  "facts": [
+    {
+      "key": "isPlaying",
+      "value": "True"
+    },
+    {
+      "key": "source.position",
+      "value": "1.32696748,-0.5176381,0.9659259"
+    },
+    {
+      "key": "source.rotation",
+      "value": "0.2520295,0.0323816836,-0.2561046,0.9326538"
+    },
+    {
+      "key": "source.local-rotation",
+      "value": "0.2796519,0.248740152,0.299271345,0.877701461"
+    },
+    {
+      "key": "source.lossy-scale",
+      "value": "-0.742995143,2.29833245,4.09453058"
+    },
+    {
+      "key": "generic.position",
+      "value": "1,0,0"
+    },
+    {
+      "key": "generic.rotation",
+      "value": "0.2796519,0.248740152,0.299271345,0.877701461"
+    },
+    {
+      "key": "generic.scale",
+      "value": "0.5,2,3"
+    },
+    {
+      "key": "untyped.position",
+      "value": "1,0,0"
+    },
+    {
+      "key": "untyped.rotation",
+      "value": "0.2796519,0.248740152,0.299271345,0.877701461"
+    },
+    {
+      "key": "untyped.scale",
+      "value": "0.5,2,3"
+    },
+    {
+      "key": "parameters-default.position",
+      "value": "1,0,0"
+    },
+    {
+      "key": "parameters-default.rotation",
+      "value": "0.2796519,0.248740152,0.299271345,0.877701461"
+    },
+    {
+      "key": "parameters-default.scale",
+      "value": "0.5,2,3"
+    },
+    {
+      "key": "parameters-world.position",
+      "value": "1.32696748,-0.5176381,0.9659259"
+    },
+    {
+      "key": "parameters-world.rotation",
+      "value": "0.2520295,0.0323816836,-0.2561046,0.9326538"
+    },
+    {
+      "key": "parameters-world.scale",
+      "value": "-0.742995143,2.29833245,4.09453058"
+    },
+    {
+      "key": "parent-null-world.position",
+      "value": "1,0,0"
+    },
+    {
+      "key": "parent-null-world.rotation",
+      "value": "0.2796519,0.248740152,0.299271345,0.877701461"
+    },
+    {
+      "key": "parent-null-world.scale",
+      "value": "0.5,2,3"
+    },
+    {
+      "key": "explicit-pose.position",
+      "value": "8,2,1"
+    },
+    {
+      "key": "explicit-pose.rotation",
+      "value": "0,0,0,1"
+    },
+    {
+      "key": "explicit-pose.scale",
+      "value": "0.5,2,3"
+    },
+    {
+      "key": "parameters-explicit-world.position",
+      "value": "8,2,1"
+    },
+    {
+      "key": "parameters-explicit-world.rotation",
+      "value": "0,0,0,1"
+    },
+    {
+      "key": "parameters-explicit-world.scale",
+      "value": "0.5,2,3"
+    },
+    {
+      "key": "parameters-explicit-local.position",
+      "value": "8,2,1"
+    },
+    {
+      "key": "parameters-explicit-local.rotation",
+      "value": "0,0,0,1"
+    },
+    {
+      "key": "parameters-explicit-local.scale",
+      "value": "0.5,2,3"
+    },
+    {
+      "key": "destination-scene.position",
+      "value": "1,0,0"
+    },
+    {
+      "key": "destination-scene.rotation",
+      "value": "0.2796519,0.248740152,0.299271345,0.877701461"
+    },
+    {
+      "key": "destination-scene.scale",
+      "value": "0.5,2,3"
+    },
+    {
+      "key": "parent-world.position",
+      "value": "1.32696724,-0.5176381,0.9659259"
+    },
+    {
+      "key": "parent-world.rotation",
+      "value": "0.2520295,0.0323816836,-0.2561046,0.9326538"
+    },
+    {
+      "key": "parent-world.scale",
+      "value": "-0.263191044,0.8655172,1.16271353"
+    },
+    {
+      "key": "parent-local.position",
+      "value": "13,0,0"
+    },
+    {
+      "key": "parent-local.rotation",
+      "value": "0.2796519,0.248740152,0.299271345,0.877701461"
+    },
+    {
+      "key": "parent-local.scale",
+      "value": "0.5,2,3"
+    },
+    {
+      "key": "pose-parent.position",
+      "value": "8,2,1"
+    },
+    {
+      "key": "pose-parent.rotation",
+      "value": "0,0,0,1"
+    },
+    {
+      "key": "pose-parent.scale",
+      "value": "0.5,2,3"
+    },
+    {
+      "key": "generic-parent.position",
+      "value": "13,0,0"
+    },
+    {
+      "key": "generic-parent.rotation",
+      "value": "0.2796519,0.248740152,0.299271345,0.877701461"
+    },
+    {
+      "key": "generic-parent.scale",
+      "value": "0.5,2,3"
+    },
+    {
+      "key": "untyped-parent.position",
+      "value": "13,0,0"
+    },
+    {
+      "key": "untyped-parent.rotation",
+      "value": "0.2796519,0.248740152,0.299271345,0.877701461"
+    },
+    {
+      "key": "untyped-parent.scale",
+      "value": "0.5,2,3"
+    },
+    {
+      "key": "untyped-parent-world.position",
+      "value": "1.32696724,-0.5176381,0.9659259"
+    },
+    {
+      "key": "untyped-parent-world.rotation",
+      "value": "0.2520295,0.0323816836,-0.2561046,0.9326538"
+    },
+    {
+      "key": "untyped-parent-world.scale",
+      "value": "-0.263191044,0.8655172,1.16271353"
+    },
+    {
+      "key": "untyped-pose.position",
+      "value": "8,2,1"
+    },
+    {
+      "key": "untyped-pose.rotation",
+      "value": "0,0,0,1"
+    },
+    {
+      "key": "untyped-pose.scale",
+      "value": "0.5,2,3"
+    },
+    {
+      "key": "untyped-pose-parent.position",
+      "value": "8,2,1"
+    },
+    {
+      "key": "untyped-pose-parent.rotation",
+      "value": "0,0,0,1"
+    },
+    {
+      "key": "untyped-pose-parent.scale",
+      "value": "0.5,2,3"
+    },
+    {
+      "key": "setter.rotation-local-scale",
+      "value": "0.5,2,3"
+    },
+    {
+      "key": "setter.pose-local-scale",
+      "value": "0.5,2,3"
+    },
+    {
+      "key": "object-meta.type.object",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.type.component",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.ctor.object-null-like",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.ctor.object-id",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.ctor.object-string",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.ctor.object-name",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.ctor.object-flags",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.equal.unbound",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.ctor.component-null-like",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.ctor.component-owner",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.ctor.component-transform",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.bool.actual-null",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.bool.live",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.game-object.self",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.game-object.transform",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.index.count",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.index.at",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.index.generic",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.index.owner",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.index.component",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.index.foreign",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.index.null",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.index.negative",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.index.high",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.index.wrong-type",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.id.live",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.id.wrapper",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.id.component-distinct",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.id.other-distinct",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.entity-id.wrapper",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.entity-id.component",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.hash.live",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.equal.wrapper",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.equal.foreign",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.equal.non-object",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.equal.live-null",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.component.owner",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.component.transform",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.string.object",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.string.component",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.name.component",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.name.empty",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.name.null",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.name.unicode",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.component.tag-default",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.component.tag-set",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.component.tag-string",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.component.tag-handle",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.game-object.tag-string",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.game-object.tag-handle",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.flags.owner",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.flags.component",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.flags.child",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.flags.added",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.index.added-count",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.index.added-slot",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.flags.independent",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.flags.reset-owner",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.bool.retired",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.equal.retired-null",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.equal.retired-live",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.managed.retained",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.id.retained",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.entity-id.retained",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.string.retired",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.game-object.self-retired",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.game-object.transform-retired",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.index.null-retired",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.index.count-retired",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.index.at-retired",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.index.component-retired",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.name.retired",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.name.retired-set",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.flags.retired",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.flags.retired-set",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.component.owner-retired",
+      "value": "True"
+    },
+    {
+      "key": "object-meta.component.transform-retired",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.type.base",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.type.enumerable",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.type.visibility",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.constructor.protected",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.constructor.unbound",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.changed.initial",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.capacity.initial",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.count.initial",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.root.self",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.changed.reset",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.changed.same-world-position",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.changed.same-local-position",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.changed.same-world-rotation",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.changed.same-local-rotation",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.changed.same-scale",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.changed.same-world-pose",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.changed.same-local-pose",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.changed.explicit",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.capacity.first-parent",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.count.direct",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.count.shared",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.root.descendant",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.find-child.path",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.find-child.missing",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.find-child.null",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.capacity.shared",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.capacity.minimum",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.capacity.negative",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.sibling.initial",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.sibling.high",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.sibling.low",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.sibling.first",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.sibling.last",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.sibling.same-parent",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.changed.local",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.changed.ancestor",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.enumerator.before",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.enumerator.first",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.enumerator.second",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.enumerator.live",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.enumerator.end",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.enumerator.after",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.enumerator.reset",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.capacity.live-grow",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.detach.children",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.detach.world",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.detach.root",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.detach.count",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.detach.capacity",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.enumerator.dead-move",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.enumerator.dead-current",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.count.dead",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.count.old-dead",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.hierarchy.dead",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.capacity.dead",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.root.dead",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.find-child.dead",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.sibling.dead",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.sibling.set-dead",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.sibling.first-dead",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.sibling.last-dead",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.detach.dead",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy-aux.changed.dead",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.find.leaf",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.find.relative",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.find.absolute",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.find.suffix",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.find.wrong-root",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.find.double-slash",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.find.empty",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.find.null",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.find.missing",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.transform.find-path",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.transform.find-missing",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.transform.find-null",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.child.valid",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.child.negative",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.child.outside",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.is-child.self",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.is-child.descendant",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.is-child.foreign",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.is-child.null",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.find.inactive",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.transform.find-inactive",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.add-transform.duplicate",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.query.type-null",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.query.types-null",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.query.type-invalid",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.query.types-invalid",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.query.generic-invalid",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.query.generics-invalid",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.query.list-null",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.query.children-list-null",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.query.parent-list-null",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.query.string-null",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.parent.cycle",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.parent.self",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.parent.cycle-local",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.parent.cycle-property",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.destroy.transform-immediate",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.destroy.transform-allow-assets",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.destroy.transform",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.destroy.transform-delay",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.parent.default-world",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.parent.explicit-local",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.parent.explicit-world",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.parent.property-world",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.parent.explicit-null",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.parent.destroyed-target",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.destroy.negative-delay",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.parent.destroyed-owner",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.parent.explicit-destroyed-owner",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.parent.property-destroyed-owner",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.child.destroyed",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.transform.find-destroyed",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.is-child.destroyed",
+      "value": "True"
+    },
+    {
+      "key": "hierarchy.find.destroyed",
+      "value": "True"
+    },
+    {
+      "key": "edge.parent-cycle",
+      "value": "returned"
+    },
+    {
+      "key": "edge.parent-cycle-kept",
+      "value": "True"
+    },
+    {
+      "key": "edge.parent-self",
+      "value": "returned"
+    },
+    {
+      "key": "edge.parent-self-kept",
+      "value": "True"
+    },
+    {
+      "key": "edge.destroy-transform",
+      "value": "returned"
+    },
+    {
+      "key": "edge.destroy-transform-kept",
+      "value": "True"
+    },
+    {
+      "key": "edge.dont-destroy-null",
+      "value": "System.ArgumentNullException"
+    },
+    {
+      "key": "edge.component-index-negative",
+      "value": "System.ArgumentOutOfRangeException"
+    },
+    {
+      "key": "edge.component-index-high",
+      "value": "System.ArgumentOutOfRangeException"
+    },
+    {
+      "key": "edge.component-index-wrong-type",
+      "value": "System.InvalidCastException"
+    },
+    {
+      "key": "edge.is-child-destroyed-parent",
+      "value": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "key": "edge.set-parent-destroyed-target",
+      "value": "returned"
+    },
+    {
+      "key": "edge.set-parent-destroyed-target-detached",
+      "value": "True"
+    },
+    {
+      "key": "edge.destroy-negative-delay",
+      "value": "returned"
+    },
+    {
+      "key": "edge.destroy-negative-delay-live-before-end",
+      "value": "True"
+    },
+    {
+      "key": "query-exception.GetComponent.null",
+      "value": "System.ArgumentException"
+    },
+    {
+      "key": "query-exception.GetComponents.null",
+      "value": "System.ArgumentException"
+    },
+    {
+      "key": "query-exception.GetComponent.invalid",
+      "value": "System.ArgumentException"
+    },
+    {
+      "key": "query-exception.GetComponents.invalid",
+      "value": "System.ArgumentException"
+    },
+    {
+      "key": "query-exception.GetComponent.generic-invalid",
+      "value": "System.ArgumentException"
+    },
+    {
+      "key": "query-exception.GetComponents.generic-invalid",
+      "value": "System.ArgumentException"
+    },
+    {
+      "key": "query-exception.GetComponents.list-null",
+      "value": "returned"
+    },
+    {
+      "key": "query-exception.GetComponentsInChildren.list-null",
+      "value": "returned"
+    },
+    {
+      "key": "query-exception.GetComponentsInParent.list-null",
+      "value": "returned"
+    },
+    {
+      "key": "query-exception.GetComponent.string-null",
+      "value": "returned"
+    },
+    {
+      "key": "find-path.PathLeaf",
+      "value": "PathLeaf"
+    },
+    {
+      "key": "find-path.PathRoot/PathChild/PathLeaf",
+      "value": "PathLeaf"
+    },
+    {
+      "key": "find-path./PathRoot/PathChild/PathLeaf",
+      "value": "PathLeaf"
+    },
+    {
+      "key": "find-path.PathChild/PathLeaf",
+      "value": "PathLeaf"
+    },
+    {
+      "key": "find-path./PathChild/PathLeaf",
+      "value": "null"
+    },
+    {
+      "key": "find-path.PathRoot//PathChild/PathLeaf",
+      "value": "null"
+    },
+    {
+      "key": "find-path.",
+      "value": "null"
+    },
+    {
+      "key": "find-path.inactive",
+      "value": "null"
+    },
+    {
+      "key": "transform-find.inactive",
+      "value": "True"
+    },
+    {
+      "key": "get-child.-1",
+      "value": "UnityEngine.UnityException"
+    },
+    {
+      "key": "get-child.1",
+      "value": "UnityEngine.UnityException"
+    },
+    {
+      "key": "transform-find.null",
+      "value": "System.ArgumentNullException"
+    },
+    {
+      "key": "is-child-of.null",
+      "value": "System.ArgumentNullException"
+    },
+    {
+      "key": "add-transform.duplicate",
+      "value": "null"
+    },
+    {
+      "key": "find-path.null",
+      "value": "null"
+    },
+    {
+      "key": "stale-transform.GetChild",
+      "value": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "key": "stale-transform.Find",
+      "value": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "key": "stale-transform.IsChildOf",
+      "value": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "key": "asset.mesh.clone-live",
+      "value": "True"
+    },
+    {
+      "key": "asset.mesh.clone-name",
+      "value": "Owned mesh(Clone)"
+    },
+    {
+      "key": "asset.mesh.clone-vertices",
+      "value": "3"
+    },
+    {
+      "key": "asset.mesh.source-name",
+      "value": "Owned mesh"
+    },
+    {
+      "key": "asset.mesh.find-runtime",
+      "value": "True"
+    },
+    {
+      "key": "asset.mesh.destroy-null",
+      "value": "True"
+    },
+    {
+      "key": "asset.mesh.source-live",
+      "value": "True"
+    },
+    {
+      "key": "asset.text.clone-text",
+      "value": "Native text"
+    },
+    {
+      "key": "asset.text.clone-name",
+      "value": "Original text(Clone)"
+    },
+    {
+      "key": "asset.text.destroy-null",
+      "value": "True"
+    },
+    {
+      "key": "asset.mesh.async-returned",
+      "value": "True"
+    },
+    {
+      "key": "asset.mesh.async-exception",
+      "value": "System.NullReferenceException: Object reference not set to an instance of an object."
+    },
+    {
+      "key": "asset.text.async-returned",
+      "value": "True"
+    },
+    {
+      "key": "asset.text.async-exception",
+      "value": "System.NullReferenceException"
+    },
+    {
+      "key": "async.null",
+      "value": "System.ArgumentException"
+    },
+    {
+      "key": "sync.null",
+      "value": "System.ArgumentException"
+    },
+    {
+      "key": "obsolete.local-before",
+      "value": "-0.0337826647,0.25660482,0.126078621,0.9576622"
+    },
+    {
+      "key": "obsolete.candidate-pre",
+      "value": "-0.9949323,-0.09914388,0.01674674"
+    },
+    {
+      "key": "obsolete.candidate-post",
+      "value": "-1.00000012,-5.26835642E-09,-1.1920929E-07"
+    },
+    {
+      "key": "obsolete.local-after",
+      "value": "0.06526309,0.8586165,0.113039,0.495722443"
+    },
+    {
+      "key": "obsolete.rotate-local.forward",
+      "value": "-0.9949323,-0.09914385,0.0167467482"
+    },
+    {
+      "key": "rotate.self-axis.forward",
+      "value": "1,2.63417776E-09,-1.1920929E-07"
+    },
+    {
+      "key": "rotate.self-euler.forward",
+      "value": "-1.00000012,-5.26835642E-09,-1.1920929E-07"
+    },
+    {
+      "key": "obsolete.rotate-world.forward",
+      "value": "1,-7.902534E-09,-1.1920929E-07"
+    },
+    {
+      "key": "constructor.null-components",
+      "value": "System.NullReferenceException"
+    },
+    {
+      "key": "constructor.null-name",
+      "value": "New Game Object"
+    },
+    {
+      "key": "reference-async.unity63abi:0ebd40215c5ae498e9a5b5c2.x",
+      "value": "103"
+    },
+    {
+      "key": "reference-async.unity63abi:0ebd40215c5ae498e9a5b5c2.null",
+      "value": "True"
+    },
+    {
+      "key": "reference-async.unity63abi:15b514a3d26315c94a258845.x",
+      "value": "2,2"
+    },
+    {
+      "key": "reference-async.unity63abi:15b514a3d26315c94a258845.null",
+      "value": "True"
+    },
+    {
+      "key": "reference-async.unity63abi:1902e37dc5b7132a2fe40d47.x",
+      "value": "2,2"
+    },
+    {
+      "key": "reference-async.unity63abi:1902e37dc5b7132a2fe40d47.null",
+      "value": "True"
+    },
+    {
+      "key": "reference-async.unity63abi:2c1804183f00b086ddf640ad.x",
+      "value": "2"
+    },
+    {
+      "key": "reference-async.unity63abi:2c1804183f00b086ddf640ad.null",
+      "value": "True"
+    },
+    {
+      "key": "reference-async.unity63abi:2fc8fd946bb01fb7d2ab1b8d.x",
+      "value": "13"
+    },
+    {
+      "key": "reference-async.unity63abi:2fc8fd946bb01fb7d2ab1b8d.null",
+      "value": "True"
+    },
+    {
+      "key": "reference-async.unity63abi:3a3d3ecd871841fb51d7bdf0.x",
+      "value": "12,14"
+    },
+    {
+      "key": "reference-async.unity63abi:3a3d3ecd871841fb51d7bdf0.null",
+      "value": "True"
+    },
+    {
+      "key": "reference-async.unity63abi:598f5222b6c8bbd94fe0d8ec.x",
+      "value": "12,12"
+    },
+    {
+      "key": "reference-async.unity63abi:598f5222b6c8bbd94fe0d8ec.null",
+      "value": "True"
+    },
+    {
+      "key": "reference-async.unity63abi:7865adff3e8f63be840e62e2.x",
+      "value": "2,4"
+    },
+    {
+      "key": "reference-async.unity63abi:7865adff3e8f63be840e62e2.null",
+      "value": "True"
+    },
+    {
+      "key": "reference-async.unity63abi:7c3b868fd418bd56029c5bed.x",
+      "value": "2,4"
+    },
+    {
+      "key": "reference-async.unity63abi:7c3b868fd418bd56029c5bed.null",
+      "value": "True"
+    },
+    {
+      "key": "reference-async.unity63abi:8b7a8fc6e4cdc85bd5c67523.x",
+      "value": "2,4"
+    },
+    {
+      "key": "reference-async.unity63abi:8b7a8fc6e4cdc85bd5c67523.null",
+      "value": "True"
+    },
+    {
+      "key": "reference-async.unity63abi:c31cbe2c98853aee9b00d561.x",
+      "value": "103,103"
+    },
+    {
+      "key": "reference-async.unity63abi:c31cbe2c98853aee9b00d561.null",
+      "value": "True"
+    },
+    {
+      "key": "reference-async.unity63abi:c9b54a0504016b5625c8af1f.x",
+      "value": "2,2"
+    },
+    {
+      "key": "reference-async.unity63abi:c9b54a0504016b5625c8af1f.null",
+      "value": "True"
+    },
+    {
+      "key": "reference-async.unity63abi:cc336411186ab7ce1405ca72.x",
+      "value": "2"
+    },
+    {
+      "key": "reference-async.unity63abi:cc336411186ab7ce1405ca72.null",
+      "value": "True"
+    },
+    {
+      "key": "reference-async.unity63abi:d41bbd79d916d2a70c0efe07.x",
+      "value": "103"
+    },
+    {
+      "key": "reference-async.unity63abi:d41bbd79d916d2a70c0efe07.null",
+      "value": "True"
+    },
+    {
+      "key": "reference-async.unity63abi:e91477eb9c6c3e07c3a1a97f.x",
+      "value": "103,103"
+    },
+    {
+      "key": "reference-async.unity63abi:e91477eb9c6c3e07c3a1a97f.null",
+      "value": "True"
+    },
+    {
+      "key": "reference-async.unity63abi:ee1e80b8a594c72c0b70ba67.x",
+      "value": "13,13"
+    },
+    {
+      "key": "reference-async.unity63abi:ee1e80b8a594c72c0b70ba67.null",
+      "value": "True"
+    },
+    {
+      "key": "reference-async.unity63abi:f9cbb2bb3492e8525ecc58fc.x",
+      "value": "12"
+    },
+    {
+      "key": "reference-async.unity63abi:f9cbb2bb3492e8525ecc58fc.null",
+      "value": "True"
+    },
+    {
+      "key": "async.lifecycle.passed",
+      "value": "137"
+    },
+    {
+      "key": "async.lifecycle.failed",
+      "value": "0"
+    },
+    {
+      "key": "async.lifecycle.report",
+      "value": "a01.held:pass;a02.held:pass;a03.held:pass;a04.held:pass;a05.held:pass;a06.held:pass;a07.held:pass;a08.held:pass;a09.held:pass;a10.held:pass;a11.held:pass;a12.held:pass;a13.held:pass;a14.held:pass;a15.held:pass;a16.held:pass;a17.held:pass;a01.cancelled:pass;a01.cancelled-completed:pass;a01.positive:pass;a01.null:pass;a01.initialize:pass;a01.completed:pass;a01.destroyed:pass;a02.cancelled:pass;a02.cancelled-completed:pass;a02.positive:pass;a02.null:pass;a02.initialize:pass;a02.completed:pass;a02.destroyed:pass;a03.cancelled:pass;a03.cancelled-completed:pass;a03.positive:pass;a03.null:pass;a03.initialize:pass;a03.completed:pass;a03.destroyed:pass;a04.cancelled:pass;a04.cancelled-completed:pass;a04.positive:pass;a04.null:pass;a04.initialize:pass;a04.completed:pass;a04.destroyed:pass;a05.cancelled:pass;a05.cancelled-completed:pass;a05.positive:pass;a05.null:pass;a05.initialize:pass;a05.completed:pass;a05.destroyed:pass;a06.cancelled:pass;a06.cancelled-completed:pass;a06.positive:pass;a06.null:pass;a06.initialize:pass;a06.completed:pass;a06.destroyed:pass;a07.cancelled:pass;a07.cancelled-completed:pass;a07.positive:pass;a07.null:pass;a07.initialize:pass;a07.completed:pass;a07.destroyed:pass;a08.cancelled:pass;a08.cancelled-completed:pass;a08.positive:pass;a08.null:pass;a08.initialize:pass;a08.completed:pass;a08.destroyed:pass;a09.cancelled:pass;a09.cancelled-completed:pass;a09.positive:pass;a09.null:pass;a09.initialize:pass;a09.completed:pass;a09.destroyed:pass;a10.cancelled:pass;a10.cancelled-completed:pass;a10.positive:pass;a10.null:pass;a10.initialize:pass;a10.completed:pass;a10.destroyed:pass;a11.cancelled:pass;a11.cancelled-completed:pass;a11.positive:pass;a11.null:pass;a11.initialize:pass;a11.completed:pass;a11.destroyed:pass;a12.cancelled:pass;a12.cancelled-completed:pass;a12.positive:pass;a12.null:pass;a12.initialize:pass;a12.completed:pass;a12.destroyed:pass;a13.cancelled:pass;a13.cancelled-completed:pass;a13.positive:pass;a13.null:pass;a13.initialize:pass;a13.completed:pass;a13.destroyed:pass;a14.cancelled:pass;a14.cancelled-completed:pass;a14.positive:pass;a14.null:pass;a14.initialize:pass;a14.completed:pass;a14.destroyed:pass;a15.cancelled:pass;a15.cancelled-completed:pass;a15.positive:pass;a15.null:pass;a15.initialize:pass;a15.completed:pass;a15.destroyed:pass;a16.cancelled:pass;a16.cancelled-completed:pass;a16.positive:pass;a16.null:pass;a16.initialize:pass;a16.completed:pass;a16.destroyed:pass;a17.cancelled:pass;a17.cancelled-completed:pass;a17.positive:pass;a17.null:pass;a17.initialize:pass;a17.completed:pass;a17.destroyed:pass;async.lifecycle.cleanup:pass;"
+    }
+  ],
+  "corpusSourceHashes": [
+    {
+      "key": "AsyncLifecycleLab.cs",
+      "value": "a9da52bf77c7c9aaa6926701cd911d97da07d1c36b767f09f172d2f2aa4d5746"
+    },
+    {
+      "key": "AsyncLifecycleProbe.cs",
+      "value": "ebd88dea2d80b00efa629c0017db9f0f4a480e29ef7069f55b688ef66b561915"
+    },
+    {
+      "key": "AsyncOverloadCatalog.cs",
+      "value": "9b1b575563af068f721fb7e50ffacd313df149ad514c180620f73ba9034c4ed2"
+    },
+    {
+      "key": "HierarchyPathLab.cs",
+      "value": "68d1f9d79b251e234e0a1655d234d5a61a724d617dabbc44bbf0ba10ed261660"
+    },
+    {
+      "key": "HierarchyAuxCorpus.cs",
+      "value": "409825b1a61eeef55007da5a3af58fe407bce95427edb31a9f6d3a5bd0dce73e"
+    },
+    {
+      "key": "ObjectMetaCorpus.cs",
+      "value": "90c6e95b27011271680a3660d3cf894258702ad136068f9131cfc717ff89db84"
+    }
+  ]
 }

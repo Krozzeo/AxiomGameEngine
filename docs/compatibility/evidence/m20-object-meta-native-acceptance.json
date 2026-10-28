@@ -1,0 +1,340 @@
+{
+  "schemaVersion": 1,
+  "passed": true,
+  "referenceCoreModuleSha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737",
+  "corpusSourceSha256": "90c6e95b27011271680a3660d3cf894258702ad136068f9131cfc717ff89db84",
+  "acceptedSignatures": 29,
+  "records": [
+    {
+      "id": "unity63abi:2d0219405f216b4ac3a3018e",
+      "owner": "UnityEngine.Object",
+      "declaration": "public class UnityEngine.Object",
+      "caseIds": [
+        "type.object"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:6fc5b8ae22b7cdba8b07d1d7",
+      "owner": "UnityEngine.Object",
+      "declaration": "public UnityEngine.Object();",
+      "caseIds": [
+        "ctor.object-null-like",
+        "ctor.object-id",
+        "ctor.object-string",
+        "ctor.object-name",
+        "ctor.object-flags"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:3dbad36c56b9645efff726a3",
+      "owner": "UnityEngine.Object",
+      "declaration": "public int GetInstanceID();",
+      "caseIds": [
+        "ctor.object-id",
+        "id.live",
+        "id.wrapper",
+        "id.component-distinct",
+        "id.other-distinct",
+        "id.retained"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:7e9f2163bc86e7039530d149",
+      "owner": "UnityEngine.Object",
+      "declaration": "public UnityEngine.EntityId GetEntityId();",
+      "caseIds": [
+        "entity-id.wrapper",
+        "entity-id.component",
+        "entity-id.retained"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:baeec2f3e0eefc50a5cb555f",
+      "owner": "UnityEngine.Object",
+      "declaration": "public int GetHashCode();",
+      "caseIds": [
+        "ctor.object-id",
+        "hash.live",
+        "id.retained"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:c82c63c082d38eaac21a707c",
+      "owner": "UnityEngine.Object",
+      "declaration": "public string ToString();",
+      "caseIds": [
+        "ctor.object-string",
+        "string.object",
+        "string.component",
+        "string.retired"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:de5d51bf53322fd10e436b97",
+      "owner": "UnityEngine.Object",
+      "declaration": "public bool Equals(object other);",
+      "caseIds": [
+        "equal.wrapper",
+        "equal.foreign",
+        "equal.non-object",
+        "equal.live-null",
+        "equal.retired-null",
+        "equal.retired-live",
+        "equal.unbound"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:60868f28bb4e4725dfe012a8",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static bool op_Implicit(UnityEngine.Object exists);",
+      "caseIds": [
+        "bool.actual-null",
+        "bool.live",
+        "bool.retired",
+        "ctor.object-null-like",
+        "ctor.component-null-like"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:89d50c8560222ea1c2a57596",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static bool op_Equality(UnityEngine.Object x, UnityEngine.Object y);",
+      "caseIds": [
+        "equal.wrapper",
+        "equal.foreign",
+        "equal.live-null",
+        "equal.retired-null",
+        "equal.unbound"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:f1f578e5780346fc420371bd",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static bool op_Inequality(UnityEngine.Object x, UnityEngine.Object y);",
+      "caseIds": [
+        "equal.foreign",
+        "equal.live-null",
+        "equal.retired-null",
+        "equal.retired-live"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:ed4c0ad7470c77869673b78b",
+      "owner": "UnityEngine.Object",
+      "declaration": "public string name { public get; public set; }",
+      "caseIds": [
+        "name.component",
+        "name.empty",
+        "name.null",
+        "name.unicode",
+        "ctor.object-name",
+        "name.retired",
+        "name.retired-set"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:eeed0f9b5534f4a6dcc280fe",
+      "owner": "UnityEngine.Object",
+      "declaration": "public UnityEngine.HideFlags hideFlags { public get; public set; }",
+      "caseIds": [
+        "flags.owner",
+        "flags.component",
+        "flags.child",
+        "flags.added",
+        "flags.independent",
+        "flags.reset-owner",
+        "ctor.object-flags",
+        "flags.retired",
+        "flags.retired-set"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:7a6ca0b9375d6ae8dbdad3f5",
+      "owner": "UnityEngine.Component",
+      "declaration": "public class UnityEngine.Component",
+      "caseIds": [
+        "type.component"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:1c03bc7126462d7bb9d63c6c",
+      "owner": "UnityEngine.Component",
+      "declaration": "public UnityEngine.Component();",
+      "caseIds": [
+        "ctor.component-null-like",
+        "ctor.component-owner",
+        "ctor.component-transform"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:822645252a318909018a1c98",
+      "owner": "UnityEngine.Component",
+      "declaration": "public UnityEngine.GameObject gameObject { public get; }",
+      "caseIds": [
+        "component.owner",
+        "ctor.component-owner",
+        "component.owner-retired"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:1b4d61fea085bda7483aa85c",
+      "owner": "UnityEngine.Component",
+      "declaration": "public UnityEngine.Transform transform { public get; }",
+      "caseIds": [
+        "component.transform",
+        "ctor.component-transform",
+        "component.transform-retired"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:e023bf7f03785c7c93222b06",
+      "owner": "UnityEngine.Component",
+      "declaration": "public string tag { public get; public set; }",
+      "caseIds": [
+        "component.tag-default",
+        "component.tag-set"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:fa73939f583219eca7f12643",
+      "owner": "UnityEngine.Component",
+      "declaration": "public bool CompareTag(string tag);",
+      "caseIds": [
+        "component.tag-string"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:dea1e0b541653f7266a655aa",
+      "owner": "UnityEngine.Component",
+      "declaration": "public bool CompareTag(UnityEngine.TagHandle tag);",
+      "caseIds": [
+        "component.tag-handle"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:daa69bfbfdf7a489662b6eef",
+      "owner": "UnityEngine.Component",
+      "declaration": "public int GetComponentIndex();",
+      "caseIds": [
+        "index.component",
+        "index.added-slot",
+        "index.component-retired"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:e9499c22dd413115284d016c",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public UnityEngine.GameObject gameObject { public get; }",
+      "caseIds": [
+        "game-object.self",
+        "game-object.self-retired"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:707e2f2d30e1bbdcad38cdf4",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public UnityEngine.Transform transform { public get; }",
+      "caseIds": [
+        "game-object.transform",
+        "game-object.transform-retired"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:b6e93895f34125c2bf828131",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public string tag { public get; public set; }",
+      "caseIds": [
+        "component.tag-default",
+        "component.tag-set"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:fbc4ff25f053f72719e386ff",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public bool CompareTag(string tag);",
+      "caseIds": [
+        "game-object.tag-string"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:8a6a864f30139654276d0b36",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public bool CompareTag(UnityEngine.TagHandle tag);",
+      "caseIds": [
+        "game-object.tag-handle"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:cc7849175ffc885ad0000051",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public int GetComponentCount();",
+      "caseIds": [
+        "index.count",
+        "index.added-count",
+        "index.count-retired"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:36597ab98d07f9dd0b924bec",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public UnityEngine.Component GetComponentAtIndex(int index);",
+      "caseIds": [
+        "index.at",
+        "index.negative",
+        "index.high",
+        "index.added-slot",
+        "index.at-retired"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:6f63acfef89198d5fc027b62",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public T GetComponentAtIndex<T>(int index);",
+      "caseIds": [
+        "index.generic",
+        "index.wrong-type"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:a401395e1dfb3956a385610f",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public int GetComponentIndex(UnityEngine.Component component);",
+      "caseIds": [
+        "index.owner",
+        "index.foreign",
+        "index.null",
+        "index.added-slot",
+        "index.null-retired"
+      ],
+      "passed": true
+    }
+  ]
+}

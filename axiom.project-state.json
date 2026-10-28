@@ -9,7 +9,7 @@
     "activeMilestonePercent": 33,
     "wholeProjectPercent": null,
     "method": "docs/architecture/MILESTONE_REPORTING.md",
-    "scopeNote": "M20 remains open.1/3 milestone criteria passed (33% rounded); source audit311/311 and attributed contracts129/311 (99 behavior,30 compiler-error contracts). Transform81/81 accepted within recorded bounded profiles. Native808+240+348, real267+271+240+348 per Development/AOT mode and Node486 pass. Remaining182 contracts and exact-head CI/artifact gates must complete; stable main0.0.57 unchanged.",
+    "scopeNote": "M20 remains open.1/3 milestone criteria passed (33% rounded); source audit311/311 and attributed contracts158/311 (128 behavior,30 compiler-error contracts). Transform81/81 accepted within recorded bounded profiles. Native885+240+348 and real267+271+77+240+348 per Development/AOT mode pass. Remaining153 contracts and exact-head CI/artifact gates must complete; stable main0.0.57 unchanged.",
     "historicalMvpPercent": 94,
     "historicalMvpCompletedWeight": 122,
     "historicalMvpTotalWeight": 130
@@ -1746,8 +1746,8 @@
     "docs/compatibility/m20-batches.json",
     "demos/M20_GUIDE.md"
   ],
-  "nextTask": "Complete remaining182 M20 contracts: object/component constructor/name/flag/identity behavior, queries/messages/creation/bulk/clones and required same-type component storage dependencies. Preserve311 records and strict closure/CI/artifact gates.",
-  "activeRevision": "0.0.62 / SDK12 —129 attributed contracts accepted; Transform81/81, M20 remains open",
+  "nextTask": "Complete remaining153 M20 contracts: queries/messages/creation/bulk/clones/find/lifetime and required same-type component storage dependencies. Preserve311 records and strict closure/CI/artifact gates.",
+  "activeRevision": "0.0.62 / SDK12 —158 attributed contracts accepted; Transform81/81, M20 remains open",
   "roadmap": {
     "version": 2,
     "manifest": "docs/architecture/roadmap-v2.json",

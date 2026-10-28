@@ -97,3 +97,13 @@ All81 frozen Transform contracts now have attributed acceptance within the recor
 Five native host-input regressions additionally verify changed flags on incoming physics/human poses, no reflagging on identical frames, and acknowledgement of script edits. Historical counts are superseded by native808 core+240 vector+348 pose checks, real267+271+240+348 per mode and486 Node checks. All require exact Stop restoration and effective build modes. Total129/311 accepted (99 behavior,30 compiler errors);182 remain outside Transform. The full milestone, dependency, CI and public-artifact gates remain open.
 
 [Auxiliary attribution](../compatibility/evidence/m20-transform-aux-native-acceptance.json) retains per-record case identities and matching actual input hashes.
+
+## Object identity, properties and component indices — current checkpoint
+
+The same77 direct cases execute unchanged in Unity6000.3.27f1, native .NET and real Development/effective-AOT Wasm. Native outcomes are source-hashed; the native SDK report records all executed SDK source hashes.29 contracts gain bounded attributed acceptance: Object12, Component8 and GameObject9. Total158/311 (128 behavior,30 compile-error contracts);153 remain, including same-type component storage dependencies.
+
+Corrections match native NullReferenceException for unbound native properties, empty strings for null name assignments, MissingReferenceException on destroyed native name/flag/owner access, InvalidCastException for incompatible generic component slots, and destroyed-owner validation before GetComponentIndex(null). Registered tag/flag profiles and default/one-collider slot layouts are explicitly bounded. No duplicate-component or unregistered-tag acceptance is inferred.
+
+**Object Contracts Lab** is the fifth version-owned demo. Its controller completes Count77, Passed77, Failed0, and Stop restores the authored scene exactly. Current suites: native885 core+240 vectors+348 poses, browser267+271+77+240+348 per mode, Node486/486. Prior numbered checkpoints above are historical. M20 remains open and no stable release has been published.
+
+Validation note: the first main AOT regression attempt timed out while compilation was still running. It is not counted as a pass. A fresh isolated rerun completed and passed; all other repeated browser suites passed. The previous remote head8c2cd60 passed Windows and the browser/regression job families but failed the Linux fixture checks due to the gzip OS header byte. The generators now freeze that nonsemantic byte; Windows and simulated Linux-header checks produce identical existing fixtures. Remote CI must still validate the new head.

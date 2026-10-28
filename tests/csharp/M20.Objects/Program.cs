@@ -77,6 +77,7 @@ NativeEdgeCases.Run(Check,Reset);
 Reset(3201);Game.HierarchyPathLab.RunCases((key,value)=>Check(key+".native-hierarchy",value));
 Reset(3301);Game.HierarchyAuxCorpus.RunCases((key,value)=>Check(key+".native-hierarchy-aux",value));
 ChangeFlagInputCases.Run(Check,Reset);
+Reset(3501);Game.ObjectMetaCorpus.RunCases((key,value)=>Check(key+".native-object-meta",value));
 MatrixCases.Run(Check,Reset);
 for(var i=0;i<NativeTransformFixtures.Count;i++){Reset(900+i);Check("exact Unity native signed hierarchy "+i,NativeTransformFixtures.Check(i));}
 ManagedCloneCases.Run(Check,Reset);
@@ -85,7 +86,8 @@ AsyncCloneCases.Run(Check,Reset);
 BulkObjectCases.Run(Check,Reset);
 PrimitiveCases.Run(Check,Reset);
 AsyncOverloadCases.Run(Check,Reset);
-Console.WriteLine(System.Text.Json.JsonSerializer.Serialize(new {passed=true,profile="native .NET / Axiom alias behavior, not Unity signature certification",checks}));
+var sdkSources=Directory.GetFiles("engine/scripting/templates","*.cs").Where(path=>Path.GetFileName(path) is not "Host.cs" and not "Game.cs").OrderBy(path=>path,StringComparer.Ordinal).ToDictionary(Path.GetFileName,path=>Convert.ToHexString(System.Security.Cryptography.SHA256.HashData(File.ReadAllBytes(path))).ToLowerInvariant());
+Console.WriteLine(System.Text.Json.JsonSerializer.Serialize(new {passed=true,profile="native .NET / shared runtime; exact native Unity signature attribution remains separate",sdkSources,checks}));
 
 } catch(Exception error){Console.Error.WriteLine(error);Environment.ExitCode=1;}
 

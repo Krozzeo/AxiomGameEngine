@@ -9,5 +9,5 @@
   <ItemGroup>
     <Compile Include="../../../engine/scripting/templates/*.cs" Exclude="../../../engine/scripting/templates/Host.cs;../../../engine/scripting/templates/Game.cs" />
   </ItemGroup>
- <ItemGroup><Compile Include="../../../demos/scripts/AsyncOverloadCatalog.cs" /><Compile Include="../../../demos/scripts/NativeTransformFixtures.cs" /><Compile Include="../../../demos/scripts/AsyncLifecycleLab.cs" /><Compile Include="../../../demos/scripts/AsyncLifecycleProbe.cs" /><Compile Include="../../../demos/scripts/HierarchyPathLab.cs" /><Compile Include="../../../demos/scripts/HierarchyAuxCorpus.cs" /></ItemGroup>
+ <ItemGroup><Compile Include="../../../demos/scripts/AsyncOverloadCatalog.cs" /><Compile Include="../../../demos/scripts/NativeTransformFixtures.cs" /><Compile Include="../../../demos/scripts/AsyncLifecycleLab.cs" /><Compile Include="../../../demos/scripts/AsyncLifecycleProbe.cs" /><Compile Include="../../../demos/scripts/HierarchyPathLab.cs" /><Compile Include="../../../demos/scripts/HierarchyAuxCorpus.cs" /><Compile Include="../../../demos/scripts/ObjectMetaCorpus.cs" /></ItemGroup>
 </Project>

@@ -3,7 +3,7 @@
   "passed": true,
   "profile": "Native .NET consumer compiler",
   "scope": "Expected consumer compiler diagnostics only. Compiler-error obsolete members cannot be executed; warning-only runtime behavior is separate.",
-  "assemblySha256": "5af6458702a49e16dc04fa9ba7dc42a263038a61645b01d0b7231ca4bf53f43d",
+  "assemblySha256": "b093c0cd8df515e8926dee47500055cb906952ba64f7f5dddf05e3cfcd9277ba",
   "consumerSha256": "9df57bb71226a65da3d343cd42f1384adf7c527d9672d9ff138e815c3e9a75f0",
   "compilerErrorCases": 30,
   "compilerWarningCases": 23,

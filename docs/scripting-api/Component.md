@@ -80,7 +80,7 @@ public partial class Component {
 public partial class Component : Object {
  public Component(){} internal Component(Legacy.Component value){Wrapped=value;}
  public static implicit operator Component(Legacy.Component value)=>ReferenceEquals(value,null)?null!:(Component)Wrap(value);
- internal Legacy.Component LegacyComponent {get{if(!this)throw new MissingReferenceException("Component has been destroyed or is not attached");return Wrapped as Legacy.Component??throw new MissingReferenceException("Component is not attached");}}
+ internal Legacy.Component LegacyComponent {get{if(ReferenceEquals(Wrapped,null))throw new NullReferenceException("Component is not attached");if(!this)throw new MissingReferenceException("Component has been destroyed or is not attached");return Wrapped as Legacy.Component??throw new MissingReferenceException("Component is not attached");}}
  public GameObject gameObject=>LegacyComponent.gameObject;public Transform transform=>LegacyComponent.transform;
  public T? GetComponent<T>()=>gameObject.GetComponent<T>();public Component? GetComponent(Type type)=>(Component?)gameObject.GetComponent(type);public Component? GetComponent(string type)=>gameObject.GetComponent(type);
  public T[] GetComponents<T>()=>gameObject.GetComponents<T>();public Component[] GetComponents(Type type)=>gameObject.GetComponents(type);public void GetComponents<T>(List<T> results)=>gameObject.GetComponents(results);

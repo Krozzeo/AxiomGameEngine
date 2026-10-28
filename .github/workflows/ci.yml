@@ -129,6 +129,9 @@ jobs:
           node scripts/compatibility/m20-source-audit.mjs .axiom/m20-current-abi.json .axiom/m20-current-source.json
           node scripts/compatibility/m20-obsolete-compile.mjs tests/csharp/M20.Objects/bin/Debug/net10.0/M20.Objects.dll .axiom/m20-current-obsolete-compile.json .axiom/m20-current-abi.json
       - run: dotnet build tests/csharp/M20.Migration --nologo -v:q
+      - run: node tests/browser/m20-objects.mjs
+        env:
+          AXIOM_CSHARP_MODE: ${{ matrix.mode }}
       - run: node tests/browser/m20-poses.mjs
         env:
           AXIOM_CSHARP_MODE: ${{ matrix.mode }}
@@ -167,6 +170,7 @@ jobs:
             .axiom/browser-m20-assets*
             .axiom/browser-m20-vectors*
             .axiom/browser-m20-poses*
+            .axiom/browser-m20-objects*
 
   browser-milestones:
     runs-on: ubuntu-latest
