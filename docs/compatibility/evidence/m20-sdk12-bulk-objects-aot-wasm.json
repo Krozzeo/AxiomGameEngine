@@ -7,11 +7,11 @@
     "BulkObjectLab.cs": "909fe19b241391426f6e8b786b9e827f9bd00e548be8fbdf980b2677dbf37be4"
   },
   "executedBuild": {
-    "id": "76ecb4cf-d81e-4bd6-8c70-6914de2943c2",
+    "id": "99f51a21-f3d2-419b-b6ad-c8d3b23b5390",
     "mode": "aot",
     "sdkVersion": 12,
     "sourceHash": "9671925042e143b428e4ed557f4b0e7eba6d377d1d040d1af8046fb06289b1ff",
-    "bytes": 26323423
+    "bytes": 26315643
   },
   "count": 50,
   "passedChecks": 50,
