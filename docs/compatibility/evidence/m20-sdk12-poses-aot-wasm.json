@@ -7,11 +7,11 @@
     "PoseTransformLab.cs": "fadddae1fc031bd6f20dec13e15761475615c6f0280ef5b0efd9142619dc2da4"
   },
   "executedBuild": {
-    "id": "f95c1c1d-bbee-4127-a888-be43ee03f86e",
+    "id": "9efb936e-e9a4-4070-a913-1fa15700fff9",
     "mode": "aot",
     "sdkVersion": 12,
     "sourceHash": "7ed49308988acd1812742fe67652e5ab91df44549ad33a6835969c8f1e5485f7",
-    "bytes": 26165490
+    "bytes": 26340612
   },
   "count": 348,
   "passedChecks": 348,
@@ -367,5 +367,6 @@
     "p347": "pass",
     "p348": "pass"
   },
-  "passed": true
+  "passed": true,
+  "profile": "Real aot C#/Wasm in the Null editor; exact Stop restoration. Bounded native-attributed corpus or independently named dependency profile; no GPU pixel claim."
 }

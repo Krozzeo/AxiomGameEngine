@@ -8,11 +8,11 @@
     "MessageDispatchLab.cs": "83da6e07db13ff3fe1ba30f6e6f436fc4d66502a3c2adbeb7f8150f227c124a4"
   },
   "executedBuild": {
-    "id": "c14294ef-c8c4-4079-982e-bd2c38aec9cf",
+    "id": "6ab893ba-f4e7-466e-ae66-c59cda1c8c49",
     "mode": "development",
     "sdkVersion": 12,
     "sourceHash": "45673d470bfb5958519f07a3e4dcbe709b1f19f938dc2bf0017a412718383337",
-    "bytes": 14040496
+    "bytes": 14085878
   },
   "count": 360,
   "passedChecks": 360,
@@ -380,5 +380,6 @@
     "m359": "pass",
     "m360": "pass"
   },
-  "passed": true
+  "passed": true,
+  "profile": "Real development C#/Wasm in the Null editor; exact Stop restoration. Bounded native-attributed corpus or independently named dependency profile; no GPU pixel claim."
 }

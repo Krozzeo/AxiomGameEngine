@@ -16,6 +16,10 @@ public static class ScriptInstanceCases {
   L.RuntimeLifecycle.PublishComponents(root.LegacyGameObject.Entity);
   var published=L.Context.EntityData[root.LegacyGameObject.Entity.Id].GetProperty("scriptComponents").EnumerateArray().ToArray();
   check("runtime component projection contains independent Script identities",published.Length==2&&published.Select(value=>value.GetProperty("runtimeId").GetInt32()).Distinct().Count()==2);
+  L.Context.Operations.Clear();var bare=root.LegacyGameObject.Entity.Spawn(new L.Vec3(0,0,0));
+  check("legacy bare Spawn does not borrow original Script instance identities",!L.Context.EntityData[bare.Id].TryGetProperty("scriptComponents",out _)&&new L.GameObject(bare).GetComponents<L.Script>().Length==0);
+  check("legacy bare Spawn removes only numeric Script activation aliases",!L.Context.EntityData[bare.Id].GetProperty("componentEnabled").EnumerateObject().Any(value=>value.Name=="script:"+first.GetInstanceID()));
+  L.Object.DestroyImmediate(new L.GameObject(bare));L.Context.Operations.Clear();
   var clone=U.Object.Instantiate(root);var cloned=clone.GetComponents<InstanceProbe>();
   check("cloning repeated Scripts preserves their order and fields",cloned.Length==2&&cloned[0].Value==10&&cloned[1].Value==20&&cloned[0].GetComponentIndex()==1&&cloned[1].GetComponentIndex()==2);
   check("cloning remaps cyclic Script references by identity",cloned[0].Peer==cloned[1]&&cloned[1].Peer==cloned[0]);

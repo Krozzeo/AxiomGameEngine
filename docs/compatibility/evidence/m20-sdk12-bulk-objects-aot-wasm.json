@@ -7,11 +7,11 @@
     "BulkObjectLab.cs": "909fe19b241391426f6e8b786b9e827f9bd00e548be8fbdf980b2677dbf37be4"
   },
   "executedBuild": {
-    "id": "89df09bd-2f2d-44db-a5c0-b28f88be1a30",
+    "id": "76ecb4cf-d81e-4bd6-8c70-6914de2943c2",
     "mode": "aot",
     "sdkVersion": 12,
     "sourceHash": "9671925042e143b428e4ed557f4b0e7eba6d377d1d040d1af8046fb06289b1ff",
-    "bytes": 26120712
+    "bytes": 26323423
   },
   "count": 50,
   "passedChecks": 50,
@@ -70,5 +70,5 @@
     "b050": "pass"
   },
   "passed": true,
-  "profile": "Portable native-attributed direct overload corpus in real aot C#/Wasm; Null renderer; exact authored scene restoration after Stop; no GPU pixel acceptance."
+  "profile": "Real aot C#/Wasm in the Null editor; exact Stop restoration. Bounded native-attributed corpus or independently named dependency profile; no GPU pixel claim."
 }

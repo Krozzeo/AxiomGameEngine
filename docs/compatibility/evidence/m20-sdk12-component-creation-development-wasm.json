@@ -10,11 +10,11 @@
     "RequiredBoxProbe.cs": "499d57becbedcd099462bdc120b55671987d5915433eaaf030b544f8b98efc77"
   },
   "executedBuild": {
-    "id": "46213dee-00e3-489e-81c5-d1f7c52fa698",
+    "id": "dd64cfd6-56ed-4dd3-814c-61f817db829a",
     "mode": "development",
     "sdkVersion": 12,
     "sourceHash": "33392f6e6f15a01d41a159c94dc6ac02d5c6a980c8a0804cd4199f0aaef8a834",
-    "bytes": 14085633
+    "bytes": 14084606
   },
   "count": 140,
   "passedChecks": 140,
@@ -162,5 +162,6 @@
     "a139": "pass",
     "a140": "pass"
   },
-  "passed": true
+  "passed": true,
+  "profile": "Real development C#/Wasm in the Null editor; exact Stop restoration. Bounded native-attributed corpus or independently named dependency profile; no GPU pixel claim."
 }

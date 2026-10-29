@@ -7,11 +7,11 @@
     "TagSearchLab.cs": "de19cfe2080e6c24161d757e567a63909041c9a80ddfc960c24f0f893c0ed88a"
   },
   "executedBuild": {
-    "id": "dc37d09a-a468-410e-a9dc-33e2ee9b3d28",
+    "id": "00e422e7-1779-40c0-86f0-122c412da97e",
     "mode": "aot",
     "sdkVersion": 12,
     "sourceHash": "bc87ee8fa4cda97aa182d91e973afba37d132fd4b2b3d408befe4a4276dec683",
-    "bytes": 26059403
+    "bytes": 26264915
   },
   "count": 39,
   "passedChecks": 39,
@@ -59,5 +59,5 @@
     "t039": "pass"
   },
   "passed": true,
-  "profile": "Portable native-attributed direct overload corpus in real aot C#/Wasm; Null renderer; exact authored scene restoration after Stop; no GPU pixel acceptance."
+  "profile": "Real aot C#/Wasm in the Null editor; exact Stop restoration. Bounded native-attributed corpus or independently named dependency profile; no GPU pixel claim."
 }

@@ -8,11 +8,11 @@
     "MessageDispatchLab.cs": "83da6e07db13ff3fe1ba30f6e6f436fc4d66502a3c2adbeb7f8150f227c124a4"
   },
   "executedBuild": {
-    "id": "30825004-096f-4dd9-8864-5f0dca7fde94",
+    "id": "e8090d33-8824-4162-a0f0-8e81edbb4546",
     "mode": "aot",
     "sdkVersion": 12,
     "sourceHash": "45673d470bfb5958519f07a3e4dcbe709b1f19f938dc2bf0017a412718383337",
-    "bytes": 26077983
+    "bytes": 26289736
   },
   "count": 360,
   "passedChecks": 360,
@@ -380,5 +380,6 @@
     "m359": "pass",
     "m360": "pass"
   },
-  "passed": true
+  "passed": true,
+  "profile": "Real aot C#/Wasm in the Null editor; exact Stop restoration. Bounded native-attributed corpus or independently named dependency profile; no GPU pixel claim."
 }

@@ -7,11 +7,11 @@
     "GameObjectStateLab.cs": "8ef93e6675c32f6e17c724ce2439be7d6beaf013cd0df5600718e4992d1ccc66"
   },
   "executedBuild": {
-    "id": "f37362e6-1ae5-48b4-bf25-5ba995bab960",
+    "id": "b4e7c355-1344-4422-8a9d-2b57d37fecc9",
     "mode": "development",
     "sdkVersion": 12,
     "sourceHash": "10f103933490439ba6e03b4c751292a6ba7d2cf8ca3c485931f5c11a22bfc0cf",
-    "bytes": 13937817
+    "bytes": 13982752
   },
   "count": 53,
   "passedChecks": 53,
@@ -72,5 +72,6 @@
     "retired.layer": "pass",
     "retired.static": "pass"
   },
-  "passed": true
+  "passed": true,
+  "profile": "Real development C#/Wasm in the Null editor; exact Stop restoration. Bounded native-attributed corpus or independently named dependency profile; no GPU pixel claim."
 }

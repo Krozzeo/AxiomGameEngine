@@ -7,11 +7,11 @@
     "ObjectFindLab.cs": "dcb21aa374ead3db6916569e1ccf2eb6fe579f491e31f3309e7f7f24f617b127"
   },
   "executedBuild": {
-    "id": "41ea0bbf-1647-4a41-83b8-b0d49bcdf957",
+    "id": "f6f07105-9187-4020-9bdb-38635b7e886c",
     "mode": "aot",
     "sdkVersion": 12,
     "sourceHash": "18d35c24d8bfeddf77a1e4a409264059dc43d631c0ec7c3e190923c0ef73259e",
-    "bytes": 26065994
+    "bytes": 26271999
   },
   "count": 152,
   "passedChecks": 152,
@@ -171,5 +171,6 @@
     "f151": "pass",
     "f152": "pass"
   },
-  "passed": true
+  "passed": true,
+  "profile": "Real aot C#/Wasm in the Null editor; exact Stop restoration. Bounded native-attributed corpus or independently named dependency profile; no GPU pixel claim."
 }

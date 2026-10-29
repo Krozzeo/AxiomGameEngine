@@ -14407,8 +14407,9 @@
       "evidence": "evidence/m20-sdk12-migration.json"
     },
     "hierarchyReferenceLifecycle": {
-      "status": "partial",
-      "reason": "All311 signatures now have attributed bounded native/Wasm profiles. Repeated-script27 and compound-physics13 plus real Inspector geometry/activation/reference edits pass in both effective browser modes;923 native core checks cover individual lifetime, exact clone/reference remapping and canonical callbacks. Complete current-source regression and evidence refresh are still running."
+      "status": "passed",
+      "reason": "All311 signatures have attributed bounded native/Wasm profiles. Repeated-script27, compound-physics13 plus real Inspector geometry/activation/reference edits pass in both effective browser modes;925 native core checks cover independent lifetime, exact clone/reference remapping, canonical callbacks and legacy bare-Spawn identity isolation. Full regression and publication remain separate required gates.",
+      "evidence": "evidence/m20-compound-colliders-acceptance.json"
     },
     "regressionAndDependencies": {
       "status": "partial",
@@ -14448,6 +14449,11 @@
       "status": "passed",
       "evidence": "evidence/m20-script-instances-acceptance.json",
       "scope": "Repeated compiled MonoBehaviour instances within existing8-per-entity/32-total script budgets. Exact native creation/order/default/activation/message/callback/clone/reference/retirement observations and both effective browser modes; live Inspector edits, toggles and exact repeated peer selection remain independent and Stop restores authoring. Additional owned regressions cover async snapshot peer remapping after original destruction. This does not certify collider storage, compound physics, uncompiled script types or unrestricted attribute/overload domains."
+    },
+    "compoundColliders": {
+      "status": "passed",
+      "evidence": "evidence/m20-compound-colliders-acceptance.json",
+      "scope": "Independent collider identity, geometry, lifecycle, clone/references, canonical callbacks, shared-body CPU/Wasm physics and real Inspector edits; no full PhysX, GPU or arbitrary mesh cooking parity."
     }
   }
 }

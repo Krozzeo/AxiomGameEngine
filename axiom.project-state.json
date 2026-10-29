@@ -1,15 +1,15 @@
 {
   "$schema": "./protocol/schema/project-state.schema.json",
   "stateVersion": 1,
-  "updatedAt": "2026-10-28",
+  "updatedAt": "2026-10-29",
   "engineVersion": "0.0.62",
   "activeMilestone": 20,
   "milestoneStatus": "in_progress",
   "completion": {
-    "activeMilestonePercent": 33,
+    "activeMilestonePercent": 67,
     "wholeProjectPercent": null,
     "method": "docs/architecture/MILESTONE_REPORTING.md",
-    "scopeNote": "M20 remains open.1/3 required criteria passed (33% rounded). Source311/311 and attributed311/311 bounded profiles (281 behavior,30 compiler-error): Component62/62, GameObject96/96, Transform81/81, Object72/72. Native923 core and all14 native suites pass. AddComponent140 and compound physics13 plus live Inspector edits pass in Development/effective AOT. Complete current-source browser regression, final CI and public artifact acceptance remain required; stable main0.0.57 unchanged.",
+    "scopeNote": "M20 final acceptance in progress:2/3 required criteria passed (67% rounded). All311 bounded signature profiles and required identity/reference/lifecycle/Inspector/compound-physics dependencies are accepted. Native925 core and all14 native suites pass. Both modes passed all17 labs; focused regression follows a legacy Spawn identity fix. Current-head CI and experimental artifact acceptance remain required. Stable main0.0.57 unchanged.",
     "historicalMvpPercent": 94,
     "historicalMvpCompletedWeight": 122,
     "historicalMvpTotalWeight": 130
@@ -99,7 +99,7 @@
     },
     "20": {
       "status": "in_progress",
-      "percent": 33
+      "percent": 67
     },
     "21": {
       "status": "not_started",
@@ -1747,7 +1747,7 @@
     "demos/M20_GUIDE.md"
   ],
   "nextTask": "Complete33 contracts:2 AddComponent,1 CreatePrimitive,4 tag finds,6 bulk,13 sync clones,6 destroy and DontDestroyOnLoad; finish required duplicate-type storage and full CI/artifact gates.",
-  "activeRevision": "0.0.62 / SDK12 —278 attributed contracts; M20 open",
+  "activeRevision": "0.0.62 / SDK12 \u2014278 attributed contracts; M20 open",
   "roadmap": {
     "version": 2,
     "manifest": "docs/architecture/roadmap-v2.json",

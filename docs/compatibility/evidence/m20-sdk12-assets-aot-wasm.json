@@ -9,11 +9,11 @@
     "HierarchyAuxCorpus.cs": "409825b1a61eeef55007da5a3af58fe407bce95427edb31a9f6d3a5bd0dce73e"
   },
   "executedBuild": {
-    "id": "af10dbeb-536c-4061-840b-6bf619f2b256",
+    "id": "72ddc7f4-82fc-40c8-a41b-148fa92ca1ee",
     "mode": "aot",
     "sdkVersion": 12,
     "sourceHash": "dd75c3847bd1eaa3f6281b0f74ed82f8152382e3c051aceb825762caeec68921",
-    "bytes": 25912150
+    "bytes": 26100132
   },
   "report": "asset.identity:pass;asset.name:pass;asset.rename:pass;asset.binding:pass;asset.find:pass;asset.borrowed-excluded:pass;asset.text-content:pass;asset.text-name:pass;asset.next-frame-reference:pass;asset.destroy-deferred:pass;asset.destroy-complete:pass;asset.component-survives:pass;asset.restore-source:pass;asset.async-snapshot:pass;asset.async-rejects-text:pass;asset.borrowed-next-frame:pass;asset.cleanup:pass;",
   "cases": {
@@ -295,5 +295,7 @@
     "detach.dead": "pass",
     "changed.dead": "pass"
   },
-  "passed": true
+  "passed": true,
+  "totalChecks": 271,
+  "profile": "Real aot C#/Wasm in the Null editor; exact Stop restoration. Bounded native-attributed corpus or independently named dependency profile; no GPU pixel claim."
 }

@@ -7,11 +7,11 @@
     "SyncCloneLab.cs": "15a8a0def724d7a56bd5853165944684f1b32f111d8fa44a6f3dd10f5f15c097"
   },
   "executedBuild": {
-    "id": "641b974f-644f-4031-b58b-2e451c323eec",
+    "id": "9a7b1e6b-9465-48f3-9495-6babaf239866",
     "mode": "development",
     "sdkVersion": 12,
     "sourceHash": "0ea5c54d8616ad992124e67bfe1f4125d63528ec46857acf3538fe89595e1966",
-    "bytes": 14034794
+    "bytes": 14078321
   },
   "count": 91,
   "passedChecks": 91,
@@ -111,5 +111,5 @@
     "c091": "pass"
   },
   "passed": true,
-  "profile": "Portable native-attributed direct overload corpus in real development C#/Wasm; Null renderer; exact authored scene restoration after Stop; no GPU pixel acceptance."
+  "profile": "Real development C#/Wasm in the Null editor; exact Stop restoration. Bounded native-attributed corpus or independently named dependency profile; no GPU pixel claim."
 }

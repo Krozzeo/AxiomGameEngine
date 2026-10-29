@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {readFile} from 'node:fs/promises';
+import {readFile,readdir} from 'node:fs/promises';
 import {gunzipSync} from 'node:zlib';
 import {createHash} from 'node:crypto';
 import {auditM20Source} from '../scripts/compatibility/m20-source-audit.mjs';
@@ -31,4 +31,10 @@ test('obsolete compiler contracts retain frozen warning/error metadata and all c
  assert.equal(consumer.compilerErrorCases,30);assert.equal(consumer.compilerWarningCases,23);
  const changed=structuredClone(compiled);changed.find(row=>row.obsolete).shape.customAttributes.find(attribute=>attribute.name==='System.ObsoleteAttribute').blobSha256='changed';
  assert.equal(auditM20Source(frozen,changed).sourceContractMatches,310);
+});
+
+test('native Play oracle selection cannot activate a different profile through shared session keys',async()=>{
+ const directory=new URL('../scripts/compatibility/UnityOracle/',import.meta.url),owners=new Map();
+ for(const name of (await readdir(directory)).filter(name=>name.endsWith('Oracle.cs'))){const source=await readFile(new URL(name,directory),'utf8');for(const key of new Set([...source.matchAll(/SessionState\.(?:GetBool|SetBool)\("([^"]+)"/g)].map(match=>match[1]))){assert(!owners.has(key),'Oracle key '+key+' is shared by '+name+' and '+owners.get(key));owners.set(key,name);}}
+ assert(owners.size>=9);
 });

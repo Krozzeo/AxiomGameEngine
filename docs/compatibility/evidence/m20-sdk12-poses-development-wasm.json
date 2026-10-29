@@ -7,11 +7,11 @@
     "PoseTransformLab.cs": "fadddae1fc031bd6f20dec13e15761475615c6f0280ef5b0efd9142619dc2da4"
   },
   "executedBuild": {
-    "id": "bb09f3bc-0b8b-4596-9b42-0515a713f3d7",
+    "id": "e62a35e7-8ec3-4eb9-8822-4ab8158cfd9c",
     "mode": "development",
     "sdkVersion": 12,
     "sourceHash": "7ed49308988acd1812742fe67652e5ab91df44549ad33a6835969c8f1e5485f7",
-    "bytes": 14065322
+    "bytes": 14108066
   },
   "count": 348,
   "passedChecks": 348,
@@ -367,5 +367,6 @@
     "p347": "pass",
     "p348": "pass"
   },
-  "passed": true
+  "passed": true,
+  "profile": "Real development C#/Wasm in the Null editor; exact Stop restoration. Bounded native-attributed corpus or independently named dependency profile; no GPU pixel claim."
 }

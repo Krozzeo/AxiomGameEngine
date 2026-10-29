@@ -10,11 +10,11 @@
     "RequiredBoxProbe.cs": "499d57becbedcd099462bdc120b55671987d5915433eaaf030b544f8b98efc77"
   },
   "executedBuild": {
-    "id": "7a75a69c-ebbf-4770-9aac-7860663e8cad",
+    "id": "a07fbb8a-e49f-4e11-8dfe-0eb9b7de7b2c",
     "mode": "aot",
     "sdkVersion": 12,
     "sourceHash": "33392f6e6f15a01d41a159c94dc6ac02d5c6a980c8a0804cd4199f0aaef8a834",
-    "bytes": 26297676
+    "bytes": 26281375
   },
   "count": 140,
   "passedChecks": 140,
@@ -162,5 +162,6 @@
     "a139": "pass",
     "a140": "pass"
   },
-  "passed": true
+  "passed": true,
+  "profile": "Real aot C#/Wasm in the Null editor; exact Stop restoration. Bounded native-attributed corpus or independently named dependency profile; no GPU pixel claim."
 }

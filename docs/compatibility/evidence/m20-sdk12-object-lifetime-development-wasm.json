@@ -7,11 +7,11 @@
     "ObjectLifetimeLab.cs": "875083d265b60d38ee75d8d010d9312c063101aa70b21c49bad235a48073c0dc"
   },
   "executedBuild": {
-    "id": "a9d5b0bc-5048-47b4-b69e-ec3a7161b2c3",
+    "id": "2015c8a8-1d07-4e13-88a9-0b2c09236029",
     "mode": "development",
     "sdkVersion": 12,
     "sourceHash": "63707280fa4bb85dbbaaa366f18d80a9c0e82ed6852d19b23299a7c88fd9598e",
-    "bytes": 14035475
+    "bytes": 14076828
   },
   "count": 122,
   "passedChecks": 122,
@@ -142,5 +142,5 @@
     "l122": "pass"
   },
   "passed": true,
-  "profile": "Portable native-attributed direct overload corpus in real development C#/Wasm; Null renderer; exact authored scene restoration after Stop; no GPU pixel acceptance."
+  "profile": "Real development C#/Wasm in the Null editor; exact Stop restoration. Bounded native-attributed corpus or independently named dependency profile; no GPU pixel claim."
 }

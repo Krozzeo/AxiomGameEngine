@@ -12,15 +12,15 @@
     "Stop restores the complete authored scene; runtime objects, fields and resource handles do not become authoring changes"
   ],
   "pageErrors": [],
-  "profile": "Axiom development C#/Wasm and Null editor; aliased observations, not native Unity conformance",
+  "profile": "Real development C#/Wasm in the Null editor: canonical/legacy core, unchanged Unity migration corpus, transforms, primitive geometry and lifecycle. This broad lab does not independently confer per-signature or GPU pixel parity.",
   "httpErrors": [],
   "consoleErrors": [],
   "executedBuild": {
-    "id": "9ab342b6-5d2b-4f34-ae28-36ea4eb022b7",
+    "id": "5889316a-3924-449c-adba-b03307aa62dd",
     "mode": "development",
     "sdkVersion": 12,
     "sourceHash": "ab1a0cab030c4136fc577ddbaac107fe9ff1b0a41e220f46cafbb9a59188b985",
-    "bytes": 14101891
+    "bytes": 14146710
   },
   "cases": {
     "identity.wrapper": "pass",
@@ -310,5 +310,6 @@
     "native.transform.126": "pass",
     "native.transform.127": "pass"
   },
-  "passed": true
+  "passed": true,
+  "totalChecks": 267
 }

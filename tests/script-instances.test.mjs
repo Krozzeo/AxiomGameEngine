@@ -47,3 +47,7 @@ test('runtime instance support keeps duplicate authored attachments prohibited',
  validateRuntimeEntity(source.entities[0]);
  const single=scene([{path,values:{Value:17,Peer:null}}]);validateScriptComponents(single);
 });
+
+test('legacy bare spawn cannot copy a live Script identity or its per-instance activation alias',()=>{
+ const source=scene();source.entities[0].componentEnabled={'script:101':false,'script:102':true,collider:false};const spawnedId='entity://00000000-0000-4000-8000-000000000099';const result=applyScriptOperations(source,{generation:1,operations:[{kind:'spawn',id:spawnedId,template:id,position:[1,0,0]}]},1).scene;const clone=result.entities.find(entity=>entity.id===spawnedId);assert.equal(clone.scriptComponents,undefined);assert.deepEqual(clone.componentEnabled,{collider:false});assert.deepEqual(source.entities[0].scriptComponents.map(component=>component.runtimeId),[101,102]);
+});

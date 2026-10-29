@@ -26,7 +26,6 @@
     }
   },
   "failedCriteria": [
-    "hierarchyReferenceLifecycle",
     "regressionAndDependencies"
   ],
   "unaccepted": []

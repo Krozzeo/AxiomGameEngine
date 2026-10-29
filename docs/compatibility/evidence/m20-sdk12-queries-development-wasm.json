@@ -7,11 +7,11 @@
     "ComponentQueryLab.cs": "95f38ea1d5a873e60601cbb97cfa0f730a3fc0a1b567c2d752a91be8c8dab79c"
   },
   "executedBuild": {
-    "id": "d7a02311-51da-4592-ab27-22f75f130cab",
+    "id": "0025006e-9a1e-4131-8b96-68a44e1b7fb8",
     "mode": "development",
     "sdkVersion": 12,
     "sourceHash": "33e7ebbd5d95b64f9d8e4a9c5c1433e307e1298b11ff9c8f81b32714ea3f3657",
-    "bytes": 14044991
+    "bytes": 14088925
   },
   "count": 476,
   "passedChecks": 476,
@@ -495,5 +495,6 @@
     "q475": "pass",
     "q476": "pass"
   },
-  "passed": true
+  "passed": true,
+  "profile": "Real development C#/Wasm in the Null editor; exact Stop restoration. Bounded native-attributed corpus or independently named dependency profile; no GPU pixel claim."
 }

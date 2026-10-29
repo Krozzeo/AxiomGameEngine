@@ -7,11 +7,11 @@
     "SyncCloneLab.cs": "15a8a0def724d7a56bd5853165944684f1b32f111d8fa44a6f3dd10f5f15c097"
   },
   "executedBuild": {
-    "id": "bc095134-7b86-4131-958d-0e4cd12da889",
+    "id": "7cbe384f-31d6-4940-ac43-90cfb84efb7f",
     "mode": "aot",
     "sdkVersion": 12,
     "sourceHash": "0ea5c54d8616ad992124e67bfe1f4125d63528ec46857acf3538fe89595e1966",
-    "bytes": 26125893
+    "bytes": 26307718
   },
   "count": 91,
   "passedChecks": 91,
@@ -111,5 +111,5 @@
     "c091": "pass"
   },
   "passed": true,
-  "profile": "Portable native-attributed direct overload corpus in real aot C#/Wasm; Null renderer; exact authored scene restoration after Stop; no GPU pixel acceptance."
+  "profile": "Real aot C#/Wasm in the Null editor; exact Stop restoration. Bounded native-attributed corpus or independently named dependency profile; no GPU pixel claim."
 }

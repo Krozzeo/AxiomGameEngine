@@ -7,11 +7,11 @@
     "ObjectLifetimeLab.cs": "875083d265b60d38ee75d8d010d9312c063101aa70b21c49bad235a48073c0dc"
   },
   "executedBuild": {
-    "id": "62cfe115-8dc3-4ba7-ac37-d20009e664bf",
+    "id": "69e28876-a394-46b5-b808-839313598e97",
     "mode": "aot",
     "sdkVersion": 12,
     "sourceHash": "63707280fa4bb85dbbaaa366f18d80a9c0e82ed6852d19b23299a7c88fd9598e",
-    "bytes": 26070255
+    "bytes": 26274993
   },
   "count": 122,
   "passedChecks": 122,
@@ -142,5 +142,5 @@
     "l122": "pass"
   },
   "passed": true,
-  "profile": "Portable native-attributed direct overload corpus in real aot C#/Wasm; Null renderer; exact authored scene restoration after Stop; no GPU pixel acceptance."
+  "profile": "Real aot C#/Wasm in the Null editor; exact Stop restoration. Bounded native-attributed corpus or independently named dependency profile; no GPU pixel claim."
 }

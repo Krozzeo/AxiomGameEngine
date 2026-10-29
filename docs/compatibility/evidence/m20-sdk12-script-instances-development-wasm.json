@@ -8,11 +8,11 @@
     "RepeatedScriptProbe.cs": "c38e3b828c156aa7435ae0e40a97ba4fe0cc6599c4b0f0e4ad8b72c4b57d43bc"
   },
   "executedBuild": {
-    "id": "398e4323-bb5a-45c0-a32e-222de221983f",
+    "id": "bf892171-9c24-4db8-83ca-c6bf3e0fc9e9",
     "mode": "development",
     "sdkVersion": 12,
     "sourceHash": "242435c860b36a0a6c5f5f62ba621c4b7f5fb71fced7b27a09e5037c1533ef4c",
-    "bytes": 13956757
+    "bytes": 13983569
   },
   "count": 27,
   "passedChecks": 27,
@@ -58,5 +58,5 @@
     "ambiguousSavedSchemaUnchanged": true
   },
   "passed": true,
-  "profile": "Real development C#/Wasm, native-attributed portable corpus, Null renderer, exact Stop restoration; no GPU pixel claim."
+  "profile": "Real development C#/Wasm in the Null editor; exact Stop restoration. Bounded native-attributed corpus or independently named dependency profile; no GPU pixel claim."
 }

@@ -7,11 +7,11 @@
     "BulkObjectLab.cs": "909fe19b241391426f6e8b786b9e827f9bd00e548be8fbdf980b2677dbf37be4"
   },
   "executedBuild": {
-    "id": "76621427-1f72-4c6f-9f4b-20a106279e4d",
+    "id": "ced0c3b1-10af-4652-a162-d35f45701f53",
     "mode": "development",
     "sdkVersion": 12,
     "sourceHash": "9671925042e143b428e4ed557f4b0e7eba6d377d1d040d1af8046fb06289b1ff",
-    "bytes": 14033420
+    "bytes": 14077971
   },
   "count": 50,
   "passedChecks": 50,
@@ -70,5 +70,5 @@
     "b050": "pass"
   },
   "passed": true,
-  "profile": "Portable native-attributed direct overload corpus in real development C#/Wasm; Null renderer; exact authored scene restoration after Stop; no GPU pixel acceptance."
+  "profile": "Real development C#/Wasm in the Null editor; exact Stop restoration. Bounded native-attributed corpus or independently named dependency profile; no GPU pixel claim."
 }
