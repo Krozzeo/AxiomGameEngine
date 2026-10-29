@@ -1,0 +1,61 @@
+{
+    "unityVersion": "6000.3.27f1",
+    "coreAssemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737",
+    "sourceSha256": "ffcbc5d926fe1836a9da82310f443a7c5cab19082a0031bb6186a19776a87085",
+    "error": "",
+    "profile": "Native Play primitive creation probes",
+    "facts": [
+        {
+            "key": "create.Sphere",
+            "value": "Sphere:Transform,MeshFilter,SphereCollider,MeshRenderer:True:0:Untagged:True"
+        },
+        {
+            "key": "mesh.Sphere",
+            "value": "True"
+        },
+        {
+            "key": "create.Capsule",
+            "value": "Capsule:Transform,MeshFilter,CapsuleCollider,MeshRenderer:True:0:Untagged:True"
+        },
+        {
+            "key": "mesh.Capsule",
+            "value": "True"
+        },
+        {
+            "key": "create.Cylinder",
+            "value": "Cylinder:Transform,MeshFilter,CapsuleCollider,MeshRenderer:True:0:Untagged:True"
+        },
+        {
+            "key": "mesh.Cylinder",
+            "value": "True"
+        },
+        {
+            "key": "create.Cube",
+            "value": "Cube:Transform,MeshFilter,BoxCollider,MeshRenderer:True:0:Untagged:True"
+        },
+        {
+            "key": "mesh.Cube",
+            "value": "True"
+        },
+        {
+            "key": "create.Plane",
+            "value": "Plane:Transform,MeshFilter,MeshCollider,MeshRenderer:True:0:Untagged:True"
+        },
+        {
+            "key": "mesh.Plane",
+            "value": "True"
+        },
+        {
+            "key": "create.Quad",
+            "value": "Quad:Transform,MeshFilter,MeshCollider,MeshRenderer:True:0:Untagged:True"
+        },
+        {
+            "key": "mesh.Quad",
+            "value": "True"
+        },
+        {
+            "key": "create.invalid",
+            "value": "True"
+        }
+    ]
+}

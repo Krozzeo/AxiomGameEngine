@@ -6,6 +6,7 @@ Serialize public primitive fields and Vector2/Vector3 with ToJson, FromJson<T> a
 ## Implemented declarations
 
 ```csharp
+// Namespace: Axiom.Gameplay
 public static class JsonUtility {
  // Explicit public-field serializer. Reflection roots are preserved for compiled script classes.
  public static string ToJson<[System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembers(System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.PublicFields)]T>(T value,bool prettyPrint=false){using var stream=new MemoryStream();using(var writer=new Utf8JsonWriter(stream,new JsonWriterOptions{Indented=prettyPrint})){writer.WriteStartObject();foreach(var f in typeof(T).GetFields(System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.Public)){writer.WritePropertyName(f.Name);Write(writer,f.GetValue(value));}writer.WriteEndObject();}return System.Text.Encoding.UTF8.GetString(stream.ToArray());}

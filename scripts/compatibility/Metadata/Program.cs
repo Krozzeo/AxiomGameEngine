@@ -7,10 +7,10 @@ using System.Text.Json;
 using System.Text.RegularExpressions;
 
 // PE metadata only: never load or execute a vendor assembly or installer.
-var root=Path.GetFullPath(args[0]);var seenAssemblies=new HashSet<string>();var wanted=args.Length>2?JsonDocument.Parse(File.ReadAllText(args[2])).RootElement.EnumerateArray().Select(r=>Regex.Replace(r.GetProperty("owner").GetString()!,"<[^>]+>|`[0-9]+","")).ToHashSet():new HashSet<string>();using var output=File.Create(args[1]);using var writer=new Utf8JsonWriter(output);writer.WriteStartArray();int count=0;
-foreach(var file in Directory.EnumerateFiles(root,"*.dll",SearchOption.AllDirectories).Order()) {
+var sdkMode=args.Length>2&&args[2]=="--sdk";var root=sdkMode?Path.GetDirectoryName(Path.GetFullPath(args[0]))!:Path.GetFullPath(args[0]);var seenAssemblies=new HashSet<string>();var wanted=args.Length>2&&!sdkMode?JsonDocument.Parse(File.ReadAllText(args[2])).RootElement.EnumerateArray().Select(r=>Regex.Replace(r.GetProperty("owner").GetString()!,"<[^>]+>|`[0-9]+","")).ToHashSet():new HashSet<string>();Directory.CreateDirectory(Path.GetDirectoryName(Path.GetFullPath(args[1]))!);using var output=File.Create(args[1]);using var writer=new Utf8JsonWriter(output);writer.WriteStartArray();int count=0;
+foreach(var file in (sdkMode?(IEnumerable<string>)new[]{Path.GetFullPath(args[0])}:Directory.EnumerateFiles(root,"*.dll",SearchOption.AllDirectories).Order())) {
  var relative=Path.GetRelativePath(root,file).Replace('\\','/');
- if(!(relative.StartsWith("editor/$_OUTDIR/Managed/")||((relative.StartsWith("android/")||relative.StartsWith("ios/"))&&Path.GetFileName(file).StartsWith("UnityEditor."))))continue;
+ if(!sdkMode&&!(relative.StartsWith("editor/$_OUTDIR/Managed/")||((relative.StartsWith("android/")||relative.StartsWith("ios/"))&&Path.GetFileName(file).StartsWith("UnityEditor."))))continue;
  try {
   using var input=File.OpenRead(file);using var pe=new PEReader(input);if(!pe.HasMetadata)continue;var md=pe.GetMetadataReader();var provider=new Names(md);
   string TypeName(TypeDefinitionHandle h)=>provider.GetTypeFromDefinition(md,h,0);
@@ -26,7 +26,15 @@ foreach(var file in Directory.EnumerateFiles(root,"*.dll",SearchOption.AllDirect
    var ctx=new Context(t.GetGenericParameters().Select(h=>md.GetString(md.GetGenericParameter(h).Name)).ToArray(),[]);var baseType=provider.Resolve(t.BaseType,ctx);
    object? symbolShape=null;
    object[] Generics(GenericParameterHandleCollection handles,Context c)=>handles.Select(h=>{var p=md.GetGenericParameter(h);return (object)new{name=md.GetString(p.Name),attributes=p.Attributes.ToString(),constraints=p.GetConstraints().Select(ch=>provider.Resolve(md.GetGenericParameterConstraint(ch).Type,c)).ToArray()};}).ToArray();
-   object[] Attributes(CustomAttributeHandleCollection handles)=>handles.Select(h=>(object)new{name=AttributeType(h),blobSha256=Convert.ToHexStringLower(SHA256.HashData(md.GetBlobBytes(md.GetCustomAttribute(h).Value)))}).ToArray();
+   object[] Attributes(CustomAttributeHandleCollection handles)=>handles.Select(h=>{
+    var attribute=md.GetCustomAttribute(h);var name=AttributeType(h);string? obsoleteMessage=null;bool? obsoleteError=null;
+    if(name=="System.ObsoleteAttribute"){
+     var signature=attribute.Constructor.Kind==HandleKind.MemberReference?md.GetMemberReference((MemberReferenceHandle)attribute.Constructor).DecodeMethodSignature(provider,default):md.GetMethodDefinition((MethodDefinitionHandle)attribute.Constructor).DecodeSignature(provider,default);
+     var blob=md.GetBlobReader(attribute.Value);if(blob.ReadUInt16()!=1)throw new BadImageFormatException("Invalid attribute prolog");
+     if(signature.ParameterTypes.Length>0)obsoleteMessage=blob.ReadSerializedString();obsoleteError=signature.ParameterTypes.Length>1&&blob.ReadByte()!=0;
+    }
+    return (object)new{name,blobSha256=Convert.ToHexStringLower(SHA256.HashData(md.GetBlobBytes(attribute.Value))),obsoleteMessage,obsoleteError};
+   }).ToArray();
    void Add(string name,string kind,string returns,string[] parameters,string declaration,string visibility,bool stat,bool obsolete){if(!Public(visibility)&&!wanted.Contains(Regex.Replace(owner,"`[0-9]+","")))return;var item=new{@namespace=ns,owner=Regex.Replace(owner,"`[0-9]+",""),ownerCanonical=owner,name,kind,returns,parameters,declaration,visibility,publicContract=exported&&Public(visibility),@static=stat,obsolete,baseType,source=Path.GetRelativePath(root,file).Replace('\\','/'),assembly=assemblyName,assemblyVersion=md.IsAssembly?assembly.Version.ToString():"",assemblySha256=sha,mvid,shape=symbolShape};JsonSerializer.Serialize(writer,item);count++;}
    symbolShape=new{attributes=t.Attributes.ToString(),layoutSize=t.GetLayout().Size,packingSize=t.GetLayout().PackingSize,genericParameters=Generics(t.GetGenericParameters(),ctx),interfaces=t.GetInterfaceImplementations().Select(h=>provider.Resolve(md.GetInterfaceImplementation(h).Interface,ctx)).ToArray(),customAttributes=Attributes(t.GetCustomAttributes())};
    Add(md.GetString(t.Name),"type",baseType,[],"public "+(((t.Attributes&TypeAttributes.Interface)!=0)?"interface ":baseType=="System.Enum"?"enum ":baseType=="System.ValueType"?"struct ":"class ")+owner,"public",false,Obsolete(t.GetCustomAttributes()));

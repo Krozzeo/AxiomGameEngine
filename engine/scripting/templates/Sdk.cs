@@ -2,6 +2,7 @@ using System.Text.Json;
 namespace Axiom.Gameplay;
 
 public record struct Vector2(double X, double Y) {
+ public override string ToString()=>FormattableString.Invariant($"({X:R}, {Y:R})");
  public double x {get=>X;set=>X=value;}
  public double y {get=>Y;set=>Y=value;}
  public static Vector2 zero=>Zero;public static Vector2 one=>One;public double magnitude=>Magnitude;public double sqrMagnitude=>X*X+Y*Y;
@@ -21,6 +22,7 @@ public record struct Vector2(double X, double Y) {
  internal void Write(Utf8JsonWriter w) {w.WriteStartArray();w.WriteNumberValue(X);w.WriteNumberValue(Y);w.WriteEndArray();}
 }
 public record struct Vector3(double X, double Y, double Z) {
+ public override string ToString()=>FormattableString.Invariant($"({X:R}, {Y:R}, {Z:R})");
  public double x {get=>X;set=>X=value;}
  public double y {get=>Y;set=>Y=value;}
  public double z {get=>Z;set=>Z=value;}
@@ -48,6 +50,7 @@ public record struct Vector3(double X, double Y, double Z) {
  internal void Write(Utf8JsonWriter w) {w.WriteStartArray();w.WriteNumberValue(X);w.WriteNumberValue(Y);w.WriteNumberValue(Z);w.WriteEndArray();}
 }
 public record struct Vector4(double X, double Y, double Z, double W) {
+ public override string ToString()=>FormattableString.Invariant($"({X:R}, {Y:R}, {Z:R}, {W:R})");
  public double x {get=>X;set=>X=value;}
  public double y {get=>Y;set=>Y=value;}
  public double z {get=>Z;set=>Z=value;}
@@ -141,8 +144,8 @@ public abstract partial class MonoBehaviour : Script {
  public override void OnUpdate(double deltaSeconds){Update();}
  public override void OnStop(){}
 }
-[AttributeUsage(AttributeTargets.Field)] public sealed class SerializeFieldAttribute : Attribute {}
-[AttributeUsage(AttributeTargets.Field)] public sealed class HideInInspectorAttribute : Attribute {}
+[AttributeUsage(AttributeTargets.Field)] public class SerializeFieldAttribute : Attribute {}
+[AttributeUsage(AttributeTargets.Field)] public class HideInInspectorAttribute : Attribute {}
 [AttributeUsage(AttributeTargets.Field)] public sealed class PlayerPrefAttribute(string key) : Attribute {public string Key {get;}=key;}
 [AttributeUsage(AttributeTargets.Field)] public sealed class ReadOnlyAttribute : Attribute {}
 [AttributeUsage(AttributeTargets.Field)] public sealed class TitleAttribute(string text) : Attribute {public string Text {get;}=text;}
@@ -183,7 +186,7 @@ public readonly record struct Entity(string Id, int Generation) {
  public Entity Spawn(Vec3 position) => Context.Spawn(this,position);
 }
 public abstract class Script : Behaviour {
- internal bool RuntimeRemoved;
+ internal bool RuntimeRemoved,RuntimeCloneEnabled=true;
  public virtual void OnStart() {}
  public virtual void OnUpdate(double deltaSeconds) {}
  public virtual void OnStop() {}
@@ -204,7 +207,7 @@ public static class Debug {
  public static void LogError(object? value)=>Axiom.Gameplay.Log.Info("Error: "+value);
 }
 public static class Log {public static void Info(string message) => Context.Log(message);}
-internal readonly record struct Operation(string Kind,string Id,string? Template,Vec3 Position,string? Message,string? Action=null,string? Name=null,double Value=0,double Duration=0,Quaternion? Rotation=null,string? Data=null);
+internal readonly record struct Operation(string Kind,string Id,string? Template,Vec3 Position,string? Message,string? Action=null,string? Name=null,double Value=0,double Duration=0,Quaternion? Rotation=null,string? Data=null,Vector3? Scale=null);
 internal static partial class Context {
  internal static readonly List<Script> LiveScripts=new();
  internal static readonly Dictionary<string,bool> ActiveStates=new();
@@ -264,38 +267,42 @@ internal static partial class Context {
  internal static Entity FindCamera(Entity entity) {
   _=Read(entity);foreach(var id in Cameras){var parent=Parents.GetValueOrDefault(id);for(var depth=0;parent!=null&&depth<32;depth++){if(parent==entity.Id)return new Entity(id,Generation);parent=Parents.GetValueOrDefault(parent);}}throw new InvalidOperationException("AX_SCENE_0001: Player needs a child Camera");
  }
- internal static void Rotate(Entity entity,Quaternion rotation) {
-  var value=Read(entity);var length=Math.Sqrt(rotation.X*rotation.X+rotation.Y*rotation.Y+rotation.Z*rotation.Z+rotation.W*rotation.W);if(!double.IsFinite(length)||length<1e-9)throw new ArgumentException("AX_SCRIPT_0003: invalid rotation");var normalized=new Quaternion(rotation.X/length,rotation.Y/length,rotation.Z/length,rotation.W/length);Add(new("rotation",entity.Id,null,default,null,Rotation:normalized));Entities[entity.Id]=new Transform(value.Position,normalized,value.Scale){Entity=entity};FollowChildren(entity,value);
- }
- internal static void Scaling(Entity entity,Vector3 scale){var v=Read(entity);Position(scale);Add(new("scale",entity.Id,null,scale,null));Entities[entity.Id]=new Transform(v.Position,v.Rotation,scale){Entity=entity};FollowChildren(entity,v);}
- internal static void Move(Entity entity,Vec3 position) {
-  var value=Read(entity);Position(position);Add(new("move",entity.Id,null,position,null));Entities[entity.Id]=new Transform(position,value.Rotation,value.Scale){Entity=entity};FollowChildren(entity,value);
- }
+ internal static void Rotate(Entity entity,Quaternion rotation)=>ChangeTransform(entity,rotation:rotation);
+ internal static void Scaling(Entity entity,Vector3 scale)=>ChangeTransform(entity,scale:scale);
+ internal static void Move(Entity entity,Vec3 position)=>ChangeTransform(entity,position:position);
  internal static Entity Spawn(Entity template,Vec3 position) {
   var value=Read(template);Position(position);
   if(Entities.Count>=Limits.Entities)throw new InvalidOperationException("AX_SCRIPT_0003: spawn limit exceeded");
-  var id="entity://"+(DeterministicSpawn?$"{ReplaySeed:x8}-0000-4000-8000-{Spawned:x12}":Guid.NewGuid().ToString());if(Entities.ContainsKey(id))throw new InvalidOperationException("Deterministic spawn ID collision");Add(new("spawn",id,template.Id,position,null));Spawned++;SceneManagement.SceneManager.SetOwner(id,SceneManagement.SceneManager.Owners.GetValueOrDefault(template.Id,SceneManagement.SceneManager.GetActiveScene().name));if(AudioSources.Contains(template.Id))AudioSources.Add(id);Entities.Add(id,new Transform(position,value.Rotation,value.Scale){Entity=new Entity(id,Generation)});if(EntityData.TryGetValue(template.Id,out var data)){var node=System.Text.Json.Nodes.JsonNode.Parse(data.GetRawText())!.AsObject();node["id"]=id;node.Remove("parentId");node.Remove("runtimeParentId");node.Remove("prefab");EntityData[id]=ParseData(node.ToJsonString());}if(Cameras.Contains(template.Id))Cameras.Add(id);Parents[id]=null;ActiveStates[id]=ActiveStates.GetValueOrDefault(template.Id,true);if(Bodies.TryGetValue(template.Id,out var body))Bodies.Add(id,body);if(Animators.TryGetValue(template.Id,out var animator))Animators.Add(id,animator);if(AnimationStates.TryGetValue(template.Id,out var animationState))AnimationStates.Add(id,animationState);return new(id,Generation);
+  var id="entity://"+(DeterministicSpawn?$"{ReplaySeed:x8}-0000-4000-8000-{Spawned:x12}":Guid.NewGuid().ToString());if(Entities.ContainsKey(id))throw new InvalidOperationException("Deterministic spawn ID collision");Add(new("spawn",id,template.Id,position,null));Spawned++;SceneManagement.SceneManager.SetOwner(id,SceneManagement.SceneManager.Owners.GetValueOrDefault(template.Id,SceneManagement.SceneManager.GetActiveScene().name));if(AudioSources.Contains(template.Id))AudioSources.Add(id);Entities.Add(id,new Transform(position,value.Rotation,value.Scale){Entity=new Entity(id,Generation)});if(EntityData.TryGetValue(template.Id,out var data)){var node=System.Text.Json.Nodes.JsonNode.Parse(data.GetRawText())!.AsObject();node["id"]=id;node.Remove("parentId");node.Remove("runtimeParentId");node.Remove("prefab");node.Remove("runtimeMatrix");node.Remove("runtimeLocalTransform");node.Remove("scriptComponents");if(node["componentEnabled"] is System.Text.Json.Nodes.JsonObject activation)foreach(var key in activation.Select(pair=>pair.Key).Where(key=>key.StartsWith("script:",StringComparison.Ordinal)&&int.TryParse(key[7..],out _)).ToArray())activation.Remove(key);EntityData[id]=ParseData(node.ToJsonString());}if(Cameras.Contains(template.Id))Cameras.Add(id);Parents[id]=null;ActiveStates[id]=ActiveStates.GetValueOrDefault(template.Id,true);if(Bodies.TryGetValue(template.Id,out var body))Bodies.Add(id,body);if(Animators.TryGetValue(template.Id,out var animator))Animators.Add(id,animator);if(AnimationStates.TryGetValue(template.Id,out var animationState))AnimationStates.Add(id,animationState);return new(id,Generation);
  }
  internal static void DispatchContacts(JsonElement request){
   var current=new Dictionary<string,List<JsonElement>>();
-  string Key(JsonElement c){var a=c.GetProperty("a").GetString()!;var b=c.GetProperty("b").GetString()!;return string.CompareOrdinal(a,b)<0?a+"|"+b:b+"|"+a;}
+  string Slot(JsonElement c,string side)=>c.TryGetProperty(side+"Slot",out var slot)?slot.GetString()!:"collider";
+  string Key(JsonElement c){var a=c.GetProperty("a").GetString()+"@"+Slot(c,"a");var b=c.GetProperty("b").GetString()+"@"+Slot(c,"b");return (string.CompareOrdinal(a,b)<0?a+"|"+b:b+"|"+a)+"|"+c.GetProperty("trigger").GetBoolean();}
+  Collider? Resolve(string entity,string slot)=>Entities.ContainsKey(entity)?new GameObject(new Entity(entity,Generation)).AllComponents().OfType<Collider>().FirstOrDefault(value=>ColliderInstances.Key(value)==slot):null;
   if(request.TryGetProperty("contacts",out var contacts))foreach(var c in contacts.EnumerateArray()){var a=c.GetProperty("a").GetString()!;var b=c.GetProperty("b").GetString()!;if(!Entities.ContainsKey(a)||!Entities.ContainsKey(b))continue;var key=Key(c);if(!current.ContainsKey(key))current[key]=new();current[key].Add(c.Clone());}
   void Emit(List<JsonElement> manifold,int phase){var c=manifold[0];var a=c.GetProperty("a").GetString()!;var b=c.GetProperty("b").GetString()!;var trigger=c.GetProperty("trigger").GetBoolean();var normal=Vector3.Read(c.GetProperty("normal"));var point=Vector3.Read(c.GetProperty("point"));
-   foreach(var script in LiveScripts.OfType<MonoBehaviour>().ToArray()){if(!Entities.ContainsKey(script.Entity.Id)||!script.isActiveAndEnabled||script.Entity.Id!=a&&script.Entity.Id!=b)continue;var other=script.Entity.Id==a?b:a;if(!EntityData.TryGetValue(other,out var data)||!data.TryGetProperty("collider",out var collider)||!EntityData[script.Entity.Id].TryGetProperty("collider",out _))continue;var e=new Entity(other,Generation);var n=script.Entity.Id==a?-normal:normal;var relative=c.TryGetProperty("relativeVelocity",out var before)?Vector3.Read(before)*(script.Entity.Id==a?1:-1):(Bodies.TryGetValue(script.Entity.Id,out var selfBody)?(Vector3)selfBody.Velocity:Vector3.zero)-(Bodies.TryGetValue(other,out var otherBody)?(Vector3)otherBody.Velocity:Vector3.zero);
-    if(collider.GetProperty("dimension").GetInt32()==2){var col=new Collider2D(e);if(trigger){if(phase==0)script.OnTriggerEnter2D(col);else if(phase==1)script.OnTriggerStay2D(col);else script.OnTriggerExit2D(col);}else{var self=new Collider2D(script.Entity);var points=phase==2?Array.Empty<ContactPoint2D>():manifold.Select(m=>{var p=Vector3.Read(m.GetProperty("point"));var normal=Vector3.Read(m.GetProperty("normal"))*(script.Entity.Id==a?-1:1);return new ContactPoint2D(new(p.X,p.Y),new(normal.X,normal.Y),-m.GetProperty("depth").GetDouble(),self,col);}).ToArray();var collision=new Collision2D(col,n,point,points,relative);if(phase==0)script.OnCollisionEnter2D(collision);else if(phase==1)script.OnCollisionStay2D(collision);else script.OnCollisionExit2D(collision);}}
-    else{var col=new Collider(e);if(trigger){if(phase==0)script.OnTriggerEnter(col);else if(phase==1)script.OnTriggerStay(col);else script.OnTriggerExit(col);}else{var self=new Collider(script.Entity);var points=phase==2?Array.Empty<ContactPoint>():manifold.Select(m=>new ContactPoint(Vector3.Read(m.GetProperty("point")),Vector3.Read(m.GetProperty("normal"))*(script.Entity.Id==a?-1:1),-m.GetProperty("depth").GetDouble(),self,col)).ToArray();var collision=new Collision(col,n,point,points,relative);if(phase==0)script.OnCollisionEnter(collision);else if(phase==1)script.OnCollisionStay(collision);else script.OnCollisionExit(collision);}}
+   foreach(var script in LiveScripts.ToArray()){
+    if(!Entities.ContainsKey(script.Entity.Id)||!script.isActiveAndEnabled||script.Entity.Id!=a&&script.Entity.Id!=b)continue;
+    var isA=script.Entity.Id==a;var other=isA?b:a;var col=Resolve(other,Slot(c,isA?"b":"a"));var self=Resolve(script.Entity.Id,Slot(c,isA?"a":"b"));if(col==null||self==null)continue;
+    var n=isA?-normal:normal;var relative=c.TryGetProperty("relativeVelocity",out var before)?Vector3.Read(before)*(isA?1:-1):(Bodies.TryGetValue(script.Entity.Id,out var selfBody)?(Vector3)selfBody.Velocity:Vector3.zero)-(Bodies.TryGetValue(other,out var otherBody)?(Vector3)otherBody.Velocity:Vector3.zero);
+    var suffix=phase==0?"Enter":phase==1?"Stay":"Exit";var dimension=col.Data.GetProperty("dimension").GetInt32();
+    if(dimension==2){if(col is not Collider2D col2||self is not Collider2D self2)continue;if(trigger)ScriptBridge.PhysicsMessage(script,"OnTrigger"+suffix+"2D",col2);else{var points=phase==2?Array.Empty<ContactPoint2D>():manifold.Select(m=>{var p=Vector3.Read(m.GetProperty("point"));var direction=Vector3.Read(m.GetProperty("normal"))*(isA?-1:1);return new ContactPoint2D(new(p.X,p.Y),new(direction.X,direction.Y),-m.GetProperty("depth").GetDouble(),self2,col2);}).ToArray();ScriptBridge.PhysicsMessage(script,"OnCollision"+suffix+"2D",new Collision2D(col2,n,point,points,relative));}}
+    else if(trigger)ScriptBridge.PhysicsMessage(script,"OnTrigger"+suffix,col);
+    else{var points=phase==2?Array.Empty<ContactPoint>():manifold.Select(m=>new ContactPoint(Vector3.Read(m.GetProperty("point")),Vector3.Read(m.GetProperty("normal"))*(isA?-1:1),-m.GetProperty("depth").GetDouble(),self,col)).ToArray();ScriptBridge.PhysicsMessage(script,"OnCollision"+suffix,new Collision(col,n,point,points,relative));}
    }
   }
   foreach(var pair in current)Emit(pair.Value,PreviousContacts.ContainsKey(pair.Key)?1:0);foreach(var pair in PreviousContacts)if(!current.ContainsKey(pair.Key))Emit(pair.Value,2);PreviousContacts.Clear();foreach(var pair in current)PreviousContacts.Add(pair.Key,pair.Value);
  }
  internal static bool IsActive(string id){for(var depth=0;id!=null&&depth<64;depth++){if(!ActiveStates.GetValueOrDefault(id,true))return false;id=Parents.GetValueOrDefault(id)!;}return true;}
- internal static void Activate(Entity entity,bool active){_=Read(entity);ActiveStates[entity.Id]=active;Add(new("active",entity.Id,null,default,null,active?"true":"false"));RuntimeLifecycle.Activation();}
+ internal static void Activate(Entity entity,bool active){_=Read(entity);Add(new("active",entity.Id,null,default,null,active?"true":"false"));ActiveStates[entity.Id]=active;RuntimeLifecycle.Activation();}
  internal static void Destroy(Entity entity){_=Read(entity);var ids=new HashSet<string>{entity.Id};bool changed=true;while(changed){changed=false;foreach(var pair in Parents)if(pair.Value!=null&&ids.Contains(pair.Value)&&ids.Add(pair.Key))changed=true;}Add(new("destroy",entity.Id,null,default,null));foreach(var script in LiveScripts.Where(script=>ids.Contains(script.Entity.Id)).ToArray()){RuntimeLifecycle.Remove(script);LiveScripts.Remove(script);ScriptPaths.Remove(script);}foreach(var id in ids){RetireIdentities(id);Entities.Remove(id);EntityData.Remove(id);Parents.Remove(id);ActiveStates.Remove(id);Bodies.Remove(id);Cameras.Remove(id);AudioSources.Remove(id);Animators.Remove(id);AnimationStates.Remove(id);Grounded.Remove(id);SceneManagement.SceneManager.Owners.Remove(id);SceneManagement.SceneManager.MetadataDirty=true;SceneManagement.SceneManager.Persistent.Remove(id);AI.NavMeshAgent.Agents.Remove(id);}}
  internal static void Log(string message) {
   if(message.Length>2048||Logs>=Limits.Logs)throw new InvalidOperationException("AX_SCRIPT_0003: log limit exceeded");
   Add(new("log","",null,default,message));Logs++;
  }
  internal static void Load(JsonElement value) {
+  var previousTransforms=new Dictionary<string,Transform>(Entities);var previousParents=new Dictionary<string,string?>(Parents);
   if(value.TryGetProperty("runtimeMetrics",out var metrics))RuntimeStats.Data=metrics.Clone();if(value.TryGetProperty("platform",out var platform))Application.Data=platform.Clone();
   Input.Load(value,value.GetProperty("action").GetString() is "start" or "frame" or "step");
   if(value.GetProperty("action").GetString() is "frame" or "step" or "start"){PreviousKeys.Clear();PreviousKeys.UnionWith(Keys);}Keys.Clear();MouseDelta=new(0,0);Operations.Clear();Logs=0;
@@ -314,7 +321,7 @@ internal static partial class Context {
    Entities.Add(id,Transform.Read(e.GetProperty("transform")));
   }
   }
-  if(value.TryGetProperty("mouseDelta",out var mouse)){var x=mouse[0].GetDouble();var y=mouse[1].GetDouble();if(!double.IsFinite(x)||!double.IsFinite(y)||Math.Abs(x)>10000||Math.Abs(y)>10000)throw new ArgumentException("Invalid mouse delta");MouseDelta=new(x,y);}
+  if(reuse.ValueKind!=JsonValueKind.True)TransformGraph.Load(previousTransforms,previousParents,value.GetProperty("action").GetString()=="start");if(value.TryGetProperty("mouseDelta",out var mouse)){var x=mouse[0].GetDouble();var y=mouse[1].GetDouble();if(!double.IsFinite(x)||!double.IsFinite(y)||Math.Abs(x)>10000||Math.Abs(y)>10000)throw new ArgumentException("Invalid mouse delta");MouseDelta=new(x,y);}
   foreach(var key in value.GetProperty("keys").EnumerateArray()) {if(Keys.Count>=64)throw new ArgumentException("Input limit exceeded");Keys.Add(key.GetString()!);}
   if(value.GetProperty("action").GetString()=="start")foreach(var id in Entities.Keys)new GameObject(new Entity(id,Generation)).AllComponents();Networking.UnityWebRequest.Load(value);
  }
@@ -323,7 +330,7 @@ internal static partial class Context {
    writer.WriteStartObject();writer.WriteNumber("generation",Generation);writer.WriteStartObject("time");writer.WriteNumber("scale",Time.timeScale);writer.WriteNumber("delta",Time.deltaTime);writer.WriteNumber("unscaledDelta",Time.unscaledDeltaTime);writer.WriteEndObject();
    if(error!=null)writer.WriteString("error",error.Length>4096?error[..4096]:error);
    writer.WriteStartObject("phases");writer.WriteBoolean("physics",RuntimeLifecycle.NeedsPhysics);writer.WriteBoolean("fixed",RuntimeLifecycle.NeedsFixed);writer.WriteEndObject();
-   if(SceneManagement.SceneManager.MetadataDirty){SceneManagement.SceneManager.MetadataDirty=false;writer.WriteStartObject("sceneDocuments");var activeScene=SceneManagement.SceneManager.GetActiveScene();writer.WriteString("active",string.IsNullOrEmpty(activeScene.path)?activeScene.name:activeScene.path);foreach(var key in new[]{"open","alwaysActive"}){writer.WriteStartArray(key);foreach(var scene in SceneManagement.SceneManager.Loaded)if(key=="open"||SceneManagement.SceneManager.IsSceneAlwaysActive(scene))writer.WriteStringValue(string.IsNullOrEmpty(scene.path)?scene.name:scene.path);writer.WriteEndArray();}writer.WriteStartObject("owners");foreach(var pair in SceneManagement.SceneManager.Owners){var scene=SceneManagement.SceneManager.GetSceneByName(pair.Value);if(scene.IsValid())writer.WriteString(pair.Key,string.IsNullOrEmpty(scene.path)?pair.Value:scene.path);else if(activeScene.IsValid())writer.WriteString(pair.Key,string.IsNullOrEmpty(activeScene.path)?activeScene.name:activeScene.path);}writer.WriteEndObject();writer.WriteEndObject();}
+   if(SceneManagement.SceneManager.MetadataDirty){SceneManagement.SceneManager.MetadataDirty=false;writer.WriteStartObject("sceneDocuments");var activeScene=SceneManagement.SceneManager.GetActiveScene();writer.WriteString("active",string.IsNullOrEmpty(activeScene.path)?activeScene.name:activeScene.path);foreach(var key in new[]{"open","alwaysActive"}){writer.WriteStartArray(key);foreach(var scene in SceneManagement.SceneManager.Loaded)if(key=="open"||SceneManagement.SceneManager.IsSceneAlwaysActive(scene))writer.WriteStringValue(string.IsNullOrEmpty(scene.path)?scene.name:scene.path);if(key=="open"&&SceneManagement.SceneManager.HasPersistentScene)writer.WriteStringValue(SceneManagement.SceneManager.PersistentOwner);writer.WriteEndArray();}writer.WriteStartObject("owners");foreach(var pair in SceneManagement.SceneManager.Owners){var scene=SceneManagement.SceneManager.SceneOfOwner(pair.Value);if(scene.IsValid())writer.WriteString(pair.Key,string.IsNullOrEmpty(scene.path)?pair.Value:scene.path);else if(activeScene.IsValid())writer.WriteString(pair.Key,string.IsNullOrEmpty(activeScene.path)?activeScene.name:activeScene.path);}writer.WriteEndObject();writer.WriteEndObject();}
    writer.WriteStartArray("operations");
    if(error==null)foreach(var op in Operations) {
     writer.WriteStartObject();writer.WriteString("kind",op.Kind);writer.WriteString("id",op.Id);
@@ -332,13 +339,14 @@ internal static partial class Context {
     if(op.Kind=="animation"||op.Kind=="audio"){writer.WriteString("action",op.Action);if(op.Name!=null)writer.WriteString("name",op.Name);writer.WriteNumber("value",op.Value);writer.WriteNumber("duration",op.Duration);}
     if(op.Rotation is Quaternion rotation){writer.WritePropertyName("rotation");writer.WriteStartArray();writer.WriteNumberValue(rotation.X);writer.WriteNumberValue(rotation.Y);writer.WriteNumberValue(rotation.Z);writer.WriteNumberValue(rotation.W);writer.WriteEndArray();}
     if(op.Kind!="rotation"&&op.Kind!="log"&&op.Kind!="animation"&&op.Kind!="audio"){writer.WritePropertyName("position");op.Position.Write(writer);}
+    if(op.Scale is Vector3 scale){writer.WritePropertyName("scale");scale.Write(writer);}
     if(op.Kind=="sibling")writer.WriteNumber("index",op.Value);
     if(op.Name!=null&&op.Kind!="animation"&&op.Kind!="audio")writer.WriteString("name",op.Name);
     if(op.Data!=null){writer.WritePropertyName("data");using var data=JsonDocument.Parse(op.Data);data.RootElement.WriteTo(writer);}
     if(op.Message!=null)writer.WriteString("message",op.Message);
     writer.WriteEndObject();
    }
-   writer.WriteEndArray();if(error==null)fields?.Invoke(writer);writer.WriteEndObject();
+   writer.WriteEndArray();if(error==null)fields?.Invoke(writer);RuntimeAssets.Write(writer);writer.WriteEndObject();
   }
   return System.Text.Encoding.UTF8.GetString(stream.ToArray());
  }

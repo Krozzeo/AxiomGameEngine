@@ -1,0 +1,203 @@
+{
+  "schemaVersion": 1,
+  "passed": true,
+  "referenceCoreModuleSha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737",
+  "corpusSourceSha256": "409825b1a61eeef55007da5a3af58fe407bce95427edb31a9f6d3a5bd0dce73e",
+  "acceptedSignatures": 15,
+  "records": [
+    {
+      "id": "unity63abi:a02d229db3d1c615a60d53d9",
+      "owner": "UnityEngine.Transform",
+      "declaration": "public class UnityEngine.Transform",
+      "caseIds": [
+        "type.base",
+        "type.enumerable",
+        "type.visibility"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:1be63c60aff24406bb669fb3",
+      "owner": "UnityEngine.Transform",
+      "declaration": "protected UnityEngine.Transform();",
+      "caseIds": [
+        "constructor.protected",
+        "constructor.unbound"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:100a314db26b4eef6aac14e3",
+      "owner": "UnityEngine.Transform",
+      "declaration": "public int childCount { public get; }",
+      "caseIds": [
+        "count.initial",
+        "count.direct",
+        "count.dead",
+        "detach.children"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:4157039e7c1a32de1d351220",
+      "owner": "UnityEngine.Transform",
+      "declaration": "public int GetChildCount();",
+      "caseIds": [
+        "count.initial",
+        "count.direct",
+        "count.old-dead"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:36936fbbd392f27b2cb97c94",
+      "owner": "UnityEngine.Transform",
+      "declaration": "public UnityEngine.Transform FindChild(string n);",
+      "caseIds": [
+        "find-child.path",
+        "find-child.missing",
+        "find-child.null",
+        "find-child.dead"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:884fe43513d07b82a0c12582",
+      "owner": "UnityEngine.Transform",
+      "declaration": "public int hierarchyCount { public get; }",
+      "caseIds": [
+        "count.initial",
+        "count.shared",
+        "detach.count",
+        "hierarchy.dead"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:a0f85420198049908fb56ddd",
+      "owner": "UnityEngine.Transform",
+      "declaration": "public int hierarchyCapacity { public get; public set; }",
+      "caseIds": [
+        "capacity.initial",
+        "capacity.first-parent",
+        "capacity.shared",
+        "capacity.minimum",
+        "capacity.negative",
+        "capacity.live-grow",
+        "detach.capacity",
+        "capacity.dead"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:b42010dbe6a03ee341093d85",
+      "owner": "UnityEngine.Transform",
+      "declaration": "public UnityEngine.Transform root { public get; }",
+      "caseIds": [
+        "root.self",
+        "root.descendant",
+        "detach.root",
+        "root.dead"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:ac3ed4d6b2bd0ec4b76e005a",
+      "owner": "UnityEngine.Transform",
+      "declaration": "public bool hasChanged { public get; public set; }",
+      "caseIds": [
+        "changed.initial",
+        "changed.reset",
+        "changed.same-world-position",
+        "changed.same-local-position",
+        "changed.same-world-rotation",
+        "changed.same-local-rotation",
+        "changed.same-scale",
+        "changed.same-world-pose",
+        "changed.same-local-pose",
+        "changed.explicit",
+        "changed.local",
+        "changed.ancestor",
+        "changed.dead"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:8945472dca6ba4b9882aa73b",
+      "owner": "UnityEngine.Transform",
+      "declaration": "public int GetSiblingIndex();",
+      "caseIds": [
+        "sibling.initial",
+        "sibling.high",
+        "sibling.low",
+        "sibling.first",
+        "sibling.last",
+        "sibling.same-parent",
+        "sibling.dead"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:fa3e8a13b714b5411cac5c37",
+      "owner": "UnityEngine.Transform",
+      "declaration": "public void SetSiblingIndex(int index);",
+      "caseIds": [
+        "sibling.high",
+        "sibling.low",
+        "sibling.set-dead"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:403604d50c40104df83a4395",
+      "owner": "UnityEngine.Transform",
+      "declaration": "public void SetAsFirstSibling();",
+      "caseIds": [
+        "sibling.first",
+        "sibling.first-dead"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:3c3677dfe6b16dc38cb3f2c6",
+      "owner": "UnityEngine.Transform",
+      "declaration": "public void SetAsLastSibling();",
+      "caseIds": [
+        "sibling.last",
+        "sibling.last-dead"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:b317b56a52551109ae98c929",
+      "owner": "UnityEngine.Transform",
+      "declaration": "public System.Collections.IEnumerator GetEnumerator();",
+      "caseIds": [
+        "enumerator.before",
+        "enumerator.first",
+        "enumerator.second",
+        "enumerator.live",
+        "enumerator.end",
+        "enumerator.after",
+        "enumerator.reset",
+        "enumerator.dead-move",
+        "enumerator.dead-current"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:ef3ccd260653df2fba7b46db",
+      "owner": "UnityEngine.Transform",
+      "declaration": "public void DetachChildren();",
+      "caseIds": [
+        "detach.children",
+        "detach.world",
+        "detach.root",
+        "detach.count",
+        "detach.capacity",
+        "detach.dead"
+      ],
+      "passed": true
+    }
+  ]
+}

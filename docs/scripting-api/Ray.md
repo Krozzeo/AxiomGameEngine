@@ -27,5 +27,6 @@ RigidBody is the legacy velocity snapshot; Rigidbody is the live wrapper. AddFor
 ## Implemented declarations
 
 ```csharp
+// Namespace: Axiom.Gameplay
 public readonly record struct Ray(Vector3 origin,Vector3 direction) {public Vector3 GetPoint(double distance)=>origin+direction.normalized*distance;}
 ```

@@ -18,22 +18,24 @@ Still pending: capsule/edge/polygon/mesh/compound colliders, joints, terrain, ar
 ## Implemented declarations
 
 ```csharp
+// Namespace: Axiom.Gameplay
 public static partial class Physics2D {
  public const int AllLayers=-1;public const int DefaultRaycastLayers=Physics.DefaultRaycastLayers;public static bool queriesHitTriggers {get;set;}=true;
  public static RaycastHit2D Raycast(Vector2 origin,Vector2 direction,double distance=double.PositiveInfinity,int layerMask=DefaultRaycastLayers)=>RaycastAll(origin,direction,distance,layerMask).FirstOrDefault();
  public static RaycastHit2D[] RaycastAll(Vector2 origin,Vector2 direction,double distance=double.PositiveInfinity,int layerMask=DefaultRaycastLayers)=>PhysicsQueries.Rays(new(origin.X,origin.Y,0),new(direction.X,direction.Y,0),distance,layerMask,2,queriesHitTriggers).Select(PhysicsQueries.Hit2D).ToArray();
  public static int RaycastNonAlloc(Vector2 origin,Vector2 direction,RaycastHit2D[] results,double distance=double.PositiveInfinity,int layerMask=DefaultRaycastLayers)=>PhysicsQueries.Fill(RaycastAll(origin,direction,distance,layerMask),results);
  public static RaycastHit2D Linecast(Vector2 start,Vector2 end,int layerMask=DefaultRaycastLayers)=>Raycast(start,end-start,(end-start).magnitude,layerMask);
- public static Collider2D[] OverlapCircleAll(Vector2 point,double radius,int layerMask=AllLayers)=>PhysicsQueries.Sphere(new(point.X,point.Y,0),radius,layerMask,2,queriesHitTriggers).Select(c=>new Collider2D(c.Entity)).OrderBy(c=>c.transform.position.Z).ToArray();
+ public static Collider2D[] OverlapCircleAll(Vector2 point,double radius,int layerMask=AllLayers)=>PhysicsQueries.Sphere(new(point.X,point.Y,0),radius,layerMask,2,queriesHitTriggers).Select(c=>(Collider2D)c).OrderBy(c=>c.transform.position.Z).ToArray();
  public static Collider2D? OverlapCircle(Vector2 point,double radius,int layerMask=AllLayers)=>OverlapCircleAll(point,radius,layerMask).FirstOrDefault();
  public static int OverlapCircleNonAlloc(Vector2 point,double radius,Collider2D[] results,int layerMask=AllLayers)=>PhysicsQueries.Fill(OverlapCircleAll(point,radius,layerMask),results);
- public static Collider2D[] OverlapBoxAll(Vector2 point,Vector2 size,double angle,int layerMask=AllLayers)=>PhysicsQueries.Box(new(point.X,point.Y,0),new(size.X/2,size.Y/2,0),Quaternion.Euler(0,0,angle),layerMask,2,queriesHitTriggers).Select(c=>new Collider2D(c.Entity)).OrderBy(c=>c.transform.position.Z).ToArray();
+ public static Collider2D[] OverlapBoxAll(Vector2 point,Vector2 size,double angle,int layerMask=AllLayers)=>PhysicsQueries.Box(new(point.X,point.Y,0),new(size.X/2,size.Y/2,0),Quaternion.Euler(0,0,angle),layerMask,2,queriesHitTriggers).Select(c=>(Collider2D)c).OrderBy(c=>c.transform.position.Z).ToArray();
  public static Collider2D? OverlapBox(Vector2 point,Vector2 size,double angle,int layerMask=AllLayers)=>OverlapBoxAll(point,size,angle,layerMask).FirstOrDefault();
  public static int OverlapBoxNonAlloc(Vector2 point,Vector2 size,double angle,Collider2D[] results,int layerMask=AllLayers)=>PhysicsQueries.Fill(OverlapBoxAll(point,size,angle,layerMask),results);
  public static Collider2D? OverlapPoint(Vector2 point,int layerMask=AllLayers)=>OverlapCircle(point,0,layerMask);
  public static Collider2D[] OverlapPointAll(Vector2 point,int layerMask=AllLayers)=>OverlapCircleAll(point,0,layerMask);
 }
 
+// Namespace: Axiom.Gameplay
 public static partial class Physics2D {
  public static Vector2 gravity {get{var v=PhysicsWorld.Gravity("gravity2D");return new(v.X,v.Y);}set=>PhysicsWorld.Gravity("gravity2D",new(value.X,value.Y,0));}
  public static void IgnoreCollision(Collider2D a,Collider2D b,bool ignore=true)=>PhysicsWorld.Ignore("ignoredPairs",PhysicsWorld.Pair(a,b),ignore);
@@ -42,11 +44,13 @@ public static partial class Physics2D {
  public static bool GetIgnoreLayerCollision(int a,int b)=>PhysicsWorld.Ignored("ignoredLayers2",PhysicsWorld.Layers(a,b));
 }
 
+// Namespace: Axiom.Gameplay
 public static partial class Physics2D {
  public static int Raycast(Vector2 origin,Vector2 direction,ContactFilter2D filter,RaycastHit2D[] results,double distance=double.PositiveInfinity){ArgumentNullException.ThrowIfNull(results);var hits=PhysicsQueries.Rays(new(origin.X,origin.Y,0),new(direction.X,direction.Y,0),distance,filter.useLayerMask?filter.layerMask:AllLayers,2,filter.useTriggers).Select(PhysicsQueries.Hit2D).Where(h=>filter.Allows(h.collider!)).Take(results.Length).ToArray();Array.Copy(hits,results,hits.Length);return hits.Length;}
  public static int OverlapCircle(Vector2 point,double radius,ContactFilter2D filter,Collider2D[] results){ArgumentNullException.ThrowIfNull(results);var hits=PhysicsQueries.Sphere(new(point.X,point.Y,0),radius,filter.useLayerMask?filter.layerMask:AllLayers,2,filter.useTriggers).Select(c=>new Collider2D(c.Entity)).Where(filter.Allows).OrderBy(c=>c.transform.position.Z).Take(results.Length).ToArray();Array.Copy(hits,results,hits.Length);return hits.Length;}
 }
 
+// Namespace: Axiom.Gameplay
 public static partial class Physics2D {
  public static RaycastHit2D[] CircleCastAll(Vector2 origin,double radius,Vector2 direction,double distance=double.PositiveInfinity,int layerMask=DefaultRaycastLayers)=>ShapeCasts.Sphere(new(origin.X,origin.Y,0),radius,new(direction.X,direction.Y,0),distance,layerMask,2,queriesHitTriggers).Select(PhysicsQueries.Hit2D).ToArray();
  public static RaycastHit2D CircleCast(Vector2 origin,double radius,Vector2 direction,double distance=double.PositiveInfinity,int layerMask=DefaultRaycastLayers)=>CircleCastAll(origin,radius,direction,distance,layerMask).FirstOrDefault();
@@ -56,6 +60,7 @@ public static partial class Physics2D {
  public static int BoxCastNonAlloc(Vector2 origin,Vector2 size,double angle,Vector2 direction,RaycastHit2D[] results,double distance=double.PositiveInfinity,int layerMask=DefaultRaycastLayers)=>PhysicsQueries.Fill(BoxCastAll(origin,size,angle,direction,distance,layerMask),results);
 }
 
+// Namespace: Axiom.Gameplay
 public struct ContactFilter2D {
  public bool useTriggers,useLayerMask,useDepth,useOutsideDepth;public int layerMask;public double minDepth,maxDepth;
  public ContactFilter2D NoFilter(){useTriggers=true;useLayerMask=false;useDepth=false;useOutsideDepth=false;return this;}

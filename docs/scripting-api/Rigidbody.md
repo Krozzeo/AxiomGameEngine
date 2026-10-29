@@ -18,6 +18,7 @@ Still pending: capsule/edge/polygon/mesh/compound colliders, joints, terrain, ar
 ## Implemented declarations
 
 ```csharp
+// Namespace: Axiom.Gameplay
 public sealed partial class Rigidbody : Component {
  internal Rigidbody(Entity entity){Entity=entity;}
  public Vector3 linearVelocity {get=>Entity.RigidBody.Velocity;set=>Entity.SetVelocity(value);}
@@ -42,6 +43,7 @@ public sealed partial class Rigidbody : Component {
  public void AddForceAtPosition(Vector3 force,Vector3 position,ForceMode mode=ForceMode.Force){PhysicsData.Finite(position);AddForce(force,mode);AddTorque(Vector3.Cross(position-this.position,force),mode);}
 }
 
+// Namespace: Axiom.Gameplay
 public sealed partial class Rigidbody {
  public double linearDamping {get=>PhysicsData.Number(Entity,"linearDamping");set=>PhysicsData.Number(Entity,"linearDamping",value,0,10000);}
  public double angularDamping {get=>PhysicsData.Number(Entity,"angularDamping");set=>PhysicsData.Number(Entity,"angularDamping",value,0,10000);}
@@ -53,9 +55,12 @@ public sealed partial class Rigidbody {
  public void WakeUp()=>PhysicsData.Set(Entity,"rigidBody","sleeping",JsonValue.Create(false)!);
 }
 
+// Namespace: Axiom.Gameplay
 public enum ForceMode {Force,Acceleration,Impulse,VelocityChange}
 
+// Namespace: Axiom.Gameplay
 public enum RigidbodyConstraints {None=0,FreezePositionX=2,FreezePositionY=4,FreezePositionZ=8,FreezeRotationX=16,FreezeRotationY=32,FreezeRotationZ=64,FreezePosition=14,FreezeRotation=112,FreezeAll=126}
 
+// Namespace: Axiom.Gameplay
 public enum CollisionDetectionMode {Discrete,Continuous,ContinuousDynamic,ContinuousSpeculative}
 ```

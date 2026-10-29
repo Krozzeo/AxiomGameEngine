@@ -1,0 +1,331 @@
+{
+  "schemaVersion": 1,
+  "passed": true,
+  "referenceCoreModuleSha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737",
+  "corpusSourceHashes": {
+    "demos/scripts/AsyncOverloadCatalog.cs": "9b1b575563af068f721fb7e50ffacd313df149ad514c180620f73ba9034c4ed2",
+    "demos/scripts/AsyncLifecycleLab.cs": "a9da52bf77c7c9aaa6926701cd911d97da07d1c36b767f09f172d2f2aa4d5746",
+    "demos/scripts/AsyncLifecycleProbe.cs": "ebd88dea2d80b00efa629c0017db9f0f4a480e29ef7069f55b688ef66b561915"
+  },
+  "acceptedSignatures": 17,
+  "checksPerSignature": 8,
+  "records": [
+    {
+      "id": "unity63abi:0ebd40215c5ae498e9a5b5c2",
+      "label": "async.overload.01",
+      "caseIds": [
+        "a01.held",
+        "a01.cancelled",
+        "a01.cancelled-completed",
+        "a01.positive",
+        "a01.null",
+        "a01.initialize",
+        "a01.completed",
+        "a01.destroyed"
+      ],
+      "nativeWorldX": [
+        103
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:15b514a3d26315c94a258845",
+      "label": "async.overload.02",
+      "caseIds": [
+        "a02.held",
+        "a02.cancelled",
+        "a02.cancelled-completed",
+        "a02.positive",
+        "a02.null",
+        "a02.initialize",
+        "a02.completed",
+        "a02.destroyed"
+      ],
+      "nativeWorldX": [
+        2,
+        2
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:1902e37dc5b7132a2fe40d47",
+      "label": "async.overload.03",
+      "caseIds": [
+        "a03.held",
+        "a03.cancelled",
+        "a03.cancelled-completed",
+        "a03.positive",
+        "a03.null",
+        "a03.initialize",
+        "a03.completed",
+        "a03.destroyed"
+      ],
+      "nativeWorldX": [
+        2,
+        2
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:2c1804183f00b086ddf640ad",
+      "label": "async.overload.04",
+      "caseIds": [
+        "a04.held",
+        "a04.cancelled",
+        "a04.cancelled-completed",
+        "a04.positive",
+        "a04.null",
+        "a04.initialize",
+        "a04.completed",
+        "a04.destroyed"
+      ],
+      "nativeWorldX": [
+        2
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:2fc8fd946bb01fb7d2ab1b8d",
+      "label": "async.overload.05",
+      "caseIds": [
+        "a05.held",
+        "a05.cancelled",
+        "a05.cancelled-completed",
+        "a05.positive",
+        "a05.null",
+        "a05.initialize",
+        "a05.completed",
+        "a05.destroyed"
+      ],
+      "nativeWorldX": [
+        13
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:3a3d3ecd871841fb51d7bdf0",
+      "label": "async.overload.06",
+      "caseIds": [
+        "a06.held",
+        "a06.cancelled",
+        "a06.cancelled-completed",
+        "a06.positive",
+        "a06.null",
+        "a06.initialize",
+        "a06.completed",
+        "a06.destroyed"
+      ],
+      "nativeWorldX": [
+        12,
+        14
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:598f5222b6c8bbd94fe0d8ec",
+      "label": "async.overload.07",
+      "caseIds": [
+        "a07.held",
+        "a07.cancelled",
+        "a07.cancelled-completed",
+        "a07.positive",
+        "a07.null",
+        "a07.initialize",
+        "a07.completed",
+        "a07.destroyed"
+      ],
+      "nativeWorldX": [
+        12,
+        12
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:7865adff3e8f63be840e62e2",
+      "label": "async.overload.08",
+      "caseIds": [
+        "a08.held",
+        "a08.cancelled",
+        "a08.cancelled-completed",
+        "a08.positive",
+        "a08.null",
+        "a08.initialize",
+        "a08.completed",
+        "a08.destroyed"
+      ],
+      "nativeWorldX": [
+        2,
+        4
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:7c3b868fd418bd56029c5bed",
+      "label": "async.overload.09",
+      "caseIds": [
+        "a09.held",
+        "a09.cancelled",
+        "a09.cancelled-completed",
+        "a09.positive",
+        "a09.null",
+        "a09.initialize",
+        "a09.completed",
+        "a09.destroyed"
+      ],
+      "nativeWorldX": [
+        2,
+        4
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:8b7a8fc6e4cdc85bd5c67523",
+      "label": "async.overload.10",
+      "caseIds": [
+        "a10.held",
+        "a10.cancelled",
+        "a10.cancelled-completed",
+        "a10.positive",
+        "a10.null",
+        "a10.initialize",
+        "a10.completed",
+        "a10.destroyed"
+      ],
+      "nativeWorldX": [
+        2,
+        4
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:c31cbe2c98853aee9b00d561",
+      "label": "async.overload.11",
+      "caseIds": [
+        "a11.held",
+        "a11.cancelled",
+        "a11.cancelled-completed",
+        "a11.positive",
+        "a11.null",
+        "a11.initialize",
+        "a11.completed",
+        "a11.destroyed"
+      ],
+      "nativeWorldX": [
+        103,
+        103
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:c9b54a0504016b5625c8af1f",
+      "label": "async.overload.12",
+      "caseIds": [
+        "a12.held",
+        "a12.cancelled",
+        "a12.cancelled-completed",
+        "a12.positive",
+        "a12.null",
+        "a12.initialize",
+        "a12.completed",
+        "a12.destroyed"
+      ],
+      "nativeWorldX": [
+        2,
+        2
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:cc336411186ab7ce1405ca72",
+      "label": "async.overload.13",
+      "caseIds": [
+        "a13.held",
+        "a13.cancelled",
+        "a13.cancelled-completed",
+        "a13.positive",
+        "a13.null",
+        "a13.initialize",
+        "a13.completed",
+        "a13.destroyed"
+      ],
+      "nativeWorldX": [
+        2
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:d41bbd79d916d2a70c0efe07",
+      "label": "async.overload.14",
+      "caseIds": [
+        "a14.held",
+        "a14.cancelled",
+        "a14.cancelled-completed",
+        "a14.positive",
+        "a14.null",
+        "a14.initialize",
+        "a14.completed",
+        "a14.destroyed"
+      ],
+      "nativeWorldX": [
+        103
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:e91477eb9c6c3e07c3a1a97f",
+      "label": "async.overload.15",
+      "caseIds": [
+        "a15.held",
+        "a15.cancelled",
+        "a15.cancelled-completed",
+        "a15.positive",
+        "a15.null",
+        "a15.initialize",
+        "a15.completed",
+        "a15.destroyed"
+      ],
+      "nativeWorldX": [
+        103,
+        103
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:ee1e80b8a594c72c0b70ba67",
+      "label": "async.overload.16",
+      "caseIds": [
+        "a16.held",
+        "a16.cancelled",
+        "a16.cancelled-completed",
+        "a16.positive",
+        "a16.null",
+        "a16.initialize",
+        "a16.completed",
+        "a16.destroyed"
+      ],
+      "nativeWorldX": [
+        13,
+        13
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:f9cbb2bb3492e8525ecc58fc",
+      "label": "async.overload.17",
+      "caseIds": [
+        "a17.held",
+        "a17.cancelled",
+        "a17.cancelled-completed",
+        "a17.positive",
+        "a17.null",
+        "a17.initialize",
+        "a17.completed",
+        "a17.destroyed"
+      ],
+      "nativeWorldX": [
+        12
+      ],
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,642 @@
+{
+  "schemaVersion": 1,
+  "scope": "Public ObsoleteAttribute metadata from pinned 6000.3.27f1 CoreModule; no method bodies. Frozen hashes verified by tests.",
+  "records": [
+    {
+      "id": "unity63abi:0cccf5bebb0c1c9f9c7f324c",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static void DestroyObject(UnityEngine.Object obj);",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "33e7229e98660f13834dfe037b7a690b44457081ae674513714f09febf9e7478",
+        "obsoleteMessage": "use Object.Destroy instead.",
+        "obsoleteError": false
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:189d3c38f1fd90b59f489273",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static T[] FindObjectsOfType<T>();",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "922a44c8dc7b02055636ffc47748a4c57c1e3045c016236f25be8f079cbce413",
+        "obsoleteMessage": "Object.FindObjectsOfType has been deprecated. Use Object.FindObjectsByType instead which lets you decide whether you need the results sorted or not.  FindObjectsOfType sorts the results by InstanceID but if you do not need this using FindObjectSortMode.None is considerably faster.",
+        "obsoleteError": false
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:19c05cd366ae9d8a325b94b9",
+      "owner": "UnityEngine.Component",
+      "declaration": "public UnityEngine.Component animation { public get; }",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "3a155589afbfabf897afac9987311223405c9e6bd4d609ac1e559ebbf951553a",
+        "obsoleteMessage": "Property animation has been deprecated. Use GetComponent<Animation>() instead. (UnityUpgradable)",
+        "obsoleteError": true
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:1d15af8006e9deb6dd0ea83e",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public UnityEngine.Component light { public get; }",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "322c5c7fa7a785c8ee29cf90925dff5e1b8b8b5f3102a2abb9eb4adc30f80163",
+        "obsoleteMessage": "Property light has been deprecated. Use GetComponent<Light>() instead. (UnityUpgradable)",
+        "obsoleteError": true
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:20e1e83cca8a5074140b551d",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public UnityEngine.Component rigidbody2D { public get; }",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "610db73d27ba05803bffe14c5c8e5517305993d097bf69f94d080b426bea7fc5",
+        "obsoleteMessage": "Property rigidbody2D has been deprecated. Use GetComponent<Rigidbody2D>() instead. (UnityUpgradable)",
+        "obsoleteError": true
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:213ed386f24b03daa57951df",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static void DestroyObject(UnityEngine.Object obj, float t);",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "33e7229e98660f13834dfe037b7a690b44457081ae674513714f09febf9e7478",
+        "obsoleteMessage": "use Object.Destroy instead.",
+        "obsoleteError": false
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:29a87473fcdf88d32dd42541",
+      "owner": "UnityEngine.Component",
+      "declaration": "public UnityEngine.Component rigidbody2D { public get; }",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "610db73d27ba05803bffe14c5c8e5517305993d097bf69f94d080b426bea7fc5",
+        "obsoleteMessage": "Property rigidbody2D has been deprecated. Use GetComponent<Rigidbody2D>() instead. (UnityUpgradable)",
+        "obsoleteError": true
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:2da1ada35b3e43b87d88e1e2",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public static void SetGameObjectsActive(System.ReadOnlySpan`1<int> instanceIDs, bool active);",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "69beb4e16985f956d69c9b11c73d27e2c854bae773b7e2357430c349e46857a0",
+        "obsoleteMessage": "Obsolete. Please use GameObject.SetGameObjectsActive(ReadOnlySpan<EntityId>, bool) instead.",
+        "obsoleteError": false
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:3197e5e7dc6193093945b6e6",
+      "owner": "UnityEngine.Component",
+      "declaration": "public UnityEngine.Component collider2D { public get; }",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "8f17772cf04ccf149532ba35e214aa8b1f2bfbab16c4e5702ec3be1b339241eb",
+        "obsoleteMessage": "Property collider2D has been deprecated. Use GetComponent<Collider2D>() instead. (UnityUpgradable)",
+        "obsoleteError": true
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:31a6f577b2a2c69b1326a7df",
+      "owner": "UnityEngine.Component",
+      "declaration": "public UnityEngine.Component constantForce { public get; }",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "cd76a6446168cdd811f3192d5cc46e8f2fa6ffa02a57a454ced81def767be4e7",
+        "obsoleteMessage": "Property constantForce has been deprecated. Use GetComponent<ConstantForce>() instead. (UnityUpgradable)",
+        "obsoleteError": true
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:36936fbbd392f27b2cb97c94",
+      "owner": "UnityEngine.Transform",
+      "declaration": "public UnityEngine.Transform FindChild(string n);",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "c874b38bcd0b6dddbe74b43541b7ecd306d56fa4995bd83f2b6c047f6109dbe5",
+        "obsoleteMessage": "FindChild has been deprecated. Use Find instead (UnityUpgradable) -> Find([mscorlib] System.String)",
+        "obsoleteError": false
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:39716172f20cadd1ffd0ced8",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void SetActiveRecursively(bool state);",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "eb7533358a55bfa17d917ba0751c9cd2b3d6b4d0536a0383f18dff711eefc57b",
+        "obsoleteMessage": "gameObject.SetActiveRecursively() is obsolete. Use GameObject.SetActive(), which is now inherited by children.",
+        "obsoleteError": false
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:3a08a22358af337f95d4b981",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public UnityEngine.Component collider { public get; }",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "7d8639b29dd1770fe8cf24da0c264d55d7f1e31dd8bb86432c9d3b77e61e16aa",
+        "obsoleteMessage": "Property collider has been deprecated. Use GetComponent<Collider>() instead. (UnityUpgradable)",
+        "obsoleteError": true
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:4157039e7c1a32de1d351220",
+      "owner": "UnityEngine.Transform",
+      "declaration": "public int GetChildCount();",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "90771f9d0b6b40e64fab541cc8ac25166a3d41b2b005508d6a9e1913e4cc7b6b",
+        "obsoleteMessage": "warning use Transform.childCount instead (UnityUpgradable) -> Transform.childCount",
+        "obsoleteError": false
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:427119c44e33f3887fe52647",
+      "owner": "UnityEngine.Component",
+      "declaration": "public UnityEngine.Component collider { public get; }",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "7d8639b29dd1770fe8cf24da0c264d55d7f1e31dd8bb86432c9d3b77e61e16aa",
+        "obsoleteMessage": "Property collider has been deprecated. Use GetComponent<Collider>() instead. (UnityUpgradable)",
+        "obsoleteError": true
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:49b7b74afaf9ba8a9ec32149",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public UnityEngine.Component rigidbody { public get; }",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "ea6750cd84502a1d5805a2ccbd2bbdb8a292512909ce0aa222a12fb13066d0b1",
+        "obsoleteMessage": "Property rigidbody has been deprecated. Use GetComponent<Rigidbody>() instead. (UnityUpgradable)",
+        "obsoleteError": true
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:519e51568066d54fef389420",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object[] FindObjectsOfType(System.Type type, bool includeInactive);",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "922a44c8dc7b02055636ffc47748a4c57c1e3045c016236f25be8f079cbce413",
+        "obsoleteMessage": "Object.FindObjectsOfType has been deprecated. Use Object.FindObjectsByType instead which lets you decide whether you need the results sorted or not.  FindObjectsOfType sorts the results by InstanceID but if you do not need this using FindObjectSortMode.None is considerably faster.",
+        "obsoleteError": false
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:53cc48cba9ae65dbd9084dae",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public UnityEngine.Component particleSystem { public get; }",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "8dc53b3fdef084937efea9935d98d61a5a744b01635305ce00c954d23998411a",
+        "obsoleteMessage": "Property particleSystem has been deprecated. Use GetComponent<ParticleSystem>() instead. (UnityUpgradable)",
+        "obsoleteError": true
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:54c8791657ad3876aeb3fc41",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public UnityEngine.Component AddComponent(string className);",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "36b76829d773c8d7a906efbf4e120e5d6c0eead845defd7051c58406fca1f327",
+        "obsoleteMessage": "GameObject.AddComponent with string argument has been deprecated. Use GameObject.AddComponent<T>() instead. (UnityUpgradable).",
+        "obsoleteError": true
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:578592e399e1c7035d132c78",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public static UnityEngine.SceneManagement.Scene GetScene(int instanceID);",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "ded63a0cd19f92b495c883f4b1c8582d3f5559ef94778875315df747a2c22644",
+        "obsoleteMessage": "Obsolete. Please use GameObject.GetScene(EntityId entityId) instead.",
+        "obsoleteError": false
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:58c30bbde35fe71525636c36",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object[] FindObjectsOfType(System.Type type);",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "f9d5551c8e8e9879cc800675da5d1f9aa20943ec5e32b10acb75c3edb4c98714",
+        "obsoleteMessage": "Object.FindObjectsOfType has been deprecated. Use Object.FindObjectsByType instead which lets you decide whether you need the results sorted or not.  FindObjectsOfType sorts the results by InstanceID, but if you do not need this using FindObjectSortMode.None is considerably faster.",
+        "obsoleteError": false
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:596db428f951b74f4407f112",
+      "owner": "UnityEngine.Transform",
+      "declaration": "public void RotateAroundLocal(UnityEngine.Vector3 axis, float angle);",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "489a9bc368c69db8faa5b57cf9a1b3819cd92674ff324f74ea5684879cf09605",
+        "obsoleteMessage": "warning use Transform.Rotate instead.",
+        "obsoleteError": false
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:5f0696131f05163a84b9e339",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void PlayAnimation(UnityEngine.Object animation);",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "ef7769776c11052590537d34bd558157b273946beb13deebde8794b335d95515",
+        "obsoleteMessage": "gameObject.PlayAnimation is not supported anymore. Use animation.Play()",
+        "obsoleteError": true
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:60b1fdefcbe9e68c4f6155bf",
+      "owner": "UnityEngine.Component",
+      "declaration": "public UnityEngine.Component rigidbody { public get; }",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "ea6750cd84502a1d5805a2ccbd2bbdb8a292512909ce0aa222a12fb13066d0b1",
+        "obsoleteMessage": "Property rigidbody has been deprecated. Use GetComponent<Rigidbody>() instead. (UnityUpgradable)",
+        "obsoleteError": true
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:6cb646dccf3f12dd88297b8b",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object[] FindObjectsOfTypeIncludingAssets(System.Type type);",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "6981f02a487caaffdffe24b459b6766abe549fa8980adce84a680e304944959b",
+        "obsoleteMessage": "use Resources.FindObjectsOfTypeAll instead.",
+        "obsoleteError": false
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:722dfc84cb9e4270fabb5702",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public UnityEngine.Component audio { public get; }",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "9edbc640b118e5a8f4ecf417998d1497f8139280b769b341bedc919184620d0c",
+        "obsoleteMessage": "Property audio has been deprecated. Use GetComponent<AudioSource>() instead. (UnityUpgradable)",
+        "obsoleteError": true
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:72e65ef5fbeed2cd1bdf0b61",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object[] FindObjectsOfTypeAll(System.Type type);",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "41adac0decb4c5d0ff3d08fcfd217a90ec26b74f655b01486597cb636410a695",
+        "obsoleteMessage": "Please use Resources.FindObjectsOfTypeAll instead",
+        "obsoleteError": false
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:75a6abbefa5e71a7f3c54be2",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static T FindObjectOfType<T>(bool includeInactive);",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "dd52c96c22520d3562c8414433cd97615556a9d52554d03039f3b26825752dbd",
+        "obsoleteMessage": "Object.FindObjectOfType has been deprecated. Use Object.FindFirstObjectByType instead or if finding any instance is acceptable the faster Object.FindAnyObjectByType",
+        "obsoleteError": false
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:770f631cdebafc641ebcc0e5",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object[] FindSceneObjectsOfType(System.Type type);",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "ab569359ec2600007bef8619aa03e5eebc758317ba1ad782f282456f4d4a2de1",
+        "obsoleteMessage": "Object.FindSceneObjectsOfType has been deprecated, Use Object.FindObjectsByType instead which lets you decide whether you need the results sorted or not.  FindSceneObjectsOfType sorts the results by InstanceID but if you do not need this using FindObjectSortMode.None is considerably faster.",
+        "obsoleteError": false
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:81549c4e94a13ba815419134",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public UnityEngine.Component renderer { public get; }",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "03f977c77f18f0d8c43423103c2231e37464416106a61680466a745171105e7b",
+        "obsoleteMessage": "Property renderer has been deprecated. Use GetComponent<Renderer>() instead. (UnityUpgradable)",
+        "obsoleteError": true
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:834b105436321d6992eb7806",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public UnityEngine.Component collider2D { public get; }",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "8f17772cf04ccf149532ba35e214aa8b1f2bfbab16c4e5702ec3be1b339241eb",
+        "obsoleteMessage": "Property collider2D has been deprecated. Use GetComponent<Collider2D>() instead. (UnityUpgradable)",
+        "obsoleteError": true
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:8cb02b05839f8ad07a3a0314",
+      "owner": "UnityEngine.Component",
+      "declaration": "public UnityEngine.Component audio { public get; }",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "9edbc640b118e5a8f4ecf417998d1497f8139280b769b341bedc919184620d0c",
+        "obsoleteMessage": "Property audio has been deprecated. Use GetComponent<AudioSource>() instead. (UnityUpgradable)",
+        "obsoleteError": true
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:90bce06bd71a64240787fe13",
+      "owner": "UnityEngine.Component",
+      "declaration": "public UnityEngine.Component renderer { public get; }",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "03f977c77f18f0d8c43423103c2231e37464416106a61680466a745171105e7b",
+        "obsoleteMessage": "Property renderer has been deprecated. Use GetComponent<Renderer>() instead. (UnityUpgradable)",
+        "obsoleteError": true
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:94481eeada2474736238874b",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public UnityEngine.Component camera { public get; }",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "aa7e82aa09b03e7448ecaf928541b224e42505d888ea6bf6ac6f022e814e3dc5",
+        "obsoleteMessage": "Property camera has been deprecated. Use GetComponent<Camera>() instead. (UnityUpgradable)",
+        "obsoleteError": true
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:9b0295bf5ceef0bf4fe47b95",
+      "owner": "UnityEngine.Transform",
+      "declaration": "public void RotateAround(UnityEngine.Vector3 axis, float angle);",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "489a9bc368c69db8faa5b57cf9a1b3819cd92674ff324f74ea5684879cf09605",
+        "obsoleteMessage": "warning use Transform.Rotate instead.",
+        "obsoleteError": false
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:b2be5703500ba237844b805f",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public UnityEngine.Component networkView { public get; }",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "e21334139874f880337e1d17e4d3cac4eaa0f7964569324f9ed7850d0a4d9987",
+        "obsoleteMessage": "Property networkView has been deprecated. Use GetComponent<NetworkView>() instead. (UnityUpgradable)",
+        "obsoleteError": true
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:b52e8b0c43310fe2b2a19329",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public bool active { public get; public set; }",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "c0679ce5030e0457ab5a2fc91d77d088da3b51362707930ed8dfbe13f7f2cef6",
+        "obsoleteMessage": "GameObject.active is obsolete. Use GameObject.SetActive(), GameObject.activeSelf or GameObject.activeInHierarchy.",
+        "obsoleteError": false
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:b5cca99e69526730a06fa674",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object FindObjectOfType(System.Type type, bool includeInactive);",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "dd52c96c22520d3562c8414433cd97615556a9d52554d03039f3b26825752dbd",
+        "obsoleteMessage": "Object.FindObjectOfType has been deprecated. Use Object.FindFirstObjectByType instead or if finding any instance is acceptable the faster Object.FindAnyObjectByType",
+        "obsoleteError": false
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:b712629fa0a1ba359cf15c2e",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public UnityEngine.Component hingeJoint { public get; }",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "54a0bb6379b02147b5288938666590ae3141426f8a471a5d29ac24d5a3fad957",
+        "obsoleteMessage": "Property hingeJoint has been deprecated. Use GetComponent<HingeJoint>() instead. (UnityUpgradable)",
+        "obsoleteError": true
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:bcb90ff3f5ba35a76838d349",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public UnityEngine.Component animation { public get; }",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "3a155589afbfabf897afac9987311223405c9e6bd4d609ac1e559ebbf951553a",
+        "obsoleteMessage": "Property animation has been deprecated. Use GetComponent<Animation>() instead. (UnityUpgradable)",
+        "obsoleteError": true
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:c623d6d3f5582e85af95aadb",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void SampleAnimation(UnityEngine.Object clip, float time);",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "4dd41ff3281886609d20a00e5ef9e8682ef71abfb900c847d7d2a98d9f943deb",
+        "obsoleteMessage": "GameObject.SampleAnimation(AnimationClip, float) has been deprecated. Use AnimationClip.SampleAnimation(GameObject, float) instead (UnityUpgradable).",
+        "obsoleteError": true
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:c71087ff75aa4beaae39e4d5",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public static void InstantiateGameObjects(int sourceInstanceID, int count, Unity.Collections.NativeArray`1<int> newInstanceIDs, Unity.Collections.NativeArray`1<int> newTransformInstanceIDs, UnityEngine.SceneManagement.Scene destinationScene = null);",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "3b2f092c36042132dde48c3ae69f8cded6f51ab3e846e5cc5691e2861c598885",
+        "obsoleteMessage": "Obsolete. Please use GameObject.InstantiateGameObjects(EntityId, int, NativeArray<EntityId>, NativeArray<EntityId>, Scene) instead.",
+        "obsoleteError": false
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:c75500bcbb28857f0e047d9d",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public static void SetGameObjectsActive(Unity.Collections.NativeArray`1<int> instanceIDs, bool active);",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "e4736a7f427ac95b5c0e2fde666809ae597349ff759cd5ecdf63cd638d6fe75d",
+        "obsoleteMessage": "Obsolete. Please use GameObject.SetGameObjectsActive(NativeArray<EntityId>, bool) instead.",
+        "obsoleteError": false
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:ce2ea94c6adb9c579969d237",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public void StopAnimation();",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "9ad27982b6dea8fc00f9ff0b5f122f44335c7a3ffa2446aaa086e57fc6ac9aa1",
+        "obsoleteMessage": "gameObject.StopAnimation is not supported anymore. Use animation.Stop()",
+        "obsoleteError": true
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:d651c9fb2cc20b7df5cec460",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object FindObjectOfType(System.Type type);",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "dd52c96c22520d3562c8414433cd97615556a9d52554d03039f3b26825752dbd",
+        "obsoleteMessage": "Object.FindObjectOfType has been deprecated. Use Object.FindFirstObjectByType instead or if finding any instance is acceptable the faster Object.FindAnyObjectByType",
+        "obsoleteError": false
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:dbca1c0f0957a26d50f31a68",
+      "owner": "UnityEngine.Component",
+      "declaration": "public UnityEngine.Component light { public get; }",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "322c5c7fa7a785c8ee29cf90925dff5e1b8b8b5f3102a2abb9eb4adc30f80163",
+        "obsoleteMessage": "Property light has been deprecated. Use GetComponent<Light>() instead. (UnityUpgradable)",
+        "obsoleteError": true
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:e4a51780cb939aeea6b1a2f5",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static T FindObjectOfType<T>();",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "dd52c96c22520d3562c8414433cd97615556a9d52554d03039f3b26825752dbd",
+        "obsoleteMessage": "Object.FindObjectOfType has been deprecated. Use Object.FindFirstObjectByType instead or if finding any instance is acceptable the faster Object.FindAnyObjectByType",
+        "obsoleteError": false
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:e4bd6f1793f06d64995aafac",
+      "owner": "UnityEngine.Component",
+      "declaration": "public UnityEngine.Component particleSystem { public get; }",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "8dc53b3fdef084937efea9935d98d61a5a744b01635305ce00c954d23998411a",
+        "obsoleteMessage": "Property particleSystem has been deprecated. Use GetComponent<ParticleSystem>() instead. (UnityUpgradable)",
+        "obsoleteError": true
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:e4d7f1585001e6160679aa03",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static T[] FindObjectsOfType<T>(bool includeInactive);",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "922a44c8dc7b02055636ffc47748a4c57c1e3045c016236f25be8f079cbce413",
+        "obsoleteMessage": "Object.FindObjectsOfType has been deprecated. Use Object.FindObjectsByType instead which lets you decide whether you need the results sorted or not.  FindObjectsOfType sorts the results by InstanceID but if you do not need this using FindObjectSortMode.None is considerably faster.",
+        "obsoleteError": false
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:e5ed694d2602ffc440b29e4c",
+      "owner": "UnityEngine.Component",
+      "declaration": "public UnityEngine.Component hingeJoint { public get; }",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "54a0bb6379b02147b5288938666590ae3141426f8a471a5d29ac24d5a3fad957",
+        "obsoleteMessage": "Property hingeJoint has been deprecated. Use GetComponent<HingeJoint>() instead. (UnityUpgradable)",
+        "obsoleteError": true
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:f22bd26fa276dee8a1d2287b",
+      "owner": "UnityEngine.Component",
+      "declaration": "public UnityEngine.Component networkView { public get; }",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "e21334139874f880337e1d17e4d3cac4eaa0f7964569324f9ed7850d0a4d9987",
+        "obsoleteMessage": "Property networkView has been deprecated. Use GetComponent<NetworkView>() instead. (UnityUpgradable)",
+        "obsoleteError": true
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:f57d53ab3cb7db1afa132a3f",
+      "owner": "UnityEngine.Component",
+      "declaration": "public UnityEngine.Component camera { public get; }",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "aa7e82aa09b03e7448ecaf928541b224e42505d888ea6bf6ac6f022e814e3dc5",
+        "obsoleteMessage": "Property camera has been deprecated. Use GetComponent<Camera>() instead. (UnityUpgradable)",
+        "obsoleteError": true
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    },
+    {
+      "id": "unity63abi:f635df5aa2dc21f1a742f242",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public UnityEngine.Component constantForce { public get; }",
+      "attribute": {
+        "name": "System.ObsoleteAttribute",
+        "blobSha256": "cd76a6446168cdd811f3192d5cc46e8f2fa6ffa02a57a454ced81def767be4e7",
+        "obsoleteMessage": "Property constantForce has been deprecated. Use GetComponent<ConstantForce>() instead. (UnityUpgradable)",
+        "obsoleteError": true
+      },
+      "assemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737"
+    }
+  ]
+}

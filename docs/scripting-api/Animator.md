@@ -32,12 +32,14 @@ SDK 8: `.enabled` and the Inspector component checkbox control this component in
 ## Implemented declarations
 
 ```csharp
+// Namespace: Axiom.Gameplay
 public sealed partial class Animator : Component {public bool enabled {get=>ComponentActivation.Read(Entity,"animator");set=>ComponentActivation.Write(Entity,"animator",value);}
  internal Animator(Entity entity){Entity=entity;}
  public void Play(string state)=>Entity.PlayAnimation(state,0);public void CrossFade(string state,double duration)=>Entity.PlayAnimation(state,duration);
  public void SetFloat(string name,double value)=>Entity.SetAnimationParameter(name,value);public void SetBool(string name,bool value)=>Entity.SetAnimationParameter(name,value?1:0);public void SetInteger(string name,int value)=>Entity.SetAnimationParameter(name,value);
 }
 
+// Namespace: Axiom.Gameplay
 public sealed partial class Animator {
  public double GetFloat(string name){var p=PresentationData.Read(Entity,"animator").GetProperty("parameters").EnumerateArray().FirstOrDefault(p=>p.GetProperty("name").GetString()==name);if(p.ValueKind==System.Text.Json.JsonValueKind.Undefined)throw new ArgumentException("Unknown Animator parameter");return p.GetProperty("value").GetDouble();}
  public bool GetBool(string name)=>GetFloat(name)!=0;public int GetInteger(string name)=>(int)GetFloat(name);

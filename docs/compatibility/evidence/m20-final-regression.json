@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "passed": true,
+  "acceptedCodeCommit": "11745ba76281dc41e206537b0cba4e9c5e746c67",
+  "ci": {
+    "runId": 40965093597,
+    "url": "https://github.com/Krozzeo/AxiomGameEngine/actions/runs/40965093597",
+    "conclusion": "success",
+    "jobsPassed": 48,
+    "jobsFailed": 0
+  },
+  "node": {
+    "passed": 506,
+    "failed": 0
+  },
+  "nativeCore": 925,
+  "nativeDependencyCorpora": [
+    240,
+    348,
+    476,
+    152,
+    53,
+    360,
+    91,
+    50,
+    122,
+    39,
+    27,
+    13,
+    140
+  ],
+  "rust": {
+    "core": 43,
+    "compoundAbi": 1
+  },
+  "browser": {
+    "profiles": [
+      "development",
+      "effective-aot"
+    ],
+    "labsPerProfile": 17,
+    "observationsPerProfile": 2739,
+    "overlappingObservationsAreNotDistinctApiSignatures": true
+  },
+  "publicAcceptance": "m20-public-0.0.62.json",
+  "scope": "Bounded M20 profiles; GPU physics and complete PhysX numerical equivalence are not claimed."
+}

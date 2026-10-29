@@ -6,6 +6,7 @@ Read canvas dimensions, browser/platform hints, project identity and runtime per
 ## Implemented declarations
 
 ```csharp
+// Namespace: Axiom.Gameplay
 public static class Application {
  internal static JsonElement Data=Context.ParseData("{}");
  internal static string Text(string name,string fallback="")=>Data.TryGetProperty(name,out var v)?v.GetString()??fallback:fallback;
@@ -19,25 +20,31 @@ public static class Application {
  public static string dataPath=>identifier;
 }
 
+// Namespace: Axiom.Gameplay
 public static class Screen {
  public static int width=>Application.Number("width",960);public static int height=>Application.Number("height",540);
  public static double dpi=>Application.Number("dpi",96);public static Resolution currentResolution=>new(width,height,0);
  public static Rect safeArea=>new(0,0,width,height);
 }
 
+// Namespace: Axiom.Gameplay
 public static class SystemInfo {
  public static string operatingSystem=>Application.Text("operatingSystem","Browser");
  public static OperatingSystemFamily operatingSystemFamily=>operatingSystem.Contains("Win")?OperatingSystemFamily.Windows:operatingSystem.Contains("Mac")?OperatingSystemFamily.MacOSX:operatingSystem.Contains("Linux")?OperatingSystemFamily.Linux:OperatingSystemFamily.Other;
  public static int processorCount=>Application.Number("processorCount",1);public static string graphicsDeviceType=>Application.Text("graphicsDeviceType","unknown");public static bool supportsComputeShaders=>graphicsDeviceType=="webgpu";
 }
 
+// Namespace: Axiom.Gameplay
 public enum RuntimePlatform {WebGLPlayer}
 
+// Namespace: Axiom.Gameplay
 public enum NetworkReachability {NotReachable,ReachableViaLocalAreaNetwork}
 
+// Namespace: Axiom.Gameplay
 public enum OperatingSystemFamily {Other,MacOSX,Windows,Linux}
 
 public readonly record struct Resolution(int width,int height,double refreshRate);
 
+// Namespace: Axiom.Gameplay
 public static class RuntimeStats {internal static JsonElement Data=Context.ParseData("{}");private static double Read(string key)=>Data.TryGetProperty(key,out var v)&&v.ValueKind==JsonValueKind.Number?v.GetDouble():0;public static double framesPerSecond=>Read("fps");public static int physicsBodies=>(int)Read("bodies");public static int contacts=>(int)Read("contacts");public static double frameMilliseconds=>Read("frameMs");}
 ```

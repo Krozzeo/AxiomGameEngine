@@ -1,0 +1,383 @@
+{
+  "schemaVersion": 1,
+  "passed": true,
+  "profile": "C#/Wasm consumer compiler",
+  "scope": "Expected consumer compiler diagnostics only. Compiler-error obsolete members cannot be executed; warning-only runtime behavior is separate.",
+  "assemblySha256": "96c1c3208475fbc18eeb0511d77290b5fd51d88c571240d5551ef6faef2d7d3a",
+  "consumerSha256": "9df57bb71226a65da3d343cd42f1384adf7c527d9672d9ff138e815c3e9a75f0",
+  "compilerErrorCases": 30,
+  "compilerWarningCases": 23,
+  "cases": [
+    {
+      "id": "unity63abi:0cccf5bebb0c1c9f9c7f324c",
+      "declaration": "public static void DestroyObject(UnityEngine.Object obj);",
+      "line": 3,
+      "expectedDiagnostic": "CS0618",
+      "referenceAttributeSha256": "33e7229e98660f13834dfe037b7a690b44457081ae674513714f09febf9e7478"
+    },
+    {
+      "id": "unity63abi:189d3c38f1fd90b59f489273",
+      "declaration": "public static T[] FindObjectsOfType<T>();",
+      "line": 4,
+      "expectedDiagnostic": "CS0618",
+      "referenceAttributeSha256": "922a44c8dc7b02055636ffc47748a4c57c1e3045c016236f25be8f079cbce413"
+    },
+    {
+      "id": "unity63abi:19c05cd366ae9d8a325b94b9",
+      "declaration": "public UnityEngine.Component animation { public get; }",
+      "line": 5,
+      "expectedDiagnostic": "CS0619",
+      "referenceAttributeSha256": "3a155589afbfabf897afac9987311223405c9e6bd4d609ac1e559ebbf951553a"
+    },
+    {
+      "id": "unity63abi:1d15af8006e9deb6dd0ea83e",
+      "declaration": "public UnityEngine.Component light { public get; }",
+      "line": 6,
+      "expectedDiagnostic": "CS0619",
+      "referenceAttributeSha256": "322c5c7fa7a785c8ee29cf90925dff5e1b8b8b5f3102a2abb9eb4adc30f80163"
+    },
+    {
+      "id": "unity63abi:20e1e83cca8a5074140b551d",
+      "declaration": "public UnityEngine.Component rigidbody2D { public get; }",
+      "line": 7,
+      "expectedDiagnostic": "CS0619",
+      "referenceAttributeSha256": "610db73d27ba05803bffe14c5c8e5517305993d097bf69f94d080b426bea7fc5"
+    },
+    {
+      "id": "unity63abi:213ed386f24b03daa57951df",
+      "declaration": "public static void DestroyObject(UnityEngine.Object obj, float t);",
+      "line": 8,
+      "expectedDiagnostic": "CS0618",
+      "referenceAttributeSha256": "33e7229e98660f13834dfe037b7a690b44457081ae674513714f09febf9e7478"
+    },
+    {
+      "id": "unity63abi:29a87473fcdf88d32dd42541",
+      "declaration": "public UnityEngine.Component rigidbody2D { public get; }",
+      "line": 9,
+      "expectedDiagnostic": "CS0619",
+      "referenceAttributeSha256": "610db73d27ba05803bffe14c5c8e5517305993d097bf69f94d080b426bea7fc5"
+    },
+    {
+      "id": "unity63abi:2da1ada35b3e43b87d88e1e2",
+      "declaration": "public static void SetGameObjectsActive(System.ReadOnlySpan`1<int> instanceIDs, bool active);",
+      "line": 10,
+      "expectedDiagnostic": "CS0618",
+      "referenceAttributeSha256": "69beb4e16985f956d69c9b11c73d27e2c854bae773b7e2357430c349e46857a0"
+    },
+    {
+      "id": "unity63abi:3197e5e7dc6193093945b6e6",
+      "declaration": "public UnityEngine.Component collider2D { public get; }",
+      "line": 11,
+      "expectedDiagnostic": "CS0619",
+      "referenceAttributeSha256": "8f17772cf04ccf149532ba35e214aa8b1f2bfbab16c4e5702ec3be1b339241eb"
+    },
+    {
+      "id": "unity63abi:31a6f577b2a2c69b1326a7df",
+      "declaration": "public UnityEngine.Component constantForce { public get; }",
+      "line": 12,
+      "expectedDiagnostic": "CS0619",
+      "referenceAttributeSha256": "cd76a6446168cdd811f3192d5cc46e8f2fa6ffa02a57a454ced81def767be4e7"
+    },
+    {
+      "id": "unity63abi:36936fbbd392f27b2cb97c94",
+      "declaration": "public UnityEngine.Transform FindChild(string n);",
+      "line": 13,
+      "expectedDiagnostic": "CS0618",
+      "referenceAttributeSha256": "c874b38bcd0b6dddbe74b43541b7ecd306d56fa4995bd83f2b6c047f6109dbe5"
+    },
+    {
+      "id": "unity63abi:39716172f20cadd1ffd0ced8",
+      "declaration": "public void SetActiveRecursively(bool state);",
+      "line": 14,
+      "expectedDiagnostic": "CS0618",
+      "referenceAttributeSha256": "eb7533358a55bfa17d917ba0751c9cd2b3d6b4d0536a0383f18dff711eefc57b"
+    },
+    {
+      "id": "unity63abi:3a08a22358af337f95d4b981",
+      "declaration": "public UnityEngine.Component collider { public get; }",
+      "line": 15,
+      "expectedDiagnostic": "CS0619",
+      "referenceAttributeSha256": "7d8639b29dd1770fe8cf24da0c264d55d7f1e31dd8bb86432c9d3b77e61e16aa"
+    },
+    {
+      "id": "unity63abi:4157039e7c1a32de1d351220",
+      "declaration": "public int GetChildCount();",
+      "line": 16,
+      "expectedDiagnostic": "CS0618",
+      "referenceAttributeSha256": "90771f9d0b6b40e64fab541cc8ac25166a3d41b2b005508d6a9e1913e4cc7b6b"
+    },
+    {
+      "id": "unity63abi:427119c44e33f3887fe52647",
+      "declaration": "public UnityEngine.Component collider { public get; }",
+      "line": 17,
+      "expectedDiagnostic": "CS0619",
+      "referenceAttributeSha256": "7d8639b29dd1770fe8cf24da0c264d55d7f1e31dd8bb86432c9d3b77e61e16aa"
+    },
+    {
+      "id": "unity63abi:49b7b74afaf9ba8a9ec32149",
+      "declaration": "public UnityEngine.Component rigidbody { public get; }",
+      "line": 18,
+      "expectedDiagnostic": "CS0619",
+      "referenceAttributeSha256": "ea6750cd84502a1d5805a2ccbd2bbdb8a292512909ce0aa222a12fb13066d0b1"
+    },
+    {
+      "id": "unity63abi:519e51568066d54fef389420",
+      "declaration": "public static UnityEngine.Object[] FindObjectsOfType(System.Type type, bool includeInactive);",
+      "line": 19,
+      "expectedDiagnostic": "CS0618",
+      "referenceAttributeSha256": "922a44c8dc7b02055636ffc47748a4c57c1e3045c016236f25be8f079cbce413"
+    },
+    {
+      "id": "unity63abi:53cc48cba9ae65dbd9084dae",
+      "declaration": "public UnityEngine.Component particleSystem { public get; }",
+      "line": 20,
+      "expectedDiagnostic": "CS0619",
+      "referenceAttributeSha256": "8dc53b3fdef084937efea9935d98d61a5a744b01635305ce00c954d23998411a"
+    },
+    {
+      "id": "unity63abi:54c8791657ad3876aeb3fc41",
+      "declaration": "public UnityEngine.Component AddComponent(string className);",
+      "line": 21,
+      "expectedDiagnostic": "CS0619",
+      "referenceAttributeSha256": "36b76829d773c8d7a906efbf4e120e5d6c0eead845defd7051c58406fca1f327"
+    },
+    {
+      "id": "unity63abi:578592e399e1c7035d132c78",
+      "declaration": "public static UnityEngine.SceneManagement.Scene GetScene(int instanceID);",
+      "line": 22,
+      "expectedDiagnostic": "CS0618",
+      "referenceAttributeSha256": "ded63a0cd19f92b495c883f4b1c8582d3f5559ef94778875315df747a2c22644"
+    },
+    {
+      "id": "unity63abi:58c30bbde35fe71525636c36",
+      "declaration": "public static UnityEngine.Object[] FindObjectsOfType(System.Type type);",
+      "line": 23,
+      "expectedDiagnostic": "CS0618",
+      "referenceAttributeSha256": "f9d5551c8e8e9879cc800675da5d1f9aa20943ec5e32b10acb75c3edb4c98714"
+    },
+    {
+      "id": "unity63abi:596db428f951b74f4407f112",
+      "declaration": "public void RotateAroundLocal(UnityEngine.Vector3 axis, float angle);",
+      "line": 24,
+      "expectedDiagnostic": "CS0618",
+      "referenceAttributeSha256": "489a9bc368c69db8faa5b57cf9a1b3819cd92674ff324f74ea5684879cf09605"
+    },
+    {
+      "id": "unity63abi:5f0696131f05163a84b9e339",
+      "declaration": "public void PlayAnimation(UnityEngine.Object animation);",
+      "line": 25,
+      "expectedDiagnostic": "CS0619",
+      "referenceAttributeSha256": "ef7769776c11052590537d34bd558157b273946beb13deebde8794b335d95515"
+    },
+    {
+      "id": "unity63abi:60b1fdefcbe9e68c4f6155bf",
+      "declaration": "public UnityEngine.Component rigidbody { public get; }",
+      "line": 26,
+      "expectedDiagnostic": "CS0619",
+      "referenceAttributeSha256": "ea6750cd84502a1d5805a2ccbd2bbdb8a292512909ce0aa222a12fb13066d0b1"
+    },
+    {
+      "id": "unity63abi:6cb646dccf3f12dd88297b8b",
+      "declaration": "public static UnityEngine.Object[] FindObjectsOfTypeIncludingAssets(System.Type type);",
+      "line": 27,
+      "expectedDiagnostic": "CS0618",
+      "referenceAttributeSha256": "6981f02a487caaffdffe24b459b6766abe549fa8980adce84a680e304944959b"
+    },
+    {
+      "id": "unity63abi:722dfc84cb9e4270fabb5702",
+      "declaration": "public UnityEngine.Component audio { public get; }",
+      "line": 28,
+      "expectedDiagnostic": "CS0619",
+      "referenceAttributeSha256": "9edbc640b118e5a8f4ecf417998d1497f8139280b769b341bedc919184620d0c"
+    },
+    {
+      "id": "unity63abi:72e65ef5fbeed2cd1bdf0b61",
+      "declaration": "public static UnityEngine.Object[] FindObjectsOfTypeAll(System.Type type);",
+      "line": 29,
+      "expectedDiagnostic": "CS0618",
+      "referenceAttributeSha256": "41adac0decb4c5d0ff3d08fcfd217a90ec26b74f655b01486597cb636410a695"
+    },
+    {
+      "id": "unity63abi:75a6abbefa5e71a7f3c54be2",
+      "declaration": "public static T FindObjectOfType<T>(bool includeInactive);",
+      "line": 30,
+      "expectedDiagnostic": "CS0618",
+      "referenceAttributeSha256": "dd52c96c22520d3562c8414433cd97615556a9d52554d03039f3b26825752dbd"
+    },
+    {
+      "id": "unity63abi:770f631cdebafc641ebcc0e5",
+      "declaration": "public static UnityEngine.Object[] FindSceneObjectsOfType(System.Type type);",
+      "line": 31,
+      "expectedDiagnostic": "CS0618",
+      "referenceAttributeSha256": "ab569359ec2600007bef8619aa03e5eebc758317ba1ad782f282456f4d4a2de1"
+    },
+    {
+      "id": "unity63abi:81549c4e94a13ba815419134",
+      "declaration": "public UnityEngine.Component renderer { public get; }",
+      "line": 32,
+      "expectedDiagnostic": "CS0619",
+      "referenceAttributeSha256": "03f977c77f18f0d8c43423103c2231e37464416106a61680466a745171105e7b"
+    },
+    {
+      "id": "unity63abi:834b105436321d6992eb7806",
+      "declaration": "public UnityEngine.Component collider2D { public get; }",
+      "line": 33,
+      "expectedDiagnostic": "CS0619",
+      "referenceAttributeSha256": "8f17772cf04ccf149532ba35e214aa8b1f2bfbab16c4e5702ec3be1b339241eb"
+    },
+    {
+      "id": "unity63abi:8cb02b05839f8ad07a3a0314",
+      "declaration": "public UnityEngine.Component audio { public get; }",
+      "line": 34,
+      "expectedDiagnostic": "CS0619",
+      "referenceAttributeSha256": "9edbc640b118e5a8f4ecf417998d1497f8139280b769b341bedc919184620d0c"
+    },
+    {
+      "id": "unity63abi:90bce06bd71a64240787fe13",
+      "declaration": "public UnityEngine.Component renderer { public get; }",
+      "line": 35,
+      "expectedDiagnostic": "CS0619",
+      "referenceAttributeSha256": "03f977c77f18f0d8c43423103c2231e37464416106a61680466a745171105e7b"
+    },
+    {
+      "id": "unity63abi:94481eeada2474736238874b",
+      "declaration": "public UnityEngine.Component camera { public get; }",
+      "line": 36,
+      "expectedDiagnostic": "CS0619",
+      "referenceAttributeSha256": "aa7e82aa09b03e7448ecaf928541b224e42505d888ea6bf6ac6f022e814e3dc5"
+    },
+    {
+      "id": "unity63abi:9b0295bf5ceef0bf4fe47b95",
+      "declaration": "public void RotateAround(UnityEngine.Vector3 axis, float angle);",
+      "line": 37,
+      "expectedDiagnostic": "CS0618",
+      "referenceAttributeSha256": "489a9bc368c69db8faa5b57cf9a1b3819cd92674ff324f74ea5684879cf09605"
+    },
+    {
+      "id": "unity63abi:b2be5703500ba237844b805f",
+      "declaration": "public UnityEngine.Component networkView { public get; }",
+      "line": 38,
+      "expectedDiagnostic": "CS0619",
+      "referenceAttributeSha256": "e21334139874f880337e1d17e4d3cac4eaa0f7964569324f9ed7850d0a4d9987"
+    },
+    {
+      "id": "unity63abi:b52e8b0c43310fe2b2a19329",
+      "declaration": "public bool active { public get; public set; }",
+      "line": 39,
+      "expectedDiagnostic": "CS0618",
+      "referenceAttributeSha256": "c0679ce5030e0457ab5a2fc91d77d088da3b51362707930ed8dfbe13f7f2cef6"
+    },
+    {
+      "id": "unity63abi:b5cca99e69526730a06fa674",
+      "declaration": "public static UnityEngine.Object FindObjectOfType(System.Type type, bool includeInactive);",
+      "line": 40,
+      "expectedDiagnostic": "CS0618",
+      "referenceAttributeSha256": "dd52c96c22520d3562c8414433cd97615556a9d52554d03039f3b26825752dbd"
+    },
+    {
+      "id": "unity63abi:b712629fa0a1ba359cf15c2e",
+      "declaration": "public UnityEngine.Component hingeJoint { public get; }",
+      "line": 41,
+      "expectedDiagnostic": "CS0619",
+      "referenceAttributeSha256": "54a0bb6379b02147b5288938666590ae3141426f8a471a5d29ac24d5a3fad957"
+    },
+    {
+      "id": "unity63abi:bcb90ff3f5ba35a76838d349",
+      "declaration": "public UnityEngine.Component animation { public get; }",
+      "line": 42,
+      "expectedDiagnostic": "CS0619",
+      "referenceAttributeSha256": "3a155589afbfabf897afac9987311223405c9e6bd4d609ac1e559ebbf951553a"
+    },
+    {
+      "id": "unity63abi:c623d6d3f5582e85af95aadb",
+      "declaration": "public void SampleAnimation(UnityEngine.Object clip, float time);",
+      "line": 43,
+      "expectedDiagnostic": "CS0619",
+      "referenceAttributeSha256": "4dd41ff3281886609d20a00e5ef9e8682ef71abfb900c847d7d2a98d9f943deb"
+    },
+    {
+      "id": "unity63abi:c71087ff75aa4beaae39e4d5",
+      "declaration": "public static void InstantiateGameObjects(int sourceInstanceID, int count, Unity.Collections.NativeArray`1<int> newInstanceIDs, Unity.Collections.NativeArray`1<int> newTransformInstanceIDs, UnityEngine.SceneManagement.Scene destinationScene = null);",
+      "line": 44,
+      "expectedDiagnostic": "CS0618",
+      "referenceAttributeSha256": "3b2f092c36042132dde48c3ae69f8cded6f51ab3e846e5cc5691e2861c598885"
+    },
+    {
+      "id": "unity63abi:c75500bcbb28857f0e047d9d",
+      "declaration": "public static void SetGameObjectsActive(Unity.Collections.NativeArray`1<int> instanceIDs, bool active);",
+      "line": 45,
+      "expectedDiagnostic": "CS0618",
+      "referenceAttributeSha256": "e4736a7f427ac95b5c0e2fde666809ae597349ff759cd5ecdf63cd638d6fe75d"
+    },
+    {
+      "id": "unity63abi:ce2ea94c6adb9c579969d237",
+      "declaration": "public void StopAnimation();",
+      "line": 46,
+      "expectedDiagnostic": "CS0619",
+      "referenceAttributeSha256": "9ad27982b6dea8fc00f9ff0b5f122f44335c7a3ffa2446aaa086e57fc6ac9aa1"
+    },
+    {
+      "id": "unity63abi:d651c9fb2cc20b7df5cec460",
+      "declaration": "public static UnityEngine.Object FindObjectOfType(System.Type type);",
+      "line": 47,
+      "expectedDiagnostic": "CS0618",
+      "referenceAttributeSha256": "dd52c96c22520d3562c8414433cd97615556a9d52554d03039f3b26825752dbd"
+    },
+    {
+      "id": "unity63abi:dbca1c0f0957a26d50f31a68",
+      "declaration": "public UnityEngine.Component light { public get; }",
+      "line": 48,
+      "expectedDiagnostic": "CS0619",
+      "referenceAttributeSha256": "322c5c7fa7a785c8ee29cf90925dff5e1b8b8b5f3102a2abb9eb4adc30f80163"
+    },
+    {
+      "id": "unity63abi:e4a51780cb939aeea6b1a2f5",
+      "declaration": "public static T FindObjectOfType<T>();",
+      "line": 49,
+      "expectedDiagnostic": "CS0618",
+      "referenceAttributeSha256": "dd52c96c22520d3562c8414433cd97615556a9d52554d03039f3b26825752dbd"
+    },
+    {
+      "id": "unity63abi:e4bd6f1793f06d64995aafac",
+      "declaration": "public UnityEngine.Component particleSystem { public get; }",
+      "line": 50,
+      "expectedDiagnostic": "CS0619",
+      "referenceAttributeSha256": "8dc53b3fdef084937efea9935d98d61a5a744b01635305ce00c954d23998411a"
+    },
+    {
+      "id": "unity63abi:e4d7f1585001e6160679aa03",
+      "declaration": "public static T[] FindObjectsOfType<T>(bool includeInactive);",
+      "line": 51,
+      "expectedDiagnostic": "CS0618",
+      "referenceAttributeSha256": "922a44c8dc7b02055636ffc47748a4c57c1e3045c016236f25be8f079cbce413"
+    },
+    {
+      "id": "unity63abi:e5ed694d2602ffc440b29e4c",
+      "declaration": "public UnityEngine.Component hingeJoint { public get; }",
+      "line": 52,
+      "expectedDiagnostic": "CS0619",
+      "referenceAttributeSha256": "54a0bb6379b02147b5288938666590ae3141426f8a471a5d29ac24d5a3fad957"
+    },
+    {
+      "id": "unity63abi:f22bd26fa276dee8a1d2287b",
+      "declaration": "public UnityEngine.Component networkView { public get; }",
+      "line": 53,
+      "expectedDiagnostic": "CS0619",
+      "referenceAttributeSha256": "e21334139874f880337e1d17e4d3cac4eaa0f7964569324f9ed7850d0a4d9987"
+    },
+    {
+      "id": "unity63abi:f57d53ab3cb7db1afa132a3f",
+      "declaration": "public UnityEngine.Component camera { public get; }",
+      "line": 54,
+      "expectedDiagnostic": "CS0619",
+      "referenceAttributeSha256": "aa7e82aa09b03e7448ecaf928541b224e42505d888ea6bf6ac6f022e814e3dc5"
+    },
+    {
+      "id": "unity63abi:f635df5aa2dc21f1a742f242",
+      "declaration": "public UnityEngine.Component constantForce { public get; }",
+      "line": 55,
+      "expectedDiagnostic": "CS0619",
+      "referenceAttributeSha256": "cd76a6446168cdd811f3192d5cc46e8f2fa6ffa02a57a454ced81def767be4e7"
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "passed": true,
+  "referenceCoreModuleSha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737",
+  "corpusSourceSha256": "68d1f9d79b251e234e0a1655d234d5a61a724d617dabbc44bbf0ba10ed261660",
+  "acceptedSignatures": 7,
+  "records": [
+    {
+      "id": "unity63abi:0f3971a8815de837171afcc9",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public static UnityEngine.GameObject Find(string name);",
+      "caseIds": [
+        "find.leaf",
+        "find.relative",
+        "find.absolute",
+        "find.suffix",
+        "find.wrong-root",
+        "find.double-slash",
+        "find.empty",
+        "find.null",
+        "find.missing",
+        "find.inactive",
+        "find.destroyed"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:af721c1755e5162cb27482c1",
+      "owner": "UnityEngine.Transform",
+      "declaration": "public UnityEngine.Transform Find(string n);",
+      "caseIds": [
+        "transform.find-path",
+        "transform.find-missing",
+        "transform.find-null",
+        "transform.find-inactive",
+        "transform.find-destroyed"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:f9e93fa2051bd38d547390f8",
+      "owner": "UnityEngine.Transform",
+      "declaration": "public UnityEngine.Transform GetChild(int index);",
+      "caseIds": [
+        "child.valid",
+        "child.negative",
+        "child.outside",
+        "child.destroyed"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:b04b82890256b13f9b689c12",
+      "owner": "UnityEngine.Transform",
+      "declaration": "public bool IsChildOf(UnityEngine.Transform parent);",
+      "caseIds": [
+        "is-child.self",
+        "is-child.descendant",
+        "is-child.foreign",
+        "is-child.null",
+        "is-child.destroyed"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:4670d270a0510d40f3c72abd",
+      "owner": "UnityEngine.Transform",
+      "declaration": "public void SetParent(UnityEngine.Transform p);",
+      "caseIds": [
+        "parent.default-world",
+        "parent.cycle",
+        "parent.self",
+        "parent.destroyed-target",
+        "parent.destroyed-owner"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:1f5b6f75114239813b529261",
+      "owner": "UnityEngine.Transform",
+      "declaration": "public void SetParent(UnityEngine.Transform parent, bool worldPositionStays);",
+      "caseIds": [
+        "parent.explicit-local",
+        "parent.explicit-world",
+        "parent.explicit-null",
+        "parent.cycle-local",
+        "parent.explicit-destroyed-owner"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:bc601dfd1d44ce38364de381",
+      "owner": "UnityEngine.Transform",
+      "declaration": "public UnityEngine.Transform parent { public get; public set; }",
+      "caseIds": [
+        "parent.property-world",
+        "parent.cycle-property",
+        "parent.property-destroyed-owner"
+      ],
+      "passed": true
+    }
+  ]
+}

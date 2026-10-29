@@ -1,0 +1,278 @@
+{
+  "profile": "Historical failed348-case probe before canonical pose corrections",
+  "passed": false,
+  "checks": 348,
+  "mismatches": [
+    {
+      "index": 0,
+      "profile": "zero-input",
+      "message": "Quaternion at 3"
+    },
+    {
+      "index": 1,
+      "profile": "zero-input",
+      "message": "Exception: expected , actual System.ArgumentException"
+    },
+    {
+      "index": 4,
+      "profile": "destroyed",
+      "message": "Exception: expected , actual UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 4,
+      "profile": "null",
+      "message": "Exception: expected , actual System.NullReferenceException"
+    },
+    {
+      "index": 5,
+      "profile": "collapsed",
+      "message": "Exception: expected , actual System.InvalidOperationException"
+    },
+    {
+      "index": 5,
+      "profile": "deep-collapse",
+      "message": "Exception: expected , actual System.InvalidOperationException"
+    },
+    {
+      "index": 9,
+      "profile": "destroyed",
+      "message": "Exception: expected , actual UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 9,
+      "profile": "null",
+      "message": "Exception: expected , actual System.NullReferenceException"
+    },
+    {
+      "index": 10,
+      "profile": "zero-input",
+      "message": "Quaternion at 3"
+    },
+    {
+      "index": 11,
+      "profile": "mirrored",
+      "message": "Value[0]: expected 6.531322, actual 8.622613"
+    },
+    {
+      "index": 11,
+      "profile": "collapsed",
+      "message": "Exception: expected , actual System.InvalidOperationException"
+    },
+    {
+      "index": 11,
+      "profile": "double-mirror",
+      "message": "Value[0]: expected 6.531322, actual 8.622613"
+    },
+    {
+      "index": 11,
+      "profile": "deep-mirror",
+      "message": "Value[0]: expected 7.2218704, actual 9.57327"
+    },
+    {
+      "index": 11,
+      "profile": "deep-collapse",
+      "message": "Exception: expected , actual System.InvalidOperationException"
+    },
+    {
+      "index": 12,
+      "profile": "zero-input",
+      "message": "Exception: expected , actual System.ArgumentException"
+    },
+    {
+      "index": 16,
+      "profile": "mirrored",
+      "message": "Quaternion at 3"
+    },
+    {
+      "index": 16,
+      "profile": "double-mirror",
+      "message": "Quaternion at 3"
+    },
+    {
+      "index": 16,
+      "profile": "deep-mirror",
+      "message": "Quaternion at 3"
+    },
+    {
+      "index": 19,
+      "profile": "collapsed",
+      "message": "Exception: expected , actual System.InvalidOperationException"
+    },
+    {
+      "index": 19,
+      "profile": "deep-collapse",
+      "message": "Exception: expected , actual System.InvalidOperationException"
+    },
+    {
+      "index": 22,
+      "profile": "collapsed",
+      "message": "Value[17]: expected -0.41819093, actual 104089610"
+    },
+    {
+      "index": 22,
+      "profile": "deep-collapse",
+      "message": "Value[17]: expected -0.35439265, actual -181005000"
+    },
+    {
+      "index": 22,
+      "profile": "collapsed-child",
+      "message": "Value[18]: expected -0.101922296, actual 0"
+    },
+    {
+      "index": 23,
+      "profile": "mirrored",
+      "message": "Quaternion at 3"
+    },
+    {
+      "index": 23,
+      "profile": "double-mirror",
+      "message": "Quaternion at 3"
+    },
+    {
+      "index": 23,
+      "profile": "deep-mirror",
+      "message": "Quaternion at 3"
+    },
+    {
+      "index": 26,
+      "profile": "mirrored",
+      "message": "Value[0]: expected 6.531322, actual 8.622613"
+    },
+    {
+      "index": 26,
+      "profile": "collapsed",
+      "message": "Exception: expected , actual System.InvalidOperationException"
+    },
+    {
+      "index": 26,
+      "profile": "double-mirror",
+      "message": "Value[0]: expected 6.531322, actual 8.622613"
+    },
+    {
+      "index": 26,
+      "profile": "deep-mirror",
+      "message": "Value[0]: expected 7.2218704, actual 9.57327"
+    },
+    {
+      "index": 26,
+      "profile": "deep-collapse",
+      "message": "Exception: expected , actual System.InvalidOperationException"
+    },
+    {
+      "index": 28,
+      "profile": "mirrored",
+      "message": "Value[0]: expected 3.0667872, actual 5.2335973"
+    },
+    {
+      "index": 28,
+      "profile": "collapsed",
+      "message": "Exception: expected , actual System.InvalidOperationException"
+    },
+    {
+      "index": 28,
+      "profile": "double-mirror",
+      "message": "Value[0]: expected 3.0667872, actual 5.2335973"
+    },
+    {
+      "index": 28,
+      "profile": "deep-mirror",
+      "message": "Value[0]: expected 4.6595106, actual 8.569627"
+    },
+    {
+      "index": 28,
+      "profile": "deep-collapse",
+      "message": "Exception: expected , actual System.InvalidOperationException"
+    },
+    {
+      "index": 30,
+      "profile": "mirrored",
+      "message": "Value[0]: expected 3.0667872, actual 5.2335973"
+    },
+    {
+      "index": 30,
+      "profile": "collapsed",
+      "message": "Exception: expected , actual System.InvalidOperationException"
+    },
+    {
+      "index": 30,
+      "profile": "double-mirror",
+      "message": "Value[0]: expected 3.0667872, actual 5.2335973"
+    },
+    {
+      "index": 30,
+      "profile": "deep-mirror",
+      "message": "Value[0]: expected 4.6595106, actual 8.569627"
+    },
+    {
+      "index": 30,
+      "profile": "deep-collapse",
+      "message": "Exception: expected , actual System.InvalidOperationException"
+    },
+    {
+      "index": 32,
+      "profile": "zero-input",
+      "message": "Exception: expected , actual System.ArgumentException"
+    },
+    {
+      "index": 33,
+      "profile": "collapsed",
+      "message": "Exception: expected , actual System.InvalidOperationException"
+    },
+    {
+      "index": 33,
+      "profile": "deep-collapse",
+      "message": "Exception: expected , actual System.InvalidOperationException"
+    },
+    {
+      "index": 34,
+      "profile": "mirrored",
+      "message": "Value[0]: expected 3.0667872, actual 5.2335973"
+    },
+    {
+      "index": 34,
+      "profile": "collapsed",
+      "message": "Exception: expected , actual System.InvalidOperationException"
+    },
+    {
+      "index": 34,
+      "profile": "double-mirror",
+      "message": "Value[0]: expected 3.0667872, actual 5.2335973"
+    },
+    {
+      "index": 34,
+      "profile": "deep-mirror",
+      "message": "Value[0]: expected 4.6595106, actual 8.569627"
+    },
+    {
+      "index": 34,
+      "profile": "deep-collapse",
+      "message": "Exception: expected , actual System.InvalidOperationException"
+    },
+    {
+      "index": 35,
+      "profile": "mirrored",
+      "message": "Value[0]: expected 3.0667872, actual 5.2335973"
+    },
+    {
+      "index": 35,
+      "profile": "collapsed",
+      "message": "Exception: expected , actual System.InvalidOperationException"
+    },
+    {
+      "index": 35,
+      "profile": "double-mirror",
+      "message": "Value[0]: expected 3.0667872, actual 5.2335973"
+    },
+    {
+      "index": 35,
+      "profile": "deep-mirror",
+      "message": "Value[0]: expected 4.6595106, actual 8.569627"
+    },
+    {
+      "index": 35,
+      "profile": "deep-collapse",
+      "message": "Exception: expected , actual System.InvalidOperationException"
+    }
+  ],
+  "supersededBy": "m20-pose-native-acceptance.json"
+}

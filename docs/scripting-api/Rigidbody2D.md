@@ -18,6 +18,7 @@ Still pending: capsule/edge/polygon/mesh/compound colliders, joints, terrain, ar
 ## Implemented declarations
 
 ```csharp
+// Namespace: Axiom.Gameplay
 public sealed partial class Rigidbody2D : Component {
  internal Rigidbody2D(Entity entity){Entity=entity;}
  private Rigidbody Body=>new(Entity);
@@ -40,6 +41,7 @@ public sealed partial class Rigidbody2D : Component {
  public void AddForceAtPosition(Vector2 force,Vector2 position,ForceMode2D mode=ForceMode2D.Force){if(!Enum.IsDefined(mode))throw new ArgumentException("Invalid force mode");Body.AddForceAtPosition(new(force.X,force.Y,0),new(position.X,position.Y,transform.position.Z),mode==ForceMode2D.Impulse?ForceMode.Impulse:ForceMode.Force);}
 }
 
+// Namespace: Axiom.Gameplay
 public sealed partial class Rigidbody2D {
  public double linearDamping {get=>Body.linearDamping;set=>Body.linearDamping=value;}public double angularDamping {get=>Body.angularDamping;set=>Body.angularDamping=value;}
  public double drag {get=>linearDamping;set=>linearDamping=value;}public double angularDrag {get=>angularDamping;set=>angularDamping=value;}
@@ -49,11 +51,15 @@ public sealed partial class Rigidbody2D {
  public bool IsSleeping()=>Body.IsSleeping();public bool IsAwake()=>!IsSleeping();public void Sleep()=>Body.Sleep();public void WakeUp()=>Body.WakeUp();
 }
 
+// Namespace: Axiom.Gameplay
 public enum RigidbodyType2D {Dynamic,Kinematic,Static}
 
+// Namespace: Axiom.Gameplay
 public enum ForceMode2D {Force,Impulse}
 
+// Namespace: Axiom.Gameplay
 public enum RigidbodyConstraints2D {None=0,FreezePositionX=1,FreezePositionY=2,FreezeRotation=4,FreezePosition=3,FreezeAll=7}
 
+// Namespace: Axiom.Gameplay
 public enum CollisionDetectionMode2D {Discrete,Continuous}
 ```

@@ -1,0 +1,1034 @@
+{
+  "schemaVersion": 1,
+  "passed": true,
+  "referenceCoreModuleSha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737",
+  "corpusSourceHashes": {
+    "PoseTransformCorpus.cs": "bca340413786563276d37a220b04f33682755c29fd114cef319eaab5ba1dcdaa",
+    "PoseTransformReference.cs": "1d011b1fb31ef7c3cc59c096d6cb0906558bea722ebba98d55377255b54b3814",
+    "PoseTransformLab.cs": "fadddae1fc031bd6f20dec13e15761475615c6f0280ef5b0efd9142619dc2da4"
+  },
+  "acceptedSignatures": 36,
+  "observations": 348,
+  "records": [
+    {
+      "id": "unity63abi:060ec14cc6fcf1d8df32ce69",
+      "index": 0,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed",
+        "zero-input"
+      ],
+      "caseIds": [
+        "p001",
+        "p002",
+        "p003",
+        "p004",
+        "p005",
+        "p006",
+        "p007",
+        "p008",
+        "p009",
+        "p010"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:126db462beeaf3181ed7e976",
+      "index": 1,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed",
+        "zero-input"
+      ],
+      "caseIds": [
+        "p011",
+        "p012",
+        "p013",
+        "p014",
+        "p015",
+        "p016",
+        "p017",
+        "p018",
+        "p019",
+        "p020"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:142e6eb4d9dbb1ba016206ef",
+      "index": 2,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed"
+      ],
+      "caseIds": [
+        "p021",
+        "p022",
+        "p023",
+        "p024",
+        "p025",
+        "p026",
+        "p027",
+        "p028",
+        "p029"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:1f6180af653b21a7eaa7d5e7",
+      "index": 3,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed"
+      ],
+      "caseIds": [
+        "p030",
+        "p031",
+        "p032",
+        "p033",
+        "p034",
+        "p035",
+        "p036",
+        "p037",
+        "p038"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:246e13baccf2c5a70652121e",
+      "index": 4,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed",
+        "null"
+      ],
+      "caseIds": [
+        "p039",
+        "p040",
+        "p041",
+        "p042",
+        "p043",
+        "p044",
+        "p045",
+        "p046",
+        "p047",
+        "p048"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:2473cbda4eb132095f83459b",
+      "index": 5,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed",
+        "zero-input"
+      ],
+      "caseIds": [
+        "p049",
+        "p050",
+        "p051",
+        "p052",
+        "p053",
+        "p054",
+        "p055",
+        "p056",
+        "p057",
+        "p058"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:2cc1372ff0892fcb7b782f92",
+      "index": 6,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed"
+      ],
+      "caseIds": [
+        "p059",
+        "p060",
+        "p061",
+        "p062",
+        "p063",
+        "p064",
+        "p065",
+        "p066",
+        "p067"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:2f9a0b0fdb3b77f13c40a117",
+      "index": 7,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed"
+      ],
+      "caseIds": [
+        "p068",
+        "p069",
+        "p070",
+        "p071",
+        "p072",
+        "p073",
+        "p074",
+        "p075",
+        "p076"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:3271bff39998bbad798ea567",
+      "index": 8,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed",
+        "world",
+        "world-mirrored"
+      ],
+      "caseIds": [
+        "p077",
+        "p078",
+        "p079",
+        "p080",
+        "p081",
+        "p082",
+        "p083",
+        "p084",
+        "p085",
+        "p086",
+        "p087"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:32cd943e83389d1a6869be74",
+      "index": 9,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed",
+        "null"
+      ],
+      "caseIds": [
+        "p088",
+        "p089",
+        "p090",
+        "p091",
+        "p092",
+        "p093",
+        "p094",
+        "p095",
+        "p096",
+        "p097"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:48a823c1a17035608e6b4562",
+      "index": 10,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed",
+        "zero-input"
+      ],
+      "caseIds": [
+        "p098",
+        "p099",
+        "p100",
+        "p101",
+        "p102",
+        "p103",
+        "p104",
+        "p105",
+        "p106",
+        "p107"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:4a0ad4a167b184ec17344243",
+      "index": 11,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed",
+        "null"
+      ],
+      "caseIds": [
+        "p108",
+        "p109",
+        "p110",
+        "p111",
+        "p112",
+        "p113",
+        "p114",
+        "p115",
+        "p116",
+        "p117"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:4f14b55c8f4e49c834ef927c",
+      "index": 12,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed",
+        "zero-input"
+      ],
+      "caseIds": [
+        "p118",
+        "p119",
+        "p120",
+        "p121",
+        "p122",
+        "p123",
+        "p124",
+        "p125",
+        "p126",
+        "p127"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:596db428f951b74f4407f112",
+      "index": 13,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed",
+        "zero-input"
+      ],
+      "caseIds": [
+        "p128",
+        "p129",
+        "p130",
+        "p131",
+        "p132",
+        "p133",
+        "p134",
+        "p135",
+        "p136",
+        "p137"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:5b3e66afe646d9587c9e2c84",
+      "index": 14,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed"
+      ],
+      "caseIds": [
+        "p138",
+        "p139",
+        "p140",
+        "p141",
+        "p142",
+        "p143",
+        "p144",
+        "p145",
+        "p146"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:6cc90c3b4840284ce857762b",
+      "index": 15,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed"
+      ],
+      "caseIds": [
+        "p147",
+        "p148",
+        "p149",
+        "p150",
+        "p151",
+        "p152",
+        "p153",
+        "p154",
+        "p155"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:6eb6798046e60a49e44c7f50",
+      "index": 16,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed",
+        "zero-input"
+      ],
+      "caseIds": [
+        "p156",
+        "p157",
+        "p158",
+        "p159",
+        "p160",
+        "p161",
+        "p162",
+        "p163",
+        "p164",
+        "p165"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:74288d8db35115a7ff1d5938",
+      "index": 17,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed"
+      ],
+      "caseIds": [
+        "p166",
+        "p167",
+        "p168",
+        "p169",
+        "p170",
+        "p171",
+        "p172",
+        "p173",
+        "p174"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:7c0a68016e7ccfbfdc86cb8c",
+      "index": 18,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed"
+      ],
+      "caseIds": [
+        "p175",
+        "p176",
+        "p177",
+        "p178",
+        "p179",
+        "p180",
+        "p181",
+        "p182",
+        "p183"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:84b7ecd742fb52f2b698b73c",
+      "index": 19,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed"
+      ],
+      "caseIds": [
+        "p184",
+        "p185",
+        "p186",
+        "p187",
+        "p188",
+        "p189",
+        "p190",
+        "p191",
+        "p192"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:89e9133d9dcf88d29846cea0",
+      "index": 20,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed",
+        "world",
+        "world-mirrored"
+      ],
+      "caseIds": [
+        "p193",
+        "p194",
+        "p195",
+        "p196",
+        "p197",
+        "p198",
+        "p199",
+        "p200",
+        "p201",
+        "p202",
+        "p203"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:97bcb61a53a136c96ab92cb3",
+      "index": 21,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed"
+      ],
+      "caseIds": [
+        "p204",
+        "p205",
+        "p206",
+        "p207",
+        "p208",
+        "p209",
+        "p210",
+        "p211",
+        "p212"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:9832d417ab73e90fa122c522",
+      "index": 22,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed"
+      ],
+      "caseIds": [
+        "p213",
+        "p214",
+        "p215",
+        "p216",
+        "p217",
+        "p218",
+        "p219",
+        "p220",
+        "p221"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:9ae9d25537a1afeabfd10efb",
+      "index": 23,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed",
+        "world",
+        "world-mirrored",
+        "zero-input"
+      ],
+      "caseIds": [
+        "p222",
+        "p223",
+        "p224",
+        "p225",
+        "p226",
+        "p227",
+        "p228",
+        "p229",
+        "p230",
+        "p231",
+        "p232",
+        "p233"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:9b0295bf5ceef0bf4fe47b95",
+      "index": 24,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed",
+        "zero-input"
+      ],
+      "caseIds": [
+        "p234",
+        "p235",
+        "p236",
+        "p237",
+        "p238",
+        "p239",
+        "p240",
+        "p241",
+        "p242",
+        "p243"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:9d0c72e08e543bc39f2cc609",
+      "index": 25,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed"
+      ],
+      "caseIds": [
+        "p244",
+        "p245",
+        "p246",
+        "p247",
+        "p248",
+        "p249",
+        "p250",
+        "p251",
+        "p252"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:a36ea56f7dba884c6e80ed63",
+      "index": 26,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed",
+        "null"
+      ],
+      "caseIds": [
+        "p253",
+        "p254",
+        "p255",
+        "p256",
+        "p257",
+        "p258",
+        "p259",
+        "p260",
+        "p261",
+        "p262"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:aa8906e2024d0e436c57daa0",
+      "index": 27,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed"
+      ],
+      "caseIds": [
+        "p263",
+        "p264",
+        "p265",
+        "p266",
+        "p267",
+        "p268",
+        "p269",
+        "p270",
+        "p271"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:b7239b300733cbbeb0de507b",
+      "index": 28,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed",
+        "world",
+        "world-mirrored"
+      ],
+      "caseIds": [
+        "p272",
+        "p273",
+        "p274",
+        "p275",
+        "p276",
+        "p277",
+        "p278",
+        "p279",
+        "p280",
+        "p281",
+        "p282"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:c536bf082dd9410ae4b8dcaa",
+      "index": 29,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed"
+      ],
+      "caseIds": [
+        "p283",
+        "p284",
+        "p285",
+        "p286",
+        "p287",
+        "p288",
+        "p289",
+        "p290",
+        "p291"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:e20727858307286494776aa2",
+      "index": 30,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed"
+      ],
+      "caseIds": [
+        "p292",
+        "p293",
+        "p294",
+        "p295",
+        "p296",
+        "p297",
+        "p298",
+        "p299",
+        "p300"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:e3808095f538aa05d715d89d",
+      "index": 31,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed"
+      ],
+      "caseIds": [
+        "p301",
+        "p302",
+        "p303",
+        "p304",
+        "p305",
+        "p306",
+        "p307",
+        "p308",
+        "p309"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:e827fc790ddd963bb4d1c0ab",
+      "index": 32,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed",
+        "zero-input"
+      ],
+      "caseIds": [
+        "p310",
+        "p311",
+        "p312",
+        "p313",
+        "p314",
+        "p315",
+        "p316",
+        "p317",
+        "p318",
+        "p319"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:f816d4b6301c3fc813107ffc",
+      "index": 33,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed"
+      ],
+      "caseIds": [
+        "p320",
+        "p321",
+        "p322",
+        "p323",
+        "p324",
+        "p325",
+        "p326",
+        "p327",
+        "p328"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:fbb6d8e9a7f9600129853835",
+      "index": 34,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed"
+      ],
+      "caseIds": [
+        "p329",
+        "p330",
+        "p331",
+        "p332",
+        "p333",
+        "p334",
+        "p335",
+        "p336",
+        "p337"
+      ],
+      "passed": true
+    },
+    {
+      "id": "unity63abi:fd2c356f1e04efbb0250a01f",
+      "index": 35,
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed",
+        "world",
+        "world-mirrored"
+      ],
+      "caseIds": [
+        "p338",
+        "p339",
+        "p340",
+        "p341",
+        "p342",
+        "p343",
+        "p344",
+        "p345",
+        "p346",
+        "p347",
+        "p348"
+      ],
+      "passed": true
+    }
+  ]
+}

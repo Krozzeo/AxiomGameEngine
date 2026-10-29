@@ -28,7 +28,9 @@ Existing PascalCase names remain supported. Lowercase vector fields and constant
 ## Implemented declarations
 
 ```csharp
+// Namespace: Axiom.Gameplay
 public record struct Vector4(double X, double Y, double Z, double W) {
+ public override string ToString()=>FormattableString.Invariant($"({X:R}, {Y:R}, {Z:R}, {W:R})");
  public double x {get=>X;set=>X=value;}
  public double y {get=>Y;set=>Y=value;}
  public double z {get=>Z;set=>Z=value;}

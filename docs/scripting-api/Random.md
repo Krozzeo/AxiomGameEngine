@@ -28,6 +28,7 @@ Existing PascalCase names remain supported. Lowercase vector fields and constant
 ## Implemented declarations
 
 ```csharp
+// Namespace: Axiom.Gameplay
 public static class Random {
  public static double value=>ReplayRandom.NextDouble();public static void InitState(int seed)=>ReplayRandom.Reset(unchecked((uint)seed));public static double Range(double min,double max)=>min+(max-min)*value;public static int Range(int min,int max)=>max<=min?min:min+(int)(value*(max-min));
 }

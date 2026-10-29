@@ -1,0 +1,500 @@
+{
+  "schemaVersion": 1,
+  "passed": false,
+  "historical": true,
+  "ownedSdkCommit": "fb0d976616b21aa7c4a15d1412bd03e61ef10a24",
+  "referenceUnityVersion": "6000.3.27f1",
+  "referenceCoreModuleSha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737",
+  "corpusSourceSha256": "21019c769ab45b37e51f73a8365f79eb58f1f55400dfebcf8892752ce1445b84",
+  "observations": 145,
+  "mismatchCount": 27,
+  "note": "Initial failures are retained. The corrected corpus adds seven asset profiles and passes152 observations. No failure grants acceptance.",
+  "differences": [
+    {
+      "id": "unity63abi:160660381215027e2830e101",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object FindFirstObjectByType(System.Type type);",
+      "profile": "null-type",
+      "owned": {
+        "index": 0,
+        "profile": "null-type",
+        "data": "",
+        "error": "System.ArgumentNullException"
+      },
+      "nativeUnity": {
+        "index": 0,
+        "profile": "null-type",
+        "data": "",
+        "error": "System.NullReferenceException"
+      }
+    },
+    {
+      "id": "unity63abi:160660381215027e2830e101",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object FindFirstObjectByType(System.Type type);",
+      "profile": "invalid-type",
+      "owned": {
+        "index": 0,
+        "profile": "invalid-type",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 0,
+        "profile": "invalid-type",
+        "data": "",
+        "error": "System.NullReferenceException"
+      }
+    },
+    {
+      "id": "unity63abi:1733cf71b9e4a1d82beea15b",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object[] FindObjectsByType(System.Type type, UnityEngine.FindObjectsInactive findObjectsInactive, UnityEngine.FindObjectsSortMode sortMode);",
+      "profile": "null-type",
+      "owned": {
+        "index": 1,
+        "profile": "null-type",
+        "data": "",
+        "error": "System.ArgumentNullException"
+      },
+      "nativeUnity": {
+        "index": 1,
+        "profile": "null-type",
+        "data": "null-array",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:1733cf71b9e4a1d82beea15b",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object[] FindObjectsByType(System.Type type, UnityEngine.FindObjectsInactive findObjectsInactive, UnityEngine.FindObjectsSortMode sortMode);",
+      "profile": "invalid-type",
+      "owned": {
+        "index": 1,
+        "profile": "invalid-type",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 1,
+        "profile": "invalid-type",
+        "data": "null-array",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:2a47d9abb87993e1156db2cd",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object FindFirstObjectByType(System.Type type, UnityEngine.FindObjectsInactive findObjectsInactive);",
+      "profile": "null-type",
+      "owned": {
+        "index": 4,
+        "profile": "null-type",
+        "data": "",
+        "error": "System.ArgumentNullException"
+      },
+      "nativeUnity": {
+        "index": 4,
+        "profile": "null-type",
+        "data": "",
+        "error": "System.NullReferenceException"
+      }
+    },
+    {
+      "id": "unity63abi:2a47d9abb87993e1156db2cd",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object FindFirstObjectByType(System.Type type, UnityEngine.FindObjectsInactive findObjectsInactive);",
+      "profile": "invalid-type",
+      "owned": {
+        "index": 4,
+        "profile": "invalid-type",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 4,
+        "profile": "invalid-type",
+        "data": "",
+        "error": "System.NullReferenceException"
+      }
+    },
+    {
+      "id": "unity63abi:519e51568066d54fef389420",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object[] FindObjectsOfType(System.Type type, bool includeInactive);",
+      "profile": "null-type",
+      "owned": {
+        "index": 7,
+        "profile": "null-type",
+        "data": "",
+        "error": "System.ArgumentNullException"
+      },
+      "nativeUnity": {
+        "index": 7,
+        "profile": "null-type",
+        "data": "null-array",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:519e51568066d54fef389420",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object[] FindObjectsOfType(System.Type type, bool includeInactive);",
+      "profile": "invalid-type",
+      "owned": {
+        "index": 7,
+        "profile": "invalid-type",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 7,
+        "profile": "invalid-type",
+        "data": "null-array",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:58c30bbde35fe71525636c36",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object[] FindObjectsOfType(System.Type type);",
+      "profile": "null-type",
+      "owned": {
+        "index": 8,
+        "profile": "null-type",
+        "data": "",
+        "error": "System.ArgumentNullException"
+      },
+      "nativeUnity": {
+        "index": 8,
+        "profile": "null-type",
+        "data": "null-array",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:58c30bbde35fe71525636c36",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object[] FindObjectsOfType(System.Type type);",
+      "profile": "invalid-type",
+      "owned": {
+        "index": 8,
+        "profile": "invalid-type",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 8,
+        "profile": "invalid-type",
+        "data": "null-array",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:6cb646dccf3f12dd88297b8b",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object[] FindObjectsOfTypeIncludingAssets(System.Type type);",
+      "profile": "dont-save",
+      "owned": {
+        "index": 9,
+        "profile": "dont-save",
+        "data": "F active,F flags,F nested,F off/ordered:True",
+        "error": ""
+      },
+      "nativeUnity": {
+        "index": 9,
+        "profile": "dont-save",
+        "data": "F active,F nested,F off/ordered:True",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:6cb646dccf3f12dd88297b8b",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object[] FindObjectsOfTypeIncludingAssets(System.Type type);",
+      "profile": "null-type",
+      "owned": {
+        "index": 9,
+        "profile": "null-type",
+        "data": "",
+        "error": "System.ArgumentNullException"
+      },
+      "nativeUnity": {
+        "index": 9,
+        "profile": "null-type",
+        "data": "null-array",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:6cb646dccf3f12dd88297b8b",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object[] FindObjectsOfTypeIncludingAssets(System.Type type);",
+      "profile": "invalid-type",
+      "owned": {
+        "index": 9,
+        "profile": "invalid-type",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 9,
+        "profile": "invalid-type",
+        "data": "null-array",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:72e65ef5fbeed2cd1bdf0b61",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object[] FindObjectsOfTypeAll(System.Type type);",
+      "profile": "null-type",
+      "owned": {
+        "index": 10,
+        "profile": "null-type",
+        "data": "",
+        "error": "System.ArgumentNullException"
+      },
+      "nativeUnity": {
+        "index": 10,
+        "profile": "null-type",
+        "data": "null-array",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:72e65ef5fbeed2cd1bdf0b61",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object[] FindObjectsOfTypeAll(System.Type type);",
+      "profile": "invalid-type",
+      "owned": {
+        "index": 10,
+        "profile": "invalid-type",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 10,
+        "profile": "invalid-type",
+        "data": "null-array",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:770f631cdebafc641ebcc0e5",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object[] FindSceneObjectsOfType(System.Type type);",
+      "profile": "null-type",
+      "owned": {
+        "index": 12,
+        "profile": "null-type",
+        "data": "",
+        "error": "System.ArgumentNullException"
+      },
+      "nativeUnity": {
+        "index": 12,
+        "profile": "null-type",
+        "data": "null-array",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:770f631cdebafc641ebcc0e5",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object[] FindSceneObjectsOfType(System.Type type);",
+      "profile": "invalid-type",
+      "owned": {
+        "index": 12,
+        "profile": "invalid-type",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 12,
+        "profile": "invalid-type",
+        "data": "null-array",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:88b75bd6422ff471910d3c68",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object FindAnyObjectByType(System.Type type);",
+      "profile": "null-type",
+      "owned": {
+        "index": 13,
+        "profile": "null-type",
+        "data": "",
+        "error": "System.ArgumentNullException"
+      },
+      "nativeUnity": {
+        "index": 13,
+        "profile": "null-type",
+        "data": "",
+        "error": "System.NullReferenceException"
+      }
+    },
+    {
+      "id": "unity63abi:88b75bd6422ff471910d3c68",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object FindAnyObjectByType(System.Type type);",
+      "profile": "invalid-type",
+      "owned": {
+        "index": 13,
+        "profile": "invalid-type",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 13,
+        "profile": "invalid-type",
+        "data": "",
+        "error": "System.NullReferenceException"
+      }
+    },
+    {
+      "id": "unity63abi:a42a510744f016574cb81cd1",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object FindAnyObjectByType(System.Type type, UnityEngine.FindObjectsInactive findObjectsInactive);",
+      "profile": "null-type",
+      "owned": {
+        "index": 14,
+        "profile": "null-type",
+        "data": "",
+        "error": "System.ArgumentNullException"
+      },
+      "nativeUnity": {
+        "index": 14,
+        "profile": "null-type",
+        "data": "",
+        "error": "System.NullReferenceException"
+      }
+    },
+    {
+      "id": "unity63abi:a42a510744f016574cb81cd1",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object FindAnyObjectByType(System.Type type, UnityEngine.FindObjectsInactive findObjectsInactive);",
+      "profile": "invalid-type",
+      "owned": {
+        "index": 14,
+        "profile": "invalid-type",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 14,
+        "profile": "invalid-type",
+        "data": "",
+        "error": "System.NullReferenceException"
+      }
+    },
+    {
+      "id": "unity63abi:b5cca99e69526730a06fa674",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object FindObjectOfType(System.Type type, bool includeInactive);",
+      "profile": "null-type",
+      "owned": {
+        "index": 15,
+        "profile": "null-type",
+        "data": "",
+        "error": "System.ArgumentNullException"
+      },
+      "nativeUnity": {
+        "index": 15,
+        "profile": "null-type",
+        "data": "",
+        "error": "System.NullReferenceException"
+      }
+    },
+    {
+      "id": "unity63abi:b5cca99e69526730a06fa674",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object FindObjectOfType(System.Type type, bool includeInactive);",
+      "profile": "invalid-type",
+      "owned": {
+        "index": 15,
+        "profile": "invalid-type",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 15,
+        "profile": "invalid-type",
+        "data": "",
+        "error": "System.NullReferenceException"
+      }
+    },
+    {
+      "id": "unity63abi:b8d62e6bf5959787baf10dfb",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object[] FindObjectsByType(System.Type type, UnityEngine.FindObjectsSortMode sortMode);",
+      "profile": "null-type",
+      "owned": {
+        "index": 16,
+        "profile": "null-type",
+        "data": "",
+        "error": "System.ArgumentNullException"
+      },
+      "nativeUnity": {
+        "index": 16,
+        "profile": "null-type",
+        "data": "null-array",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:b8d62e6bf5959787baf10dfb",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object[] FindObjectsByType(System.Type type, UnityEngine.FindObjectsSortMode sortMode);",
+      "profile": "invalid-type",
+      "owned": {
+        "index": 16,
+        "profile": "invalid-type",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 16,
+        "profile": "invalid-type",
+        "data": "null-array",
+        "error": ""
+      }
+    },
+    {
+      "id": "unity63abi:d651c9fb2cc20b7df5cec460",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object FindObjectOfType(System.Type type);",
+      "profile": "null-type",
+      "owned": {
+        "index": 17,
+        "profile": "null-type",
+        "data": "",
+        "error": "System.ArgumentNullException"
+      },
+      "nativeUnity": {
+        "index": 17,
+        "profile": "null-type",
+        "data": "",
+        "error": "System.NullReferenceException"
+      }
+    },
+    {
+      "id": "unity63abi:d651c9fb2cc20b7df5cec460",
+      "owner": "UnityEngine.Object",
+      "declaration": "public static UnityEngine.Object FindObjectOfType(System.Type type);",
+      "profile": "invalid-type",
+      "owned": {
+        "index": 17,
+        "profile": "invalid-type",
+        "data": "",
+        "error": "System.ArgumentException"
+      },
+      "nativeUnity": {
+        "index": 17,
+        "profile": "invalid-type",
+        "data": "",
+        "error": "System.NullReferenceException"
+      }
+    }
+  ]
+}

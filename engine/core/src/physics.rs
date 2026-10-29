@@ -1,4 +1,22 @@
-//! Fixed-step 2D/3D rigid bodies: oriented boxes, circles/spheres and angular impulses.
+//! Fixed-step 2D/3D rigid bodies and angular impulses.
+#[path = "physics/compound.rs"]
+mod compound;
+pub use compound::ColliderShape;
+#[cfg(test)]
+#[path = "physics/compound_tests.rs"]
+mod compound_tests;
+#[cfg(test)]
+#[path = "physics/primitive_tests.rs"]
+mod primitive_tests;
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Shape {
+    Box,
+    Sphere,
+    Capsule,
+    Plane,
+    Quad,
+}
+
 #[derive(Clone, Debug, PartialEq)]
 pub struct Body {
     pub position: [f64; 3],
@@ -19,7 +37,7 @@ pub struct Body {
     pub friction: f64,
     pub gravity_scale: f64,
     pub dimension: u32,
-    pub sphere: bool,
+    pub shape: Shape,
     pub trigger: bool,
     pub layer: u32,
     pub mask: u32,
@@ -28,6 +46,8 @@ pub struct Body {
 pub struct Contact {
     pub a: usize,
     pub b: usize,
+    pub collider_a: usize,
+    pub collider_b: usize,
     pub normal: [f64; 3],
     pub depth: f64,
     pub point: [f64; 3],
@@ -38,11 +58,13 @@ pub struct Contact {
 #[derive(Default)]
 pub struct World {
     pub bodies: Vec<Body>,
+    collider_shapes: std::collections::BTreeMap<usize, Vec<ColliderShape>>,
     pub contacts: Vec<Contact>,
     pub grounded: Vec<bool>,
     pub candidates: usize,
     pub steps: u64,
     pub ignored_pairs: std::collections::BTreeSet<(usize, usize)>,
+    pub ignored_collider_pairs: std::collections::BTreeSet<((usize, usize), (usize, usize))>,
 }
 fn dot(a: [f64; 3], b: [f64; 3]) -> f64 {
     a.iter().zip(b).map(|(x, y)| x * y).sum()
@@ -84,8 +106,178 @@ fn axes(b: &Body) -> [[f64; 3]; 3] {
         )
     })
 }
+fn capsule_segment(b: &Body) -> ([f64; 3], [f64; 3]) {
+    let offset = mul(axes(b)[1], (b.half[1] - b.half[0]).max(0.0));
+    (sub(b.position, offset), add(b.position, offset))
+}
+fn closest_segments(a: [f64; 3], b: [f64; 3], c: [f64; 3], d: [f64; 3]) -> ([f64; 3], [f64; 3]) {
+    let u = sub(b, a);
+    let v = sub(d, c);
+    let w = sub(a, c);
+    let aa = dot(u, u);
+    let bb = dot(u, v);
+    let cc = dot(v, v);
+    let dd = dot(u, w);
+    let ee = dot(v, w);
+    let mut s = if aa <= 1e-24 {
+        0.0
+    } else if cc <= 1e-24 {
+        (-dd / aa).clamp(0.0, 1.0)
+    } else {
+        let determinant = aa * cc - bb * bb;
+        if determinant > 1e-24 {
+            ((bb * ee - cc * dd) / determinant).clamp(0.0, 1.0)
+        } else {
+            0.0
+        }
+    };
+    let mut t = if cc <= 1e-24 { 0.0 } else { (bb * s + ee) / cc };
+    if t < 0.0 {
+        t = 0.0;
+        s = if aa <= 1e-24 {
+            0.0
+        } else {
+            (-dd / aa).clamp(0.0, 1.0)
+        };
+    } else if t > 1.0 {
+        t = 1.0;
+        s = if aa <= 1e-24 {
+            0.0
+        } else {
+            ((bb - dd) / aa).clamp(0.0, 1.0)
+        };
+    }
+    (add(a, mul(u, s)), add(c, mul(v, t)))
+}
+fn closest_segment_box(a: [f64; 3], b: [f64; 3], body: &Body) -> ([f64; 3], [f64; 3]) {
+    let ax = axes(body);
+    let origin = sub(a, body.position);
+    let direction = sub(b, a);
+    let p: [f64; 3] = std::array::from_fn(|i| dot(origin, ax[i]));
+    let d: [f64; 3] = std::array::from_fn(|i| dot(direction, ax[i]));
+    let mut cuts = vec![0.0, 1.0];
+    for i in 0..3 {
+        if d[i].abs() > 1e-24 {
+            for bound in [-body.half[i], body.half[i]] {
+                let t = (bound - p[i]) / d[i];
+                if t > 0.0 && t < 1.0 {
+                    cuts.push(t);
+                }
+            }
+        }
+    }
+    cuts.sort_by(f64::total_cmp);
+    let mut best = (f64::INFINITY, 0.0);
+    for interval in cuts.windows(2) {
+        let middle = (interval[0] + interval[1]) * 0.5;
+        let mut numerator = 0.0;
+        let mut denominator = 0.0;
+        for i in 0..3 {
+            let x = p[i] + d[i] * middle;
+            let boundary = x.clamp(-body.half[i], body.half[i]);
+            if x != boundary {
+                numerator += d[i] * (p[i] - boundary);
+                denominator += d[i] * d[i];
+            }
+        }
+        let t = if denominator == 0.0 {
+            middle
+        } else {
+            (-numerator / denominator).clamp(interval[0], interval[1])
+        };
+        let distance: f64 = (0..3)
+            .map(|i| {
+                let x = p[i] + d[i] * t;
+                (x - x.clamp(-body.half[i], body.half[i])).powi(2)
+            })
+            .sum();
+        if distance < best.0 {
+            best = (distance, t);
+        }
+    }
+    let point = add(a, mul(direction, best.1));
+    let mut closest = body.position;
+    for i in 0..3 {
+        closest = add(
+            closest,
+            mul(
+                ax[i],
+                (p[i] + d[i] * best.1).clamp(-body.half[i], body.half[i]),
+            ),
+        );
+    }
+    (point, closest)
+}
+fn rounded_contact(a: [f64; 3], b: [f64; 3], ra: f64, rb: f64) -> Option<Manifold> {
+    let delta = sub(b, a);
+    let length = dot(delta, delta).sqrt();
+    let depth = ra + rb - length;
+    if depth < 0.0 {
+        return None;
+    }
+    let normal = if length > 1e-12 {
+        mul(delta, 1.0 / length)
+    } else {
+        [1.0, 0.0, 0.0]
+    };
+    Some((normal, depth, vec![add(a, mul(normal, ra - depth * 0.5))]))
+}
+fn ray_sphere(origin: [f64; 3], direction: [f64; 3], center: [f64; 3], radius: f64) -> Option<f64> {
+    let offset = sub(origin, center);
+    let c = dot(offset, offset) - radius * radius;
+    let projection = dot(offset, direction);
+    let discriminant = projection * projection - c;
+    if c <= 0.0 {
+        Some(0.0)
+    } else if discriminant >= 0.0 && -projection - discriminant.sqrt() >= 0.0 {
+        Some(-projection - discriminant.sqrt())
+    } else {
+        None
+    }
+}
+fn ray_capsule(origin: [f64; 3], direction: [f64; 3], body: &Body) -> Option<f64> {
+    let (start, end) = capsule_segment(body);
+    let (closest, _) = closest_segments(start, end, origin, origin);
+    let offset = sub(origin, closest);
+    if dot(offset, offset) <= body.half[0] * body.half[0] {
+        return Some(0.0);
+    }
+    let mut hits = Vec::new();
+    for center in [start, end] {
+        if let Some(t) = ray_sphere(origin, direction, center, body.half[0]) {
+            hits.push(t);
+        }
+    }
+    let segment = sub(end, start);
+    let length = dot(segment, segment).sqrt();
+    if length > 1e-12 {
+        let axis = mul(segment, 1.0 / length);
+        let offset = sub(origin, start);
+        let perpendicular_direction = sub(direction, mul(axis, dot(direction, axis)));
+        let perpendicular_origin = sub(offset, mul(axis, dot(offset, axis)));
+        let a = dot(perpendicular_direction, perpendicular_direction);
+        let b = dot(perpendicular_origin, perpendicular_direction);
+        let c = dot(perpendicular_origin, perpendicular_origin) - body.half[0] * body.half[0];
+        let discriminant = b * b - a * c;
+        if a > 1e-24 && discriminant >= 0.0 {
+            for t in [
+                (-b - discriminant.sqrt()) / a,
+                (-b + discriminant.sqrt()) / a,
+            ] {
+                let along = dot(add(offset, mul(direction, t)), axis);
+                if t >= 0.0 && along >= 0.0 && along <= length {
+                    hits.push(t);
+                }
+            }
+        }
+    }
+    hits.into_iter().min_by(f64::total_cmp)
+}
 fn extent(b: &Body, i: usize, ax: [[f64; 3]; 3]) -> f64 {
-    if b.sphere {
+    if b.shape == Shape::Capsule {
+        return b.half[0] + ax[1][i].abs() * (b.half[1] - b.half[0]).max(0.0);
+    }
+    if b.shape == Shape::Sphere {
         b.half[0]
     } else {
         ax.iter()
@@ -96,7 +288,19 @@ fn extent(b: &Body, i: usize, ax: [[f64; 3]; 3]) -> f64 {
     }
 }
 fn support(b: &Body, n: [f64; 3], ax: [[f64; 3]; 3]) -> [f64; 3] {
-    if b.sphere {
+    if b.shape == Shape::Capsule {
+        return add(
+            add(
+                b.position,
+                mul(
+                    ax[1],
+                    (b.half[1] - b.half[0]).max(0.0) * dot(ax[1], n).signum(),
+                ),
+            ),
+            mul(n, b.half[0]),
+        );
+    }
+    if b.shape == Shape::Sphere {
         return add(b.position, mul(n, b.half[0]));
     }
     let mut p = b.position;
@@ -155,7 +359,61 @@ fn clip(poly: Vec<[f64; 3]>, n: [f64; 3], limit: f64) -> Vec<[f64; 3]> {
 type Manifold = ([f64; 3], f64, Vec<[f64; 3]>);
 fn collision(a: &Body, b: &Body, aa: [[f64; 3]; 3], ba: [[f64; 3]; 3]) -> Option<Manifold> {
     let dim = a.dimension as usize;
-    if a.sphere && b.sphere {
+    // Primitive MeshColliders are finite, one-sided rectangles with zero thickness.
+    for (surface, other, ax) in [(a, b, aa), (b, a, ba)] {
+        let normal = match surface.shape {
+            Shape::Plane => Some(ax[1]),
+            Shape::Quad => Some(mul(ax[2], -1.0)),
+            _ => None,
+        };
+        if normal.is_some_and(|normal| dot(sub(other.position, surface.position), normal) < -1e-9) {
+            return None;
+        }
+    }
+    if a.shape == Shape::Capsule || b.shape == Shape::Capsule {
+        if a.shape == Shape::Capsule && b.shape == Shape::Capsule {
+            let (a0, a1) = capsule_segment(a);
+            let (b0, b1) = capsule_segment(b);
+            let (p, q) = closest_segments(a0, a1, b0, b1);
+            return rounded_contact(p, q, a.half[0], b.half[0]);
+        }
+        let (capsule, other, sign) = if a.shape == Shape::Capsule {
+            (a, b, 1.0)
+        } else {
+            (b, a, -1.0)
+        };
+        let (start, end) = capsule_segment(capsule);
+        let contact = if other.shape == Shape::Sphere {
+            let (p, q) = closest_segments(start, end, other.position, other.position);
+            rounded_contact(p, q, capsule.half[0], other.half[0])
+        } else {
+            let (p, q) = closest_segment_box(start, end, other);
+            let delta = sub(q, p);
+            if dot(delta, delta) > 1e-24 {
+                rounded_contact(p, q, capsule.half[0], 0.0)
+            } else {
+                let ax = axes(other);
+                let offset = sub(capsule.position, other.position);
+                let capsule_axis = axes(capsule)[1];
+                let segment = (capsule.half[1] - capsule.half[0]).max(0.0);
+                let mut depth = f64::INFINITY;
+                let mut outward = [0.0; 3];
+                for (i, n) in ax.iter().enumerate() {
+                    let distance = dot(offset, *n);
+                    let overlap =
+                        other.half[i] + capsule.half[0] + segment * dot(capsule_axis, *n).abs()
+                            - distance.abs();
+                    if overlap < depth {
+                        depth = overlap;
+                        outward = mul(*n, if distance >= 0.0 { 1.0 } else { -1.0 });
+                    }
+                }
+                Some((mul(outward, -1.0), depth, vec![q]))
+            }
+        };
+        return contact.map(|(normal, depth, points)| (mul(normal, sign), depth, points));
+    }
+    if (a.shape == Shape::Sphere) && (b.shape == Shape::Sphere) {
         let mut d = sub(b.position, a.position);
         if dim == 2 {
             d[2] = 0.0;
@@ -176,9 +434,13 @@ fn collision(a: &Body, b: &Body, aa: [[f64; 3]; 3], ba: [[f64; 3]; 3]) -> Option
             vec![add(a.position, mul(n, a.half[0] - depth * 0.5))],
         ));
     }
-    if a.sphere || b.sphere {
-        let (s, bx, sign) = if a.sphere { (a, b, 1.0) } else { (b, a, -1.0) };
-        let ax = if a.sphere { ba } else { aa };
+    if (a.shape == Shape::Sphere) || (b.shape == Shape::Sphere) {
+        let (s, bx, sign) = if a.shape == Shape::Sphere {
+            (a, b, 1.0)
+        } else {
+            (b, a, -1.0)
+        };
+        let ax = if a.shape == Shape::Sphere { ba } else { aa };
         let offset = sub(s.position, bx.position);
         let local: [f64; 3] = std::array::from_fn(|i| dot(offset, ax[i]));
         let mut closest = bx.position;
@@ -302,13 +564,27 @@ impl Inertia {
             [
                 0.0,
                 0.0,
-                if b.sphere {
+                if b.shape == Shape::Sphere {
                     2.0 * b.inverse_mass / (h[0] * h[0])
                 } else {
                     3.0 * b.inverse_mass / (h[0] * h[0] + h[1] * h[1])
                 },
             ]
-        } else if b.sphere {
+        } else if b.shape == Shape::Capsule {
+            let radius = h[0];
+            let length = (2.0 * (h[1] - radius)).max(0.0);
+            let cylinder = length / (length + 4.0 * radius / 3.0);
+            let sphere = 1.0 - cylinder;
+            let radial = cylinder * (3.0 * radius * radius + length * length) / 12.0
+                + sphere
+                    * (0.4 * radius * radius + length * length / 4.0 + 3.0 * length * radius / 8.0);
+            let axial = cylinder * radius * radius / 2.0 + sphere * 0.4 * radius * radius;
+            [
+                b.inverse_mass / radial,
+                b.inverse_mass / axial,
+                b.inverse_mass / radial,
+            ]
+        } else if b.shape == Shape::Sphere {
             [2.5 * b.inverse_mass / (h[0] * h[0]); 3]
         } else {
             std::array::from_fn(|i| {
@@ -454,10 +730,20 @@ impl World {
                 .any(|v| !v.is_finite() || v.abs() > 1e4)
             || body.rotation.iter().any(|v| !v.is_finite())
             || body.rotation.iter().map(|v| v * v).sum::<f64>() < 1e-12
-            || body
-                .half
-                .iter()
-                .any(|v| !v.is_finite() || *v <= 0.0 || *v > 1e4)
+            || body.half.iter().enumerate().any(|(i, v)| {
+                !v.is_finite()
+                    || *v < 0.0
+                    || *v == 0.0
+                        && !((body.shape == Shape::Plane && i == 1)
+                            || (body.shape == Shape::Quad && i == 2))
+                    || *v > 1e4
+            })
+            || body.dimension == 2 && !matches!(body.shape, Shape::Box | Shape::Sphere)
+            || body.shape == Shape::Capsule
+                && (body.half[1] < body.half[0] || body.half[2] != body.half[0])
+            || matches!(body.shape, Shape::Plane | Shape::Quad) && body.inverse_mass != 0.0
+            || body.shape == Shape::Plane && body.half[1] != 0.0
+            || body.shape == Shape::Quad && body.half[2] != 0.0
             || !body.inverse_mass.is_finite()
             || !(0.0..=1000.0).contains(&body.inverse_mass)
             || !body.restitution.is_finite()
@@ -486,13 +772,13 @@ impl World {
         let minimum = self
             .bodies
             .iter()
-            .map(|b| {
-                b.half
+            .flat_map(|body| body.half.iter().take(body.dimension as usize).copied())
+            .chain(self.collider_shapes.iter().flat_map(|(owner, shapes)| {
+                let dimension = self.bodies[*owner].dimension as usize;
+                shapes
                     .iter()
-                    .take(b.dimension as usize)
-                    .copied()
-                    .fold(f64::INFINITY, f64::min)
-            })
+                    .flat_map(move |shape| shape.half.into_iter().take(dimension))
+            }))
             .fold(f64::INFINITY, f64::min)
             .max(0.001);
         let samples = self
@@ -517,7 +803,7 @@ impl World {
             candidates += self.candidates;
             for c in &self.contacts {
                 contacts
-                    .entry((c.a, c.b))
+                    .entry((c.a, c.b, c.collider_a, c.collider_b))
                     .or_insert_with(Vec::new)
                     .push(c.clone());
             }
@@ -570,16 +856,29 @@ impl World {
         }
         let mut order: Vec<usize> = (0..self.bodies.len()).collect();
         let geometry: Vec<[[f64; 3]; 3]> = self.bodies.iter().map(axes).collect();
+        let compound = self.compound_proxies();
         let bounds: Vec<([f64; 3], [f64; 3])> = self
             .bodies
             .iter()
             .enumerate()
             .map(|(index, b)| {
                 let extents: [f64; 3] = std::array::from_fn(|i| extent(b, i, geometry[index]));
-                (
-                    std::array::from_fn(|i| b.position[i] - extents[i]),
-                    std::array::from_fn(|i| b.position[i] + extents[i]),
-                )
+                let mut low: [f64; 3] = std::array::from_fn(|i| b.position[i] - extents[i]);
+                let mut high: [f64; 3] = std::array::from_fn(|i| b.position[i] + extents[i]);
+                for shape in compound
+                    .get(&index)
+                    .into_iter()
+                    .flatten()
+                    .filter(|shape| shape.layer != 0)
+                {
+                    let axes = axes(shape);
+                    for axis in 0..3 {
+                        let half = extent(shape, axis, axes);
+                        low[axis] = low[axis].min(shape.position[axis] - half);
+                        high[axis] = high[axis].max(shape.position[axis] + half);
+                    }
+                }
+                (low, high)
             })
             .collect();
         let spread: [f64; 3] = std::array::from_fn(|a| {
@@ -593,12 +892,12 @@ impl World {
                     .map(|b| b.position[a])
                     .fold(f64::INFINITY, f64::min)
         });
-        let axes = if self.bodies.iter().any(|b| b.dimension == 2) {
+        let dimensions = if self.bodies.iter().any(|b| b.dimension == 2) {
             2
         } else {
             3
         };
-        let axis = (0..axes)
+        let axis = (0..dimensions)
             .max_by(|&a, &b| spread[a].total_cmp(&spread[b]).then(b.cmp(&a)))
             .unwrap_or(0);
         order.sort_by(|&i, &j| {
@@ -619,27 +918,69 @@ impl World {
                     .any(|k| bounds[i].0[k] > bounds[j].1[k] || bounds[j].0[k] > bounds[i].1[k])
                     || self.ignored_pairs.contains(&(i.min(j), i.max(j)))
                     || a.dimension != b.dimension
-                    || a.layer & b.mask == 0
-                    || b.layer & a.mask == 0
+                    || {
+                        let masks = |index: usize, body: &Body| {
+                            compound
+                                .get(&index)
+                                .into_iter()
+                                .flatten()
+                                .fold((body.layer, body.mask), |(layer, mask), shape| {
+                                    (layer | shape.layer, mask | shape.mask)
+                                })
+                        };
+                        let (al, am) = masks(i, a);
+                        let (bl, bm) = masks(j, b);
+                        al & bm == 0 || bl & am == 0
+                    }
                 {
                     continue;
                 }
                 self.candidates += 1;
-                if let Some((normal, depth, points)) = collision(a, b, geometry[i], geometry[j]) {
-                    for point in points {
-                        self.contacts.push(Contact {
-                            a: i,
-                            b: j,
-                            normal,
-                            depth,
-                            point,
-                            trigger: a.trigger || b.trigger,
-                            relative_velocity: sub(
-                                point_velocity(a, point),
-                                point_velocity(b, point),
-                            ),
-                            impulse: 0.0,
-                        });
+                for (collider_a, shape_a) in std::iter::once(a)
+                    .chain(compound.get(&i).into_iter().flatten())
+                    .enumerate()
+                {
+                    for (collider_b, shape_b) in std::iter::once(b)
+                        .chain(compound.get(&j).into_iter().flatten())
+                        .enumerate()
+                    {
+                        if self.ignored_collider_pairs.contains(&(
+                            (i.min(j), if i < j { collider_a } else { collider_b }),
+                            (i.max(j), if i < j { collider_b } else { collider_a }),
+                        )) || shape_a.layer & shape_b.mask == 0
+                            || shape_b.layer & shape_a.mask == 0
+                        {
+                            continue;
+                        }
+                        let aa = if collider_a == 0 {
+                            geometry[i]
+                        } else {
+                            axes(shape_a)
+                        };
+                        let ba = if collider_b == 0 {
+                            geometry[j]
+                        } else {
+                            axes(shape_b)
+                        };
+                        if let Some((normal, depth, points)) = collision(shape_a, shape_b, aa, ba) {
+                            for point in points {
+                                self.contacts.push(Contact {
+                                    a: i,
+                                    b: j,
+                                    collider_a,
+                                    collider_b,
+                                    normal,
+                                    depth,
+                                    point,
+                                    trigger: shape_a.trigger || shape_b.trigger,
+                                    relative_velocity: sub(
+                                        point_velocity(a, point),
+                                        point_velocity(b, point),
+                                    ),
+                                    impulse: 0.0,
+                                });
+                            }
+                        }
                     }
                 }
             }
@@ -649,12 +990,21 @@ impl World {
             return;
         }
         // One positional correction per pair, independent of manifold point count.
-        let mut corrected = None;
+        let mut corrected = std::collections::BTreeSet::new();
+        let mut previous_pair = None;
         for c in &self.contacts {
-            if c.trigger || corrected == Some((c.a, c.b)) {
+            let repeated = if compound.is_empty() {
+                let repeated = previous_pair == Some((c.a, c.b));
+                if !c.trigger {
+                    previous_pair = Some((c.a, c.b));
+                }
+                repeated
+            } else {
+                !corrected.insert((c.a, c.b, c.normal.map(f64::to_bits)))
+            };
+            if c.trigger || repeated {
                 continue;
             }
-            corrected = Some((c.a, c.b));
             let mass = dot(c.normal, linear_mass(&self.bodies[c.a], c.normal))
                 + dot(c.normal, linear_mass(&self.bodies[c.b], c.normal));
             if mass <= 0.0 {
@@ -783,6 +1133,17 @@ impl World {
         dimension: u32,
         mask: u32,
     ) -> Option<(usize, f64)> {
+        self.raycast_collider(origin, direction, max, dimension, mask)
+            .map(|(owner, _, distance)| (owner, distance))
+    }
+    pub fn raycast_collider(
+        &self,
+        origin: [f64; 3],
+        direction: [f64; 3],
+        max: f64,
+        dimension: u32,
+        mask: u32,
+    ) -> Option<(usize, usize, f64)> {
         if ![2, 3].contains(&dimension)
             || !max.is_finite()
             || max < 0.0
@@ -803,53 +1164,22 @@ impl World {
         let d = unit(direction);
         let mut best = max;
         let mut hit = None;
-        for (index, b) in self.bodies.iter().enumerate() {
-            if b.dimension != dimension || b.layer & mask == 0 {
-                continue;
-            }
-            let distance = if b.sphere {
-                let mut v = sub(origin, b.position);
-                if dimension == 2 {
-                    v[2] = 0.0;
+        let proxies = self.compound_proxies();
+        for (index, owner) in self.bodies.iter().enumerate() {
+            for (slot, b) in std::iter::once(owner)
+                .chain(proxies.get(&index).into_iter().flatten())
+                .enumerate()
+            {
+                if b.dimension != dimension || b.layer & mask == 0 {
+                    continue;
                 }
-                let c = dot(v, v) - b.half[0] * b.half[0];
-                let q = dot(v, d);
-                let disc = q * q - c;
-                if c <= 0.0 {
-                    Some(0.0)
-                } else if disc >= 0.0 && -q - disc.sqrt() >= 0.0 {
-                    Some(-q - disc.sqrt())
-                } else {
-                    None
+                if let Some(distance) = ray_body(origin, d, b, best)
+                    && distance <= best
+                    && (hit.is_none() || distance < best)
+                {
+                    best = distance;
+                    hit = Some((index, slot, distance));
                 }
-            } else {
-                let ax = axes(b);
-                let v = sub(origin, b.position);
-                let mut near: f64 = 0.0;
-                let mut far = best;
-                for axis in ax.iter().enumerate().take(dimension as usize) {
-                    let (i, n) = axis;
-                    let o = dot(v, *n);
-                    let direction = dot(d, *n);
-                    if direction.abs() < 1e-12 {
-                        if o.abs() > b.half[i] {
-                            far = -1.0;
-                        }
-                    } else {
-                        let x = (-b.half[i] - o) / direction;
-                        let y = (b.half[i] - o) / direction;
-                        near = near.max(x.min(y));
-                        far = far.min(x.max(y));
-                    }
-                }
-                if near <= far { Some(near) } else { None }
-            };
-            match distance {
-                Some(t) if t <= best && (hit.is_none() || t < best) => {
-                    best = t;
-                    hit = Some((index, t));
-                }
-                _ => {}
             }
         }
         hit
@@ -879,7 +1209,7 @@ mod tests {
             friction: 0.5,
             gravity_scale: 1.0,
             dimension,
-            sphere,
+            shape: if sphere { Shape::Sphere } else { Shape::Box },
             trigger: false,
             layer: 1,
             mask: u32::MAX,
@@ -1000,7 +1330,7 @@ mod angular_tests {
             friction: 0.4,
             gravity_scale: 1.0,
             dimension,
-            sphere: false,
+            shape: Shape::Box,
             trigger: false,
             layer: 1,
             mask: u32::MAX,
@@ -1090,7 +1420,7 @@ mod expanded_api_tests {
             friction: 0.5,
             gravity_scale: 1.0,
             dimension: 3,
-            sphere: false,
+            shape: Shape::Box,
             trigger: false,
             layer: 1,
             mask: u32::MAX,
@@ -1187,5 +1517,67 @@ mod expanded_api_tests {
                 assert!(w.bodies[0].position[0] > 1.0);
             }
         }
+    }
+}
+
+fn ray_body(origin: [f64; 3], d: [f64; 3], b: &Body, best: f64) -> Option<f64> {
+    let dimension = b.dimension;
+    if b.shape == Shape::Capsule {
+        ray_capsule(origin, d, b)
+    } else if matches!(b.shape, Shape::Plane | Shape::Quad) {
+        let ax = axes(b);
+        let i = if b.shape == Shape::Plane { 1 } else { 2 };
+        let n = mul(ax[i], if b.shape == Shape::Quad { -1.0 } else { 1.0 });
+        let denominator = dot(d, n);
+        let t = dot(sub(b.position, origin), n) / denominator;
+        if denominator >= -1e-12 || t < 0.0 {
+            None
+        } else {
+            let offset = sub(add(origin, mul(d, t)), b.position);
+            if (0..3)
+                .filter(|axis| *axis != i)
+                .all(|axis| dot(offset, ax[axis]).abs() <= b.half[axis])
+            {
+                Some(t)
+            } else {
+                None
+            }
+        }
+    } else if b.shape == Shape::Sphere {
+        let mut v = sub(origin, b.position);
+        if dimension == 2 {
+            v[2] = 0.0;
+        }
+        let c = dot(v, v) - b.half[0] * b.half[0];
+        let q = dot(v, d);
+        let disc = q * q - c;
+        if c <= 0.0 {
+            Some(0.0)
+        } else if disc >= 0.0 && -q - disc.sqrt() >= 0.0 {
+            Some(-q - disc.sqrt())
+        } else {
+            None
+        }
+    } else {
+        let ax = axes(b);
+        let v = sub(origin, b.position);
+        let mut near: f64 = 0.0;
+        let mut far = best;
+        for axis in ax.iter().enumerate().take(dimension as usize) {
+            let (i, n) = axis;
+            let o = dot(v, *n);
+            let direction = dot(d, *n);
+            if direction.abs() < 1e-12 {
+                if o.abs() > b.half[i] {
+                    far = -1.0;
+                }
+            } else {
+                let x = (-b.half[i] - o) / direction;
+                let y = (b.half[i] - o) / direction;
+                near = near.max(x.min(y));
+                far = far.min(x.max(y));
+            }
+        }
+        if near <= far { Some(near) } else { None }
     }
 }

@@ -14,7 +14,7 @@ internal static class PhysicsWorld {
  internal static void Ignore(string group,string key,bool ignore){var array=settings[group] as JsonArray??new JsonArray();var values=array.Select(n=>n!.GetValue<string>()).ToHashSet();if(values.Contains(key)==ignore)return;if(ignore)values.Add(key);else values.Remove(key);if(values.Count>1024)throw new InvalidOperationException("Collision exclusion capacity exceeded");var result=new JsonArray();foreach(var item in values.Order())result.Add(JsonValue.Create(item));settings[group]=result;Publish();}
  internal static bool Ignored(string group,string key)=>settings[group] is JsonArray a&&a.Any(n=>n!.GetValue<string>()==key);
  internal static string Layers(int a,int b){if(a<0||a>31||b<0||b>31)throw new ArgumentOutOfRangeException();return Math.Min(a,b)+"|"+Math.Max(a,b);}
- internal static string Pair(Collider a,Collider b){_=Context.Read(a.Entity);_=Context.Read(b.Entity);return string.CompareOrdinal(a.Entity.Id,b.Entity.Id)<0?a.Entity.Id+"|"+b.Entity.Id:b.Entity.Id+"|"+a.Entity.Id;}
+ internal static string Pair(Collider a,Collider b){_=Context.Read(a.Entity);_=Context.Read(b.Entity);var aa=a.Entity.Id+"@"+ColliderInstances.Key(a);var bb=b.Entity.Id+"@"+ColliderInstances.Key(b);return string.CompareOrdinal(aa,bb)<0?aa+"|"+bb:bb+"|"+aa;}
 }
 public sealed partial class Rigidbody {
  public double linearDamping {get=>PhysicsData.Number(Entity,"linearDamping");set=>PhysicsData.Number(Entity,"linearDamping",value,0,10000);}

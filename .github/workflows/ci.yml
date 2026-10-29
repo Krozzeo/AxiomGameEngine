@@ -89,7 +89,7 @@ jobs:
       - run: cargo +1.90.0 check --locked -p axiom-core --target wasm32-unknown-unknown
 
   csharp-wasm-spike:
-    timeout-minutes: 30
+    timeout-minutes: 75
     strategy:
       fail-fast: false
       matrix:
@@ -101,6 +101,8 @@ jobs:
           - os: windows-latest
             mode: development
     runs-on: ${{ matrix.os }}
+    env:
+      AXIOM_CSHARP_MODE: ${{ matrix.mode }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-dotnet@v4
@@ -115,7 +117,78 @@ jobs:
       - run: npx playwright install --with-deps chromium
       - run: node scripts/generate-script-bindings.mjs --check
       - run: node scripts/generate-scripting-reference.mjs --check
+      - run: node scripts/compatibility/generate-m20-async-oracle.mjs --check
       - run: dotnet run --project tests/csharp/M20.Objects/M20.Objects.csproj
+      - run: python scripts/compatibility/generate-m20-vector-corpus.py --check
+      - run: node scripts/compatibility/generate-m20-vector-fixtures.mjs --check
+      - run: dotnet run --project tests/csharp/M20.Vectors/M20.Vectors.csproj
+      - run: python scripts/compatibility/generate-m20-pose-corpus.py --check
+      - run: node scripts/compatibility/generate-m20-pose-fixtures.mjs --check
+      - run: dotnet run --project tests/csharp/M20.Poses/M20.Poses.csproj
+      - run: node scripts/compatibility/generate-m20-query-fixtures.mjs --check
+      - run: dotnet run --project tests/csharp/M20.Queries/M20.Queries.csproj
+      - run: node scripts/compatibility/generate-m20-find-fixtures.mjs --check
+      - run: dotnet run --project tests/csharp/M20.Find/M20.Find.csproj
+      - run: node scripts/compatibility/generate-m20-gameobject-fixtures.mjs --check
+      - run: dotnet run --project tests/csharp/M20.GameObjectState/M20.GameObjectState.csproj
+      - run: node scripts/compatibility/generate-m20-message-fixtures.mjs --check
+      - run: dotnet run --project tests/csharp/M20.Messages/M20.Messages.csproj
+      - name: Audit current compiled M20 source contracts and obsolete consumer diagnostics
+        run: |
+          dotnet run --project scripts/compatibility/Metadata -- tests/csharp/M20.Objects/bin/Debug/net10.0/M20.Objects.dll .axiom/m20-current-abi.json --sdk
+          node scripts/compatibility/m20-source-audit.mjs .axiom/m20-current-abi.json .axiom/m20-current-source.json
+          node scripts/compatibility/m20-obsolete-compile.mjs tests/csharp/M20.Objects/bin/Debug/net10.0/M20.Objects.dll .axiom/m20-current-obsolete-compile.json .axiom/m20-current-abi.json
+      - run: dotnet build tests/csharp/M20.Migration --nologo -v:q
+      - run: node scripts/compatibility/generate-m20-sync-clone-fixtures.mjs --check
+      - run: dotnet run --project tests/csharp/M20.SyncClone/M20.SyncClone.csproj
+      - run: node scripts/compatibility/generate-m20-bulk-object-fixtures.mjs --check
+      - run: dotnet run --project tests/csharp/M20.BulkObjects/M20.BulkObjects.csproj
+      - run: node scripts/compatibility/generate-m20-object-lifetime-fixtures.mjs --check
+      - run: dotnet run --project tests/csharp/M20.ObjectLifetime/M20.ObjectLifetime.csproj
+      - run: node scripts/compatibility/generate-m20-tag-search-fixtures.mjs --check
+      - run: dotnet run --project tests/csharp/M20.TagSearch/M20.TagSearch.csproj
+      - run: node scripts/compatibility/generate-m20-script-instances-fixtures.mjs --check
+      - run: dotnet run --project tests/csharp/M20.ScriptInstances/M20.ScriptInstances.csproj
+      - run: node scripts/compatibility/generate-m20-component-creation-fixtures.mjs --check
+      - run: dotnet run --project tests/csharp/M20.ComponentCreation/M20.ComponentCreation.csproj
+      - run: node scripts/compatibility/generate-m20-primitive-fixtures.mjs --check
+      - run: dotnet run --project tests/csharp/M20.PrimitiveCreation/M20.PrimitiveCreation.csproj
+      - run: node tests/browser/m20-component-creation.mjs
+      - run: node tests/browser/m20-compound-colliders.mjs
+      - run: node tests/browser/m20-primitive-creation.mjs
+      - run: node tests/browser/m20-script-instances.mjs
+      - run: node tests/browser/m20-tag-search.mjs
+      - run: node tests/browser/m20-object-lifetime.mjs
+      - run: node tests/browser/m20-bulk-objects.mjs
+      - run: node tests/browser/m20-sync-clone.mjs
+      - run: node tests/browser/m20-messages.mjs
+        env:
+          AXIOM_CSHARP_MODE: ${{ matrix.mode }}
+      - run: node tests/browser/m20-gameobject-state.mjs
+        env:
+          AXIOM_CSHARP_MODE: ${{ matrix.mode }}
+      - run: node tests/browser/m20-find.mjs
+        env:
+          AXIOM_CSHARP_MODE: ${{ matrix.mode }}
+      - run: node tests/browser/m20-queries.mjs
+        env:
+          AXIOM_CSHARP_MODE: ${{ matrix.mode }}
+      - run: node tests/browser/m20-objects.mjs
+        env:
+          AXIOM_CSHARP_MODE: ${{ matrix.mode }}
+      - run: node tests/browser/m20-poses.mjs
+        env:
+          AXIOM_CSHARP_MODE: ${{ matrix.mode }}
+      - run: node tests/browser/m20-vectors.mjs
+        env:
+          AXIOM_CSHARP_MODE: ${{ matrix.mode }}
+      - run: node tests/browser/m20-assets.mjs
+        env:
+          AXIOM_CSHARP_MODE: ${{ matrix.mode }}
+      - run: node tests/browser/m20.mjs
+        if: matrix.mode == 'aot'
+        env:
+          AXIOM_CSHARP_MODE: ${{ matrix.mode }}
       - run: node tests/browser/csharp-spike.mjs
         env:
           AXIOM_CSHARP_MODE: ${{ matrix.mode }}
@@ -135,11 +208,30 @@ jobs:
         if: always()
         with:
           name: csharp-runtime-spike-${{ matrix.os }}-${{ matrix.mode }}
-          path: .axiom/csharp-spike-evidence
+          path: |
+            .axiom/csharp-spike-evidence
+            .axiom/browser-m20-evidence*
+            .axiom/browser-m20-assets*
+            .axiom/browser-m20-vectors*
+            .axiom/browser-m20-poses*
+            .axiom/browser-m20-objects*
+            .axiom/browser-m20-queries*
+            .axiom/browser-m20-find*
+            .axiom/browser-m20-gameobject-state*
+            .axiom/browser-m20-messages*
+            .axiom/browser-m20-sync-clone*
+            .axiom/browser-m20-bulk-objects*
+            .axiom/browser-m20-object-lifetime*
+            .axiom/browser-m20-tag-search*
+            .axiom/browser-m20-script-instances*
+            .axiom/browser-m20-component-creation*
+            .axiom/browser-m20-compound-colliders*
+            .axiom/browser-m20-primitive-creation*
 
   browser-milestones:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    # Package mirrors can consume setup time; browser assertions retain their own existing time bounds.
+    timeout-minutes: 25
     strategy:
       fail-fast: false
       # Isolated runners: parallel browser jobs do not share GPU or scene state.
@@ -222,6 +314,8 @@ jobs:
             .axiom/browser-m18-4-1-evidence
             .axiom/browser-m18-4-evidence
             .axiom/browser-m18-3-12-evidence
+            .axiom/browser-m20-assets
+            .axiom/browser-m20-assets-aot
             .axiom/browser-m20-evidence
             .axiom/browser-m19-evidence
             .axiom/browser-m18-3-11-evidence

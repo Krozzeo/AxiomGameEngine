@@ -1,0 +1,118 @@
+{
+    "unityVersion": "6000.3.27f1",
+    "coreAssemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737",
+    "sourceSha256": "7397f4d9397a7fe3b39475921b31c8f160dacbf8ef0cd264a0ea629986023019",
+    "receiverSourceSha256": "c38e3b828c156aa7435ae0e40a97ba4fe0cc6599c4b0f0e4ad8b72c4b57d43bc",
+    "error": "",
+    "profile": "Native Play repeated Script identity and lifecycle probes",
+    "facts": [
+        {
+            "key": "created.distinct",
+            "value": "True"
+        },
+        {
+            "key": "created.count",
+            "value": "2"
+        },
+        {
+            "key": "created.order",
+            "value": "1:2"
+        },
+        {
+            "key": "created.defaults",
+            "value": "17:17"
+        },
+        {
+            "key": "created.callbacks",
+            "value": "1:1:1:1"
+        },
+        {
+            "key": "fields.independent",
+            "value": "10:20"
+        },
+        {
+            "key": "activation.independent",
+            "value": "False:True:1:0"
+        },
+        {
+            "key": "messages.disabled",
+            "value": "13:23:1:1"
+        },
+        {
+            "key": "messages.order",
+            "value": "13,23"
+        },
+        {
+            "key": "clone.count",
+            "value": "2"
+        },
+        {
+            "key": "clone.fields",
+            "value": "13:23"
+        },
+        {
+            "key": "clone.peers",
+            "value": "True"
+        },
+        {
+            "key": "clone.enabled",
+            "value": "False:True"
+        },
+        {
+            "key": "clone.order",
+            "value": "1:2"
+        },
+        {
+            "key": "clone.callbacks",
+            "value": "2:1:1:2:2:0"
+        },
+        {
+            "key": "clone.fields-independent",
+            "value": "13:23"
+        },
+        {
+            "key": "component.clone.ordinal",
+            "value": "23:2:2"
+        },
+        {
+            "key": "component.clone.peer",
+            "value": "True"
+        },
+        {
+            "key": "component.clone.enabled",
+            "value": "False:True"
+        },
+        {
+            "key": "destroy.one",
+            "value": "True"
+        },
+        {
+            "key": "destroy.peer",
+            "value": "True"
+        },
+        {
+            "key": "destroy.callback",
+            "value": "1:1:0"
+        },
+        {
+            "key": "replacement.id",
+            "value": "True"
+        },
+        {
+            "key": "replacement.default",
+            "value": "17"
+        },
+        {
+            "key": "replacement.enabled",
+            "value": "False:True"
+        },
+        {
+            "key": "replacement.order",
+            "value": "1:2"
+        },
+        {
+            "key": "replacement.callbacks",
+            "value": "1:1"
+        }
+    ]
+}

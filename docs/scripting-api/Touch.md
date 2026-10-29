@@ -7,5 +7,6 @@ A read-only frame snapshot with fingerId, bottom-left canvas pixel position, acc
 ```csharp
 public readonly record struct Touch(int fingerId,Vector2 position,Vector2 deltaPosition,TouchPhase phase,double pressure);
 
+// Namespace: Axiom.Gameplay
 public enum TouchPhase {Began,Moved,Stationary,Ended,Canceled}
 ```

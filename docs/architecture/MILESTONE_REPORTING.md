@@ -1,6 +1,6 @@
 # Current reporting — expanded roadmap
 
-M19–M40 is the approved expanded scope; formerM19 hardening moved in full toM40. M19–M39 are21 new planned milestones with no implementation credit. M18.4 closed under ADR0034 with native real-account acceptance explicitly deferred by the owner.
+M19–M40 is the approved expanded scope; formerM19 hardening moved in full toM40. M19–M39 are21 expansion milestones; M19 and M20 now have accepted reports, while later milestones receive no implementation credit until their required criteria pass. M18.4 closed under ADR0034 with native real-account acceptance explicitly deferred by the owner.
 
 - Milestone progress: passed required acceptance / all required acceptance. Documentation alone is not functional implementation.
 - API coverage: verified behavioral target signatures / complete frozen M19 denominator. Keep partial/blocked/platform/package/excluded categories visible; distinct overloads stay distinct and inherited members are not duplicated.

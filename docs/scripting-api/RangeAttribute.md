@@ -28,5 +28,6 @@ Only supported script field types are serialized. Attributes affect field presen
 ## Implemented declarations
 
 ```csharp
+// Namespace: Axiom.Gameplay
 public sealed class RangeAttribute(double minimum,double maximum) : Attribute {public double Minimum {get;}=minimum;public double Maximum {get;}=maximum;}
 ```

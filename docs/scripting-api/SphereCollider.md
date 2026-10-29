@@ -5,5 +5,9 @@ Runtime sphere radius in world units; finite positive radius updates the actual 
 ## Implemented declarations
 
 ```csharp
-public sealed class SphereCollider : Collider {internal SphereCollider(Entity entity):base(entity){} public double radius {get=>PhysicsData.Half(Entity).X;set=>PhysicsData.Half(Entity,new(value,value,value));}}
+// Namespace: Axiom.Gameplay
+public sealed class SphereCollider : Collider {internal SphereCollider(Entity entity,string? slot=null):base(entity,slot){} public double radius {get=>ColliderInstances.Half(this).X;set=>ColliderInstances.Half(this,new(value,value,value));}}
+
+// Namespace: UnityEngine
+public class SphereCollider : Collider {internal SphereCollider(Legacy.SphereCollider value):base(value){}public float radius {get=>(float)((Legacy.SphereCollider)LegacyComponent).radius;set=>((Legacy.SphereCollider)LegacyComponent).radius=value;}}
 ```

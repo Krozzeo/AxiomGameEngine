@@ -17,12 +17,14 @@ See Touch and KeyCode. Input & Persistence API Lab exercises saved overrides and
 ## Implemented declarations
 
 ```csharp
+// Namespace: Axiom.Gameplay
 public static partial class Input {
  public static Vector2 MouseDelta => Context.MouseDelta;
  public static bool IsDown(string code) => Context.Keys.Contains(code);
  public static double Axis(string negative, string positive) => (IsDown(positive)?1:0)-(IsDown(negative)?1:0);
 }
 
+// Namespace: Axiom.Gameplay
 public static partial class Input {
  private static string Code(KeyCode key)=>key switch {KeyCode.UpArrow=>"ArrowUp",KeyCode.DownArrow=>"ArrowDown",KeyCode.LeftArrow=>"ArrowLeft",KeyCode.RightArrow=>"ArrowRight",KeyCode.Space=>"Space",KeyCode.Escape=>"Escape",KeyCode.LeftShift=>"ShiftLeft",KeyCode.RightShift=>"ShiftRight",KeyCode.Return=>"Enter",KeyCode.LeftControl=>"ControlLeft",KeyCode.RightControl=>"ControlRight",KeyCode.LeftAlt=>"AltLeft",KeyCode.RightAlt=>"AltRight",_=>key.ToString().StartsWith("Alpha")?"Digit"+key.ToString()[5..]:key.ToString().Length==1?"Key"+key:key.ToString()};
  public static bool GetKey(KeyCode key)=>IsDown(Code(key));
@@ -32,6 +34,7 @@ public static partial class Input {
  public static double GetAxis(string axis)=>GetAxisRaw(axis);
 }
 
+// Namespace: Axiom.Gameplay
 public static partial class Input {
  private static JsonElement devices=Context.ParseData("{}"),previous=Context.ParseData("{}");
  private static readonly Dictionary<string,string[]> bindings=new(StringComparer.Ordinal);

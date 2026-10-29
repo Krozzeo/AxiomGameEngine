@@ -1,6 +1,7 @@
 namespace Axiom.Gameplay;
 // Live component facades coexist with the original immutable snapshot API.
 public partial class Object {
+ public Object(){UnityEngine.NativeObjects.Track(this); }
  public static GameObject Instantiate(GameObject original)=>(GameObject)Instantiate((Object)original);
  public static GameObject Instantiate(GameObject original,Vector3 position,Quaternion rotation)=>(GameObject)Instantiate((Object)original,position,rotation);
  public static void Destroy(GameObject? target)=>RuntimeLifecycle.DestroyAfter(target,0);
@@ -8,7 +9,8 @@ public partial class Object {
 }
 public partial class Component : Object {
  private Entity entity;
- public Entity Entity {get=>entity;internal set{entity=value;BindIdentity(value,Context.ComponentKey(GetType())??(this is Script?"script:"+ManagedIdentity:GetType().FullName!));}}
+ internal string? RuntimeSlot;
+ public Entity Entity {get=>entity;internal set{entity=value;BindIdentity(value,RuntimeSlot??Context.ComponentKey(GetType())??(this is Script?"script:"+ManagedIdentity:GetType().FullName!));}}
  public GameObject gameObject {get{if(!this)throw new InvalidOperationException("Component reference has been destroyed or is not attached");return new(Entity);}}
  public Transform transform=>gameObject.transform;
  public T? GetComponent<T>()=>gameObject.GetComponent<T>();
@@ -34,16 +36,16 @@ public sealed partial class Transform {
  public Vector3 localPosition {get=>Context.Local(Entity).Position;set=>Context.LocalTransform(Entity,position:value);}
  public Quaternion localRotation {get=>Context.Local(Entity).Rotation;set=>Context.LocalTransform(Entity,rotation:value);}
  public Vector3 lossyScale=>Entity.Transform.Scale;
- public Vector3 forward=>rotation*Vector3.forward;
- public Vector3 right=>rotation*Vector3.right;
- public Vector3 up=>rotation*Vector3.up;
+ public Vector3 forward {get=>rotation*Vector3.forward;set=>rotation=TransformMath.LookRotation(value,Vector3.up);}
+ public Vector3 right {get=>rotation*Vector3.right;set=>rotation=TransformMath.FromTo(Vector3.right,value);}
+ public Vector3 up {get=>rotation*Vector3.up;set=>rotation=TransformMath.FromTo(Vector3.up,value);}
  public Transform? parent {get=>Context.Parents.GetValueOrDefault(Entity.Id) is string id?new(new Entity(id,Context.Generation)):null;set=>SetParent(value);}
  public void SetParent(Transform? value,bool worldPositionStays=true)=>Context.Parent(Entity,value,worldPositionStays);
  public int childCount=>Context.Parents.Count(p=>p.Value==Entity.Id);
  public Transform GetChild(int index)=>new(new Entity(Context.Parents.Where(p=>p.Value==Entity.Id).ElementAt(index).Key,Context.Generation));
  public Transform? Find(string path){var current=this;foreach(var part in path.Split('/')){Transform? found=null;for(var i=0;i<current.childCount;i++){var child=current.GetChild(i);if(child.gameObject.name==part){found=child;break;}}if(found==null)return null;current=found;}return current;}
  public void Translate(Vector3 translation)=>position+=rotation*translation;
- public void Rotate(double x,double y,double z)=>rotation=rotation*Quaternion.Euler(x,y,z);
+ public void Rotate(double x,double y,double z)=>Rotate(new Vector3(x,y,z),Space.Self);
  public Vector3 TransformDirection(Vector3 direction)=>rotation*direction;
  public Vector3 InverseTransformDirection(Vector3 direction)=>Quaternion.Inverse(rotation)*direction;
 }

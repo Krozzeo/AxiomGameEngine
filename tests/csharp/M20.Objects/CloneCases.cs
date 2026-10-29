@@ -46,4 +46,4 @@ public sealed class CloneProbe:MonoBehaviour {
  public bool AwakeCalled;public int ParentAtAwake;public bool GraphReadyAtAwake;
  public override void Awake(){AwakeCalled=true;ParentAtAwake=transform.parent?.GetInstanceID()??0;GraphReadyAtAwake=Peer!=null&&Peer.transform.parent==transform;}
 }
-public sealed class UnsupportedCloneProbe:MonoBehaviour {public List<int> Values=new(){1,2};}
+public sealed class UnsupportedCloneProbe:MonoBehaviour {public System.IO.Stream Values=new System.IO.MemoryStream();}

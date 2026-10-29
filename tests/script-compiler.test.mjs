@@ -42,3 +42,12 @@ test('compiler capability accepts only fixed development and AOT templates',asyn
  for(const mode of ['../escape','development -p:CustomAfterMicrosoftCommonTargets=evil',null,{}])assert.throws(()=>compilerArguments(mode),/Unsupported/);
 });
 test('Compiler diagnostics identify separate Project source files and host errors',()=>{const diagnostics=compileDiagnostics('/tmp/Sources/1.cs(12,4): error CS0103: Unknown identifier [Axiom.Game.csproj]\nC:\\Build\\Host.cs(9,7): error CS1002: Expected semicolon [Axiom.Game.csproj]');assert.deepEqual(diagnostics.map(d=>[d.file,d.line,d.column,d.code]),[['1.cs',12,4,'CS0103'],['Host.cs',9,7,'CS1002']]);});
+
+test('native AOT failures remain actionable after a long trimming warning stream',()=>{
+ const warnings='Sdk.cs(1,1): warning IL2070: annotation warning [Axiom.Game.csproj]\n'.repeat(100);
+ const output=warnings+"C:\\dotnet\\Sdk\\WasmApp.Common.targets(697,5): error : C:\\long project\\tokens\\compiled_methods.txt doesn't exist. [C:\\project\\Axiom.Game.csproj]\n";
+ const diagnostics=compileDiagnostics(output);assert.equal(diagnostics.length,64);
+ assert.deepEqual(diagnostics[0],{file:'WasmApp.Common.targets',line:697,column:5,severity:'error',code:'AX_NATIVE_BUILD',message:"C:\\long project\\tokens\\compiled_methods.txt doesn't exist."});
+ assert(!diagnostics[0].message.includes('Axiom.Game.csproj'));
+ assert.equal(compileDiagnostics('C:\\dotnet\\Sdk\\WasmApp.Common.targets(1,2): error NETSDK1147: Install wasm-tools [Project.csproj]')[0].code,'NETSDK1147');
+});

@@ -1,0 +1,157 @@
+**M20 complete — Engine 0.0.62 / SDK12.** All 311 frozen assigned contracts have attributed acceptance: 281 behavioral profiles and 30 obsolete compiler-error contracts. Component 62/62, GameObject 96/96, Transform 81/81 and Object 72/72. All three milestone criteria passed. This is bounded M20 compatibility, not complete Unity API parity. Stable main remains 0.0.57; 0.0.62 is an experimental review release.
+
+See the accepted [M20 report](M20_REPORT.md). Earlier batch measurements below remain historical.
+
+## Current component integration batch
+
+See [component integration](../architecture/M20_COMPONENT_INSTANCES.md). CreatePrimitive contributes1 attributed signature/13 observations; AddComponent contributes2 signatures/140 observations. Repeated scripts and compound colliders are independently tested dependencies. These additions complete311 bounded signature profiles without asserting whole-API parity or bypassing final regression/CI/publication.
+
+## Earlier batch records
+
+# M20 canonical core — Engine 0.0.62 / SDK12
+
+M20 remains **in progress**. The owned compiled SDK matches all **311 frozen public source contracts** for Object, Component, GameObject and Transform. This is a declaration/type/constraint/parameter-mode audit, separate from complete behavior certification. The original migration corpus now compiles and executes unchanged. Do not carry forward the previous CS0246 failure as the current result.
+
+## Implementation
+
+`UnityEngine` facades preserve the public Object/Component/Behaviour/MonoBehaviour/GameObject/Transform inheritance and float-facing vectors/quaternions. The retained `Axiom.Gameplay` API shares the same identities, entity table, serialized fields and lifecycle through explicit adapters. Private Unity lifecycle messages execute on that shared runtime. Inspector metadata supports comma-separated field declarations, qualified core types and canonical script references.
+
+Runtime local TRS and full affine world matrices retain rotated nonuniform scale, shear and collapsed local coordinates across actual host frames. Matrices drive the ordinary render packets. Human runtime edits invalidate derived metadata. Authored reparenting still rejects shear that cannot be stored as authored TRS. Stop restores the original scene.
+
+Cloning copies inline serialized classes/lists, remaps nested scene references and preserves SerializeReference cycles; navigation clones have independent paths. The async API captures an independent snapshot, defers integration/Awake, honors activation gates and cancellation, supports await/completion callbacks, and rolls back failed integration before publishing partial objects. All 17 assigned InstantiateAsync overloads have direct canonical count/pose/identity/null-input observations with frozen IDs retained in the case catalog. The same portable137-check lifecycle corpus now runs against actual Unity6000.3.27f1, native Axiom and both real Wasm modes;17 overloads have attributed acceptance. Input hashes identify the actual executed corpus. Standalone asset async calls are rejected following native behavior; synchronous asset clones are separate.
+
+EntityId and int bulk operations resolve actual native identities. NativeArray inputs have independent pinned contiguous storage, shared struct aliases and explicit disposal; this is the M20 input/lifetime dependency, not completion of Unity Collections or its job/allocator ecosystem. Bulk activation and clone imports are validated as complete packets.
+
+CreatePrimitive creates owned Sphere, Capsule, Cylinder, Cube, Plane and Quad meshes through the normal mesh/render pipeline. It attaches distinct MeshFilter, MeshRenderer and appropriate collider identities. Capsule/Cylinder use capsule colliders; Plane/Quad use finite one-sided mesh surfaces. The owned Rust CPU/Wasm solver implements capsule segments/endcaps, finite surface contacts and ray tests. Tests check that bounding-box corners do not produce capsule hits. Collapsed primitive colliders leave physics safely and return after expansion. These additions do not implement arbitrary mesh collision, all collider APIs, shaders or GPU physics; those remain in their assigned later areas.
+
+The canonical default GameObject constructor creates `New Game Object`, a root in the active scene with only Transform. Explicit `new GameObject("")` remains unnamed. These are actual native6000.3.27f1 observations; an earlier documentation-derived empty-default assumption was incorrect and has been replaced. Empty live names remain supported without relaxing the saved-project schema.
+
+Independent execution now uses the exact frozen Unity6000.3.27f1 CoreModule hash. Our own reproducible harness records [native Editor observations](../compatibility/evidence/m20-unity-6000.3-native-observations.json) and separate [native Play observations](../compatibility/evidence/m20-unity-6000.3-play-observations.json), without distributing vendor binaries or method bodies. Built-in unqualified string component lookups differ from qualified script lookups; string interface names do not equal typed interface queries. Owner flags propagate to existing/new components without propagating to children. The retained deprecated scene search excludes inactive objects. The flags/search sample is an Editor profile, not universal player-mode certification.
+
+128 captured signed three-level hierarchies independently verify world matrices, mirrored rotations and projected `Transform.lossyScale` in native .NET, host packet validation and real Development/AOT C#/Wasm. Matrix basis lengths remain distinct from Transform projected scale. World position/rotation setters preserve local scale; they no longer silently rescale children. All13 synchronous clone signatures (17 positive variants) match native Play-mode pose/scale outputs, including default/local, explicit world parameters, null parents, destination scenes and explicit poses. Default and explicit-pose cloning also execute across the128 signed lab hierarchies. This sample does not certify every overload, domain, async ordering or lifecycle; see [reproduction and scope](../../scripts/compatibility/UnityOracle/README.md).
+
+World-preserving parenting carries local/matrix state in its parent operation. Combined position/rotation/scale changes publish one validated pose per affected object. Navigation uses the combined update, preserving the existing128-operation phase budget and the original66-object regression workload. Serialized legacy component/script references, canonical base Object references and null snapshots remain compatible after facade separation. Canonical DontDestroyOnLoad ignores child requests rather than promoting their root; native tests verify actual source-scene unload, descendant survival and explicit destruction. Persistent roots and descendants now belong to a valid private scene across source unload. It is excluded from normal scene enumeration/activation, has a bounded extra runtime transport slot, preserves detached children, transfers whole subtrees on reparent/move and supplies the correct destination for cloning. Destroy/reset retires that ownership. Parent changes also dispatch OnEnable/OnDisable synchronously, including disabled-script cases. Native and real next-frame Development/AOT tests cover these transitions; per-signature acceptance remains separate.
+
+Euler extraction uses the horizontal basis with atan2 to avoid the cross-platform asin instability at gimbal lock; exact and near-singular poses retain the original geometry tolerances. Metadata export creates its requested parent directory so clean CI machines can run the audit.
+
+The compile controller retains the saved AOT build mode on project/branch entry and rebuilds mode-only changes. The browser harness asserts the **effective executed bundle mode**, so a Development recompile cannot be reported as an AOT result.
+
+## Evidence
+
+- [Compiled source audit](../compatibility/evidence/m20-sdk12-source.json):311/311 declaration, base/visibility/layout flag, constraint, parameter-mode and obsolete-classification matches. [Owned PE facts](../compatibility/evidence/m20-sdk12-abi.json) contain declarations/metadata, never vendor implementations.
+- [Native .NET](../compatibility/evidence/m20-sdk12-native.json):740 semantic observations across the retained and canonical surfaces. The test count is not a count of certified target signatures.
+- [Development editor/Wasm](../compatibility/evidence/m20-sdk12-development-wasm.json) and [effective AOT editor/Wasm](../compatibility/evidence/m20-sdk12-aot-wasm.json):267 observations each, no page errors, and exact Stop restoration.
+- [Original migration corpus](../compatibility/evidence/m20-sdk12-migration.json):unchanged source/hash, real private Start, serialized float pose, hierarchy, rotation and delayed destruction in both execution modes. Earlier failed migration evidence is preserved as history.
+- [Obsolete compiler contracts](../compatibility/evidence/m20-sdk12-obsolete-compile.json):53 direct consumer sites,30 required CS0619 errors and23 CS0618 warnings. Public attribute blobs match the frozen reference; no vendor method bodies are included.
+- Full local Node checks:486/486 passed. Rust workspace tests and strict clippy passed; final formatting and unchanged-corpus compilation passed. Shared gameplay, runtime, physics and66-object batch AOT regressions also passed during this batch; final-head CI remains separate. CI now recompiles the source audit and obsolete consumers, and executes the M20 lab in effective AOT.
+- [Replay affine-state regression](../compatibility/evidence/m20-sdk12-m15-replay.json): bounded affine matrices survive recording/export/import/range replay and participate in checkpoint divergence checks. The complete M15 browser test passed during this batch.
+- [Synchronous native clone catalog](../compatibility/evidence/m20-sync-clone-native-cases.json): all13 frozen synchronous signatures have attributed direct positive scene-graph comparisons, across17 variants. This does not confer full behavior certification.
+- [Direct async overload catalog](../compatibility/evidence/m20-async-overload-cases.json):17 frozen IDs and their explicit direct-call observations.
+
+These browser runs use the Null renderer. They exercise source execution, scene/render packet preparation and CPU/Wasm physics, including comparisons with separately captured native Unity observations; they do not verify GPU pixels or physical-GPU measurements. Exact-head CI, public ZIP verification and complete per-signature acceptance are distinct gates.
+
+## Asset and lifecycle acceptance batch
+
+Owned synchronous Mesh, TextAsset, Texture2D and AudioClip resource clones have independent identities, names and lifetimes. MeshFilter and collider bindings remain separate; destroyed assignments clear rendering while preserving components. Opaque session-only Inspector references round-trip through validated runtime packets and are rejected as authored project references. Imported geometry remains immutable; this is not completion of mutable Mesh, shader, texture or audio APIs.
+
+[Development](../compatibility/evidence/m20-sdk12-assets-development-wasm.json) and [AOT](../compatibility/evidence/m20-sdk12-assets-aot-wasm.json) each pass17 asset checks plus the identical137-check async lifecycle corpus, no page errors, exact Stop restoration. The [async acceptance](../compatibility/evidence/m20-async-native-acceptance.json) attributes cancellation, activation hold, null rejection, pose/count/identity, Awake/OnEnable, completion events and result destruction to all17 exact overloads.
+
+The [actual native compiler](../compatibility/evidence/m20-unity-obsolete-compile.json) and owned native/Wasm compilers observe the same53 consumer sites:30 CS0619 errors and23 CS0618 warnings. Only the30 required compile-error records gain compiler-contract acceptance; warning records still need runtime attribution. No vendor method bodies/binaries are shipped. Total accepted54/311; remaining182.
+
+The retained M18.3 test exposed a physics transport bug: world position advanced while cached local transforms/matrices stayed old. The kernel now publishes fresh world/local/matrix snapshots; the real grounding test passes10 criteria. The C# mini-server serves hierarchy/runtime-asset imports required by the shared runtime.
+
+## Work still required to close M20
+
+Keep all 311 records. Attribute canonical positive, negative and lifecycle observations to every remaining overload; broad family tests must not be promoted into per-signature proof. Finish the reference/edge/dependency review, including remaining constructor edge cases, additional asset-backed clone requirements and degenerate transforms. Obsolete compiler-error/warning contracts are verified; deprecated runtime behavior still needs per-signature attribution. Implement any missing required behavior rather than waiving a record or changing its milestone.
+
+The unchanged-corpus criterion now passes. Hierarchy/reference/lifecycle acceptance and final regression/dependency/publication criteria remain open. The strict closure command still rejects a full close with54/311 accepted contracts (24 behavior and30 compiler-error contracts). Source matching must not be presented as 100% functional Unity API parity. Stable main remains0.0.57; no automatic merge is authorized by this report.
+
+## Hierarchy path/query edge acceptance
+
+The identical36-check HierarchyPathLab runs in actual Unity, native Axiom and Development/AOT. It confirms active-only absolute/relative GameObject paths, inactive Transform paths, exact bounds/null/destroyed-handle exceptions and duplicate Transform rejection without mutation. Four exact path/ancestry signatures gain attributed acceptance. Canonical query null Type errors and null result-list no-ops also match native observations; retained legacy callers keep their earlier contract. These negative query samples alone do not certify the whole component-query family.
+
+A repeated native run exposed a test timing assumption: cancelled async operations need not finish within three frames. The unchanged137 assertions now wait for actual completion before checking null results and one event; the same revised source passed twice in fresh native projects and in both Wasm modes. The failed three-frame probe is retained locally rather than reported as a product pass.
+
+Core267 checks, asset/lifecycle/hierarchy208 checks per mode, native740, Node486/486 and both Development/AOT runtime API regressions pass. Required remaining dependencies include multiple same-type runtime components, full applicable cloning domains and remaining attributed Transform/query/message/object contracts. Native cycle-parent and Transform-destruction probes reveal log-and-no-op behavior that still requires canonical corrections; those signatures are not accepted.
+
+## Parent/destroy rejection batch
+
+The source-hashed hierarchy corpus now has54 checks in actual Unity, native Axiom and both Wasm modes. Three additional exact contracts cover both SetParent overloads and parent property read/write: explicit local/world spaces, actual identities, null/destroyed parents, destroyed owners and cycle rejection without mutation. Unity treats a destroyed parent as null. Cycles and attempts to destroy Transform alone log errors without throwing or changing the graph. Negative finite destruction delays use the end-of-frame queue. The standalone destruction edge samples do not certify all Object.Destroy domains. Total54/311 contracts;257 remain.
+
+Current local checks:740 native,267 core plus208 asset/lifecycle/hierarchy per Development/AOT mode,486 Node. Full per-signature/dependency and exact-head CI/public artifact closure remain open.
+
+## Direct vector/span transform batch
+
+The same generated direct-call corpus invokes24 exact public overloads. Actual Unity6000.3.27f1, native Axiom and both real Wasm modes execute240 cases: regular, ancestor/local/double reflections, deep mirrored ancestors, collapsed parent/middle/child axes, destroyed owners and span empty/short/long inputs. The numerical tolerance stays2e-5 relative, with equivalent quaternion signs. The native assembly hash, helper source hash, fixture hash, actual native SDK input hashes and executed project source hashes are verified before per-record acceptance.
+
+This comparison found actual implementation differences: native directions preserve ancestor reflections while ignoring local scale magnitude; inverse point/vector queries invert each TRS with zero reciprocals for collapsed axes; separate source/destination spans require equal lengths and throw InvalidOperationException otherwise. The canonical API now matches these observations. The retained legacy profile keeps its earlier contracts. The initial120-case failing probe remains recorded separately; all240 expanded cases pass after correction.
+
+Version-owned **Vector Transforms Lab** is a normal editable project delivered by Platform Load Demos. Its controller finishes Passed240, Failed0, with complete authoring restoration on Stop. Compact generated native fixtures keep the existing source/field budgets. Native740 core plus240 vector checks, real267+208+240 per browser mode and486 Node checks pass. Twenty-four additional exact contracts are accepted: total78/311, remaining182. This does not close M20 or verify GPU pixels. Exact-head CI/artifact acceptance and the remaining dependency/contracts remain required.
+
+Evidence: [native outcomes](../compatibility/evidence/m20-unity-vector-transform-observations.json), [owned native runtime](../compatibility/evidence/m20-sdk12-vectors-native.json), [Development](../compatibility/evidence/m20-sdk12-vectors-development-wasm.json), [AOT](../compatibility/evidence/m20-sdk12-vectors-aot-wasm.json), [attribution](../compatibility/evidence/m20-vector-native-acceptance.json).
+
+## Direct pose/rotation/matrix batch
+
+Thirty-six exact contracts execute through the identical348-case corpus in native Unity, native Axiom and Development/AOT. The profile includes regular/deep/local/ancestor reflections, collapsed axes, destroyed receivers, null targets, zero directions/axes and both coordinate spaces where applicable. State, errors and return values are compared; quaternion signs are orientation-equivalent and Euler differences wrap modulo360 at the original2e-5 tolerance.
+
+The comparison corrected canonical movement/axis rotations through reflected ancestors, world-position changes under collapsed parents, partial worldToLocal matrices, identity direction setters for zero inputs and native LookAt no-ops for null/destroyed targets or zero direction. Legacy caller contracts remain unchanged. Destroyed-receiver tests record only the evaluated API result, without a later state read masking a possible no-op. Pose Transforms Lab is a normal editable fourth demo; Passed348, Failed0, exact Stop restoration.
+
+Current accepted contracts114/311 (84 behavior,30 compiler-error contracts),197 remaining. Native740+240+348 and real267+208+240+348 per mode pass, together with486 Node checks. Final CI/public artifact and remaining component/query/message/constructor/clone/object/hierarchy dependencies remain open. Neither native counts nor declaration matching alone close M20.
+
+Evidence: [native poses](../compatibility/evidence/m20-unity-pose-transform-observations.json), [owned native](../compatibility/evidence/m20-sdk12-poses-native.json), [Development](../compatibility/evidence/m20-sdk12-poses-development-wasm.json), [AOT](../compatibility/evidence/m20-sdk12-poses-aot-wasm.json), [attribution](../compatibility/evidence/m20-pose-native-acceptance.json).
+
+## Remaining Transform contracts and input integration
+
+All81 frozen Transform contracts now have attributed acceptance within the recorded bounded profiles. Fifteen final contracts use the same63-check HierarchyAuxCorpus in exact native Unity, owned native runtime and both actual Wasm modes: type/protected constructor, root/count/capacity, direct and deprecated child access, sibling ordering, dynamic enumerators, detachment and change flags. New transforms begin changed; identical assignments retain a cleared flag. Invalid enumerator Current bounds and retired receivers preserve native exception types. Root capacity is shared, grows on attachment and commits before activation callbacks; detached trees receive independent capacity. Negative sibling indices use native end placement.
+
+Five native host-input regressions additionally verify changed flags on incoming physics/human poses, no reflagging on identical frames, and acknowledgement of script edits. Historical counts are superseded by native808 core+240 vector+348 pose checks, real267+271+240+348 per mode and486 Node checks. All require exact Stop restoration and effective build modes. Total129/311 accepted (99 behavior,30 compiler errors);182 remain outside Transform. The full milestone, dependency, CI and public-artifact gates remain open.
+
+[Auxiliary attribution](../compatibility/evidence/m20-transform-aux-native-acceptance.json) retains per-record case identities and matching actual input hashes.
+
+## Object identity, properties and component indices — current checkpoint
+
+The same77 direct cases execute unchanged in Unity6000.3.27f1, native .NET and real Development/effective-AOT Wasm. Native outcomes are source-hashed; the native SDK report records all executed SDK source hashes.29 contracts gain bounded attributed acceptance: Object12, Component8 and GameObject9. Total158/311 (128 behavior,30 compile-error contracts);153 remain, including same-type component storage dependencies.
+
+Corrections match native NullReferenceException for unbound native properties, empty strings for null name assignments, MissingReferenceException on destroyed native name/flag/owner access, InvalidCastException for incompatible generic component slots, and destroyed-owner validation before GetComponentIndex(null). Registered tag/flag profiles and default/one-collider slot layouts are explicitly bounded. No duplicate-component or unregistered-tag acceptance is inferred.
+
+**Object Contracts Lab** is the fifth version-owned demo. Its controller completes Count77, Passed77, Failed0, and Stop restores the authored scene exactly. Current suites: native885 core+240 vectors+348 poses, browser267+271+77+240+348 per mode, Node486/486. Prior numbered checkpoints above are historical. M20 remains open and no stable release has been published.
+
+Validation note: the first main AOT regression attempt timed out while compilation was still running. It is not counted as a pass. A fresh isolated rerun completed and passed; all other repeated browser suites passed. The previous remote head8c2cd60 passed Windows and the browser/regression job families but failed the Linux fixture checks due to the gzip OS header byte. The generators now freeze that nonsemantic byte; Windows and simulated Linux-header checks produce identical existing fixtures. Remote CI must still validate the new head.
+
+## Exact component queries — current checkpoint
+
+All56 direct Component/GameObject query overloads now have476 source-attributed native Unity/.NET/Development/effective-AOT comparisons. The original362-case probe exposed61 mismatches; fixes retain those cases and add child-only, parent-only, inactive-only and disabled-component profiles. Canonical child traversal uses activeSelf relative to the query root; parent traversal uses activeInHierarchy for every candidate including self. Type-based TryGetComponent(null) follows native ArgumentException. Legacy Axiom semantics are separate.
+
+Each frozen record maps to direct compiled calls and named profiles. Type/null/invalid, string/null/empty, seeded/null-list, missing and retired receiver cases retain exact output/exception comparisons. Normalized names/types preserve result identity and order. Source/Core/SDK hashes pin the actual inputs, compact reference fixtures preserve source/field budgets, and Stop restores the authored scene. The56 accepted contracts cover distinct Box/Sphere attachments and missing MeshCollider; repeated types, custom script interfaces and broader runtime storage remain required separate dependencies. Total214/311 accepted (184 behavior,30 compiler-error);97 remain. Full regression refresh and exact-head CI/artifact gates remain separate.
+
+All six real browser suites now pass in Development and effective AOT:267 core+271 assets/lifecycle/hierarchy+77 Object+240 vectors+348 poses+476 queries, with exact Stop restoration and zero page errors. Native885+240+348+476 and Node486/486 pass. The original61 query failures are retained in [historical differences](../compatibility/evidence/m20-query-initial-differences.json). Six standard version-owned demos load through Platform. The exact-head CI/public artifact gates remain open.
+
+## Global object searches — current checkpoint
+
+All23 global find overloads now have152 attributed native Unity/.NET/Development/effective-AOT outcomes. The initial145-case probe exposed27 differences; preserve those failures and add seven owned TextAsset profiles. Invalid/null Type array searches follow native log-and-null behavior; scalar wrappers retain the actual NullReferenceException. FindObjectsOfTypeIncludingAssets excludes DontSave, while FindObjectsOfTypeAll retains it. Array membership and ascending actual IDs are checked independently of allocation-dependent IDs; Any makes no ordering guarantee. The captured profile covers controlled SphereCollider hierarchies and owned TextAssets, not imported asset persistence or custom script lifetime.
+
+Total237/311 accepted (207 behavior,30 compiler-error);74 remain. Native885+240+348+476+152 and all seven real browser suites pass in both modes (267+271+77+240+348+476+152), with exact Stop restoration. Node486/486 and compiled source311/311 pass. [Historical find differences](../compatibility/evidence/m20-find-initial-differences.json) remain failures, not acceptance. Previous headfb0d976 passed remote CI run40668081832; exact-head CI and public artifacts remain separate for this checkpoint.
+
+## GameObject state and scene contracts — current checkpoint
+
+Native Unity Play, .NET and both real browser modes agree on53 direct observations for17 exact state/constructor/scene/handle contracts. Invalid layer assignments -1/32 leave31 unchanged and log without throwing; legacy strict Axiom layer setters retain their own profile. Default/named/null-name and one-BoxCollider constructors, null-array partial construction, local/inherited/recursive activation, static flags, handle equality, ordinary scene movement/culling and ID-based scene lookup retain exact captured results. Broader callbacks, custom preview masks and duplicate components remain separate dependencies. The initial two SDK differences are retained; the first Edit probe failed at CreateScene and is not accepted.
+
+Total254/311 accepted (224 behavior,30 compiler-error);57 remain. Fresh native885+240+348+476+152+53 and the53-case browser lab pass; the previous full seven-browser regression belongs to checkpoint39fe7e1. Exact-head CI/full artifact gates remain separate. Eight standard demos load through Platform.
+
+## Message dispatch and inherited components — current checkpoint
+
+All24 direct message overloads now have360 source-attributed native Play/.NET/Development/effective-AOT outcomes. The128 valid initial differences remain historical failures. Null payload skips one-argument receivers; inactive Upwards origins reach active ancestors; null/empty names do not throw; enum77 still dispatches. Disabled, throwing, private/inherited, retired, payload and hierarchy profiles match. Exact log text, ambiguous same-name overloads and duplicate-type storage remain separate dependencies.
+
+The browser test exposed a real factory-registration gap for derived scripts. Shared class ancestry discovery now selects the file-named component, handles custom bases and rejects cyclic/ambiguous/abstract factory candidates. Inherited fields/references and private-base field access share that hierarchy, and generated AOT hosts explicitly preserve base members. Three new JS ancestry tests and three native inherited private field publish/edit/clone tests pass. The module is included in the packaged editor and miniature test servers. General checks489/489 and fresh native888+240+348+476+152+53+360 pass. Full browser refresh is running; an AOT Hub startup attempt overlapped a dist rebuild and is not counted as a pass.
+
+Total278/311 accepted (248 behavior,30 compile-error);33 plus required structural dependencies remain. Component62/62 and Transform81/81 are accepted within recorded bounded profiles. M20 remains open.
+
+The full nine-suite Development/effective-AOT refresh now passes:267 core+271 assets/lifecycle/hierarchy+77 Object+240 vectors+348 poses+476 queries+152 finds+53 state+360 messages, each with exact Stop restoration and no page errors. The earlier AOT Hub-startup failure is retained as a failed attempt during dist rebuilding; the rerun completed successfully after packaging script-types.mjs. Node489/489 and fresh native888+240+348+476+152+53+360 pass. Exact-head remote CI/artifact gates remain separate.
+
+## Synchronous clone, bulk, lifetime and tag batches
+
+Native Unity6000.3.27f1 direct portable corpora now attribute30 more signatures:13 synchronous clone/91 observations,6 bulk/50,7 lifetime/122,4 tag search/39. The same corpora pass owned .NET and real Development/effective-AOT browser demos with exact Stop restoration. The native lifetime harness fixes simulation time to60Hz, advances one iterator step per frame and only resumes its own disposable Editor from ErrorPause; failed exploratory watchdog runs are excluded. Raw vendor code, account logs and binaries are not shipped.
+
+Corrections: synchronous clone distinguishes null from retired source, ignores retired parent; bulk activation skips invalid IDs, uncreated/disposed arrays throw ArgumentException, invalid clone sources do not touch outputs; persistence ignores asset targets and rejects unbound targets with ArgumentNullException; tag searches use exact null/empty/unknown exceptions, clear lists before validation and preserve native Untagged no-match behavior. Canonical Time shares the owned simulation clock; canonical scene unload adapts the existing scene service and defers completion events to the next frame. Six additional native clock/event regressions pass. General checks489/489 and all eleven native suites pass (894 core). Four new labs are in the standard manifest/factory and CI matrix.
+
+Total308/311 accepted in bounded profiles; AddComponent2/CreatePrimitive1 and the required structural/storage/reference/lifecycle/physics/Inspector plus final CI/artifact gates remain. Object72/72 is profile-attributed; this is not a declaration of unrestricted Object parity or M20 closure.

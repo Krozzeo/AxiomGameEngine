@@ -1,0 +1,48 @@
+{
+  "commit": "11745ba76281dc41e206537b0cba4e9c5e746c67",
+  "runId": 40965093597,
+  "criteria": [
+    "Actual public0.0.62 ZIP passes release identity, SHA256, safe extraction and the real product handshake; activation is explicit",
+    "Platform Load Demos registers all17 version-owned editable projects and a second load preserves identities without duplicates",
+    "Downloaded product opens through the real Hub shell, compiles its packaged C#/Wasm SDK, passes13 compound physics checks and stops normally",
+    "The actual downloaded product saves and closes its project through Platform"
+  ],
+  "pageErrors": [],
+  "source": "Actual public prepared release installed through Platform in isolated project/settings/product storage",
+  "passed": true,
+  "release": {
+    "url": "https://github.com/Krozzeo/AxiomGameEngine/releases/tag/experimental-pr-63-11745ba76281dc41e206537b0cba4e9c5e746c67",
+    "artifact": {
+      "platform": "win32",
+      "arch": "x64",
+      "name": "AxiomGameEngine-0.0.62-experimental-11745ba76281-win32-x64.zip",
+      "bytes": 58266317,
+      "sha256": "e9655bfffc7c18267515a58ae8e8677f8eb0f4c4a6cd3548b27811df64f981a6",
+      "url": "https://github.com/Krozzeo/AxiomGameEngine/releases/download/experimental-pr-63-11745ba76281dc41e206537b0cba4e9c5e746c67/AxiomGameEngine-0.0.62-experimental-11745ba76281-win32-x64.zip"
+    }
+  },
+  "demoNames": [
+    "Demo · M20 Object Lifecycle Lab",
+    "Demo · M20 Asset Lifetime Lab",
+    "Demo · M20 Vector Transforms Lab",
+    "Demo · M20 Pose Transforms Lab",
+    "Demo · M20 Object Contracts Lab",
+    "Demo · M20 Component Queries Lab",
+    "Demo · M20 Object Find Lab",
+    "Demo · M20 GameObject State Lab",
+    "Demo · M20 Message Dispatch Lab",
+    "Demo · M20 Synchronous Clone Lab",
+    "Demo · M20 Bulk Objects Lab",
+    "Demo · M20 Object Lifetime Lab",
+    "Demo · M20 Tag Search Lab",
+    "Demo · M20 Script Instances Lab",
+    "Demo · M20 Primitive Creation Lab",
+    "Demo · M20 Component Creation Lab",
+    "Demo · M20 Compound Colliders Lab"
+  ],
+  "demo": {
+    "count": 13,
+    "passed": 13,
+    "failed": 0
+  }
+}

@@ -1,10 +1,10 @@
-Current integration review: **0.0.60 / SDK10**, adopting the public Platform0.1.9 SDK for provider-independent model IDs and credential-safe product environments. M20 behavior acceptance remains the separate0.0.59 batch below; M20 is still open.
+**M20 complete — Engine 0.0.62 / SDK12.** All 311 frozen assigned contracts have attributed acceptance: 281 behavioral profiles and 30 obsolete compiler-error contracts. Component 62/62, GameObject 96/96, Transform 81/81 and Object 72/72. All three milestone criteria passed. This is bounded M20 compatibility, not complete Unity API parity. Stable main remains 0.0.57; 0.0.62 is an experimental review release.
+
+Stable: [0.0.57 / M19](https://github.com/Krozzeo/AxiomGameEngine/releases/tag/v0.0.57). Review: [0.0.62 experimental](https://github.com/Krozzeo/AxiomGameEngine/releases/tag/experimental-pr-63-11745ba76281dc41e206537b0cba4e9c5e746c67). All 17 version-owned editable labs load through Platform. [M20 report](docs/reports/M20_REPORT.md), [demo guide](demos/M20_GUIDE.md), [exact ledger](docs/compatibility/m20-batches.json).
 
 # Axiom Game Engine
 
 A local browser game editor with Rust/WebAssembly kernel, WebGPU renderer and C# gameplay. Includes2D/3D scenes, resources, CPU/Wasm physics, editing tools and isolated AI proposals with human review.
-
-**Stable: [0.0.57 / M19](https://github.com/Krozzeo/AxiomGameEngine/releases/tag/v0.0.57). Current review batch:0.0.59 / scripting SDK10 / M20 queries, component order and graph cloning.** M20 remains in progress; the identity/lifetime and query/graph batches include an editable32-check lifecycle lab. [M20 report](docs/reports/M20_REPORT.md), [demo](demos/M20_GUIDE.md), [exact target ledger](docs/compatibility/m20-batches.json).
 
 ## Axiom family
 

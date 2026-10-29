@@ -1,0 +1,41 @@
+{
+  "mode": "aot",
+  "pageErrors": [],
+  "corpusSourceHashes": {
+    "CompoundColliderLab.cs": "d51da883304aae733f33456052a707a2509b7f914abd69efd62e75fbe77c8186",
+    "CompoundColliderProbe.cs": "99f0118ba2a16a2dda733ef45ce7914a5133f5072a72557e54f3a0f466a9dd88"
+  },
+  "executedBuild": {
+    "id": "b205ec94-afac-467d-b108-85f60359bf6d",
+    "mode": "aot",
+    "sdkVersion": 12,
+    "sourceHash": "d3b8e1d5fc83e657513adda539551b95ba1387d7f66d6dd9967d98deccd0069a",
+    "bytes": 25963640
+  },
+  "count": 13,
+  "passedChecks": 13,
+  "failedChecks": 0,
+  "diagnostics": "",
+  "cases": {
+    "two-colliders": "pass",
+    "one-body": "pass",
+    "individual-size": "pass",
+    "canonical-collision": "pass",
+    "ray-extra-slot": "pass",
+    "disabled-collider-exit": "pass",
+    "disabled-ray-primary": "pass",
+    "canonical-trigger": "pass",
+    "component-specific-ignore": "pass",
+    "ignore-cleared": "pass",
+    "trigger-restored": "pass",
+    "primary-destroy-retains-extra": "pass",
+    "extra-only-ray": "pass"
+  },
+  "inspector": {
+    "independentGeometry": true,
+    "independentActivation": true,
+    "exactColliderReference": true
+  },
+  "passed": true,
+  "profile": "Real aot C#/Wasm in the Null editor; exact Stop restoration. Bounded native-attributed corpus or independently named dependency profile; no GPU pixel claim."
+}

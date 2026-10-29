@@ -1,6 +1,7 @@
+import {mountRuntimeColliders} from './runtime-colliders.mjs';
 import {referenceDrag,clearReferenceDrag} from './reference-fields.mjs';
 import {mountAdditionalInspectors} from './additional-inspectors.mjs';
-import {inspectorFocus} from './inspector-focus.mjs';
+import {inspectorFocus,selectionEntities,authoringRefreshIsCurrent,performInspectorEdit} from './inspector-focus.mjs';
 import {sceneTitle} from '../../../engine/scene/scene-documents.mjs';
 import {mountScriptingApi} from './scripting-api.mjs';
 import {mountHub} from './hub.mjs';
@@ -176,7 +177,7 @@ export function mountProjectEditor({ document, api=null, send, reportError, conf
       $("toolbar-save").setAttribute("aria-label",state.dirty?"Save project (unsaved changes)":"Save project");
     }
     if($("save-dirty"))$("save-dirty").hidden=!state.dirty;
-    twoDEditor.draw();animationEditor.draw();scriptEditor.draw();if(document.defaultView){const previous=$('component-choice').value;$('component-search').dispatchEvent(new Event('input'));if([...$('component-choice').options].some(o=>o.value===previous))$('component-choice').value=previous;}audioEditor.draw();actions.draw();inspectorUX.draw();compiler.draw();
+    twoDEditor.draw();animationEditor.draw();scriptEditor.draw();runtimeColliders.draw();if(document.defaultView){const previous=$('component-choice').value;$('component-search').dispatchEvent(new Event('input'));if([...$('component-choice').options].some(o=>o.value===previous))$('component-choice').value=previous;}audioEditor.draw();actions.draw();inspectorUX.draw();compiler.draw();
     ide.draw();extraInspectors?.draw();const lock=document.defaultView?document.querySelector('[data-inspector-lock="inspector"]'):null;if(lock){lock.setAttribute('aria-pressed',String(primaryFocus.locked));lock.title=primaryFocus.locked?'Unlock Inspector':'Lock Inspector';lock.innerHTML='<img src="/icons/'+(primaryFocus.locked?'lock':'unlock')+'.svg" width="18" height="18" alt="">';}
     $("scene-save").textContent=state.dirty?"Save*":"Save";$("scene-save").classList?.toggle?.("dirty-save",state.dirty);
     paintDirty();
@@ -186,12 +187,13 @@ export function mountProjectEditor({ document, api=null, send, reportError, conf
     if (!("project" in data)) return;
     const oldIds = new Set(state.project?.scene.entities.map(entity => entity.id));
     const previousProjectId=state.project?.id;
+    const visible=selectionEntities(state,data,getRenderer()?.interaction?.());
     state = data;
     if(state.project&&state.project.id!==previousProjectId){collapsed.clear();anchor=null;if(!state.workspaceId)pendingOpenCompile=true;}
-    if (!state.project?.scene.entities.some(entity => entity.id === selected)) selected = null;
+    if (!visible.some(entity => entity.id === selected)) selected = null;
     const added = state.project?.scene.entities.find(entity => !oldIds.has(entity.id));
     if (added) {filePaths=[];browser.clear(false);selected = added.id;selection=new Set([selected]);}
-    else {selection=new Set([...selection].filter(id=>state.project?.scene.entities.some(e=>e.id===id)));selected=[...selection].at(-1)??null;}
+    else {selection=new Set([...selection].filter(id=>visible.some(e=>e.id===id)));selected=[...selection].at(-1)??null;}
   }
   async function act(operation) {
     if (!enabled || busy) return;
@@ -204,6 +206,7 @@ export function mountProjectEditor({ document, api=null, send, reportError, conf
     finally { busy = false;if(pendingOpenCompile){pendingOpenCompile=false;if(compiler.needsCompile())await compiler.request({flush:false});}draw(succeeded); }
     return succeeded;
   }
+  const inspectorAct=operation=>performInspectorEdit({getState:()=>state,getGeneration:()=>getRenderer()?.status?.().generation,isBusy:()=>busy,perform:act},operation);
   async function run(type, data = {}) {
     if(state.playing&&runtimeEditableTypes.includes(type)){await getRenderer().editRuntime({type,data});return {runtimeOnly:true};}
     const event = await send(type, data);
@@ -240,11 +243,12 @@ export function mountProjectEditor({ document, api=null, send, reportError, conf
   if(document.defaultView)prefabDrop(document.querySelector('.viewport'),()=>undefined);
   const browser=mountProjectBrowser({document,getState:()=>state,mutate:data=>act(async()=>{await run('project.files.edit',mutation(data));ide.filesChanged(data);}),selectAsset:id=>{$('asset-list').value=id;},selectScript:file=>void ide.open(file),selectScene:file=>{collapsed.delete('scene:'+file.path);void act(()=>run('scene.document.edit',mutation({action:'open',path:file.path})));},onSelection:fileSelection,beforeEdit:()=>ide.flush(),onFilesChanged:()=>{filePaths=browser.selection();},reportError});
   $('file-inspector-open')?.addEventListener('click',()=>browser.open(filePaths[0]));
-  const scriptEditor=mountScriptEditor({document,getState:componentState,getSelection:inspectedId,act,run,mutation,open:path=>browser.open(path),reveal:path=>{panels.openPanel('project');browser.reveal(path);},getRenderer,reportError});
+  const scriptEditor=mountScriptEditor({document,getState:componentState,getSelection:inspectedId,act:inspectorAct,run,mutation,open:path=>browser.open(path),reveal:path=>{panels.openPanel('project');browser.reveal(path);},getRenderer,onToggle:toggleComponent,reportError});
   const compiler=mountCompileController({document,getState:()=>state,dirty:()=>ide.dirtyScripts(),compile:compileProject,onCompiled:()=>{$('script-diagnostics').textContent='';$('script-status').textContent='Compilation completed';},saveAuto:async value=>{const projectId=state.project?.id,workspaceId=state.workspaceId??null,deadline=performance.now()+610000;while(busy&&performance.now()<deadline)await new Promise(resolve=>setTimeout(resolve,50));if(busy||state.project?.id!==projectId||(state.workspaceId??null)!==workspaceId)throw Error('Auto compilation preference could not be saved; finish the operation and retry');return act(()=>run('project.editor.update',mutation({value:{leftWidth:220,rightWidth:290,bottomHeight:190,...state.project.editor,autoCompile:value}})));},reportError});
-  const toggleComponent=(entity,key,value)=>act(async()=>{if(key==='audioListener')await run('scene.audioListener.set',mutation({entityId:entity.id,value:{...entity.audioListener,enabled:value}}));await run('scene.entity.update',mutation({entityId:entity.id,componentEnabled:{...entity.componentEnabled,[key]:value}}));});
+  function toggleComponent(entity,key,value){const id=entity.id;return inspectorAct(async()=>{const current=componentState().project?.scene.entities.find(entity=>entity.id===id);if(!current)throw Error('The inspected entity is no longer available.');if(key==='audioListener')await run('scene.audioListener.set',mutation({entityId:id,value:{...current.audioListener,enabled:value}}));await run('scene.entity.update',mutation({entityId:id,componentEnabled:{...current.componentEnabled,[key]:value}}));});}
+  const runtimeColliders=mountRuntimeColliders({document,getEntity:()=>componentState().project?.scene.entities.find(e=>e.id===inspectedId()),getScene:()=>componentState().project?.scene,projectId:()=>state.project?.id,isPlaying:()=>state.playing,onToggle:toggleComponent,onChange:(entityId,runtimeSlot,value)=>inspectorAct(()=>run('scene.collider.set',mutation({entityId,runtimeSlot,value}))),reportError});
   const inspectorUX=mountInspectorUX({document,getSelection:inspectedId,getEntity:()=>componentState().project?.scene.entities.find(e=>e.id===inspectedId()),onToggle:toggleComponent});
-  extraInspectors=mountAdditionalInspectors({document,panels,getState:componentState,getFocus:()=>({entities:[...selection],files:filePaths}),getPrimaryFocus:inspectionTarget,getPrimaryLocked:()=>primaryFocus.locked,act,run,mutation,addComponent:addComponentFor,toggleComponent,openFile:file=>browser.open(file.path),reportError});
+  extraInspectors=mountAdditionalInspectors({document,panels,getState:componentState,getFocus:()=>({entities:[...selection],files:filePaths}),getPrimaryFocus:inspectionTarget,getPrimaryLocked:()=>primaryFocus.locked,act:inspectorAct,run,mutation,addComponent:addComponentFor,toggleComponent,openFile:file=>browser.open(file.path),reportError});
   const actions=mountEditorActions({document,getState:()=>state,getSelection:()=>[...selection],getInspectorSelection:inspectionIds,select,act,run,mutation,browser,reportError,locate:onLocate,scriptEditor});
   const number=id=>Number($(id).value),vector=(id,n)=>Array.from({length:n},(_,i)=>number(id+'-'+i));
   for(const key of ['material','light','lod','render']){
@@ -372,7 +376,7 @@ export function mountProjectEditor({ document, api=null, send, reportError, conf
   }
   if(document.defaultView)document.querySelector('.hierarchy').addEventListener('click',event=>{if(!event.target.closest('[data-entity-id],.tree-toggle,.scene-root-button,button,input,select,.dock-panel-controls'))select(null);});
   $('entities').addEventListener('scroll',()=>{if(!document.defaultView||hierarchyPaint!==null)return;hierarchyPaint=requestAnimationFrame(()=>{hierarchyPaint=null;hierarchyScrolling=true;draw(false);hierarchyScrolling=false;});});
-  const runtimeInspectorTimer=document.defaultView?setInterval(()=>{if(!enabled||busy||!state.playing)return;const topology=runtimeTreeSignature(hierarchyEntities());if(topology!==runtimeTopology)draw(false);if(inspectionIds().length!==1)return;const entity=getRenderer()?.interaction?.().scene?.entities.find(e=>e.id===inspectedId());if(!entity)return;const sync=(id,value)=>{const input=$(id);if(!input||input.ownerDocument.activeElement===input)return;if(input.type==='checkbox')input.checked=!!value;else if(input.value!==String(value))input.value=String(value);};if(entity.material){for(const [key,values]of [['color',entity.material.baseColor],['emissive',entity.material.emissive]])values.forEach((v,i)=>sync('material-'+key+'-'+i,v));for(const [id,value]of [['material-metallic',entity.material.metallic],['material-roughness',entity.material.roughness],['material-alpha',entity.material.alphaMode],['material-cutoff',entity.material.alphaCutoff],['material-unlit',entity.material.unlit],['material-shadow',entity.material.castShadow]])sync(id,value);}if(entity.light){entity.light.color.forEach((v,i)=>sync('light-color-'+i,v));for(const [id,value]of [['light-kind',entity.light.kind],['light-intensity',entity.light.intensity],['light-range',entity.light.range],['light-shadow',entity.light.shadow]])sync(id,value);}if(entity.camera)for(const [id,value]of [['camera-active',entity.camera.active],['camera-projection',entity.camera.projection],['camera-fov',entity.camera.fov],['camera-ortho',entity.camera.orthoHeight]])sync(id,value);inspectorUX.draw();for(const [group,values]of [['position',entity.transform.position],['rotation',eulerFromQuaternion(entity.transform.rotation)],['scale',entity.transform.scale]]){const inputs=values.map((_,i)=>$(group+'-'+i));if(inputs.some(input=>input.ownerDocument.activeElement===input))continue;inputs.forEach((input,i)=>{if(input.value!==String(values[i]))input.value=String(values[i]);});}},100):null;runtimeInspectorTimer?.unref?.();
+  const runtimeInspectorTimer=document.defaultView?setInterval(()=>{if(!enabled||busy||!state.playing)return;runtimeColliders.draw();const topology=runtimeTreeSignature(hierarchyEntities());if(topology!==runtimeTopology)draw(false);if(inspectionIds().length!==1)return;const entity=getRenderer()?.interaction?.().scene?.entities.find(e=>e.id===inspectedId());if(!entity)return;const sync=(id,value)=>{const input=$(id);if(!input||input.ownerDocument.activeElement===input)return;if(input.type==='checkbox')input.checked=!!value;else if(input.value!==String(value))input.value=String(value);};if(entity.material){for(const [key,values]of [['color',entity.material.baseColor],['emissive',entity.material.emissive]])values.forEach((v,i)=>sync('material-'+key+'-'+i,v));for(const [id,value]of [['material-metallic',entity.material.metallic],['material-roughness',entity.material.roughness],['material-alpha',entity.material.alphaMode],['material-cutoff',entity.material.alphaCutoff],['material-unlit',entity.material.unlit],['material-shadow',entity.material.castShadow]])sync(id,value);}if(entity.light){entity.light.color.forEach((v,i)=>sync('light-color-'+i,v));for(const [id,value]of [['light-kind',entity.light.kind],['light-intensity',entity.light.intensity],['light-range',entity.light.range],['light-shadow',entity.light.shadow]])sync(id,value);}if(entity.camera)for(const [id,value]of [['camera-active',entity.camera.active],['camera-projection',entity.camera.projection],['camera-fov',entity.camera.fov],['camera-ortho',entity.camera.orthoHeight]])sync(id,value);inspectorUX.draw();for(const [group,values]of [['position',entity.transform.position],['rotation',eulerFromQuaternion(entity.transform.rotation)],['scale',entity.transform.scale]]){const inputs=values.map((_,i)=>$(group+'-'+i));if(inputs.some(input=>input.ownerDocument.activeElement===input))continue;inputs.forEach((input,i)=>{if(input.value!==String(values[i]))input.value=String(values[i]);});}},100):null;runtimeInspectorTimer?.unref?.();
   draw();
   return {
     dispose(){clearInterval(runtimeInspectorTimer);},
@@ -397,8 +401,8 @@ export function mountProjectEditor({ document, api=null, send, reportError, conf
     setDefaultSource(source){defaultScript=source;if(!state.project?.scene.script)$("script-source").value=source;},
     async refreshAssets() {
       if(!enabled||busy||assetRefreshing)return false;assetRefreshing=true;
-      try {const event=await send('scene.get'),data=event.payload.data;
-        if(busy||data.project?.id!==state.project?.id||(data.workspaceId??null)!==(state.workspaceId??null)||data.sceneRevision<state.sceneRevision||(data.project?.revision??0)<(state.project?.revision??0))return false;
+      try {const requested=state,event=await send('scene.get'),data=event.payload.data;
+        if(busy||!authoringRefreshIsCurrent(requested,state,data))return false;
         adopt(data);await onState({...data,commandLineage:{messageId:event.causationId,correlationId:event.correlationId,traceId:event.traceId}});draw();return true;
       }catch(error){reportError(error);return false;}finally{assetRefreshing=false;}
     },

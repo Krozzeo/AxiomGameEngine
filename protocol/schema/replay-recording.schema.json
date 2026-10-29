@@ -170,6 +170,16 @@
                             "minimum": -1000000,
                             "maximum": 1000000
                           }
+                        },
+                        "matrix": {
+                          "type": "array",
+                          "minItems": 16,
+                          "maxItems": 16,
+                          "items": {
+                            "type": "number",
+                            "minimum": -1000000,
+                            "maximum": 1000000
+                          }
                         }
                       }
                     },

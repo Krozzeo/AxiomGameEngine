@@ -6,5 +6,6 @@ Derive a custom wait with public override bool keepWaiting. The scheduler checks
 ## Implemented declarations
 
 ```csharp
+// Namespace: Axiom.Gameplay
 public abstract class CustomYieldInstruction : IEnumerator {public abstract bool keepWaiting {get;}public object? Current=>null;public bool MoveNext()=>keepWaiting;public void Reset(){}}
 ```

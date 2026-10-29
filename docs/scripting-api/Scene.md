@@ -7,14 +7,42 @@ SDK 8 adds the Axiom-specific `alwaysActive` property. Set it on a Scene variabl
 ## Implemented declarations
 
 ```csharp
+// Namespace: UnityEngine.SceneManagement
+public readonly struct Scene : IEquatable<Scene> {
+ internal readonly Axiom.Gameplay.SceneManagement.Scene Native;
+ internal Scene(Axiom.Gameplay.SceneManagement.Scene value){Native=value;}
+ public string name=>Native.name;public string path=>Native.path;public int buildIndex=>Native.buildIndex;public bool isLoaded=>Native.isLoaded;public bool IsValid()=>Native.IsValid();public int rootCount=>Native.rootCount;
+ public UnityEngine.GameObject[] GetRootGameObjects()=>Native.GetRootGameObjects().Select(value=>(UnityEngine.GameObject)value).ToArray();public void GetRootGameObjects(List<UnityEngine.GameObject> rootGameObjects){ArgumentNullException.ThrowIfNull(rootGameObjects);rootGameObjects.Clear();rootGameObjects.AddRange(GetRootGameObjects());}
+ public bool Equals(Scene other)=>Native.Equals(other.Native);public override bool Equals(object? other)=>other is Scene scene&&Equals(scene);public override int GetHashCode()=>Native.GetHashCode();public static bool operator ==(Scene a,Scene b)=>a.Equals(b);public static bool operator !=(Scene a,Scene b)=>!a.Equals(b);
+ public static implicit operator Scene(Axiom.Gameplay.SceneManagement.Scene value)=>new(value);public static implicit operator Axiom.Gameplay.SceneManagement.Scene(Scene value)=>value.Native;
+}
+
+// Namespace: Axiom.Gameplay.SceneManagement
 public readonly struct Scene {
- public string name {get;}public string path {get;}public int buildIndex {get;}public bool isLoaded {get{var title=name;return SceneManager.Loaded.Any(s=>s.name==title);}}
- internal Scene(string title,string source,int index){name=title;path=source;buildIndex=index;}
+ public string name {get;}public string path {get;}public int buildIndex {get;}internal readonly bool PersistentContext;private readonly int runtimeGeneration;internal string OwnerKey=>PersistentContext?SceneManager.PersistentOwner:name;public bool isLoaded {get{if(PersistentContext)return runtimeGeneration==Context.Generation;var title=name;return SceneManager.Loaded.Any(s=>s.name==title);}}
+ internal Scene(string title,string source,int index,bool persistent=false){name=title;path=source;buildIndex=index;PersistentContext=persistent;runtimeGeneration=persistent?Context.Generation:0;}
  public bool alwaysActive {get=>SceneManager.IsSceneAlwaysActive(this);set=>SceneManager.SetSceneAlwaysActive(this,value);}
- public bool IsValid()=>!string.IsNullOrEmpty(name);
- public GameObject[] GetRootGameObjects(){var title=name;return Context.Entities.Keys.Where(id=>Context.Parents.GetValueOrDefault(id)==null&&SceneManager.Owners.GetValueOrDefault(id,SceneManager.GetActiveScene().name)==title).Select(id=>new GameObject(new Entity(id,Context.Generation))).ToArray();}
+ public bool IsValid()=>!string.IsNullOrEmpty(name)&&(!PersistentContext||runtimeGeneration==Context.Generation);
+ public GameObject[] GetRootGameObjects(){var title=OwnerKey;if(!IsValid())return Array.Empty<GameObject>();return Context.Entities.Keys.Where(id=>Context.Parents.GetValueOrDefault(id)==null&&SceneManager.Owners.GetValueOrDefault(id,SceneManager.GetActiveScene().name)==title).Select(id=>new GameObject(new Entity(id,Context.Generation))).ToArray();}
  public int rootCount=>GetRootGameObjects().Length;
 }
 
+// Namespace: UnityEngine
+public class AsyncOperation : YieldInstruction {
+ internal Legacy.AsyncOperation? LegacyOperation;internal bool Done,EventRaised,Unavailable;internal void RequireHandle(){if(Unavailable)throw new NullReferenceException();}internal readonly int CreationFrame=Legacy.Time.frameCount;
+ private Action<AsyncOperation>? callbacks;
+ public bool isDone {get{RequireHandle();return LegacyOperation?.isDone??Done;}}
+ public virtual float progress {get{RequireHandle();return LegacyOperation is {} operation?(float)operation.progress:Done?1:0;}}
+ private int priorityValue;public int priority {get{RequireHandle();return priorityValue;}set{RequireHandle();priorityValue=value;}}
+ private bool activate=true;public bool allowSceneActivation {get{RequireHandle();return activate;}set{RequireHandle();activate=value;}}
+ public event Action<AsyncOperation> completed {
+  add{RequireHandle();if(EventRaised)value(this);else callbacks+=value;}
+  remove{RequireHandle();callbacks-=value;}
+ }
+ internal void DispatchCompleted(){if(!isDone||EventRaised||Legacy.Time.frameCount<=CreationFrame)return;EventRaised=true;var handlers=callbacks;callbacks=null;handlers?.Invoke(this);}
+ internal void Abandon(){Done=true;EventRaised=true;callbacks=null;}
+}
+
+// Namespace: Axiom.Gameplay
 public class AsyncOperation {public virtual bool isDone=>true;public virtual double progress=>1;private event Action<AsyncOperation>? callbacks;public event Action<AsyncOperation> completed {add{if(isDone)value(this);else callbacks+=value;}remove{callbacks-=value;}}internal void Complete(){callbacks?.Invoke(this);callbacks=null;}}
 ```

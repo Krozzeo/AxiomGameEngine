@@ -1,10 +1,10 @@
 # Expanded roadmap — M19 to M40
 
-Owner scope decision2026-10-19, maintained English edition2026-10-24. These are **Game Engine** milestones; Platform P0–P5 is independent and does not replace/credit Unity/shaders/GPU work. M18.4 closed under ADR0034 with native real-account validation deferred. M19 is merged and published as stable0.0.57. M20 is in progress: identity/lifetime and query/order/graph behavior batches0.0.59/SDK10, with whole-milestone closure still open. Earlier public0.0.58/SDK9 remains an immutable experimental package. [M19 report](../reports/M19_REPORT.md), [M20 report](../reports/M20_REPORT.md).
+Owner scope decision2026-10-19, maintained English edition2026-10-24. These are **Game Engine** milestones; Platform P0–P5 is independent and does not replace/credit Unity/shaders/GPU work. M18.4 closed under ADR0034 with native real-account validation deferred. M19 is merged and published as stable0.0.57. M20 is complete in experimental0.0.62/SDK12 with311 accepted bounded contracts and3/3 closure criteria; M21 is next. Earlier public0.0.58/SDK9 remains an immutable experimental package. [M19 report](../reports/M19_REPORT.md), [M20 report](../reports/M20_REPORT.md).
 
 ## Scope and progress
 
-21 new compatibility milestonesM19–M39; formerM19 MVP Hardening moved in full to finalM40. Preserve M18.4. Total 45 main milestones (M0–M40 plusM18.1–M18.4),23 historical closures plus locally accepted M19;21 implementation milestones M20–M40 remain. M18.3.x corrections are not additional main milestones. Order: M18.4→M19→M20–M39→M40, respecting the dependency graph; independent work may proceed without claiming closure.
+21 new compatibility milestonesM19–M39; formerM19 MVP Hardening moved in full to finalM40. Preserve M18.4. Total 45 main milestones (M0–M40 plusM18.1–M18.4),23 historical closures plus accepted M19 and M20;20 implementation milestones M21–M40 remain. M18.3.x corrections are not additional main milestones. Order: M18.4→M19→M20–M39→M40, respecting the dependency graph; independent work may proceed without claiming closure.
 
 Implement all or almost all of the frozen public Unity 6.3LTS(6000.3) Scripting API through Axiom's own functional implementation. Unversioned docs were observed at6.6 on2026-10-18; track that delta separately. M19 freezes snapshot/hash/full signature denominator, overload/inheritance/obsolete handling, ownership and priorities. Include runtime **and editor**, not only gameplay families; packages have separate fixed versions/inventories.
 

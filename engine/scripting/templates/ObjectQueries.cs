@@ -4,12 +4,12 @@ public enum FindObjectsInactive { Exclude, Include }
 public enum FindObjectsSortMode { None, InstanceID }
 
 internal static class ObjectQueries {
- internal static void ComponentType(Type type){ArgumentNullException.ThrowIfNull(type);if(!type.IsInterface&&!typeof(Component).IsAssignableFrom(type))throw new ArgumentException("A component class or interface is required",nameof(type));}
+ internal static void ComponentType(Type type){ArgumentNullException.ThrowIfNull(type);if(!type.IsInterface&&!typeof(Component).IsAssignableFrom(type)&&!typeof(UnityEngine.Component).IsAssignableFrom(type))throw new ArgumentException("A component class or interface is required",nameof(type));}
  internal static void Fill<T>(List<T> results,IEnumerable<T> values){ArgumentNullException.ThrowIfNull(results);var snapshot=values.ToArray();results.Clear();results.AddRange(snapshot);}
  internal static Object[] Find(Type type,FindObjectsInactive inactive,FindObjectsSortMode sort){
-  ArgumentNullException.ThrowIfNull(type);if(!typeof(Object).IsAssignableFrom(type))throw new ArgumentException("An Object type is required",nameof(type));
+  ArgumentNullException.ThrowIfNull(type);if(!typeof(Object).IsAssignableFrom(type)&&!typeof(UnityEngine.Object).IsAssignableFrom(type))throw new ArgumentException("An Object type is required",nameof(type));
   if(!Enum.IsDefined(inactive)||!Enum.IsDefined(sort))throw new ArgumentOutOfRangeException("Invalid find mode");
-  var found=new List<Object>();foreach(var id in Context.Entities.Keys){if(inactive==FindObjectsInactive.Exclude&&!Context.IsActive(id))continue;var go=new GameObject(new Entity(id,Context.Generation));if(type.IsInstanceOfType(go))found.Add(go);found.AddRange(go.AllComponents().Where(type.IsInstanceOfType));}
+  var found=new List<Object>();foreach(var id in Context.Entities.Keys){if(inactive==FindObjectsInactive.Exclude&&!Context.IsActive(id))continue;var go=new GameObject(new Entity(id,Context.Generation));if(type.IsInstanceOfType(go)||typeof(UnityEngine.Object).IsAssignableFrom(type)&&type.IsInstanceOfType(UnityEngine.Object.Wrap(go)))found.Add(go);found.AddRange(go.AllComponents().Where(component=>ScriptBridge.Matches(type,component)));}
   return (sort==FindObjectsSortMode.InstanceID?found.OrderBy(o=>o.GetInstanceID()):found.AsEnumerable()).ToArray();
  }
 }
@@ -17,7 +17,7 @@ internal static class ObjectQueries {
 public sealed partial class GameObject {
  public GameObject gameObject=>this;
  public Component? GetComponent(Type type)=>GetComponents(type).FirstOrDefault();
- public Component[] GetComponents(Type type){ObjectQueries.ComponentType(type);return AllComponents().Where(type.IsInstanceOfType).ToArray();}
+ public Component[] GetComponents(Type type){ObjectQueries.ComponentType(type);return AllComponents().Where(component=>ScriptBridge.Matches(type,component)).ToArray();}
  public bool TryGetComponent(Type type,out Component? component){component=GetComponent(type);return component!=null;}
  public void GetComponents(Type type,List<Component> results)=>ObjectQueries.Fill(results,GetComponents(type));
  public void GetComponents<T>(List<T> results)=>ObjectQueries.Fill(results,GetComponents<T>());
@@ -78,11 +78,11 @@ public partial class Component {
 public partial class Object {
  private static Object CloneObject(Object original,Vector3? position,Quaternion? rotation,Transform? parent,bool worldPositionStays){
   ArgumentNullException.ThrowIfNull(original);if(!original)throw new ArgumentException("Cannot clone a destroyed object",nameof(original));
-  var source=original is GameObject go?go:original is Component component?component.gameObject:throw new NotSupportedException("This object requires its asset/resource cloning API");
+  if(RuntimeAssets.IsAsset(original))return RuntimeAssets.Clone(RuntimeAssets.Capture(original),1)[0];var source=original is GameObject go?go:original is Component component?component.gameObject:throw new NotSupportedException("This object requires its asset/resource cloning API");
   var useLocal=!position.HasValue&&parent!=null&&!worldPositionStays;var local=useLocal?Context.Local(source.Entity):null;
   var entity=Context.CloneHierarchy(source.Entity,position??source.transform.position,rotation??source.transform.rotation,false);var clone=new GameObject(entity);
   if(parent!=null)clone.transform.SetParent(parent,true);if(useLocal)Context.LocalTransform(entity,local!.Position,local.Rotation,local.Scale);
-  Object result=original is Component sourceComponent?clone.GetComponent(sourceComponent.GetType())??throw new NotSupportedException("Cloned component is not available"):clone;
+  Object result=original is Component sourceComponent?clone.GetComponentAtIndex(Array.FindIndex(source.AllComponents(),component=>component.GetInstanceID()==sourceComponent.GetInstanceID())):clone;
   RuntimeLifecycle.Initialize();return result;
  }
  public static Object Instantiate(Object original)=>CloneObject(original,null,null,null,true);

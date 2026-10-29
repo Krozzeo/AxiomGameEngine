@@ -1,3 +1,4 @@
+import {validateColliderShape} from '../../engine/scene/collider.mjs';
 import {validatePmd} from '../../engine/project/pmd.mjs';
 import {validateScriptComponents} from '../../engine/scripting/fields.mjs';
 import {validateFiles} from '../../engine/scene/project-files.mjs';
@@ -42,6 +43,7 @@ function validate(value, rule, path) {
 }
 
 export function validateProject(document) {
+  for(const entity of document.scene?.entities??[])if(entity.collider)try{validateColliderShape(entity.collider);}catch(error){throw projectError('AX_PROJECT_0002',error.message);}
   if(document.editor?.pmd)try{validatePmd(document.editor.pmd);}catch(error){throw projectError('AX_PROJECT_0002',error.message);}
   try{validateFiles(document.scene??{});}catch(error){throw projectError('AX_PROJECT_0002',error.message);}
   if((document.scene?.entities??[]).filter(e=>e.camera?.active).length>1)throw projectError('AX_PROJECT_0002','Only one Camera can be active');

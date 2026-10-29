@@ -142,7 +142,10 @@
                     "type": "string",
                     "enum": [
                       "box",
-                      "sphere"
+                      "sphere",
+                      "capsule",
+                      "plane",
+                      "quad"
                     ]
                   },
                   "halfExtents": {
@@ -151,7 +154,7 @@
                     "maxItems": 3,
                     "items": {
                       "type": "number",
-                      "minimum": 0.001,
+                      "minimum": 0,
                       "maximum": 10000
                     }
                   },
@@ -798,8 +801,8 @@
                         },
                         "value": {
                           "type": "number",
-                          "minimum": -1000000.0,
-                          "maximum": 1000000.0
+                          "minimum": -1000000,
+                          "maximum": 1000000
                         }
                       }
                     }
@@ -843,8 +846,8 @@
                         },
                         "threshold": {
                           "type": "number",
-                          "minimum": -1000000.0,
-                          "maximum": 1000000.0
+                          "minimum": -1000000,
+                          "maximum": 1000000
                         },
                         "duration": {
                           "type": "number",
@@ -1054,7 +1057,7 @@
                 "properties": {
                   "unitScale": {
                     "type": "number",
-                    "minimum": 1e-06,
+                    "minimum": 0.000001,
                     "maximum": 1000
                   },
                   "upAxis": {

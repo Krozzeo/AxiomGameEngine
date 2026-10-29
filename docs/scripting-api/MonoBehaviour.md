@@ -26,6 +26,7 @@ SDK 8: `enabled` is shared by C# and the live Inspector checkbox. Disabling supp
 ## Implemented declarations
 
 ```csharp
+// Namespace: Axiom.Gameplay
 public abstract partial class MonoBehaviour : Script {
  public virtual void OnCollisionEnter(Collision collision){}public virtual void OnCollisionStay(Collision collision){}public virtual void OnCollisionExit(Collision collision){}
  public virtual void OnTriggerEnter(Collider other){}public virtual void OnTriggerStay(Collider other){}public virtual void OnTriggerExit(Collider other){}
@@ -37,6 +38,18 @@ public abstract partial class MonoBehaviour : Script {
  public override void OnStop(){}
 }
 
+// Namespace: UnityEngine
+public partial class MonoBehaviour : Behaviour {
+ internal void Dispatch(string name){var type=GetType();while(type!=typeof(MonoBehaviour)&&type!=null){var method=type.GetMethod(name,System.Reflection.BindingFlags.Public|System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.DeclaredOnly,null,Type.EmptyTypes,null);if(method!=null){method.Invoke(this,null);return;}type=type.BaseType;}}
+}
+
+// Namespace: UnityEngine
+public partial class MonoBehaviour {
+ public static T Instantiate<T>(T original,Vector3 position,Quaternion rotation) where T:Object=>Object.Instantiate(original,position,rotation);public static T Instantiate<T>(T original,Transform? parent) where T:Object=>Object.Instantiate(original,parent);public static T Instantiate<T>(T original,Transform? parent,bool worldPositionStays) where T:Object=>Object.Instantiate(original,parent,worldPositionStays);public static T Instantiate<T>(T original,Vector3 position,Quaternion rotation,Transform? parent) where T:Object=>Object.Instantiate(original,position,rotation,parent);
+ public static T? FindFirstObjectByType<T>() where T:Object=>Object.FindFirstObjectByType<T>();public static T? FindAnyObjectByType<T>() where T:Object=>Object.FindAnyObjectByType<T>();
+}
+
+// Namespace: Axiom.Gameplay
 public abstract partial class MonoBehaviour {
  public Coroutine StartCoroutine(IEnumerator routine)=>RuntimeLifecycle.Start(this,routine);
  public void StopCoroutine(Coroutine coroutine){if(coroutine.Owner!=this)throw new ArgumentException("Coroutine belongs to another behaviour");RuntimeLifecycle.Stop(coroutine);}

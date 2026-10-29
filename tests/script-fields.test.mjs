@@ -1,4 +1,10 @@
 import test from 'node:test';import assert from 'node:assert/strict';import {scriptMetadata,setScriptComponent,validateScriptComponents,compileSources} from '../engine/scripting/fields.mjs';
+test('Unity source fields preserve comma declarators, qualified types and initializer commas',()=>{
+ const text='using UnityEngine; public class Probe : UnityEngine.MonoBehaviour { public int Frames,Passed,Failed,Number=73; public string A="one,two",B="three"; [SerializeField] private UnityEngine.Vector3 Position=new UnityEngine.Vector3(1,2,3), Other; public static int Shared; }';
+ const metadata=scriptMetadata({kind:'script',path:'Scripts/Probe.cs',text});assert.deepEqual(metadata.fields.map(field=>field.name),['Frames','Passed','Failed','Number','A','B','Position','Other']);assert.equal(metadata.fields.find(field=>field.name==='Number').default,73);assert.equal(metadata.fields.find(field=>field.name==='A').default,'one,two');assert.deepEqual(metadata.fields.find(field=>field.name==='Position').default,[1,2,3]);
+ const helper={kind:'script',path:'Scripts/Helper.cs',text:'namespace Game;public class Helper : UnityEngine.MonoBehaviour {}'};
+ assert.equal(scriptMetadata({kind:'script',path:'Scripts/Owner.cs',text:'public class Owner : UnityEngine.MonoBehaviour {public Helper Peer;}'},[helper]).fields[0].reference,'component');
+});
 const source=`using Axiom.Gameplay; namespace Game;
 public enum Mode {Idle, Running=4}
 public sealed class Mover : MonoBehaviour {

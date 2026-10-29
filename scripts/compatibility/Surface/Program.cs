@@ -59,7 +59,7 @@ foreach (var file in Directory.GetFiles(Path.Combine(root,"engine/scripting/temp
   if(type.Ancestors().OfType<BaseTypeDeclarationSyntax>().Any(t=>!t.Modifiers.Any(SyntaxKind.PublicKeyword)))continue;
   var ns=string.Join(".",type.Ancestors().OfType<BaseNamespaceDeclarationSyntax>().Reverse().Select(n=>n.Name.ToString()));
   var owner=ns+"."+string.Join(".",type.Ancestors().OfType<BaseTypeDeclarationSyntax>().Reverse().Select(t=>t.Identifier.Text).Append(type.Identifier.Text));
-  if(!ns.StartsWith("Axiom.Gameplay"))continue;
+  if(!ns.StartsWith("Axiom.Gameplay")&&!ns.StartsWith("UnityEngine")&&!ns.StartsWith("Unity.Collections"))continue;
   void Add(string name,string kind,string returns,string[] parameters,SyntaxNode node) {
    records.Add(new{owner,name,kind,returns,parameters,source=Path.GetRelativePath(root,file).Replace('\\','/'),line=node.GetLocation().GetLineSpan().StartLinePosition.Line+1});
   }

@@ -12,6 +12,13 @@ PrefabAsset is an explicit Axiom resource type, rather than Unity's asset-backed
 ## Implemented declarations
 
 ```csharp
+// Namespace: UnityEngine
+public static class Resources {
+ public static T[] FindObjectsOfTypeAll<T>() where T:Object=>NativeObjects.All(typeof(T)).Cast<T>().ToArray();public static Object[] FindObjectsOfTypeAll(Type type)=>NativeObjects.All(type);
+ public static T? Load<T>(string path) where T:Object {var type=typeof(T)==typeof(TextAsset)?typeof(Axiom.Gameplay.TextAsset):typeof(T)==typeof(Mesh)?typeof(Axiom.Gameplay.Mesh):typeof(T)==typeof(Texture2D)?typeof(Axiom.Gameplay.Texture2D):typeof(T)==typeof(AudioClip)?typeof(Axiom.Gameplay.AudioClip):typeof(Axiom.Gameplay.Object);var native=Axiom.Gameplay.RuntimeAssets.Load(type,path);return native==null?null:(T)Object.Wrap(native);}
+}
+
+// Namespace: Axiom.Gameplay
 public static class Resources {
  public static ResourceRequest LoadAsync<T>(string path) where T:Object=>new(Load<T>(path));
  internal static JsonElement Data=Context.ParseData("[]");
@@ -21,9 +28,19 @@ public static class Resources {
  public static T[] LoadAll<T>(string path="") where T:Object=>Data.EnumerateArray().Where(r=>r.GetProperty("path").GetString()!.StartsWith(path,StringComparison.Ordinal)).Select(r=>Load<T>(r.GetProperty("path").GetString()!)).OfType<T>().ToArray();
 }
 
+// Namespace: UnityEngine
+public class TextAsset:Object {
+ public TextAsset():this(""){}public TextAsset(string text){Wrapped=new Axiom.Gameplay.TextAsset("",text??"");Axiom.Gameplay.RuntimeAssets.Register(Wrapped,true,"");CacheFacade();}
+ internal TextAsset(Axiom.Gameplay.TextAsset value){Wrapped=value;}
+ public string text=>this?((Axiom.Gameplay.TextAsset)Native).text:throw new MissingReferenceException("TextAsset has been destroyed");public byte[] bytes=>System.Text.Encoding.UTF8.GetBytes(text);
+}
+
+// Namespace: Axiom.Gameplay
 public sealed class TextAsset : Object {internal string Path;public string name {get;}public string text {get;}public byte[] bytes=>System.Text.Encoding.UTF8.GetBytes(text);internal TextAsset(string path,string value){Path=path;name=path.Split('/').Last();text=value;}}
 
+// Namespace: Axiom.Gameplay
 public sealed class PrefabAsset : Object {public string path=>Path;public string name=>Path.Split('/').Last();internal string Path;internal PrefabAsset(string path){Path=path;}}
 
+// Namespace: Axiom.Gameplay
 public sealed class SceneAsset : Object {public string path=>Path;public string name=>Path.Split('/').Last();internal string Path;internal SceneAsset(string path){Path=path;}}
 ```

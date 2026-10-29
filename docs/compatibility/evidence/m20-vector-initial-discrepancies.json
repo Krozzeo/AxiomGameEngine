@@ -1,0 +1,151 @@
+{
+  "profile": "Historical failed120-case probe before vector corrections; not current acceptance",
+  "sdkBaseCommit": "7db8643",
+  "passed": false,
+  "checks": 120,
+  "mismatches": [
+    {
+      "index": 1,
+      "profile": "mirrored",
+      "message": "Value[17]: expected -1.3429604, actual 1.3429602"
+    },
+    {
+      "index": 2,
+      "profile": "mirrored",
+      "message": "Value[17]: expected -1.3429604, actual 1.3429602"
+    },
+    {
+      "index": 2,
+      "profile": "short",
+      "message": "Exception: expected System.InvalidOperationException, actual System.ArgumentException"
+    },
+    {
+      "index": 2,
+      "profile": "long",
+      "message": "Exception: expected System.InvalidOperationException, actual "
+    },
+    {
+      "index": 3,
+      "profile": "collapsed",
+      "message": "Value[17]: expected -1.1341805, actual 5.5136763E+16"
+    },
+    {
+      "index": 4,
+      "profile": "mirrored",
+      "message": "Value[17]: expected -2.311892, actual -0.14508246"
+    },
+    {
+      "index": 5,
+      "profile": "mirrored",
+      "message": "Value[17]: expected -2.311892, actual -0.14508246"
+    },
+    {
+      "index": 6,
+      "profile": "collapsed",
+      "message": "Value[17]: expected -1.1341805, actual 5.5136763E+16"
+    },
+    {
+      "index": 7,
+      "profile": "collapsed",
+      "message": "Value[17]: expected -3.1377006, actual 8.667001E+16"
+    },
+    {
+      "index": 9,
+      "profile": "collapsed",
+      "message": "Value[17]: expected -1.1341805, actual 5.5136763E+16"
+    },
+    {
+      "index": 9,
+      "profile": "short",
+      "message": "Exception: expected System.InvalidOperationException, actual System.ArgumentException"
+    },
+    {
+      "index": 9,
+      "profile": "long",
+      "message": "Exception: expected System.InvalidOperationException, actual "
+    },
+    {
+      "index": 10,
+      "profile": "mirrored",
+      "message": "Value[17]: expected -1.3429604, actual 1.3429602"
+    },
+    {
+      "index": 12,
+      "profile": "short",
+      "message": "Exception: expected System.InvalidOperationException, actual System.ArgumentException"
+    },
+    {
+      "index": 12,
+      "profile": "long",
+      "message": "Exception: expected System.InvalidOperationException, actual "
+    },
+    {
+      "index": 13,
+      "profile": "mirrored",
+      "message": "Value[17]: expected -2.311892, actual -0.14508246"
+    },
+    {
+      "index": 13,
+      "profile": "short",
+      "message": "Exception: expected System.InvalidOperationException, actual System.ArgumentException"
+    },
+    {
+      "index": 13,
+      "profile": "long",
+      "message": "Exception: expected System.InvalidOperationException, actual "
+    },
+    {
+      "index": 14,
+      "profile": "mirrored",
+      "message": "Value[17]: expected -2.311892, actual -0.14508246"
+    },
+    {
+      "index": 15,
+      "profile": "collapsed",
+      "message": "Value[17]: expected -3.1377006, actual 8.667001E+16"
+    },
+    {
+      "index": 15,
+      "profile": "short",
+      "message": "Exception: expected System.InvalidOperationException, actual System.ArgumentException"
+    },
+    {
+      "index": 15,
+      "profile": "long",
+      "message": "Exception: expected System.InvalidOperationException, actual "
+    },
+    {
+      "index": 16,
+      "profile": "mirrored",
+      "message": "Value[17]: expected -1.3429604, actual 1.3429602"
+    },
+    {
+      "index": 18,
+      "profile": "short",
+      "message": "Exception: expected System.InvalidOperationException, actual System.ArgumentException"
+    },
+    {
+      "index": 18,
+      "profile": "long",
+      "message": "Exception: expected System.InvalidOperationException, actual "
+    },
+    {
+      "index": 19,
+      "profile": "collapsed",
+      "message": "Value[17]: expected -3.1377006, actual 8.667001E+16"
+    },
+    {
+      "index": 20,
+      "profile": "collapsed",
+      "message": "Value[17]: expected -3.1377006, actual 8.667001E+16"
+    },
+    {
+      "index": 22,
+      "profile": "collapsed",
+      "message": "Value[17]: expected -1.1341805, actual 5.5136763E+16"
+    }
+  ],
+  "referenceSourceSha256": "e7a6a3e41bfb698edd0a950e97d5d795cd8199f0d00dd55b828ee2d29891b075",
+  "referenceEvidenceSha256": "77aefb8499143c139deba1f38c2576aa3ae9d4f4c55ca6f57b38b605e2249695",
+  "supersededBy": "m20-vector-native-acceptance.json"
+}

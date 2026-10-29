@@ -1,0 +1,30 @@
+{
+  "milestone": "M20",
+  "complete": true,
+  "targetRecords": 311,
+  "certifiedUnitySignatures": 311,
+  "areas": {
+    "UnityEngine.Component": {
+      "targets": 62,
+      "aliasBehaviorTargets": 0,
+      "certifiedTargets": 62
+    },
+    "UnityEngine.GameObject": {
+      "targets": 96,
+      "aliasBehaviorTargets": 0,
+      "certifiedTargets": 96
+    },
+    "UnityEngine.Transform": {
+      "targets": 81,
+      "aliasBehaviorTargets": 0,
+      "certifiedTargets": 81
+    },
+    "UnityEngine.Object": {
+      "targets": 72,
+      "aliasBehaviorTargets": 0,
+      "certifiedTargets": 72
+    }
+  },
+  "failedCriteria": [],
+  "unaccepted": []
+}

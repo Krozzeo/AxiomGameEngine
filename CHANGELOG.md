@@ -1,3 +1,48 @@
+# 0.0.62 — M20 complete: canonical core and dependency profiles
+
+- Close M20 with311/311 bounded assigned contracts,3/3 required criteria,506 local checks, all required accepted-code CI jobs and actual public Platform installation/demo/save/close acceptance. Preserve stable0.0.57; M21 is next.
+
+### Development checkpoints within0.0.62 — earlier partial counts are historical
+
+- Fix legacy bare-Spawn duplication of Script identities. Preserve live Inspector selection during background refresh, reject stale Play/scope snapshots and serialize rapid runtime field/reference/activation edits. Add deterministic delayed-event and stale-generation regressions.
+
+- Complete attributed M20 signature profiles at311/311: primitive creation13 observations and AddComponent140 observations. Add independent script/collider identities, clone/reference remapping, per-instance Inspector edits, shared-body compound CPU/Wasm shapes, exact collider callbacks and component-specific collision exclusions. Preserve runtime-only authoring boundaries and exact Stop restoration. Final regression, exact accepted-code CI and public Platform installation/demo acceptance pass.
+- Fix Windows AOT long-path compiler failures using verified temporary staging; preserve bounded native compiler diagnostics.
+
+- Add30 attributed signatures (308/311 total): synchronous clone13, bulk6, lifetime7 and tag search4. Match destroyed clone sources/parents, bulk invalid IDs and arrays, persistence asset/unbound behavior, tag search exceptions and Untagged results. Add four standard demos and canonical shared Time/scene unload bridges; M20 remains open.
+- Attribute24 message overloads through360 native Play/.NET/Development/AOT outcomes (278/311 accepted). Match null-payload/inactive-upwards/name/options semantics. Register inherited components and preserve private base members/fields in AOT; package the shared type-discovery module. M20 remains open.
+
+- Attribute17 GameObject/Component state, constructor, scene and handle contracts via53 native Play/.NET/Development/AOT cases (254/311 accepted). Match native invalid-layer log/no-op behavior and add GameObject State Lab. M20 remains open.
+
+- Attribute23 global-find overloads through152 native/.NET/Development/AOT comparisons (237/311 accepted). Match native invalid-Type null arrays/scalar exceptions and obsolete DontSave filtering; add Object Find Lab. M20 remains open.
+
+- Attribute all56 Component/GameObject query overloads through476 native/.NET/Development/AOT cases (214/311 accepted). Match native inactive hierarchy traversal and null-Type TryGetComponent. Add version-owned Component Queries Lab; M20 remains open.
+
+- Make generated reference fixtures portable across operating systems by fixing the nonsemantic gzip OS header byte; preserve all recorded outcomes and fixture contents.
+- Add the portable77-case Object Contracts Lab and29 attributed native/Development/AOT contracts (158/311 accepted). Match native unbound/destroyed property exceptions, null names, generic component-slot casts and destroyed-owner index validation. M20 remains open.
+
+- Complete recorded acceptance for all81 Transform contracts. Add63 native/Wasm hierarchy cases, live enumeration, root-shared capacity/growth, no-op assignments and change flags across external input frames.129/311 M20 contracts accepted; other areas remain open.
+
+- Add36 directly attributed pose/rotation/matrix contracts through348 native/.NET/Development/AOT cases. Match reflected translations/axis rotations, collapsed-coordinate setters and inverse matrices, zero directions and null LookAt behavior. Add Pose Transforms Lab;114/311 contracts accepted.
+
+- Add24 directly attributed vector/span contracts through240 native Unity/.NET/Development/AOT comparisons. Correct ancestor reflections, collapsed-axis inverse queries and exact span-length errors. Add the editable Vector Transforms Lab;78/311 contracts accepted.
+
+- Add canonical UnityEngine core inheritance/float facades on the shared native runtime;311 compiled public source contracts match the frozen scope. Preserve the original migration corpus without aliases or rewrites.
+- Retain full affine matrices/shear/zero-scale local state across host frames. Add managed/reference graph clones, deferred/cancellable async integration, all17 direct async overload cases, real bulk identities and disposable NativeArray storage.
+- Add six owned primitive meshes, typed component/mesh identities and Rust CPU/Wasm capsule/finite-surface physics. Retain the broader physics/asset/Collections areas as separate incomplete milestones.
+- Fix qualified/comma-declared Inspector fields, operation-budget mutation ordering and saved AOT build-mode restoration. The harness verifies the mode actually executed.
+- Add owned runtime asset identities, synchronous Mesh/TextAsset/resource clones, temporary Inspector references, mesh assignment/retirement and a version-owned asset/lifecycle demo. Match native standalone-asset async rejection.
+- Certify17 async overloads through the same137-check native Unity/Axiom/Development/AOT lifecycle corpus and30 obsolete compile-error contracts through all three compilers. Preserve311 targets;54 accepted.
+- Correct null-name/null-original contracts, mirrored-parent Euler/deprecated radian rotations, and physics local-pose/matrix snapshots that broke M18.3 grounding.
+- 740 native observations,267 core plus208 asset/lifecycle editor checks per mode, and486 Node checks pass. M20 remains open pending complete per-signature behavior/reference/dependency attribution and exact-head publication gates; source matching is not full functional parity.
+
+# 0.0.61 — M20.3a transform behavior (partial)
+
+- Publish descendant world-space position/rotation/scale operations to the host so changes survive the next frame. Validate the whole hierarchy and operation budget before changing any poses. Reparent and combined pose failures retain previous state.
+- Add legacy Transform Euler Z-X-Y rotation, axis/space/orbit/look-at/direction setters, pose getters, scalar overloads, overlapping in-place/separate span transforms and immediate-child enumeration. Original Quaternion.Euler remains unchanged for existing projects.
+- Editable M20 lab retains its 32 lifecycle checks and adds a second controller with 19 transform/bridge checks. Native suite passes 138 cases. SDK11 recompiles old saved scripts; native formats stay1.
+- M20 stays open: unadapted UnityEngine corpus fails CS0246, strict certification remains0/311, and matrix/shear/async/package/clone dependencies remain. Closure audit rejects missing targets, changed signatures and false completion.
+
 # 0.0.60 — shared providers and version-owned demos
 
 New experimental build: declare `project.demos` and the version-owned M20 Object Lifecycle Lab catalog. Platform0.1.11 can generate it into configured storage without CLI steps, using a fresh authorized destination, explicit demo IDs and operation receipts. Older published0.0.60 builds remain immutable. SDK10/native formats1/M20.2 behavior remain unchanged; Math demos and M20.3 are not included.

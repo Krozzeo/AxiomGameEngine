@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "passed": true,
+  "acceptedSignatures": 1,
+  "corpusSourceHashes": {
+    "PrimitiveCreationCorpus.cs": "ffcbc5d926fe1836a9da82310f443a7c5cab19082a0031bb6186a19776a87085",
+    "PrimitiveCreationReference.cs": "285ec02734fe24abd70eeef4ab5c80a7c2e8870007e79754c3741905fa1efa60",
+    "PrimitiveCreationLab.cs": "884183c1041534335f73ebf8f447c9653b4e849d5b9b5f1a2d73a2fef9cd3a64"
+  },
+  "record": {
+    "id": "unity63abi:5174ba12e927c74a92090d3f",
+    "owner": "UnityEngine.GameObject",
+    "declaration": "public static UnityEngine.GameObject CreatePrimitive(UnityEngine.PrimitiveType type);",
+    "caseIds": [
+      "create.Sphere",
+      "mesh.Sphere",
+      "create.Capsule",
+      "mesh.Capsule",
+      "create.Cylinder",
+      "mesh.Cylinder",
+      "create.Cube",
+      "mesh.Cube",
+      "create.Plane",
+      "mesh.Plane",
+      "create.Quad",
+      "mesh.Quad",
+      "create.invalid"
+    ]
+  }
+}

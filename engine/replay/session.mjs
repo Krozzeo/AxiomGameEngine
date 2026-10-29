@@ -5,6 +5,7 @@ export const replayError=message=>Object.assign(Error('AX_REPLAY_0001: '+message
 // bounded input prefix, including private script fields, then verifies equality.
 // No arbitrary .NET heap serialization or GPU/audio-clock replay is claimed.
 export function canonicalReplayState(state){
+ for(const entity of state.entities){const matrix=entity.transform?.matrix;if(matrix!==undefined&&(!Array.isArray(matrix)||matrix.length!==16||matrix.some(value=>!Number.isFinite(value)||Math.abs(value)>1000000)||Math.abs(matrix[3])+Math.abs(matrix[7])+Math.abs(matrix[11])>1e-9||Math.abs(matrix[15]-1)>1e-9))throw replayError('Invalid checkpoint affine matrix');}
  const entities=state.entities.map(e=>({id:e.id,transform:e.transform,rigidBody:e.rigidBody??null})).sort((a,b)=>a.id.localeCompare(b.id));
  const physics=state.physics?{bodies:state.physics.bodies,contacts:state.physics.contacts,steps:state.physics.steps}:null;
  const result={entities,physics,animation:state.animation??[],time:state.time??0};

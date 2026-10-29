@@ -1,0 +1,20 @@
+{
+  "source": "tests/csharp/M20.Migration/HierarchyMigration.cs",
+  "sha256": "b9621da30d67a2430d02d83c8e5f4818bf0611d1b842e4fbbf0bf739064e6516",
+  "sourceRewritten": false,
+  "nativeCompilationPassed": true,
+  "developmentExecutionPassed": true,
+  "aotExecutionPassed": true,
+  "observations": [
+    "child created",
+    "parent and serialized float position",
+    "world rotation",
+    "delayed destruction",
+    "owner survives"
+  ],
+  "evidence": [
+    "m20-sdk12-development-wasm.json",
+    "m20-sdk12-aot-wasm.json"
+  ],
+  "historicalFailure": "m20-unadapted-migration.json is preserved unchanged"
+}

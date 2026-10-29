@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "targetSignatures": 4,
+  "expectedObservations": 39,
+  "records": [
+    {
+      "id": "unity63abi:36fcd203a7684cd9af33ddb4",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public static UnityEngine.GameObject FindWithTag(string tag);",
+      "index": 0,
+      "profiles": [
+        "Player",
+        "Finish",
+        "Untagged",
+        "unknown",
+        "null",
+        "empty",
+        "inactive",
+        "retired",
+        "explicit-untagged"
+      ],
+      "certified": true
+    },
+    {
+      "id": "unity63abi:d9bb1556c2620581230f065f",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public static UnityEngine.GameObject FindGameObjectWithTag(string tag);",
+      "index": 1,
+      "profiles": [
+        "Player",
+        "Finish",
+        "Untagged",
+        "unknown",
+        "null",
+        "empty",
+        "inactive",
+        "retired",
+        "explicit-untagged"
+      ],
+      "certified": true
+    },
+    {
+      "id": "unity63abi:33ba9989c10e83ccca343383",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public static UnityEngine.GameObject[] FindGameObjectsWithTag(string tag);",
+      "index": 2,
+      "profiles": [
+        "Player",
+        "Finish",
+        "Untagged",
+        "unknown",
+        "null",
+        "empty",
+        "inactive",
+        "retired",
+        "explicit-untagged"
+      ],
+      "certified": true
+    },
+    {
+      "id": "unity63abi:c566f1d711ae904e6885c84e",
+      "owner": "UnityEngine.GameObject",
+      "declaration": "public static void FindGameObjectsWithTag(string tag, System.Collections.Generic.List`1<UnityEngine.GameObject> results);",
+      "index": 3,
+      "profiles": [
+        "Player",
+        "Finish",
+        "Untagged",
+        "unknown",
+        "null",
+        "empty",
+        "inactive",
+        "retired",
+        "explicit-untagged",
+        "null-results",
+        "null-tag-and-results",
+        "unknown-tag-and-results"
+      ],
+      "certified": true
+    }
+  ]
+}

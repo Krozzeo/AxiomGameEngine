@@ -1,0 +1,679 @@
+{
+  "schemaVersion": 1,
+  "targetSignatures": 36,
+  "expectedObservations": 348,
+  "records": [
+    {
+      "index": 0,
+      "id": "unity63abi:060ec14cc6fcf1d8df32ce69",
+      "declaration": "public void LookAt(UnityEngine.Vector3 worldPosition);",
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed",
+        "zero-input"
+      ],
+      "resultKind": "none",
+      "certified": true
+    },
+    {
+      "index": 1,
+      "id": "unity63abi:126db462beeaf3181ed7e976",
+      "declaration": "public UnityEngine.Vector3 right { public get; public set; }",
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed",
+        "zero-input"
+      ],
+      "resultKind": "vector",
+      "certified": true
+    },
+    {
+      "index": 2,
+      "id": "unity63abi:142e6eb4d9dbb1ba016206ef",
+      "declaration": "public void Rotate(UnityEngine.Vector3 eulers);",
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed"
+      ],
+      "resultKind": "none",
+      "certified": true
+    },
+    {
+      "index": 3,
+      "id": "unity63abi:1f6180af653b21a7eaa7d5e7",
+      "declaration": "public UnityEngine.Quaternion rotation { public get; public set; }",
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed"
+      ],
+      "resultKind": "quaternion",
+      "certified": true
+    },
+    {
+      "index": 4,
+      "id": "unity63abi:246e13baccf2c5a70652121e",
+      "declaration": "public void LookAt(UnityEngine.Transform target, UnityEngine.Vector3 worldUp);",
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed",
+        "null"
+      ],
+      "resultKind": "none",
+      "certified": true
+    },
+    {
+      "index": 5,
+      "id": "unity63abi:2473cbda4eb132095f83459b",
+      "declaration": "public void RotateAround(UnityEngine.Vector3 point, UnityEngine.Vector3 axis, float angle);",
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed",
+        "zero-input"
+      ],
+      "resultKind": "none",
+      "certified": true
+    },
+    {
+      "index": 6,
+      "id": "unity63abi:2cc1372ff0892fcb7b782f92",
+      "declaration": "public UnityEngine.Matrix4x4 localToWorldMatrix { public get; }",
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed"
+      ],
+      "resultKind": "matrix",
+      "certified": true
+    },
+    {
+      "index": 7,
+      "id": "unity63abi:2f9a0b0fdb3b77f13c40a117",
+      "declaration": "public void SetLocalPositionAndRotation(UnityEngine.Vector3 localPosition, UnityEngine.Quaternion localRotation);",
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed"
+      ],
+      "resultKind": "none",
+      "certified": true
+    },
+    {
+      "index": 8,
+      "id": "unity63abi:3271bff39998bbad798ea567",
+      "declaration": "public void Rotate(UnityEngine.Vector3 eulers, UnityEngine.Space relativeTo);",
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed",
+        "world",
+        "world-mirrored"
+      ],
+      "resultKind": "none",
+      "certified": true
+    },
+    {
+      "index": 9,
+      "id": "unity63abi:32cd943e83389d1a6869be74",
+      "declaration": "public void LookAt(UnityEngine.Transform target);",
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed",
+        "null"
+      ],
+      "resultKind": "none",
+      "certified": true
+    },
+    {
+      "index": 10,
+      "id": "unity63abi:48a823c1a17035608e6b4562",
+      "declaration": "public void LookAt(UnityEngine.Vector3 worldPosition, UnityEngine.Vector3 worldUp);",
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed",
+        "zero-input"
+      ],
+      "resultKind": "none",
+      "certified": true
+    },
+    {
+      "index": 11,
+      "id": "unity63abi:4a0ad4a167b184ec17344243",
+      "declaration": "public void Translate(float x, float y, float z, UnityEngine.Transform relativeTo);",
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed",
+        "null"
+      ],
+      "resultKind": "none",
+      "certified": true
+    },
+    {
+      "index": 12,
+      "id": "unity63abi:4f14b55c8f4e49c834ef927c",
+      "declaration": "public UnityEngine.Vector3 up { public get; public set; }",
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed",
+        "zero-input"
+      ],
+      "resultKind": "vector",
+      "certified": true
+    },
+    {
+      "index": 13,
+      "id": "unity63abi:596db428f951b74f4407f112",
+      "declaration": "public void RotateAroundLocal(UnityEngine.Vector3 axis, float angle);",
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed",
+        "zero-input"
+      ],
+      "resultKind": "none",
+      "certified": true
+    },
+    {
+      "index": 14,
+      "id": "unity63abi:5b3e66afe646d9587c9e2c84",
+      "declaration": "public UnityEngine.Vector3 localEulerAngles { public get; public set; }",
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed"
+      ],
+      "resultKind": "euler",
+      "certified": true
+    },
+    {
+      "index": 15,
+      "id": "unity63abi:6cc90c3b4840284ce857762b",
+      "declaration": "public UnityEngine.Vector3 lossyScale { public get; }",
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed"
+      ],
+      "resultKind": "vector",
+      "certified": true
+    },
+    {
+      "index": 16,
+      "id": "unity63abi:6eb6798046e60a49e44c7f50",
+      "declaration": "public void Rotate(UnityEngine.Vector3 axis, float angle);",
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed",
+        "zero-input"
+      ],
+      "resultKind": "none",
+      "certified": true
+    },
+    {
+      "index": 17,
+      "id": "unity63abi:74288d8db35115a7ff1d5938",
+      "declaration": "public void GetPositionAndRotation(out UnityEngine.Vector3 position, out UnityEngine.Quaternion rotation);",
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed"
+      ],
+      "resultKind": "pose",
+      "certified": true
+    },
+    {
+      "index": 18,
+      "id": "unity63abi:7c0a68016e7ccfbfdc86cb8c",
+      "declaration": "public UnityEngine.Quaternion localRotation { public get; public set; }",
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed"
+      ],
+      "resultKind": "quaternion",
+      "certified": true
+    },
+    {
+      "index": 19,
+      "id": "unity63abi:84b7ecd742fb52f2b698b73c",
+      "declaration": "public UnityEngine.Vector3 position { public get; public set; }",
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed"
+      ],
+      "resultKind": "vector",
+      "certified": true
+    },
+    {
+      "index": 20,
+      "id": "unity63abi:89e9133d9dcf88d29846cea0",
+      "declaration": "public void Rotate(float xAngle, float yAngle, float zAngle, UnityEngine.Space relativeTo);",
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed",
+        "world",
+        "world-mirrored"
+      ],
+      "resultKind": "none",
+      "certified": true
+    },
+    {
+      "index": 21,
+      "id": "unity63abi:97bcb61a53a136c96ab92cb3",
+      "declaration": "public void Rotate(float xAngle, float yAngle, float zAngle);",
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed"
+      ],
+      "resultKind": "none",
+      "certified": true
+    },
+    {
+      "index": 22,
+      "id": "unity63abi:9832d417ab73e90fa122c522",
+      "declaration": "public UnityEngine.Matrix4x4 worldToLocalMatrix { public get; }",
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed"
+      ],
+      "resultKind": "matrix",
+      "certified": true
+    },
+    {
+      "index": 23,
+      "id": "unity63abi:9ae9d25537a1afeabfd10efb",
+      "declaration": "public void Rotate(UnityEngine.Vector3 axis, float angle, UnityEngine.Space relativeTo);",
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed",
+        "world",
+        "world-mirrored",
+        "zero-input"
+      ],
+      "resultKind": "none",
+      "certified": true
+    },
+    {
+      "index": 24,
+      "id": "unity63abi:9b0295bf5ceef0bf4fe47b95",
+      "declaration": "public void RotateAround(UnityEngine.Vector3 axis, float angle);",
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed",
+        "zero-input"
+      ],
+      "resultKind": "none",
+      "certified": true
+    },
+    {
+      "index": 25,
+      "id": "unity63abi:9d0c72e08e543bc39f2cc609",
+      "declaration": "public void GetLocalPositionAndRotation(out UnityEngine.Vector3 localPosition, out UnityEngine.Quaternion localRotation);",
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed"
+      ],
+      "resultKind": "pose",
+      "certified": true
+    },
+    {
+      "index": 26,
+      "id": "unity63abi:a36ea56f7dba884c6e80ed63",
+      "declaration": "public void Translate(UnityEngine.Vector3 translation, UnityEngine.Transform relativeTo);",
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed",
+        "null"
+      ],
+      "resultKind": "none",
+      "certified": true
+    },
+    {
+      "index": 27,
+      "id": "unity63abi:aa8906e2024d0e436c57daa0",
+      "declaration": "public UnityEngine.Vector3 localPosition { public get; public set; }",
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed"
+      ],
+      "resultKind": "vector",
+      "certified": true
+    },
+    {
+      "index": 28,
+      "id": "unity63abi:b7239b300733cbbeb0de507b",
+      "declaration": "public void Translate(UnityEngine.Vector3 translation, UnityEngine.Space relativeTo);",
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed",
+        "world",
+        "world-mirrored"
+      ],
+      "resultKind": "none",
+      "certified": true
+    },
+    {
+      "index": 29,
+      "id": "unity63abi:c536bf082dd9410ae4b8dcaa",
+      "declaration": "public UnityEngine.Vector3 localScale { public get; public set; }",
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed"
+      ],
+      "resultKind": "vector",
+      "certified": true
+    },
+    {
+      "index": 30,
+      "id": "unity63abi:e20727858307286494776aa2",
+      "declaration": "public void Translate(UnityEngine.Vector3 translation);",
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed"
+      ],
+      "resultKind": "none",
+      "certified": true
+    },
+    {
+      "index": 31,
+      "id": "unity63abi:e3808095f538aa05d715d89d",
+      "declaration": "public UnityEngine.Vector3 eulerAngles { public get; public set; }",
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed"
+      ],
+      "resultKind": "euler",
+      "certified": true
+    },
+    {
+      "index": 32,
+      "id": "unity63abi:e827fc790ddd963bb4d1c0ab",
+      "declaration": "public UnityEngine.Vector3 forward { public get; public set; }",
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed",
+        "zero-input"
+      ],
+      "resultKind": "vector",
+      "certified": true
+    },
+    {
+      "index": 33,
+      "id": "unity63abi:f816d4b6301c3fc813107ffc",
+      "declaration": "public void SetPositionAndRotation(UnityEngine.Vector3 position, UnityEngine.Quaternion rotation);",
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed"
+      ],
+      "resultKind": "none",
+      "certified": true
+    },
+    {
+      "index": 34,
+      "id": "unity63abi:fbb6d8e9a7f9600129853835",
+      "declaration": "public void Translate(float x, float y, float z);",
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed"
+      ],
+      "resultKind": "none",
+      "certified": true
+    },
+    {
+      "index": 35,
+      "id": "unity63abi:fd2c356f1e04efbb0250a01f",
+      "declaration": "public void Translate(float x, float y, float z, UnityEngine.Space relativeTo);",
+      "profiles": [
+        "regular",
+        "mirrored",
+        "collapsed",
+        "local-mirror",
+        "double-mirror",
+        "deep-mirror",
+        "deep-collapse",
+        "collapsed-child",
+        "destroyed",
+        "world",
+        "world-mirrored"
+      ],
+      "resultKind": "none",
+      "certified": true
+    }
+  ]
+}

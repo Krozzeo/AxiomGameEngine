@@ -1,3 +1,22 @@
+**M20 complete — Engine 0.0.62 / SDK12.** All 311 frozen assigned contracts have attributed acceptance: 281 behavioral profiles and 30 obsolete compiler-error contracts. Component 62/62, GameObject 96/96, Transform 81/81 and Object 72/72. All three milestone criteria passed. This is bounded M20 compatibility, not complete Unity API parity. Stable main remains 0.0.57; 0.0.62 is an experimental review release.
+
+Next: **M21 — Mathematics, geometry and utilities**. Shared AI/GitHub account authority stays in Platform, project overrides stay in Engine, native project/scene formats remain 1. No automatic merge or stable promotion.
+
+Evidence: [M20 report](reports/M20_REPORT.md). GPU physics remains planned in M25–M28 and later acceptance batches.
+
+---
+
+## Historical development snapshots — superseded by the accepted report above
+
+
+# M20.3a transform behavior — Engine 0.0.61 / SDK11
+
+M20 remains **in progress**. This batch fixes host publication of descendant transforms, atomic pose/reparent rejection and adds tested legacy Euler/axis/orbit/look/direction/span APIs. 138 native observations and 32 lifecycle + 19 transform development-Wasm observations pass, including next-frame consistency and exact Stop restoration. The required unadapted UnityEngine corpus fails CS0246; all 311 assigned records and 0 certified exact signatures remain visible.
+
+Full Transform matrices/shear/zero-scale local state, canonical namespace/float interoperation, async and package profiles, message/tag/obsolete overloads and managed/navigation clone dependencies remain required. See [partial report](reports/M20_TRANSFORM_BATCH.md). Stable main remains 0.0.57. No automatic merge or milestone closure. Older sections below retain historical versions.
+
+---
+
 # Version-owned demo integration — Engine0.0.60 new experimental build
 
 Optional IPC1 capability `project.demos` plus a manifest demo catalog enable Platform0.1.11 Load Demos. This build declares only M20 Object Lifecycle Lab; generation requires a fresh authorized destination and explicit declared IDs, returns native project paths and replays operation receipts. The original public0.0.60 artifact is immutable. Math Lab demos are deferred. SDK10, native formats1 and M20.2 behavior remain unchanged; this does not close M20 or add Unity signatures. [Guide](../demos/M20_GUIDE.md).
@@ -81,3 +100,18 @@ Local P3:445 Engine,95 focused,21 Platform and browser approval→proposal→rev
 P4 is not fully closed: no standalone game export pipeline exists yet, so direct editor startup cannot satisfy the export gate. Manual Windows chooser/fresh-machine runtime download and real accounts stay separate. P5 unstarted, scope via ADR first. Unity/shaders/GPU M19–M40 remain planned with 45 main milestones/23 historically closed; no audited full API percentage before M19. Never request secrets through chat or read internal credentials. TestRepo only for explicitly authorized testing.
 
 Current common SDK source:6e8e05d3934e649df1fb89228b3bac2965d37018, shared with Math Lab0.1.2. GPU initialization now tries a labeled fallback device and optional timestamps cannot block otherwise usable drawing. This is rendering robustness, not GPU-physics acceptance.
+
+
+Current continuation:278/311 accepted; remaining33 =GameObject13,Object20. Component62/62 and Transform81/81 accepted in bounded profiles. Current uncommitted message batch: native888 core (includes3 inherited private Inspector publish/edit/clone regressions),240 vectors,348 poses,476 queries,152 finds,53 state,360 messages; Node489/489 pass. Message Development/AOT360 pass. All nine real browser suites now pass Development/effective-AOT, with exact Stop restoration. First AOT GameObjectState startup failed to load Hub during overlapping dist rebuild; after new script-types.mjs was packaged, AOT remaining suites restarted in session48539. Do not run another dist rebuild while that browser chain starts. Previous full Development chain36308 passed; AOT chain85789 stopped at GameObjectState.
+
+Message fixes: null payload skips one-argument methods; inactive Upwards origin still reaches active ancestors; null/empty names log without throwing; enum77 still dispatches. All360 native outcomes retained;128 historical valid SDK differences saved. First165-difference probe accumulated log budgets and is invalid. Both source and receiver hashes pinned from native Play5b11f03c2b4d449c80180b6a4ab88fae. Actual browser exposed missing derived factory: added shared script-types.mjs ancestry discovery, filename selection, abstract/cycle/ambiguity handling, inherited serialized fields/references, private-base field access and AOT DynamicDependency preservation. New module copied into packaged editor and3 miniature C# test servers. Three JS ancestry tests and3 native inherited-field regressions are meaningful dependency checks.
+
+Next creation/tag exploration is OUTSIDE repo: work/m20-creation-tag-corpus.cs, work/M20CreationTagOracle-delayed.cs, work/m20-creation-tag-probe. Latest native .axiom/unity-creation-tag-fa4e46d1562d4f079d7de6cde9397caa waits3 Play frames, resumes only its own paused disposable Editor and has60sec watchdog. It confirms active default Untagged objects are not returned by those tag searches even after frames. Source was renamed tag.list.null-results after an earlier duplicate key. Earlier native fb1a5da3535d40abad498c63e4b9ec79 has same calls but duplicate final key; not final acceptance. Owned .axiom/m20-creation-tag-initial.log resets budgets per observed case; native key suffix was normalized ONLY for exploratory comparison, not accepted evidence. Latest includes extra tag.default-state. No creation/tag SDK fixes have been implemented.
+
+Observed remaining creation/tag gaps: AddComponent native invalid Component/Behaviour/MonoBehaviour/Collider/Renderer/string/null returns null/logs; MeshCollider,MeshFilter,MeshRenderer must be creatable empty; duplicate BoxCollider must work. Primitive native component order is Transform,MeshFilter,Collider,MeshRenderer; invalid primitive99 returns null/logs. Tag null/empty throws ArgumentException; null results list throws NullReferenceException. Native tag queries omit Untagged. Keep these native outcomes, verify final exact source when integrating. No SDK edits until current message regression checkpoint.
+
+Required major dependency: duplicates need distinct native IDs, fields/enabled/activation, selective removal, clone/reference remapping, host snapshots/Inspector and functional compound physics. Runtime currently single collider storage and scripts keyed by path; cannot fabricate duplicate query results. Keep311 frozen records, strict closure and main0.0.57 unchanged.
+
+Additional uncommitted exploratory sync-clone corpus: work/m20-sync-clone-corpus.cs, m20-sync-clone-cases.json, M20SyncCloneOracle.cs, m20-sync-clone-probe. Native .axiom/unity-sync-clone-6cce0de96cc14771bd205034ad0a8ec7 captures91 outcomes for13 signatures. Own .axiom/m20-sync-clone-initial.log has21 differences:13 retired sources throw ArgumentException rather than native MissingReferenceException;8 parent-accepting variants reject retired parent rather than treating it as null. All regular/world/null-parent/component/null-source pose/meta profiles otherwise agree at existing2e-5 tolerance. No sync SDK fixes implemented.
+
+Exploratory bulk corpus work/m20-bulk-object-corpus.cs, M20BulkOracle.cs, m20-bulk-probe; native .axiom/unity-bulk-b5364ea2ba484bfdabf522aa80bb7050 captures54 calls. Own .axiom/m20-bulk-initial.log has26 exploratory differences. Native activation skips invalid zero/component/retired IDs and still applies valid targets; own canonical atomically rejects whole list. Native invalid/default/disposed NativeArray inputs throw ArgumentException, own ObjectDisposedException. Native long clone output arrays may allow capacity >=count, own requires exact length. Corpus was subsequently guarded to avoid reading uncreated clone output arrays after the tested call, so native source hash now differs: recapture final reference before acceptance. Remove irrelevant default/disposed profiles from span-only calls when finalizing. No bulk SDK fixes implemented.

@@ -1,3 +1,19 @@
+import {createM20ComponentCreationProject} from '../demos/create-m20-component-creation-project.mjs';
+import {createM20CompoundCollidersProject} from '../demos/create-m20-compound-colliders-project.mjs';
+import {createM20PrimitiveCreationProject} from '../demos/create-m20-primitive-creation-project.mjs';
+import {createM20ScriptInstancesProject} from '../demos/create-m20-script-instances-project.mjs';
+import {createM20TagSearchProject} from '../demos/create-m20-tag-search-project.mjs';
+import {createM20ObjectLifetimeProject} from '../demos/create-m20-object-lifetime-project.mjs';
+import {createM20BulkObjectsProject} from '../demos/create-m20-bulk-objects-project.mjs';
+import {createM20SyncCloneProject} from '../demos/create-m20-sync-clone-project.mjs';
+import {createM20MessagesProject} from '../demos/create-m20-messages-project.mjs';
+import {createM20GameObjectStateProject} from '../demos/create-m20-gameobject-state-project.mjs';
+import {createM20FindProject} from '../demos/create-m20-find-project.mjs';
+import {createM20QueriesProject} from '../demos/create-m20-queries-project.mjs';
+import {createM20ObjectsProject} from '../demos/create-m20-objects-project.mjs';
+import {createM20PosesProject} from '../demos/create-m20-poses-project.mjs';
+import {createM20VectorsProject} from '../demos/create-m20-vectors-project.mjs';
+import {createM20AssetsProject} from '../demos/create-m20-assets-project.mjs';
 import {createM20Project} from '../demos/create-m20-project.mjs';
 import {SharedAiProvider} from 'axiom-platform/ai-peer';
 import {readFile,lstat,realpath,readdir} from 'node:fs/promises';
@@ -53,9 +69,9 @@ export class GameEngineAdapter {
     if(method==='project.detect')return this.detect(params.path);
     if(method==='project.demos'){
       const destination=await this.path(params.destination,true);if((await readdir(destination)).length)fail('projectBusy','Demos require a new empty directory.');
-      if(!Array.isArray(params.demoIds)||params.demoIds.length!==1||params.demoIds[0]!=='m20-object-lifecycle')fail('invalidRequest','Choose a demo supplied by this installed version.');
-      const demo=await createM20Project(destination,{folders:true}),store=new ProjectStore(destination,{folders:true});await store.directory();const project=await this.detect(join(destination,store.filename(demo.id)));
-      return {productVersion:manifest.productVersion,projects:[{demoId:'m20-object-lifecycle',...project}]};
+      if(!Array.isArray(params.demoIds)||!params.demoIds.length||new Set(params.demoIds).size!==params.demoIds.length||params.demoIds.some(id=>!manifest.demos.some(demo=>demo.id===id)))fail('invalidRequest','Choose a demo supplied by this installed version.');
+      const projects=[];for(const demoId of params.demoIds){const create=({'m20-object-lifecycle':createM20Project,'m20-asset-lifetime':createM20AssetsProject,'m20-vector-transforms':createM20VectorsProject,'m20-pose-transforms':createM20PosesProject,'m20-object-contracts':createM20ObjectsProject,'m20-component-queries':createM20QueriesProject,'m20-object-find':createM20FindProject,'m20-gameobject-state':createM20GameObjectStateProject,'m20-message-dispatch':createM20MessagesProject,'m20-sync-clone':createM20SyncCloneProject,'m20-bulk-objects':createM20BulkObjectsProject,'m20-object-lifetime':createM20ObjectLifetimeProject,'m20-tag-search':createM20TagSearchProject,'m20-script-instances':createM20ScriptInstancesProject,'m20-component-creation':createM20ComponentCreationProject,'m20-compound-colliders':createM20CompoundCollidersProject,'m20-primitive-creation':createM20PrimitiveCreationProject})[demoId],demo=await create(destination,{folders:true}),store=new ProjectStore(destination,{folders:true});await store.directory();const project=await this.detect(join(destination,store.filename(demo.id)));projects.push({demoId,...project});}
+      return {productVersion:manifest.productVersion,projects};
     }
 
     if(method==='project.github.list'){

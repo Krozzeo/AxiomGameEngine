@@ -1,0 +1,2865 @@
+{
+  "unityVersion": "6000.3.27f1",
+  "coreAssemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737",
+  "sourceSha256": "0496a60c7ed676c4ec4799b053cbe79c5f7a7de13917e88804766119b4498664",
+  "error": "",
+  "profile": "Native Editor exact Component/GameObject query overloads",
+  "rows": [
+    {
+      "index": 0,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "inactive-self",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "inactive-parent",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "missing",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 0,
+      "profile": "null-type",
+      "data": "",
+      "error": "System.ArgumentException"
+    },
+    {
+      "index": 0,
+      "profile": "invalid-type",
+      "data": "",
+      "error": "System.ArgumentException"
+    },
+    {
+      "index": 0,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "regular",
+      "data": "True:Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "inactive-self",
+      "data": "True:Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "inactive-parent",
+      "data": "True:Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "missing",
+      "data": "False:null",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 1,
+      "profile": "disabled-component",
+      "data": "True:Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 2,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 2,
+      "profile": "inactive-self",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 2,
+      "profile": "inactive-parent",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 2,
+      "profile": "missing",
+      "data": "",
+      "error": ""
+    },
+    {
+      "index": 2,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 2,
+      "profile": "null-type",
+      "data": "",
+      "error": "System.ArgumentException"
+    },
+    {
+      "index": 2,
+      "profile": "invalid-type",
+      "data": "",
+      "error": "System.ArgumentException"
+    },
+    {
+      "index": 2,
+      "profile": "child-only",
+      "data": "Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 2,
+      "profile": "inactive-target",
+      "data": "",
+      "error": ""
+    },
+    {
+      "index": 2,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 3,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 3,
+      "profile": "inactive-self",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 3,
+      "profile": "inactive-parent",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 3,
+      "profile": "missing",
+      "data": "",
+      "error": ""
+    },
+    {
+      "index": 3,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 3,
+      "profile": "include-inactive",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider,Q inactive:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 3,
+      "profile": "child-only",
+      "data": "Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 3,
+      "profile": "inactive-target",
+      "data": "Q inactive:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 3,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 4,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 4,
+      "profile": "inactive-self",
+      "data": "Q parent:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 4,
+      "profile": "inactive-parent",
+      "data": "Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 4,
+      "profile": "missing",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 4,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 4,
+      "profile": "include-inactive",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 4,
+      "profile": "null-type",
+      "data": "",
+      "error": "System.ArgumentException"
+    },
+    {
+      "index": 4,
+      "profile": "invalid-type",
+      "data": "",
+      "error": "System.ArgumentException"
+    },
+    {
+      "index": 4,
+      "profile": "parent-only",
+      "data": "Q parent:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 4,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 5,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 5,
+      "profile": "inactive-self",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 5,
+      "profile": "inactive-parent",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 5,
+      "profile": "missing",
+      "data": "",
+      "error": ""
+    },
+    {
+      "index": 5,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 5,
+      "profile": "null-type",
+      "data": "",
+      "error": "System.ArgumentException"
+    },
+    {
+      "index": 5,
+      "profile": "invalid-type",
+      "data": "",
+      "error": "System.ArgumentException"
+    },
+    {
+      "index": 5,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 6,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 6,
+      "profile": "inactive-self",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 6,
+      "profile": "inactive-parent",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 6,
+      "profile": "missing",
+      "data": "",
+      "error": ""
+    },
+    {
+      "index": 6,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 6,
+      "profile": "include-inactive",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider,Q inactive:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 6,
+      "profile": "null-type",
+      "data": "",
+      "error": "System.ArgumentException"
+    },
+    {
+      "index": 6,
+      "profile": "invalid-type",
+      "data": "",
+      "error": "System.ArgumentException"
+    },
+    {
+      "index": 6,
+      "profile": "child-only",
+      "data": "Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 6,
+      "profile": "inactive-target",
+      "data": "Q inactive:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 6,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 7,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 7,
+      "profile": "inactive-self",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 7,
+      "profile": "inactive-parent",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 7,
+      "profile": "missing",
+      "data": "",
+      "error": ""
+    },
+    {
+      "index": 7,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 7,
+      "profile": "null-type",
+      "data": "",
+      "error": "System.ArgumentException"
+    },
+    {
+      "index": 7,
+      "profile": "invalid-type",
+      "data": "",
+      "error": "System.ArgumentException"
+    },
+    {
+      "index": 7,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 8,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 8,
+      "profile": "inactive-self",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 8,
+      "profile": "inactive-parent",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 8,
+      "profile": "missing",
+      "data": "",
+      "error": ""
+    },
+    {
+      "index": 8,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 8,
+      "profile": "include-inactive",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider,Q inactive:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 8,
+      "profile": "null-list",
+      "data": "null-list",
+      "error": ""
+    },
+    {
+      "index": 8,
+      "profile": "child-only",
+      "data": "Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 8,
+      "profile": "inactive-target",
+      "data": "Q inactive:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 8,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 9,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider,Q parent:BoxCollider,Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 9,
+      "profile": "inactive-self",
+      "data": "Q parent:BoxCollider,Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 9,
+      "profile": "inactive-parent",
+      "data": "Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 9,
+      "profile": "missing",
+      "data": "",
+      "error": ""
+    },
+    {
+      "index": 9,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 9,
+      "profile": "include-inactive",
+      "data": "Q owner:SphereCollider,Q parent:BoxCollider,Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 9,
+      "profile": "parent-only",
+      "data": "Q parent:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 9,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider,Q parent:BoxCollider,Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 10,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 10,
+      "profile": "inactive-self",
+      "data": "Q parent:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 10,
+      "profile": "inactive-parent",
+      "data": "Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 10,
+      "profile": "missing",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 10,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 10,
+      "profile": "include-inactive",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 10,
+      "profile": "null-type",
+      "data": "",
+      "error": "System.ArgumentException"
+    },
+    {
+      "index": 10,
+      "profile": "invalid-type",
+      "data": "",
+      "error": "System.ArgumentException"
+    },
+    {
+      "index": 10,
+      "profile": "parent-only",
+      "data": "Q parent:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 10,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 11,
+      "profile": "regular",
+      "data": "True:Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 11,
+      "profile": "inactive-self",
+      "data": "True:Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 11,
+      "profile": "inactive-parent",
+      "data": "True:Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 11,
+      "profile": "missing",
+      "data": "False:null",
+      "error": ""
+    },
+    {
+      "index": 11,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 11,
+      "profile": "null-type",
+      "data": "",
+      "error": "System.ArgumentException"
+    },
+    {
+      "index": 11,
+      "profile": "invalid-type",
+      "data": "",
+      "error": "System.ArgumentException"
+    },
+    {
+      "index": 11,
+      "profile": "disabled-component",
+      "data": "True:Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 12,
+      "profile": "regular",
+      "data": "True:Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 12,
+      "profile": "inactive-self",
+      "data": "True:Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 12,
+      "profile": "inactive-parent",
+      "data": "True:Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 12,
+      "profile": "missing",
+      "data": "False:null",
+      "error": ""
+    },
+    {
+      "index": 12,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 12,
+      "profile": "disabled-component",
+      "data": "True:Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 13,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 13,
+      "profile": "inactive-self",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 13,
+      "profile": "inactive-parent",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 13,
+      "profile": "missing",
+      "data": "",
+      "error": ""
+    },
+    {
+      "index": 13,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 13,
+      "profile": "include-inactive",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider,Q inactive:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 13,
+      "profile": "child-only",
+      "data": "Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 13,
+      "profile": "inactive-target",
+      "data": "Q inactive:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 13,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 14,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 14,
+      "profile": "inactive-self",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 14,
+      "profile": "inactive-parent",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 14,
+      "profile": "missing",
+      "data": "",
+      "error": ""
+    },
+    {
+      "index": 14,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 14,
+      "profile": "null-list",
+      "data": "null-list",
+      "error": ""
+    },
+    {
+      "index": 14,
+      "profile": "child-only",
+      "data": "Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 14,
+      "profile": "inactive-target",
+      "data": "",
+      "error": ""
+    },
+    {
+      "index": 14,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 15,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider,Q parent:BoxCollider,Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 15,
+      "profile": "inactive-self",
+      "data": "Q parent:BoxCollider,Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 15,
+      "profile": "inactive-parent",
+      "data": "Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 15,
+      "profile": "missing",
+      "data": "",
+      "error": ""
+    },
+    {
+      "index": 15,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 15,
+      "profile": "null-type",
+      "data": "",
+      "error": "System.ArgumentException"
+    },
+    {
+      "index": 15,
+      "profile": "invalid-type",
+      "data": "",
+      "error": "System.ArgumentException"
+    },
+    {
+      "index": 15,
+      "profile": "parent-only",
+      "data": "Q parent:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 15,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider,Q parent:BoxCollider,Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 16,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 16,
+      "profile": "inactive-self",
+      "data": "Q parent:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 16,
+      "profile": "inactive-parent",
+      "data": "Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 16,
+      "profile": "missing",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 16,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 16,
+      "profile": "include-inactive",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 16,
+      "profile": "parent-only",
+      "data": "Q parent:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 16,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 17,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 17,
+      "profile": "inactive-self",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 17,
+      "profile": "inactive-parent",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 17,
+      "profile": "missing",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 17,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 17,
+      "profile": "include-inactive",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 17,
+      "profile": "child-only",
+      "data": "Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 17,
+      "profile": "inactive-target",
+      "data": "Q inactive:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 17,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 18,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 18,
+      "profile": "inactive-self",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 18,
+      "profile": "inactive-parent",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 18,
+      "profile": "missing",
+      "data": "",
+      "error": ""
+    },
+    {
+      "index": 18,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 18,
+      "profile": "null-type",
+      "data": "",
+      "error": "System.ArgumentException"
+    },
+    {
+      "index": 18,
+      "profile": "invalid-type",
+      "data": "",
+      "error": "System.ArgumentException"
+    },
+    {
+      "index": 18,
+      "profile": "null-list",
+      "data": "null-list",
+      "error": ""
+    },
+    {
+      "index": 18,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 19,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 19,
+      "profile": "inactive-self",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 19,
+      "profile": "inactive-parent",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 19,
+      "profile": "missing",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 19,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 19,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 20,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 20,
+      "profile": "inactive-self",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 20,
+      "profile": "inactive-parent",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 20,
+      "profile": "missing",
+      "data": "",
+      "error": ""
+    },
+    {
+      "index": 20,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 20,
+      "profile": "null-list",
+      "data": "null-list",
+      "error": ""
+    },
+    {
+      "index": 20,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 21,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 21,
+      "profile": "inactive-self",
+      "data": "Q parent:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 21,
+      "profile": "inactive-parent",
+      "data": "Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 21,
+      "profile": "missing",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 21,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 21,
+      "profile": "null-type",
+      "data": "",
+      "error": "System.ArgumentException"
+    },
+    {
+      "index": 21,
+      "profile": "invalid-type",
+      "data": "",
+      "error": "System.ArgumentException"
+    },
+    {
+      "index": 21,
+      "profile": "parent-only",
+      "data": "Q parent:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 21,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 22,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 22,
+      "profile": "inactive-self",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 22,
+      "profile": "inactive-parent",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 22,
+      "profile": "missing",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 22,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 22,
+      "profile": "child-only",
+      "data": "Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 22,
+      "profile": "inactive-target",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 22,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 23,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 23,
+      "profile": "inactive-self",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 23,
+      "profile": "inactive-parent",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 23,
+      "profile": "missing",
+      "data": "",
+      "error": ""
+    },
+    {
+      "index": 23,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 23,
+      "profile": "include-inactive",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider,Q inactive:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 23,
+      "profile": "null-type",
+      "data": "",
+      "error": "System.ArgumentException"
+    },
+    {
+      "index": 23,
+      "profile": "invalid-type",
+      "data": "",
+      "error": "System.ArgumentException"
+    },
+    {
+      "index": 23,
+      "profile": "child-only",
+      "data": "Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 23,
+      "profile": "inactive-target",
+      "data": "Q inactive:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 23,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 24,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 24,
+      "profile": "inactive-self",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 24,
+      "profile": "inactive-parent",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 24,
+      "profile": "missing",
+      "data": "",
+      "error": ""
+    },
+    {
+      "index": 24,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 24,
+      "profile": "child-only",
+      "data": "Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 24,
+      "profile": "inactive-target",
+      "data": "",
+      "error": ""
+    },
+    {
+      "index": 24,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 25,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 25,
+      "profile": "inactive-self",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 25,
+      "profile": "inactive-parent",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 25,
+      "profile": "missing",
+      "data": "",
+      "error": ""
+    },
+    {
+      "index": 25,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 25,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 26,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 26,
+      "profile": "inactive-self",
+      "data": "Q parent:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 26,
+      "profile": "inactive-parent",
+      "data": "Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 26,
+      "profile": "missing",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 26,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 26,
+      "profile": "parent-only",
+      "data": "Q parent:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 26,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 27,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider,Q parent:BoxCollider,Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 27,
+      "profile": "inactive-self",
+      "data": "Q parent:BoxCollider,Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 27,
+      "profile": "inactive-parent",
+      "data": "Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 27,
+      "profile": "missing",
+      "data": "",
+      "error": ""
+    },
+    {
+      "index": 27,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 27,
+      "profile": "parent-only",
+      "data": "Q parent:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 27,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider,Q parent:BoxCollider,Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 28,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 28,
+      "profile": "inactive-self",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 28,
+      "profile": "inactive-parent",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 28,
+      "profile": "missing",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 28,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 28,
+      "profile": "include-inactive",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 28,
+      "profile": "null-type",
+      "data": "",
+      "error": "System.ArgumentException"
+    },
+    {
+      "index": 28,
+      "profile": "invalid-type",
+      "data": "",
+      "error": "System.ArgumentException"
+    },
+    {
+      "index": 28,
+      "profile": "child-only",
+      "data": "Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 28,
+      "profile": "inactive-target",
+      "data": "Q inactive:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 28,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 29,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 29,
+      "profile": "inactive-self",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 29,
+      "profile": "inactive-parent",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 29,
+      "profile": "missing",
+      "data": "",
+      "error": ""
+    },
+    {
+      "index": 29,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 29,
+      "profile": "null-list",
+      "data": "null-list",
+      "error": ""
+    },
+    {
+      "index": 29,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 30,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 30,
+      "profile": "inactive-self",
+      "data": "Q parent:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 30,
+      "profile": "inactive-parent",
+      "data": "Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 30,
+      "profile": "missing",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 30,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 30,
+      "profile": "parent-only",
+      "data": "Q parent:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 30,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 31,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 31,
+      "profile": "inactive-self",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 31,
+      "profile": "inactive-parent",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 31,
+      "profile": "missing",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 31,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 31,
+      "profile": "null-string",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 31,
+      "profile": "empty-string",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 31,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 32,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 32,
+      "profile": "inactive-self",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 32,
+      "profile": "inactive-parent",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 32,
+      "profile": "missing",
+      "data": "",
+      "error": ""
+    },
+    {
+      "index": 32,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 32,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 33,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 33,
+      "profile": "inactive-self",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 33,
+      "profile": "inactive-parent",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 33,
+      "profile": "missing",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 33,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 33,
+      "profile": "null-type",
+      "data": "",
+      "error": "System.ArgumentException"
+    },
+    {
+      "index": 33,
+      "profile": "invalid-type",
+      "data": "",
+      "error": "System.ArgumentException"
+    },
+    {
+      "index": 33,
+      "profile": "child-only",
+      "data": "Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 33,
+      "profile": "inactive-target",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 33,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 34,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider,Q parent:BoxCollider,Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 34,
+      "profile": "inactive-self",
+      "data": "Q parent:BoxCollider,Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 34,
+      "profile": "inactive-parent",
+      "data": "Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 34,
+      "profile": "missing",
+      "data": "",
+      "error": ""
+    },
+    {
+      "index": 34,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 34,
+      "profile": "include-inactive",
+      "data": "Q owner:SphereCollider,Q parent:BoxCollider,Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 34,
+      "profile": "null-list",
+      "data": "null-list",
+      "error": ""
+    },
+    {
+      "index": 34,
+      "profile": "parent-only",
+      "data": "Q parent:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 34,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider,Q parent:BoxCollider,Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 35,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider,Q parent:BoxCollider,Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 35,
+      "profile": "inactive-self",
+      "data": "Q parent:BoxCollider,Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 35,
+      "profile": "inactive-parent",
+      "data": "Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 35,
+      "profile": "missing",
+      "data": "",
+      "error": ""
+    },
+    {
+      "index": 35,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 35,
+      "profile": "include-inactive",
+      "data": "Q owner:SphereCollider,Q parent:BoxCollider,Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 35,
+      "profile": "null-list",
+      "data": "null-list",
+      "error": ""
+    },
+    {
+      "index": 35,
+      "profile": "parent-only",
+      "data": "Q parent:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 35,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider,Q parent:BoxCollider,Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 36,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider,Q parent:BoxCollider,Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 36,
+      "profile": "inactive-self",
+      "data": "Q parent:BoxCollider,Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 36,
+      "profile": "inactive-parent",
+      "data": "Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 36,
+      "profile": "missing",
+      "data": "",
+      "error": ""
+    },
+    {
+      "index": 36,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 36,
+      "profile": "null-type",
+      "data": "",
+      "error": "System.ArgumentException"
+    },
+    {
+      "index": 36,
+      "profile": "invalid-type",
+      "data": "",
+      "error": "System.ArgumentException"
+    },
+    {
+      "index": 36,
+      "profile": "parent-only",
+      "data": "Q parent:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 36,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider,Q parent:BoxCollider,Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 37,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider,Q parent:BoxCollider,Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 37,
+      "profile": "inactive-self",
+      "data": "Q parent:BoxCollider,Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 37,
+      "profile": "inactive-parent",
+      "data": "Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 37,
+      "profile": "missing",
+      "data": "",
+      "error": ""
+    },
+    {
+      "index": 37,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 37,
+      "profile": "parent-only",
+      "data": "Q parent:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 37,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider,Q parent:BoxCollider,Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 38,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 38,
+      "profile": "inactive-self",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 38,
+      "profile": "inactive-parent",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 38,
+      "profile": "missing",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 38,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 38,
+      "profile": "null-type",
+      "data": "",
+      "error": "System.ArgumentException"
+    },
+    {
+      "index": 38,
+      "profile": "invalid-type",
+      "data": "",
+      "error": "System.ArgumentException"
+    },
+    {
+      "index": 38,
+      "profile": "child-only",
+      "data": "Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 38,
+      "profile": "inactive-target",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 38,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 39,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider,Q parent:BoxCollider,Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 39,
+      "profile": "inactive-self",
+      "data": "Q parent:BoxCollider,Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 39,
+      "profile": "inactive-parent",
+      "data": "Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 39,
+      "profile": "missing",
+      "data": "",
+      "error": ""
+    },
+    {
+      "index": 39,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 39,
+      "profile": "include-inactive",
+      "data": "Q owner:SphereCollider,Q parent:BoxCollider,Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 39,
+      "profile": "parent-only",
+      "data": "Q parent:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 39,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider,Q parent:BoxCollider,Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 40,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 40,
+      "profile": "inactive-self",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 40,
+      "profile": "inactive-parent",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 40,
+      "profile": "missing",
+      "data": "",
+      "error": ""
+    },
+    {
+      "index": 40,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 40,
+      "profile": "null-type",
+      "data": "",
+      "error": "System.ArgumentException"
+    },
+    {
+      "index": 40,
+      "profile": "invalid-type",
+      "data": "",
+      "error": "System.ArgumentException"
+    },
+    {
+      "index": 40,
+      "profile": "null-list",
+      "data": "null-list",
+      "error": ""
+    },
+    {
+      "index": 40,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 41,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 41,
+      "profile": "inactive-self",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 41,
+      "profile": "inactive-parent",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 41,
+      "profile": "missing",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 41,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 41,
+      "profile": "null-type",
+      "data": "",
+      "error": "System.ArgumentException"
+    },
+    {
+      "index": 41,
+      "profile": "invalid-type",
+      "data": "",
+      "error": "System.ArgumentException"
+    },
+    {
+      "index": 41,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 42,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 42,
+      "profile": "inactive-self",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 42,
+      "profile": "inactive-parent",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 42,
+      "profile": "missing",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 42,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 42,
+      "profile": "include-inactive",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 42,
+      "profile": "child-only",
+      "data": "Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 42,
+      "profile": "inactive-target",
+      "data": "Q inactive:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 42,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 43,
+      "profile": "regular",
+      "data": "True:Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 43,
+      "profile": "inactive-self",
+      "data": "True:Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 43,
+      "profile": "inactive-parent",
+      "data": "True:Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 43,
+      "profile": "missing",
+      "data": "False:null",
+      "error": ""
+    },
+    {
+      "index": 43,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 43,
+      "profile": "null-type",
+      "data": "",
+      "error": "System.ArgumentException"
+    },
+    {
+      "index": 43,
+      "profile": "invalid-type",
+      "data": "",
+      "error": "System.ArgumentException"
+    },
+    {
+      "index": 43,
+      "profile": "disabled-component",
+      "data": "True:Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 44,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 44,
+      "profile": "inactive-self",
+      "data": "Q parent:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 44,
+      "profile": "inactive-parent",
+      "data": "Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 44,
+      "profile": "missing",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 44,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 44,
+      "profile": "include-inactive",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 44,
+      "profile": "parent-only",
+      "data": "Q parent:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 44,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 45,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 45,
+      "profile": "inactive-self",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 45,
+      "profile": "inactive-parent",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 45,
+      "profile": "missing",
+      "data": "",
+      "error": ""
+    },
+    {
+      "index": 45,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 45,
+      "profile": "null-list",
+      "data": "null-list",
+      "error": ""
+    },
+    {
+      "index": 45,
+      "profile": "child-only",
+      "data": "Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 45,
+      "profile": "inactive-target",
+      "data": "",
+      "error": ""
+    },
+    {
+      "index": 45,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 46,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider,Q parent:BoxCollider,Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 46,
+      "profile": "inactive-self",
+      "data": "Q parent:BoxCollider,Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 46,
+      "profile": "inactive-parent",
+      "data": "Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 46,
+      "profile": "missing",
+      "data": "",
+      "error": ""
+    },
+    {
+      "index": 46,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 46,
+      "profile": "include-inactive",
+      "data": "Q owner:SphereCollider,Q parent:BoxCollider,Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 46,
+      "profile": "null-type",
+      "data": "",
+      "error": "System.ArgumentException"
+    },
+    {
+      "index": 46,
+      "profile": "invalid-type",
+      "data": "",
+      "error": "System.ArgumentException"
+    },
+    {
+      "index": 46,
+      "profile": "parent-only",
+      "data": "Q parent:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 46,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider,Q parent:BoxCollider,Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 47,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider,Q parent:BoxCollider,Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 47,
+      "profile": "inactive-self",
+      "data": "Q parent:BoxCollider,Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 47,
+      "profile": "inactive-parent",
+      "data": "Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 47,
+      "profile": "missing",
+      "data": "",
+      "error": ""
+    },
+    {
+      "index": 47,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 47,
+      "profile": "include-inactive",
+      "data": "Q owner:SphereCollider,Q parent:BoxCollider,Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 47,
+      "profile": "null-type",
+      "data": "",
+      "error": "System.ArgumentException"
+    },
+    {
+      "index": 47,
+      "profile": "invalid-type",
+      "data": "",
+      "error": "System.ArgumentException"
+    },
+    {
+      "index": 47,
+      "profile": "parent-only",
+      "data": "Q parent:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 47,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider,Q parent:BoxCollider,Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 48,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 48,
+      "profile": "inactive-self",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 48,
+      "profile": "inactive-parent",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 48,
+      "profile": "missing",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 48,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 48,
+      "profile": "include-inactive",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 48,
+      "profile": "null-type",
+      "data": "",
+      "error": "System.ArgumentException"
+    },
+    {
+      "index": 48,
+      "profile": "invalid-type",
+      "data": "",
+      "error": "System.ArgumentException"
+    },
+    {
+      "index": 48,
+      "profile": "child-only",
+      "data": "Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 48,
+      "profile": "inactive-target",
+      "data": "Q inactive:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 48,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 49,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 49,
+      "profile": "inactive-self",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 49,
+      "profile": "inactive-parent",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 49,
+      "profile": "missing",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 49,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 49,
+      "profile": "null-string",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 49,
+      "profile": "empty-string",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 49,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 50,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 50,
+      "profile": "inactive-self",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 50,
+      "profile": "inactive-parent",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 50,
+      "profile": "missing",
+      "data": "",
+      "error": ""
+    },
+    {
+      "index": 50,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 50,
+      "profile": "child-only",
+      "data": "Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 50,
+      "profile": "inactive-target",
+      "data": "",
+      "error": ""
+    },
+    {
+      "index": 50,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 51,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 51,
+      "profile": "inactive-self",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 51,
+      "profile": "inactive-parent",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 51,
+      "profile": "missing",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 51,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 51,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 52,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 52,
+      "profile": "inactive-self",
+      "data": "Q parent:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 52,
+      "profile": "inactive-parent",
+      "data": "Q ancestor:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 52,
+      "profile": "missing",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 52,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 52,
+      "profile": "null-type",
+      "data": "",
+      "error": "System.ArgumentException"
+    },
+    {
+      "index": 52,
+      "profile": "invalid-type",
+      "data": "",
+      "error": "System.ArgumentException"
+    },
+    {
+      "index": 52,
+      "profile": "parent-only",
+      "data": "Q parent:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 52,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 53,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 53,
+      "profile": "inactive-self",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 53,
+      "profile": "inactive-parent",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 53,
+      "profile": "missing",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 53,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 53,
+      "profile": "child-only",
+      "data": "Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 53,
+      "profile": "inactive-target",
+      "data": "null",
+      "error": ""
+    },
+    {
+      "index": 53,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 54,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 54,
+      "profile": "inactive-self",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 54,
+      "profile": "inactive-parent",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 54,
+      "profile": "missing",
+      "data": "",
+      "error": ""
+    },
+    {
+      "index": 54,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 54,
+      "profile": "include-inactive",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider,Q inactive:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 54,
+      "profile": "null-list",
+      "data": "null-list",
+      "error": ""
+    },
+    {
+      "index": 54,
+      "profile": "child-only",
+      "data": "Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 54,
+      "profile": "inactive-target",
+      "data": "Q inactive:SphereCollider",
+      "error": ""
+    },
+    {
+      "index": 54,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 55,
+      "profile": "regular",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 55,
+      "profile": "inactive-self",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 55,
+      "profile": "inactive-parent",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 55,
+      "profile": "missing",
+      "data": "",
+      "error": ""
+    },
+    {
+      "index": 55,
+      "profile": "retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 55,
+      "profile": "null-type",
+      "data": "",
+      "error": "System.ArgumentException"
+    },
+    {
+      "index": 55,
+      "profile": "invalid-type",
+      "data": "",
+      "error": "System.ArgumentException"
+    },
+    {
+      "index": 55,
+      "profile": "child-only",
+      "data": "Q child:BoxCollider",
+      "error": ""
+    },
+    {
+      "index": 55,
+      "profile": "inactive-target",
+      "data": "",
+      "error": ""
+    },
+    {
+      "index": 55,
+      "profile": "disabled-component",
+      "data": "Q owner:SphereCollider,Q child:BoxCollider",
+      "error": ""
+    }
+  ]
+}

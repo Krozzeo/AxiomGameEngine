@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "passed": true,
+  "scope": "Independent per-owner collider slots, typed geometry and activation, lifetime, clone/reference remapping, canonical callbacks and shared-body owned CPU/Wasm integration. Real Inspector edits and exact Stop restoration pass. Bounded existing solver; no PhysX numerical/GPU/full mesh cooking or automatic compound mass-property parity.",
+  "native": {
+    "passed": true,
+    "evidence": "m20-sdk12-native.json",
+    "checks": [
+      "collider instances retain distinct identities, geometry and activation",
+      "collider references publish exact logical slots",
+      "collider reference reads restore the selected sibling",
+      "clone retains both collider instances and independent shape state",
+      "clone remaps a reference to the second collider",
+      "collision exclusion distinguishes sibling colliders",
+      "canonical physics callbacks preserve collider and contact point identity",
+      "separate collider manifolds produce independent stay events",
+      "trigger changes produce separate exit and enter events",
+      "destroying the primary collider retains additional collider identity",
+      "extra-only collider owners still receive physics events",
+      "owner layer changes update every remaining collider",
+      "replaced collider never revives a retired wrapper",
+      "retiring a shared mesh removes geometry from every collider instance"
+    ],
+    "testSourceSha256": "b7394729a2f675390ea11586e57a0e14df3bb457fa4cd4343c5f408d9850def0"
+  },
+  "rust": {
+    "passed": true,
+    "tests": [
+      "physics::compound_tests::an_extra_trigger_reports_its_slot_without_grounding_or_stopping_its_owner",
+      "physics::compound_tests::extra_collider_contacts_and_impulses_belong_to_one_body",
+      "physics::compound_tests::malformed_compound_geometry_rejects_before_changing_the_existing_shape",
+      "physics::compound_tests::raycast_retains_the_exact_collider_slot_and_independent_enable_state",
+      "physics::compound_tests::sibling_colliders_never_self_collide_or_duplicate_gravity",
+      "physics::compound_tests::identical_shapes_do_not_double_positional_correction",
+      "physics_abi::compound_tests::compound_scalar_boundary_preserves_owner_slot_contact_and_reset"
+    ],
+    "sourceHashes": {
+      "engine/core/src/physics.rs": "b4c63060a552eeb6e6f01e8b5d7f0b0094dcc1d568830086b2d68b7d5f15988e",
+      "engine/core/src/physics/compound.rs": "dcfafed09946be1d6684e5eafd34f7de8530fc4be88bdc66f4fae03cd0143a4e",
+      "engine/core/src/physics/compound_tests.rs": "8aeed50d7467aef8a4ada0a89a2a1acb0ed0dc34d431a3f23c13ad6e0a328c38",
+      "engine/wasm/src/physics_abi.rs": "fa46005c7eedaee863d915d68fb58b5a9e52af5a20109263b1417fac6baa380e"
+    }
+  },
+  "corpusSourceHashes": {
+    "CompoundColliderLab.cs": "d51da883304aae733f33456052a707a2509b7f914abd69efd62e75fbe77c8186",
+    "CompoundColliderProbe.cs": "99f0118ba2a16a2dda733ef45ce7914a5133f5072a72557e54f3a0f466a9dd88"
+  },
+  "wasm": {
+    "development": {
+      "passed": true,
+      "checks": 13,
+      "inspector": {
+        "independentGeometry": true,
+        "independentActivation": true,
+        "exactColliderReference": true
+      },
+      "buildId": "e3aa1a99-7232-4176-b762-76ee516befdb",
+      "sourceHash": "d3b8e1d5fc83e657513adda539551b95ba1387d7f66d6dd9967d98deccd0069a"
+    },
+    "aot": {
+      "passed": true,
+      "checks": 13,
+      "inspector": {
+        "independentGeometry": true,
+        "independentActivation": true,
+        "exactColliderReference": true
+      },
+      "buildId": "b205ec94-afac-467d-b108-85f60359bf6d",
+      "sourceHash": "d3b8e1d5fc83e657513adda539551b95ba1387d7f66d6dd9967d98deccd0069a"
+    }
+  }
+}

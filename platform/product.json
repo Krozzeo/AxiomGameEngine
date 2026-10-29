@@ -3,7 +3,7 @@
   "protocolVersion": 1,
   "productId": "axiom.game-engine",
   "displayName": "Axiom Game Engine",
-  "productVersion": "0.0.60",
+  "productVersion": "0.0.62",
   "platformApiRange": ">=0.1.0 <0.2.0",
   "projectFormats": [
     {
@@ -33,6 +33,70 @@
     {
       "id": "m20-object-lifecycle",
       "name": "M20 Object Lifecycle Lab"
+    },
+    {
+      "id": "m20-asset-lifetime",
+      "name": "M20 Asset Lifetime Lab"
+    },
+    {
+      "id": "m20-vector-transforms",
+      "name": "M20 Vector Transforms Lab"
+    },
+    {
+      "id": "m20-pose-transforms",
+      "name": "M20 Pose Transforms Lab"
+    },
+    {
+      "id": "m20-object-contracts",
+      "name": "M20 Object Contracts Lab"
+    },
+    {
+      "id": "m20-component-queries",
+      "name": "M20 Component Queries Lab"
+    },
+    {
+      "id": "m20-object-find",
+      "name": "M20 Object Find Lab"
+    },
+    {
+      "id": "m20-gameobject-state",
+      "name": "M20 GameObject State Lab"
+    },
+    {
+      "id": "m20-message-dispatch",
+      "name": "M20 Message Dispatch Lab"
+    },
+    {
+      "id": "m20-sync-clone",
+      "name": "M20 Synchronous Clone Lab"
+    },
+    {
+      "id": "m20-bulk-objects",
+      "name": "M20 Bulk Objects Lab"
+    },
+    {
+      "id": "m20-object-lifetime",
+      "name": "M20 Object Lifetime Lab"
+    },
+    {
+      "id": "m20-tag-search",
+      "name": "M20 Tag Search Lab"
+    },
+    {
+      "id": "m20-script-instances",
+      "name": "M20 Repeated Script Instances Lab"
+    },
+    {
+      "id": "m20-primitive-creation",
+      "name": "M20 Primitive Creation Lab"
+    },
+    {
+      "id": "m20-component-creation",
+      "name": "M20 Component Creation Lab"
+    },
+    {
+      "id": "m20-compound-colliders",
+      "name": "M20 Compound Colliders Lab"
     }
   ]
 }

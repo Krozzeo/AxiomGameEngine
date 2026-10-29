@@ -1,0 +1,243 @@
+{
+    "unityVersion": "6000.3.27f1",
+    "coreAssemblySha256": "42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737",
+    "sourceSha256": "b7f2398b04bf7bd3b78b8d34f6cbd9a025c4f350895a01fe354467274c8a892d",
+    "error": "",
+    "profile": "Native Play tag search probes",
+    "rows": [
+        {
+            "index": 0,
+            "profile": "Player",
+            "data": "member",
+            "error": ""
+        },
+        {
+            "index": 0,
+            "profile": "Finish",
+            "data": "null",
+            "error": ""
+        },
+        {
+            "index": 0,
+            "profile": "Untagged",
+            "data": "null",
+            "error": ""
+        },
+        {
+            "index": 0,
+            "profile": "unknown",
+            "data": "",
+            "error": "UnityEngine.UnityException"
+        },
+        {
+            "index": 0,
+            "profile": "null",
+            "data": "",
+            "error": "System.ArgumentException"
+        },
+        {
+            "index": 0,
+            "profile": "empty",
+            "data": "",
+            "error": "System.ArgumentException"
+        },
+        {
+            "index": 0,
+            "profile": "inactive",
+            "data": "null",
+            "error": ""
+        },
+        {
+            "index": 0,
+            "profile": "retired",
+            "data": "null",
+            "error": ""
+        },
+        {
+            "index": 0,
+            "profile": "explicit-untagged",
+            "data": "null",
+            "error": ""
+        },
+        {
+            "index": 1,
+            "profile": "Player",
+            "data": "member",
+            "error": ""
+        },
+        {
+            "index": 1,
+            "profile": "Finish",
+            "data": "null",
+            "error": ""
+        },
+        {
+            "index": 1,
+            "profile": "Untagged",
+            "data": "null",
+            "error": ""
+        },
+        {
+            "index": 1,
+            "profile": "unknown",
+            "data": "",
+            "error": "UnityEngine.UnityException"
+        },
+        {
+            "index": 1,
+            "profile": "null",
+            "data": "",
+            "error": "System.ArgumentException"
+        },
+        {
+            "index": 1,
+            "profile": "empty",
+            "data": "",
+            "error": "System.ArgumentException"
+        },
+        {
+            "index": 1,
+            "profile": "inactive",
+            "data": "null",
+            "error": ""
+        },
+        {
+            "index": 1,
+            "profile": "retired",
+            "data": "null",
+            "error": ""
+        },
+        {
+            "index": 1,
+            "profile": "explicit-untagged",
+            "data": "null",
+            "error": ""
+        },
+        {
+            "index": 2,
+            "profile": "Player",
+            "data": "T child,T root",
+            "error": ""
+        },
+        {
+            "index": 2,
+            "profile": "Finish",
+            "data": "",
+            "error": ""
+        },
+        {
+            "index": 2,
+            "profile": "Untagged",
+            "data": "",
+            "error": ""
+        },
+        {
+            "index": 2,
+            "profile": "unknown",
+            "data": "",
+            "error": "UnityEngine.UnityException"
+        },
+        {
+            "index": 2,
+            "profile": "null",
+            "data": "",
+            "error": "System.ArgumentException"
+        },
+        {
+            "index": 2,
+            "profile": "empty",
+            "data": "",
+            "error": "System.ArgumentException"
+        },
+        {
+            "index": 2,
+            "profile": "inactive",
+            "data": "",
+            "error": ""
+        },
+        {
+            "index": 2,
+            "profile": "retired",
+            "data": "",
+            "error": ""
+        },
+        {
+            "index": 2,
+            "profile": "explicit-untagged",
+            "data": "",
+            "error": ""
+        },
+        {
+            "index": 3,
+            "profile": "Player",
+            "data": "T child,T root",
+            "error": ""
+        },
+        {
+            "index": 3,
+            "profile": "Finish",
+            "data": "",
+            "error": ""
+        },
+        {
+            "index": 3,
+            "profile": "Untagged",
+            "data": "",
+            "error": ""
+        },
+        {
+            "index": 3,
+            "profile": "unknown",
+            "data": "",
+            "error": "UnityEngine.UnityException"
+        },
+        {
+            "index": 3,
+            "profile": "null",
+            "data": "",
+            "error": "System.ArgumentException"
+        },
+        {
+            "index": 3,
+            "profile": "empty",
+            "data": "",
+            "error": "System.ArgumentException"
+        },
+        {
+            "index": 3,
+            "profile": "inactive",
+            "data": "",
+            "error": ""
+        },
+        {
+            "index": 3,
+            "profile": "retired",
+            "data": "",
+            "error": ""
+        },
+        {
+            "index": 3,
+            "profile": "explicit-untagged",
+            "data": "",
+            "error": ""
+        },
+        {
+            "index": 3,
+            "profile": "null-results",
+            "data": "null-list",
+            "error": "System.NullReferenceException"
+        },
+        {
+            "index": 3,
+            "profile": "null-tag-and-results",
+            "data": "null-list",
+            "error": "System.NullReferenceException"
+        },
+        {
+            "index": 3,
+            "profile": "unknown-tag-and-results",
+            "data": "null-list",
+            "error": "System.NullReferenceException"
+        }
+    ]
+}

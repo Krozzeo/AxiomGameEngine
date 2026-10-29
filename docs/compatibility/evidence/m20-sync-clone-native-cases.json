@@ -1,0 +1,157 @@
+{
+  "schemaVersion": 1,
+  "milestone": "M20",
+  "nativeReference": "m20-unity-6000.3-play-observations.json",
+  "positiveReferenceSignatures": 13,
+  "positiveVariants": 17,
+  "certifiedSignatures": 0,
+  "records": [
+    {
+      "id": "unity63abi:cc3ff64315c89b13813d4d34",
+      "declaration": "public static T Instantiate<T>(T original);",
+      "cases": [
+        "generic"
+      ],
+      "positiveNativeProfile": "Native Unity6000.3.27f1 Play mode, signed nonuniform hierarchy and explicit destination",
+      "ownedTest": "tests/csharp/M20.Objects/NativeCloneReferenceCases.cs",
+      "certified": false,
+      "remaining": "Per-signature negative/lifecycle/async and applicable asset-domain acceptance remains required. These observations are a positive scene-graph sample only."
+    },
+    {
+      "id": "unity63abi:c5053806fcfe25cd0e53924b",
+      "declaration": "public static UnityEngine.Object Instantiate(UnityEngine.Object original);",
+      "cases": [
+        "untyped"
+      ],
+      "positiveNativeProfile": "Native Unity6000.3.27f1 Play mode, signed nonuniform hierarchy and explicit destination",
+      "ownedTest": "tests/csharp/M20.Objects/NativeCloneReferenceCases.cs",
+      "certified": false,
+      "remaining": "Per-signature negative/lifecycle/async and applicable asset-domain acceptance remains required. These observations are a positive scene-graph sample only."
+    },
+    {
+      "id": "unity63abi:9c0289db94ea27500f4c4baa",
+      "declaration": "public static T Instantiate<T>(T original, UnityEngine.InstantiateParameters parameters);",
+      "cases": [
+        "parameters-default",
+        "parameters-world"
+      ],
+      "positiveNativeProfile": "Native Unity6000.3.27f1 Play mode, signed nonuniform hierarchy and explicit destination",
+      "ownedTest": "tests/csharp/M20.Objects/NativeCloneReferenceCases.cs",
+      "certified": false,
+      "remaining": "Per-signature negative/lifecycle/async and applicable asset-domain acceptance remains required. These observations are a positive scene-graph sample only."
+    },
+    {
+      "id": "unity63abi:64316228d6bac2b71b7b49f5",
+      "declaration": "public static T Instantiate<T>(T original, UnityEngine.Transform parent, bool worldPositionStays);",
+      "cases": [
+        "parent-null-world",
+        "parent-world",
+        "parent-local"
+      ],
+      "positiveNativeProfile": "Native Unity6000.3.27f1 Play mode, signed nonuniform hierarchy and explicit destination",
+      "ownedTest": "tests/csharp/M20.Objects/NativeCloneReferenceCases.cs",
+      "certified": false,
+      "remaining": "Per-signature negative/lifecycle/async and applicable asset-domain acceptance remains required. These observations are a positive scene-graph sample only."
+    },
+    {
+      "id": "unity63abi:eb6ff574007ef48a1c2cda26",
+      "declaration": "public static T Instantiate<T>(T original, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation);",
+      "cases": [
+        "explicit-pose"
+      ],
+      "positiveNativeProfile": "Native Unity6000.3.27f1 Play mode, signed nonuniform hierarchy and explicit destination",
+      "ownedTest": "tests/csharp/M20.Objects/NativeCloneReferenceCases.cs",
+      "certified": false,
+      "remaining": "Per-signature negative/lifecycle/async and applicable asset-domain acceptance remains required. These observations are a positive scene-graph sample only."
+    },
+    {
+      "id": "unity63abi:ce9cc94143a657f7c0d2466e",
+      "declaration": "public static T Instantiate<T>(T original, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation, UnityEngine.InstantiateParameters parameters);",
+      "cases": [
+        "parameters-explicit-world",
+        "parameters-explicit-local"
+      ],
+      "positiveNativeProfile": "Native Unity6000.3.27f1 Play mode, signed nonuniform hierarchy and explicit destination",
+      "ownedTest": "tests/csharp/M20.Objects/NativeCloneReferenceCases.cs",
+      "certified": false,
+      "remaining": "Per-signature negative/lifecycle/async and applicable asset-domain acceptance remains required. These observations are a positive scene-graph sample only."
+    },
+    {
+      "id": "unity63abi:851f45d6adca7e4eeca55f3a",
+      "declaration": "public static UnityEngine.Object Instantiate(UnityEngine.Object original, UnityEngine.SceneManagement.Scene scene);",
+      "cases": [
+        "destination-scene"
+      ],
+      "positiveNativeProfile": "Native Unity6000.3.27f1 Play mode, signed nonuniform hierarchy and explicit destination",
+      "ownedTest": "tests/csharp/M20.Objects/NativeCloneReferenceCases.cs",
+      "certified": false,
+      "remaining": "Per-signature negative/lifecycle/async and applicable asset-domain acceptance remains required. These observations are a positive scene-graph sample only."
+    },
+    {
+      "id": "unity63abi:59fcfaca6872b386dac23585",
+      "declaration": "public static T Instantiate<T>(T original, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation, UnityEngine.Transform parent);",
+      "cases": [
+        "pose-parent"
+      ],
+      "positiveNativeProfile": "Native Unity6000.3.27f1 Play mode, signed nonuniform hierarchy and explicit destination",
+      "ownedTest": "tests/csharp/M20.Objects/NativeCloneReferenceCases.cs",
+      "certified": false,
+      "remaining": "Per-signature negative/lifecycle/async and applicable asset-domain acceptance remains required. These observations are a positive scene-graph sample only."
+    },
+    {
+      "id": "unity63abi:0ee966233251556d78696f58",
+      "declaration": "public static T Instantiate<T>(T original, UnityEngine.Transform parent);",
+      "cases": [
+        "generic-parent"
+      ],
+      "positiveNativeProfile": "Native Unity6000.3.27f1 Play mode, signed nonuniform hierarchy and explicit destination",
+      "ownedTest": "tests/csharp/M20.Objects/NativeCloneReferenceCases.cs",
+      "certified": false,
+      "remaining": "Per-signature negative/lifecycle/async and applicable asset-domain acceptance remains required. These observations are a positive scene-graph sample only."
+    },
+    {
+      "id": "unity63abi:6a99c2f72fff0cc5fd17659f",
+      "declaration": "public static UnityEngine.Object Instantiate(UnityEngine.Object original, UnityEngine.Transform parent);",
+      "cases": [
+        "untyped-parent"
+      ],
+      "positiveNativeProfile": "Native Unity6000.3.27f1 Play mode, signed nonuniform hierarchy and explicit destination",
+      "ownedTest": "tests/csharp/M20.Objects/NativeCloneReferenceCases.cs",
+      "certified": false,
+      "remaining": "Per-signature negative/lifecycle/async and applicable asset-domain acceptance remains required. These observations are a positive scene-graph sample only."
+    },
+    {
+      "id": "unity63abi:59fd43ecb8aa882b11f8b8b7",
+      "declaration": "public static UnityEngine.Object Instantiate(UnityEngine.Object original, UnityEngine.Transform parent, bool instantiateInWorldSpace);",
+      "cases": [
+        "untyped-parent-world"
+      ],
+      "positiveNativeProfile": "Native Unity6000.3.27f1 Play mode, signed nonuniform hierarchy and explicit destination",
+      "ownedTest": "tests/csharp/M20.Objects/NativeCloneReferenceCases.cs",
+      "certified": false,
+      "remaining": "Per-signature negative/lifecycle/async and applicable asset-domain acceptance remains required. These observations are a positive scene-graph sample only."
+    },
+    {
+      "id": "unity63abi:8e08d28359a39dc8ed318dbc",
+      "declaration": "public static UnityEngine.Object Instantiate(UnityEngine.Object original, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation);",
+      "cases": [
+        "untyped-pose"
+      ],
+      "positiveNativeProfile": "Native Unity6000.3.27f1 Play mode, signed nonuniform hierarchy and explicit destination",
+      "ownedTest": "tests/csharp/M20.Objects/NativeCloneReferenceCases.cs",
+      "certified": false,
+      "remaining": "Per-signature negative/lifecycle/async and applicable asset-domain acceptance remains required. These observations are a positive scene-graph sample only."
+    },
+    {
+      "id": "unity63abi:5a0701d8dca3a5c3b8d80cdf",
+      "declaration": "public static UnityEngine.Object Instantiate(UnityEngine.Object original, UnityEngine.Vector3 position, UnityEngine.Quaternion rotation, UnityEngine.Transform parent);",
+      "cases": [
+        "untyped-pose-parent"
+      ],
+      "positiveNativeProfile": "Native Unity6000.3.27f1 Play mode, signed nonuniform hierarchy and explicit destination",
+      "ownedTest": "tests/csharp/M20.Objects/NativeCloneReferenceCases.cs",
+      "certified": false,
+      "remaining": "Per-signature negative/lifecycle/async and applicable asset-domain acceptance remains required. These observations are a positive scene-graph sample only."
+    }
+  ]
+}
