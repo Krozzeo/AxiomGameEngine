@@ -1,6 +1,14 @@
 using Legacy=Axiom.Gameplay;
 namespace UnityEngine;
 
+[AttributeUsage(AttributeTargets.Class,Inherited=true)] public sealed class DisallowMultipleComponent:Attribute {}
+[AttributeUsage(AttributeTargets.Class,Inherited=true,AllowMultiple=true)] public sealed class RequireComponent:Attribute {
+ internal readonly Type[] Types;
+ public RequireComponent(Type requiredComponent){Types=new[]{requiredComponent};}
+ public RequireComponent(Type requiredComponent,Type requiredComponent2){Types=new[]{requiredComponent,requiredComponent2};}
+ public RequireComponent(Type requiredComponent,Type requiredComponent2,Type requiredComponent3){Types=new[]{requiredComponent,requiredComponent2,requiredComponent3};}
+}
+
 // Both public hierarchies share native identities through explicit facades.
 [System.Runtime.InteropServices.StructLayout(System.Runtime.InteropServices.LayoutKind.Sequential)]
 public partial class Object {
@@ -57,7 +65,12 @@ public sealed partial class GameObject : Object {
   }return null;
  }private static void SearchTag(string tag){if(string.IsNullOrEmpty(tag))throw new ArgumentException("Tag must not be null or empty",nameof(tag));Tags.Require(tag);}
  public static GameObject? FindWithTag(string tag){SearchTag(tag);return tag=="Untagged"?null:Legacy.GameObject.FindWithTag(tag);}public static GameObject? FindGameObjectWithTag(string tag)=>FindWithTag(tag);public static GameObject[] FindGameObjectsWithTag(string tag){SearchTag(tag);return tag=="Untagged"?Array.Empty<GameObject>():Legacy.GameObject.FindGameObjectsWithTag(tag).Select(go=>(GameObject)go).ToArray();}public static void FindGameObjectsWithTag(string tag,List<GameObject> results){results.Clear();results.AddRange(FindGameObjectsWithTag(tag));}
- public T AddComponent<T>() where T:Component=>(T)AddComponent(typeof(T));public Component AddComponent(Type componentType){var owner=LegacyGameObject;if(componentType==typeof(Transform)){Legacy.Debug.LogError("Cannot add Transform because this GameObject already contains one");return null!;}return owner.AddComponent(componentType);}
+ public T AddComponent<T>() where T:Component=>(T)AddComponent(typeof(T));public Component AddComponent(Type componentType){var owner=LegacyGameObject;if(componentType==typeof(Transform)||componentType==typeof(Legacy.Transform)){Legacy.Debug.LogError("Cannot add Transform because this GameObject already contains one");return null!;}
+  var type=componentType==null?null:Legacy.ScriptBridge.NativeType(componentType);var builtin=type!=null&&new[]{typeof(Legacy.BoxCollider),typeof(Legacy.SphereCollider),typeof(Legacy.CapsuleCollider),typeof(Legacy.MeshCollider),typeof(Legacy.MeshFilter),typeof(Legacy.MeshRenderer),typeof(Legacy.Rigidbody),typeof(Legacy.Rigidbody2D),typeof(Legacy.Camera),typeof(Legacy.AudioListener)}.Contains(type);
+  if(type==null||type.IsAbstract||type.ContainsGenericParameters||!builtin&&!Legacy.RuntimeLifecycle.Factories.ContainsKey(type)){Legacy.Debug.LogError("The component class cannot be added: "+componentType?.Name);return null!;}
+  if((type==typeof(Legacy.MeshFilter)||type==typeof(Legacy.MeshRenderer))&&owner.GetComponent(type)!=null){Legacy.Debug.LogError("This GameObject already contains "+componentType!.Name);return null!;}
+  return owner.AddComponent(componentType!);
+ }
  public T? GetComponent<T>()=>LegacyGameObject.GetComponent<T>();public Component? GetComponent(Type type)=>LegacyGameObject.GetComponent(QueryType(type));public Component? GetComponent(string type){_=LegacyGameObject;if(string.IsNullOrEmpty(type))return null;return GetComponents<Component>().FirstOrDefault(component=>Matches(component.Native is Legacy.UnityScriptAdapter adapter?adapter.Target.GetType():component.Native.GetType()));bool Matches(Type candidate){for(var current=candidate;current!=null&&(typeof(Component).IsAssignableFrom(current)||typeof(Legacy.Component).IsAssignableFrom(current));current=current.BaseType){var script=(typeof(MonoBehaviour).IsAssignableFrom(current)&&current!=typeof(MonoBehaviour))||(typeof(Legacy.Script).IsAssignableFrom(current)&&current!=typeof(Legacy.Script)&&current!=typeof(Legacy.MonoBehaviour));if(current.Name==type||script&&current.FullName==type)return true;}return false;}}
  public T[] GetComponents<T>()=>LegacyGameObject.GetComponents<T>();public Component[] GetComponents(Type type)=>LegacyGameObject.GetComponents(QueryType(type)).Select(native=>(Component)Wrap(native)).ToArray();public void GetComponents<T>(List<T> results){var owner=LegacyGameObject;if(results!=null)owner.GetComponents(results);}
  public T? GetComponentInChildren<T>()=>GetComponentInChildren<T>(false);public T? GetComponentInChildren<T>(bool includeInactive)=>GetComponentsInChildren<T>(includeInactive).FirstOrDefault();public T? GetComponentInParent<T>()=>GetComponentInParent<T>(false);public T? GetComponentInParent<T>(bool includeInactive)=>GetComponentsInParent<T>(includeInactive).FirstOrDefault();

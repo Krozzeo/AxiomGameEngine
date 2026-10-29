@@ -1,3 +1,11 @@
+Current review: **0.0.62 / SDK12**. All **311/311 frozen M20 source contracts** match, and all311 have attributed bounded-profile acceptance:281 behavioral contracts and30 compiler-error obsolete contracts. Component62/62, GameObject96/96, Transform81/81 and Object72/72. Fresh native923 core checks plus the thirteen attributed/dependency corpora pass. AddComponent140 and compound physics13 plus real Inspector geometry/activation/reference edits pass in Development and effective AOT. Full current-source browser regression, refreshed evidence, final CI and the public artifact remain closure gates; M20 is not yet marked complete.
+
+## Current component integration batch
+
+See [component integration](../architecture/M20_COMPONENT_INSTANCES.md). CreatePrimitive contributes1 attributed signature/13 observations; AddComponent contributes2 signatures/140 observations. Repeated scripts and compound colliders are independently tested dependencies. These additions complete311 bounded signature profiles without asserting whole-API parity or bypassing final regression/CI/publication.
+
+## Earlier batch records
+
 # M20 canonical core — Engine 0.0.62 / SDK12
 
 M20 remains **in progress**. The owned compiled SDK matches all **311 frozen public source contracts** for Object, Component, GameObject and Transform. This is a declaration/type/constraint/parameter-mode audit, separate from complete behavior certification. The original migration corpus now compiles and executes unchanged. Do not carry forward the previous CS0246 failure as the current result.

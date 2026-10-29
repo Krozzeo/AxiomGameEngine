@@ -1,5 +1,5 @@
 use super::REGISTRY;
-use axiom_core::physics::{Body, Shape, World};
+use axiom_core::physics::{Body, ColliderShape, Shape, World};
 #[unsafe(no_mangle)]
 pub extern "C" fn axiom_physics_clear(id: u32) -> u32 {
     REGISTRY.with_borrow_mut(|r| {
@@ -8,6 +8,68 @@ pub extern "C" fn axiom_physics_clear(id: u32) -> u32 {
         }
         r.physics.insert(id, World::default());
         0
+    })
+}
+/// Additional geometry shares its owner's mass and motion. The slot is an
+/// integration detail; the host maps it back to the logical component handle.
+#[unsafe(no_mangle)]
+#[allow(clippy::too_many_arguments)]
+pub extern "C" fn axiom_physics_collider(
+    id: u32,
+    owner: u32,
+    slot: u32,
+    shape: u32,
+    hx: f64,
+    hy: f64,
+    hz: f64,
+    cx: f64,
+    cy: f64,
+    cz: f64,
+    qx: f64,
+    qy: f64,
+    qz: f64,
+    qw: f64,
+    trigger: u32,
+    layer: u32,
+    mask: u32,
+    enabled: u32,
+) -> u32 {
+    let shape = match shape {
+        0 => Shape::Box,
+        1 => Shape::Sphere,
+        2 => Shape::Capsule,
+        3 => Shape::Plane,
+        4 => Shape::Quad,
+        _ => return 2,
+    };
+    if trigger > 1 || enabled > 1 {
+        return 2;
+    }
+    REGISTRY.with_borrow_mut(|registry| {
+        let Some(world) = registry.physics.get_mut(&id) else {
+            return 1;
+        };
+        if world
+            .set_collider(
+                owner as usize,
+                slot as usize,
+                ColliderShape {
+                    shape,
+                    half: [hx, hy, hz],
+                    center: [cx, cy, cz],
+                    rotation: [qx, qy, qz, qw],
+                    trigger: trigger == 1,
+                    layer,
+                    mask,
+                    enabled: enabled == 1,
+                },
+            )
+            .is_ok()
+        {
+            0
+        } else {
+            2
+        }
     })
 }
 #[unsafe(no_mangle)]
@@ -174,6 +236,8 @@ pub extern "C" fn axiom_physics_contact(id: u32, index: u32, field: u32) -> f64 
                 7..=9 => c.point[field as usize - 7],
                 10..=12 => c.relative_velocity[field as usize - 10],
                 13 => c.impulse,
+                14 => c.collider_a as f64,
+                15 => c.collider_b as f64,
                 _ => f64::NAN,
             })
     })
@@ -196,8 +260,13 @@ pub extern "C" fn axiom_physics_ray(
     REGISTRY.with_borrow(|r| {
         r.physics
             .get(&id)
-            .and_then(|w| w.raycast([ox, oy, oz], [dx, dy, dz], max, dimension, mask))
-            .map_or(-1.0, |(i, t)| if field == 0 { i as f64 } else { t })
+            .and_then(|w| w.raycast_collider([ox, oy, oz], [dx, dy, dz], max, dimension, mask))
+            .map_or(-1.0, |(owner, slot, distance)| match field {
+                0 => owner as f64,
+                1 => distance,
+                2 => slot as f64,
+                _ => f64::NAN,
+            })
     })
 }
 
@@ -253,6 +322,39 @@ pub extern "C" fn axiom_physics_ignore_pair(id: u32, a: u32, b: u32, ignore: u32
 }
 
 #[unsafe(no_mangle)]
+pub extern "C" fn axiom_physics_ignore_colliders(
+    id: u32,
+    a: u32,
+    slot_a: u32,
+    b: u32,
+    slot_b: u32,
+    ignore: u32,
+) -> u32 {
+    REGISTRY.with_borrow_mut(|r| {
+        let Some(w) = r.physics.get_mut(&id) else {
+            return 1;
+        };
+        if ignore > 1
+            || w.collider_count(a as usize)
+                .is_none_or(|count| slot_a as usize >= count)
+            || w.collider_count(b as usize)
+                .is_none_or(|count| slot_b as usize >= count)
+        {
+            return 2;
+        }
+        let aa = (a as usize, slot_a as usize);
+        let bb = (b as usize, slot_b as usize);
+        let pair = if aa < bb { (aa, bb) } else { (bb, aa) };
+        if ignore == 1 {
+            w.ignored_collider_pairs.insert(pair);
+        } else {
+            w.ignored_collider_pairs.remove(&pair);
+        }
+        0
+    })
+}
+
+#[unsafe(no_mangle)]
 pub extern "C" fn axiom_physics_grounded(id: u32, index: u32) -> u32 {
     REGISTRY.with_borrow(|r| {
         r.physics
@@ -261,4 +363,81 @@ pub extern "C" fn axiom_physics_grounded(id: u32, index: u32) -> u32 {
             .copied()
             .unwrap_or(false) as u32
     })
+}
+
+#[cfg(test)]
+mod compound_tests {
+    use super::*;
+    use crate::exports::{axiom_create, axiom_destroy};
+
+    fn add(id: u32, position: [f64; 3], layer: u32) -> u32 {
+        axiom_physics_add(
+            id,
+            3,
+            0,
+            position[0],
+            position[1],
+            position[2],
+            0.0,
+            0.0,
+            0.0,
+            0.5,
+            0.5,
+            0.5,
+            0.0,
+            0.0,
+            0.5,
+            0.0,
+            0,
+            layer,
+            u32::MAX,
+        )
+    }
+    fn shape(id: u32, enabled: u32) -> u32 {
+        axiom_physics_collider(
+            id,
+            0,
+            1,
+            1,
+            0.5,
+            0.5,
+            0.5,
+            2.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            1,
+            1,
+            u32::MAX,
+            enabled,
+        )
+    }
+    #[test]
+    fn compound_scalar_boundary_preserves_owner_slot_contact_and_reset() {
+        let id = axiom_create();
+        assert_eq!(axiom_physics_clear(id), 0);
+        assert_eq!(add(id, [0.0; 3], 0), 0);
+        assert_eq!(shape(id, 1), 0);
+        let ray =
+            |field| axiom_physics_ray(id, 5.0, 0.0, 0.0, -1.0, 0.0, 0.0, 10.0, 3, u32::MAX, field);
+        assert_eq!(ray(0), 0.0);
+        assert_eq!(ray(1), 2.5);
+        assert_eq!(ray(2), 1.0);
+        assert_eq!(shape(id, 2), 2);
+        assert_eq!(ray(2), 1.0);
+        assert_eq!(add(id, [2.0, -0.9, 0.0], 1), 1);
+        assert_eq!(axiom_physics_step(id, 1), 0);
+        assert!(axiom_physics_info(id, 1) > 0);
+        assert_eq!(axiom_physics_contact(id, 0, 14), 1.0);
+        assert_eq!(axiom_physics_contact(id, 0, 15), 0.0);
+        assert_eq!(axiom_physics_contact(id, 0, 2), 1.0);
+        assert_eq!(axiom_physics_clear(id), 0);
+        assert_eq!(add(id, [0.0; 3], 0), 0);
+        assert_eq!(ray(0), -1.0);
+        axiom_destroy(id);
+        assert_eq!(shape(id, 1), 1);
+    }
 }

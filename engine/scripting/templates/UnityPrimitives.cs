@@ -9,14 +9,14 @@ internal static class PrimitiveCatalog {
 public partial class GameObject {
  public ulong sceneCullingMask {get{_=LegacyGameObject;return 16140901064495857664UL;}}
  public static GameObject CreatePrimitive(PrimitiveType type){
-  if(!Enum.IsDefined(type))throw new ArgumentOutOfRangeException(nameof(type));
+  if(!Enum.IsDefined(type)){Legacy.Debug.LogError("Unknown primitive type");return null!;}
   var index=(int)type;var entity=Legacy.Context.CreateObject(PrimitiveCatalog.Names[index]);
   var node=JsonNode.Parse(Legacy.Context.EntityData[entity.Id].GetRawText())!.AsObject();
   node["renderable"]=new JsonObject{["kind"]="mesh",["assetId"]=PrimitiveCatalog.Ids[index]};node["runtimeMeshFilter"]=true;node["runtimeMeshAssetId"]=PrimitiveCatalog.Ids[index];node["runtimeColliderLocal"]=true;
   var shape=index switch{0=>"sphere",1 or 2=>"capsule",3=>"box",4=>"plane",_=>"quad"};var half=index switch{1 or 2=>new[]{.5,1,.5},4=>new[]{5d,0,5},5=>new[]{.5,.5,0},_=>new[]{.5,.5,.5}};
   node["collider"]=new JsonObject{["dimension"]=3,["shape"]=shape,["halfExtents"]=new JsonArray(half.Select(v=>(JsonNode?)JsonValue.Create(v)).ToArray()),["trigger"]=false,["layer"]=1,["mask"]=4294967295u};
   Legacy.Context.EntityData[entity.Id]=Legacy.Context.ParseData(node.ToJsonString());Legacy.Context.Operations[^1]=new("primitive",entity.Id,null,default,null,Data:index.ToString(System.Globalization.CultureInfo.InvariantCulture));Legacy.Context.Refresh(entity);
-  Legacy.RuntimeAssets.BindPrimitive(entity,Legacy.PrimitiveMeshes.Get(PrimitiveCatalog.Ids[index]),index>=4);var native=new Legacy.GameObject(entity);Legacy.Context.ComponentOrders[entity]=new[]{native.transform.GetInstanceID(),new Legacy.MeshFilter(entity).GetInstanceID(),new Legacy.MeshRenderer(entity).GetInstanceID(),native.GetComponent<Legacy.Collider>()!.GetInstanceID()}.ToList();return native;
+  Legacy.RuntimeAssets.BindPrimitive(entity,Legacy.PrimitiveMeshes.Get(PrimitiveCatalog.Ids[index]),index>=4);var native=new Legacy.GameObject(entity);Legacy.Context.ComponentOrders[entity]=new[]{native.transform.GetInstanceID(),new Legacy.MeshFilter(entity).GetInstanceID(),native.GetComponent<Legacy.Collider>()!.GetInstanceID(),new Legacy.MeshRenderer(entity).GetInstanceID()}.ToList();return native;
  }
 }
 public class Collider : Component {
@@ -33,3 +33,19 @@ public class MeshFilter : Component {internal MeshFilter(Legacy.MeshFilter value
 public class Renderer : Component {internal Renderer(Legacy.Renderer value){Wrapped=value;}public bool enabled {get=>((Legacy.Renderer)LegacyComponent).enabled;set=>((Legacy.Renderer)LegacyComponent).enabled=value;}}
 public class MeshRenderer : Renderer {internal MeshRenderer(Legacy.MeshRenderer value):base(value){}}
 public class Mesh : Object {public Mesh(){Wrapped=new Legacy.Mesh("","");Legacy.RuntimeAssets.Register(Wrapped,true,"");CacheFacade();}internal Mesh(Legacy.Mesh value){Wrapped=value;}}
+
+public readonly struct ContactPoint {
+ private readonly Legacy.ContactPoint value;
+ internal ContactPoint(Legacy.ContactPoint value){this.value=value;}
+ public Vector3 point=>value.point;public Vector3 normal=>value.normal;public float separation=>(float)value.separation;
+ public Collider thisCollider=>(Collider)Object.Wrap(value.thisCollider);public Collider otherCollider=>(Collider)Object.Wrap(value.otherCollider);
+}
+public sealed class Collision {
+ private readonly Legacy.Collision value;
+ internal Collision(Legacy.Collision value){this.value=value;}
+ public Collider collider=>(Collider)Object.Wrap(value.collider);public GameObject gameObject=>collider.gameObject;public Transform transform=>collider.transform;
+ public Vector3 relativeVelocity=>value.relativeVelocity;public int contactCount=>value.contactCount;
+ public ContactPoint[] contacts=>value.contacts.Select(point=>new ContactPoint(point)).ToArray();
+ public ContactPoint GetContact(int index)=>new(value.GetContact(index));
+ public int GetContacts(ContactPoint[] buffer){ArgumentNullException.ThrowIfNull(buffer);var count=Math.Min(buffer.Length,contactCount);for(var i=0;i<count;i++)buffer[i]=GetContact(i);return count;}
+}

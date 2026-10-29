@@ -9,7 +9,8 @@ public partial class Object {
 }
 public partial class Component : Object {
  private Entity entity;
- public Entity Entity {get=>entity;internal set{entity=value;BindIdentity(value,Context.ComponentKey(GetType())??(this is Script?"script:"+ManagedIdentity:GetType().FullName!));}}
+ internal string? RuntimeSlot;
+ public Entity Entity {get=>entity;internal set{entity=value;BindIdentity(value,RuntimeSlot??Context.ComponentKey(GetType())??(this is Script?"script:"+ManagedIdentity:GetType().FullName!));}}
  public GameObject gameObject {get{if(!this)throw new InvalidOperationException("Component reference has been destroyed or is not attached");return new(Entity);}}
  public Transform transform=>gameObject.transform;
  public T? GetComponent<T>()=>gameObject.GetComponent<T>();

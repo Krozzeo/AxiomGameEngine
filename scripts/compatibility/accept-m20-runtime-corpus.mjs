@@ -18,12 +18,13 @@ function compareClone(actual,expected){
 
 // This helper never changes the frozen denominator or required closure criteria.
 // Each caller names a fixed direct-call corpus and records its bounded contract.
-export async function acceptRuntimeCorpus({slug,area,type,prefix,signatures,observations,contract,pose=false}){
+export async function acceptRuntimeCorpus({slug,area,type,prefix,signatures,observations,contract,pose=false,extraSources=[]}){
  const evidence='docs/compatibility/evidence/',raw=await bytes(evidence+'m20-unity-'+slug+'-observations.json'),native=JSON.parse(raw),owned=await read(evidence+'m20-sdk12-'+area+'-native.json'),catalog=await read(evidence+'m20-'+slug+'-cases.json'),ledger=await read('docs/compatibility/m20-batches.json'),source=await read(evidence+'m20-sdk12-source.json');
  assert.equal(source.sourceContractMatches,311);assert(!native.error);assert.equal(native.unityVersion,'6000.3.27f1');assert.equal(native.coreAssemblySha256,'42e4b6c8def1193816c79961e31d88df7d53b373d739d9b7b931716a7ca7f737');assert(owned.passed);assert.equal(owned.checks,observations);assert.equal(native.rows.length,observations);assert.equal(owned.sourceSha256,native.sourceSha256);assert.equal(owned.evidenceSha256,hash(raw));assert.deepEqual(owned.mismatches,[]);
  const sdkNames=(await readdir(new URL('engine/scripting/templates/',root))).filter(name=>name.endsWith('.cs')&&!['Host.cs','Game.cs'].includes(name)).sort();assert.deepEqual(Object.keys(owned.sdkSources).sort(),sdkNames);
  for(const [name,expected]of Object.entries(owned.sdkSources))assert.equal(hash(await bytes('engine/scripting/templates/'+name)),expected,'Stale native SDK '+name);
  const corpusSourceHashes={};for(const suffix of ['Corpus','Reference','Lab']){const name=type+suffix+'.cs';corpusSourceHashes[name]=hash(await bytes('demos/scripts/'+name));}assert.equal(native.sourceSha256,corpusSourceHashes[type+'Corpus.cs']);
+ for(const name of extraSources){const key=name+'.cs';corpusSourceHashes[key]=hash(await bytes('demos/scripts/'+key));assert.equal(native.receiverSourceHashes.find(entry=>entry.key===key)?.value,corpusSourceHashes[key]);assert.equal(owned.receiverSourceHashes[key],corpusSourceHashes[key]);}
  assert.equal(new Set(native.rows.map(row=>row.index+'.'+row.profile)).size,observations);assert.equal(catalog.records.length,signatures);assert.equal(catalog.expectedObservations,observations);
  assert.deepEqual(owned.rows.map(row=>[row.index,row.profile]),native.rows.map(row=>[row.index,row.profile]));
  for(let i=0;i<observations;i++){if(pose)compareClone(owned.rows[i],native.rows[i]);else{assert.equal(owned.rows[i].error,native.rows[i].error);assert.equal(owned.rows[i].data,native.rows[i].data);}}

@@ -157,7 +157,7 @@ export async function createSceneRenderer({ canvas, stateElement, traceOutput, b
       while(frameInProgress)await new Promise(resolve=>setTimeout(resolve,1));
       if(ticket!==generation||!playing)throw Error('AX_SCENE_0002: Runtime changed during editing');
       const next=applyRuntimeEdit(runtimeScene,edit);
-      if(edit.type==='scene.script.edit'&&scriptRuntime){const packet=await scriptRuntime.execute({action:'fields',generation:ticket,entities:runtimeScriptEntities(runtimeScene.entities,authoredHierarchy.entities),keys:[],edits:[{entityId:edit.data.entityId,path:edit.data.path,values:edit.data.values}]});if(packet.error)throw Error(packet.error);}
+      if(edit.type==='scene.script.edit'&&scriptRuntime){const packet=await scriptRuntime.execute({action:'fields',generation:ticket,entities:runtimeScriptEntities(runtimeScene.entities,authoredHierarchy.entities),keys:[],edits:[{entityId:edit.data.entityId,path:edit.data.path,...(edit.data.runtimeId!==undefined?{runtimeId:edit.data.runtimeId}:{}),values:edit.data.values}]});if(packet.error)throw Error(packet.error);}
       const previous=runtimeScene;
       try {if(edit.type!=='scene.script.edit'){geometry=kernel.compileScene(next,assets,true);kernel.configurePhysics(next,true);}}catch(error){kernel.compileScene(previous,assets,true);kernel.configurePhysics(previous,true);throw error;}
       runtimeScene=next;managedSyncNeeded=true;audio.reconcile(next);return {scene:structuredClone(next),generation:ticket};

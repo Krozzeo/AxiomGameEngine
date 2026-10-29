@@ -1,0 +1,896 @@
+{
+  "passed": true,
+  "checks": 140,
+  "sourceSha256": "c0066ee434b837cf10e3708d5f84b34d60ceeb9cceb54069a862cb004e7dda8b",
+  "receiverSourceHashes": {
+    "RepeatedScriptProbe.cs": "c38e3b828c156aa7435ae0e40a97ba4fe0cc6599c4b0f0e4ad8b72c4b57d43bc",
+    "UniqueScriptProbe.cs": "dadfa1e2bb88d0fb0fb8e1e058d7267ca62b9ce1c70c7ba9b9bf678e3062da22",
+    "RequiredBoxProbe.cs": "499d57becbedcd099462bdc120b55671987d5915433eaaf030b544f8b98efc77"
+  },
+  "sdkSources": {
+    "CloneBlueprint.cs": "2e6ade96b0f58dd00040e63dc99cdfef0d1574c481c436cf7e975e8ce42e299c",
+    "CloneSerialization.cs": "3e8bc6f50eed6f82f7cb381b17b849c985c7cb686c5e8f17368944bd790aee94",
+    "ColliderInstances.cs": "d7f986c627600766ccb8448e4995bf02bbae5526ebe1f7f37d38cd6eb8102b16",
+    "Compatibility.cs": "e638406eb62cfb4a061f432dcddc77e1637443ec9fd2128adfdb8dfed629acd4",
+    "GeneratedComponents.cs": "07807ab2184cf5b49b0ac8f0a411406494942428a365aa38b460a4ab75f1a18d",
+    "Input.cs": "9eeff6a9fd60e7fbf0b6717e7a50e91da890c65bc0871106d91bfcdd3cb22799",
+    "Inspector.cs": "1ceeb707ac8069df7416c4f71e8af0b4d94332ec3d903ab57d0dcbb56bafbb1c",
+    "NativeArray.cs": "d813de30e56d2558bcea934f2b60b5f0dec5b5ecb3bf24c7553757813b16e489",
+    "Navigation.cs": "5ffad821a5e052ee28cd73314ed7d506a7450a0eaa8e5509f8688548f8dd3ca4",
+    "Networking.cs": "b733b687ead62593c24a331b679f72615278b20a0b354b32208c18cfc569d4db",
+    "ObjectQueries.cs": "0783a55c5a97c99e1aab48b741257b0de4f85bbb63f2b63e8db2e5ad39236395",
+    "Physics.cs": "7c5e9eff147d3f4519ece2048f93d6c10dcd32309d479976520728a03fc81459",
+    "PhysicsAdvanced.cs": "d7e127ac6eca9ebcdeb56aff10a9811315b20b30273ec7c469a7aa627b9a300a",
+    "Platform.cs": "3413dac8c9790a30daf1bc5ec9862255934c6c0263fdb249262b1ab17f47e35a",
+    "Presentation.cs": "e36d90a8ca871e239fe39d2d4621158af7dba2ddb381eade2878df562907c0c4",
+    "PrimitiveComponents.cs": "e830709788e970274f2bd20ba536f7af260db31df015934b4e3977324c52fcd7",
+    "PrimitiveGeometry.cs": "9734b237811183d04534786b18bbf457360f76feedc3444f057a8d411a8356d0",
+    "ProjectRuntime.cs": "633400c52836657894f1ab31f063ff27070ca6e4bec6747dec629ab2013283d7",
+    "RuntimeAssets.cs": "bf0a0402ce2d9a21d9b5cbf6310152fea5a57c8367019730e3f2b7b1ff7e7097",
+    "RuntimeObjects.cs": "62d2e6187eae8c63d4e8be5c45d824b20500133373bf1afc7084f2a8623b3e79",
+    "SceneManagement.cs": "7074a5b1c88cc23272839f894d832c93ed2f0d777ac5cc859dbc4406b61ec95c",
+    "Scheduling.cs": "0df5edf1f2fe3d12066cdd61620586acb0a95c250d4fdea42d8caacc08488304",
+    "Sdk.cs": "5186f776f9836ce0eb628da82359728670fbd2108f83c1f8c5b98da4db95c712",
+    "ShapeCasts.cs": "8f0690fe9c30a77d67c499c8a31d50120bdeb36cae8ae94e1e7b4228458c12f5",
+    "TransformGraph.cs": "531c1677d6b3aba5e12798a832f380ff0f9aa104c6bb0c19a26e51a5452bb96f",
+    "TransformMatrices.cs": "4ae6e29219920202b466292bc128a3db7f4e7a7b77d941f201363e323d7f2be7",
+    "TransformOperations.cs": "d3e8835dcbf7b7534739d327698d7749faaba5539d53f4f3c390643ea8a31254",
+    "UnityAsyncInstantiation.cs": "3e01883fb13df9c79ab9d1c9ff569af9de23622f031a810348e1d04700f79f04",
+    "UnityBulkObjects.cs": "8e8df4d4667cb8bb03ce5507c352ca9a05fa6c6100c91824df41f9a49e81563c",
+    "UnityInstantiation.cs": "e4142b143976bd0292afbe84e637ca38d9f33958350dfdf8b852c3ad082feb7f",
+    "UnityMath.cs": "0904149c30d6671a1224782b4f5bed82688fc2545bb2eaafec1c2164a8809bd5",
+    "UnityMessages.cs": "2295c8a98ab8293783f8845a15bba254a7d3a809a0a5d62d129f241a81d0b25d",
+    "UnityObjects.cs": "1735a7a1bb5252d670e3ca7bc1f1abbbed1308f9eb813116824ba9a6da1e16b7",
+    "UnityObsolete.cs": "149ba2895bb23231148a0b705900af5195646bafe07c292f60f427822e3548ca",
+    "UnityPrimitives.cs": "f555aa7b6dc0d1790ba4333ee63aa3e6573f3b0a71e16f2e19fff94db0eb5d9e",
+    "UnityQueries.cs": "e30000f8b885e57084151d29fbffee46f5754b20ccde8b28d61a110708ccf6f3",
+    "UnityScenes.cs": "5ee5c49b62fcdea16594f2f3cc24ce1bb1b2b1b31ebda4e5ae6cafa6397ec4cb",
+    "UnityScriptBridge.cs": "064a8914c27b0e32b8e43a634184b6e4965f54bfbfaee19e84cf0643db293abe",
+    "UnityTags.cs": "ec16ef824fe998761d235288359a373372ca5dd33e5c5c8910829ff20a49d3bb",
+    "UnityTime.cs": "abcc83c9996119975f26967ceb2eed1ec0fba8d2aba6ae501026d82a5a06a946"
+  },
+  "evidenceSha256": "8b0792bb8efdc43b70eb1cc5768a2c8eaa4cf740e2553dd6944f19ab2be86ed4",
+  "mismatches": [],
+  "rows": [
+    {
+      "index": 0,
+      "profile": "Transform.fresh",
+      "data": "null:null:False:1:Transform",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "Transform.duplicate",
+      "data": "null:null:False:1:Transform",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "Transform.retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 0,
+      "profile": "Transform.null-receiver",
+      "data": "",
+      "error": "System.NullReferenceException"
+    },
+    {
+      "index": 0,
+      "profile": "Component.fresh",
+      "data": "null:null:False:1:Transform",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "Component.duplicate",
+      "data": "null:null:False:1:Transform",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "Component.retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 0,
+      "profile": "Component.null-receiver",
+      "data": "",
+      "error": "System.NullReferenceException"
+    },
+    {
+      "index": 0,
+      "profile": "Behaviour.fresh",
+      "data": "null:null:False:1:Transform",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "Behaviour.duplicate",
+      "data": "null:null:False:1:Transform",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "Behaviour.retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 0,
+      "profile": "Behaviour.null-receiver",
+      "data": "",
+      "error": "System.NullReferenceException"
+    },
+    {
+      "index": 0,
+      "profile": "MonoBehaviour.fresh",
+      "data": "null:null:False:1:Transform",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "MonoBehaviour.duplicate",
+      "data": "null:null:False:1:Transform",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "MonoBehaviour.retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 0,
+      "profile": "MonoBehaviour.null-receiver",
+      "data": "",
+      "error": "System.NullReferenceException"
+    },
+    {
+      "index": 0,
+      "profile": "Collider.fresh",
+      "data": "null:null:False:1:Transform",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "Collider.duplicate",
+      "data": "null:null:False:1:Transform",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "Collider.retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 0,
+      "profile": "Collider.null-receiver",
+      "data": "",
+      "error": "System.NullReferenceException"
+    },
+    {
+      "index": 0,
+      "profile": "BoxCollider.fresh",
+      "data": "BoxCollider:null:False:2:Transform,BoxCollider:True",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "BoxCollider.duplicate",
+      "data": "BoxCollider:BoxCollider:True:3:Transform,BoxCollider,BoxCollider:True:True:True:False:True:True:False",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "BoxCollider.retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 0,
+      "profile": "BoxCollider.null-receiver",
+      "data": "",
+      "error": "System.NullReferenceException"
+    },
+    {
+      "index": 0,
+      "profile": "BoxCollider.mixed",
+      "data": "BoxCollider:BoxCollider:True:4:Transform,BoxCollider,BoxCollider,BoxCollider:True:True:True:False:True:True:False",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "SphereCollider.fresh",
+      "data": "SphereCollider:null:False:2:Transform,SphereCollider:0.5",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "SphereCollider.duplicate",
+      "data": "SphereCollider:SphereCollider:True:3:Transform,SphereCollider,SphereCollider:0.5",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "SphereCollider.retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 0,
+      "profile": "SphereCollider.null-receiver",
+      "data": "",
+      "error": "System.NullReferenceException"
+    },
+    {
+      "index": 0,
+      "profile": "SphereCollider.mixed",
+      "data": "SphereCollider:SphereCollider:True:4:Transform,BoxCollider,SphereCollider,SphereCollider:0.5",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "CapsuleCollider.fresh",
+      "data": "CapsuleCollider:null:False:2:Transform,CapsuleCollider:0.5:1",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "CapsuleCollider.duplicate",
+      "data": "CapsuleCollider:CapsuleCollider:True:3:Transform,CapsuleCollider,CapsuleCollider:0.5:1",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "CapsuleCollider.retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 0,
+      "profile": "CapsuleCollider.null-receiver",
+      "data": "",
+      "error": "System.NullReferenceException"
+    },
+    {
+      "index": 0,
+      "profile": "CapsuleCollider.mixed",
+      "data": "CapsuleCollider:CapsuleCollider:True:4:Transform,BoxCollider,CapsuleCollider,CapsuleCollider:0.5:1",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "MeshCollider.fresh",
+      "data": "MeshCollider:null:False:2:Transform,MeshCollider:True:True:False",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "MeshCollider.duplicate",
+      "data": "MeshCollider:MeshCollider:True:3:Transform,MeshCollider,MeshCollider:True:True:False",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "MeshCollider.retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 0,
+      "profile": "MeshCollider.null-receiver",
+      "data": "",
+      "error": "System.NullReferenceException"
+    },
+    {
+      "index": 0,
+      "profile": "MeshCollider.rendered",
+      "data": "MeshCollider:null:False:5:Transform,MeshFilter,BoxCollider,MeshRenderer,MeshCollider:False:True:False",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "MeshFilter.fresh",
+      "data": "MeshFilter:null:False:2:Transform,MeshFilter:True",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "MeshFilter.duplicate",
+      "data": "MeshFilter:null:False:2:Transform,MeshFilter:True",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "MeshFilter.retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 0,
+      "profile": "MeshFilter.null-receiver",
+      "data": "",
+      "error": "System.NullReferenceException"
+    },
+    {
+      "index": 0,
+      "profile": "MeshFilter.rendered",
+      "data": "null:null:False:4:Transform,MeshFilter,BoxCollider,MeshRenderer",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "Renderer.fresh",
+      "data": "null:null:False:1:Transform",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "Renderer.duplicate",
+      "data": "null:null:False:1:Transform",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "Renderer.retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 0,
+      "profile": "Renderer.null-receiver",
+      "data": "",
+      "error": "System.NullReferenceException"
+    },
+    {
+      "index": 0,
+      "profile": "MeshRenderer.fresh",
+      "data": "MeshRenderer:null:False:2:Transform,MeshRenderer:True",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "MeshRenderer.duplicate",
+      "data": "MeshRenderer:null:False:2:Transform,MeshRenderer:True",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "MeshRenderer.retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 0,
+      "profile": "MeshRenderer.null-receiver",
+      "data": "",
+      "error": "System.NullReferenceException"
+    },
+    {
+      "index": 0,
+      "profile": "MeshRenderer.rendered",
+      "data": "null:null:False:4:Transform,MeshFilter,BoxCollider,MeshRenderer",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "RepeatedScriptProbe.fresh",
+      "data": "RepeatedScriptProbe:null:False:2:Transform,RepeatedScriptProbe",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "RepeatedScriptProbe.duplicate",
+      "data": "RepeatedScriptProbe:RepeatedScriptProbe:True:3:Transform,RepeatedScriptProbe,RepeatedScriptProbe",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "RepeatedScriptProbe.retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 0,
+      "profile": "RepeatedScriptProbe.null-receiver",
+      "data": "",
+      "error": "System.NullReferenceException"
+    },
+    {
+      "index": 0,
+      "profile": "UniqueScriptProbe.fresh",
+      "data": "UniqueScriptProbe:null:False:2:Transform,UniqueScriptProbe",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "UniqueScriptProbe.duplicate",
+      "data": "UniqueScriptProbe:null:False:2:Transform,UniqueScriptProbe",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "UniqueScriptProbe.retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 0,
+      "profile": "UniqueScriptProbe.null-receiver",
+      "data": "",
+      "error": "System.NullReferenceException"
+    },
+    {
+      "index": 0,
+      "profile": "RequiredBoxProbe.fresh",
+      "data": "RequiredBoxProbe:null:False:3:Transform,BoxCollider,RequiredBoxProbe",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "RequiredBoxProbe.duplicate",
+      "data": "RequiredBoxProbe:RequiredBoxProbe:True:4:Transform,BoxCollider,RequiredBoxProbe,RequiredBoxProbe",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "RequiredBoxProbe.retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 0,
+      "profile": "RequiredBoxProbe.null-receiver",
+      "data": "",
+      "error": "System.NullReferenceException"
+    },
+    {
+      "index": 0,
+      "profile": "string.fresh",
+      "data": "null:null:False:1:Transform",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "string.duplicate",
+      "data": "null:null:False:1:Transform",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "string.retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 0,
+      "profile": "string.null-receiver",
+      "data": "",
+      "error": "System.NullReferenceException"
+    },
+    {
+      "index": 0,
+      "profile": "null.fresh",
+      "data": "null:null:False:1:Transform",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "null.duplicate",
+      "data": "null:null:False:1:Transform",
+      "error": ""
+    },
+    {
+      "index": 0,
+      "profile": "null.retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 0,
+      "profile": "null.null-receiver",
+      "data": "",
+      "error": "System.NullReferenceException"
+    },
+    {
+      "index": 1,
+      "profile": "Transform.fresh",
+      "data": "null:null:False:1:Transform",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "Transform.duplicate",
+      "data": "null:null:False:1:Transform",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "Transform.retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 1,
+      "profile": "Transform.null-receiver",
+      "data": "",
+      "error": "System.NullReferenceException"
+    },
+    {
+      "index": 1,
+      "profile": "Component.fresh",
+      "data": "null:null:False:1:Transform",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "Component.duplicate",
+      "data": "null:null:False:1:Transform",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "Component.retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 1,
+      "profile": "Component.null-receiver",
+      "data": "",
+      "error": "System.NullReferenceException"
+    },
+    {
+      "index": 1,
+      "profile": "Behaviour.fresh",
+      "data": "null:null:False:1:Transform",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "Behaviour.duplicate",
+      "data": "null:null:False:1:Transform",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "Behaviour.retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 1,
+      "profile": "Behaviour.null-receiver",
+      "data": "",
+      "error": "System.NullReferenceException"
+    },
+    {
+      "index": 1,
+      "profile": "MonoBehaviour.fresh",
+      "data": "null:null:False:1:Transform",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "MonoBehaviour.duplicate",
+      "data": "null:null:False:1:Transform",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "MonoBehaviour.retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 1,
+      "profile": "MonoBehaviour.null-receiver",
+      "data": "",
+      "error": "System.NullReferenceException"
+    },
+    {
+      "index": 1,
+      "profile": "Collider.fresh",
+      "data": "null:null:False:1:Transform",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "Collider.duplicate",
+      "data": "null:null:False:1:Transform",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "Collider.retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 1,
+      "profile": "Collider.null-receiver",
+      "data": "",
+      "error": "System.NullReferenceException"
+    },
+    {
+      "index": 1,
+      "profile": "BoxCollider.fresh",
+      "data": "BoxCollider:null:False:2:Transform,BoxCollider:True",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "BoxCollider.duplicate",
+      "data": "BoxCollider:BoxCollider:True:3:Transform,BoxCollider,BoxCollider:True:True:True:False:True:True:False",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "BoxCollider.retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 1,
+      "profile": "BoxCollider.null-receiver",
+      "data": "",
+      "error": "System.NullReferenceException"
+    },
+    {
+      "index": 1,
+      "profile": "BoxCollider.mixed",
+      "data": "BoxCollider:BoxCollider:True:4:Transform,BoxCollider,BoxCollider,BoxCollider:True:True:True:False:True:True:False",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "SphereCollider.fresh",
+      "data": "SphereCollider:null:False:2:Transform,SphereCollider:0.5",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "SphereCollider.duplicate",
+      "data": "SphereCollider:SphereCollider:True:3:Transform,SphereCollider,SphereCollider:0.5",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "SphereCollider.retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 1,
+      "profile": "SphereCollider.null-receiver",
+      "data": "",
+      "error": "System.NullReferenceException"
+    },
+    {
+      "index": 1,
+      "profile": "SphereCollider.mixed",
+      "data": "SphereCollider:SphereCollider:True:4:Transform,BoxCollider,SphereCollider,SphereCollider:0.5",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "CapsuleCollider.fresh",
+      "data": "CapsuleCollider:null:False:2:Transform,CapsuleCollider:0.5:1",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "CapsuleCollider.duplicate",
+      "data": "CapsuleCollider:CapsuleCollider:True:3:Transform,CapsuleCollider,CapsuleCollider:0.5:1",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "CapsuleCollider.retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 1,
+      "profile": "CapsuleCollider.null-receiver",
+      "data": "",
+      "error": "System.NullReferenceException"
+    },
+    {
+      "index": 1,
+      "profile": "CapsuleCollider.mixed",
+      "data": "CapsuleCollider:CapsuleCollider:True:4:Transform,BoxCollider,CapsuleCollider,CapsuleCollider:0.5:1",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "MeshCollider.fresh",
+      "data": "MeshCollider:null:False:2:Transform,MeshCollider:True:True:False",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "MeshCollider.duplicate",
+      "data": "MeshCollider:MeshCollider:True:3:Transform,MeshCollider,MeshCollider:True:True:False",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "MeshCollider.retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 1,
+      "profile": "MeshCollider.null-receiver",
+      "data": "",
+      "error": "System.NullReferenceException"
+    },
+    {
+      "index": 1,
+      "profile": "MeshCollider.rendered",
+      "data": "MeshCollider:null:False:5:Transform,MeshFilter,BoxCollider,MeshRenderer,MeshCollider:False:True:False",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "MeshFilter.fresh",
+      "data": "MeshFilter:null:False:2:Transform,MeshFilter:True",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "MeshFilter.duplicate",
+      "data": "MeshFilter:null:False:2:Transform,MeshFilter:True",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "MeshFilter.retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 1,
+      "profile": "MeshFilter.null-receiver",
+      "data": "",
+      "error": "System.NullReferenceException"
+    },
+    {
+      "index": 1,
+      "profile": "MeshFilter.rendered",
+      "data": "null:null:False:4:Transform,MeshFilter,BoxCollider,MeshRenderer",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "Renderer.fresh",
+      "data": "null:null:False:1:Transform",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "Renderer.duplicate",
+      "data": "null:null:False:1:Transform",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "Renderer.retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 1,
+      "profile": "Renderer.null-receiver",
+      "data": "",
+      "error": "System.NullReferenceException"
+    },
+    {
+      "index": 1,
+      "profile": "MeshRenderer.fresh",
+      "data": "MeshRenderer:null:False:2:Transform,MeshRenderer:True",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "MeshRenderer.duplicate",
+      "data": "MeshRenderer:null:False:2:Transform,MeshRenderer:True",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "MeshRenderer.retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 1,
+      "profile": "MeshRenderer.null-receiver",
+      "data": "",
+      "error": "System.NullReferenceException"
+    },
+    {
+      "index": 1,
+      "profile": "MeshRenderer.rendered",
+      "data": "null:null:False:4:Transform,MeshFilter,BoxCollider,MeshRenderer",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "RepeatedScriptProbe.fresh",
+      "data": "RepeatedScriptProbe:null:False:2:Transform,RepeatedScriptProbe",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "RepeatedScriptProbe.duplicate",
+      "data": "RepeatedScriptProbe:RepeatedScriptProbe:True:3:Transform,RepeatedScriptProbe,RepeatedScriptProbe",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "RepeatedScriptProbe.retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 1,
+      "profile": "RepeatedScriptProbe.null-receiver",
+      "data": "",
+      "error": "System.NullReferenceException"
+    },
+    {
+      "index": 1,
+      "profile": "UniqueScriptProbe.fresh",
+      "data": "UniqueScriptProbe:null:False:2:Transform,UniqueScriptProbe",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "UniqueScriptProbe.duplicate",
+      "data": "UniqueScriptProbe:null:False:2:Transform,UniqueScriptProbe",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "UniqueScriptProbe.retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 1,
+      "profile": "UniqueScriptProbe.null-receiver",
+      "data": "",
+      "error": "System.NullReferenceException"
+    },
+    {
+      "index": 1,
+      "profile": "RequiredBoxProbe.fresh",
+      "data": "RequiredBoxProbe:null:False:3:Transform,BoxCollider,RequiredBoxProbe",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "RequiredBoxProbe.duplicate",
+      "data": "RequiredBoxProbe:RequiredBoxProbe:True:4:Transform,BoxCollider,RequiredBoxProbe,RequiredBoxProbe",
+      "error": ""
+    },
+    {
+      "index": 1,
+      "profile": "RequiredBoxProbe.retired",
+      "data": "",
+      "error": "UnityEngine.MissingReferenceException"
+    },
+    {
+      "index": 1,
+      "profile": "RequiredBoxProbe.null-receiver",
+      "data": "",
+      "error": "System.NullReferenceException"
+    }
+  ]
+}

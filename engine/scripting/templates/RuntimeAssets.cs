@@ -24,6 +24,8 @@ internal static class RuntimeAssets {
  internal static Object[] Owned(Type type)=>Objects.Values.Where(state=>state.Owned&&state.Value&&type.IsInstanceOfType(UnityEngine.Object.Wrap(state.Value))).Select(state=>state.Value).ToArray();
  internal static void Reset(){foreach(var state in Objects.Values)state.Live=false;Objects.Clear();Loaded.Clear();MeshBindings.Clear();ColliderBindings.Clear();}
  internal static void BindPrimitive(Entity entity,Mesh mesh,bool collider){Register(mesh);MeshBindings[entity]=mesh;if(collider)ColliderBindings[entity]=mesh;}
+ internal static void UnbindCollider(Entity entity)=>ColliderBindings.Remove(entity);
+ internal static void BindCollider(Entity entity,Mesh mesh){Register(mesh);ColliderBindings[entity]=mesh;}
  internal static Mesh? MeshOf(Entity entity,bool collider=false){var bindings=collider?ColliderBindings:MeshBindings;if(bindings.TryGetValue(entity,out var value))return value?value:null;var data=Context.EntityData[entity.Id];if(!collider&&data.TryGetProperty("runtimeMeshObjectId",out var id)){value=Resolve(Prefix+id.GetInt32()) as Mesh;bindings[entity]=value;return value;}if(data.TryGetProperty("runtimeMeshAssetId",out var source)){value=PrimitiveMeshes.Get(source.GetString()!);Register(value);bindings[entity]=value;return value;}return null;}
  internal sealed record Bindings(bool HasMesh,Mesh? Mesh,bool HasCollider,Mesh? Collider){internal void Restore(Entity entity){if(HasMesh)MeshBindings[entity]=Mesh;if(HasCollider)ColliderBindings[entity]=Collider;}}
  internal static Bindings CaptureBindings(Entity entity){var data=Context.EntityData[entity.Id];if(data.TryGetProperty("runtimeMeshFilter",out var flag)&&flag.GetBoolean())_=MeshOf(entity);return new(MeshBindings.TryGetValue(entity,out var mesh),mesh,ColliderBindings.TryGetValue(entity,out var collider),collider);}
@@ -32,9 +34,11 @@ internal static class RuntimeAssets {
  internal static void Retire(Object value){
   var bound=Context.EntityData.Where(pair=>pair.Value.TryGetProperty("runtimeMeshObjectId",out var id)?id.GetInt32()==value.GetInstanceID():MeshBindings.TryGetValue(new(pair.Key,Context.Generation),out var mesh)&&ReferenceEquals(mesh,value)).Select(pair=>new Entity(pair.Key,Context.Generation)).ToArray();
   var colliders=ColliderBindings.Where(pair=>ReferenceEquals(pair.Value,value)&&Context.Entities.ContainsKey(pair.Key.Id)).Select(pair=>pair.Key).ToArray();
-  if(Context.Operations.Count+bound.Length+colliders.Length>Limits.Operations)throw new InvalidOperationException("Asset destruction exceeds transport capacity");
+  var additional=Context.EntityData.Where(pair=>pair.Value.TryGetProperty("runtimeColliders",out var records)&&records.EnumerateArray().Any(record=>record.GetProperty("meshObjectId").GetInt32()==value.GetInstanceID())).Select(pair=>new Entity(pair.Key,Context.Generation)).ToArray();
+  if(Context.Operations.Count+bound.Length+colliders.Length+additional.Length>Limits.Operations)throw new InvalidOperationException("Asset destruction exceeds transport capacity");
   foreach(var entity in bound)AssignMesh(entity,null);
   foreach(var entity in colliders){ColliderBindings[entity]=null;Context.Property(entity,"runtimeColliderEnabled",JsonValue.Create(false));}
+  foreach(var entity in additional){var records=JsonNode.Parse(Context.EntityData[entity.Id].GetProperty("runtimeColliders").GetRawText())!.AsArray();foreach(var record in records)if(record!["meshObjectId"]!.GetValue<int>()==value.GetInstanceID()){record["meshObjectId"]=0;record["hasGeometry"]=false;}Context.Property(entity,"runtimeColliders",records);}
   Register(value).Live=false;Objects.Remove(value.GetInstanceID());UnityEngine.Object.ForgetNative(value.GetInstanceID());
  }
  internal sealed record Snapshot(Type Type,string Path,string SourceId,string Text,string Name,UnityEngine.HideFlags Flags){
@@ -59,7 +63,7 @@ internal static class RuntimeAssets {
   if(mesh!=null)Register(mesh);var id=mesh?.GetInstanceID()??0;var source=mesh?.assetId??"";
   var data=new JsonObject{["objectId"]=id,["sourceAssetId"]=source};Context.Add(new("mesh",entity.Id,null,default,null,Data:data.ToJsonString()));
   var node=JsonNode.Parse(Context.EntityData[entity.Id].GetRawText())!.AsObject();node["runtimeMeshObjectId"]=id;node["runtimeMeshAssigned"]=source!="";
-  if(source!=""){node["runtimeMeshAssetId"]=source;node["renderable"]=new JsonObject{["kind"]="mesh",["assetId"]=source};}
+  if(source!=""){node["runtimeMeshAssetId"]=source;if(node.ContainsKey("renderable")||node["runtimeMeshRenderer"] is JsonValue renderer&&renderer.TryGetValue<bool>(out var enabled)&&enabled)node["renderable"]=new JsonObject{["kind"]="mesh",["assetId"]=source};}
   Context.EntityData[entity.Id]=Context.ParseData(node.ToJsonString());
   MeshBindings[entity]=mesh;
  }

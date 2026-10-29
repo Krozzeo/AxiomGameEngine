@@ -42,5 +42,12 @@ export function runCompiler(args,{cwd,signal,timeoutMs=180000,executable='dotnet
   });
 }
 export function compileDiagnostics(output) {
- return output.split(/\r?\n/).flatMap(line=>{const match=line.match(/(?:^|[\/\\])([^\/\\():]+\.cs)\((\d+),(\d+)\):\s*(error|warning)\s+([A-Z]+\d+):\s*(.*?)(?:\s+\[.*\])?$/);return match?[{file:match[1],line:Number(match[2]),column:Number(match[3]),severity:match[4],code:match[5],message:match[6].slice(0,1000)}]:[];}).slice(0,64);
+ const diagnostics=output.split(/\r?\n/).flatMap(line=>{
+  const match=line.match(/(?:^|[\/\\])([^\/\\():]+\.cs)\((\d+),(\d+)\):\s*(error|warning)\s+([A-Z]+\d+):\s*(.*?)(?:\s+\[.*\])?$/);
+  if(match)return [{file:match[1],line:Number(match[2]),column:Number(match[3]),severity:match[4],code:match[5],message:match[6].slice(0,1000)}];
+  const native=line.match(/(?:^|[\/\\])([^\/\\():]+\.(?:targets|props|csproj))\((\d+),(\d+)\):\s*error\s*(?:([A-Z]+\d+))?:\s*(.*?)(?:\s+\[.*\])?$/);
+  return native?[{file:native[1],line:Number(native[2]),column:Number(native[3]),severity:'error',code:native[4]??'AX_NATIVE_BUILD',message:native[5].slice(0,1000)}]:[];
+ });
+ // Preserve actionable errors even when an AOT/trimming run emitted many warnings.
+ return [...diagnostics.filter(row=>row.severity==='error'),...diagnostics.filter(row=>row.severity!=='error')].slice(0,64);
 }

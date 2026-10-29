@@ -13,5 +13,5 @@ export function assignRuntimeMesh(entity,data,assets){
  const asset=data.objectId?assets?.find(item=>item.id===data.objectId&&item.type==='Mesh'):null;
  if(data.objectId?(!asset||asset.sourceAssetId!==data.sourceAssetId):data.sourceAssetId!=='')fail();
  entity.runtimeMeshObjectId=data.objectId;entity.runtimeMeshAssigned=data.sourceAssetId!=='';
- if(data.sourceAssetId){entity.runtimeMeshAssetId=data.sourceAssetId;entity.renderable={kind:'mesh',assetId:data.sourceAssetId};}
+ if(data.sourceAssetId){entity.runtimeMeshAssetId=data.sourceAssetId;if(entity.renderable||entity.runtimeMeshRenderer===true)entity.renderable={kind:'mesh',assetId:data.sourceAssetId};}
 }

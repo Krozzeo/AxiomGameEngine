@@ -1,18 +1,19 @@
 namespace Axiom.Gameplay;
 internal static class PrimitiveGeometry {
- internal static Vector3 WorldHalf(Entity entity){
-  var half=PhysicsData.Half(entity);if(!Context.EntityData[entity.Id].TryGetProperty("runtimeColliderLocal",out var local)||!local.GetBoolean())return half;
-  var scale=Context.Read(entity).Scale;scale=new(Math.Abs(scale.X),Math.Abs(scale.Y),Math.Abs(scale.Z));var shape=Context.EntityData[entity.Id].GetProperty("collider").GetProperty("shape").GetString();
+ internal static Vector3 WorldHalf(Entity entity)=>WorldHalf(new GameObject(entity).GetComponent<Collider>()!);
+ internal static Vector3 WorldHalf(Collider collider){
+  var entity=collider.Entity;var half=ColliderInstances.Half(collider);if(collider.RuntimeSlot==null&&(!Context.EntityData[entity.Id].TryGetProperty("runtimeColliderLocal",out var local)||!local.GetBoolean()))return half;
+  var scale=Context.Read(entity).Scale;scale=new(Math.Abs(scale.X),Math.Abs(scale.Y),Math.Abs(scale.Z));var shape=collider.Data.GetProperty("shape").GetString();
   if(shape=="sphere"){var radius=half.X*Math.Max(scale.X,Math.Max(scale.Y,scale.Z));return new(radius,radius,radius);}
   if(shape=="capsule"){var radius=half.X*Math.Max(scale.X,scale.Z);return new(radius,Math.Max(radius,half.Y*scale.Y),radius);}
   return new(half.X*scale.X,half.Y*scale.Y,half.Z*scale.Z);
  }
- internal static (Vector3 Start,Vector3 End,double Radius) Segment(Collider collider){var pose=Context.Read(collider.Entity);var half=WorldHalf(collider.Entity);var offset=pose.Rotation*new Vector3(0,Math.Max(0,half.Y-half.X),0);return (pose.Position-offset,pose.Position+offset,half.X);}
+ internal static (Vector3 Start,Vector3 End,double Radius) Segment(Collider collider){var pose=Context.Read(collider.Entity);var half=WorldHalf(collider);var offset=pose.Rotation*new Vector3(0,Math.Max(0,half.Y-half.X),0);return (pose.Position-offset,pose.Position+offset,half.X);}
  private static Vector3 OnSegment(Vector3 point,Vector3 start,Vector3 end){var axis=end-start;return start+axis*(axis.sqrMagnitude<1e-24?0:Math.Clamp(Vector3.Dot(point-start,axis)/axis.sqrMagnitude,0,1));}
  internal static Vector3 Closest(Collider collider,Vector3 point){var (start,end,radius)=Segment(collider);var center=OnSegment(point,start,end);var delta=point-center;return delta.sqrMagnitude<=radius*radius?point:center+delta.normalized*radius;}
  private static double? Sphere(Vector3 origin,Vector3 direction,Vector3 center,double radius){var offset=origin-center;var c=offset.sqrMagnitude-radius*radius;var b=Vector3.Dot(offset,direction);var determinant=b*b-c;return c<=0?0:determinant>=0&&-b-Math.Sqrt(determinant)>=0?-b-Math.Sqrt(determinant):null;}
  internal static bool Ray(Collider collider,Vector3 origin,Vector3 direction,double maximum,out RaycastHit hit){
-  hit=default;var shape=collider.Data.GetProperty("shape").GetString();var pose=Context.Read(collider.Entity);var half=WorldHalf(collider.Entity);
+  hit=default;var shape=collider.Data.GetProperty("shape").GetString();var pose=Context.Read(collider.Entity);var half=WorldHalf(collider);
   if(shape is "plane" or "quad"){
    var normal=pose.Rotation*(shape=="plane"?new Vector3(0,1,0):new Vector3(0,0,-1));var denominator=Vector3.Dot(direction,normal);if(denominator>=-1e-12)return false;var distance=Vector3.Dot(pose.Position-origin,normal)/denominator;if(distance<0||distance>maximum)return false;var point=origin+direction*distance;var local=Quaternion.Inverse(pose.Rotation)*(point-pose.Position);if(shape=="plane"?(Math.Abs(local.X)>half.X||Math.Abs(local.Z)>half.Z):(Math.Abs(local.X)>half.X||Math.Abs(local.Y)>half.Y))return false;hit=new(collider,distance,point,normal);return true;
   }

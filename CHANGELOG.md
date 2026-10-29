@@ -1,5 +1,8 @@
 # 0.0.62 — Canonical M20 core and dependency profiles (in progress)
 
+- Complete attributed M20 signature profiles at311/311: primitive creation13 observations and AddComponent140 observations. Add independent script/collider identities, clone/reference remapping, per-instance Inspector edits, shared-body compound CPU/Wasm shapes, exact collider callbacks and component-specific collision exclusions. Preserve runtime-only authoring boundaries and exact Stop restoration. Final full-regression/CI/artifact gates remain open.
+- Fix Windows AOT long-path compiler failures using verified temporary staging; preserve bounded native compiler diagnostics.
+
 - Add30 attributed signatures (308/311 total): synchronous clone13, bulk6, lifetime7 and tag search4. Match destroyed clone sources/parents, bulk invalid IDs and arrays, persistence asset/unbound behavior, tag search exceptions and Untagged results. Add four standard demos and canonical shared Time/scene unload bridges; M20 remains open.
 - Attribute24 message overloads through360 native Play/.NET/Development/AOT outcomes (278/311 accepted). Match null-payload/inactive-upwards/name/options semantics. Register inherited components and preserve private base members/fields in AOT; package the shared type-discovery module. M20 remains open.
 

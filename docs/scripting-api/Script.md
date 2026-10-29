@@ -34,7 +34,7 @@ SDK 8: `enabled` is shared by C# and the live Inspector checkbox. Disabling supp
 ```csharp
 // Namespace: Axiom.Gameplay
 public abstract class Script : Behaviour {
- internal bool RuntimeRemoved;
+ internal bool RuntimeRemoved,RuntimeCloneEnabled=true;
  public virtual void OnStart() {}
  public virtual void OnUpdate(double deltaSeconds) {}
  public virtual void OnStop() {}

@@ -4,20 +4,21 @@ namespace Axiom.Gameplay;
 
 internal sealed class CloneBlueprint {
  private sealed record NavSnapshot(double Speed,double Distance,bool Stopped,bool Rotation,bool Enabled,bool HasPath,Vector3 Destination){internal void Create(Entity entity){var agent=new AI.NavMeshAgent(entity){speed=Speed,stoppingDistance=Distance,isStopped=Stopped,updateRotation=Rotation,enabled=Enabled};AI.NavMeshAgent.Agents[entity.Id]=agent;if(HasPath)agent.SetDestination(Destination);}}
- private sealed record Node(string SourceId,JsonObject Data,Transform Local,Transform World,bool Active,Script[] Scripts,Type[] Order,NavSnapshot? Agent,RuntimeAssets.Bindings Bindings);
- private readonly RuntimeAssets.Snapshot? Asset;private readonly Node[] Nodes;private readonly Type? ResultType;private readonly int Generation;
- private CloneBlueprint(Node[] nodes,Type? resultType){Nodes=nodes;ResultType=resultType;Generation=Context.Generation;}
+ private sealed record Slot(Type Type,int SourceId);
+ private sealed record Node(string SourceId,JsonObject Data,Transform Local,Transform World,bool Active,Script[] Scripts,Slot[] Order,NavSnapshot? Agent,RuntimeAssets.Bindings Bindings);
+ private readonly RuntimeAssets.Snapshot? Asset;private readonly Node[] Nodes;private readonly Type? ResultType;private readonly int ResultSourceId;private readonly int Generation;
+ private CloneBlueprint(Node[] nodes,Type? resultType,int resultSourceId){Nodes=nodes;ResultType=resultType;ResultSourceId=resultSourceId;Generation=Context.Generation;}
  private CloneBlueprint(RuntimeAssets.Snapshot asset){Asset=asset;Nodes=Array.Empty<Node>();Generation=Context.Generation;}
  internal static CloneBlueprint Capture(Object original){
   ArgumentNullException.ThrowIfNull(original);if(!original)throw new ArgumentException("Cannot clone a destroyed object");if(RuntimeAssets.IsAsset(original))return new CloneBlueprint(RuntimeAssets.Capture(original));var root=original is GameObject go?go:original is Component component?component.gameObject:throw new NotSupportedException("This object requires its asset cloning API");
   var ids=new List<string>{root.Entity.Id};for(var i=0;i<ids.Count;i++)ids.AddRange(Context.Parents.Where(entry=>entry.Value==ids[i]).Select(entry=>entry.Key));var nodes=new List<Node>();
   foreach(var id in ids){var entity=new Entity(id,Context.Generation);var data=JsonNode.Parse(Context.EntityData[id].GetRawText())!.AsObject();data.Remove("prefab");data.Remove("parentId");data.Remove("runtimeParentId");data.Remove("runtimeMatrix");data.Remove("runtimeLocalTransform");var scripts=new List<Script>();foreach(var script in Context.LiveScripts.Where(value=>value.Entity.Id==id)){
-    var type=ScriptBridge.Type(script);ScriptValues.ValidateClone(type,script);var factory=RuntimeLifecycle.Factories[type];var snapshot=factory.Create();ScriptValues.Copy(type,script,snapshot);scripts.Add(snapshot);
+    var type=ScriptBridge.Type(script);ScriptValues.ValidateClone(type,script);var factory=RuntimeLifecycle.Factories[type];var snapshot=factory.Create();ScriptValues.Copy(type,script,snapshot);snapshot.RuntimeCloneEnabled=script.enabled;scripts.Add(snapshot);
    }
    var agent=AI.NavMeshAgent.Agents.GetValueOrDefault(id);var nav=agent==null?null:new NavSnapshot(agent.speed,agent.stoppingDistance,agent.isStopped,agent.updateRotation,agent.enabled,agent.hasPath,agent.destination);
-   nodes.Add(new(id,data,TransformGraph.Local(entity),Context.Read(entity),Context.ActiveStates.GetValueOrDefault(id,true),scripts.ToArray(),new GameObject(entity).AllComponents().Select(ScriptBridge.ComponentType).ToArray(),nav,RuntimeAssets.CaptureBindings(entity)));
+   nodes.Add(new(id,data,TransformGraph.Local(entity),Context.Read(entity),Context.ActiveStates.GetValueOrDefault(id,true),scripts.ToArray(),new GameObject(entity).AllComponents().Select(component=>new Slot(ScriptBridge.ComponentType(component),component.GetInstanceID())).ToArray(),nav,RuntimeAssets.CaptureBindings(entity)));
   }
-  var result=new CloneBlueprint(nodes.ToArray(),original is Component c?ScriptBridge.ComponentType(c):null);result.CaptureParents();return result;
+  var result=new CloneBlueprint(nodes.ToArray(),original is Component c?ScriptBridge.ComponentType(c):null,original is Component?original.GetInstanceID():0);result.CaptureParents();return result;
  }
  internal int EntityCount=>Nodes.Length;internal int ScriptCount=>Nodes.Sum(node=>node.Scripts.Length);
  internal Object Instantiate(UnityEngine.InstantiateParameters parameters,UnityEngine.Vector3? position=null,UnityEngine.Quaternion? rotation=null,bool initialize=true){
@@ -27,7 +28,7 @@ internal sealed class CloneBlueprint {
   if(Asset!=null){if(Generation!=Context.Generation)throw new OperationCanceledException("The source session ended");foreach(var p in positions)TransformMath.Finite(p);foreach(var q in rotations)TransformMath.Normalize(q);return RuntimeAssets.Clone(Asset,count);}
   if(count<1||count>(Limits.Entities-Context.Entities.Count)/EntityCount)throw new ArgumentOutOfRangeException(nameof(count),"Clone count exceeds entity capacity");
   if((long)ScriptCount*count+Context.LiveScripts.Count>Limits.Attachments||(long)Nodes.Count(node=>node.Data.ContainsKey("audioSource"))*count+Context.AudioSources.Count>32)throw new InvalidOperationException("Clone exceeds component capacity");
-  if((long)(1+ScriptCount*2+Nodes.Count(node=>node.Agent!=null)*8)*count+Context.Operations.Count>=Limits.Operations)throw new InvalidOperationException("Clone exceeds transport operation capacity");
+  if((long)(1+ScriptCount*3+Nodes.Count(node=>node.Agent!=null)*8)*count+Context.Operations.Count>=Limits.Operations)throw new InvalidOperationException("Clone exceeds transport operation capacity");
   if((long)Nodes.Sum(node=>System.Text.Encoding.UTF8.GetByteCount(node.Data.ToJsonString())+4096)*count>8*1024*1024)throw new InvalidOperationException("Clone snapshot exceeds transport budget");
   foreach(var p in positions)TransformMath.Finite(p);foreach(var r in rotations)TransformMath.Normalize(r);
   var previous=Context.Entities.Keys.ToHashSet();var begin=Context.Operations.Count;var spawnCount=Context.Spawned;var dirty=SceneManagement.SceneManager.MetadataDirty;var result=new Object[count];
@@ -50,7 +51,7 @@ internal sealed class CloneBlueprint {
   if(Context.AudioSources.Count+Nodes.Count(node=>node.Data.ContainsKey("audioSource"))>32)throw new InvalidOperationException("Clone exceeds audio voice capacity");
   if(Nodes.Sum(node=>System.Text.Encoding.UTF8.GetByteCount(node.Data.ToJsonString())+1024)>8*1024*1024)throw new InvalidOperationException("Clone snapshot exceeds transport budget");
   var parent=parameters.parent?.LegacyTransform;var scene=parent!=null?parent.gameObject.scene:(SceneManagement.Scene)parameters.scene;if(!scene.IsValid())scene=SceneManagement.SceneManager.GetActiveScene();if(!scene.isLoaded)throw new ArgumentException("Destination scene must be loaded");
-  if(Context.Operations.Count+1+ScriptCount*2>=Limits.Operations)throw new InvalidOperationException("AX_SCRIPT_0003: operation limit exceeded");
+  if(Context.Operations.Count+1+ScriptCount*3>=Limits.Operations)throw new InvalidOperationException("AX_SCRIPT_0003: operation limit exceeded");
   var rootSource=Nodes[0];var rootLocal=parameters.worldSpace?TransformGraph.Relative(default,position??rootSource.World.Position,rotation is UnityEngine.Quaternion q?(Quaternion)q:rootSource.World.Rotation,rootSource.World.Scale,parent?.Entity.Id):new Transform(position??rootSource.Local.Position,rotation is UnityEngine.Quaternion qr?(Quaternion)qr:rootSource.Local.Rotation,rootSource.Local.Scale);
   if(position!=null||rotation!=null)rootLocal=new(rootLocal.Position,rootLocal.Rotation,rootSource.Local.Scale);
   var begin=Context.Operations.Count;var map=new Dictionary<string,Entity>();var matrices=new Dictionary<string,Affine>();var rotations=new Dictionary<string,Quaternion>();var locals=new Dictionary<string,Transform>();
@@ -63,10 +64,11 @@ internal sealed class CloneBlueprint {
    Context.EntityData[entity.Id]=Context.ParseData(data.ToJsonString());Context.Entities[entity.Id]=new Transform(matrix.Point(Vector3.zero),worldRotation,worldScale){Entity=entity};node.Bindings.Restore(entity);Context.Parents[entity.Id]=parentId;Context.ActiveStates[entity.Id]=node.Active;Context.Refresh(entity);TransformGraph.Seed(entity,local);SceneManagement.SceneManager.SetOwner(entity.Id,scene.OwnerKey);
   }
   foreach(var node in Nodes){var entity=map[node.SourceId];node.Agent?.Create(entity);foreach(var script in node.Scripts)RuntimeLifecycle.Clone(script,entity);}
-  foreach(var script in Context.LiveScripts.Where(value=>map.Values.Any(entity=>entity.Id==value.Entity.Id)).ToArray()){ScriptValues.RemapClone(ScriptBridge.Type(script),script,map);RuntimeLifecycle.PublishComponents(script.Entity);}
-  foreach(var node in Nodes){var entity=map[node.SourceId];var components=new GameObject(entity).AllComponents();Context.ComponentOrders[entity]=node.Order.Select(type=>components.First(value=>ScriptBridge.ComponentType(value)==type).GetInstanceID()).ToList();}
+  var componentMap=new Dictionary<int,Component>();
+  foreach(var node in Nodes){var entity=map[node.SourceId];var queues=new GameObject(entity).AllComponents().GroupBy(ScriptBridge.ComponentType).ToDictionary(group=>group.Key,group=>new Queue<Component>(group));var order=new List<int>();foreach(var slot in node.Order){var component=queues[slot.Type].Dequeue();componentMap.Add(slot.SourceId,component);order.Add(component.GetInstanceID());}Context.ComponentOrders[entity]=order;}
+  foreach(var script in Context.LiveScripts.Where(value=>map.Values.Any(entity=>entity.Id==value.Entity.Id)).ToArray()){ScriptValues.RemapClone(ScriptBridge.Type(script),script,map,componentMap);RuntimeLifecycle.PublishComponents(script.Entity);}
   var import=new JsonArray();foreach(var node in Nodes)import.Add(JsonNode.Parse(Context.EntityData[map[node.SourceId].Id].GetRawText()));var payload=import.ToJsonString();if(System.Text.Encoding.UTF8.GetByteCount(payload)>8*1024*1024)throw new InvalidOperationException("Clone snapshot exceeds transport budget");Context.Operations.Insert(begin,new("import","",null,default,null,Data:payload));
-  var result=new GameObject(map[rootSource.SourceId]);return ResultType==null?result:result.GetComponent(ResultType)!;
+  var result=new GameObject(map[rootSource.SourceId]);return ResultType==null?result:componentMap[ResultSourceId];
   bool ContextParent(string parentId,string childId)=>SourceParents.GetValueOrDefault(childId)==parentId;
  }
  private readonly Dictionary<string,string?> SourceParents=new();

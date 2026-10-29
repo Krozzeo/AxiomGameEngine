@@ -1,0 +1,37 @@
+{
+  "mode": "development",
+  "pageErrors": [],
+  "corpusSourceHashes": {
+    "PrimitiveCreationCorpus.cs": "ffcbc5d926fe1836a9da82310f443a7c5cab19082a0031bb6186a19776a87085",
+    "PrimitiveCreationReference.cs": "285ec02734fe24abd70eeef4ab5c80a7c2e8870007e79754c3741905fa1efa60",
+    "PrimitiveCreationLab.cs": "884183c1041534335f73ebf8f447c9653b4e849d5b9b5f1a2d73a2fef9cd3a64"
+  },
+  "executedBuild": {
+    "id": "ec2c2ac7-3176-4a22-b6d9-38f452b3e2cc",
+    "mode": "development",
+    "sdkVersion": 12,
+    "sourceHash": "39b90579ff42847f267eeb699abbe7aa21ef9233f1256e4bf2135c15c5dbaab7",
+    "bytes": 13948234
+  },
+  "count": 13,
+  "passedChecks": 13,
+  "failedChecks": 0,
+  "diagnostics": "",
+  "cases": {
+    "create.Sphere": "pass",
+    "mesh.Sphere": "pass",
+    "create.Capsule": "pass",
+    "mesh.Capsule": "pass",
+    "create.Cylinder": "pass",
+    "mesh.Cylinder": "pass",
+    "create.Cube": "pass",
+    "mesh.Cube": "pass",
+    "create.Plane": "pass",
+    "mesh.Plane": "pass",
+    "create.Quad": "pass",
+    "mesh.Quad": "pass",
+    "create.invalid": "pass"
+  },
+  "passed": true,
+  "profile": "Real development C#/Wasm, native-attributed portable corpus, Null renderer, exact Stop restoration; no GPU pixel claim."
+}

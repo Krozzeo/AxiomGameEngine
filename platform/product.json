@@ -81,6 +81,22 @@
     {
       "id": "m20-tag-search",
       "name": "M20 Tag Search Lab"
+    },
+    {
+      "id": "m20-script-instances",
+      "name": "M20 Repeated Script Instances Lab"
+    },
+    {
+      "id": "m20-primitive-creation",
+      "name": "M20 Primitive Creation Lab"
+    },
+    {
+      "id": "m20-component-creation",
+      "name": "M20 Component Creation Lab"
+    },
+    {
+      "id": "m20-compound-colliders",
+      "name": "M20 Compound Colliders Lab"
     }
   ]
 }

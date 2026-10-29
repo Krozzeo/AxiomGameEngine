@@ -1,0 +1,62 @@
+{
+  "mode": "development",
+  "pageErrors": [],
+  "corpusSourceHashes": {
+    "ScriptInstanceCorpus.cs": "7397f4d9397a7fe3b39475921b31c8f160dacbf8ef0cd264a0ea629986023019",
+    "ScriptInstanceReference.cs": "7670601039619364f676ba38c59773a9bf170450b12ab6277061f3fd99b64a69",
+    "ScriptInstanceLab.cs": "18126aef0881666812cbeca08af7db9e1a36816ab51f98fc0211504e9e9ee61b",
+    "RepeatedScriptProbe.cs": "c38e3b828c156aa7435ae0e40a97ba4fe0cc6599c4b0f0e4ad8b72c4b57d43bc"
+  },
+  "executedBuild": {
+    "id": "398e4323-bb5a-45c0-a32e-222de221983f",
+    "mode": "development",
+    "sdkVersion": 12,
+    "sourceHash": "242435c860b36a0a6c5f5f62ba621c4b7f5fb71fced7b27a09e5037c1533ef4c",
+    "bytes": 13956757
+  },
+  "count": 27,
+  "passedChecks": 27,
+  "failedChecks": 0,
+  "diagnostics": "",
+  "cases": {
+    "created.distinct": "pass",
+    "created.count": "pass",
+    "created.order": "pass",
+    "created.defaults": "pass",
+    "created.callbacks": "pass",
+    "fields.independent": "pass",
+    "activation.independent": "pass",
+    "messages.disabled": "pass",
+    "messages.order": "pass",
+    "clone.count": "pass",
+    "clone.fields": "pass",
+    "clone.peers": "pass",
+    "clone.enabled": "pass",
+    "clone.order": "pass",
+    "clone.callbacks": "pass",
+    "clone.fields-independent": "pass",
+    "component.clone.ordinal": "pass",
+    "component.clone.peer": "pass",
+    "component.clone.enabled": "pass",
+    "destroy.one": "pass",
+    "destroy.peer": "pass",
+    "destroy.callback": "pass",
+    "replacement.id": "pass",
+    "replacement.default": "pass",
+    "replacement.enabled": "pass",
+    "replacement.order": "pass",
+    "replacement.callbacks": "pass"
+  },
+  "runtimeInstanceIds": [
+    18,
+    34
+  ],
+  "inspector": {
+    "independentFieldEdit": true,
+    "independentActivation": true,
+    "exactRepeatedReference": true,
+    "ambiguousSavedSchemaUnchanged": true
+  },
+  "passed": true,
+  "profile": "Real development C#/Wasm, native-attributed portable corpus, Null renderer, exact Stop restoration; no GPU pixel claim."
+}

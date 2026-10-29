@@ -88,6 +88,8 @@ PrimitiveCases.Run(Check,Reset);
 InheritedInspectorCases.Run(Check,Reset);
 AsyncOverloadCases.Run(Check,Reset);
 CanonicalClockCases.Run(Check,Reset);
+ScriptInstanceCases.Run(Check,Reset);
+ColliderInstanceCases.Run(Check,Reset);
 var sdkSources=Directory.GetFiles("engine/scripting/templates","*.cs").Where(path=>Path.GetFileName(path) is not "Host.cs" and not "Game.cs").OrderBy(path=>path,StringComparer.Ordinal).ToDictionary(Path.GetFileName,path=>Convert.ToHexString(System.Security.Cryptography.SHA256.HashData(File.ReadAllBytes(path))).ToLowerInvariant());
 Console.WriteLine(System.Text.Json.JsonSerializer.Serialize(new {passed=true,profile="native .NET / shared runtime; exact native Unity signature attribution remains separate",sdkSources,checks}));
 

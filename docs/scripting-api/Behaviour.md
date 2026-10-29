@@ -13,7 +13,7 @@ SDK 8: `enabled` is shared by C# and the live Inspector checkbox. Disabling supp
 // Namespace: Axiom.Gameplay
 public class Behaviour : Component {
  private bool active=true;
- public bool enabled {get=>this is Script script?ComponentActivation.Read(Entity,"script:"+RuntimeLifecycle.PathOf(script)):active;set{if(this is Script script){ComponentActivation.Write(Entity,"script:"+RuntimeLifecycle.PathOf(script),value);RuntimeLifecycle.Activation();}else active=value;}}
+ public bool enabled {get=>this is Script script?RuntimeLifecycle.ScriptEnabled(script):active;set{if(this is Script script){ComponentActivation.Write(Entity,RuntimeLifecycle.ActivationKey(script),value);RuntimeLifecycle.Activation();}else active=value;}}
  public bool isActiveAndEnabled=>enabled&&Context.Entities.ContainsKey(Entity.Id)&&Context.IsActive(Entity.Id)&&(this is not Script script||Context.LiveScripts.Contains(script));
 }
 

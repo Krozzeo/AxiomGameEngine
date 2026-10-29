@@ -48,3 +48,23 @@ test('expanded Wasm body controls and pre-impact evidence work in 2D and 3D',asy
   k.configurePhysics({entities:[a,b],runtimePhysics:{ignoredLayers2:['0|0'],ignoredLayers3:['0|0']}});k.stepPhysics(1);assert.equal(k.physicsSnapshot().contacts.length,0);
  }finally{k.dispose();}}
 });
+
+test('compound colliders share one Wasm body and report exact logical contact and ray slots',async()=>{
+ for(const dimension of [2,3]){const k=await loadKernel(bytes),body=entity(2,0,true,dimension),wall=entity(3,0,false,dimension);body.rigidBody.gravityScale=0;wall.transform.position=[1.2,0,0];
+ body.runtimeColliders=[{slot:77,type:dimension===2?'BoxCollider2D':'BoxCollider',collider:{...body.collider,halfExtents:[1,.5,.5]},enabled:true,hasGeometry:true,meshObjectId:0}];
+ try{k.configurePhysics({entities:[body,wall]});assert.equal(k.physicsSnapshot().bodies.length,2);k.stepPhysics(1);let state=k.physicsSnapshot();assert(state.contacts.length>0);assert(state.contacts.every(contact=>contact.aSlot==='collider:77'&&contact.bSlot==='collider'));assert.deepEqual(state.bodies[0].velocity,[0,0,0]);
+ const ray=k.raycast({origin:[-3,0,0],direction:[1,0,0],dimension});assert.equal(ray.entityId,body.id);assert.equal(ray.colliderSlot,'collider:77');
+ const pair=[body.id+'@collider:77',wall.id+'@collider'].sort().join('|');k.configurePhysics({entities:[body,wall],runtimePhysics:{ignoredPairs:[pair]}});k.stepPhysics(1);assert.equal(k.physicsSnapshot().contacts.length,0);
+ body.runtimeColliders[0].collider.trigger=true;k.configurePhysics({entities:[body,wall]});k.stepPhysics(1);state=k.physicsSnapshot();assert(state.contacts.every(contact=>contact.trigger));assert.deepEqual(state.bodies[0].position,[0,0,0]);
+ body.runtimeColliders[0].enabled=false;k.configurePhysics({entities:[body,wall]});k.stepPhysics(1);assert.equal(k.physicsSnapshot().contacts.length,0);assert.equal(k.raycast({origin:[-3,0,0],direction:[1,0,0],dimension}).colliderSlot,undefined);
+ delete body.collider;body.runtimeColliders[0].enabled=true;k.configurePhysics({entities:[body,wall]});k.stepPhysics(1);assert.equal(k.physicsSnapshot().contacts[0].aSlot,'collider:77');
+ k.configurePhysics({entities:[body,wall],runtimePhysics:{['ignoredLayers'+dimension]:['0|0']}});k.stepPhysics(1);assert.equal(k.physicsSnapshot().contacts.length,0);
+ body.runtimeColliders[0].hasGeometry=false;k.configurePhysics({entities:[body,wall]});k.stepPhysics(1);assert.equal(k.physicsSnapshot().contacts.length,0);
+ }finally{k.dispose();}}
+});
+
+test('collider exclusions retain contacts with other sibling shapes',async()=>{
+ const k=await loadKernel(bytes),body=entity(2,0,true),wall=entity(3,0,false);body.rigidBody.gravityScale=0;wall.transform.position=[.8,0,0];
+ body.runtimeColliders=[{slot:31,type:'BoxCollider',collider:{...body.collider},enabled:true,hasGeometry:true,meshObjectId:0}];
+ try{const pair=[body.id+'@collider',wall.id+'@collider'].sort().join('|');k.configurePhysics({entities:[body,wall],runtimePhysics:{ignoredPairs:[pair]}});k.stepPhysics(1);const contacts=k.physicsSnapshot().contacts;assert(contacts.length>0);assert(contacts.every(contact=>contact.aSlot==='collider:31'));}finally{k.dispose();}
+});

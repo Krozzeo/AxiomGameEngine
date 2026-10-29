@@ -82,7 +82,7 @@ public partial class Object {
   var useLocal=!position.HasValue&&parent!=null&&!worldPositionStays;var local=useLocal?Context.Local(source.Entity):null;
   var entity=Context.CloneHierarchy(source.Entity,position??source.transform.position,rotation??source.transform.rotation,false);var clone=new GameObject(entity);
   if(parent!=null)clone.transform.SetParent(parent,true);if(useLocal)Context.LocalTransform(entity,local!.Position,local.Rotation,local.Scale);
-  Object result=original is Component sourceComponent?clone.GetComponent(sourceComponent.GetType())??throw new NotSupportedException("Cloned component is not available"):clone;
+  Object result=original is Component sourceComponent?clone.GetComponentAtIndex(Array.FindIndex(source.AllComponents(),component=>component.GetInstanceID()==sourceComponent.GetInstanceID())):clone;
   RuntimeLifecycle.Initialize();return result;
  }
  public static Object Instantiate(Object original)=>CloneObject(original,null,null,null,true);

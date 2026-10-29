@@ -6,5 +6,5 @@ Runtime circle radius in world units, finite and positive.
 
 ```csharp
 // Namespace: Axiom.Gameplay
-public sealed class CircleCollider2D : Collider2D {internal CircleCollider2D(Entity entity):base(entity){} public double radius {get=>PhysicsData.Half(Entity).X;set=>PhysicsData.Half(Entity,new(value,value,.5));}}
+public sealed class CircleCollider2D : Collider2D {internal CircleCollider2D(Entity entity,string? slot=null):base(entity,slot){} public double radius {get=>ColliderInstances.Half(this).X;set=>ColliderInstances.Half(this,new(value,value,.5));}}
 ```

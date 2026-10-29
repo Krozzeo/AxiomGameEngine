@@ -6,7 +6,7 @@ public static class PrimitiveCases {
   foreach(var type in Enum.GetValues<U.PrimitiveType>()){
    var primitive=U.GameObject.CreatePrimitive(type);var native=primitive.LegacyGameObject;var filter=primitive.GetComponent<U.MeshFilter>()!;var renderer=primitive.GetComponent<U.MeshRenderer>();var collider=primitive.GetComponent<U.Collider>();
    check("primitive "+type+" creates real scene geometry and components",primitive.name==type.ToString()&&filter&&filter.sharedMesh&&filter.sharedMesh!.name==type.ToString()&&renderer&&collider&&native.GetComponent<L.MeshFilter>()!=null);
-   check("primitive "+type+" preserves source component order",primitive.GetComponents<U.Component>().Select(c=>c.GetType()).SequenceEqual(new[]{typeof(U.Transform),typeof(U.MeshFilter),typeof(U.MeshRenderer),collider!.GetType()}));
+   check("primitive "+type+" preserves source component order",primitive.GetComponents<U.Component>().Select(c=>c.GetType()).SequenceEqual(new[]{typeof(U.Transform),typeof(U.MeshFilter),collider!.GetType(),typeof(U.MeshRenderer)}));
    check("primitive "+type+" uses correct collider class",type switch{U.PrimitiveType.Cube=>collider is U.BoxCollider,U.PrimitiveType.Sphere=>collider is U.SphereCollider,U.PrimitiveType.Capsule or U.PrimitiveType.Cylinder=>collider is U.CapsuleCollider,_=>collider is U.MeshCollider});
    if(collider is U.MeshCollider mesh)check("primitive "+type+" mesh collider shares actual render mesh",mesh.sharedMesh==filter.sharedMesh);
    check("primitive "+type+" has no implicit rigid body",native.GetComponent<L.Rigidbody>()==null);
@@ -24,7 +24,7 @@ public static class PrimitiveCases {
   check("plane query hits finite zero thickness surface",surface.Raycast(new L.Ray(new(0,2,0),new(0,-1,0)),out hit,3)&&Math.Abs(hit.distance-2)<1e-6);
   check("plane query rejects back face and outside mesh",!surface.Raycast(new L.Ray(new(0,-2,0),new(0,1,0)),out _,3)&&!surface.Raycast(new L.Ray(new(6,2,0),new(0,-1,0)),out _,3));
   var filterHandle=plane.GetComponent<U.MeshFilter>()!;U.Object.DestroyImmediate(filterHandle);check("removing MeshFilter retains collider and invalidates only filter",!filterHandle&&plane.GetComponent<U.MeshFilter>()==null&&plane.GetComponent<U.MeshCollider>()!=null&&plane.GetComponentCount()==3);
-  var before=L.Context.Entities.Count;try{_=U.GameObject.CreatePrimitive((U.PrimitiveType)90);check("invalid primitive type does not create objects",false);}catch(ArgumentException){check("invalid primitive type does not create objects",L.Context.Entities.Count==before);}
+  var before=L.Context.Entities.Count;var invalid=U.GameObject.CreatePrimitive((U.PrimitiveType)90);check("invalid primitive type logs and returns null without creating objects",invalid==null&&L.Context.Entities.Count==before);
   check("normal scenes use the pinned default scene culling mask",capsule.sceneCullingMask==16140901064495857664UL&&capsule.scene.IsValid()&&capsule.scene.isLoaded);
   L.Context.Operations.Clear();for(var i=0;i<L.Limits.Operations;i++)L.Context.Operations.Add(new("active",capsule.LegacyGameObject.Entity.Id,null,default,null,"true"));
   before=L.Context.Entities.Count;var spawned=L.Context.Spawned;

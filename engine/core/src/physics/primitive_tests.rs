@@ -1,5 +1,5 @@
 use super::*;
-fn body(shape: Shape, position: [f64; 3], half: [f64; 3], dynamic: bool) -> Body {
+pub(super) fn body(shape: Shape, position: [f64; 3], half: [f64; 3], dynamic: bool) -> Body {
     Body {
         position,
         velocity: [0.0; 3],

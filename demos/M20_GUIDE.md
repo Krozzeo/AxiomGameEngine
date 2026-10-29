@@ -1,3 +1,5 @@
+Current review: **0.0.62 / SDK12**. All **311/311 frozen M20 source contracts** match, and all311 have attributed bounded-profile acceptance:281 behavioral contracts and30 compiler-error obsolete contracts. Component62/62, GameObject96/96, Transform81/81 and Object72/72. Fresh native923 core checks plus the thirteen attributed/dependency corpora pass. AddComponent140 and compound physics13 plus real Inspector geometry/activation/reference edits pass in Development and effective AOT. Full current-source browser regression, refreshed evidence, final CI and the public artifact remain closure gates; M20 is not yet marked complete.
+
 # 0.0.62 canonical core lab
 
 Load the demo from this exact installation through Platform **Installations → Load Demos**, or run the source checkout’s **npm run demo:m20**. Open **Demo · M20 Object Lifecycle Lab**. Existing edited demos remain pinned to their original installation; load a fresh copy from the new installation.
@@ -110,3 +112,14 @@ Load the corresponding version-owned demo through Platform. Select its controlle
 | M20 Tag Search Lab | Tag Search Controller | 39 |
 
 Cloning preserves the hierarchy and its local/world poses; destroyed parents behave as null while destroyed sources reject. Bulk activation skips invalid Unity IDs, while host command packets still reject invalid entity identities atomically. Lifetime checks deliberately advance across frames and delays, including persistent roots and scene unloading. Tag searches cover exact null/unknown/list exceptions and the pinned Unity behavior for Untagged. Expected negative cases can log errors; the controller compares the outcome and continues. Stop restores the complete authored project scene. These labs add exact overload evidence; repeated component storage, compound physics and full Inspector/reference dependencies remain required before closing M20.
+
+## Component Creation and Compound Colliders labs
+
+Use Platform → Installations → this0.0.62 review version → Load Demos. These are version-owned projects; run the engine in Development or AOT, wait for compilation and enter Play.
+
+- **Component Creation Lab:** wait for Complete; Count and Passed must both be140, Failed0. This executes the same direct-call corpus captured in native Unity. The scene returns exactly to its saved state on Stop.
+- **Compound Colliders Lab:** wait for Complete; Count and Passed must both be13, Failed0. It checks shared-body geometry, canonical collision and trigger callbacks, component-specific exclusions, disable/enable and removal of the primary collider. Select Compound Collider Owner in Hierarchy. The additional collider has its own Inspector card: change its half extent or enable checkbox. The controller's ExtraWidth/ExtraEnabled fields reflect that exact instance. Its Selected reference picker distinguishes sibling colliders. Stop discards these Play-only edits.
+- **Repeated Script Instances Lab:** Count/Passed27, Failed0. Select Repeated Script Source and independently edit its two Script cards, activation checkboxes and peer references.
+- **Primitive Creation Lab:** Count/Passed13, Failed0; valid defaults and invalid enum handling match the captured native profile.
+
+These UI checks use the Null renderer in automation and do not certify GPU pixels or physics numerical parity with PhysX.

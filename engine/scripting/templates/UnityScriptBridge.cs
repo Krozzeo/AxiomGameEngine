@@ -12,6 +12,16 @@ internal static class ScriptBridge {
  internal static Type ComponentType(Component component)=>component is Script script?Type(script):component.GetType();
  internal static Script Attach(object value)=>value is Script script?script:value is UnityEngine.MonoBehaviour behaviour?new UnityScriptAdapter(behaviour):throw new ArgumentException("A Script or MonoBehaviour type is required");
  internal static void Message(Script script,string name){if(script is UnityScriptAdapter adapter){adapter.Target.Dispatch(name);return;}if(script is MonoBehaviour legacy){switch(name){case "Awake":legacy.Awake();break;case "OnEnable":legacy.OnEnable();break;case "Start":legacy.Start();break;case "FixedUpdate":legacy.FixedUpdate();break;case "LateUpdate":legacy.LateUpdate();break;case "OnDisable":legacy.OnDisable();break;case "OnDestroy":legacy.OnDestroy();break;}}}
+ internal static void PhysicsMessage(Script script,string name,object value){
+  if(script is UnityScriptAdapter adapter){object argument=value switch{Collider collider=>UnityEngine.Object.Wrap(collider),Collision collision=>new UnityEngine.Collision(collision),_=>value};
+   for(var type=adapter.Target.GetType();type!=null&&type!=typeof(UnityEngine.MonoBehaviour);type=type.BaseType){var method=type.GetMethods(BindingFlags.Instance|BindingFlags.Public|BindingFlags.NonPublic|BindingFlags.DeclaredOnly).FirstOrDefault(method=>method.Name==name&&!method.ContainsGenericParameters&&method.GetParameters().Length==1&&method.GetParameters()[0].ParameterType.IsInstanceOfType(argument));if(method!=null){method.Invoke(adapter.Target,new[]{argument});return;}}return;
+  }
+  if(script is not MonoBehaviour legacy)return;
+  switch(name){case "OnTriggerEnter":legacy.OnTriggerEnter((Collider)value);break;case "OnTriggerStay":legacy.OnTriggerStay((Collider)value);break;case "OnTriggerExit":legacy.OnTriggerExit((Collider)value);break;
+   case "OnCollisionEnter":legacy.OnCollisionEnter((Collision)value);break;case "OnCollisionStay":legacy.OnCollisionStay((Collision)value);break;case "OnCollisionExit":legacy.OnCollisionExit((Collision)value);break;
+   case "OnTriggerEnter2D":legacy.OnTriggerEnter2D((Collider2D)value);break;case "OnTriggerStay2D":legacy.OnTriggerStay2D((Collider2D)value);break;case "OnTriggerExit2D":legacy.OnTriggerExit2D((Collider2D)value);break;
+   case "OnCollisionEnter2D":legacy.OnCollisionEnter2D((Collision2D)value);break;case "OnCollisionStay2D":legacy.OnCollisionStay2D((Collision2D)value);break;case "OnCollisionExit2D":legacy.OnCollisionExit2D((Collision2D)value);break;}
+ }
  internal static bool Matches(Type type,Component component)=>type.IsInstanceOfType(component)||component is UnityScriptAdapter adapter&&type.IsInstanceOfType(adapter.Target)||typeof(UnityEngine.Component).IsAssignableFrom(type)&&type.IsInstanceOfType(UnityEngine.Object.Wrap(component));
  internal static T Convert<T>(Object value){if(value is UnityScriptAdapter adapter&&adapter.Target is T script)return script;if(value is T direct)return direct;return (T)(object)UnityEngine.Object.Wrap(value);}
 }

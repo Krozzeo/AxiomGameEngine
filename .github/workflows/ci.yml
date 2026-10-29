@@ -89,7 +89,7 @@ jobs:
       - run: cargo +1.90.0 check --locked -p axiom-core --target wasm32-unknown-unknown
 
   csharp-wasm-spike:
-    timeout-minutes: 30
+    timeout-minutes: 75
     strategy:
       fail-fast: false
       matrix:
@@ -101,6 +101,8 @@ jobs:
           - os: windows-latest
             mode: development
     runs-on: ${{ matrix.os }}
+    env:
+      AXIOM_CSHARP_MODE: ${{ matrix.mode }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-dotnet@v4
@@ -145,6 +147,16 @@ jobs:
       - run: dotnet run --project tests/csharp/M20.ObjectLifetime/M20.ObjectLifetime.csproj
       - run: node scripts/compatibility/generate-m20-tag-search-fixtures.mjs --check
       - run: dotnet run --project tests/csharp/M20.TagSearch/M20.TagSearch.csproj
+      - run: node scripts/compatibility/generate-m20-script-instances-fixtures.mjs --check
+      - run: dotnet run --project tests/csharp/M20.ScriptInstances/M20.ScriptInstances.csproj
+      - run: node scripts/compatibility/generate-m20-component-creation-fixtures.mjs --check
+      - run: dotnet run --project tests/csharp/M20.ComponentCreation/M20.ComponentCreation.csproj
+      - run: node scripts/compatibility/generate-m20-primitive-fixtures.mjs --check
+      - run: dotnet run --project tests/csharp/M20.PrimitiveCreation/M20.PrimitiveCreation.csproj
+      - run: node tests/browser/m20-component-creation.mjs
+      - run: node tests/browser/m20-compound-colliders.mjs
+      - run: node tests/browser/m20-primitive-creation.mjs
+      - run: node tests/browser/m20-script-instances.mjs
       - run: node tests/browser/m20-tag-search.mjs
       - run: node tests/browser/m20-object-lifetime.mjs
       - run: node tests/browser/m20-bulk-objects.mjs
@@ -211,6 +223,10 @@ jobs:
             .axiom/browser-m20-bulk-objects*
             .axiom/browser-m20-object-lifetime*
             .axiom/browser-m20-tag-search*
+            .axiom/browser-m20-script-instances*
+            .axiom/browser-m20-component-creation*
+            .axiom/browser-m20-compound-colliders*
+            .axiom/browser-m20-primitive-creation*
 
   browser-milestones:
     runs-on: ubuntu-latest
