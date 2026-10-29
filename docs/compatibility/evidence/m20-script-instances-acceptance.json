@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "passed": true,
-  "scope": "Repeated compiled MonoBehaviour instances within existing8-per-entity/32-total script budgets. Exact native creation/order/default/activation/message/callback/clone/reference/retirement observations and both effective browser modes; live Inspector edits, toggles and exact repeated peer selection remain independent and Stop restores authoring. Additional owned regressions cover async snapshot peer remapping after original destruction. This does not certify collider storage, compound physics, uncompiled script types or unrestricted attribute/overload domains.",
+  "scope": "Repeated compiled MonoBehaviour instances within existing8-per-entity/32-total script budgets. Exact native creation/order/default/activation/message/callback/clone/reference/retirement observations and both effective browser modes; live Inspector edits, toggles and exact repeated peer selection remain independent and Stop restores authoring. Development additionally delays the real compile-completion event to prove that a background authoring refresh retains a live-only selection; shared UI guards reject late Play/scope snapshots and serialize successive runtime edits. Additional owned regressions cover async snapshot peer remapping after original destruction. This does not certify collider storage, compound physics, uncompiled script types or unrestricted attribute/overload domains.",
   "corpusSourceHashes": {
     "ScriptInstanceCorpus.cs": "7397f4d9397a7fe3b39475921b31c8f160dacbf8ef0cd264a0ea629986023019",
     "ScriptInstanceReference.cs": "7670601039619364f676ba38c59773a9bf170450b12ab6277061f3fd99b64a69",

@@ -8,11 +8,11 @@
     "RepeatedScriptProbe.cs": "c38e3b828c156aa7435ae0e40a97ba4fe0cc6599c4b0f0e4ad8b72c4b57d43bc"
   },
   "executedBuild": {
-    "id": "48f59fde-170d-4a0b-b2c7-1e8ab5c92d55",
+    "id": "97de880d-8e70-4836-bc10-a4057aa187b9",
     "mode": "aot",
     "sdkVersion": 12,
     "sourceHash": "242435c860b36a0a6c5f5f62ba621c4b7f5fb71fced7b27a09e5037c1533ef4c",
-    "bytes": 26001298
+    "bytes": 26004406
   },
   "count": 27,
   "passedChecks": 27,
@@ -55,7 +55,8 @@
     "independentFieldEdit": true,
     "independentActivation": true,
     "exactRepeatedReference": true,
-    "ambiguousSavedSchemaUnchanged": true
+    "ambiguousSavedSchemaUnchanged": true,
+    "backgroundRefreshSelection": false
   },
   "passed": true,
   "profile": "Real aot C#/Wasm in the Null editor; exact Stop restoration. Bounded native-attributed corpus or independently named dependency profile; no GPU pixel claim."

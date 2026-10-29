@@ -1,7 +1,7 @@
 import {mountRuntimeColliders} from './runtime-colliders.mjs';
 import {referenceDrag,clearReferenceDrag} from './reference-fields.mjs';
 import {mountAdditionalInspectors} from './additional-inspectors.mjs';
-import {inspectorFocus} from './inspector-focus.mjs';
+import {inspectorFocus,selectionEntities,authoringRefreshIsCurrent,performInspectorEdit} from './inspector-focus.mjs';
 import {sceneTitle} from '../../../engine/scene/scene-documents.mjs';
 import {mountScriptingApi} from './scripting-api.mjs';
 import {mountHub} from './hub.mjs';
@@ -187,12 +187,13 @@ export function mountProjectEditor({ document, api=null, send, reportError, conf
     if (!("project" in data)) return;
     const oldIds = new Set(state.project?.scene.entities.map(entity => entity.id));
     const previousProjectId=state.project?.id;
+    const visible=selectionEntities(state,data,getRenderer()?.interaction?.());
     state = data;
     if(state.project&&state.project.id!==previousProjectId){collapsed.clear();anchor=null;if(!state.workspaceId)pendingOpenCompile=true;}
-    if (!state.project?.scene.entities.some(entity => entity.id === selected)) selected = null;
+    if (!visible.some(entity => entity.id === selected)) selected = null;
     const added = state.project?.scene.entities.find(entity => !oldIds.has(entity.id));
     if (added) {filePaths=[];browser.clear(false);selected = added.id;selection=new Set([selected]);}
-    else {selection=new Set([...selection].filter(id=>state.project?.scene.entities.some(e=>e.id===id)));selected=[...selection].at(-1)??null;}
+    else {selection=new Set([...selection].filter(id=>visible.some(e=>e.id===id)));selected=[...selection].at(-1)??null;}
   }
   async function act(operation) {
     if (!enabled || busy) return;
@@ -205,6 +206,7 @@ export function mountProjectEditor({ document, api=null, send, reportError, conf
     finally { busy = false;if(pendingOpenCompile){pendingOpenCompile=false;if(compiler.needsCompile())await compiler.request({flush:false});}draw(succeeded); }
     return succeeded;
   }
+  const inspectorAct=operation=>performInspectorEdit({getState:()=>state,getGeneration:()=>getRenderer()?.status?.().generation,isBusy:()=>busy,perform:act},operation);
   async function run(type, data = {}) {
     if(state.playing&&runtimeEditableTypes.includes(type)){await getRenderer().editRuntime({type,data});return {runtimeOnly:true};}
     const event = await send(type, data);
@@ -241,12 +243,12 @@ export function mountProjectEditor({ document, api=null, send, reportError, conf
   if(document.defaultView)prefabDrop(document.querySelector('.viewport'),()=>undefined);
   const browser=mountProjectBrowser({document,getState:()=>state,mutate:data=>act(async()=>{await run('project.files.edit',mutation(data));ide.filesChanged(data);}),selectAsset:id=>{$('asset-list').value=id;},selectScript:file=>void ide.open(file),selectScene:file=>{collapsed.delete('scene:'+file.path);void act(()=>run('scene.document.edit',mutation({action:'open',path:file.path})));},onSelection:fileSelection,beforeEdit:()=>ide.flush(),onFilesChanged:()=>{filePaths=browser.selection();},reportError});
   $('file-inspector-open')?.addEventListener('click',()=>browser.open(filePaths[0]));
-  const scriptEditor=mountScriptEditor({document,getState:componentState,getSelection:inspectedId,act,run,mutation,open:path=>browser.open(path),reveal:path=>{panels.openPanel('project');browser.reveal(path);},getRenderer,onToggle:toggleComponent,reportError});
+  const scriptEditor=mountScriptEditor({document,getState:componentState,getSelection:inspectedId,act:inspectorAct,run,mutation,open:path=>browser.open(path),reveal:path=>{panels.openPanel('project');browser.reveal(path);},getRenderer,onToggle:toggleComponent,reportError});
   const compiler=mountCompileController({document,getState:()=>state,dirty:()=>ide.dirtyScripts(),compile:compileProject,onCompiled:()=>{$('script-diagnostics').textContent='';$('script-status').textContent='Compilation completed';},saveAuto:async value=>{const projectId=state.project?.id,workspaceId=state.workspaceId??null,deadline=performance.now()+610000;while(busy&&performance.now()<deadline)await new Promise(resolve=>setTimeout(resolve,50));if(busy||state.project?.id!==projectId||(state.workspaceId??null)!==workspaceId)throw Error('Auto compilation preference could not be saved; finish the operation and retry');return act(()=>run('project.editor.update',mutation({value:{leftWidth:220,rightWidth:290,bottomHeight:190,...state.project.editor,autoCompile:value}})));},reportError});
-  function toggleComponent(entity,key,value){return act(async()=>{if(key==='audioListener')await run('scene.audioListener.set',mutation({entityId:entity.id,value:{...entity.audioListener,enabled:value}}));await run('scene.entity.update',mutation({entityId:entity.id,componentEnabled:{...entity.componentEnabled,[key]:value}}));});}
-  const runtimeColliders=mountRuntimeColliders({document,getEntity:()=>componentState().project?.scene.entities.find(e=>e.id===inspectedId()),getScene:()=>componentState().project?.scene,projectId:()=>state.project?.id,isPlaying:()=>state.playing,onToggle:toggleComponent,onChange:(entityId,runtimeSlot,value)=>act(()=>run('scene.collider.set',mutation({entityId,runtimeSlot,value}))),reportError});
+  function toggleComponent(entity,key,value){const id=entity.id;return inspectorAct(async()=>{const current=componentState().project?.scene.entities.find(entity=>entity.id===id);if(!current)throw Error('The inspected entity is no longer available.');if(key==='audioListener')await run('scene.audioListener.set',mutation({entityId:id,value:{...current.audioListener,enabled:value}}));await run('scene.entity.update',mutation({entityId:id,componentEnabled:{...current.componentEnabled,[key]:value}}));});}
+  const runtimeColliders=mountRuntimeColliders({document,getEntity:()=>componentState().project?.scene.entities.find(e=>e.id===inspectedId()),getScene:()=>componentState().project?.scene,projectId:()=>state.project?.id,isPlaying:()=>state.playing,onToggle:toggleComponent,onChange:(entityId,runtimeSlot,value)=>inspectorAct(()=>run('scene.collider.set',mutation({entityId,runtimeSlot,value}))),reportError});
   const inspectorUX=mountInspectorUX({document,getSelection:inspectedId,getEntity:()=>componentState().project?.scene.entities.find(e=>e.id===inspectedId()),onToggle:toggleComponent});
-  extraInspectors=mountAdditionalInspectors({document,panels,getState:componentState,getFocus:()=>({entities:[...selection],files:filePaths}),getPrimaryFocus:inspectionTarget,getPrimaryLocked:()=>primaryFocus.locked,act,run,mutation,addComponent:addComponentFor,toggleComponent,openFile:file=>browser.open(file.path),reportError});
+  extraInspectors=mountAdditionalInspectors({document,panels,getState:componentState,getFocus:()=>({entities:[...selection],files:filePaths}),getPrimaryFocus:inspectionTarget,getPrimaryLocked:()=>primaryFocus.locked,act:inspectorAct,run,mutation,addComponent:addComponentFor,toggleComponent,openFile:file=>browser.open(file.path),reportError});
   const actions=mountEditorActions({document,getState:()=>state,getSelection:()=>[...selection],getInspectorSelection:inspectionIds,select,act,run,mutation,browser,reportError,locate:onLocate,scriptEditor});
   const number=id=>Number($(id).value),vector=(id,n)=>Array.from({length:n},(_,i)=>number(id+'-'+i));
   for(const key of ['material','light','lod','render']){
@@ -399,8 +401,8 @@ export function mountProjectEditor({ document, api=null, send, reportError, conf
     setDefaultSource(source){defaultScript=source;if(!state.project?.scene.script)$("script-source").value=source;},
     async refreshAssets() {
       if(!enabled||busy||assetRefreshing)return false;assetRefreshing=true;
-      try {const event=await send('scene.get'),data=event.payload.data;
-        if(busy||data.project?.id!==state.project?.id||(data.workspaceId??null)!==(state.workspaceId??null)||data.sceneRevision<state.sceneRevision||(data.project?.revision??0)<(state.project?.revision??0))return false;
+      try {const requested=state,event=await send('scene.get'),data=event.payload.data;
+        if(busy||!authoringRefreshIsCurrent(requested,state,data))return false;
         adopt(data);await onState({...data,commandLineage:{messageId:event.causationId,correlationId:event.correlationId,traceId:event.traceId}});draw();return true;
       }catch(error){reportError(error);return false;}finally{assetRefreshing=false;}
     },

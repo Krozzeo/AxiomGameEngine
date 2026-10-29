@@ -1,5 +1,7 @@
 # 0.0.62 — Canonical M20 core and dependency profiles (in progress)
 
+- Fix legacy bare-Spawn duplication of Script identities. Preserve live Inspector selection during background refresh, reject stale Play/scope snapshots and serialize rapid runtime field/reference/activation edits. Add deterministic delayed-event and stale-generation regressions.
+
 - Complete attributed M20 signature profiles at311/311: primitive creation13 observations and AddComponent140 observations. Add independent script/collider identities, clone/reference remapping, per-instance Inspector edits, shared-body compound CPU/Wasm shapes, exact collider callbacks and component-specific collision exclusions. Preserve runtime-only authoring boundaries and exact Stop restoration. Final full-regression/CI/artifact gates remain open.
 - Fix Windows AOT long-path compiler failures using verified temporary staging; preserve bounded native compiler diagnostics.
 
