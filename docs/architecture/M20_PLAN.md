@@ -1,14 +1,8 @@
-Current review: **0.0.62 / SDK12**. All **311/311 frozen M20 source contracts** match, and all311 have attributed bounded-profile acceptance:281 behavioral contracts and30 compiler-error obsolete contracts. Component62/62, GameObject96/96, Transform81/81 and Object72/72. Fresh native925 core checks plus the thirteen attributed/dependency corpora pass. AddComponent140 and compound physics13 plus real Inspector geometry/activation/reference edits pass in Development and effective AOT. Full current-source browser regression, refreshed evidence, final CI and the public artifact remain closure gates; M20 is not yet marked complete.
-
-Historical partial batch: **0.0.61 / SDK11 / M20.3a transform behavior**. Canonical migration corpus fails CS0246; all three full closure criteria remain open. [Batch report](../reports/M20_TRANSFORM_BATCH.md).
+**M20 complete — Engine 0.0.62 / SDK12.** All 311 frozen assigned contracts have attributed acceptance: 281 behavioral profiles and 30 obsolete compiler-error contracts. Component 62/62, GameObject 96/96, Transform 81/81 and Object 72/72. All three milestone criteria passed. This is bounded M20 compatibility, not complete Unity API parity. Stable main remains 0.0.57; 0.0.62 is an experimental review release.
 
 # M20 — Compatible objects, components and hierarchies
 
-Approved plan since 2026-10-19. **In progress: M20.1 identity/lifetime and M20.2 query/order/graph behavior batches, Engine 0.0.59 / SDK10.** The preceding 0.0.58 / SDK9 experimental package is publicly verified. Whole-milestone acceptance remains open. [Report](../reports/M20_REPORT.md), [exact member ledger](../compatibility/m20-batches.json), [editable demo](../../demos/M20_GUIDE.md). Existing aliases and new behavior checks are not certified Unity source signatures.
-
-Minimum dependencies: M19.
-
-[Roadmap](ROADMAP_M19_M40.md) · [Manifest](roadmap-v2.json) · [GPU/shaders](GPU_PHYSICS_AND_SHADERS_PLAN.md)
+Completed against the frozen Unity 6000.3 LTS inventory. [Report](../reports/M20_REPORT.md). The design and required scope below are retained.
 
 ## Required scope
 
@@ -24,9 +18,9 @@ Minimum dependencies: M19.
 
 ## Closure criteria
 
-- [ ] Corpus scripts use assigned Unity signatures without hidden adaptations.
-- [ ] Hierarchy/references/deferred destruction/activation match reference behavior without leaks.
-- [ ] Stop, Undo and existing projects retain contracts; assigned members have tests or explicit closure-blocking dependencies.
+- [x] Corpus scripts use assigned Unity signatures without hidden adaptations.
+- [x] Hierarchy/references/deferred destruction/activation match reference behavior without leaks.
+- [x] Stop, Undo and existing projects retain contracts; assigned members have tests or explicit closure-blocking dependencies.
 
 ## Required editable demo
 

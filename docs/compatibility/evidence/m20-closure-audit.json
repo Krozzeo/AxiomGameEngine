@@ -1,6 +1,6 @@
 {
   "milestone": "M20",
-  "complete": false,
+  "complete": true,
   "targetRecords": 311,
   "certifiedUnitySignatures": 311,
   "areas": {
@@ -25,8 +25,6 @@
       "certifiedTargets": 72
     }
   },
-  "failedCriteria": [
-    "regressionAndDependencies"
-  ],
+  "failedCriteria": [],
   "unaccepted": []
 }

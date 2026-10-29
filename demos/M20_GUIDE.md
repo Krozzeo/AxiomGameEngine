@@ -1,4 +1,4 @@
-Current review: **0.0.62 / SDK12**. All **311/311 frozen M20 source contracts** match, and all311 have attributed bounded-profile acceptance:281 behavioral contracts and30 compiler-error obsolete contracts. Component62/62, GameObject96/96, Transform81/81 and Object72/72. Fresh native925 core checks plus the thirteen attributed/dependency corpora pass. AddComponent140 and compound physics13 plus real Inspector geometry/activation/reference edits pass in Development and effective AOT. Full current-source browser regression, refreshed evidence, final CI and the public artifact remain closure gates; M20 is not yet marked complete.
+**M20 complete — Engine 0.0.62 / SDK12.** All 311 frozen assigned contracts have attributed acceptance: 281 behavioral profiles and 30 obsolete compiler-error contracts. Component 62/62, GameObject 96/96, Transform 81/81 and Object 72/72. All three milestone criteria passed. This is bounded M20 compatibility, not complete Unity API parity. Stable main remains 0.0.57; 0.0.62 is an experimental review release.
 
 # 0.0.62 canonical core lab
 
@@ -17,7 +17,7 @@ Press Play and inspect these controllers after frame200:
 | Async Overload Controller |35|0|
 | Native Transform Controller |128|0|
 
-The Native Transform Controller compares128 three-level hierarchies with exact Unity6000.3.27f1 captures, and exercises default/explicit-pose clone defaults across those hierarchies. The Unity Migration Controller also checks that world-pose setters preserve local scale. Native Play-mode clone observations are a separate bounded reference sample; full M20 certification remains open.
+The Native Transform Controller compares128 three-level hierarchies with exact Unity6000.3.27f1 captures, and exercises default/explicit-pose clone defaults across those hierarchies. The Unity Migration Controller also checks that world-pose setters preserve local scale. Native Play-mode clone observations are a separate bounded reference sample; the accepted bounded profiles are recorded in the strict M20 ledger.
 
 The async and primitive work starts in separate frame batches to respect the unchanged phase budget. All scripts are ordinary editable project files. The observer executes the original HierarchyMigration.cs without rewriting it. Primitive checks include the owned CPU/Wasm capsule resting on its finite plane. Stop restores the authored scene. Removing a runtime MeshFilter removes that mesh from rendering while retaining its collider. No runtime objects become saved authoring objects.
 
@@ -74,7 +74,7 @@ Platform Load Demos also creates **Demo · M20 Vector Transforms Lab**. Press Pl
 
 ## Pose Transforms Lab —0.0.62
 
-Platform Load Demos also creates **Demo · M20 Pose Transforms Lab**. Press Play and select Pose Transform Controller. Expected: Count348, Passed348, Failed0, empty Diagnostics. It exercises36 direct position/local position/rotation/scale/Euler/axis/matrix/translation/look-at/pose overloads against actual native outcomes. Null LookAt targets are no-ops; zero direction setters use identity; reflected/collapsed coordinate spaces retain native behavior. Scripts and compact reference fixtures are ordinary editable project files. Stop restores the authored scene. This is CPU/.NET/Wasm acceptance; M20's full311-record closure remains open.
+Platform Load Demos also creates **Demo · M20 Pose Transforms Lab**. Press Play and select Pose Transform Controller. Expected: Count348, Passed348, Failed0, empty Diagnostics. It exercises36 direct position/local position/rotation/scale/Euler/axis/matrix/translation/look-at/pose overloads against actual native outcomes. Null LookAt targets are no-ops; zero direction setters use identity; reflected/collapsed coordinate spaces retain native behavior. Scripts and compact reference fixtures are ordinary editable project files. Stop restores the authored scene. This is CPU/.NET/Wasm acceptance; M20's full assigned closure is recorded in the accepted report.
 
 Hierarchy Path Controller also exposes AuxiliaryPassed63, AuxiliaryFailed0 and AuxiliaryReport. Its second-frame corpus covers live child enumeration, protected constructor/type shape, capacity/root/count, sibling ordering, detachment and hasChanged. The primary Passed54/Failed0 remains separate. Combined Asset Lifetime Lab:17+137+54+63 checks.
 
@@ -84,7 +84,7 @@ Load **Demo · M20 Object Contracts Lab** from the same installation. Play and i
 
 ## Component queries
 
-Load **Demo · M20 Component Queries Lab** from the exact installation. Play and select **Component Queries Controller**. Count476, Passed476, Failed0, Diagnostics empty and Complete enabled are expected. Report uses compact q001:p / q001:f entries to stay within existing field limits. The same56 direct public overloads run unchanged in Unity, .NET and both real browser modes. The corpus covers distinct Box/Sphere colliders and missing MeshCollider; custom script interfaces and duplicate components remain separate milestone dependencies. Stop restores the authored scene exactly.
+Load **Demo · M20 Component Queries Lab** from the exact installation. Play and select **Component Queries Controller**. Count476, Passed476, Failed0, Diagnostics empty and Complete enabled are expected. Report uses compact q001:p / q001:f entries to stay within existing field limits. The same56 direct public overloads run unchanged in Unity, .NET and both real browser modes. The corpus covers distinct Box/Sphere colliders and missing MeshCollider; custom script interfaces and repeated component storage are exercised in their separate accepted dependency profiles. Stop restores the authored scene exactly.
 
 The native distinction matters: children are traversed relative to the query root even when its ancestors are inactive; inactive child subtrees are skipped unless included. Parent queries filter each candidate, including the receiver, by activeInHierarchy unless inactive objects are explicitly included.
 
@@ -111,7 +111,7 @@ Load the corresponding version-owned demo through Platform. Select its controlle
 | M20 Object Lifetime Lab | Object Lifetime Controller | 122 |
 | M20 Tag Search Lab | Tag Search Controller | 39 |
 
-Cloning preserves the hierarchy and its local/world poses; destroyed parents behave as null while destroyed sources reject. Bulk activation skips invalid Unity IDs, while host command packets still reject invalid entity identities atomically. Lifetime checks deliberately advance across frames and delays, including persistent roots and scene unloading. Tag searches cover exact null/unknown/list exceptions and the pinned Unity behavior for Untagged. Expected negative cases can log errors; the controller compares the outcome and continues. Stop restores the complete authored project scene. These labs add exact overload evidence; repeated component storage, compound physics and full Inspector/reference dependencies remain required before closing M20.
+Cloning preserves the hierarchy and its local/world poses; destroyed parents behave as null while destroyed sources reject. Bulk activation skips invalid Unity IDs, while host command packets still reject invalid entity identities atomically. Lifetime checks deliberately advance across frames and delays, including persistent roots and scene unloading. Tag searches cover exact null/unknown/list exceptions and the pinned Unity behavior for Untagged. Expected negative cases can log errors; the controller compares the outcome and continues. Stop restores the complete authored project scene. These labs add exact overload evidence; repeated component storage, compound physics and Inspector/reference dependencies now pass in the separate labs below.
 
 ## Component Creation and Compound Colliders labs
 

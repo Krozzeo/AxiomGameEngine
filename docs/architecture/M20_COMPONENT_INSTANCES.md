@@ -1,6 +1,6 @@
 # M20 component instance integration
 
-Status: implementation and focused acceptance passed; complete current-source regression and final CI/artifact gates remain open. This document does not waive the frozen311-target denominator or whole-milestone criteria.
+Status: accepted as part of M20. Current-source regression, CI and actual public-package acceptance passed; the frozen311-target denominator and bounded profile limits remain unchanged.
 
 ## Runtime identity and lifecycle
 

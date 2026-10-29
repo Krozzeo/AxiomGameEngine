@@ -1,8 +1,13 @@
-Current review: **0.0.62 / SDK12**. All **311/311 frozen M20 source contracts** match, and all311 have attributed bounded-profile acceptance:281 behavioral contracts and30 compiler-error obsolete contracts. Component62/62, GameObject96/96, Transform81/81 and Object72/72. Fresh native925 core checks plus the thirteen attributed/dependency corpora pass. AddComponent140 and compound physics13 plus real Inspector geometry/activation/reference edits pass in Development and effective AOT. Full current-source browser regression, refreshed evidence, final CI and the public artifact remain closure gates; M20 is not yet marked complete.
+**M20 complete — Engine 0.0.62 / SDK12.** All 311 frozen assigned contracts have attributed acceptance: 281 behavioral profiles and 30 obsolete compiler-error contracts. Component 62/62, GameObject 96/96, Transform 81/81 and Object 72/72. All three milestone criteria passed. This is bounded M20 compatibility, not complete Unity API parity. Stable main remains 0.0.57; 0.0.62 is an experimental review release.
 
-Current review: **0.0.62 / SDK12**. Compiled source311/311 matches. Attributed acceptance278/311:248 behavior and30 compiler-error obsolete contracts; Component62/62 and Transform81/81 accepted within bounded profiles. Fresh native888+240+348+476+152+53+360 and the360-case message lab pass in Development/effective-AOT. General checks489/489 pass. All nine browser suites now pass per Development/effective-AOT mode with exact Stop restoration. M20 remains open with33 contracts and structural dependencies pending.
+Next: **M21 — Mathematics, geometry and utilities**. Shared AI/GitHub account authority stays in Platform, project overrides stay in Engine, native project/scene formats remain 1. No automatic merge or stable promotion.
+
+Evidence: [M20 report](../reports/M20_REPORT.md). GPU physics remains planned in M25–M28 and later acceptance batches.
 
 ---
+
+## Historical development snapshots — superseded by the accepted report above
+
 
 ## Historical partial transform batch
 

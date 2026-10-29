@@ -2,17 +2,14 @@
   "schemaVersion": 1,
   "milestone": "M20",
   "targetRecords": 311,
-  "status": "in_progress",
+  "status": "complete",
   "certifiedUnitySignatures": 311,
-  "batch": "0.0.62 / SDK12 / all311 bounded signature profiles attributed; final regression and delivery pending",
+  "batch": "0.0.62 / SDK12 / M20 complete: all311 bounded signature profiles and three closure criteria accepted",
   "evidence": {
     "native": "evidence/m20-queries-native-windows.json",
     "developmentWasm": "evidence/m20-queries-development-wasm.json"
   },
-  "requiredRemaining": [
-    "Complete fresh current-source native/Wasm/Development/AOT and UI/project/Stop/Undo/dependency regression, refresh strict evidence and pass final CI.",
-    "Prepare and verify the experimental artifact through the standard Platform distribution pipeline. Main remains unchanged."
-  ],
+  "requiredRemaining": [],
   "records": [
     {
       "id": "unity63abi:011c30daa68f9899c7ea9d8e",
@@ -14412,8 +14409,9 @@
       "evidence": "evidence/m20-compound-colliders-acceptance.json"
     },
     "regressionAndDependencies": {
-      "status": "partial",
-      "reason": "Expanded local regression and Rust/CPU dependency checks are recorded in the current batch. Exact-head CI/publication and complete overload/obsolete/dependency attribution remain required"
+      "status": "passed",
+      "reason": "Current accepted code passes all required GitHub CI jobs, 506 local Node checks, native core925 plus thirteen dependency corpora, Rust core43 plus compound ABI, all17 labs in Development and effective AOT, and actual public ZIP installation/demo/save/close through Platform. Inspector and old Spawn/cancellation regressions retain their assertions.",
+      "evidence": "evidence/m20-final-regression.json"
     }
   },
   "sourceContractMatches": 311,

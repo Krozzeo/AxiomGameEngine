@@ -1,13 +1,13 @@
 {
   "roadmapVersion": 2,
   "decisionDate": "2026-10-19",
-  "status": "m20_in_progress",
-  "engineBaseline": "0.0.62 / SDK12 canonical core and dependency profiles; stable main0.0.57; unchanged corpus passes, complete per-signature behavior acceptance remains open",
+  "status": "m20_complete_m21_next",
+  "engineBaseline": "0.0.62 / SDK12 / M20 accepted experimental release; stable main0.0.57",
   "unityBaseline": "6000.3 LTS",
   "unityLatestDelta": "6000.6 observed 2026-10-18; separate from the frozen target",
-  "completedMainMilestones": 24,
+  "completedMainMilestones": 25,
   "totalMainMilestones": 45,
-  "pendingMilestones": 21,
+  "pendingMilestones": 20,
   "finalMilestone": "M40",
   "renumbering": {
     "old": "M19 — MVP Hardening",
@@ -75,8 +75,8 @@
       "id": "M20",
       "number": 20,
       "title": "Compatible objects, components and hierarchies",
-      "status": "in_progress",
-      "acceptancePercent": 0,
+      "status": "complete",
+      "acceptancePercent": 100,
       "dependsOn": [
         "M19"
       ],

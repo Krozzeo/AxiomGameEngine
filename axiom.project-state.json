@@ -4,12 +4,12 @@
   "updatedAt": "2026-10-29",
   "engineVersion": "0.0.62",
   "activeMilestone": 20,
-  "milestoneStatus": "in_progress",
+  "milestoneStatus": "complete",
   "completion": {
-    "activeMilestonePercent": 67,
+    "activeMilestonePercent": 100,
     "wholeProjectPercent": null,
     "method": "docs/architecture/MILESTONE_REPORTING.md",
-    "scopeNote": "M20 final acceptance in progress:2/3 required criteria passed (67% rounded). All311 bounded signature profiles and required identity/reference/lifecycle/Inspector/compound-physics dependencies are accepted. Native925 core and all14 native suites pass. Both modes passed all17 labs; focused regression follows a legacy Spawn identity fix. Current-head CI and experimental artifact acceptance remain required. Stable main0.0.57 unchanged.",
+    "scopeNote": "M20:3/3 required criteria passed,311/311 bounded assigned contracts accepted. Experimental0.0.62 public package installed and tested through Platform; stable main0.0.57 unchanged. Expanded whole-project percentage remains unquantified.",
     "historicalMvpPercent": 94,
     "historicalMvpCompletedWeight": 122,
     "historicalMvpTotalWeight": 130
@@ -98,8 +98,8 @@
       "plan": "docs/architecture/M19_PLAN.md"
     },
     "20": {
-      "status": "in_progress",
-      "percent": 67
+      "status": "complete",
+      "percent": 100
     },
     "21": {
       "status": "not_started",
@@ -267,7 +267,7 @@
     "aiControl": "verified_named_panel_png_actual_responses_input_image_controlled_provider",
     "transactionalWorkspaces": "verified_preview_full_state_replacement_apply_autosave_failure_retention_reopen",
     "physics": "verified_native_wasm_damping_kinematic_velocity_constraints_sleep_gravity_exclusions_continuous_managed_shape_casts",
-    "editableDemos": "verified_eight_sdk7_scenes_references_input_stress_navigation_presentation_network_labs",
+    "editableDemos": "verified_17_version_owned_M20_labs_loaded_idempotently_through_Platform",
     "causalDiagnostics": "verified_four_queries_ten_faults_scoped_graph_and_deep_trace",
     "productionRenderer": "verified_bounded_hdr_pbr_forward_plus_software_webgpu",
     "production2D": "verified_atlas_batching_tilemaps_rust_animation_particles_pixel_camera_lights_ui",
@@ -290,7 +290,7 @@
     "runtimeInspector": "verified_transient_attached_components_transform_typed_csharp_scrub_and_detached_focus",
     "scriptCompilation": "verified_stopped_only_shared_explicit_auto_after_stop_open_play_source_hash_sdk_identity_and_cached_valid_recovery",
     "openAiAssistant": "live_workshop_confirmed; grouped_tools_compact_checkpoints; per_request_cache_reasoning_usage; task_history_requests_xy",
-    "scriptingApi": "verified_sdk8_nine_partial_families; enabled activation, scene ownership and Axiom always-active scene extensions",
+    "scriptingApi": "verified_sdk12_M20_311_bounded_contracts_native_development_effective_aot; other Unity families retain separate roadmap acceptance",
     "editorRuntimeCorrections": {
       "revision": "M18.3.12",
       "sdkVersion": 8,
@@ -1522,18 +1522,22 @@
       "scope": "Real product processes; controlled GitHub/AI/picker and Null; manual/real hardware gates remain separate"
     },
     "m20": {
-      "nativeBehaviorChecks": 87,
-      "developmentWasmChecks": 32,
-      "engineRegressionTests": 457,
-      "fullUnitySignatureCertification": 0,
-      "wholeMilestoneClosed": false
+      "nativeCoreChecks": 925,
+      "nativeDependencyCorpora": 13,
+      "developmentWasmLabs": 17,
+      "effectiveAotWasmLabs": 17,
+      "observationsPerMode": 2739,
+      "engineRegressionTests": 506,
+      "fullUnitySignatureCertification": 311,
+      "wholeMilestoneClosed": true,
+      "ci": "https://github.com/Krozzeo/AxiomGameEngine/actions/runs/40965093597",
+      "acceptedCodeCommit": "11745ba76281dc41e206537b0cba4e9c5e746c67",
+      "publicAcceptance": "docs/compatibility/evidence/m20-public-0.0.62.json"
     }
   },
   "blockedChecks": [
     "Live-account vision quality and actual billed token usage require a connected model; no paid requests were run.",
-    "M18.3.11 dense physics fluency remains unaccepted; this GitHub integration does not implement GPU physics.",
-    "M20 remaining260 signatures require per-overload native Unity and real Wasm behavior/dependency acceptance; unchanged UnityEngine migration now passes.",
-    "M20 remaining260 signatures require per-overload native Unity and real Wasm behavior/dependency acceptance; unchanged UnityEngine migration now passes."
+    "M18.3.11 dense physics fluency remains unaccepted; this GitHub integration does not implement GPU physics."
   ],
   "protocolVersions": {
     "command": 1,
@@ -1746,20 +1750,20 @@
     "docs/compatibility/m20-batches.json",
     "demos/M20_GUIDE.md"
   ],
-  "nextTask": "Complete33 contracts:2 AddComponent,1 CreatePrimitive,4 tag finds,6 bulk,13 sync clones,6 destroy and DontDestroyOnLoad; finish required duplicate-type storage and full CI/artifact gates.",
-  "activeRevision": "0.0.62 / SDK12 \u2014278 attributed contracts; M20 open",
+  "nextTask": "M21: mathematics, geometry and utilities. Begin from its frozen assigned inventory and exact numeric/reference acceptance. Stable promotion remains a separate explicitly reviewed operation.",
+  "activeRevision": "0.0.62 / SDK12 — M20 complete; experimental review release",
   "roadmap": {
     "version": 2,
     "manifest": "docs/architecture/roadmap-v2.json",
     "document": "docs/architecture/ROADMAP_M19_M40.md",
-    "nextPlannedMilestone": "M20",
+    "nextPlannedMilestone": "M21",
     "compatibilityAudit": "M19",
     "finalMilestone": "M40",
-    "pendingMainMilestones": 21,
+    "pendingMainMilestones": 20,
     "totalMainMilestones": 45,
     "decisionDate": "2026-10-19",
     "formerM19MovedTo": "M40",
-    "status": "m20_in_progress",
+    "status": "m20_complete_m21_next",
     "trackingIssue": "https://github.com/Krozzeo/AxiomGameEngine/issues/40",
     "scopeRevision": "2026-10-19-gpu-physics",
     "gpuPhysicsPlan": "docs/architecture/GPU_PHYSICS_AND_SHADERS_PLAN.md",

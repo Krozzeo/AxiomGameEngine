@@ -1,10 +1,10 @@
-Current review: **0.0.62 / SDK12**. All **311/311 frozen M20 source contracts** match, and all311 have attributed bounded-profile acceptance:281 behavioral contracts and30 compiler-error obsolete contracts. Component62/62, GameObject96/96, Transform81/81 and Object72/72. Fresh native925 core checks plus the thirteen attributed/dependency corpora pass. AddComponent140 and compound physics13 plus real Inspector geometry/activation/reference edits pass in Development and effective AOT. Full current-source browser regression, refreshed evidence, final CI and the public artifact remain closure gates; M20 is not yet marked complete.
+**M20 complete — Engine 0.0.62 / SDK12.** All 311 frozen assigned contracts have attributed acceptance: 281 behavioral profiles and 30 obsolete compiler-error contracts. Component 62/62, GameObject 96/96, Transform 81/81 and Object 72/72. All three milestone criteria passed. This is bounded M20 compatibility, not complete Unity API parity. Stable main remains 0.0.57; 0.0.62 is an experimental review release.
+
+Stable: [0.0.57 / M19](https://github.com/Krozzeo/AxiomGameEngine/releases/tag/v0.0.57). Review: [0.0.62 experimental](https://github.com/Krozzeo/AxiomGameEngine/releases/tag/experimental-pr-63-11745ba76281dc41e206537b0cba4e9c5e746c67). All 17 version-owned editable labs load through Platform. [M20 report](docs/reports/M20_REPORT.md), [demo guide](demos/M20_GUIDE.md), [exact ledger](docs/compatibility/m20-batches.json).
 
 # Axiom Game Engine
 
 A local browser game editor with Rust/WebAssembly kernel, WebGPU renderer and C# gameplay. Includes2D/3D scenes, resources, CPU/Wasm physics, editing tools and isolated AI proposals with human review.
-
-**Stable: [0.0.57 / M19](https://github.com/Krozzeo/AxiomGameEngine/releases/tag/v0.0.57). Current review batch:0.0.62 / scripting SDK12 / canonical core, matrices, cloning, async/bulk APIs and primitive dependencies.** M20 remains in progress; nine version-owned editable labs cover core267, assets/lifecycle/hierarchy271, object metadata77, vectors240, poses348, queries476, global finds152 GameObject state53 and messages360 checks. [M20 report](docs/reports/M20_REPORT.md), [demo](demos/M20_GUIDE.md), [exact target ledger](docs/compatibility/m20-batches.json).
 
 ## Axiom family
 

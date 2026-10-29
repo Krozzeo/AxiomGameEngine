@@ -1,8 +1,12 @@
-# 0.0.62 — Canonical M20 core and dependency profiles (in progress)
+# 0.0.62 — M20 complete: canonical core and dependency profiles
+
+- Close M20 with311/311 bounded assigned contracts,3/3 required criteria,506 local checks, all required accepted-code CI jobs and actual public Platform installation/demo/save/close acceptance. Preserve stable0.0.57; M21 is next.
+
+### Development checkpoints within0.0.62 — earlier partial counts are historical
 
 - Fix legacy bare-Spawn duplication of Script identities. Preserve live Inspector selection during background refresh, reject stale Play/scope snapshots and serialize rapid runtime field/reference/activation edits. Add deterministic delayed-event and stale-generation regressions.
 
-- Complete attributed M20 signature profiles at311/311: primitive creation13 observations and AddComponent140 observations. Add independent script/collider identities, clone/reference remapping, per-instance Inspector edits, shared-body compound CPU/Wasm shapes, exact collider callbacks and component-specific collision exclusions. Preserve runtime-only authoring boundaries and exact Stop restoration. Final full-regression/CI/artifact gates remain open.
+- Complete attributed M20 signature profiles at311/311: primitive creation13 observations and AddComponent140 observations. Add independent script/collider identities, clone/reference remapping, per-instance Inspector edits, shared-body compound CPU/Wasm shapes, exact collider callbacks and component-specific collision exclusions. Preserve runtime-only authoring boundaries and exact Stop restoration. Final regression, exact accepted-code CI and public Platform installation/demo acceptance pass.
 - Fix Windows AOT long-path compiler failures using verified temporary staging; preserve bounded native compiler diagnostics.
 
 - Add30 attributed signatures (308/311 total): synchronous clone13, bulk6, lifetime7 and tag search4. Match destroyed clone sources/parents, bulk invalid IDs and arrays, persistence asset/unbound behavior, tag search exceptions and Untagged results. Add four standard demos and canonical shared Time/scene unload bridges; M20 remains open.

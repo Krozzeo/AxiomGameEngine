@@ -1,3 +1,11 @@
+**M20 complete — Engine 0.0.62 / SDK12.** All 311 frozen assigned contracts have attributed acceptance: 281 behavioral profiles and 30 obsolete compiler-error contracts. Component 62/62, GameObject 96/96, Transform 81/81 and Object 72/72. All three milestone criteria passed. This is bounded M20 compatibility, not complete Unity API parity. Stable main remains 0.0.57; 0.0.62 is an experimental review release.
+
+[Current M20 attribution](m20-batches.json) records311 accepted assigned contracts. The global SDK candidate map below is the separately retained conservative M19 baseline and has not been relabeled as global compatibility.
+
+---
+
+## Historical M19 measurement baseline
+
 # M19 compatibility baseline
 
 Engine0.0.57 / SDK8 / native formats1. This is a measured audit and an executable observation harness, not new Unity API implementation.
